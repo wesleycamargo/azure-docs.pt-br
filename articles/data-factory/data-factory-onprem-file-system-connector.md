@@ -1,6 +1,6 @@
 ---
-title: Mover dados de/para um sistema de arquivos usando o Azure Data Factory | Microsoft Docs
-description: Aprenda como mover dados de e para sistemas de arquivos locais usando o Azure Data Factory.
+title: Copiar dados bidirecionalmente em um sistema de arquivos usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados bidirecionalmente em um sistema de arquivos local usando o Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: bd38aa5e4dd50b11f52afdc9dfc0f22c8c072f67
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d25f1346ae35f7733ac3ca95c59a12616a60cc93
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Mover dados de e para o sistema de arquivos local usando o Azure Data Factory
+# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados bidirecionalmente em um sistema de arquivos local usando o Azure Data Factory
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para copiar dados de/para um sistema de arquivos local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte

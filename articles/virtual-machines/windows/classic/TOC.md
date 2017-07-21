@@ -43,6 +43,7 @@
 ### [Instalar e configurar o Trend Micro Deep Security como Serviço](install-trend.md)
 ### [Configurar um conjunto de disponibilidade](configure-availability.md)
 ### [Redimensionar uma VM do Windows criada no modelo de implantação clássico](resize-vm.md)
+### [Manutenção](planned-maintenance-schedule.md)
 
 ## Gerenciar
 ### [Migrar do Clássico para o Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Plano
 ### [Sobre imagens](about-images.md)
 ### [Tamanhos para VMs](../../virtual-machines-windows-sizes.md)
-#### [Sobre VMs série H ou série A com computação intensiva](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Manutenção planejada para VMs do Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Enviar trabalhos do local para o Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configurar o Oracle Data Guard para o Azure](configure-oracle-data-guard.md)
-####[Configurar o Oracle GoldenGate para o Azure](configure-oracle-goldengate.md)
-####[Considerações diversas sobre imagens](oracle-considerations.md)
-####[Lista de imagens da VM do Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -99,6 +95,7 @@
 ## [REST de armazenamento](/rest/api/storageservices)
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilidade regional](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

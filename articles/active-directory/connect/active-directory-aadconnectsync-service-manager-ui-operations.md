@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 7f50ce0d4842bde809664c392ebee5425a70e6f0
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="using-the-sync-service-manager-operations-tab"></a>Usando a guia Operações do Synchronization Service Manager
+# Usando a guia Operações do Synchronization Service Manager
+<a id="using-the-sync-service-manager-operations-tab" class="xliff"></a>
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 A guia Operações mostra os resultados das operações mais recentes. Essa guia é o segredo para entender e solucionar problemas.
 
-## <a name="understand-the-information-visible-in-the-operations-tab"></a>Entender as informações visíveis na guia Operações
+## Entender as informações visíveis na guia Operações
+<a id="understand-the-information-visible-in-the-operations-tab" class="xliff"></a>
 A metade superior mostra todas as execuções em ordem cronológica. Por padrão, as operações de log mantêm informações sobre os últimos sete dias, mas essa configuração pode ser alterada com o [agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja procurar qualquer execução que não mostre um status bem-sucedido. É possível alterar a classificação clicando nos cabeçalhos.
 
 A coluna **Status** traz as informações mais importantes e mostra o problema mais grave de uma execução. Aqui está um resumo rápido dos status mais comuns em ordem de prioridade para investigação (em que * indica várias cadeias de caracteres de erro possíveis).
@@ -44,7 +47,8 @@ Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os
 
 Para obter mais informações, consulte [Solução de problemas de um objeto que não está sincronizando](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

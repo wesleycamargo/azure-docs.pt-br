@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3c8ee4a51d69b7511445d441e28a1014200bdc4a
-ms.lasthandoff: 03/21/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 73e3211416a1d110f1714872290a4156f3d194f7
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
@@ -196,7 +196,7 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![Linha de comando do Azure RBAC  - lista de funções do azure para funções personalizadas - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="rbac-topics"></a>Tópicos RBAC
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 

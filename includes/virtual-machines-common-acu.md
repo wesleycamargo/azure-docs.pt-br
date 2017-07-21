@@ -29,5 +29,8 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 | [GS1 GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 – 300* |
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
+| [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho.  A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
+
+**Hyper-threaded. 

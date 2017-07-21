@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 3f447e049ccd33c77f422e8aa703ad6646f9ffa2
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -141,11 +142,7 @@ Durante o processo de implantação, você poderá ver o andamento na janela **S
 ![Janela de saída de depuração do Service Fabric][3]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md)
-* [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
-* [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
+Saiba mais sobre [como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md).
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG

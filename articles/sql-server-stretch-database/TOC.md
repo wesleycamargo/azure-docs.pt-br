@@ -20,7 +20,8 @@
 ### [Desabilitar o Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [Preços](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)

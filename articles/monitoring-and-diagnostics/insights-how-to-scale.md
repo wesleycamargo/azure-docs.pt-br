@@ -1,8 +1,8 @@
 ---
 title: "Dimensionar manualmente a contagem de instância ou com dimensionamento automático com o Portal do Azure | Microsoft Docs"
 description: "Saiba como dimensionar seus serviços do Azure."
-author: rboucher
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
-ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.date: 06/06/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instância manualmente ou automaticamente
@@ -27,7 +26,7 @@ No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente 
 
 Antes de dimensionamento com base na contagem de instâncias, você deve considerar que o dimensionamento é afetado pela **camada de preços** além de contagem de instâncias. Diferentes faixas de preço podem ter diferentes números de núcleos e memória e, portanto, terão melhor desempenho para o mesmo número de instâncias (o que significa *escalar verticalmente* ou *reduzir verticalmente*). Este artigo aborda especificamente a *redução horizontal* e a *escala horizontal*.
 
-Você pode reduzir horizontalmente no portal e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para ajustar a escala manual ou automaticamente.
+Você pode reduzir horizontalmente no portal e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para ajustar a escala manual ou automaticamente.
 
 > [!NOTE]
 > Este artigo descreve como criar uma configuração de dimensionamento automático no portal em [http://portal.azure.com](http://portal.azure.com). As configurações de autoescala criadas nesse portal não podem ser editadas no portal clássico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).

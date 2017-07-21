@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a4348a4d2348d744c03ad3a89d0548526fa2f9f8
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,9 +34,13 @@ Há duas experiências ao se trabalhar com aplicativos gerenciados:
 1. O fornecedor ou ISV (fornecedor de software independente) que cria um aplicativo gerenciado e o torna disponível para uso mais amplo. 
 2. O cliente ou consumidor que deseja criar e usar o aplicativo publicado. 
 
-Este artigo aborda as duas experiências. Primeiro, vamos entender como funciona um aplicativo gerenciado. 
+Este artigo fornece uma visão geral de ambas as experiências. Primeiro, vamos entender como funciona um aplicativo gerenciado. 
 
 Um aplicativo gerenciado é semelhante a um modelo de solução do mercado, com uma diferença importante. Em um aplicativo gerenciado, os recursos são provisionados em um grupo de recursos que é gerenciado pelo ISV/fornecedor. O grupo de recursos está presente na assinatura do cliente, mas um usuário, grupo de usuários ou aplicativo no locatário do ISV tem acesso ao grupo de recursos. Para gerenciar e atender às necessidades do aplicativo, a identidade do fornecedor é adicionada à função Proprietário, Colaborador, Leitor ou outra função interna. 
+
+Para saber mais sobre a experiência de fornecedor, confira [Criar e publicar um aplicativo gerenciado do Azure](managed-application-publishing.md).
+
+Para saber mais sobre a experiência do usuário, confira [Consumir um aplicativo gerenciado do Azure](managed-application-consumption.md).
 
 ## <a name="key-concepts"></a>Principais conceitos
 

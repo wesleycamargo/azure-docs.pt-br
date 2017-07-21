@@ -1,5 +1,5 @@
 ---
-title: "Criação de soluções em nuvem para recuperação de desastres usando a replicação geográfica do banco de dados SQL | Microsoft Docs"
+title: "Criar soluções de recuperação de desastre – Banco de Dados SQL do Azure | Microsoft Docs"
 description: "Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto."
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f8da648fd38da894cd2d9fbbac09ac69d24be3fb
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---

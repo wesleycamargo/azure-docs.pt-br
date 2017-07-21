@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 Descubra quanto tempo é gasto em cada método no seu aplicativo Web ao vivo usando a ferramenta de criação de perfil de [Azure Application Insights](app-insights-overview.md). Ele mostra perfis detalhados de solicitações ao vivo que foram atendidas por seu aplicativo e realça o 'hot path' que está usando mais tempo. Ele seleciona automaticamente exemplos que têm tempos de resposta diferentes. O criador de perfil usa várias técnicas para minimizar a sobrecarga.
 
-O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico. (Se você estiver usando o ASP.NET Core, a estrutura de destino deve ser `.NetCoreApp`.)
-
+O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico. 
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Habilitar o criador de perfil
@@ -196,18 +195,21 @@ Emita um tíquete de suporte do portal. Inclua a ID de correlação da mensagem 
 
 ## <a name="manual-installation"></a>Instalação manual
 
-Quando você configura o criador de perfil, as seguintes atualizações são feitas para as configurações do aplicativo Web. Você mesmo pode fazê-las manualmente se seu ambiente exigir. Por exemplo, se seu aplicativo for executado em uma rede privada usando um Balanceador de Carga Interno:
+Quando você configura o criador de perfil, as seguintes atualizações são feitas para as configurações do aplicativo Web. Você mesmo pode fazê-las manualmente se o ambiente exigir. Por exemplo, se o aplicativo for executado em um ASE (Ambiente do Serviço de Aplicativo do Azure):
 
-1. Na folha de controle do aplicativo Web, abra as configurações.
+1. Na folha de controle do aplicativo Web, abra Configurações.
 2. Definir ".Net Framework versão" para v 4.6.
 3. Defina "sempre" para em.
 4. Adicionar configuração de aplicativo "__APPINSIGHTS_INSTRUMENTATIONKEY__" e defina o valor para a mesma chave de instrumentação usada pelo SDK.
-5. Em **Extensões**, adicione "Application Insights". Levará alguns minutos para instalar.
+5. Abra Ferramentas Avançadas.
+6. Clique em “Ir” para abrir o site do Kudu.
+7. No site do Kudu, selecione “Extensões de site”.
+8. Instale o “__Application Insights__” por meio da Galeria.
+9. Reinicie o aplicativo Web.
 
 ## <a id="aspnetcore"></a>Suporte do ASP.NET Core
 
-Aplicativos ASP.NET Core 1.1.2 direcionados ao SDK AI 2.0 ou superior funcionariam com o Criador de Perfil. 
-
+O aplicativo ASP.NET Core precisa instalar o pacote NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 ou posterior para trabalhar com o Criador de Perfil. Não damos mais suporte às versões anteriores após 27/6/2017.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 756141fda3148726af0030a010465ee14e8ce6b6
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 1eb90d44797d66f3e09811918ce5a7f4ad4287c6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Diferentes maneiras de criar uma máquina virtual do Linux no Azure
@@ -98,8 +97,6 @@ Liste todas as imagens disponíveis para uma determinada versão como a seguir:
 ```azurecli
 azure vm image list --location eastus --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
-
-Para obter mais exemplos de navegação e uso das imagens disponíveis, consulte [Navegar e selecionar imagens da máquina virtual do Azure com a CLI do Azure](cli-ps-findimage.md#use-azure-cli-10).
 
 Os comandos `azure vm quick-create` e `azure vm create` têm aliases que você pode usar para acessar rapidamente as distribuições mais comuns e suas versões mais recentes. Usar aliases geralmente é mais rápido do que especificar o editor, oferta, SKU e versão sempre que você cria uma VM:
 

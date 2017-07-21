@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/25/2016
 ms.author: syamk
 ms.translationtype: Human Translation
@@ -559,7 +559,7 @@ Se receber a mensagem "Erro ao processar a solicitação" ao tentar implantar o 
     - Região: selecione a região mais próxima dos usuários do aplicativo
     - Servidor de banco de dados: nenhum banco de dados, clique em **Criar**. 
 
-4. Na tela “todo-net-app *", clique em **Validar Conexão**. Depois que a conexão for verificada, **Publicar**. 
+4. Na tela “todo-net * app", clique em **Validar Conexão**. Depois que a conexão for verificada, **Publicar**. 
     
     O aplicativo é então exibido em seu navegador.
 

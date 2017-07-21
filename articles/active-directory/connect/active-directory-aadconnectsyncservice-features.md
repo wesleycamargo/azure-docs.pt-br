@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/10/2017
 
-
 ---
-# <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
+# Recursos do serviço de sincronização do Azure AD Connect
+<a id="azure-ad-connect-sync-service-features" class="xliff"></a>
 O recurso de sincronização do Azure AD Connect tem dois componentes:
 
 * O componente local denominado **Sincronização do Azure AD Connect**, também chamado de **mecanismo de sincronização**.
@@ -61,10 +62,12 @@ As configurações a seguir são definidas pelo Azure AD Connect e não podem se
 | UnifiedGroupWriteback |[Visualização: write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Não há suporte no momento. |
 
-## <a name="duplicate-attribute-resiliency"></a>Duplicar a resiliência do atributo
+## Duplicar a resiliência do atributo
+<a id="duplicate-attribute-resiliency" class="xliff"></a>
 Em vez de falhar ao provisionar objetos com UPNs/proxyAddresses duplicados, o atributo duplicado é "colocado em quarentena" e um valor temporário é atribuído. Quando o conflito é resolvido, o UPN temporário é alterado para o valor correto automaticamente. Para obter mais detalhes, consulte [Sincronização de identidades e resiliência do atributo duplicado](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="userprincipalname-soft-match"></a>Correspondência suave de UserPrincipalName
+## Correspondência suave de UserPrincipalName
+<a id="userprincipalname-soft-match" class="xliff"></a>
 Quando este recurso é habilitado, a correspondência suave é habilitada para UPN além do [endereço SMTP primário](https://support.microsoft.com/kb/2641663), que está sempre habilitado. A correspondência suave é usada para fazer a correspondência de usuários na nuvem existentes no Azure AD com usuários locais.
 
 Se você precisar corresponder as contas AD locais com contas existentes criadas na nuvem e você não estiver usando o Exchange Online, este recurso será útil. Nesse cenário, você normalmente não tem um motivo para definir o atributo SMTP na nuvem.
@@ -81,7 +84,8 @@ Se o recurso não estiver habilitado para seu diretório do Azure AD, você pode
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
-## <a name="synchronize-userprincipalname-updates"></a>Sincronizar atualizações de userPrincipalName
+## Sincronizar atualizações de userPrincipalName
+<a id="synchronize-userprincipalname-updates" class="xliff"></a>
 Historicamente, atualizações do atributo UserPrincipalName usando o serviço de sincronização local são bloqueadas, a menos que estas duas condições sejam verdadeiras:
 
 * O usuário é gerenciado (não federado).
@@ -105,7 +109,8 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de habilitar esse recurso, os valores existentes de userPrincipalName permanecerão os mesmos. Na próxima alteração do atributo userPrincipalName local, a sincronização delta normal dos usuários atualizará o UPN.  
 
-## <a name="see-also"></a>Confira também
+## Confira também
+<a id="see-also" class="xliff"></a>
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 

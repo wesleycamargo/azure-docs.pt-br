@@ -2,7 +2,7 @@
 title: "Exemplos de início rápido do PowerShell do Azure Monitor. | Microsoft Docs"
 description: "Use o PowerShell para acessar os recursos do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisa de logs de atividade."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
-ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/22/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>Replicar máquinas virtuais e servidores físicos da VMware no Azure com o Azure Site Recovery usando o portal clássico (herdado)
@@ -60,12 +59,12 @@ Antes de começar:
 
 Migre da seguinte maneira:
 
-1. Leia sobre a [implantação avançada no portal clássico](site-recovery-vmware-to-azure-classic.md#enhanced-deployment). Examine a [arquitetura](site-recovery-vmware-to-azure-classic.md#scenario-architecture) avançada e os [pré-requisitos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
+1. Leia sobre a [implantação avançada no portal clássico](site-recovery-vmware-to-azure-classic.md). Examine a [arquitetura](site-recovery-vmware-to-azure-classic.md) avançada e os [pré-requisitos](site-recovery-vmware-to-azure-classic.md).
 2. Desinstale o Serviço de mobilidade dos computadores que estão sendo replicados no momento. Uma nova versão do serviço será instalada nos computadores quando você adicioná-los ao novo grupo de proteção.
-3. Baixe uma [chave de registro do cofre](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) e [execute o assistente de instalação unificada](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) para instalar o servidor de configuração, o servidor em processo e os componentes do servidor de destino mestre. Leia mais sobre o [planejamento de capacidade](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. [Configure as credenciais](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) que podem ser usadas pela Recuperação de Site para acessar o servidor VMware a fim de detectar automaticamente VMs da VMware. Saiba mais sobre as [permissões necessárias](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-5. Adicione [servidores vCenter ou hosts vSphere](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). Pode demorar 15 minutos ou mais para que os servidores sejam exibidos no portal da Recuperação de Site.
-6. Crie um [novo grupo de proteção](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Pode demorar até 15 minutos para que o portal seja atualizado e as máquinas virtuais sejam descobertas e exibidas. Se não quiser esperar, realce o nome do servidor de gerenciamento (não clique nele) > **Atualizar**.
+3. Baixe uma [chave de registro do cofre](site-recovery-vmware-to-azure-classic.md) e [execute o assistente de instalação unificada](site-recovery-vmware-to-azure-classic.md) para instalar o servidor de configuração, o servidor em processo e os componentes do servidor de destino mestre. Leia mais sobre o [planejamento de capacidade](site-recovery-vmware-to-azure-classic.md).
+4. [Configure as credenciais](site-recovery-vmware-to-azure-classic.md) que podem ser usadas pela Recuperação de Site para acessar o servidor VMware a fim de detectar automaticamente VMs da VMware. Saiba mais sobre as [permissões necessárias](site-recovery-vmware-to-azure-classic.md).
+5. Adicione [servidores vCenter ou hosts vSphere](site-recovery-vmware-to-azure-classic.md). Pode demorar 15 minutos ou mais para que os servidores sejam exibidos no portal da Recuperação de Site.
+6. Crie um [novo grupo de proteção](site-recovery-vmware-to-azure-classic.md). Pode demorar até 15 minutos para que o portal seja atualizado e as máquinas virtuais sejam descobertas e exibidas. Se não quiser esperar, realce o nome do servidor de gerenciamento (não clique nele) > **Atualizar**.
 7. No novo grupo de proteção, clique em **Migrar Máquinas**.
 
     ![Adicionar Conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
@@ -397,7 +396,7 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
    7. Execute o comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
 
       ![Registrar servidor de destino](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
-7. Aguarde alguns minutos (10 a&15;) e, na página, verifique se o servidor de destino mestre está listado como registrado na guia **Servidores** > **Servidores de Configuração** **Detalhes do Servidor**. Se você estiver executando o Linux e ele registrar, execute a ferramenta de configuração de host novamente em /usr/local/ASR/Vx/bin/hostconfigcli. Você precisará definir permissões de acesso executando chmod como raiz.
+7. Aguarde alguns minutos (10 a 15) e, na página, verifique se o servidor de destino mestre está listado como registrado na guia **Servidores** > **Servidores de Configuração** **Detalhes do Servidor**. Se você estiver executando o Linux e ele registrar, execute a ferramenta de configuração de host novamente em /usr/local/ASR/Vx/bin/hostconfigcli. Você precisará definir permissões de acesso executando chmod como raiz.
 
     ![Verificar servidor de destino](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
@@ -472,10 +471,10 @@ Os componentes da Recuperação de Site são atualizados periodicamente. Quando 
 3. Se estiver executando máquinas virtuais ou servidores físicos que já tenham o Serviço de Mobilidade instalado, você poderá obter atualizações para o serviço da seguinte maneira:
 
    * **Opção 1**: baixar atualizações:
-     * [Windows Server (somente&64; bits)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+     * [Windows Server (somente 64 bits)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
      * [CentOS 6.4,6.5,6.6 (somente 64 bits)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
      * [Oracle Enterprise Linux 6.4,6.5 (somente 64 bits)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
-     * [SUSE Linux Enterprise Server SP3 (somente&64; bits)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
+     * [SUSE Linux Enterprise Server SP3 (somente 64 bits)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
      * Depois de atualizar o servidor em processo, a versão atualizada do Serviço de mobilidade estará disponível na pasta C:\pushinstallsvc\repository no servidor em processo.
    * **Opção 2**: se tiver um computador com uma versão mais antiga do Serviço de mobilidade instalada, você poderá atualizar automaticamente o Serviço de mobilidade no computador no portal de gerenciamento.
 
@@ -568,7 +567,7 @@ Os pacotes de software usados para instalar o Serviço de Mobilidade estão no s
 
 | Sistema operacional de origem | Pacote do Serviço de Mobilidade no servidor de processo |
 | --- | --- |
-| Windows Server (somente&64; bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
+| Windows Server (somente 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
 | CentOS 6.4, 6.5, 6.6 (somente 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz` |
 | SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz` |
 | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
@@ -630,7 +629,7 @@ Para habilitar a proteção, adicione máquinas virtuais e servidores físicos a
 * As máquinas virtuais são descobertas a cada 15 minutos, podendo demorar até 15 minutos para que elas apareçam no Azure Site Recovery após a descoberta.
 * As alterações de ambiente na máquina virtual (como instalação de ferramentas VMware) também podem levar até 15 minutos para serem atualizadas no Site Recovery.
 * Você pode verificar a hora da última descoberta no campo **ÚLTIMO CONTATO EM** para o servidor vCenter/host ESXi na página **Servidores de Configuração**.
-* Se tiver um grupo de proteção já criado e adicionar um Servidor vCenter ou host ESXi depois disso, levará&15; minutos para que o portal do Azure Site Recovery seja atualizado e para que as máquinas virtuais sejam listadas na caixa de diálogo **Adicionar computadores a um grupo de proteção** .
+* Se tiver um grupo de proteção já criado e adicionar um Servidor vCenter ou host ESXi depois disso, levará 15 minutos para que o portal do Azure Site Recovery seja atualizado e para que as máquinas virtuais sejam listadas na caixa de diálogo **Adicionar computadores a um grupo de proteção** .
 * Se quiser continuar imediatamente com a adição de computadores ao grupo de proteção sem precisar esperar pela descoberta agendada, destaque o servidor de configuração (não clique nele) e clique no botão **Atualizar** .
 * Quando você adiciona máquinas virtuais ou computadores físicos a um grupo de proteção, o servidor de processo envia por push e instala automaticamente o Serviço de Mobilidade no servidor de origem, caso ele ainda não esteja instalado.
 * Para que o mecanismo de envio automático funcione, verifique se você configurou seus computadores protegidos conforme descrito na etapa anterior.

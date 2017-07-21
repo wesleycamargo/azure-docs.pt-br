@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI Script-mover um Banco de Dados SQL e pools Elásticos | Microsoft Docs"
-description: "Amostra de Script CLI do Azure – Mover um Banco de Dados SQL entre pools elásticos usando a CLI do Azure"
+title: "Exemplo de CLI para mover um pool elástico do banco de dados SQL do Azure | Microsoft Docs"
+description: "Script de exemplo da CLI do Azure para mover um banco de dados SQL em um pool elástico do SQL"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 07/05/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: df4a62783cf3f8f644de850cb80bdad8352cf372
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1dc31a0b20f36e28a58896ed63a5e0395ae1d3af
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-the-azure-cli"></a>Criar pools Elásticos e mover bancos de dados entre pools e fora de um pool usando a CLI do Azure
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usar a CLI para mover um banco de dados SQL do Azure em um pool elástico do SQL
 
-Este exemplo de script CLI cria dois pools elásticos e move um banco de dados de um pool elástico para outro pool elástico, depois move um banco de dados fora de um pool elástico para um nível de desempenho de banco de dados individual. 
+Este exemplo de script da CLI do Azure cria dois pools elásticos e move um banco de dados SQL do Azure de um pool elástico do SQL para outro pool elástico do SQL, depois move um banco de dados de um pool elástico para um nível de desempenho de banco de dados individual. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -54,7 +54,7 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Cria um servidor lógico que hospeda um banco de dados ou pool elástico. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Cria um pool elástico dentro do servidor lógico. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Cria um pool elástico dentro do servidor lógico. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Cria um banco de dados em um servidor lógico como um banco de dados individual ou em pool. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Atualiza as propriedades do banco de dados ou move um banco de dados para dentro, para fora entre pools elásticos. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |

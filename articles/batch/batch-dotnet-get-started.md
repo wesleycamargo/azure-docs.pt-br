@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 162f4e753524f0d1236575618fc8413466481857
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -75,7 +75,7 @@ O diagrama a seguir ilustra as principais operações executadas pelo aplicativo
 [**Etapa 3.**](#step-3-create-batch-pool) Criar um **pool** do Lote.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** O pool **StartTask** baixa os arquivos binários da tarefa (TaskApplication) para os nós quando eles ingressam no pool.<br/>
 [**Etapa 4.**](#step-4-create-batch-job) Crie um **trabalho** do Lote.<br/>
-[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **Tarefas** ao trabalho.<br/>
+[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **tarefas** ao trabalho.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** As tarefas serão agendadas para a execução em nós.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
@@ -297,7 +297,7 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que, quando in
 
 Um **pool** do Lote é uma coleção de nós de computação (máquinas virtuais) nos quais o Lote executa as tarefas de um trabalho.
 
-Depois de carregar os arquivos de aplicativo e de dados na conta do Armazenamento, o *DotNetTutorial* inicia sua interação com o serviço Lote usando a biblioteca .NET do Lote. Para fazer isso, um [BatchClient][net_batchclient] é criado primeiro:
+Depois de carregar o aplicativo e os arquivos de dados para a conta de armazenamento com APIs do Armazenamento do Azure, o *DotNetTutorial* começa a fazer chamadas para o serviço Lote com APIs fornecidas pela biblioteca .NET do Lote. O código cria primeiro um [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -310,7 +310,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Em seguida, um pool de nós de computação é criado na conta do Lote com uma chamada para `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` usa o método [BatchClient.PoolOperations.CreatePool][net_pool_create] para criar um pool no serviço de Lote.
+Em seguida, o exemplo cria um pool de nós de computação na conta do Lote com uma chamada para `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` usa o método [BatchClient.PoolOperations.CreatePool][net_pool_create] para criar um novo pool no serviço Lote:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -375,7 +375,7 @@ Junto com essas propriedades de nó físico, você também poderá especificar u
 Neste aplicativo de exemplo, a StartTask copia os arquivos baixados do Armazenamento (especificados usando a propriedade [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) do diretório de trabalho StartTask para o diretório compartilhado que *todas* as tarefas em execução no nó podem acessar. Essencialmente, isso copia `TaskApplication.exe` e suas dependências para um diretório compartilhado em cada nó à medida que o nó se une o pool para que qualquer tarefa executada no nó possa acessá-lo.
 
 > [!TIP]
-> O recurso **pacotes de aplicativos** do Lote do Azure fornece outra maneira de colocar seu aplicativo nos nós de computação em seu pool. Veja [Implantação de aplicativo nos pacotes de aplicativos do Lote do Azure](batch-application-packages.md) para obter os detalhes.
+> O recurso **pacotes de aplicativos** do Lote do Azure fornece outra maneira de colocar seu aplicativo nos nós de computação em seu pool. Veja [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md) para obter detalhes.
 >
 >
 

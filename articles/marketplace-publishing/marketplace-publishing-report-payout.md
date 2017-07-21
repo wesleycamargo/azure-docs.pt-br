@@ -50,7 +50,7 @@ Os relatórios estarão disponíveis 45 dias após o encerramento do trimestre e
 ## <a name="view-your-payout-reports-in-dev-center"></a>Exibir relatórios de pagamento no Centro de Desenvolvimento
 O relatório de pagamento para cada trimestre registra todas as transações que ocorreram dentro desse trimestre.
 
-* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$&0; (a menos que um cliente pague com bastante antecedência).
+* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$ 0 (a menos que um cliente pague com bastante antecedência).
 * Clique nos links **Exibir detalhes** de Pagamentos futuros ou do Pagamento mais recente para ver uma observação sobre os pagamentos.
 * Clique em **Demonstrativos de Pagamento** para exibir os detalhes em receita por produto/aplicativo.
 * Clique no link **Exibir** para ver os demonstrativos individuais.

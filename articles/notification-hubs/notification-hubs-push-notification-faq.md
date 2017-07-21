@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 029401a1884aebf0625ad8d68410dcdcd491d0ad
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -46,7 +47,7 @@ Recursos de camada padrão:
 Para camadas Basic e Standard dos Hubs de Notificação, os aplicativos configurados corretamente podem enviar notificações por push ou executar operações de gerenciamento de registro pelo menos 99,9% do tempo. Para saber mais sobre o SLA, vá para a página [SLA de Hubs de Notificação](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
-> Como notificações por push dependem de Sistemas de Notificação de Plataforma de terceiros (APNs da Apple e FCM do Google), não há nenhuma garantia de SLA para a entrega dessas mensagens. Depois que os Hubs de Notificação criam um lote de envios para os Sistemas de Notificação de Plataforma (garantido por SLA), será responsabilidade dos Sistemas de Notificação de Plataforma entregar os envios (sem garantia de SLA).
+> Como notificações por push dependem de Sistemas de Notificação de Plataforma de terceiros (APNs da Apple e FCM do Google), não há nenhuma garantia de SLA para a entrega dessas mensagens. Depois que os Hubs de Notificação enviam os lotes para os Sistemas de Notificação de Plataforma (garantido por SLA), será responsabilidade dos Sistemas de Notificação de Plataforma entregar os envios (sem garantia de SLA).
 
 ### <a name="which-customers-are-using-notification-hubs"></a>Quais clientes estão usando os Hubs de Notificação?
 Muitos clientes utilizam os Hubs de Notificação. Alguns dos notáveis são listados aqui:

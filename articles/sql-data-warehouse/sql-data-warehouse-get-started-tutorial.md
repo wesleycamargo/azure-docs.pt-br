@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computaç
 6. Dimensione seu data warehouse de volta para 400 DWUs. Lembre-se de que cada 100 DWU adicionam outro nó de computação ao Azure SQL Data Warehouse.
 
 7. Execute a consulta novamente! Você deve notar uma diferença significativa. 
+
+    > [!NOTE]
+    > Como a consulta retorna muitos dados, a disponibilidade de largura de banda do computador executando o SSMS pode ser um afunilamento de desempenho. Isso pode resultar em nenhuma melhoria de desempenho!
 
 > [!NOTE]
 > Como o SQL Data Warehouse usa processamento paralelo massivo. As consultas que examinam ou executam funções de análise em milhões de linhas experimentam o verdadeira poder do Azure SQL Data Warehouse.

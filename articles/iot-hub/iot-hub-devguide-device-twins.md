@@ -16,10 +16,10 @@ ms.date: 03/09/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5bda9ce182c93d23bf29fd211ccdeb6facacbb7e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -174,7 +174,7 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
     $content-encoding | utf-8 |
     deviceId | ID do dispositivo |
     hubName | Nome do Hub IoT |
-    operationTimestamp | Carimbo de data/hora ISO8601 de operação |
+    operationTimestamp | Carimbo de data/hora ISO8601 da operação |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
@@ -337,7 +337,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 * O artigo [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
 * O artigo [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
 * O artigo [SDKs de dispositivo e serviço IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
-* O artigo [Linguagem de consulta do Hub IoT para dispositivos gêmeos e trabalhos][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
+* O artigo [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode utilizar para recuperar informações do Hub IoT sobre seus dispositivos gêmeos e trabalhos.
 * O artigo [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -359,7 +359,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

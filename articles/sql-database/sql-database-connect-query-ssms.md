@@ -18,10 +18,10 @@ ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 05cbc0c80a4e622f537772c698e2711a7a85c00d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -39,7 +39,7 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 
 Antes de começar, verifique se você instalou a versão mais recente do [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Obter informações de conexão
+## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
@@ -47,7 +47,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. Na página **Visão geral** do banco de dados, analise o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
 
-   ![informações da conexão](./media/sql-database-get-started-portal/server-name.png) 
+   ![informações da conexão](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
 
@@ -164,6 +164,7 @@ Use o código a seguir para excluir o novo produto que você adicionou anteriorm
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para saber mais sobre como criar e gerenciar servidores e bancos de dados com o Transact-SQL, confira [Saiba mais sobre servidores de bancos de dados e banco de dados SQL do Azure](sql-database-servers-databases.md).
 - Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Para conectar e consultar usando o Visual Studio Code, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
 - Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).

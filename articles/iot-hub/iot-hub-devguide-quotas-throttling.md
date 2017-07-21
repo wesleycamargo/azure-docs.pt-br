@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ O SKU também determina os limites impostos pelo Hub IoT em todas as operações
 ## <a name="operation-throttles"></a>Restrições de operação
 As restrições de operação são limites de taxa aplicados em intervalos de minutos, e têm como objetivo evitar o abuso. O Hub IoT tenta evitar o retorno de erros sempre que possível, mas ele começará a retornar exceções se a restrição for violada por muito tempo.
 
-A seguir, a lista de limitações impostas. Os valores referem-se a um hub individual.
+A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hub individual.
 
 | Restrição | Hubs Gratuitos e S1 | Hubs S2 | Hubs S3 | 
 | -------- | ------- | ------- | ------- |
@@ -50,7 +50,7 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 | Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Taxa de transferência de operação de trabalhos por dispositivo | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 
-É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT e não o número máximo de dispositivos conectados simultaneamente. A restrição depende do número de unidades provisionadas para o hub IoT.
+É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT. A restrição de *conexões de dispositivo* não controla o número máximo de dispositivos conectados simultaneamente. A restrição depende do número de unidades provisionadas para o hub IoT.
 
 Por exemplo, se você comprar uma única unidade S1, obterá uma restrição de 100 conexões por segundo. Portanto, serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade.
 
@@ -66,7 +66,7 @@ Para uma discussão aprofundada do comportamento de limitação do Hub IoT, veja
 
 ## <a name="other-limits"></a>Outros limites
 
-O Hub IoT impõe outros limites nas suas diferentes funcionalidades.
+IoT Hub impõe outros limites operacionais:
 
 | Operação | Limite |
 | --------- | ----- |
@@ -74,21 +74,28 @@ O Hub IoT impõe outros limites nas suas diferentes funcionalidades.
 | Trabalhos | O histórico do trabalho é retido por até 30 dias <br/> O máximo de trabalhos simultâneos é 1 (para Gratuito e S1, 5 (para S2), 10 (para S3). |
 | Pontos de extremidade adicionais | Hubs SKU pagos podem ter 10 pontos de extremidade adicionais. Hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Regras de roteamento de mensagem | Hubs SKU pagos podem ter 100 regras de roteamento. Hubs SKU gratuitos podem ter cinco regras de roteamento. |
+| Mensagens do dispositivo para a nuvem | Tamanho máximo da mensagem 256 KB |
+| Mensagens da nuvem para o dispositivo | Tamanho máximo da mensagem 64 KB |
+| Mensagens da nuvem para o dispositivo | Máximo de mensagens pendentes para entrega é 50 |
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 500.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 500.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latência
-O Hub IoT busca oferecer baixa latência para todas as operações. No entanto, devido às condições de rede e outros fatores imprevisíveis, ele não pode assegurar uma latência máxima. Ao projetar sua solução, evite fazer suposições sobre a latência máxima de qualquer operação do Hub IoT. Provisione seu Hub IoT na região do Azure mais próxima de seus dispositivos e considere usar o Azure IoT Edge para executar operações sensíveis à latência no dispositivo ou no gateway perto do dispositivo.
+O Hub IoT busca oferecer baixa latência para todas as operações. No entanto, devido a condições da rede e outros fatores imprevisíveis ele não garante uma latência máxima. Ao projetar sua solução, você deve:
+
+* Evitar fazer suposições sobre a latência máxima de qualquer operação de IoT Hub.
+* Provisionar o hub IoT na região do Azure mais próxima de seus dispositivos.
+* Considere usar o Azure IoT Edge para executar operações sensíveis à latência no dispositivo ou no gateway perto do dispositivo.
 
 Várias unidades de Hub IoT afetam limitação, conforme descrito anteriormente, mas não oferecem nenhum benefício de latência nem garantia adicional.
-No caso de aumentos inesperados na latência da operação, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/en-us/support/options/).
+No caso de aumentos inesperados na latência da operação, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Próximas etapas
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT][lnk-devguide-endpoints]
-* [Linguagem de consulta do Hub IoT para gêmeos e trabalhos][lnk-devguide-query]
+* [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-devguide-query]
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
-ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
-ms.lasthandoff: 02/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -44,7 +45,7 @@ O arquivo function.json fornece as seguintes propriedades:
 * `connection` : essa cadeia de conexão deve ser uma cadeia de conexão de **Configuração de Aplicativo** definida com o valor *DefaultFullSharedAccessSignature* para seu hub de notificação.
 * `direction` : deve ser definido como *out*. 
 * `platform` : a propriedade da plataforma indica a plataforma de notificação à qual sua notificação se destina. Deve ser um dos seguintes valores: 
-  * `template` : essa será a plataforma padrão se a propriedade da plataforma for omitida da associação de saída. Notificações de modelo podem ser usadas para ter como destino qualquer plataforma configurada no Hub de Notificação do Azure. Para obter mais informações sobre como usar modelos em geral para enviar várias notificações de plataforma com um Hub de Notificação do Azure, consulte [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+  * Por padrão, se a propriedade da plataforma é omitida da associação de saída, as notificações de modelo podem ser usadas para atingir qualquer plataforma configurada no Hub de Notificação do Azure. Para obter mais informações sobre como usar modelos em geral para enviar várias notificações de plataforma com um Hub de Notificação do Azure, consulte [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
   * `apns` : Apple Push Notification Service. Para obter mais informações sobre como configurar o hub de notificação do APNS e receber a notificação em um aplicativo cliente, consulte [Enviar notificações por push para iOS com os Hubs de Notificação do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
   * `adm` : [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obter mais informações sobre como configurar o hub de notificação para ADM e receber a notificação de um aplicativo Kindle, consulte [Introdução aos Hubs de Notificação para aplicativos Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
   * `gcm` : [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Também há suporte para o Firebase Cloud Messaging, que é a nova versão do GCM. Para obter mais informações sobre como configurar o hub de notificação para GCM/FCM e receber a notificação em um aplicativo de cliente Android, consulte [Enviar notificações por push para o Android com Hubs de Notificação do Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)

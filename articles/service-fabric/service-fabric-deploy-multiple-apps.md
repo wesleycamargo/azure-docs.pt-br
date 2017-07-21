@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d967d70c7fad45f7a10a5288623440491dcfffa3
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -26,11 +27,11 @@ Este artigo mostra como empacotar e implantar vários executáveis de convidado 
 
 Embora este passo a passo mostre como implantar um aplicativo com um front-end Node.js que usa MongoDB como o repositório de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências de outro aplicativo.   
 
-Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém vários executáveis de convidado. Veja [Uso do Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). Depois de adicionar o primeiro executável de convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione **Adicionar -> Novo serviço do Service Fabric** para adicionar o segundo projeto do executável de convidado à solução. Observação: se você optar por vincular a origem no projeto do Visual Studio, criar a solução do Visual Studio garantirá que seu pacote de aplicativos esteja atualizado com as alterações na fonte. 
+Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém vários executáveis de convidado. Veja [Uso do Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de adicionar o primeiro executável de convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione **Adicionar -> Novo serviço do Service Fabric** para adicionar o segundo projeto do executável de convidado à solução. Observação: se você optar por vincular a origem no projeto do Visual Studio, criar a solução do Visual Studio garantirá que seu pacote de aplicativos esteja atualizado com as alterações na fonte. 
 
 ## <a name="samples"></a>Exemplos
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empacotar manualmente o aplicativo executável de vários convidados
 Como alternativa, você pode empacotar manualmente o executável de convidado. Para o empacotamento manual, este artigo usa a ferramenta de empacotamento do Service Fabric, que está disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -218,5 +219,5 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como implantar contêineres com a [Visão geral de contêineres e do Service Fabric](service-fabric-containers-overview.md)
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

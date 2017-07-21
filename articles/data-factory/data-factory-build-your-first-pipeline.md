@@ -13,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 02/03/2017
 
 Neste tutorial, você deve criar sua Azure Data Factory com um pipeline de dados. O pipeline transforma dados de entrada, executando o script do Hive em um cluster Azure HDInsight (Hadoop) para gerar dados de saída.  
 
-Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, você pode concluir o tutorial usando uma das seguintes ferramentas/SDKs: portal do Azure, Visual Studio, PowerShell, modelo do Resource Manager, API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
+Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, conclua o tutorial usando uma das seguintes ferramentas/SDKs: portal do Azure, Visual Studio, PowerShell, modelo do Resource Manager ou API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
 
 ## <a name="tutorial-overview"></a>Visão geral do tutorial
 Neste tutorial, você executa as seguintes etapas:
@@ -49,7 +50,7 @@ Neste tutorial, você executa as seguintes etapas:
     Neste tutorial, você deve criar dois serviços vinculados: **Armazenamento do Azure** e **Azure HDInsight**. O serviço vinculado de armazenamento do Azure vincula uma conta de armazenamento do Azure que contém os dados de entrada/saída para a data factory. O serviço vinculado do Azure HDInsight vincula um cluster Azure HDInsight que é usado para transformar dados em data factory. 
 3. Criar **conjuntos de dados**de entrada e saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 
-    Neste tutorial, os conjuntos de dados de entrada e saída especificam locais de entrada e saída de dados no armazenamento de blobs do Azure. O serviço vinculado de armazenamento do Azure especifica qual conta de armazenamento do Azure é usada. Um conjunto de dados de entrada especifica onde os arquivos de entrada estão localizados e um conjunto de dados de saída especifica onde os arquivos de saída serão colocados. 
+    Neste tutorial, os conjuntos de dados de entrada e saída especificam locais de entrada e saída de dados no armazenamento de blobs do Azure. O serviço vinculado de armazenamento do Azure especifica qual conta de armazenamento do Azure é usada. Um conjunto de dados de entrada especifica o local em que os arquivos de entrada estão localizados e um conjunto de dados de saída especifica o local em que os arquivos de saída são colocados. 
 
 
 Para obter uma visão geral detalhada do Azure Data Factory, confira o artigo [Introdução à Azure Data Factory](data-factory-introduction.md).
@@ -82,7 +83,7 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 1. **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
 2. **Armazenamento do Azure** – você usa uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) . Depois de você ter criado a conta de armazenamento, anote o **nome da conta** e a **chave de acesso**. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Baixe e leia o arquivo de consulta de Hive (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta é a consulta que transforma os dados de entrada para gerar dados de saída. 
+3. Baixe e leia o arquivo de consulta de Hive (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Essa consulta transforma os dados de entrada para gerar dados de saída. 
 4. Baixe e leia o arquivo de entrada de amostra (**input.log**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crie um contêiner de blobs denominado **adfgetstarted** em seu armazenamento de blobs do Azure. 
 6. Execute o arquivo **partitionweblogs.hql** para a pasta **script** do contêiner **adfgetstarted**. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). 
@@ -108,3 +109,4 @@ O portal do Azure e o Visual Studio permitem criar data factories com a GUI. Enq
 
 
   
+

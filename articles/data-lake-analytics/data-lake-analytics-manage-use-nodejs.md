@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -34,8 +36,8 @@ Agora, ele oferece suporte a:
 
 ## <a name="features"></a>Recursos
 * Gerenciamento de contas: criar, obter, listar, atualizar e excluir.
-* Gerenciamento de trabalhos: enviar, obter, listar, cancelar.
-* Gerenciamento de catálogos: obter, listar, criar (segredos), atualizar (segredos), excluir (segredos).
+* Gerenciamento de trabalhos: enviar, obter, listar e cancelar.
+* Gerenciamento de catálogos: obter e listar.
 
 ## <a name="how-to-install"></a>Como instalar
 ```bash
@@ -137,10 +139,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>Confira também
 * [Microsoft Azure SDK para Node.js](https://github.com/azure/azure-sdk-for-node)
 * [SDK do Microsoft Azure para Node.js - Gerenciamento do Repositório Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

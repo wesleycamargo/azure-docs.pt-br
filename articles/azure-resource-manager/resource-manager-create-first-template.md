@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -74,7 +74,7 @@ Vamos começar com um modelo em branco que inclui apenas as seções básicas de
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ Vamos começar com um modelo em branco que inclui apenas as seções básicas de
    }
    ```
 
+  O Código VS pode indicar que 2016-12-01 não é uma versão de API válida. Se você estiver usando um número de versão da documentação de referência do modelo, poderá ignorar este aviso. Você verá este aviso quando o esquema não tiver sido atualizado com o número de versão mais recente do provedor de recursos. 
+  
   O exemplo anterior inclui muitos valores de espaço reservado e algumas propriedades que talvez você não precise em sua conta de armazenamento.
 
 ## <a name="set-values-for-storage-account"></a>Definir valores para a conta de armazenamento
@@ -117,7 +119,7 @@ Agora, você está pronto para definir valores para sua conta de armazenamento.
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ O modelo agora se parece com:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ O modelo agora se parece com:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ Depois de concluir as etapas neste artigo, o modelo agora se parece com:
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

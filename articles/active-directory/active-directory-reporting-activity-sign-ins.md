@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/26/2017
 
-
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
+# Relatórios de atividades de entrada no portal do Azure Active Directory
+<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Com os relatórios do Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
@@ -37,18 +38,22 @@ A arquitetura de relatório no Azure Active Directory consiste nos seguintes com
 
 Este tópico fornece uma visão geral das atividades de entrada.
 
-## <a name="pre-requisite"></a>Pré-requisito
+## Pré-requisito
+<a id="pre-requisite" class="xliff"></a>
 
-### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+### Quem pode acessar os dados?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Usuários na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Qualquer usuário (não administradores) pode acessar suas próprias entradas 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
+### Qual licença do Azure AD você precisa para acessar a atividade de entrada?
+<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
 * Seu locatário deve ter uma licença do Azure AD Premium associada a ele para ver o relatório de atividade de entrada
 
 
-## <a name="signs-in-activities"></a>Atividades de entrada
+## Atividades de entrada
+<a id="signs-in-activities" class="xliff"></a>
 
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
@@ -84,7 +89,8 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/43.png "Atividade de entrada")
 
 
-## <a name="filtering-sign-in-activities"></a>Filtragem de atividades de entrada
+## Filtragem de atividades de entrada
+<a id="filtering-sign-in-activities" class="xliff"></a>
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de entradas usando os seguintes campos:
 
@@ -120,7 +126,8 @@ O filtro **status de entrada** permite que você selecione um dos filtros abaixo
 - Failure
 
 
-## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de entrada
+## Atalhos de atividades de entrada
+<a id="sign-in-activities-shortcuts" class="xliff"></a>
 
 Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrada adicionais para dados de atividade de entrada:
 
@@ -128,7 +135,8 @@ Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrad
 - Aplicativos empresariais
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Atividades de entrada de usuários e grupos
+### Atividades de entrada de usuários e grupos
+<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
 
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
@@ -164,7 +172,8 @@ A opção **entradas** fornece uma visão geral completa de todas as entradas de
 
 
 
-## <a name="usage-of-managed-applications"></a>Uso de aplicativos gerenciados
+## Uso de aplicativos gerenciados
+<a id="usage-of-managed-applications" class="xliff"></a>
 
 Com uma exibição centrada no aplicativo de seus dados de entrada, você pode responder a perguntas como:
 
@@ -197,7 +206,8 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
 
 

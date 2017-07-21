@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 01/23/2017
+ms.date: 06/03/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
-ms.lasthandoff: 04/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="azure-storage-samples"></a>Exemplos do Armazenamento do Azure
-## <a name="overview"></a>Visão geral
-Use os links abaixo para exibir e baixar exemplos de como trabalhar com o Armazenamento do Azure.
+
+Use os links abaixo para exibir e baixar aplicativos e o código de exemplo do Armazenamento do Azure.
 
 ## <a name="azure-code-samples-library"></a>Biblioteca de Exemplos de Código do Azure
 A biblioteca de [Exemplos de Código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) inclui exemplos do Armazenamento do Azure que você pode baixar e executar localmente. A Biblioteca de Exemplo de Código fornece exemplo de código em formato .zip. Como alternativa, você pode navegar e clonar o repositório GitHub para cada exemplo.
@@ -63,22 +64,18 @@ Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenament
 * [Introdução às tabelas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Introdução às filas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
+## <a name="api-reference-and-source-code"></a>Referência de API e código-fonte
+
+| Linguagem | Referência de API | Código-fonte |
+|----------|---------------|-------------|
+| .NET | [Referência da Biblioteca do Cliente do .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Referência da Biblioteca do Cliente do Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java) |
+| Node.js | [Referência da Biblioteca do Cliente do Node.js](http://azure.github.io/azure-storage-node) | [Código-fonte da biblioteca do cliente de armazenamento do Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/) | [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)|
+
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="net-resources"></a>Recursos do .NET
-* [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net)
-* [Referência da Biblioteca do Cliente do .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+Os artigos a seguir indexam cada uma das amostras por serviço (blob, arquivo, fila, tabela).
 
-### <a name="java-resources"></a>Recursos do Java
-* [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java)
-* [Referência da Biblioteca do Cliente do Java](http://dl.windowsazure.com/storage/javadoc/)
-
-### <a name="nodejs-resources"></a>Recursos do Node.js
-* [Código-fonte da biblioteca do cliente de armazenamento do Node.js](https://github.com/Azure/azure-storage-node)
-* [Referência da Biblioteca do Cliente do Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-
-### <a name="c-resources"></a>Recursos do C++
-* [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)
-* [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/)
-
-
+* [Exemplos de Armazenamento do Azure usando .NET](storage-samples-dotnet.md)
+* [Exemplos de Armazenamento do Azure usando Java](storage-samples-java.md)

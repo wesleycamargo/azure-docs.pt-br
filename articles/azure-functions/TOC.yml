@@ -4,8 +4,6 @@
   items:
   - name: Sobre o Functions
     href: functions-overview.md
-  - name: Tempo de execução do Functions
-    href: functions-runtime-overview.md
   - name: 'Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guia de início rápido
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Criar função - CLI do Azure
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Criar função - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Gatilhos
     items:
     - name: Timer
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Banco de Dados Cosmos
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Exemplos
-  items:
-  - name: CLI do Azure
-    href: functions-cli-samples.md
 - name: Tutoriais
   items:
   - name: 1 - Functions com Aplicativos Lógicos
     href: functions-twitter-email.md
   - name: 2 - Criar uma API sem servidor
     href: functions-create-serverless-api.md
+- name: Exemplos
+  items:
+  - name: CLI do Azure
+    href: functions-cli-samples.md
 - name: Conceitos
   items:
   - name: Consumo e planos de Serviço de Aplicativo
@@ -51,36 +49,51 @@
     href: functions-triggers-bindings.md
   - name: Linguagens
     items:
-    - name: 'Conceitos de funções de C#'
+    - name: 'Script C#'
+ 
       href: functions-reference-csharp.md
-    - name: 'Conceitos de funções de F#'
+    - name: Biblioteca de classes do .NET
+      href: functions-dotnet-class-library.md
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: Conceitos de funções de JavaScript
+    - name: JavaScript
       href: functions-reference-node.md    
+  - name: Considerações sobre o desempenho
+    href: functions-best-practices.md 
+  - name: Proxies de Funções
+    href: functions-proxies.md 
+  - name: Tempo de execução do Functions
+    href: functions-runtime-overview.md
 - name: Guias de instruções
   items:
-  - name: Guia do desenvolvedor
-    href: functions-reference.md
-  - name: Testando os Azure Functions
-    href: functions-test-a-function.md
-  - name: Desenvolver e depurar localmente
-    href: functions-run-local.md
-  - name: Definir configurações para um aplicativo de funções
+  - name: Desenvolver
+    items: 
+     - name: Guia do desenvolvedor
+       href: functions-reference.md
+     - name: Funções de teste
+       href: functions-test-a-function.md
+     - name: Desenvolver e depurar localmente
+       href: functions-run-local.md
+     - name: Desenvolvimento do Visual Studio
+       href: functions-develop-vs.md
+  - name: Implantar
+    items:
+    - name: Implantação contínua
+      href: functions-continuous-deployment.md
+    - name: Automatizar implantação de recursos
+      href: functions-infrastructure-as-code.md
+    - name: Funções locais
+      href: functions-runtime-install.md
+  - name: Configurar
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Implantação contínua para Azure Functions
-    href: functions-continuous-deployment.md
-  - name: Automatizar implantação de recursos
-    href: functions-infrastructure-as-code.md
-  - name: Monitoramento do Azure Functions
+  - name: Monitoramento
     href: functions-monitoring.md
-  - name: Instalar o tempo de execução do Functions
-    href: functions-runtime-install.md
-  - name: Conectar-se ao Banco de Dados SQL
-    href: functions-scenario-database-table-cleanup.md
-  - name: Criar uma definição Open API 2.0
-    href: functions-api-definition-getting-started.md     
-  - name: Práticas recomendadas do Azure Functions
-    href: functions-best-practices.md     
+  - name: Integração
+    items:   
+    - name: Conectar-se ao Banco de Dados SQL
+      href: functions-scenario-database-table-cleanup.md
+    - name: Criar uma definição Open API 2.0
+      href: functions-api-definition-getting-started.md         
 - name: Referência
   items:
   - name: Associações
@@ -89,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Banco de Dados Cosmos
       href: functions-bindings-documentdb.md
-    - name: Hub de evento
+    - name: Hubs de Eventos
       href: functions-bindings-event-hubs.md
     - name: Arquivo externo
       href: functions-bindings-external-file.md
@@ -115,12 +128,18 @@
     href: functions-api-definition.md     
 - name: Recursos
   items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Repositório de GitHub do Azure Functions
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço

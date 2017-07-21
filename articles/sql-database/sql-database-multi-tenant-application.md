@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop, mvc
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ Neste tutorial, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este tutorial, verifique se você tem:
-* O PowerShell instalado em seu computador, e o [SDK mais recente do Azure PowerShell](http://azure.microsoft.com/downloads/)
 
-* A versão mais recente do [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Instalar o SQL Server Management Studio também instala a versão mais recente do SQLPackage, um utilitário de linha de comando que pode ser usado para automatizar diversas tarefas de desenvolvimento de banco de dados.
+* Instalada a versão mais recente do PowerShell e o [SDK mais recente do Azure PowerShell](http://azure.microsoft.com/downloads/)
 
-* [JRE 8 (Java Runtime Environment)](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e o [JDK (JAVA Development Kit) mais recente](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalados em seu computador. 
+* Instalada a versão mais recente do [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Instalar o SQL Server Management Studio também instala a versão mais recente do SQLPackage, um utilitário de linha de comando que pode ser usado para automatizar diversas tarefas de desenvolvimento de banco de dados.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) instalado em seu computador. O Maven será usado para ajudar a gerenciar as dependências, compilar, testar e executar seu projeto Java de exemplo
+* [JRE 8 (Java Runtime Environment)](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e o [JDK (JAVA Development Kit) mais recente](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) foram instalados em seu computador. 
+
+* Instalado o [Apache Maven](https://maven.apache.org/download.cgi). O Maven será usado para ajudar a gerenciar as dependências, compilar, testar e executar seu projeto Java de exemplo
 
 ## <a name="set-up-data-environment"></a>Configurar o ambiente de dados
 
-Você provisionará um banco de dados por locatário. O modelo de banco de dados por locatário proporciona o mais alto grau de isolamento entre locatários, pouco custo de DevOps. Para otimizar o custo dos recursos de nuvem, você também provisionará os bancos de dados do locatário em um pool elástico, que permite a otimização do desempenho de preço de um grupo de bancos de dados. Para saber mais sobre outro modelos de provisionamento de banco de dados [clique aqui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+Você provisionará um banco de dados por locatário. O modelo de banco de dados por locatário proporciona o mais alto grau de isolamento entre locatários, pouco custo de DevOps. Para otimizar o custo dos recursos de nuvem, você também provisionará os bancos de dados do locatário em um pool elástico, que permite a otimização do desempenho de preço de um grupo de bancos de dados. Para saber mais sobre outro modelos de provisionamento de banco de dados [clique aqui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Execute estas etapas para criar um SQL Server e um pool elástico que hospedará todos os seus bancos de dados de locatário. 
 
@@ -71,7 +74,7 @@ Execute estas etapas para criar um SQL Server e um pool elástico que hospedará
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Fazer logon no Azure e criar um SQL Server e pool elástico 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Tente se conectar a 'locatário1' usando o aplicativo Java. Você receberá um erro informando que o locatário não existe.
 
 ## <a name="next-steps"></a>Próximas etapas 
+
 Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Configurar um ambiente de banco de dados para dar suporte a um aplicativo SaaS multilocatário, usando o padrão de banco de dados por locatário

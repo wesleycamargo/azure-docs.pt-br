@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 0cce578185ba7811e4b13cc061a2adcb18452b13
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-5-create-calculated-columns"></a>Lição 5: criar colunas calculadas
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/05/2017
 
 Nesta lição, você criará novos dados em seu modelo adicionando colunas calculadas. Você pode criar colunas calculadas (como colunas personalizadas) ao usar Obter Dados usando o Editor de Consultas ou posteriormente no designer de modelos, do mesmo modo que você fará aqui. Para saber mais, consulte [Colunas calculadas](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
-Você criará cinco novas colunas calculadas em três tabelas diferentes. As etapas são ligeiramente diferentes para cada tarefa. Isso é para mostrar que há várias maneiras de criar novas colunas, renomeá-las e colocá-las em vários localizações em uma tabela.  
+Você criará cinco novas colunas calculadas em três tabelas diferentes. As etapas são ligeiramente diferentes para cada tarefa, mostrando que há várias maneiras de criar colunas, renomeá-las e colocá-las em vários localizações em uma tabela.  
 
-Também é aqui que você usará primeiro as DAX (expressões de análise de dados). DAX é uma linguagem especial para criar expressões de fórmula altamente personalizáveis para modelos tabulares. Neste tutorial, você usará o DAX para criar colunas calculadas, medidas e filtros de função. Para saber mais, veja [DAX em modelos tabulares](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
+Nesta lição, você também usará primeiro as DAX (Expressões de Análise de Dados). DAX é uma linguagem especial para criar expressões de fórmula altamente personalizáveis para modelos tabulares. Neste tutorial, você usará o DAX para criar colunas calculadas, medidas e filtros de função. Para saber mais, veja [DAX em modelos tabulares](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
@@ -51,13 +51,13 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
     Uma nova coluna chamada **Coluna Calculada 1** é inserida à esquerda da coluna **Trimestre do Calendário**.  
   
-4.  Na barra de fórmulas acima da tabela, digite a fórmula DAX a seguir. O Preenchimento Automático ajuda você a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
+4.  Na barra de fórmulas acima da tabela, digite a seguinte fórmula DAX: o Preenchimento Automático ajuda você a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
     ``` 
   
-    Os valores são populados para todas as linhas na coluna calculada. Se você rolar para baixo na tabela, você verá que linhas podem ter valores diferentes para esta coluna, com base nos dados que estão em cada linha.    
+    Os valores são populados para todas as linhas na coluna calculada. Se você rolar para baixo na tabela, verá que linhas podem ter valores diferentes para esta coluna, com base nos dados que estão em cada linha.    
   
 5.  Renomeie esta coluna para **MonthCalendar**. 
 
@@ -91,7 +91,7 @@ A coluna calculada DayOfWeek fornece um nome classificável para o dia da semana
   
 1.  Na tabela **DimProduct**, role até mais à direita da tabela. Observe que a coluna mais à direita é denominada **Adicionar Coluna** (em itálico), clique no título de coluna.  
   
-2.  Na barra de fórmulas, digite a fórmula a seguir.  
+2.  Na barra de fórmulas, digite a seguinte fórmula:  
     
     ```
     =RELATED('DimProductSubcategory'[EnglishProductSubcategoryName])  

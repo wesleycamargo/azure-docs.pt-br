@@ -2,7 +2,7 @@
 title: "Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs"
 description: "Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/13/2017
+ms.date: 6/21/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/22/2016
-
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
@@ -109,9 +109,9 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "00:05:00",
+            "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between 00:05:00 and 24:00:00. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
@@ -241,7 +241,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
         "metricName": "Percentage CPU",
         "operator": "GreaterThan",
         "threshold": "80",
-        "windowSize": "00:10:00",
+        "windowSize": "PT5M",
         "aggregation": "Average",
         "customEmails": "",
         "sendToServiceOwners": true,

@@ -194,7 +194,7 @@ Depois que as três máquinas virtuais forem totalmente provisionadas, você pre
    
     ![Alterar o servidor DNS preferencial da máquina virtual](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 6. Na barra de comandos, clique em **Alterar as configurações dessa conexão**. (Dependendo do tamanho da janela, talvez você precise clicar na seta dupla à direita para ver esse comando).
-7. Selecione **Internet Protocol Version 4 (TCP/IPv4)**e, em seguida, clique em **Propriedades**.
+7. Selecione **Internet Protocol Version 4 (TCP/IPv4)** e, em seguida, clique em **Propriedades**.
 8. Selecione **Usar os seguintes endereços de servidor DNS e, em seguida, especifique** e. em seguida, especifique **10.10.2.4** no **Servidor DNS preferencial**.
 9. O endereço **10.10.2.4** é o endereço atribuído a uma máquina virtual na sub-rede 10.10.2.0/24 em uma rede virtual do Azure. Essa máquina virtual é **ContosoDC**. Para verificar o endereço ID de **ContosoDC**, use **nslookup contosodc** na janela do prompt de comando, como mostrado na seguinte captura de tela.
    
@@ -366,7 +366,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 10. Na seção **Origem**, selecione **Dispositivo** e clique nas reticências **…** .
 11. Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
 12. Em **Local do Arquivo de Backup**, digite **\\ContosoSQL1\backup**, clique em **Atualizar**, selecione **MyDB1.bak**, clique em **OK**e, em seguida, clique em **OK** novamente. Agora, será possível ver o backup completo e o backup de log no painel **Conjuntos de backup para restauração**.
-13. Vá para a página **Opções** , selecione **RESTORE WITH NORECOVERY** em **	Estado de recuperação** e, em seguida, clique em **OK** para restaurar o banco de dados. Depois que a operação de restauração for concluída, clique em **OK** novamente.
+13. Vá para a página **Opções** , selecione **RESTORE WITH NORECOVERY** em **Estado de recuperação** e, em seguida, clique em **OK** para restaurar o banco de dados. Depois que a operação de restauração for concluída, clique em **OK** novamente.
 
 ### <a name="create-the-availability-group"></a>Crie o grupo de disponibilidade
 1. Volte para a sessão de área de trabalho remota para **ContosoSQL1**. No **Pesquisador de Objetos** no SQL Server Management Studio, clique com o botão direito do mouse em **Alta Disponibilidade Always On** e, em seguida, clique em **Assistente para Novo Grupo de Disponibilidade**, conforme mostrado na seguinte captura de tela.

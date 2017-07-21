@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d79ce0e047e71d9f6af7ca55f55bea405c280b1d
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Criar uma função disparada pelo webhook do GitHub
@@ -31,11 +31,8 @@ Saiba como criar uma função que é disparada por uma solicitação de webhook 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de executar este exemplo, você deve ter o seguinte:
-
-- Uma conta do GitHub com pelo menos um projeto.
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
++ Uma conta do GitHub com pelo menos um projeto.
++ Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,9 +48,15 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-a-github-webhook-triggered-function"></a>Criar uma função disparada pelo webhook do GitHub
 
-1. Expanda seu aplicativo de funções, clique no botão **+** ao lado de **Funções**, clique no modelo **GitHubWebHook** para a linguagem de programação desejada. **Nomeie a função** e, em seguida, clique em **Criar**.
+1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **Função personalizada**. Exibe o conjunto completo de modelos de função.
 
-1. Na sua nova função, clique em **</> Obter URL de função** e depois copie e salve os valores. Faça o mesmo para **</> Get GitHub secret**. Você usa esses valores ao criar o webhook no GitHub.
+    ![Página de início rápido de funções no portal do Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+
+2. Selecione o modelo **GitHubWebHook** para o idioma desejado. **Nomeie sua função** e então selecione **Criar**.
+
+     ![Criar uma função disparada pelo webhook do GitHub no portal do Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+3. Na sua nova função, clique em **</> Obter URL de função** e depois copie e salve os valores. Faça o mesmo para **</> Get GitHub secret**. Você usa esses valores ao criar o webhook no GitHub.
 
     ![Examinar o código de função](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
@@ -101,5 +104,9 @@ Neste momento, o webhook é configurado para disparar sua função quando um nov
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou uma função que é executada quando uma solicitação é recebida de um webhook do GitHub. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Para obter mais informações sobre gatilhos do webhook, consulte [Associações HTTP e de webhook do Azure Functions](functions-bindings-http-webhook.md).
+Você criou uma função que é executada quando uma solicitação é recebida de um webhook do GitHub.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Para saber mais sobre gatilhos do webhook, veja [Associações HTTP e de webhook do Azure Functions](functions-bindings-http-webhook.md).
+

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ankshah
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 9a17d9fe0c252e2327ffbd75fde38d1f97ce3cc9
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +50,7 @@ Quando você adiciona outras instâncias de máquina virtual ao grupo, elas rece
 Quando você acessa uma conta de banco de dados do Azure Cosmos DB em um computador na Internet, o endereço IP do cliente ou o intervalo de endereços IP do computador deve ser adicionado à lista de permissões de endereços IP da conta de banco de dados do Azure Cosmos DB. 
 
 ## <a id="configure-ip-policy"></a> Configuração da política de controle de acesso de IP
-A política de controle de acesso por IP pode ser definida no Portal do Azure ou programaticamente na [CLI do Azure](cli-samples.md), no [Azure PowerShell](powershell-samples.md) ou na [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) atualizando a propriedade `ipRangeFilter`. Os intervalos/endereços IP devem ser separados por vírgula e não devem conter espaços. Exemplo: "13.91.6.132,13.91.6.1/24". Ao atualizar sua conta do banco de dados por meio desses métodos, preencha todas as propriedades para evitar a restauração para as configurações padrão.
+A política de controle de acesso por IP pode ser definida no Portal do Azure ou programaticamente na [CLI do Azure](cli-samples.md), no [Azure PowerShell](powershell-samples.md) ou na [API REST](/rest/api/documentdb/) atualizando a propriedade `ipRangeFilter`. Os intervalos/endereços IP devem ser separados por vírgula e não devem conter espaços. Exemplo: "13.91.6.132,13.91.6.1/24". Ao atualizar sua conta do banco de dados por meio desses métodos, preencha todas as propriedades para evitar a restauração para as configurações padrão.
 
 > [!NOTE]
 > Ao habilitar uma política de controle de acesso de IP para sua conta de banco de dados do Azure Cosmos DB, todo o acesso à conta de banco de dados do Azure Cosmos DB proveniente de computadores fora da lista de permissões configurada de intervalos de endereços IP é bloqueado. Em virtude nesse modelo, a pesquisa da operação do plano de dados a partir do portal também será bloqueada para garantir a integridade do controle de acesso.

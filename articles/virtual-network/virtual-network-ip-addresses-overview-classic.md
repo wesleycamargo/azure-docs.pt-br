@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -167,21 +169,16 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 
 |  | Recurso | Clássico | Gerenciador de Recursos |
 | --- | --- | --- | --- |
-| **Endereço IP público** |VM |Conhecido como um ILPIP (somente dinâmico) |Conhecido como um IP público (dinâmico ou estático) |
-|  |Atribuído a uma VM IaaS ou a uma instância de função de PaaS |Associado à NIC da VM | |
-| Balanceador de Carga para a Internet |Conhecido como VIP (dinâmico) ou IP Reservado (estático) |Conhecido como um IP público (dinâmico ou estático) | |
-|  |Atribuído a um serviço de nuvem |Associado à configuração de front-end do Balanceador de Carga | |
+| **Endereço IP público** |***VM*** |Conhecido como um ILPIP (somente dinâmico) |Conhecido como um IP público (dinâmico ou estático) |
+|  ||Atribuído a uma VM IaaS ou a uma instância de função de PaaS |Associado à NIC da VM | |
+|  |***Balanceador de carga para a Internet*** |Conhecido como VIP (dinâmico) ou IP Reservado (estático) |Conhecido como um IP público (dinâmico ou estático) | |
+|  ||Atribuído a um serviço de nuvem |Associado à configuração de front-end do Balanceador de Carga | |
 |  | | | |
-| **Endereço IP privado** |VM |Conhecido como um DIP |Conhecido como um endereço IP privado |
-|  |Atribuído a uma VM IaaS ou a uma instância de função de PaaS |Atribuído à NIC da VM | |
-| Balanceador de Carga Interno (ILB) |Atribuído ao ILB (dinâmico ou estático) |Atribuído à configuração de front-end do ILB (dinâmico ou estático) | |
+| **Endereço IP privado** |***VM*** |Conhecido como um DIP |Conhecido como um endereço IP privado |
+|  ||Atribuído a uma VM IaaS ou a uma instância de função de PaaS |Atribuído à NIC da VM | |
+|  |***Balanceador de carga interno (ILB)*** |Atribuído ao ILB (dinâmico ou estático) |Atribuído à configuração de front-end do ILB (dinâmico ou estático) | |
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+* [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal do Azure.
 
 

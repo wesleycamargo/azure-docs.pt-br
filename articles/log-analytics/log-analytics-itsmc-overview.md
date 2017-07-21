@@ -12,21 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 06/19/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0aa41bbc0e0135737d352553607f48a39757bcc3
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 54974ef06efdae69ddbfa12b1ba9278b48b113d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI (Visualização)
 
+![Símbolo do Conector de Gerenciamento do Serviço de TI](./media/log-analytics-itsmc/itsmc-symbol.png)
+
 Você pode usar o ITSMC (Conector de Gerenciamento de Serviço de TI) no Log Analytics do OMS para monitorar e gerenciar itens de trabalho em todos os produtos e serviços de ITSM de forma centralizada.
 
-O Conector de Gerenciamento de Serviço de TI é integrado aos produtos e serviços de ITSM (gerenciamento de serviço de TI) existentes com o Log Analytics do OMS.  A solução tem uma integração bidirecional com produtos/serviços de ITSM, que fornece aos usuários do OMS uma opção para criar incidentes, alertas ou eventos na solução de ITSM. O conector também importa dados, como incidentes e solicitações de alteração, da solução de ITSM para o Log Analytics do OMS.
+O Conector de Gerenciamento do Serviço de TI é integrado aos produtos e serviços de ITSM (Gerenciamento do Serviço de TI) com o Log Analytics do OMS.  A solução tem uma integração bidirecional com produtos/serviços de ITSM, que fornece aos usuários do OMS uma opção para criar incidentes, alertas ou eventos na solução de ITSM. O conector também importa dados, como incidentes e solicitações de alteração, da solução de ITSM para o Log Analytics do OMS.
 
 Com o Conector de Gerenciamento de Serviço de TI, você pode:
 
@@ -56,6 +58,12 @@ Após a adição bem-sucedida, você verá o Conector de Gerenciamento de Servi�
 
 ![ITSMC conectado](./media/log-analytics-itsmc/itsmc-overview-solution-in-connected-sources.png)
 
+> [!NOTE]
+
+> Por padrão, o Conector de Gerenciamento do Serviço de TI atualiza os dados da conexão uma vez em cada 24 horas. Para atualizar os dados da conexão instantaneamente para as edições ou atualizações do modelo que você fizer, clique no botão Atualizar exibido ao lado de sua conexão.
+
+ ![Atualização do ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
+
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 Essa solução não exige nenhum pacote de gerenciamento.
 
@@ -73,11 +81,14 @@ Os seguintes produtos/serviços de ITSM têm suporte no Conector de Gerenciament
 
 ## <a name="using-the-solution"></a>Usando a solução
 
-Depois de conectar o conector de Gerenciamento de Serviço de TI do OMS com o serviço de ITSM, os serviços do Log Analytics iniciarão a coleta de dados dos produtos/serviços de ITSM conectados.
+Depois de conectar o Conector de Gerenciamento do Serviço de TI do OMS com o serviço de ITSM, os serviços do Log Analytics começam a coletar os dados dos produtos/serviço do ITMS conectado.
 
 > [!NOTE]
-> - Os dados importados pelo conector de Gerenciamento de Serviço de TI são exibidos no Log Analytics como eventos chamados **ServiceDesk_CL**.
+> - Os dados importados pelo Conector de Gerenciamento do Serviço de TI são exibidos no Log Analytics como eventos chamados **ServiceDesk_CL**.
 - O evento contém um campo chamado **ServiceDeskWorkItemType_s**. que pode usar seu valor como um incidente ou uma solicitação de alteração, dependendo dos dados de item de trabalho contidos no evento **ServiceDesk_CL**.
+
+## <a name="input-data"></a>Dados de entrada
+Itens de trabalho importados dos produtos/serviços do ITSM.
 
 As seguintes informações mostram exemplos de dados coletados pelo conector de Gerenciamento de Serviço de TI:
 
@@ -144,7 +155,54 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Descrição
 - Computador
 
-Tela de exemplo do Log Analytics para dados de ITSM:
+## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
+
+| Campo do OMS | Campo do ITSM |
+|:--- |:--- |
+| ServiceDeskId_s| Número |
+| IncidentState_s | Estado |
+| Urgency_s |Urgência |
+| Impact_s |Impacto|
+| Priority_s | Prioridade |
+| CreatedBy_s | Aberto por |
+| ResolvedBy_s | Resolvido por|
+| ClosedBy_s  | Fechado por |
+| Source_s| Tipo de contato |
+| AssignedTo_s | Atribuído a  |
+| Category_s | Categoria |
+| Title_s|  Descrição breve |
+| Description_s|  Observações |
+| CreatedDate_t|  Aberto |
+| ClosedDate_t| closed|
+| ResolvedDate_t|Resolvido|
+| Computador  | Item de configuração |
+
+## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para uma solicitação de alteração do ServiceNow
+
+| Campo do OMS | Campo do ITSM |
+|:--- |:--- |
+| ServiceDeskId_s| Número |
+| CreatedBy_s | Solicitado por |
+| ClosedBy_s | Fechado por |
+| AssignedTo_s | Atribuído a  |
+| Title_s|  Descrição breve |
+| Type_s|  Tipo |
+| Category_s|  Catgory |
+| CRState_s|  Estado|
+| Urgency_s|  Urgência |
+| Priority_s| Prioridade|
+| Risk_s| Risco|
+| Impact_s| Impacto|
+| RequestedDate_t  | Solicitado por data |
+| ClosedDate_t | Data de fechamento |
+| PlannedStartDate_t  |     Data de início planejada |
+| PlannedEndDate_t  |   Data de término planejada |
+| WorkStartDate_t  | Data de início real |
+| WorkEndDate_t | Data de término real|
+| Description_s | Descrição |
+| Computador  | Item de Configuração |
+
+**Tela de exemplo do Log Analytics para dados de ITSM:**
 
 ![Tela do Log Analytics](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
 
@@ -207,6 +265,22 @@ O alerta do OMS será criado em **Alertas**. Os itens de trabalho da conexão de
 4. Forneça os valores apropriados nas caixas de texto **Tipo de Contato**, **Impacto**, **Urgência**, **Categoria** e **Subcategoria** e clique em **Criar**.
 
 O item de trabalho será criado no ITSM, que também pode ser exibido no OMS.
+
+## <a name="troubleshoot-itsm-connections-in-oms"></a>Solucionar problemas de conexões de ITSM no OMS
+1.  Se houver falha da conexão da interface do usuário da fonte conectada e você receber a mensagem **Erro ao salvar a conexão**, faça o seguinte:
+ - No caso de conexões do ServiceNow, do Cherwell e do Provance, verifique se você digitou corretamente o nome de usuário/senha e ID do cliente/segredo do cliente para cada uma das conexões. Se o erro persistir, verifique se você tem privilégios suficientes no produto ITSM correspondente para fazer a conexão.
+ - No caso do Service Manager, certifique-se de que o aplicativo Web está implantado com êxito e conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+
+2.  Se os dados do ServiceNow não estiverem sendo sincronizados no OMS, certifique-se de que a instância do ServiceNow não está em suspensão. Isso pode acontecer em algum momento nas instâncias de desenvolvimento do ServiceNow, quando estão ociosas. Caso contrário, relate o problema.
+3.  Se os alertas estiverem sendo disparados do OMS, mas os itens de trabalho não estiverem sendo criados no produto ITSM ou os itens de configuração não estiverem sendo criados/vinculados aos itens de trabalho ou para qualquer informação genérica, faça o seguinte:
+ -  A solução do Conector de Gerenciamento do Serviço de TI no portal do OMS poderia ser usada para obter um resumo das conexões/itens de trabalho/computadores etc. Clique na mensagem de erro na folha de status, navegue até **Pesquisa de Logs** e exiba a conexão com o erro usando os detalhes na mensagem de erro.
+ - você pode exibir diretamente os erros/informações relacionadas na página **Pesquisa de Logs** usando *Type=ServiceDeskLog_CL*.
+
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas de implantação do aplicativo Web do Service Manager
+1.  No caso de problemas com a implantação do aplicativo Web, verifique se que você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.
+2.  Se a mensagem de erro **Object reference not set to instance of an object (Referência do objeto não definida para a instância de um objeto)** aparecer ao executar o [script](log-analytics-itsmc-service-manager-script.md), certifique-se de ter inserido valores válidos na seção **Configuração do Usuário**.
+3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se não estiver registrado, crie-o manualmente no Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
+
 
 ## <a name="contact-us"></a>Fale conosco
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-active-directory-automatic-device-registration-faq"></a>Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory
@@ -59,17 +59,17 @@ Apenas os seguintes dispositivos são listados nas informações de usuário:
 
 Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:
 
-1.    Abra o prompt de comando como administrador.
+1.  Abra o prompt de comando como administrador.
 
-2.    Digite `dsregcmd.exe /debug /leave`
+2.  Digite `dsregcmd.exe /debug /leave`
 
-3.    Sair e entrar para disparar a tarefa agendada que registra o dispositivo novamente. 
+3.  Sair e entrar para disparar a tarefa agendada que registra o dispositivo novamente. 
 
 Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:
 
-1.    Abra o prompt de comando como administrador.
-2.    Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.    Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.  Abra o prompt de comando como administrador.
+2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -77,13 +77,13 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:**
 
--    Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
+-   Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
 
--    Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
+-   Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
 
--    Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
+-   Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
 
--    Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
+-   Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
 
 ---
 

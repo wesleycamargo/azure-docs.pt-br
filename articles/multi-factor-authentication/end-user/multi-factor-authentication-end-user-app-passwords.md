@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 3fd5b85f718313d8267157157e45965b2b21f2db
-ms.openlocfilehash: 60c84a5f5c675b012f2504f6fe222f35ce4d0646
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: fac7f969f943312fca1eacc41dca3b8e65cf2024
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>O que são as senhas de aplicativo no Azure Multi-Factor Authentication?
@@ -62,8 +63,9 @@ Se você usa a autenticação em duas etapas com o Azure, talvez seja convenient
 4. Clique em **Criar**.
 5. Insira um nome para a senha de aplicativo e clique em **Avançar**
 6. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
-
+   
    ![Nuvem](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
+
 
 ### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para excluir senhas de aplicativo no portal do Azure
 1. Entre no portal clássico do Azure.
@@ -81,17 +83,14 @@ Se não tiver certeza de como você usa a autenticação multifator, será poss�
 1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Clique no seu nome na parte superior direita e selecione **Perfil**.
 3. Escolha **Verificação de Segurança Adicional**.
-
    ![Selecione Verificação de Segurança Adicional – captura de tela](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
 4. Selecione **senhas de aplicativo**.
-
    ![Selecione senhas de aplicativo – captura de tela](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Clique em **Criar**.
 6. Insira um nome para a senha de aplicativo e clique em **Avançar**.
 7. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
-
    ![Criar uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 ### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para excluir uma senha de aplicativo usando o portal do Myapps

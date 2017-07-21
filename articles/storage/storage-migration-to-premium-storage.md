@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/27/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 56f4245b63cecd51bf81863e15e4e72d73e671d6
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -52,19 +53,19 @@ Esta seção garante que você se prepare para seguir as etapas de migração ne
 * Quando planeja usar VMs do Azure em execução no Armazenamento Premium, você precisa usar VMs compatíveis com o Armazenamento Premium. Você pode usar discos de Armazenamento Standard e Premium com VMs compatíveis com o Armazenamento Premium. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerações
-Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura. Você tem opções de várias VMs e Discos. Esta seção se destina a ajudá-lo a encontrar uma opção mais adequada para sua carga de trabalho.
+Uma VM do Azure oferece suporte à anexação de vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 256 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura. Você tem opções de várias VMs e Discos. Esta seção se destina a ajudá-lo a encontrar uma opção mais adequada para sua carga de trabalho.
 
 #### <a name="vm-sizes"></a>Tamanhos de VM
 As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
 
 #### <a name="disk-sizes"></a>Tamanhos do disco
-Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs específicos e limites de taxa de transferência. Leve em consideração esses limites ao escolher o tipo de disco para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
+Há cinco tipos de discos que podem ser usados com a VM e cada um tem IOPs específicos e limites de taxa de transferência. Leve em consideração esses limites ao escolher o tipo de disco para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
 
-| Tipo de disco de armazenamento Premium | P10 | P20 | P30 |
-|:---:|:---:|:---:|:---:|
-| Tamanho do disco |128 GB |512 GB |1024 GB (1 TB) |
-| IOPS por disco |500 |2.300 |5.000 |
-| Taxa de transferência por disco |100 MB por segundo |150 MB por segundo |200 MB por segundo |
+| Tipo de discos premium  | P10   | P20   | P30            | P40            | P50            | 
+|:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
+| Tamanho do disco           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| IOPS por disco       | 500   | 2.300  | 5.000           | 7500           | 7500           | 
+| Taxa de transferência por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. (Veja o que é a distribuição de disco [aqui](storage-premium-storage-performance.md#disk-striping).) Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento][4], deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes.
 

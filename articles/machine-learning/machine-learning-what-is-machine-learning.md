@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introdução ao Azure Machine Learning na nuvem
-## <a name="what-is-machine-learning"></a>O que aprendizado da máquina?
-O aprendizado de máquina é uma técnica da ciência de dados que ajuda os computadores a aprenderem com os dados existentes para preverem as tendências, resultados e futuros comportamentos.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introdução ao Machine Learning na nuvem do Azure
 
-Essas estimativas ou previsões de aprendizado de máquina podem tornar aplicativos e dispositivos mais inteligentes. Quando você faz compras online, o aprendizado de máquina ajuda a recomendar outros produtos que podem lhe agradar com base no que você já comprou. Ao passar seu cartão de crédito, o aprendizado de máquina compara a transação com um banco de dados de transações e ajuda a detectar fraudes. Quando o aspirador de pó robô aspira uma sala, o aprendizado de máquina ajuda a decidir se o trabalho é feito ou não.
+## <a name="what-is-machine-learning"></a>O que aprendizado da máquina?
+O Machine Learning é uma técnica da ciência de dados que permite que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros. Usando o aprendizado de máquina, os computadores aprendem sem serem explicitamente programados.
+
+As estimativas ou previsões de aprendizado de máquina podem tornar aplicativos e dispositivos mais inteligentes. Quando você faz compras online, o aprendizado de máquina ajuda a recomendar outros produtos que podem lhe agradar com base no que você já comprou. Ao passar seu cartão de crédito, o aprendizado de máquina compara a transação com um banco de dados de transações e ajuda a detectar fraudes. Quando o aspirador de pó robô aspira uma sala, o aprendizado de máquina ajuda a decidir se o trabalho é feito ou não.
 
 Para ter uma visão geral, experimente a série de vídeos [Ciência de Dados para Iniciantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Sem usar o jargão ou matemática, a Ciência de dados para Iniciantes apresenta o aprendizado de máquina e orienta-o em um modelo de previsão simples.
 

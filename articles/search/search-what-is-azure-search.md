@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 99685748120b40cd02328f6ece0b8dde55042d61
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
@@ -31,7 +31,7 @@ Saiba mais sobre os recursos do Azure Search.
 
 ### <a name="full-text-search-and-text-analysis"></a>Análise de texto e pesquisa de texto completo
 
-[Pesquisa de texto completo](https://en.wikipedia.org/wiki/Full_text_search) é um caso de uso primário para a maioria dos aplicativos baseados em pesquisa. No Azure Search, as consultas podem ser formuladas usando a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), que oferece operadores lógicos, operadores de pesquisa de frase, operadores de sufixo e operadores de precedência. Além disso, a [sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) pode permitir a pesquisa difusa, pesquisa por proximidade, aprimoramento de termo e expressões regulares. O Azure Search também oferece suporte aos [analisadores léxicos personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para permitir que seu aplicativo lide com as consultas de pesquisa complexas usando expressões regulares e correspondência fonética.
+[Pesquisa de texto completo](search-lucene-query-architecture.md) é um caso de uso primário para a maioria dos aplicativos baseados em pesquisa. No Azure Search, as consultas podem ser formuladas usando a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), que oferece operadores lógicos, operadores de pesquisa de frase, operadores de sufixo e operadores de precedência. Além disso, a [sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) pode permitir a pesquisa difusa, pesquisa por proximidade, aprimoramento de termo e expressões regulares. O Azure Search também oferece suporte aos [analisadores léxicos personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para permitir que seu aplicativo lide com as consultas de pesquisa complexas usando expressões regulares e correspondência fonética.
 
 ### <a name="language-support"></a>Suporte ao idioma
 

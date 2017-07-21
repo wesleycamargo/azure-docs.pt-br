@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
-## <a name="overview"></a>Visão geral
+<a id="manage-your-storsimple-device-controllers" class="xliff"></a>
+
+# Gerenciar controladores de dispositivo StorSimple
+<a id="overview" class="xliff"></a>
+
+## Visão geral
 Este tutorial descreve as diferentes operações que podem ser executadas em seus controladores de dispositivo StorSimple. Os controladores em seu dispositivo StorSimple são controladores redundantes (par) em uma configuração ativo-passivo. Em um determinado momento, somente um controlador está ativo e está processando todas as operações de disco e rede. O outro controlador está em um modo passivo. Se o controlador ativo falhar, o controlador passivo ficará ativo automaticamente.
 
 Este tutorial inclui instruções passo a passo para gerenciar os controladores de dispositivo usando a:
@@ -37,7 +43,9 @@ Depois de ler este tutorial, você poderá:
 * Desligar um dispositivo StorSimple
 * Redefinir o dispositivo StorSimple para os padrões de fábrica
 
-## <a name="restart-or-shut-down-a-single-controller"></a>Reiniciar ou desligar um único controlador
+<a id="restart-or-shut-down-a-single-controller" class="xliff"></a>
+
+## Reiniciar ou desligar um único controlador
 Uma reinicialização ou um desligamento de controlador não é necessário como parte da operação normal do sistema. As operações de desligamento para um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware de dispositivo com falha requer substituição. Uma reinicialização de controlador também pode ser necessária em uma situação em que o desempenho é afetado pelo uso excessivo de memória ou controlador com defeito. Se você deseja ativar e testar o controlador substituído também convém reiniciar um controlador após a sua substituição com êxito.
 
 Reiniciar um dispositivo que não é interrompido para os iniciadores conectados, supondo que o controlador passivo está disponível. Se um controlador passivo não está disponível ou está desligado, reiniciar o controlador ativo pode resultar na interrupção do serviço e em tempo de inatividade.
@@ -52,7 +60,9 @@ Você pode reiniciar ou desligar um controlador de dispositivo único usando o p
 
 Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, execute as seguintes etapas.
 
-#### <a name="to-restart-or-shut-down-a-controller-in-classic-portal"></a>Para reiniciar ou desligar um controlador no portal clássico
+<a id="to-restart-or-shut-down-a-controller-in-classic-portal" class="xliff"></a>
+
+#### Para reiniciar ou desligar um controlador no portal clássico
 1. Navegue até **Dispositivos > Manutenção**.
 2. Vá para **Status de Hardware** e verifique se o status de ambos os controladores em seu dispositivo está **Íntegro**.
    
@@ -87,7 +97,9 @@ Isso irá reiniciar ou desligar o controlador. A tabela a seguir resume os detal
 | 3. |Desligue o controlador passivo. |Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1). |
 | 4. |Desligue o controlador ativo. |Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1). |
 
-#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Para reiniciar ou desligar um controlador no Windows PowerShell para StorSimple
+<a id="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple" class="xliff"></a>
+
+#### Para reiniciar ou desligar um controlador no Windows PowerShell para StorSimple
 Execute as seguintes etapas para desligar ou reiniciar um único controlador no seu dispositivo StorSimple a partir do Portal Clássico do Azure.
 
 1. Acesse o dispositivo por meio do console serial ou uma sessão de telnet de um computador remoto. Conecte-se ao Controlador 0 ou Controlador 1 seguindo as etapas em [Usar PuTTY para se conectar ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
@@ -105,7 +117,9 @@ Execute as seguintes etapas para desligar ou reiniciar um único controlador no 
      
        Isso reiniciará o controlador ao qual você está conectado. Se você reiniciar o controlador ativo, ele realizará failover para o controlador passivo antes da reinicialização.
 
-## <a name="shut-down-a-storsimple-device"></a>Desligar um dispositivo StorSimple
+<a id="shut-down-a-storsimple-device" class="xliff"></a>
+
+## Desligar um dispositivo StorSimple
 Esta seção explica como desligar um dispositivo StorSimple com falha ou em execução a partir de um computador remoto. Um dispositivo é desativado após desligar ambos os controladores do dispositivo. Um desligamento de dispositivo é feito quando o dispositivo está sendo movido fisicamente ou se for retirado de serviço.
 
 > [!IMPORTANT]
@@ -113,7 +127,9 @@ Esta seção explica como desligar um dispositivo StorSimple com falha ou em exe
 > 
 > 
 
-#### <a name="to-shut-down-a-storsimple-device"></a>Para desligar um dispositivo StorSimple
+<a id="to-shut-down-a-storsimple-device" class="xliff"></a>
+
+#### Para desligar um dispositivo StorSimple
 1. Use o procedimento de [reiniciar ou desligar um controlador](#restart-or-shut-down-a-single-controller) para identificar e desligar o controlador passivo em seu dispositivo. Você pode executar essa operação no portal de clássico do Azure ou no Windows PowerShell para StorSimple.
 2. Repita a etapa acima para desligar o controlador ativo.
 3. Agora, você precisará examinar o plano de apoio do dispositivo. Depois que os dois controladores são completamente desligados, os LEDs de status em ambos os controladores devem estar piscando em vermelho. Se você precisar desativar o dispositivo completamente neste momento, coloque os interruptores de energia nos Módulos de energia e resfriamento (PCMs) na posição OFF. Isso deve desativar o dispositivo.
@@ -136,7 +152,9 @@ Esta seção explica como desligar um dispositivo StorSimple com falha ou em exe
 
 1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
-## <a name="reset-the-device-to-factory-default-settings"></a>Redefinir o dispositivo para as configurações padrões de fábrica
+<a id="reset-the-device-to-factory-default-settings" class="xliff"></a>
+
+## Redefinir o dispositivo para as configurações padrões de fábrica
 > [!IMPORTANT]
 > Se você precisar redefinir o dispositivo para as configurações padrão de fábrica, entre em contato com o Suporte da Microsoft. O procedimento descrito a seguir deve ser usado apenas em conjunto com o Suporte da Microsoft.
 > 
@@ -147,7 +165,9 @@ A redefinição de um dispositivo remove todos os dados e todas as configuraçõ
 
 Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimple para as configurações padrões de fábrica:
 
-### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Para redefinir o dispositivo para as configurações padrões do Windows PowerShell para StorSimple
+<a id="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple" class="xliff"></a>
+
+### Para redefinir o dispositivo para as configurações padrões do Windows PowerShell para StorSimple
 1. Acesse o dispositivo por meio do seu console serial. Verifique a mensagem do cabeçalho para garantir que você está conectado ao controlador Ativo.
 2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
 3. No prompt, digite o seguinte comando para redefinir todo o cluster, removendo todas as configurações de dados, metadados e controlador:
@@ -164,50 +184,49 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
    > 
    > 
 
-## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre como gerenciar controladores de dispositivo
+<a id="questions-and-answers-about-managing-device-controllers" class="xliff"></a>
+
+## Perguntas e respostas sobre como gerenciar controladores de dispositivo
 Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento de controladores de dispositivo StorSimple.
 
-**P.**  O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
+**P.** O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
 
-**A.**  Se ambos os controladores em seu dispositivo estão íntegros e ativados, será solicitada a sua confirmação. Você pode optar por:
+**A.** Se ambos os controladores em seu dispositivo estão íntegros e ativados, será solicitada a sua confirmação. Você pode optar por:
 
 * **Reiniciar o controlador ativo** – você será notificado de que reiniciar um controlador ativo fará com que o dispositivo faça failover para o controlador passivo. O controlador será reiniciado.
 * **Desligar um controlador ativo** – você será notificado de que desligar um controlador ativo resultará em tempo de inatividade. Você também precisará pressionar o botão de energia no dispositivo para ativar o controlador.
 
-**P.**  O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
+**P.** O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
 
-**A.**  Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
+**A.** Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
 
 * **Reiniciar o controlador ativo** – você será notificado de que continuar a operação resultará em uma interrupção temporária do serviço e será solicitada a sua confirmação.
 * **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que você precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
 
-**P.**  Quando o desligamento ou reinicialização do controlador falha durante a execução?
+**P.** Quando o desligamento ou reinicialização do controlador falha durante a execução?
 
-**A.**  Reiniciar ou desligar um controlador pode falhar se:
+**A.** Reiniciar ou desligar um controlador pode falhar se:
 
 * Uma atualização do dispositivo está em andamento.
 * Uma reinicialização de controlador já está em andamento.
 * Um desligamento do controlador já está em andamento.
 
-**P.**  Como saber se um controlador foi reiniciado ou desligado?
+**P.** Como saber se um controlador foi reiniciado ou desligado?
 
-**A.**  Você pode verificar o status do controlador na página de Manutenção. O status do controlador indicará se um controlador foi reiniciado ou desligado. Além disso, a página Alertas terá um alerta informativo, avisando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de operação. Para obter mais informações sobre logs de operação, vá para [Exibir os logs de operação](storsimple-service-dashboard.md#view-the-operations-logs).
+**A.** Você pode verificar o status do controlador na página de Manutenção. O status do controlador indicará se um controlador foi reiniciado ou desligado. Além disso, a página Alertas terá um alerta informativo, avisando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de operação. Para obter mais informações sobre logs de operação, vá para [Exibir os logs de operação](storsimple-service-dashboard.md#view-the-operations-logs).
 
-**P.**  Há algum impacto sobre as E/Ss como resultado de failover do controlador?
+**P.** Há algum impacto sobre as E/Ss como resultado de failover do controlador?
 
-**A.**  As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
+**A.** As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
 
-**P.**  Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
+**P.** Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
 
 **A.** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md).
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 * Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

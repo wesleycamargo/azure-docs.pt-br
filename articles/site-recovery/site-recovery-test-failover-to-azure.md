@@ -15,17 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 198640030b638720863ffae05543b32692608f1b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="test-----failover-to-azure-in-site-recovery"></a>Failover de teste para o Azure no Site Recovery
-> [!div class="op_single_selector"]
-> * [Failover de teste para o Azure](./site-recovery-test-failover-to-azure.md)
-> * [Failover de teste (VMM para VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+# <a name="test--failover-to-azure-in-site-recovery"></a>Failover de teste para o Azure no Site Recovery
+
 
 
 Este artigo fornece informações e instruções sobre como fazer um failover de teste ou uma simulação de recuperação de desastre de máquinas virtuais e servidores físicos protegidos com o Site Recovery usando o Azure como o local de recuperação.
@@ -50,7 +48,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
     1.  **Mais recentes processados**: essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
     1.    **Consistente de aplicativo mais recente**: essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
     1.    **Mais recente**: essa opção primeiro processa todos os dados que foram enviados ao serviço do Site Recovery para criar um ponto de recuperação para cada máquina virtual antes de failover para ele. Essa opção oferece o menor RPO (objetivo de ponto de recuperação) da máquina virtual criada após failover terá todos os dados que tenha sido replicada para o serviço do Site Recovery quando o failover foi disparado.
-    1.    **Personalizado**: se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
+    1.  **Personalizado**: se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
 1. Selecione uma **rede virtual do Azure**: forneça uma rede virtual do Azure, onde as máquinas virtuais de teste seriam criadas. O Site Recovery tenta criar máquinas virtuais de teste em uma sub-rede de mesmo nome e usando o mesmo IP fornecido nas configurações de **Computação e Rede** da máquina virtual. Se a sub-rede de mesmo nome não estiver disponível na rede virtual do Azure fornecida para failover de teste, então a máquina virtual de teste será criada na primeira sub-rede em ordem alfabética. Se o mesmo IP não estiver disponível na sub-rede, a máquina virtual receberá outro endereço IP disponível na sub-rede. Leia esta seção para obter [mais detalhes](#creating-a-network-for-test-failover)
 1. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor. Você pode ignorar esta etapa se você não ativou a criptografia na máquina virtual.
 1. Acompanhe o progresso do failover na guia **Trabalhos** . Você deve poder ver o computador de réplica de teste no portal do Azure.
@@ -77,19 +75,19 @@ Quando é disparado, um failover de teste envolve as seguintes etapas:
 
 Em certos casos, o failover de máquinas virtuais requer uma etapa intermediária extra que geralmente leva cerca de oito a 10 minutos para ser concluída. Esses casos são os seguintes:
 
-* Máquinas virtuais VMware usando o serviço de mobilidade da versão anterior a 9.8
-* Servidores físicos 
+* Máquinas virtuais VMware que usam uma versão do Serviço de mobilidade anterior a 9.8
+* Servidores físicos
 * Máquinas virtuais VMware Linux
 * Máquinas virtuais Hyper-V protegidas como servidores físicos
-* Máquinas virtuais VMware em que os drivers a seguir não estão presentes como drivers de inicialização 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* Máquinas virtuais VMware em que os drivers a seguir não estão presentes como drivers de inicialização
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * Máquinas virtuais VMware que não têm o serviço DHCP habilitado, independentemente de estarem usando endereços DHCP ou IP estáticos
 
-Em todos outros casos, essa etapa intermediária não é necessária, e o tempo necessário para o failover é significativamente menor. 
+Em todos outros casos, essa etapa intermediária não é necessária, e o tempo necessário para o failover é significativamente menor.
 
 
 ## <a name="creating-a-network-for-test-failover"></a>Criar uma rede para failover de teste

@@ -1,5 +1,5 @@
 ---
-title: Carregar dados no Azure Search usando SDK do .NET | Microsoft Docs
+title: Carregar dados (.NET - Azure Search) | Microsoft Docs
 description: "Aprenda a carregar dados em um índice na Pesquisa do Azure usando o SDK do .NET."
 services: search
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carregar dados para a Pesquisa do Azure usando o SDK do .NET
@@ -236,10 +237,5 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -3,7 +3,7 @@ title: Navegar e selecionar as imagens da VM do Windows | Microsoft Docs
 description: "Saiba como determinar o editor, a oferta e o SKU para imagens ao criar uma máquina virtual do Windows com o modelo de implantação do Gerenciador de Recursos."
 services: virtual-machines-windows
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,19 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
-ms.author: rasquill
+ms.author: danlep
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
-
 ---
-# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell"></a>Navegar e selecionar imagens da máquina virtual do Windows no Azure com o PowerShell
+<a id="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell" class="xliff"></a>
+
+# Navegar e selecionar imagens da máquina virtual do Windows no Azure com o PowerShell
 Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
 
-## <a name="table-of-commonly-used-windows-images"></a>Tabela das imagens do Windows mais usadas
+<a id="table-of-commonly-used-windows-images" class="xliff"></a>
+
+## Tabela das imagens do Windows mais usadas
 | PublisherName | Oferta | Sku |
 |:--- |:--- |:--- |:--- |
 | MicrosoftDynamicsNAV |DynamicsNAV |2015 |
@@ -40,7 +43,9 @@ Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e 
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 
-## <a name="find-azure-images-with-powershell"></a>Encontrar imagens do Azure com o PowerShell
+<a id="find-azure-images-with-powershell" class="xliff"></a>
+
+## Encontrar imagens do Azure com o PowerShell
 > [!NOTE]
 > Instalar e configurar o [Azure PowerShell mais recente](/powershell/azure/overview). Se você estiver usando módulos do Azure PowerShell inferiores a 1.0, ainda usa os comandos a seguir, mas deve primeiro `Switch-AzureMode AzureResourceManager`. 
 > 
@@ -133,6 +138,8 @@ Windows-Server-Technical-Preview
 
 Nesta lista, copie o nome da SKU escolhida e você terá todas as informações do cmdlet `Set-AzureRMVMSourceImage` do PowerShell ou de um modelo de grupo de recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de imagem, que você acabou de encontrar, ou para usar um modelo com as informações dessa imagem, veja [Criar uma VM do Windows usando o Resource Manager e o PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

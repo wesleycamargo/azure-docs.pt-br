@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 48e4ad774164b87d0cacb42f709e54af1d6f07b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -175,6 +175,17 @@ Se você copiou uma versão não compactada de seu pacote de aplicativos e desej
 Da mesma forma, se você carregou uma versão compactada do pacote e deseja usar um pacote descompactado, é necessário atualizar as versões para evitar a incompatibilidade da soma de verificação.
 
 O pacote agora é empacotado corretamente, validado e compactado (se necessário), para que esteja pronto para [implantação](service-fabric-deploy-remove-applications.md) em um ou mais clusters do Service Fabric.
+
+### <a name="compress-packages-when-deploying-using-visual-studio"></a>Compactar pacotes durante a implantação usando o Visual Studio
+Você pode instruir o Visual Studio para compactar os pacotes em implantação, adicionando o elemento `CopyPackageParameters` em seu perfil de publicação e definir o atributo `CompressPackage` como `true`.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 [Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias do aplicativo

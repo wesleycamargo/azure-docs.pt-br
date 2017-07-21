@@ -15,10 +15,10 @@ ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -259,7 +259,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 `name` ‒ define o nome do campo.
 
-`type` ‒ define o tipo de dados do campo. Consulte [Tipos de Dados Com Suporte](#DataTypes) para obter uma lista dos tipos com suporte.
+`type` ‒ define o tipo de dados do campo.
 
 `searchable` ‒ marca o campo como texto completo pesquisável. Isso significa que ele será submetido a análise, como separação de palavras, durante a indexação. Se você definir um campo `searchable` para um valor como "dia ensolarado", internamente ele será dividido nos tokens individuais "dia" e "ensolarado". Isso habilita pesquisas de texto completo para esses termos. Os campos dos tipos `Edm.String` ou `Collection(Edm.String)` são `searchable` por padrão. Campos de outros tipos não podem ser `searchable`.
 
@@ -290,7 +290,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 <!-- This is a standalone topic in MSDN -->
 <a name="LanguageSupport"></a>
-**Suporte a idiomas**
+**Suporte ao idioma**
 
 Os campos pesquisáveis são submetidos a análise que, frequentemente, envolve quebra de palavras, normalização do texto e filtragem de termos. Por padrão, os campos pesquisáveis no Azure Search são analisados com o [Analisador Apache Lucene Padrão](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), que quebra o texto em elementos seguindo as regras de ["Segmentação de texto Unicode"](http://unicode.org/reports/tr29/). Além disso, o analisador padrão converte todos os caracteres em sua forma em letras minúsculas. Documentos indexados e termos de pesquisa são submetidos a análise durante a indexação e o processamento de consultas.
 
@@ -1461,7 +1461,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 > 
 > 
 
-`$filter=[string]` (opcional) ‒ uma expressão de pesquisa estruturada na sintaxe de OData padrão. Consulte [Sintaxe de expressão OData](#ODataExpressionSyntax) para obter detalhes sobre o subconjunto da gramática de expressões OData ao qual o Azure Search dá suporte.
+`$filter=[string]` (opcional) ‒ uma expressão de pesquisa estruturada na sintaxe de OData padrão.
 
 > [!NOTE]
 > Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `filter`, em vez de `$filter`.

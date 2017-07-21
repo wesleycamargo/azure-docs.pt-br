@@ -12,29 +12,32 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 07/09/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
 # <a name="update-management-solution-in-oms"></a>Solução Gerenciamento de Atualizações no OMS
-A solução Gerenciamento de Atualizações no OMS permite que você gerencie atualizações para os computadores Windows e Linux.  Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e iniciar rapidamente o processo de instalação das atualizações necessárias para os servidores. 
 
-## <a name="solution-components"></a>Componentes da solução
+![Símbolo de Gerenciamento de Atualizações](./media/oms-solution-update-management/update-management-symbol.png)
 
-Computadores gerenciados pelo OMS usam o seguinte para executar implantações de avaliação e atualização: 
+A solução Gerenciamento de Atualizações no OMS permite que você gerencie atualizações de segurança do sistema operacional para os computadores Windows e Linux implantados no Azure, em ambientes locais ou em outros provedores de nuvem.  Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar rapidamente o processo de instalação das atualizações necessárias para os servidores.
+
+
+## <a name="solution-overview"></a>Visão geral da solução
+Computadores gerenciados pelo OMS usam o seguinte para executar implantações de avaliação e atualização:
 
 * Agente do OMS para Windows ou Linux
-* DSC (PowerShell Desired State Configuration) para Linux 
-* Hybrid Runbook Worker de Automação 
+* DSC (PowerShell Desired State Configuration) para Linux
+* Hybrid Runbook Worker de Automação
 * Microsoft Update ou Windows Server Update Services para computadores Windows
 
-Os diagramas a seguir mostram uma exibição conceitual do comportamento e do fluxo de dados, indicando como a solução avalia e aplica atualizações a todos os computadores Linux e servidores Windows conectados em um espaço de trabalho.    
+Os diagramas a seguir mostram uma exibição conceitual do comportamento e do fluxo de dados, indicando como a solução avalia e aplica atualizações de segurança a todos os computadores Linux e servidores Windows conectados em um espaço de trabalho.    
 
 #### <a name="windows-server"></a>Windows Server
 ![Fluxo de processo de gerenciamento de atualização do Windows Server](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
@@ -51,14 +54,14 @@ Você pode implantar e instalar atualizações de software em computadores que p
 Na data e hora especificadas na implantação da atualização, os computadores de destino executam a implantação em paralelo.  Uma verificação é executada primeiro para verificar se as atualizações ainda são necessárias e as instala.  É importante observar que, para computadores cliente do WSUS, se as atualizações não forem aprovadas no WSUS, a implantação de atualização falhará.  Os resultados das atualizações aplicadas são encaminhados ao OMS para serem processados e resumidos em painéis ou com a pesquisa de eventos.     
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A solução dá suporte à execução de avaliações de atualização no Windows Server 2008 e superior e à atualização de implantações no Windows Server 2008 R2 e superior.  Não há suporte para as opções de instalação Server Core e Nano Server.
+* A solução dá suporte à execução de avaliações de atualização no Windows Server 2008 e superior e à atualização de implantações no Windows Server 2008 R2 SP1 e superior.  Não há suporte para as opções de instalação Server Core e Nano Server.
 
     > [!NOTE]
-    > O suporte à implantação de atualizações para o Windows Server 2008 R2 requer o .NET Framework 4.5 e WMF 5.0 ou posterior.
+    > O suporte à implantação de atualizações para o Windows Server 2008 R2 SP1 requer o .NET Framework 4.5 e WMF 5.0 ou posterior.
     >  
 * Não há suporte para sistemas operacionais clientes do Windows.  
 * Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update.  
-  
+
     > [!NOTE]
     > O agente do Windows não pode ser gerenciado simultaneamente pelo System Center Configuration Manager.  
     >
@@ -66,19 +69,22 @@ Na data e hora especificadas na implantação da atualização, os computadores 
 * Red Hat Enterprise 6 (x86/x64) e 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
 * Ubuntu 12.04 LTS e posterior x86/x64  
+    > [!NOTE]  
+    > Para evitar atualizações aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para saber mais sobre como configurar isso, veja [o tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
 * Os agentes do Linux devem ter acesso a um repositório de atualização.  
 
     > [!NOTE]
     > Um agente do OMS para Linux configurado para emitir relatórios para vários espaços de trabalho do OMS não tem suporte nessa solução.  
-    > 
+    >
 
 Para obter informações adicionais sobre como instalar o agente do OMS para Linux e baixar a versão mais recente, confira [Operations Management Suite Agent para Linux](https://github.com/microsoft/oms-agent-for-linux).  Para obter informações sobre como instalar o Agente do OMS para Windows, confira [Operations Management Suite Agent para Windows](../log-analytics/log-analytics-windows-agents.md).  
 
 ## <a name="solution-components"></a>Componentes da solução
-Essa solução consiste nos seguintes recursos que são adicionados à sua conta de Automação e a agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager. 
+Essa solução consiste nos seguintes recursos que são adicionados à sua conta de Automação e a agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
 
 ### <a name="management-packs"></a>Pacotes de gerenciamento
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um espaço de trabalho do OMS, os pacotes de gerenciamento a seguir serão instalados no Operations Manager.  Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente após a adição dessa solução. Não há nada para configurar ou gerenciar com esses pacotes de gerenciamento. 
+Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um espaço de trabalho do OMS, os pacotes de gerenciamento a seguir serão instalados no Operations Manager.  Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente após a adição dessa solução. Não há nada para configurar ou gerenciar com esses pacotes de gerenciamento.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -92,7 +98,7 @@ Depois que você habilita essa solução, qualquer computador com Windows conect
 No entanto, você pode adicionar os computadores com Windows a um grupo de Hybrid Runbook Worker em sua conta de Automação para dar suporte a runbooks de automação enquanto você estiver usando a mesma conta para a solução e para a associação de grupo do Hybrid Runbook Worker.  Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Configuração
-Execute as etapas a seguir para adicionar a solução de gerenciamento de atualizações a seu espaço de trabalho do OMS e confirme os agentes estão se comunicando. Os agentes do Windows já conectados ao seu espaço de trabalho são adicionados automaticamente sem nenhuma configuração adicional. 
+Execute as etapas a seguir para adicionar a solução de gerenciamento de atualizações a seu espaço de trabalho do OMS e confirme os agentes estão se comunicando. Os agentes do Windows já conectados ao seu espaço de trabalho são adicionados automaticamente sem nenhuma configuração adicional.
 
 Você pode implantar a solução usando os seguintes métodos:
 
@@ -114,9 +120,15 @@ Em um computador Windows, você pode examinar o seguinte para verificar a conect
 1.  Abra o Microsoft Monitoring Agent no Painel de Controle e, na guia **Análise de Log do Azure (OMS)**, o agente exibe uma mensagem dizendo: **O Microsoft Monitoring Agent se conectou com êxito ao serviço Microsoft Operations Management Suite**.   
 2.  Abra o Log de Eventos do Windows, navegue até **Logs de Aplicativos e Serviços\Operations Manager** e procure as IDs de Evento 3000 e 5002 do Conector de Serviço de origem.  Esses eventos indicam que o computador foi registrado com o espaço de trabalho do OMS e está recebendo a configuração.  
 
-Se o agente puder se comunicar com o serviço OMS e estiver configurado para se comunicar com a Internet através de um servidor proxy ou firewall, verifique se o servidor proxy ou firewall está configurado corretamente examinando [Definir configurações de proxy e firewall na Análise de Log](../log-analytics/log-analytics-proxy-firewall.md).
-  
-Agentes do Linux recém-adicionados mostrarão um status de **Atualizado** após ter sido realizada uma avaliação.  Esse processo pode levar até seis horas. 
+Se o agente puder se comunicar com o serviço OMS e estiver configurado para se comunicar com a Internet através de um servidor proxy ou firewall, verifique se o servidor proxy ou firewall está configurado corretamente examinando [Configuração de rede para o agente do Windows](../log-analytics/log-analytics-windows-agents.md#network) ou [Configuração de rede para o agente do Linux](../log-analytics/log-analytics-agent-linux.md#network).
+
+> [!NOTE]
+> Se os sistemas Linux estiverem configurados para se comunicar com um proxy ou Gateway OMS e se você estiver integrando essa solução, atualize as permissões de *proxy.conf* para conceder a permissão de leitura de grupo omiuser no arquivo executando os seguintes comandos:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
+
+Agentes do Linux recém-adicionados mostrarão um status de **Atualizado** após ter sido realizada uma avaliação.  Esse processo pode levar até seis horas.
 
 Para confirmar se um grupo de gerenciamento do Operations Manager está se comunicando com o OMS, confira [Validar a integração do Operations Manager com o OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
@@ -132,7 +144,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | Conta de Armazenamento do Azure |Não |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
-Para cada computador gerenciado do Windows, uma verificação é executada duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status for alterado e, nesse caso, é iniciada uma verificação de conformidade.  Para cada computador Linux gerenciado, uma verificação é executada a cada três horas. 
+Para cada computador gerenciado do Windows, uma verificação é executada duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status for alterado e, nesse caso, é iniciada uma verificação de conformidade.  Para cada computador Linux gerenciado, uma verificação é executada a cada três horas.
 
 Pode demorar de 30 minutos a seis horas para o painel exibir dados atualizados em computadores gerenciados.   
 
@@ -142,14 +154,14 @@ Ao adicionar a solução de Gerenciamento de Atualizações ao seu espaço de tr
 
 
 ## <a name="viewing-update-assessments"></a>Exibição de avaliações de atualização
-Clique no bloco **Gerenciamento de Atualizações** para abrir o painel **Gerenciamento de Atualizações**.<br><br> ![Painel Resumo de Gerenciamento de Atualizações](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
+Clique no bloco **Gerenciamento de Atualizações** para abrir o painel **Gerenciamento de Atualizações**.<br><br> ![Painel Resumo de Gerenciamento de Atualizações](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
 Esse painel fornece uma análise detalhada do status de atualização categorizado por tipo de sistema operacional e a classificação da atualização: crítica, de segurança ou outros (como uma atualização de definição). Quando selecionado, o bloco **Implantações de Atualização** redireciona você para a página de implantações de atualização, onde é possível exibir agendas, implantações em execução no momento e implantações concluídas ou agendar uma nova implantação.  
 
 Você pode executar uma pesquisa de log que retorna todos os registros clicando no bloco específico ou executando uma consulta de uma categoria específica e critérios predefinidos. Selecione um na lista disponível na coluna **Consultas Comuns de Atualização**.    
 
 ## <a name="installing-updates"></a>Instalação de atualizações
-Depois de avaliar atualizações para todos os computadores com Windows e Linux em seu espaço de trabalho, você pode ter as necessárias atualizações instaladas, criando uma *Implantação de Atualizações*.  Uma Implantação de Atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores.  Você especifica a data e hora para a implantação, além de um computador ou um grupo de computadores que devem ser incluídos no escopo de uma implantação.  Para saber mais sobre grupos de computadores, confira [Grupos de computadores na Análise de Log](../log-analytics/log-analytics-computer-groups.md).  Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez no momento da criação da agenda.  As alterações subsequentes em um grupo não são refletidas.  Para solucionar esse problema, exclua a implantação de atualização agendada e recrie-a. 
+Depois de avaliar atualizações para todos os computadores com Windows e Linux em seu espaço de trabalho, você pode ter as necessárias atualizações instaladas, criando uma *Implantação de Atualizações*.  Uma Implantação de Atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores.  Você especifica a data e hora para a implantação, além de um computador ou um grupo de computadores que devem ser incluídos no escopo de uma implantação.  Para saber mais sobre grupos de computadores, confira [Grupos de computadores na Análise de Log](../log-analytics/log-analytics-computer-groups.md).  Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez no momento da criação da agenda.  As alterações subsequentes em um grupo não são refletidas.  Para solucionar esse problema, exclua a implantação de atualização agendada e recrie-a.
 
 > [!NOTE]
 > Máquinas virtuais do Windows implantadas no Azure Marketplace por padrão são definidas para receber atualizações automáticas do Serviço Windows Update.  Esse comportamento não é alterado depois de adicionar essa solução ou máquinas virtuais do Windows ao seu espaço de trabalho.  Se você não gerenciou atualizações ativamente com essa solução, o comportamento padrão (aplicar automaticamente as atualizações) será aplicado.  
@@ -179,8 +191,8 @@ Selecione uma Implantação de Atualização concluída para exibir a tela de de
 | Computadores Linux |Lista o número de computadores com Linux na Implantação de Atualizações por status.  Clique em um status para executar uma pesquisa de log que retorna todos os registros de atualização com esse status para a Implantação de Atualizações. |
 | Status de Instalação do Computador |Lista os computadores envolvidos na Implantação de Atualizações e a porcentagem de atualizações instaladas com êxito. Clique em uma das entradas para executar uma pesquisa de log retornando todas as atualizações críticas e ausentes. |
 | **Exibição de Atualizações** | |
-| Atualizações do Windows |Lista as atualizações do Windows incluídas na implantação de atualização e o status de instalação por atualização.  Selecione uma atualização para executar uma pesquisa de log que retorna todos os registros de atualização para essa atualização específica ou clique no status para executar uma pesquisa de log que retorna todos os registros de atualização para a implantação. | 
-| Atualizações do Linux |Listar atualizações do Linux incluídas na implantação de atualização e o status de instalação por atualização.  Selecione uma atualização para executar uma pesquisa de log que retorna todos os registros de atualização para essa atualização específica ou clique no status para executar uma pesquisa de log que retorna todos os registros de atualização para a implantação. | 
+| Atualizações do Windows |Lista as atualizações do Windows incluídas na implantação de atualização e o status de instalação por atualização.  Selecione uma atualização para executar uma pesquisa de log que retorna todos os registros de atualização para essa atualização específica ou clique no status para executar uma pesquisa de log que retorna todos os registros de atualização para a implantação. |
+| Atualizações do Linux |Listar atualizações do Linux incluídas na implantação de atualização e o status de instalação por atualização.  Selecione uma atualização para executar uma pesquisa de log que retorna todos os registros de atualização para essa atualização específica ou clique no status para executar uma pesquisa de log que retorna todos os registros de atualização para a implantação. |
 
 ### <a name="creating-an-update-deployment"></a>Criação de uma Implantação de Atualizações
 Crie uma nova Implantação de Atualizações clicando no botão **Adicionar** na parte superior da tela para abrir a página **Nova Implantação de Atualizações**.  Você deve fornecer valores para as propriedades na tabela a seguir.
@@ -197,7 +209,7 @@ Crie uma nova Implantação de Atualizações clicando no botão **Adicionar** n
 <br><br> ![Página Nova Implantação de Atualizações](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
 ### <a name="time-range"></a>Intervalo de tempo
-Por padrão, o escopo dos dados analisados na solução de Gerenciamento de Atualizações é de todos os grupos de gerenciamento conectados, gerados no último dia. 
+Por padrão, o escopo dos dados analisados na solução de Gerenciamento de Atualizações é de todos os grupos de gerenciamento conectados, gerados no último dia.
 
 Para alterar o intervalo de tempo dos dados, selecione **Dados baseados em** na parte superior do painel. Você pode selecionar registros criados ou atualizados dentro dos últimos 7 dias, 1 dia ou 6 horas. Outra opção é selecionar **Personalizado** e especificar um intervalo de datas personalizado.
 
@@ -233,11 +245,11 @@ Um registro com um tipo **Update** é criado para cada atualização instalada o
 | UpdateID |GUID para identificar exclusivamente a atualização. |
 | UpdateState |Especifica se a atualização está instalada neste computador.<br>Os valores possíveis são:<br>-Instalado - a atualização está instalada neste computador.<br>-Necessário - a atualização não está instalada e é necessário neste computador. |
 
-Quando você executa uma pesquisa de log que retorna registros com um tipo **Update**, pode selecionar a exibição **Updates**, que exibe um conjunto de blocos resumindo as atualizações retornadas pela pesquisa. Você pode clicar nas entradas dos blocos **Atualizações ausentes e aplicadas** e **Atualizações obrigatórias e opcionais** para obter um escopo da exibição do conjunto de atualizações. Selecione a exibição **Lista** ou **Tabela** para retornar os registros individuais.<br> 
+Quando você executa uma pesquisa de log que retorna registros com um tipo **Update**, pode selecionar a exibição **Updates**, que exibe um conjunto de blocos resumindo as atualizações retornadas pela pesquisa. Você pode clicar nas entradas dos blocos **Atualizações ausentes e aplicadas** e **Atualizações obrigatórias e opcionais** para obter um escopo da exibição do conjunto de atualizações. Selecione a exibição **Lista** ou **Tabela** para retornar os registros individuais.<br>
 
 ![Exibição de atualização de pesquisa de log com a atualização do tipo de registro](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-Na exibição **Tabela**, você pode clicar na **KBID** de qualquer registro para abrir um navegador com o artigo da Base de Dados de Conhecimento. Isso permite que você leia rapidamente sobre os detalhes da atualização específica.<br> 
+Na exibição **Tabela**, você pode clicar na **KBID** de qualquer registro para abrir um navegador com o artigo da Base de Dados de Conhecimento. Isso permite que você leia rapidamente sobre os detalhes da atualização específica.<br>
 
 ![Exibição de tabela de pesquisa de log com atualizações do tipo de registro de blocos](./media/oms-solution-update-management/update-la-view-table.png)
 
@@ -269,33 +281,33 @@ Um registro com um tipo **UpdateSummary** é criado para cada computador de agen
 | WSUSServer |URL do servidor WSUS se o computador estiver configurado para usar um. |
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
-A tabela a seguir fornece pesquisas de log de exemplo para os registros de atualização coletados por essa solução. 
+A tabela a seguir fornece pesquisas de log de exemplo para os registros de atualização coletados por essa solução.
 
 | Consultar | Descrição |
 | --- | --- |
-|Computadores baseados no Windows Server que precisam de atualizações |'Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer' |
-|Servidores Linux que precisam de atualizações | 'Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer' |
-| Todos os computadores com atualizações ausentes |'Type=Update UpdateState=Needed Optional=false | selecione Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Atualizações ausentes para um computador específico (substitua o valor pelo nome de seu próprio computador) |'Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | selecione Computer,Title,KBID,Product,UpdateSeverity,PublishedDate' |
-| Todos os computadores com atualizações críticas ou de segurança ausentes |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Atualizações críticas ou de segurança necessárias para computadores em que as atualizações são aplicadas manualmente |'Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID' |
-| Eventos de erro para computadores sem as atualizações críticas ou de segurança obrigatórias |'Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}' |
-| Todos os computadores com pacotes cumulativos de atualização ausentes |'Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| selecione Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Atualizações ausentes distintas em todos os computadores |'Type=Update UpdateState=Needed Optional=false | Distinct Title' |
-| Computador baseado no Windows Server com atualizações que falharam em uma execução de atualização | 'Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName' |
-| Servidor Linux com atualizações que falharam em uma execução de atualização |'Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName' |
-| Associação de computadores ao WSUS |'Type=UpdateSummary | measure count() by WSUSServer' |
-| Configuração de atualização automática |'Type=UpdateSummary | measure count() by WindowsUpdateSetting' |
-| Computadores com atualizações automáticas desabilitadas |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| Lista de todas as máquinas Linux com uma atualização de pacote disponível |'Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer' |
-| Lista de todas as máquinas Linux com uma atualização de pacote disponível que trata de vulnerabilidade Crítica ou de Segurança |'Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer' |
-| Lista de todos os pacotes que tenham uma atualização disponível |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| Lista de todos os pacotes que tenham uma atualização disponível para uma vulnerabilidade Crítica ou de Segurança |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| Listar as implantações de atualização que modificaram computadores |'Type:UpdateRunProgress | measure Count() by UpdateRunName' |
-|Computadores que foram atualizados nesta atualização executam (substitua o valor pelo nome de sua implantação de atualização |'Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer' |
-| Lista de todas as máquinas "Ubuntu" com qualquer atualização disponível |'Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer' |
+| Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Computadores baseados no Windows Server que precisam de atualizações |
+| Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Servidores Linux que precisam de atualizações | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Todos os computadores com atualizações ausentes |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |Atualizações ausentes para um computador específico (substitua o valor pelo nome de seu próprio computador)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |Todos os computadores com atualizações críticas ou de segurança ausentes | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |Atualizações críticas ou de segurança necessárias para computadores em que as atualizações são aplicadas manualmente |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |Eventos de erro para computadores sem as atualizações críticas ou de segurança obrigatórias |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Todos os computadores com pacotes cumulativos de atualização ausentes | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |Atualizações ausentes distintas em todos os computadores | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |Computador baseado no Windows Server com atualizações que falharam em uma execução de atualização | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |Servidor Linux com atualizações que falharam em uma execução de atualização | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |Associação de computadores ao WSUS | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |Configuração de atualização automática | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |Computadores com atualizações automáticas desabilitadas | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |Lista de todas as máquinas Linux com uma atualização de pacote disponível | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |Lista de todas as máquinas Linux com uma atualização de pacote disponível que trata de vulnerabilidade Crítica ou de Segurança | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |Lista de todos os pacotes que tenham uma atualização disponível | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista de todos os pacotes que tenham uma atualização disponível para uma vulnerabilidade Crítica ou de Segurança | 
+| Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Listar as implantações de atualização que modificaram computadores | 
+| Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Computadores que foram atualizados nesta atualização executam (substitua o valor pelo nome de sua implantação de atualização | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista de todas as máquinas "Ubuntu" com qualquer atualização disponível | 
 
-## <a name="troubleshooting"></a>Solucionar problemas 
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Esta seção fornece informações para ajudar a solucionar problemas da solução de Gerenciamento de Atualizações.  
 
@@ -303,10 +315,9 @@ Esta seção fornece informações para ajudar a solucionar problemas da soluç�
 Você pode exibir os resultados do runbook responsável por implantar as atualizações incluídas na implantação de atualização agendada na folha Trabalhos de sua conta de Automação que está vinculada ao espaço de trabalho do OMS que dá suporte a essa solução.  O runbook **MicrosoftOMSComputer Patch** é um runbook filho voltado para um computador gerenciado específico, e a análise do fluxo detalhado apresentará informações detalhadas dessa implantação.  A saída exibirá quais atualizações necessárias são aplicáveis, o status de download, o status da instalação e detalhes adicionais.<br><br> ![Atualizar status de trabalho de Implantação](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Para obter mais informações, confira [Mensagens e saída de runbook de automação](../automation/automation-runbook-output-and-messages.md).   
-  
+
 ## <a name="next-steps"></a>Próximas etapas
 * Use Pesquisas de Log no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados das atualizações.
 * [Crie seus próprios painéis](../log-analytics/log-analytics-dashboards.md) mostrando a conformidade da atualização dos computadores gerenciados.
 * [Crie alertas](../log-analytics/log-analytics-alerts.md) quando atualizações críticas forem detectadas como ausentes de um computador ou quando um computador tiver as atualizações automáticas desabilitadas.  
-
 

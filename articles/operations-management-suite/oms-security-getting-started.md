@@ -4,7 +4,7 @@ description: "Este documento o ajuda a se familiarizar com os recursos de segura
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ Você pode continuar a investigação clicando em cada computador e examinar os 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
 
 Ao usar a opção Inteligência contra Ameaças disponível na Segurança e Auditoria do OMS, os administradores de TI podem identificar as ameaças à segurança no ambiente, por exemplo, identificar se determinado computador faz parte de um botnet. Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que se conecta secretamente esse computador ao comando e controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como darknet. Saiba mais sobre o Threat Intelligence lendo o artigo [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md).
+
+Em alguns cenários, você pode observar um potencial IP mal-intencionado que foi acessado de um computador monitorado:
+
+![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Este e outros alertas na mesma categoria são gerados via Segurança do OMS, aproveitando a [Inteligência contra Ameaças da Microsoft](https://youtu.be/O4WtxgUrDc8). Os dados de Inteligência contra Ameaças são coletados pela Microsoft e também adquiridos dos principais provedores de inteligência contra ameaças. Esses dados são atualizados com frequência e adaptados para ameaças ágeis. Devido à sua natureza, ele deve ser combinado com outras fontes de informações de segurança durante a [investigação](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) de um alerta de segurança. 
 
 ### <a name="baseline-assessment"></a>Avaliação de linha de base
 

@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
+<a id="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
 
 Configurando [provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para um aplicativo (onde houver suporte), requer que as instruções específicas ser seguidas para preparar o aplicativo para o provisionamento automático. Em seguida, você pode usar o portal do Azure para configurar o serviço de provisionamento para sincronizar contas de usuário ao aplicativo.
 
 Você sempre deve começar encontrando o tutorial de instalação específica de configuração de provisionamento para seu aplicativo. Siga essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento. Uma lista de tutoriais de aplicativos podem ser encontrados em [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-## <a name="how-to-see-if-provisioning-is-working"></a>Como saber se o provisionamento está funcionando 
+<a id="how-to-see-if-provisioning-is-working" class="xliff"></a>
+
+## Como saber se o provisionamento está funcionando 
 
 Depois que o serviço estiver configurado, a maioria das informações sobre a operação do serviço podem ser obtidas de dois lugares:
 
@@ -35,7 +39,9 @@ Depois que o serviço estiver configurado, a maioria das informações sobre a o
 
 -   **Provisionamento de status –** um resumo do último provisionamento executado para um determinado aplicativo pode ser visto na seção **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt;Provisionamento** na parte inferior da tela sob as configurações de serviço. Esta seção resume quantos usuários (e/ou grupos) estão sendo sincronizados no momento entre os dois sistemas, e se houve erros. Detalhes do erro estão nos logs de auditoria. Observe que o status de provisionamento não seja preenchido até que uma sincronização inicial completa entre o Azure AD foi concluída e o aplicativo.
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas de problemas gerais com o provisionamento a considerar
+<a id="general-problem-areas-with-provisioning-to-consider" class="xliff"></a>
+
+## Áreas de problemas gerais com o provisionamento a considerar
 
 Abaixo está uma lista das áreas de problema geral que você poderá analisar se você tiver uma ideia de onde começar.
 
@@ -43,7 +49,9 @@ Abaixo está uma lista das áreas de problema geral que você poderá analisar s
 * [Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando](#can’t-save-configuration-due-to-app-credentials-not-working)
 * [Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Serviço de provisionamento não aparece ao iniciar
+<a id="provisioning-service-does-not-appear-to-start" class="xliff"></a>
+
+## Serviço de provisionamento não aparece ao iniciar
 
 Se você definir o **Status de provisionamento** como **Ligado** na seção **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt;Provisionamento** do portal do Azure. No entanto, nenhum outro detalhe de status é mostrado nessa página depois recarregamentos subsequentes. É provável que o serviço está em execução, mas não concluiu uma sincronização inicial ainda. Verifique os **logs de auditoria** descritos acima para determinar quais operações o serviço está executando, e se existem erros.
 
@@ -52,11 +60,15 @@ Se você definir o **Status de provisionamento** como **Ligado** na seção **Az
 >
 >
 
-## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando
+<a id="cant-save-configuration-due-to-app-credentials-not-working" class="xliff"></a>
+
+## Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando
 
 Para o provisionamento funcionar, Azure AD requer credenciais válidas que permitem a conexão com uma API fornecida pelo aplicativo de gerenciamento de usuário. Se essas credenciais não funcionam, ou você não souber o que são, examine o tutorial para configurar esse aplicativo, descrito anteriormente.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos
+<a id="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned" class="xliff"></a>
+
+## Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos
 
 Quando um usuário aparece como "ignorado" nos logs de auditoria, é muito importante ler os detalhes estendidos na mensagem de log para determinar o motivo. Veja a seguir as resoluções e motivos comuns:
 
@@ -68,6 +80,8 @@ Quando um usuário aparece como "ignorado" nos logs de auditoria, é muito impor
 
    * **Mapeamentos de atributos para grupos:** provisionamento do nome do grupo e detalhes do grupo, além de membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade, habilitando ou desabilitando o **Mapeamento** para objetos de grupo mostrados na guia de **provisionamento**. Se o provisionamento de grupos é habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado está sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, já que o grupo e seus membros não são provisionados se a propriedade correspondente está vazia ou não está preenchida para um grupo no Azure AD.
 
-#<a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+#Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 

@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 06/27/2017
 ms.author: aungoo
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 0efa2fdb2b78086e89e77429f8fac813ae1cf1a4
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 7bd38be9f8e1160ebf0d7c5ed51fd31d89481881
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -47,12 +48,12 @@ Nesta seção, discutiremos os indicadores comuns de desempenho no contexto do A
 ## <a name="iops"></a>IOPS
 O IOPS é o número de solicitações que seu aplicativo está enviando para os discos de armazenamento em um segundo. Uma operação de entrada/saída pode ser de leitura ou gravação, sequencial ou aleatória. Os aplicativos OLTP, como um site varejista online, precisam processar muitas solicitações simultâneas de usuários instantaneamente. As solicitações do usuário são transações de banco de dados com inserções e atualizações intensas, que o aplicativo deve processar rapidamente. Desse modo, os aplicativos OLTP exigem IOPS bastante alta. Tais aplicativos tratam milhões de solicitações de E/S aleatórias e pequenas. Se você tiver um aplicativo desse tipo, será preciso projetar a infraestrutura do aplicativo para otimização de IOPS. Na seção posterior, *Otimizando o desempenho do aplicativo*, vamos abordar em detalhes os fatores que devem ser considerados para obter IOPS alta.
 
-Quando você anexa um disco do armazenamento premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P30 provisiona 5000 IOPS. Cada tamanho de VM de alta escala também tem um limite específico de IOPS que ela pode manter. Por exemplo, uma VM GS5 Padrão tem um limite de 80.000 IOPS.
+Quando você anexa um disco do armazenamento premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite específico de IOPS que ela pode manter. Por exemplo, uma VM GS5 Padrão tem um limite de 80.000 IOPS.
 
 ## <a name="throughput"></a>Taxa de transferência
 A Taxa de Transferência ou Largura de Banda é o volume de dados que o aplicativo está enviando aos discos de armazenamento em um intervalo especificado. Se o aplicativo estiver executando operações de entrada/saída com tamanhos grandes de unidade de E/S, ele exigirá Taxa de Transferência alta. Os aplicativos de data warehouse tendem a emitir operações de alta verificação que acessam grandes partes de dados por vez e geralmente executam operações em massa. Em outras palavras, tais aplicativos exigem Taxa de Transferência mais alta. Caso você tenha um aplicativo desse tipo, será preciso projetar sua infraestrutura para otimização da Taxa de Transferência. Na próxima seção, abordaremos em detalhes os fatores que você deve ajustar para conseguir isso.
 
-Quando você anexa um disco do armazenamento premium a uma VM de alta escala, o Azure provisiona Taxa de Transferência de acordo com a especificação do disco. Por exemplo, um disco P30 provisiona Taxa de Transferência de disco de 200 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de Taxa de Transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo.
+Quando você anexa um disco do armazenamento premium a uma VM de alta escala, o Azure provisiona Taxa de Transferência de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona Taxa de Transferência de disco de 250 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de Taxa de Transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo. 
 
 Há uma relação entre a Taxa de Transferência e a IOPS, como mostrado na fórmula abaixo.
 
@@ -216,20 +217,21 @@ Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
 ## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco do Armazenamento Premium
-Atualmente, o Armazenamento Premium do Azure oferece três tamanhos de disco. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os três tamanhos de disco e seus recursos.
+Atualmente, o Armazenamento Premium do Azure oferece sete tamanhos de disco. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os sete tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco P4 e P6 têm suporte somente para o Managed Disks.
 
-| **Tipo de disco** | **P10** | **P20** | **P30** |
-| --- | --- | --- | --- |
-| Tamanho do disco |128 GiB |512 GiB |1024 GiB (1 TB) |
-| IOPS por disco |500 |2.300 |5.000 |
-| Taxa de transferência por disco |100 MB por segundo |150 MB por segundo |200 MB por segundo |
+| Tipo de discos premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 2.300              | 5.000              | 7500              | 7500              | 
+| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
-Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P30 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
+
+Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
 
 *Limites de Escala (IOPS e Taxa de Transferência)*  
 Os limites de IOPS e Taxa de Transferência de cada tamanho de disco Premium são diferentes e independentes dos limites de escala da VM. Verifique se o total de IOPS e Taxa de Transferência dos discos estão dentro dos limites de escala do tamanho escolhido de VM.
 
-Por exemplo, se o requisito de um aplicativo for de, no máximo, 250 MB/s de Taxa de Transferência e você estiver usando uma VM DS4 com um único disco P30. A VM DS4 pode fornecer uma Taxa de Transferência de 256 MB/s. No entanto, um único disco P30 tem um limite de Taxa de Transferência de 200 MB/s. Consequentemente, o aplicativo será restrito a 200 MB/s devido ao limite do disco. Para superar esse limite, provisione mais de um disco de dados à VM.
+Por exemplo, se o requisito de um aplicativo for de, no máximo, 250 MB/s de Taxa de Transferência e você estiver usando uma VM DS4 com um único disco P30. A VM DS4 pode fornecer uma Taxa de Transferência de 256 MB/s. No entanto, um único disco P30 tem um limite de Taxa de Transferência de 200 MB/s. Consequentemente, o aplicativo será restrito a 200 MB/s devido ao limite do disco. Para superar esse limite, provisione mais de um disco de dados à VM ou redimensione seus discos para P40 ou P50.
 
 > [!NOTE]
 > as leituras atendidas pelo cache não estão incluídas na IOPS e Taxa de Transferência do disco, portanto, não estão sujeitas aos limites de disco. O cache tem seu limite de IOPS e Taxa de Transferência separado por VM.

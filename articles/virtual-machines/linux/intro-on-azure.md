@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eaac5300292e328bcff9ddf5447bea0e53075179
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7bd0c5549a2e1f592681760d5ef464b9570ca4ab
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -26,13 +27,13 @@ ms.lasthandoff: 04/03/2017
 Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas virtuais Linux na nuvem do Azure. Implantar uma máquina virtual Linux é um processo simples usando uma imagem da galeria.
 
 ## <a name="authentication-usernames-passwords-and-ssh-keys"></a>Autenticação: nomes de usuário, senhas e chaves SSH.
-Ao criar uma máquina virtual Linux usando o portal clássico do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
+Ao criar uma máquina virtual Linux usando o portal do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
 
 * Veja [Criar uma máquina virtual que executa Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Veja [Como usar SSH com Linux no Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="obtaining-superuser-privileges-using-sudo"></a>Obtendo privilégios de superusuário usando o `sudo`
-A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário `sudo` . Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando.
+A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário `sudo` . Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando:
 
     # sudo <COMMAND>
 
@@ -41,7 +42,7 @@ Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 * Veja [Usando privilégios de raiz em máquinas virtuais Linux do Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="firewall-configuration"></a>Configuração do firewall
-O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal clássico do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal clássico do Azure:
+O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais em sua máquina virtual Linux configurando pontos de extremidade no portal do Azure:
 
 * Veja: [Como instalar pontos de extremidade em uma máquina virtual](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -71,7 +72,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 
 1. Execute **waagent-deprovision** para desfazer a personalização do provisionamento. Ou **waagent -deprovision+user** para, opcionalmente, excluir a conta de usuário especificada durante o provisionamento e todos os dados associados.
 2. Desligue a máquina virtual.
-3. Clique em *Capturar* no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
+3. Clique em **Capturar** no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
    
    * Veja: [Como capturar uma máquina virtual Linux para ser usada como um modelo](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 

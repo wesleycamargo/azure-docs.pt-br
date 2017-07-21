@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 07/11/2017
 ms.author: juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: f439a24c0bcca1742ca47770021bbe179a0b4b2f
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics
@@ -60,37 +60,51 @@ A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de 
 | Ativo de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cortado de cada rosto detectado, em que o número indica o labelId do rosto |
 
 #### <a name="output-example"></a>Exemplo de saída:
+
     {
       "version": 1,
-      "timescale": 50,
+      "timescale": 24000,
       "offset": 0,
-      "framerate": 25.0,
+      "framerate": 23.976,
       "width": 1280,
       "height": 720,
       "fragments": [
         {
           "start": 0,
-          "duration": 2,
-          "interval": 2,
+          "duration": 48048,
+          "interval": 1001,
           "events": [
-            [  
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
               {
-                "id": 1,
-                "x": 0.306415737,
-                "y": 0.03199235,
-                "width": 0.15357475,
-                "height": 0.322126418
+                "index": 13,
+                "id": 1138,
+                "x": 0.29537,
+                "y": -0.18987,
+                "width": 0.36239,
+                "height": 0.80335
               },
               {
-                "id": 2,
-                "x": 0.5625317,
-                "y": 0.0868245438,
-                "width": 0.149155334,
-                "height": 0.355517566
+                "index": 13,
+                "id": 2028,
+                "x": 0.60427,
+                "y": 0.16098,
+                "width": 0.26958,
+                "height": 0.57943
               }
-            ]
-          ]
-        },
+            ],
 
     … truncated
 
@@ -120,12 +134,11 @@ foo_IDList.txt de exemplo
      2
      3
  
-## <a name="attribute-descriptions"></a>Descrições de atributos
+## <a name="elements-of-the-output-json-file"></a>Elementos do arquivo JSON de saída
+
 O MP de edição fornece detecção facial e acompanhamento de alta precisão local de até 64 rostos humanos em um quadro de vídeo. Faces frontais fornecem os melhores resultados, enquanto as faces laterais e faces pequenas (menores ou iguais a 24x24 pixels) têm resultados menos precisos.
 
-As faces detectadas e acompanhadas retornam com coordenadas que indicam o local das faces, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
-
-Para obter explicações detalhadas dos atributos, confira o tópico [Detectar rostos e emoções com o Azure Media Analytics](media-services-face-and-emotion-detection.md) .
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="sample-code"></a>Exemplo de código
 O programa a seguir mostra como:

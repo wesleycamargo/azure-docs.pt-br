@@ -16,10 +16,11 @@ ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d39678bb7e7d2263b6b2f8d36da1bd86dcfff271
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -40,7 +41,9 @@ Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperaç
 * VMs criptografadas usando o Azure Disk Encryption, com BEK e KEK
 * Backup consistente de aplicativos de VMs do Windows que usam o VSS, e de VMs do Linux que usam scripts personalizados pré e pós-instantâneo
 
-Para saber mais sobre como proteger VMs de Armazenamento Premium, confira o artigo [Backup e restauração de VMs de Armazenamento Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para obter mais informações sobre o suporte para VMs de disco gerenciado, consulte [Backup e restauração de VMs em discos gerenciados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para saber mais sobre a estrutura pré e pós-script para backup de uma VM do Linux, confira [Backup consistente de aplicativos de VM do Linux que usam pré e pós-script] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+Para saber mais sobre como proteger VMs de Armazenamento Premium, confira o artigo [Backup e restauração de VMs de Armazenamento Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para obter mais informações sobre o suporte para VMs de disco gerenciado, consulte [Backup e restauração de VMs em discos gerenciados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para saber mais sobre a estrutura pré e pós-script para backup de uma VM do Linux, confira [Backup consistente de aplicativos de VM do Linux que usam pré e pós-script] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Para saber mais sobre o que você pode incluir no backup e o que não pode, consulte [aqui](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
 > Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e tenha tomado medidas para permitir que o serviço de backup acesse a VM.

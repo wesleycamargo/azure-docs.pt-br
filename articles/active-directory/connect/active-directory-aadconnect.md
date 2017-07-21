@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
@@ -145,6 +145,7 @@ se seu servidor ADFS não tiver sido configurado para atualizar automaticamente 
 |Histórico de versão | [Histórico de versão](active-directory-aadconnect-version-history.md)|
 |Comparar o DirSync, Azure ADSync e o Azure AD Connect | [Comparação de ferramentas de integração de diretório](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Lista de compatibilidade de soluções não ADFS para o AD do Azure | [Lista de compatibilidade de federação do AD do Azure](active-directory-aadconnect-federation-compatibility.md)|
+|Configurando um Idp do SAML 2.0|[Usando um provedor de identidade (Idp) do SAML 2.0 para o logon único](active-directory-aadconnect-federation-saml-idp.md)|
 |Atributos sincronizados | [Atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitorando com o Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Perguntas frequentes | [Perguntas frequentes do Azure AD Connect](active-directory-aadconnect-faq.md)|

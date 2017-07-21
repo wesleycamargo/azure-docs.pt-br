@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -45,7 +46,7 @@ Como alternativa, você pode procurar as pastas no [repositório GitHub de Model
 
 ## <a name="api-versions"></a>Versões de API
 
-A versão atual disponível da API de conjuntos de dimensionamento com discos gerenciados é a `2016-04-30-preview`. Os conjuntos de dimensionamento com discos não gerenciados continuarão a funcionar como atualmente, mesmo nas novas versões de API que oferecem suporte para disco gerenciado. No entanto, os conjuntos de dimensionamento com discos não gerenciados não terão os benefícios dos discos gerenciados, mesmo nessas novas versões de API.
+O dimensionamento de conjuntos com discos gerenciados requer uma versão da API Microsoft.Compute do `2016-04-30-preview` ou posterior. Os conjuntos de dimensionamento com discos não gerenciados continuarão a funcionar como atualmente, mesmo nas novas versões de API que oferecem suporte para disco gerenciado. No entanto, os conjuntos de dimensionamento com discos não gerenciados não terão os benefícios dos discos gerenciados, mesmo nessas novas versões de API.
 
 ## <a name="next-steps"></a>Próximas etapas
 

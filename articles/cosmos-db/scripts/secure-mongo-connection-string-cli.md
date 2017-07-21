@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 27c790db456c3e650a624b46df77d4cdce202fa7
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 916c92cab39306352fdf9dff0e0685fd61832d16
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/15/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Este exemplo obtém uma cadeia de conexão do BD Cosmos do Azure para aplicativos MongoDB usando a CLI do Azure. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -50,10 +50,10 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 | Command | Observações |
 |---|---|
-| [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Atualiza uma conta do BD Cosmos do Azure. |
-| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb/list-connection-strings) | Obtém a cadeia de conexão para a conta.|
-| [az group delete](/cli/azure/resource#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Atualiza uma conta do BD Cosmos do Azure. |
+| [az cosmosdb list-connection-strings](https://docs.microsoft.com/cli/azure/cosmosdb#list-connection-strings) | Obtém a cadeia de conexão para a conta.|
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

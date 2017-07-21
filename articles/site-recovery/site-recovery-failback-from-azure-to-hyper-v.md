@@ -15,21 +15,17 @@ ms.workload: storage-backup-recovery
 ms.date: 3/31/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
 
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback no Site Recovery para máquinas virtuais do Hyper-V
 
-> [!div class="op_single_selector"]
-> * [Máquinas de VMware/computadores físicos do Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [VMs do Hyper-V do Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
-Este artigo descreve como executar o failback para máquinas virtuais protegidas pela Recuperação de Site. 
+Este artigo descreve como executar o failback para máquinas virtuais protegidas pela Recuperação de Site.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Verifique se o servidor VMM de site primário/servidor Hyper-V está conectado.
@@ -56,7 +52,7 @@ Depois do failover do local primário no secundário, as máquinas virtuais repl
 
     - **Sincronizar os dados apenas durante o failover (download completo)**: use essa opção se você estiver executando no Azure por um longo período. Essa opção é mais rápida porque esperamos que a maior parte do disco tenha mudado e não queremos perder tempo no cálculo da soma de verificação. Ela executa um download do disco. Ela também é útil quando a máquina virtual local é excluída.
 
-    >[!NOTE] 
+    >[!NOTE]
     >É recomendável usar essa opção se você já está executando o Azure há algum tempo (um mês ou mais) ou se a máquina virtual local foi excluída. Essa opção não executa cálculos de soma de verificação.
     >
     >
@@ -100,6 +96,4 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 Depois de concluir o trabalho de failback, **Confirme** a máquina virtual. A confirmação exclui a máquina virtual do Azure e seus discos e prepara a VM para ser protegida novamente.
 
 Depois de **Confirmar**, você poderá iniciar a *Replicação Inversa*. Isso iniciará a proteção da máquina virtual do local para o Azure. Observe que isso só replicará as alterações, pois a VM foi desativada no Azure e, assim, enviará somente alterações diferenciais.
-
-
 

@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
@@ -94,10 +95,10 @@ Será necessária uma conexão local para implantar o DC (controlador de domíni
 
 * Point-to-site
 * Rede virtual Site a Site
-* Rota Expressa
+* ExpressRoute
 
-É recomendável usar a Rota Expressa. A Rota Expressa permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no local ou em um ambiente de colocalização. As conexões da Rota Expressa não passam pela Internet pública. Elas oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
-Embora seja recomendável usar a Rota Expressa, você pode escolher qualquer método de conexão mais adequado à sua organização. Para saber mais sobre a Rota Expressa e as diversas opções de conectividade que a utilizam, confira [Visão geral técnica da Rota Expressa](https://aka.ms/Azure/ExpressRoute).
+É recomendável usar o ExpressRoute. O ExpressRoute permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no local ou em um ambiente de colocalização. As conexões do ExpressRoute não passam pela Internet pública. Elas oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
+Embora seja recomendável usar o ExpressRoute, você pode escolher qualquer método de conexão mais adequado à sua organização. Para saber mais sobre o ExpressRoute e as diversas opções de conectividade que a utilizam, confira [Visão geral técnica do ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
 ### <a name="2-create-storage-accounts"></a>2. Criar contas de armazenamento
 Para manter a alta disponibilidade e evitar a dependência de uma única conta de armazenamento, você pode criar duas contas de armazenamento. Divida os computadores em cada conjunto de disponibilidade em dois grupos e atribua a cada grupo uma conta de armazenamento separada.
@@ -162,9 +163,9 @@ Para implantar um ILB, selecione Balanceadores de Carga no portal do Azure e cli
 * **Esquema**: como esse balanceador de carga será colocado na frente dos servidores do AD FS e se destina a conexões de rede internas, selecione “Interno”
 * **Rede virtual**: escolha a rede virtual em que você está implantando o AD FS
 * **Sub-rede**: selecione a sub-rede interna aqui
-* **Atribuição de Endereço IP**: Dinâmico
+* **Atribuição de endereço IP**: estática
 
-![Balanceador de Carga Interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
+![Balanceador de carga interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
 Depois que você clicar em Criar e o ILB for implantado, você deverá vê-lo na lista de balanceadores de carga:
 

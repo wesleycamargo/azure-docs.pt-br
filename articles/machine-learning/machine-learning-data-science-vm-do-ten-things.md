@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -805,16 +805,16 @@ O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Ele permite trabalhar com
 Você precisa realizar as etapas de pré-requisitos a seguir para acessar o Azure Cosmos DB na DSVM.
 
 1. Instalar o SDK do Python para DocumentDB (Execute ```pip install pydocumentdb``` no prompt de comando)
-2. Criar uma conta do Azure Cosmos DB e um banco de dados do DocumentDB no [portal do Azure](https://portal.azure.com)
+2. Criar uma conta do Azure Cosmos DB e um banco de dados no [Portal do Azure](https://portal.azure.com)
 3. Baixar a “Ferramenta de Migração do Azure Cosmos DB” [aqui](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) e extrai-la em um diretório de sua escolha
 4. Importar dados JSON (dados de vulcão) armazenados em um [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) no Cosmos DB com os parâmetros de comando a seguir para a ferramenta de migração (dtui.exe no diretório no qual você instalou a Ferramenta de Migração do Cosmos DB). Insira os parâmetros de local de origem e destino de acordo com os dados abaixo.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-Depois de importar os dados, você pode acessar o Jupyter e abrir o notebook chamado *DocumentDBSample* , que contém o código python para acessar o DocumentDB e fazer algumas consultas básicas. Aprenda mais sobre o DocumentDB ao visitar a [página de documentação](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+Depois de importar os dados, você pode acessar o Jupyter e abrir o notebook chamado *DocumentDBSample* , que contém o código python para acessar o DocumentDB e fazer algumas consultas básicas. Você pode aprender mais sobre o Cosmos DB visitando a [página de documentação](https://docs.microsoft.com/azure/cosmos-db/) do serviço.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Criar relatórios e painel usando o Power BI Desktop
-Vamos visualizar o arquivo JSON Volcano que vimos no exemplo acima do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../documentdb/documentdb-powerbi-visualize.md). As etapas principais são as seguintes:
+Vamos visualizar o arquivo JSON Volcano que vimos no exemplo acima do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../cosmos-db/powerbi-visualize.md). As etapas principais são as seguintes:
 
 1. Abra o Power BI Desktop e execute "Obter Dados". Especifique a URL como: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Você deverá ver os registros JSON importados como uma lista
@@ -842,7 +842,7 @@ Agora você tem os dados no modelo de dados do Power BI. Seu Power BI Desktop de
 
 ![Power BI Desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-É possível iniciar a criação de relatórios e as visualizações usando o modelo de dados. Você pode executar as etapas deste [artigo sobre o Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) para criar um relatório. O resultado final será um relatório semelhante ao que se segue.
+É possível iniciar a criação de relatórios e as visualizações usando o modelo de dados. Você pode executar as etapas deste [artigo sobre o Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports) para criar um relatório. O resultado final será um relatório semelhante ao que se segue.
 
 ![Exibição de relatório do Power BI Desktop — conector do Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 

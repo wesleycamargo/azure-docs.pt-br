@@ -1,4 +1,5 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
+### Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
+<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
 1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à VM, confira [Abrir uma VM do SQL com a Área de Trabalho Remota](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. Uma vez conectado na tela inicial, digite **WF. msc**e pressione ENTER.
    
@@ -27,7 +28,8 @@
 
 Abrir portas adicionais para outros componentes conforme necessário. Para obter mais informações, consulte [Configurando o Firewall do Windows para permitir acesso ao SQL Server (a página pode estar em inglês)](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configurar o SQL Server para escutar no protocolo TCP
+### Configurar o SQL Server para escutar no protocolo TCP
+<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
 1. Enquanto conectado à máquina virtual, na página inicial, digite **SQL Server Configuration Manager** e pressione ENTER.
    
     ![Abrir SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
@@ -35,14 +37,15 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 3. No painel de console, clique em **Protocolos para MSSQLSERVER** (ele padroniza o nome da instância). No painel de detalhes, clique com botão direito em **TCP** e clique em **Habilitar** se essa opção não estiver habilitada.
    
     ![Habilitar TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (*nome da instância*) **(a instância padrão é** SQL Server (MSSQLSERVER)**) e, em seguida, clique em** Reiniciar**, para parar e reiniciar a instância do SQL Server.
+4. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (*nome da instância*)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
    
     ![Reiniciar o Mecanismo de Banco de Dados](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Feche o SQL Server Configuration Manager.
 
 Para obter mais informações sobre como habilitar protocolos para o Mecanismo de Banco de Dados do SQL Server, consulte [Habilitar ou desabilitar um protocolo de rede de servidor (a página pode estar em inglês)](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configurar o SQL Server para autenticação de modo misto
+### Configurar o SQL Server para autenticação de modo misto
+<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
 O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do Windows sem um ambiente de domínio. Para conectar-se ao Mecanismo de Banco de Dados de outro computador, configure o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows.
 
 > [!NOTE]
@@ -68,7 +71,8 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
     ![Reiniciar](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Na caixa de diálogo do SQL Server Management Studio, clique em **Sim** para concordar que você quer reiniciar o SQL Server.
 
-### <a name="create-sql-server-authentication-logins"></a>Criar logons de autenticação do SQL Server
+### Criar logons de autenticação do SQL Server
+<a id="create-sql-server-authentication-logins" class="xliff"></a>
 Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.
 
 1. No SQL Server Management Studio Object Explorer, expanda a pasta da instância do servidor na qual você deseja criar o novo logon.

@@ -12,97 +12,36 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/22/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ae830de628770d470268db5fd32ca620f9b6c30b
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 87d2509c8fc6a97f7d9e7e1257fe827e5926158f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
-As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://www.xrdp)) para sua VM do Linux usando o modelo de implantação do Resource Manager. Você também pode [executar essas etapas para VMs que usam o modelo de implantação Clássico](classic/remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://www.xrdp)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo exige uma VM do Linux no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
-- A [CLI 2.0 do Azure](../linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou a [CLI 1.0 do Azure](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- O [Portal do Azure](../linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- A [CLI 2.0 do Azure](quick-create-cli.md)
+- O [Portal do Azure](quick-create-portal.md)
 
-Você também precisa ter feito logon em uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## <a name="quick-commands"></a>Comandos rápidos
-Se você precisar realizar rapidamente a tarefa, a seção a seguir detalha a base de dados de comandos para instalar e configurar a área de trabalho remota em sua VM. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#install-graphical-environment-on-linux-vm).
-
-O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu. Outras distribuições e ambientes de área de trabalho apresentam variações. Por exemplo, use **yum** para instalar o Red Hat Enterprise Linux e configurar as regras **selinux** apropriado, ou use **zypper** para instalar no SUSE.
-
-SSH para sua VM. Instale o ambiente de área de trabalho xfce da seguinte maneira:
-
-```bash
-sudo apt-get update
-sudo apt-get install xfce4
-```
-
-Instale o xrdp da seguinte maneira:
-
-```bash
-sudo apt-get install xrdp
-```
-
-Configure xrdp para usar xfce como seu ambiente de área de trabalho da seguinte maneira:
-
-```bash
-echo xfce4-session >~/.xsession
-```
-
-Reinicie o serviço xrdp:
-
-```bash
-sudo service xrdp restart
-```
-
-Defina uma senha para sua conta de usuário se estiver usando atualmente apenas a chave SSH para autenticação:
-
-```bash
-sudo passwd ops
-```
-
-Saia da sessão do SSH em sua VM do Linux. Use a CLI do Azure em seu computador local para criar uma regra de grupo de segurança de rede para permitir o tráfego da área de trabalho remota. Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure. O seguinte exemplo cria uma regra chamada `myNetworkSecurityGroupRule` no `myNetworkSecurityGroup` para permitir o tráfego na porta TCP 3389:
-    
-```azurecli
-az network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --source-address-prefix * --source-port-range * \
-    --destination-address-prefix * --destination-port-range 3389 \
-    --access allow
-```
-
-Ou com a CLI do Azure 1.0:
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-Conecte-se à sua VM do Linux usando seu cliente de área de trabalho remota preferido.
-
-![Conectar-se ao xrdp usando seu cliente de Área de Trabalho Remota](./media/use-remote-desktop/remote-desktop-client.png)
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM do Linux
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são gerenciadas normalmente usando conexões SSH, em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux para sua escolha. Dependendo de sua escolha de ambiente de área de trabalho, ele pode consumir de um a 2 GB de espaço em disco e demorar de cinco a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu. Os comandos para outras distribuições variam um pouco (use **yum** para instalar o Red Hat Enterprise Linux e configurar as regras **selinux** apropriadas, ou use **zypper** para instalar no SUSE, por exemplo).
+O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
 
-Primeiro, SSH para sua VM. O exemplo a seguir conecta-se à VM chamada `myvm.westus.cloudapp.azure.com` com o nome de usuário `ops`:
+Primeiro, SSH para sua VM. O seguinte exemplo conecta-se à VM chamada *myvm.westus.cloudapp.azure.com* com o nome de usuário *azureuser*:
 
 ```bash
-ssh ops@myvm.westus.cloudapp.azure.com ~/.ssh/id_rsa.pub
+ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Se você estiver usando o Windows e precisar de mais informações sobre como usar o SSH, veja [Como usar chaves do SSH com o Windows](ssh-from-windows.md).
@@ -135,40 +74,31 @@ sudo service xrdp restart
 
 
 ## <a name="set-a-local-user-account-password"></a>Definir a senha da conta de usuário local
-Se você tiver criado uma senha para sua conta de usuário durante a criação de sua VM, ignore esta etapa. Se você usar apenas a autenticação de chave SSH e não tiver uma senha de conta local definida, especifique uma senha antes de usar o xrdp para fazer logon em sua VM. O xrdp não pode aceitar chaves SSH para autenticação. O exemplo a seguir especifica uma senha para a conta de usuário `ops`:
+Se você tiver criado uma senha para sua conta de usuário durante a criação de sua VM, ignore esta etapa. Se você usar apenas a autenticação de chave SSH e não tiver uma senha de conta local definida, especifique uma senha antes de usar o xrdp para fazer logon em sua VM. O xrdp não pode aceitar chaves SSH para autenticação. O seguinte exemplo especifica uma senha para a conta de usuário *azureuser*:
 
 ```bash
-sudo passwd ops
+sudo passwd azureuser
 ```
 
 > [!NOTE]
-> A especificação de uma senha não atualiza sua configuração de sshd para permitir logons com senha, caso não permita no momento. De uma perspectiva de segurança, convém conectar-se à sua VM com um túnel SSH usando a autenticação baseada em chave e, depois, conectar-se ao xrdp. Nesse caso, ignore a etapa a seguir sobre a criação de uma regra de grupo de segurança de rede para permitir o tráfego de área de trabalho remota.
+> A especificação de uma senha não atualiza a configuração de SSHD para permitir logons de senha, caso ela não permita no momento. De uma perspectiva de segurança, convém conectar-se à sua VM com um túnel SSH usando a autenticação baseada em chave e, depois, conectar-se ao xrdp. Nesse caso, ignore a etapa a seguir sobre a criação de uma regra de grupo de segurança de rede para permitir o tráfego de área de trabalho remota.
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de Grupo de Segurança de Rede para tráfego de Área de Trabalho Remota
 Para permitir que o tráfego da Área de Trabalho Remota alcance sua VM do Linux, é necessário criar uma regra de grupo de segurança de rede que permite ao TCP na porta 3389 acessar sua VM. Para saber mais sobre grupos de segurança de rede, confira [O que é um Grupo de Segurança de Rede?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Você também pode [usar o Portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Os exemplos a seguir criam uma regra de grupo de segurança de rede denominada `myNetworkSecurityGroupRule` para o tráfego de `allow` no `tcp` na porta `3389`.
+Os exemplos a seguir criam uma regra de grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule#create) chamada *myNetworkSecurityGroupRule* para *permitir* o tráfego na porta *TCP* *3389*.
 
-- Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure:
-    
-    ```azurecli
-    az network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --source-address-prefix '*' --source-port-range '*' \
-        --destination-address-prefix '*' --destination-port-range 3389 \
-        --access allow
-    ```
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRule \
+    --protocol tcp \
+    --priority 1010 \
+    --destination-port-range 3389
+```
 
-- Ou use a CLI do Azure 1.0:
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Conectar-se a sua VM do Linux com um cliente de Área de Trabalho Remota
 Abra o cliente da área de trabalho remota local e conecte-se ao endereço IP ou nome DNS de sua VM do Linux. Insira o nome de usuário e a senha da conta de usuário em sua VM da seguinte maneira:
@@ -200,7 +130,7 @@ Se o serviço xrdp não estiver escutando, em uma VM do Ubuntu, reinicie o servi
 sudo service xrdp restart
 ```
 
-Examine os logs `/var/log` em sua VM do Ubuntu para obter indicações sobre o motivo de o serviço não estar respondendo. Você também pode monitorar o syslog durante uma tentativa de conexão de área de trabalho remota para exibir quaisquer erros:
+Examine os logs */var/log*Thug na VM Ubuntu para obter indicações sobre o motivo de o serviço não estar respondendo. Você também pode monitorar o syslog durante uma tentativa de conexão de área de trabalho remota para exibir quaisquer erros:
 
 ```bash
 tail -f /var/log/syslog
@@ -208,12 +138,12 @@ tail -f /var/log/syslog
 
 Outras distribuições do Linux como Red Hat Enterprise Linux e SUSE podem ter maneiras diferentes de reiniciar serviços e locais alternativos de arquivos de log para examinar.
 
-Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não ver quaisquer eventos no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não consegue alcançar a VM. Examine suas regras de grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para saber mais, veja [Solucionar problemas de conectividade do aplicativo](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não ver quaisquer eventos no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não consegue alcançar a VM. Examine suas regras de grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para saber mais, veja [Solucionar problemas de conectividade do aplicativo](../windows/troubleshoot-app-connection.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como criar e usar chaves SSH com VMs do Linux, veja [Criar chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para saber mais sobre como criar e usar chaves SSH com VMs do Linux, veja [Criar chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
-Para saber mais sobre como usar o SSH do Windows, veja [Como usar chaves SSH com o Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para saber mais sobre como usar o SSH do Windows, veja [Como usar chaves SSH com o Windows](ssh-from-windows.md).
 
 

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1eb7da270accedd9dcadca230422b14cd15f24b5
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -186,7 +186,7 @@ Estes são os tipos de índice com suporte e exemplos de consultas que eles pode
 | Intervalo      | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
 | Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação em polígonos habilitada              |
 
-Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scan na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver qualquer outro filtro na consulta que o Banco de Dados de Documentos possa usar para filtrar o índice, nenhum erro será retornado.
+Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scan na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver outro filtro na consulta no qual o Azure Cosmos DB pode usar o índice para filtrar, nenhum erro será retornado.
 
 As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro retornará para consultas espaciais se não houver um índice espacial e se não houver outros filtros que possam ser atendidos a partir do índice. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
 
@@ -229,7 +229,7 @@ Você pode escolher se deseja que a coleção indexe automaticamente todos os do
 
 Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Por outro lado, você pode deixar a indexação automática e seletivamente optar por excluir apenas documentos específicos. As configurações de Ativar/desativar a indexação são úteis quando você tem apenas um subconjunto dos documentos que precisa ser consultado.
 
-Por exemplo, o exemplo a seguir mostra como incluir um documento explicitamente usando o [SDK DocumentDB.NET](https://github.com/Azure/azure-documentdb-java) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Por exemplo, a amostra a seguir explica como incluir um documento explicitamente usando o [SDK do .NET na API do DocumentDB](https://github.com/Azure/azure-documentdb-java) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -409,8 +409,8 @@ Para uma comparação prática, aqui está um exemplo de política de indexaçã
 ## <a name="next-steps"></a>Próximas etapas
 Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice e saber mais sobre a linguagem de consulta do Azure Cosmos DB.
 
-1. [Exemplos de código de gerenciamento de índice .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Operações de coleção de API REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Consulta com SQL do Banco de Dados de Documentos](documentdb-sql-query.md)
+1. [Exemplos de código do Gerenciamento de Índice do .NET na API do DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Operações de coleção da API REST no DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3. [Consulta com SQL](documentdb-sql-query.md)
 
 

@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
+<a id="how-to-fill-out-specific-fields-for-a-custom-developed-application" class="xliff"></a>
+
+# Como preencher campos específicos para um aplicativo personalizado
 
 Este artigo oferece uma breve descrição de todos os campos disponíveis no formulário de registro do aplicativo no [portal do Azure](https://portal.azure.com).
 
-## <a name="register-a-new-application"></a>Registrar um novo aplicativo
+<a id="register-a-new-application" class="xliff"></a>
+
+## Registrar um novo aplicativo
 
 -   Para registrar um novo aplicativo, navegue até o [portal do Azure](https://portal.azure.com).
 
@@ -35,7 +39,9 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 
 -   Isso abre o formulário de registro do aplicativo.
 
-## <a name="fields-in-the-application-registration-form"></a>Campos do formulário de registro do aplicativo
+<a id="fields-in-the-application-registration-form" class="xliff"></a>
+
+## Campos do formulário de registro do aplicativo
 
 
 | Campo            | Descrição                                                                              |
@@ -59,6 +65,8 @@ Depois de preencher os campos acima, o aplicativo é registrado no portal do Azu
 | URIs de redirecionamento   | Para aplicativos nativos, é para onde o usuário é enviado após autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece no OAuth 2.0 corresponde a um dos valores registrados no portal.                                                            |
 | simétricas            | Você pode criar chaves para acessar APIs Web programaticamente protegido pelo Azure AD e sem qualquer interação do usuário. Na página \*\*Chaves\*\*, insira uma descrição da chave e a data de validade e salve para gerar a chave. Certifique-se de salvá-la em algum lugar seguro, pois você não poderá acessá-la depois.             |
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
 

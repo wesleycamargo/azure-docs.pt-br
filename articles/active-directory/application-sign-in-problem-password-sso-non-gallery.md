@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 4f8ebf5e734cc2e79819593c942f0e55227e522c
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
+<a id="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on" class="xliff"></a>
+
+# Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário que tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Um usuário com as edições do Azure AD também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do Painel de Acesso. O Painel de Acesso é separado do Portal do Azure e não exige que os usuários tenham uma assinatura do Azure.
 
 Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Atender aos requisitos de navegador para o Painel de Acesso
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Atender aos requisitos de navegador para o Painel de Acesso
 
 O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilitado. Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
@@ -44,7 +48,9 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 >
 >
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
@@ -68,7 +74,9 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
+<a id="setting-up-a-group-policy-for-internet-explorer" class="xliff"></a>
+
+## Configurar uma política de grupo para o Internet Explorer
 
 É possível configurar uma política de grupo que permita instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários.
 
@@ -80,11 +88,15 @@ Os pré-requisitos incluem:
 
 Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solucionar problemas do Painel de Acesso no Internet Explorer
+<a id="troubleshoot-the-access-panel-in-internet-explorer" class="xliff"></a>
+
+## Solucionar problemas do Painel de Acesso no Internet Explorer
 
 Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -94,7 +106,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Atribuir usuários ao aplicativo](#assign-users-to-the-application)
 
-### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -114,7 +128,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -142,7 +158,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-### <a name="assign-users-to-the-application"></a>Atribuir usuários ao aplicativo
+<a id="assign-users-to-the-application" class="xliff"></a>
+
+### Atribuir usuários ao aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -180,7 +198,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Se essas etapas de solução de problemas não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -196,7 +216,9 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 
 

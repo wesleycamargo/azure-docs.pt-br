@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 371976a35ae285942decaf8e22651e98f6217a95
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="community-portal"></a>Portal da comunidade
@@ -57,7 +56,7 @@ Confira no [GitHub](https://github.com/jcormont/documentdb-typescript) e no [npm
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST do Swagger para Banco de Dados de Documentos
 *por Howard Edidin*
 
-Um arquivo Swagger da API REST do DocumentDB no Azure Cosmos DB que pode ser facilmente implantado como um Aplicativo de API.
+Um arquivo do Swagger da API REST do Azure Cosmos DB para a API do DocumentDB que pode ser facilmente implantado como um Aplicativo de API.
 
 Confira no [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
@@ -105,7 +104,7 @@ Mantenha-se atualizado com as últimas notícias e recursos do Azure Cosmos DB s
 |[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx) (NoSQL para desenvolvedores .NET em menos de 10 minutos com o Azure DocumentDB)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 de março de 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20) (NoSQL para desenvolvedores .NET em menos de 10 minutos com o Azure DocumentDB)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|8 de abril de 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638) (computação sem servidor no Azure com o Azure Functions e DocumentDB)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 de abril de 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
-|[NDC Olso 2017: Azure DocumentDB – o melhor banco de dados NoSQL que você provavelmente não está usando (ainda)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Noruega|14 de junho de 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
+|[NDC Olso 2017: Azure DocumentDB – o melhor banco de dados NoSQL que você provavelmente não está usando (ainda)](http://ndcoslo.com/talk/azure-cosmos-db-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Noruega|14 de junho de 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Você está participando como palestrante ou organizando um evento? [Fale conosco](mailto:askcosmosdb@microsoft.com) para sabermos como podemos ajudar!*
 

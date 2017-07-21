@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurar políticas de segurança para seu aplicativo
-Usando o Azure Service Fabric, é possível ajudar a proteger aplicativos em execução no cluster em contas de usuário diferentes. O Service Fabric também protege os recursos usados pelos aplicativos no momento da implantação nas contas de usuário, por exemplo, arquivos, diretórios e certificados. Isso torna os aplicativos em execução, mesmo em um ambiente hospedado compartilhado, mais protegidos uns dos outros.
+Usando o Azure Service Fabric, é possível proteger aplicativos em execução no cluster em contas de usuário diferentes. O Service Fabric também protege os recursos usados pelos aplicativos no momento da implantação nas contas de usuário, por exemplo, arquivos, diretórios e certificados. Isso torna os aplicativos em execução, mesmo em um ambiente hospedado compartilhado, mais protegidos uns dos outros.
 
 Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de usuário local ou em uma conta de sistema local, especificada no manifesto do aplicativo. Os tipos de conta do sistema local com suporte são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
@@ -202,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 Nas etapas anteriores, você viu como aplicar uma política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
 
 ### <a name="create-local-user-groups"></a>Criar grupos de usuários locais
-É possível definir e criar grupos de usuários que permitem que um ou mais usuários sejam adicionados a um grupo. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
+É possível definir e criar grupos de usuários que permitem que um ou mais usuários sejam adicionados a um grupo. Isso será útil se houverem vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
 
 ```xml
 <Principals>
@@ -270,7 +271,7 @@ Use a seção **DefaultRunAsPolicy** para especificar uma conta de usuário padr
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Usar um usuário ou um grupo de domínio do Active Directory
-Para uma instância do Service Fabric instalada no Windows Server usando o instalador autônomo, é possível executar o serviço com as credenciais para uma conta de grupo ou de usuário do Active Directory. Observe que esse é o Active Directory local em seu domínio e não é com o Azure AD (Active Directory). Ao usar um usuário de domínio ou grupo, você pode acessar outros recursos do domínio (por exemplo, compartilhamentos de arquivos) que receberam permissões.
+Para uma instância do Service Fabric instalada no Windows Server usando o instalador autônomo, é possível executar o serviço com as credenciais para uma conta de grupo ou de usuário do Active Directory. Esse é o Active Directory local em seu domínio e não é com o Azure Active Directory (Azure AD). Ao usar um usuário de domínio ou grupo, você pode acessar outros recursos do domínio (por exemplo, compartilhamentos de arquivos) que receberam permissões.
 
 O exemplo a seguir mostra um usuário do Active Directory denominado *TestUser* com a senha de domínio criptografada usando um certificado chamado *MyCert*. É possível usar o comando `Invoke-ServiceFabricEncryptText` do Powershell para criar o texto cifrado secreto. Consulte [Gerenciamento de segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md) para obter detalhes.
 
@@ -330,7 +331,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Atribuir uma política de acesso de segurança a pontos de extremidade HTTP e HTTPS
-Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, será necessário especificar uma **SecurityAccessPolicy** para assegurar que as portas alocadas a esses pontos de extremidade sejam corretamente listadas no controle de acesso para a conta de usuário RunAs na qual o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir aplica a conta Customer3 a um ponto de extremidade chamado **ServiceEndpointName**, concedendo a ele direitos de acesso completo.
+Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, será necessário especificar uma **SecurityAccessPolicy** para assegurar que as portas alocadas a esses pontos de extremidade sejam corretamente listadas no controle de acesso para a conta de usuário RunAs na qual o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir aplica a conta Customer1 a um ponto de extremidade chamado **EndpointName**, concedendo a ele direitos de acesso completo.
 
 ```xml
 <Policies>
@@ -351,7 +352,12 @@ Para o ponto de extremidade HTTPS, você também precisa indicar o nome do certi
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualizando vários aplicativos com pontos de extremidade https
+Você precisa ter cuidado para não usar a **mesma porta** para instâncias diferentes do mesmo aplicativo quando estiver usando http**s**. O motivo é que o Service Fabric não será capaz de fazer upgrade do certificado para uma das instâncias do aplicativo. Por exemplo, se o aplicativo 1 ou o aplicativo 2 deseja fazer upgrade do seu cert 1 cert 2. Quando o upgrade é feito, o Service Fabric pode apagar o registro cert 1 com o http.sys, embora o outro aplicativo ainda o está usando. Para evitar isso, o Service Fabric detecta se já há em outra instância do aplicativo registrada na porta com o certificado (devido ao http. sys) e faz a operação falhar.
 
+Portanto, o Service Fabric não suporta a atualização de dois serviços diferentes usando **a mesma porta** em instâncias de aplicativo diferentes. Em outras palavras, você não pode usar o mesmo certificado em serviços diferentes na mesma porta. Se você precisa ter um certificado compartilhado na mesma porta, precisa garantir que os serviços sejam colocados em computadores diferentes com restrições de posicionamento. Ou, considere o uso de portas dinâmicas do Service Fabric, se possível, para cada serviço em cada instância do aplicativo. 
+
+Se você vir um upgrade falhar com https, um aviso de erro dizendo "A API de servidor HTTP do Windows não suporta vários certificados para aplicativos que compartilham uma porta".
 
 ## <a name="a-complete-application-manifest-example"></a>Um exemplo completo de manifesto do aplicativo
 O manifesto do aplicativo a seguir mostra várias configurações diferentes:

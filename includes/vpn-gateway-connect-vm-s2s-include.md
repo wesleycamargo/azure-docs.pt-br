@@ -1,6 +1,6 @@
 Você pode se conectar a uma VM que é implantada em sua rede virtual criando uma Conexão de Área de trabalho remota para a sua VM. É a melhor maneira de verificar inicialmente se você pode se conectar à sua VM usando seu endereço IP privado, em vez do nome do computador. Dessa forma, você está testando para ver se você pode se conectar, não se a resolução de nomes está configurada corretamente.
 
-1. Localize o endereço IP privado. Você pode encontrar o endereço IP privado de uma VM consultando as propriedades para a VM no portal do Azure ou usando o PowerShell.
+1. Localize o endereço IP privado. Você pode encontrar o endereço IP privado de uma VM de várias maneiras. A seguir, mostramos as etapas para o portal do Azure e para o PowerShell.
 
   - Porta do Azure - Localize sua máquina virtual do Windows no portal do Azure. Exiba as propriedades para a VM. O endereço IP privado está listado.
 

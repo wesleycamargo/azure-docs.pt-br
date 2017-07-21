@@ -14,22 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: a0080a847764d538175d6b22d50d584383bd2054
-ms.openlocfilehash: 3028da79b6a9bfae4c95a8139ecf8bbd7debc56a
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/29/2017
 
 
 ---
-# <a name="what-is-operations-management-suite-oms"></a>O que é Operations Management Suite (OMS)?
+# O que é Operations Management Suite (OMS)?
+<a id="what-is-operations-management-suite-oms" class="xliff"></a>
 Este artigo fornece uma introdução ao OMS (Operations Management Suite), incluindo uma visão geral sobre o valor de negócios que ele fornece, os serviços e as soluções de gerenciamento incluídos e as ofertas que reúnem serviços e soluções diferentes.  Há links para a documentação detalhada sobre como implantar e usar cada solução e serviço.
 
-## <a name="from-on-premise-to-the-cloud"></a>Do local para a nuvem
+## Do local para a nuvem
+<a id="from-on-premises-to-the-cloud" class="xliff"></a>
 A Microsoft vem há tempos oferecendo produtos para gerenciar ambientes corporativos.  Vários produtos foram consolidados no pacote de produtos de gerenciamento do System Center em 2007.  Isso incluiu o Configuration Manager, que fornece recursos como distribuição de e inventário de software, o Operations Manager, que oferece o monitoramento proativo de sistemas e aplicativos, o Orchestrator, que inclui runbooks para automatizar processos manuais e o Data Protection Manager para backup e recuperação de dados críticos.
 
 Conforme os recursos de computação vão mudando para a nuvem, os produtos do System Center ganharam mais recursos de nuvem, como os recursos de gerenciamento do Operations Manager e do Orchestrator no Azure.  No entanto, eles foram projetados como soluções locais e exigem um investimento significativo na implantação e manutenção do ambiente de gerenciamento local.  Para poder aproveitar totalmente a nuvem e dar suporte a aplicativos futuros, era necessária uma nova abordagem de gerenciamento.
 
-## <a name="introducing-operations-management-suite"></a>Apresentamos o Operations Management Suite
+## Apresentamos o Operations Management Suite
+<a id="introducing-operations-management-suite" class="xliff"></a>
 O OMS (Operations Management Suite) é um conjunto de serviços de gerenciamento que foram criados na nuvem desde o início.  Em vez de implantar e gerenciar recursos locais, os componentes do OMS estão totalmente hospedados no Azure.  A configuração é mínima e você pode ter tudo funcionando literalmente em questão de minutos.  
 
 - **Custo mínimo e complexidade da implantação.**  Como todos os componentes e dados do OMS são armazenados no Azure, você pode ter tudo pronto rapidamente sem a complexidade e o investimento necessários no caso de componentes locais.
@@ -39,15 +43,18 @@ O OMS (Operations Management Suite) é um conjunto de serviços de gerenciamento
 - **Conhecimento global.**  As soluções de gerenciamento do OMS têm acesso contínuo às informações mais recentes.  Por exemplo, a solução de Segurança e Auditoria pode executar uma análise de ameaças usando as ameaças mais recentes que estão sendo detectadas em todo o mundo.
 - **Acesso de qualquer lugar.**  Acesse seu ambiente de gerenciamento em qualquer lugar com um navegador.  Instale o aplicativo OMS no smartphone para ter acesso imediato a seus dados de monitoramento.
 
-### <a name="is-it-just-for-the-cloud"></a>É apenas para a nuvem?
+### É apenas para a nuvem?
+<a id="is-it-just-for-the-cloud" class="xliff"></a>
 Só porque os serviços do OMS são executados na nuvem não significa que eles não podem gerenciar efetivamente seu ambiente local.  Coloque um agente em qualquer computador Windows ou Linux no seu data center e ele enviará dados para o Log Analytics, onde poderão ser analisados junto com todos os outros dados coletados de serviços na nuvem ou locais.  Use o Backup do Azure e o Azure Site Recovery para aproveitar a nuvem como backup e alta disponibilidade de recursos locais.  
 Os runbooks na nuvem normalmente não podem acessar os recursos locais, mas você pode instalar um agente em um ou mais computadores para hospedar runbooks em seu data center.  Quando você inicia um runbook, basta simplesmente especificar se deseja que ele seja executado na nuvem ou em um local de trabalho.
 
-## <a name="hybrid-management-with-system-center"></a>Gerenciamento híbrido com o System Center
+## Gerenciamento híbrido com o System Center
+<a id="hybrid-management-with-system-center" class="xliff"></a>
 Se você tiver uma instalação do System Center existente, poderá integrar esses componentes aos serviços do OMS para fornecer uma solução híbrida para ambientes locais e de nuvem, aproveitando as especialidades relativas de cada produto.  Conecte seu grupo de gerenciamento existente do Operations Manager ao Log Analytics para analisar os agentes gerenciados na nuvem.  Use o processo de backup existente com o Data Protection Manager para fazer backup dos dados na nuvem.  
 
 
-## <a name="oms-services"></a>Serviços do OMS
+## Serviços do OMS
+<a id="oms-services" class="xliff"></a>
 A principal funcionalidade do OMS é oferecida por um conjunto de serviços que são executados no Azure.  Cada serviço fornece uma função de gerenciamento específico, e você pode combinar serviços para obter cenários de gerenciamento diferentes.
 
 || Descrição do | serviço |
@@ -57,19 +64,22 @@ A principal funcionalidade do OMS é oferecida por um conjunto de serviços que 
 | ![Serviço de Backup do Azure](media/operations-management-suite-overview/icon-backup.png) | Backup | Backup e restauração de dados críticos. |
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Recuperação de Site | Fornecer alta disponibilidade para aplicativos críticos. |
 
-### <a name="log-analytics"></a>Log Analytics
+### Log Analytics
+<a id="log-analytics" class="xliff"></a>
 O [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitoramento para o OMS coletando dados de recursos gerenciados em um repositório central.  Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação.  Esse método permite consolidar dados de várias fontes para que você pode combinar dados de serviços do Azure com o ambiente local.  Ele também separa a coleta dos dados da ação executada neles para que todas as ações fiquem disponíveis para todos os tipos de dados.  
 
 ![Visão geral do Log Analytics](media/operations-management-suite-overview/overview-log-analytics.png)
 
-#### <a name="collecting-data"></a>Coletando dados
+#### Coletando dados
+<a id="collecting-data" class="xliff"></a>
 Há várias maneiras de obter dados para o repositório que o Log Analytics vai analisar.
 
 - **Computadores Windows ou Linux e máquinas virtuais.**  Instale o Microsoft Monitoring Agent em computadores ou máquinas virtuais [Windows](../log-analytics/log-analytics-windows-agents.md) e [Linux](../log-analytics/log-analytics-linux-agents.md) de que você deseja coletar dados.  O agente fará o download automaticamente da configuração do Log Analytics que define os eventos e dados de desempenho que devem ser coletados.  Você pode instalar o agente em máquinas virtuais em execução no Azure facilmente usando o portal do Azure.  Se você tiver um ambiente existente do Operations Manager, poderá conectar o grupo de gerenciamento ao Log Analytics e começar a coletar dados de todos os agentes existentes.
 - **Serviços do Azure.**  O Log Analytics coleta a telemetria do [Diagnóstico do Azure e do Monitoramento do Azure](../log-analytics/log-analytics-azure-storage.md) no repositório para que você possa monitorar os recursos do Azure.
 - **API do Coletor de Dados.**  O Log Analytics tem uma [API REST para preenchimento de dados de qualquer cliente](../log-analytics/log-analytics-data-collector-api.md).  Isso permite coletar dados de aplicativos de terceiros ou implementar cenários de gerenciamento personalizado.  Um método comum é usar um runbook na Automação do Azure para coletar dados e usar a API do coletor de dados para gravá-lo no repositório.
 
-#### <a name="reporting-and-analyzing-data"></a>Emissão de relatórios e análise de dados
+#### Emissão de relatórios e análise de dados
+<a id="reporting-and-analyzing-data" class="xliff"></a>
 O Log Analytics inclui uma linguagem de consulta avançada para extrair os dados armazenados no repositório.  Como os dados de todas as fontes são armazenados como registros, você pode analisar dados de várias fontes em uma única consulta.
   
 Além de análise ad hoc, o Log Analytics oferece várias maneiras de relatar e analisar dados de uma consulta.
@@ -78,7 +88,8 @@ Além de análise ad hoc, o Log Analytics oferece várias maneiras de relatar e 
 - **Exportação.**  Você tem a opção de exportar os resultados de qualquer consulta para analisá-la fora do Log Analytics.  Você também pode programar uma exportação regular para o [Power BI](../log-analytics/log-analytics-powerbi.md), que oferece recursos de visualização e análise relevantes.
 - **API da Pesquisa de Logs.**  O Log Analytics tem uma [API REST para coletar dados de qualquer cliente](../log-analytics/log-analytics-log-search-api.md).  Isso permite trabalhar com dados coletados no repositório de forma programática ou acessá-los de outra ferramenta de monitoramento.
 
-#### <a name="alerting"></a>Alertas
+#### Alertas
+<a id="alerting" class="xliff"></a>
 O Log Analytics pode [alertá-lo proativamente](../log-analytics/log-analytics-alerts.md) ou tomar uma ação corretiva quando detecta um problema.  Como todas as outras análises no Log Analytics, isso é feito com uma pesquisa de logs.  Esta pesquisa é executada regularmente e um alerta é criado se os resultados correspondem a critérios específicos.
 
 ![Alertas do Log Analytics](media/operations-management-suite-overview/overview-alerts.png)
@@ -89,14 +100,17 @@ Além de criar um registro de alerta no repositório do Log Analytics, os alerta
 - **Runbook.**  Um alerta no Log Analytics pode iniciar um runbook na Automação do Azure.  Normalmente, isso é feito para tentar corrigir o problema detectado.  O runbook pode ser iniciado na nuvem no caso de um problema no Azure ou outra nuvem, ou pôde ser iniciado em um agente local no caso de um problema em uma máquina virtual ou física.
 - **Webhook.**  Um alerta pode iniciar um webhook e passar dados dos resultados da pesquisa de logs.  Isso permite a integração com serviços externos, como um sistema de alerta alternativo, ou a tentativa de executar a ação corretiva para um site externo.
 
-### <a name="azure-automation"></a>Automação do Azure
+### Automação do Azure
+<a id="azure-automation" class="xliff"></a>
 [A Automação do Azure](http://azure.microsoft.com/documentation/services/automation) oferece gerenciamento de configuração e automação de processo para o OMS.  Ele automatiza processos manuais e ajuda a impor configurações para computadores físicos e virtuais.  
 
-#### <a name="process-automation"></a>Automação de processos
+#### Automação de processos
+<a id="process-automation" class="xliff"></a>
 A Automação do Azure automatiza processos manuais usando [runbooks](../automation/automation-runbook-types.md) que são baseados em script ou fluxo de trabalho do PowerShell.  Ele também inclui runbooks de suporte a ativos, como variáveis que podem ser compartilhadas entre vários runbooks e credenciais e conexões que permitem armazenar informações criptografadas que talvez sejam necessárias à autenticação do runbook.
 Os runbooks oferece automação do processo para outros serviços no pacote.  Como cada um dos outros serviços pode ser acessado com o PowerShell ou por uma API REST, você pode criar runbooks para executar funções como coletar dados de gerenciamento do Log Analytics ou iniciar um backup com o Backup do Azure.
 
-##### <a name="accessing-resources"></a>Acessando recursos
+##### Acessando recursos
+<a id="accessing-resources" class="xliff"></a>
 Como os runbooks são baseados no PowerShell, eles podem gerenciar qualquer recurso que possa ser acessado com cmdlets do PowerShell.  Quando você [carrega um módulo](../automation/automation-integration-modules.md) em sua conta de automação, ele fica disponível para todos os runbooks na conta. 
  
 Quando os runbooks são executados na nuvem, eles podem acessar todos os recursos acessíveis da nuvem.  Isso pode ser recursos na sua assinatura do Azure, em outra nuvem, como o AWS (Amazon Web Services) ou um serviço acessível por uma API REST.  Os runbooks na nuvem não são executados com credenciais, mas podem aproveitar os ativos da Automação, como certificados, conexões e credenciais para autenticar em relação aos recursos que eles acessam.
@@ -105,7 +119,8 @@ Os recursos em seu data center provavelmente não podem ser acessados de um runb
 
 ![Runbooks da Automação do Azure](media/operations-management-suite-overview/overview-runbooks.png)
 
-##### <a name="starting-a-runbook"></a>Iniciando um runbook
+##### Iniciando um runbook
+<a id="starting-a-runbook" class="xliff"></a>
 Os runbooks podem ser [iniciados por vários métodos](../automation/automation-starting-a-runbook.md) para que eles possam ser incluídos em vários cenários de gerenciamento.  
 
 - **Portal do Azure.**  Como outros serviços do Azure, a Automação do Azure podem ser gerenciada no Portal do Azure.  Além de iniciar runbooks, você pode importá-los ou criar seus próprios.
@@ -114,15 +129,18 @@ Os runbooks podem ser [iniciados por vários métodos](../automation/automation-
 - **Webhook.**  Um webhook pode ser criado todos os runbooks que permitem sua criação de aplicativos externos ou sites da Web.
 - **Alerta do Log Analytics.**  Um alerta no Log Analytics pode iniciar um runbook automaticamente para tentar corrigir o problema identificado pelo alerta.
 
-#### <a name="configuration-management"></a>Gerenciamento de configuração
+#### Gerenciamento de configuração
+<a id="configuration-management" class="xliff"></a>
 [DSC (Configuração do Estado Desejado) do PowerShell](../automation/automation-dsc-overview.md) é uma plataforma de gerenciamento do Windows PowerShell que permite implantar e impor a configuração de máquinas físicas e virtuais.  A Automação do Azure gerencia DSCs e oferece um servidor de recepção na nuvem que os agentes podem acessar para recuperar as configurações necessárias.
 
 ![DSC de Automação do Azure](media/operations-management-suite-overview/overview-dsc.png)
 
-### <a name="azure-backup-and-azure-site-recovery"></a>Backup do Azure e Azure Site Recovery
+### Backup do Azure e Azure Site Recovery
+<a id="azure-backup-and-azure-site-recovery" class="xliff"></a>
 O Backup do Azure e o Azure Site Recovery contribuem para a recuperação de desastres e a continuidade de negócios.  Cada um deles tem recursos que ajudam a garantir que os aplicativos permanecerão disponíveis em caso de interrupção e retornarão ao funcionamento normalmente quando os sistemas voltarem a ficar online.  Ambos os serviços contribuem para os RPOs (objetivos de ponto de recuperação) e os RTOs (objetivos de tempo de recuperação) definidos pela sua organização. O RPO define o limite aceitável para a indisponibilidade de dados durante uma interrupção e o RTO limita a quantidade aceitável de tempo em que um aplicativo ou serviço pode não ficar disponível durante uma interrupção.
 
-#### <a name="azure-backup"></a>Serviço de Backup do Azure
+#### Serviço de Backup do Azure
+<a id="azure-backup" class="xliff"></a>
 [O Backup do Azure](http://azure.microsoft.com/documentation/services/backup) oferece backup de dados e serviços de restauração para o OMS.  Ele protege seus dados de aplicativos e os retém por vários anos, sem nenhum investimento de capital e custos operacionais mínimos.  Ele pode fazer backup de dados de servidores físicos e virtuais do Windows, além de cargas de trabalho de aplicativos, como SQL Server e SharePoint.  Também pode ser usado pelo DPM (System Center Data Protection Manager) para replicar dados protegidos no Azure para redundância e armazenamento de longo prazo.
 
 Os dados protegidos no Backup do Azure são armazenados em um cofre de backup localizado em uma região geográfica específica. Os dados são replicados na mesma região e, dependendo do tipo de cofre, também podem ser replicados para outra região para resiliência adicional.
@@ -135,7 +153,8 @@ O Backup do Azure apresenta três cenários fundamentais.
 
 
 
-#### <a name="azure-site-recovery"></a>Azure Site Recovery
+#### Azure Site Recovery
+<a id="azure-site-recovery" class="xliff"></a>
 [O Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) fornece continuidade de negócios pela orquestração de replicação de máquinas virtuais e físicas locais no Azure ou em um site secundário. Se seu site primário não estiver disponível, faça failover para o local secundário para que os usuários possam continuar trabalhando e faça failback quando os sistemas voltarem a funcionar corretamente. 
 
 O Azure Site Recovery fornece alta disponibilidade para servidores e aplicativos.  Ele contribui para sua estratégia de BCDR (continuidade dos negócios e recuperação de desastre) orquestrando a replicação, o failover e a recuperação de máquinas virtuais Hyper-V locais, máquinas virtuais VMware e servidores físicos Windows/Linux. É possível replicar computadores em um data center secundário ou estender seu data center replicando-os no Azure. A Recuperação de Site também fornece failover e recuperação simples para cargas de trabalho. Ela integra mecanismos de recuperação de desastre, como o SQL Server AlwaysOn, e fornece planos de recuperação para failover fácil de cargas de trabalho que são organizadas em camadas em vários computadores.
@@ -143,13 +162,14 @@ O Azure Site Recovery fornece alta disponibilidade para servidores e aplicativos
 O Azure Site Recovery apresenta três cenários fundamentais de replicação.
 
 - **Replicação de máquinas virtuais Hyper-V.**  Se as máquinas virtuais Hyper-V forem gerenciadas em nuvens do VMM, será possível replicá-las em um data center secundário ou no armazenamento do Azure. A replicação no Azure é feita por uma conexão segura com a Internet. A replicação em um data center secundário é feita pela LAN.  Se as máquinas virtuais Hyper-V não forem gerenciadas pelo VMM, será possível replicar apenas o armazenamento do Azure. A replicação no Azure é feita por uma conexão segura com a Internet.<br><br>![Replicação de máquinas virtuais Hyper-V](media/operations-management-suite-overview/overview-siterecovery-hyperv.png)
-- **Replicação de máquinas virtuais VMWare.**  É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.<br><br>![Replicação de máquinas virtuais VMWare](media/operations-management-suite-overview/overview-siterecovery-vmware.png)
-- **Replicação de servidores físicos Windows e Linux**  É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout. O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.<br><br>![Replicação de servidores físicos do Windows e Linux](media/operations-management-suite-overview/overview-siterecovery-physical.png)
+- **Replicação de máquinas virtuais VMWare.**  É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.<br><br>![Replicação de máquinas virtuais VMWare](media/operations-management-suite-overview/overview-siterecovery-vmware.png)
+- **Replicação de servidores físicos Windows e Linux**  É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout. O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.<br><br>![Replicação de servidores físicos do Windows e Linux](media/operations-management-suite-overview/overview-siterecovery-physical.png)
 
 
 A Recuperação de Site armazena os metadados em cofres localizados em determinada região geográfica do Azure. Nenhum dado replicado é armazenado pelo serviço Site Recovery.
 
-## <a name="management-solutions"></a>Soluções de gerenciamento
+## Soluções de gerenciamento
+<a id="management-solutions" class="xliff"></a>
 [Soluções de gerenciamento](operations-management-suite-solutions.md) são conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento específico utilizando um ou mais serviços do OMS.  Existem soluções diferentes disponibilizadas pela Microsoft e por parceiros que você pode adicionar facilmente à assinatura do Azure para aumentar o valor de seu investimento no OMS.  Como parceiro, você pode criar suas próprias soluções para dar suporte a seus aplicativos e serviços e oferecê-las aos usuários por meio do Azure Marketplace ou como Modelos de Início Rápido.
 
 Um bom exemplo de uma solução que utiliza vários serviços para oferecer mais funcionalidades é a [solução Gerenciamento de Atualizações](oms-solution-update-management.md).  Esta solução usa o agente do Log Analytics para Windows e Linux a fim de coletar informações sobre as atualizações necessárias em cada agente.  Ele grava esses dados no repositório do Log Analytics, onde você pode analisá-los com um painel incluído.  Quando você cria uma implantação, os runbooks na Automação do Azure são usados para instalar as atualizações necessárias.  Você gerencia todo o processo no portal e não precisa se preocupar com os detalhes subjacentes.
@@ -166,7 +186,8 @@ A Microsoft e seus parceiros adicionam soluções regularmente ao OMS, permitind
 ![Galeria de Soluções](media/operations-management-suite-overview/solution-gallery.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 * Saiba mais sobre o [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
 * Saiba mais sobre a [Automação do Azure](../automation/automation-intro.md).
 * Saiba mais sobre o [Backup do Azure](http://azure.microsoft.com/documentation/services/backup).

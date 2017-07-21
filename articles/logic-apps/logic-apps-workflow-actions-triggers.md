@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -731,7 +731,7 @@ A ação Compor permite construir um objeto arbitrário. A saída da ação para
 
 ## <a name="table-action"></a>Ação tabela
 
-A `table` permite converter uma matriz de itens em uma tabela **CVS** ou **HTML**.
+A `table` permite converter uma matriz de itens em uma tabela **CSV** ou **HTML**.
 
 Suponha que @triggerBody() seja
 
@@ -761,7 +761,7 @@ Isso produzirá
 
 <table><thead><tr><th>ID</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
 
-A fim de personalizar a tabela, você pode especificar explicitamente as colunas. Por exemplo:
+Para personalizar a tabela, você pode especificar explicitamente as colunas. Por exemplo:
 
 ```json
 "ConvertToTable" : {
@@ -789,7 +789,7 @@ Se o valor da propriedade `from` for uma matriz vazia, a saída será uma tabela
 |Nome|Obrigatório|Tipo|Descrição|
 |--------|------------|--------|---------------|
 |Da|Sim|Matriz|A matriz de origem.|
-|formato|Sim|Cadeia de caracteres|O formato, **CVS** ou **HTML**.|
+|formato|Sim|Cadeia de caracteres|O formato, **CSV** ou **HTML**.|
 |colunas|Não|Matriz|As colunas. Permite substituir a forma padrão da tabela.|
 |cabeçalho de coluna|Não|Cadeia de caracteres|O cabeçalho da coluna.|
 |valor da coluna|Sim|Cadeia de caracteres|O valor da coluna.|

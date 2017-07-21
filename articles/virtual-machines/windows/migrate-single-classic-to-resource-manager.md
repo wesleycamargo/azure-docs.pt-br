@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 06/15/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3a3730821b88062fdccf18732630be0bcb6ae7a7
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4bae56abfdc609ad40e6fbefe120493f1cd4e66d
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -47,23 +48,24 @@ Examine as características de desempenho das máquinas virtuais que funcionam c
 
 **Managed Disks Premium**
 
-Há três tipos de discos gerenciados premium que podem ser usados com a sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Leve em consideração esses limites ao escolher o tipo de disco premium para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
+Há sete tipos de discos Gerenciados premium que podem ser usados com sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Leve em consideração esses limites ao escolher o tipo de disco premium para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
 
-| Tipo de discos premium  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Tamanho do disco           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
-| IOPS por disco       | 500               | 2.300              | 5.000              |
-| Taxa de transferência por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo |
+| Tipo de discos premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 2.300              | 5.000              | 7500              | 7500              | 
+| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 **Managed Disks Standard**
 
-Há cinco tipos de discos gerenciados Standard que podem ser usados com a sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de discos gerenciados Standard com base nas necessidades de capacidade do seu aplicativo.
+Há sete tipos de discos Gerenciados Padrão que podem ser usados com sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de discos gerenciados Standard com base nas necessidades de capacidade do seu aplicativo.
 
-| Tipo de disco Standard  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
-| IOPS por disco       | 500              | 500              | 500              | 500              | 500              |
-| Taxa de transferência por disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo |
+| Tipo de disco Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
+| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOPS por disco       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| Taxa de transferência por disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
+
 
 ### <a name="disk-caching-policy"></a>Política de cache de disco 
 

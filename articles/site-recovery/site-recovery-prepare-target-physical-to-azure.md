@@ -15,17 +15,17 @@ ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 9dd4e9007da6cf276f976e2f3f25305286830544
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 > [!div class="op_single_selector"]
-> * [Máquinas Virtuais VMware](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Servidores físicos](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware no Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Físico para Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Este artigo descreve como preparar seu ambiente do Azure para iniciar a replicação de servidores físicos (x64) executando Windows ou Linux no Azure.
 

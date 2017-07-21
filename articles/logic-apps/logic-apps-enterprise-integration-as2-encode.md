@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 82d64d159412af6ff2bba1d625af66cdd18a4616
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +41,7 @@ Veja os itens necessários:
 
 2. O conector de mensagem AS2 de codificação não possui gatilhos. Você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
-3.    Na caixa de pesquisa, digite "AS2" como filtro. Selecione **AS2 - Codificar Mensagem AS2**.
+3.  Na caixa de pesquisa, digite "AS2" como filtro. Selecione **AS2 - Codificar Mensagem AS2**.
    
     ![Procure "AS2"](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
@@ -56,7 +56,7 @@ Veja os itens necessários:
     | Nome da Conexão * |Digite um nome para a conexão. |
     | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
 
-5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
    
     ![detalhes de conexão de integração](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
 

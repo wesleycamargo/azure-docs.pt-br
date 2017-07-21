@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 5e4bf617d80d3b0f4b88a819257bf4226db0ab7a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 8af9c566a267e6e9d332805c5b3e82503c092d22
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -26,7 +28,7 @@ Neste passo a passo, demonstramos como usar o Processo de Ciência de Dados de E
 
 Também é possível usar um bloco de anotações do IPython para executar as tarefas apresentadas nesse passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
-## <a name="a-namedatasetacriteo-dataset-description"></a><a name="dataset"></a>Descrição do conjunto de dados da Criteo
+## <a name="dataset"></a>Descrição do conjunto de dados da Criteo
 O conjunto de dados da Criteo é um conjunto de dados de previsão de cliques que contém cerca de 370 GB de arquivos TSV comprimidos em gzip (cerca de 1,3 TB de arquivos não comprimidos), totalizando mais de 4,3 bilhões de registros. Ele é obtido a partir de 24 dias de cliques de dados disponibilizados pela [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Para a conveniência dos cientistas de dados, nós descompactamos os dados disponibilizados para fazermos os experimentos.
 
 Cada registro deste conjunto de dados contém 40 colunas:
@@ -48,7 +50,7 @@ Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados.
 
 **Definição:** *CTR (taxa de clickthrough):* é o percentual de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
+## <a name="mltasks"></a>Exemplos de tarefas de previsão
 Dois exemplos de problemas de previsão são abordados neste passo a passo:
 
 1. **Classificação binária**: prevê se um usuário clicou em um anúncio:
@@ -57,7 +59,7 @@ Dois exemplos de problemas de previsão são abordados neste passo a passo:
    * Classe 1: clicou
 2. **Regressão**: prevê a probabilidade de um clique no anúncio por meio de características do usuário.
 
-## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configurar um cluster Hadoop do HDInsight para ciência de dados
+## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para ciência de dados
 **Observação:** normalmente, esta é uma tarefa para o **Administrador**.
 
 Configure seu ambiente de Ciência de dados do Azure para a criação de soluções analíticas de previsão com clusters do HDInsight em três etapas:
@@ -69,7 +71,7 @@ Configure seu ambiente de Ciência de dados do Azure para a criação de soluç�
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Lembre das credenciais de acesso remoto que você especificar aqui (diferentes daqueles especificadas para o cluster durante sua criação): você precisa delas para concluir os procedimentos a seguir.
 3. [Criar um espaço de trabalho do AM do Azure](machine-learning-create-workspace.md): este espaço de trabalho do Aprendizado de Máquina do Azure é usado para criar modelos de aprendizado de máquina após uma exploração de dados inicial e para reduzir a resolução no cluster do HDInsight.
 
-## <a name="a-namegetdataaget-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Obter e consumir dados de uma fonte de pública
+## <a name="getdata"></a>Obter e consumir dados de uma fonte de pública
 O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) pode ser acessado clicando no link, aceitando os termos de uso e fornecendo um nome. Um instantâneo desse processo é mostrado aqui:
 
 ![Aceitar os termos da Criteo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
@@ -87,7 +89,7 @@ Os dados residem em um local público do [Armazenamento de blobs do Azure](../st
 
 Uma abordagem alternativa para acessar, explorar e modelar esses dados que não requer nenhum download local é explicada mais adiante neste passo a passo, quando criamos tabelas de Hive.
 
-## <a name="a-nameloginalog-in-to-the-cluster-headnode"></a><a name="login"></a>Faça logon no nó principal do cluster
+## <a name="login"></a>Faça logon no nó principal do cluster
 Para entrar no nó principal do cluster, use o [portal do Azure](https://ms.portal.azure.com) para localizar o cluster. Clique no ícone de elefante do HDInsight à esquerda e depois clique duas vezes no nome do cluster. Navegue até a guia **Configuration** , clique duas vezes no ícone CONNECT na parte inferior da página e insira suas credenciais de acesso remoto quando solicitado. Isso leva ao nó principal do cluster.
 
 Um típico primeiro logon no nó principal do cluster é semelhante ao seguinte:
@@ -98,7 +100,7 @@ Um típico primeiro logon no nó principal do cluster é semelhante ao seguinte:
 
 Agora estamos prontos para começar a primeira parte do passo a passo: explorar dados usando o Hive e preparar dados para o Aprendizado de Máquina do Azure.
 
-## <a name="a-namehive-db-tablesa-create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Criar tabelas e banco de dados do Hive
+## <a name="hive-db-tables"></a> Criar tabelas e banco de dados do Hive
 Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Linha de Comando do Hadoop*** na área de trabalho do nó principal e entre no diretório do Hive digitando o comando
 
     cd %hive_home%\bin
@@ -194,7 +196,7 @@ Você verá a saída a seguir:
         criteo_train
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
-## <a name="a-nameexplorationa-data-exploration-in-hive"></a><a name="exploration"></a> Exploração de dados no Hive
+## <a name="exploration"></a> Exploração de dados no Hive
 Agora, estamos prontos para fazer algumas explorações de dados básicas no Hive. Vamos começar pela contagem do número de exemplos nas tabelas de dados de treinamento e teste.
 
 ### <a name="number-of-train-examples"></a>Número de exemplos de treinamento
@@ -323,7 +325,8 @@ Isso resulta em:
 
 Mais uma vez vemos que, com exceção de Col20, todas as colunas têm muitos valores exclusivos.
 
-### <a name="co-occurence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Contagens de ocorrências conjuntas de pares de variáveis categóricas no conjunto de dados de treinamento
+### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Contagens de ocorrências conjuntas de pares de variáveis categóricas no conjunto de dados de treinamento
+
 As contagens de ocorrências conjuntas de pares de variáveis categóricas no conjunto de dados de treinamento também é de interesse. Isso pode ser determinado usando o código em [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
@@ -347,7 +350,7 @@ Neste caso, ordenamos as contagens de modo inverso e examinamos as 15 primeiras.
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="a-namedownsamplea-down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a> Reduzir a resolução de conjuntos de dados para o Aprendizado de Máquina do Azure
+## <a name="downsample"></a> Reduzir a resolução de conjuntos de dados para o Aprendizado de Máquina do Azure
 Após termos explorado os conjuntos de dados e demonstrado como podemos fazer esse tipo de exploração para quaisquer variáveis (incluindo combinações), agora nós reduzimos a resolução dos conjuntos de dados para que possamos criar modelos no Aprendizado de Máquina do Azure. Lembre-se de que o problema em que nos concentramos é: dado um conjunto de atributos de exemplo (valores de recursos da Col2 à Col40), podermos prever se Col1 é 0 (sem cliques) ou 1 (com clique).
 
 Para reduzir nossos conjuntos de dados de treinamento e teste para 1% do tamanho original, usamos a função nativa RAND() do Hive. O seguinte script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) faz isso para o conjunto de dados de treinamento:
@@ -405,7 +408,7 @@ Com isso, nós estamos prontos para usar nossos conjuntos de dados de treinament
 
 Há um componente final importante antes de passarmos para o Aprendizado de Máquina do Azure, que é relacionado à tabela de contagem. Na próxima sub-seção, discutiremos este componente detalhadamente.
 
-## <a name="a-namecounta-a-brief-discussion-on-the-count-table"></a><a name="count"></a> Uma breve discussão sobre a tabela de contagem
+## <a name="count"></a> Uma breve discussão sobre a tabela de contagem
 Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alta. Em nosso passo a passo, nós apresentamos uma técnica poderosa chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar essas variáveis de maneira eficiente e robusta. Mais informações sobre essa técnica são disponibilizadas no link fornecido.
 
 [!NOTE]
@@ -414,7 +417,7 @@ Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alt
 
 Para criar tabelas de contagem com os dados de contagem, usamos os dados na pasta raw/count. Na seção de modelagem, mostramos aos usuários como criar essas tabelas de contagem para recursos categóricos do zero ou como usar uma tabela de contagem criada previamente para seus explorações. A seguir, quando falamos em "tabelas criadas previamente", nos referimos ao uso das tabelas de contagem que fornecemos. Fornecemos instruções detalhadas sobre como acessar essas tabelas na próxima seção.
 
-## <a name="a-nameamla-build-a-model-with-azure-machine-learning"></a><a name="aml"></a> Criar um modelo com o Aprendizado de Máquina do Azure
+## <a name="aml"></a> Criar um modelo com o Aprendizado de Máquina do Azure
 Nosso processo de criação de modelo no Azure Machine Learning seguirá estas etapas:
 
 1. [Obter os dados de tabelas do Hive no Aprendizado de Máquina do Azure](#step1)
@@ -425,7 +428,7 @@ Nosso processo de criação de modelo no Azure Machine Learning seguirá estas e
 
 Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo **Importar Dados** do Azure Machine Learning para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
 
-### <a name="a-namestep1a-step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Etapa 1: passar dados de tabelas do Hive para o Azure Machine Learning usando o módulo Importar Dados e selecioná-los para um teste de aprendizado de máquina
+### <a name="step1"></a> Etapa 1: passar dados de tabelas do Hive para o Azure Machine Learning usando o módulo Importar Dados e selecioná-los para um teste de aprendizado de máquina
 Comece selecionando **+NOVO** -> **EXPERIMENTO** -> **Experimento em Branco**. Depois, na caixa **Pesquisar** na parte superior esquerda, procure "Importar Dados". Arraste e solte o módulo **Importar Dados** na tela do experimento (a parte central da tela) para usar o módulo para acesso a dados.
 
 Esta é a aparência do **Importar Dados** ao obter dados da tabela do Hive:
@@ -459,7 +462,7 @@ Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de
 > 
 > 
 
-### <a name="a-namestep2a-step-2-create-a-simple-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure para predizer cliques/nenhum clique
+### <a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure para predizer cliques/nenhum clique
 Nosso experimento do AM do Azure tem esta aparência:
 
 ![Teste do Machine Learning](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
@@ -536,7 +539,7 @@ Nesse trecho, mostramos que para as colunas que pudemos contar, obtivemos as con
 
 Agora estamos prontos para criar um modelo de Aprendizado de Máquina do Azure usando esses conjuntos de dados transformados. Na próxima seção, vamos mostrar como isso pode ser feito.
 
-### <a name="a-namestep3a-step-3-build-train-and-score-the-model"></a><a name="step3"></a>Etapa 3: Criar, treinar e pontuar o modelo
+### <a name="step3"></a>Etapa 3: Criar, treinar e pontuar o modelo
 
 #### <a name="choice-of-learner"></a>Opção do aprendiz
 Primeiro precisamos escolher um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classes, como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
@@ -555,7 +558,7 @@ Assim que tivermos um modelo treinado, estamos prontos para avaliar o conjunto d
 
 ![Módulo de Modelo de Pontuação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="a-namestep4a-step-4-evaluate-the-model"></a><a name="step4"></a> Etapa 4: Avaliar o modelo
+### <a name="step4"></a> Etapa 4: Avaliar o modelo
 Por fim, gostaríamos de analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, vinculamos o módulo **Modelo de classificação** a um módulo **Modelo de avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
 
 ![Avaliar o modelo de BDT do módulo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -564,7 +567,7 @@ Em problemas de classificação binária (ou de duas classes), uma boa medida da
 
 ![Módulo Visualizar modelo de avaliação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="a-namestep5a-step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web a ser consumido
+### <a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web a ser consumido
 A capacidade de publicar um modelo de Aprendizado de Máquina do Azure como serviços Web com um nível mínimo de confusão é um recurso valioso para torná-lo amplamente disponível. Depois disso, qualquer pessoa pode fazer chamadas para o serviço Web com dados de entrada para os quais precisem de previsões, e o serviço Web usa o modelo para retornar as previsões.
 
 Para fazer isso, primeiro salvamos nosso modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.
@@ -629,10 +632,5 @@ Observe que substituímos a chave de API padrão com a chave de API de nossos se
 Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), recebemos respostas no formulário "Scored Labels, Scored Probabilities". Observe que, neste caso, escolhemos os valores padrão que o código predefinido fornece (0 para todas as colunas numéricas e a cadeia de caracteres "value" para todas as colunas categóricas).
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Azure Machine Learning. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

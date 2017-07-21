@@ -14,13 +14,14 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: e37a3194bb65ccf3bb6168a2f456902a9c48edc5
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Criar um registro de contêiner privado do Docker usando a CLI do Azure 2.0
@@ -45,17 +46,38 @@ Execute o comando `az acr create` para criar um registro de contêiner.
 >
 >
 
-O seguinte comando usa os parâmetros mínimos para criar o registro de contêiner `myRegistry1` no grupo de recursos `myResourceGroup` no local Centro-Sul dos EUA:
+O seguinte comando usa os parâmetros mínimos para criar o registro de contêiner `myRegistry1` no grupo de recursos `myResourceGroup` e usa a sku *Básica*:
 
 ```azurecli
-az acr create -n myRegistry1 -g myResourceGroup -l southcentralus
+az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
 ```
 
 * `--storage-account-name` é opcional. Se não for especificada, uma conta de armazenamento será criada com um nome que consiste no nome do registro e em um carimbo de data e hora no grupo de recursos especificado.
 
-A saída deverá ser semelhante a esta:
+Quando o registro é criado, o resultado é semelhante ao seguinte:
 
-![criar saída az acr](./media/container-registry-get-started-azure-cli/acr_create.png)
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T18:36:29.124842+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
+/registries/myRegistry1",
+  "location": "southcentralus",
+  "loginServer": "myregistry1.azurecr.io",
+  "name": "myRegistry1",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myregistry123456789"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 
 
 Observe particularmente:

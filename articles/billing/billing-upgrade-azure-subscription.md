@@ -4,8 +4,8 @@ description: "Descreve como é possível fazer uma atualização pré-paga de um
 keywords: "atualização pré-paga"
 services: 
 documentationcenter: 
-author: adpick
-manager: adpick
+author: jlian
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
@@ -17,13 +17,15 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/17/2017
 
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
+<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
+# Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
 Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assinatura do [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) para [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) no Portal de Contas do Azure. A atualização em si não é muito cara e você só será cobrado pelos serviços que usar.
 
 1. Entre no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions) e navegue até a guia **assinaturas**.

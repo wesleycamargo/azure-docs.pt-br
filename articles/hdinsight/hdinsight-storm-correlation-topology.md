@@ -17,10 +17,10 @@ ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 21ce246fab787e06576a295ec4ea45ae3fdfc379
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlacionar eventos que chegam em diferentes horários usando Storm e o HBase
@@ -41,7 +41,7 @@ Neste documento, você aprenderá como criar uma topologia Storm C# básica que 
 * Apache HBase no cluster HDInsight (baseado em Linux ou Windows).
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Java](https://java.com) 1.7 ou posterior em seu ambiente de desenvolvimento. O Java é usado para o pacote da topologia quando ela é enviada ao cluster HDInsight.
 

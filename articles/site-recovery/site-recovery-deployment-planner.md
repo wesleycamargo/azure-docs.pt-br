@@ -8,17 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -68,7 +68,7 @@ A ferramenta tem duas fases principais: criação de perfil e geração de relat
 
 | Requisito de servidor | Descrição|
 |---|---|
-|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li></ul>|
+|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Permissão somente leitura para a conta de usuário que é usada para acessar o servidor vCenter VMware/host ESXi vSphere VMware durante a criação de perfil |
 
@@ -140,7 +140,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | O nome de domínio totalmente qualificado ou o endereço IP do servidor vCenter/host ESXi vSphere cujas VMs devem ser submetidas à criação de perfil.|
 | -User | O nome de usuário a ser conectado ao servidor vCenter/host ESXi vSphere. O usuário precisa ter acesso somente leitura, no mínimo.|
-| -VMListFile |    O arquivo que contém a lista de VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. O nome de máquina virtual especificado no arquivo deve ser igual ao nome da VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>máquina_virtual_A</li><li>10.150.29.110</li><li>máquina_virtual_B</li><ul> |
+| -VMListFile | O arquivo que contém a lista de VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. O nome de máquina virtual especificado no arquivo deve ser igual ao nome da VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>máquina_virtual_A</li><li>10.150.29.110</li><li>máquina_virtual_B</li><ul> |
 | -NoOfDaysToProfile | O número de dias pelos quais a criação de perfil deve ser executada. É recomendável executar a criação de perfil por mais de 15 dias para garantir que o padrão de carga de trabalho no ambiente durante o período especificado seja observado e usado para fornecer uma recomendação precisa. |
 | -Directory | (Opcional) A UNC (convenção de nomenclatura universal) ou o caminho do diretório local para armazenar dados de criação de perfil gerados durante a criação de perfil. Se um nome de diretório não for especificado, o diretório chamado 'ProfiledData' no caminho atual será usado como diretório padrão. |
 | -Password | (Opcional) A senha a ser usada para se conectar ao host ESXi vSphere/servidor vCenter. Se não especificar uma agora, você será solicitado a fornecê-la quando o comando for executado.|
@@ -205,10 +205,7 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 | -StartDate | (Opcional) A data e a hora de início em MM-DD-YYYY:HH:MM (formato de 24 horas). *StartDate* deve ser especificado junto com *EndDate*. Quando StartDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -EndDate | (Opcional) A data e a hora de término em MM-DD-YYYY:HH:MM (formato de 24 horas). *EndDate* deve ser especificado junto com *StartDate*. Quando EndDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expressado como uma porcentagem. O padrão é 30%. |
-| -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. O padrão é Sim. O número de máquinas virtuais que pode ser colocado em uma única conta de armazenamento é calculado com base em se o disco gerenciado está selecionado para Failover/Teste de failover. |
-
-para uma única conta de armazenamento a colocação é calculada considerando que o Failover/Teste de failover das máquinas virtuais é realizado em um disco gerenciado em vez de um disco não gerenciado. |
-
+| -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. O padrão é Sim. O número de máquinas virtuais que podem ser colocadas em uma única conta de armazenamento é calculado considerando-se o Failover/Failover de teste de máquinas virtuais é feito em um disco gerenciado em vez de em um disco não gerenciado. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
 ```
@@ -531,11 +528,11 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB    | 2 Mbps | 168 GB por disco
-Disco Premium P10 | 8 KB    | 2 Mbps | 168 GB por disco
-Disco Premium P10 | 16 KB | 4 Mbps |    336 GB por disco
+Armazenamento Standard | 8 KB | 2 Mbps | 168 GB por disco
+Disco Premium P10 | 8 KB | 2 Mbps | 168 GB por disco
+Disco Premium P10 | 16 KB | 4 Mbps | 336 GB por disco
 Disco Premium P10 | 32 KB ou maior | 8 Mbps | 672 GB por disco
-Disco Premium P20 ou P30 | 8 KB    | 5 Mbps | 421 GB por disco
+Disco Premium P20 ou P30 | 8 KB  | 5 Mbps | 421 GB por disco
 Disco Premium P20 ou P30 | 16 KB ou maior |10 Mbps | 842 GB por disco
 
 Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Site Recovery pode lidar com uma maior taxa de transferência com base na taxa de sobreposição, em tamanhos maiores de gravação e em comportamento de E/S de carga de trabalho real. Os números anteriores pressupõem uma lista de pendências típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.

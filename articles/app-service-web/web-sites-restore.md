@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49aa35a42e4f6dab2f8d556f7b1b10bfdef7b7db
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -35,26 +35,26 @@ A restauração usando backups está disponível para aplicativos que são execu
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Restaurar um aplicativo por meio de um backup existente
-1. Na folha **Configurações** de seu aplicativo no portal do Azure, clique em **Backups** para exibir a folha **Backups**. Em seguida, clique em **Restaurar Agora** na barra de comandos.
+1. Na folha **Configurações** de seu aplicativo no portal do Azure, clique em **Backups** para exibir a folha **Backups**. Depois, clique em **Restaurar**.
    
     ![Escolha restaurar agora][ChooseRestoreNow]
 2. Na folha **Restauração** , primeiro selecione a fonte do backup.
    
-    ![](./media/web-sites-restore/021ChooseSource.png)
+    ![](./media/web-sites-restore/021ChooseSource1.png)
    
     A opção **Backup do aplicativo** mostra todos os backups existentes do aplicativo atual, e você pode selecionar um com facilidade.
     A opção **Armazenamento** permite selecionar qualquer arquivo ZIP de backup em qualquer conta do Armazenamento do Azure e contêiner existentes em sua assinatura.
     Se você está tentando restaurar um backup de outro aplicativo, use a opção **Armazenamento** .
 3. Em seguida, especifique o destino para a restauração de aplicativo em **Destino de restauração**.
    
-    ![](./media/web-sites-restore/022ChooseDestination.png)
+    ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Se você escolher **Substituir**, todos os dados existentes em seu aplicativo atual serão apagados e substituídos. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
    > 
    > 
    
-    Você pode selecionar um **Aplicativo Existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já precisa ter criado outro aplicativo em seu grupo de recursos com o espelhamento da configuração para aquele definido no backup do aplicativo.
+    Você pode selecionar um **Aplicativo Existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já precisa ter criado outro aplicativo em seu grupo de recursos com o espelhamento da configuração de banco de dados para aquele definido no backup do aplicativo. Você também pode criar um **Novo** aplicativo no qual o conteúdo será restaurado.
 
 4. Clique em **OK**.
 
@@ -86,7 +86,7 @@ Você pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando
 
 
 <!-- IMAGES -->
-[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png

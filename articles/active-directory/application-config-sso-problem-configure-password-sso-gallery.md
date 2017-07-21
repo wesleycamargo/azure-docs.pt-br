@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 ---
 
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
+<a id="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 
 Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo na Galeria do Azure AD.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não as envia
+<a id="credentials-are-filled-in-but-the-extension-does-not-submit-them" class="xliff"></a>
+
+## As credenciais são preenchidas, mas a extensão não as envia
 
 Isso geralmente acontece se o fornecedor do aplicativo alterou a página de entrada recentemente para adicionar um campo, alterar um identificador subjacente que usamos para detectar os campos de nome de usuário e senha ou modificar como a experiência de entrada do usuário funciona no seu aplicativo. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
 
@@ -33,7 +37,9 @@ Ainda que a Microsoft possua tecnologias para detectar automaticamente quando es
 
 Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais estão preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
+<a id="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect" class="xliff"></a>
+
+## As credenciais estão preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
 
 Para resolver esse problema, verifique primeiro o seguinte:
 
@@ -61,13 +67,15 @@ Ainda que a Microsoft possua tecnologias para detectar automaticamente quando es
 
 Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
+<a id="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer" class="xliff"></a>
+
+## A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
 
 Existem duas principais causas para esse problema:
 
 -   Dependendo das configurações de segurança habilitadas no Internet Explorer, se o site não faz parte de uma **Zona Confiável**, às vezes nosso script é bloqueado para executar o aplicativo.
 
-  *  Para resolver isso, instrua o usuário a **adicionar sites da Web do aplicativo** para o **Sites confiáveis** lista dentro de suas **as configurações de segurança do Internet Explorer**. Você pode encaminhar seus usuários para o artigo [Como adicionar um site à minha lista de sites confiáveis](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obter instruções detalhadas.
+  *  Para resolver isso, instrua o usuário a **adicionar sites da Web do aplicativo** para o **Sites confiáveis** lista dentro de suas **as configurações de segurança do Internet Explorer**. Você pode encaminhar seus usuários para o artigo [Como adicionar um site à minha lista de sites confiáveis](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obter instruções detalhadas.
 
 -   Em raras circunstâncias, a validação de segurança do Internet Explorer pode, às vezess, fazer com que a página seja carregada mais lentamente do que a execução do nosso script.
 
@@ -75,7 +83,9 @@ Existem duas principais causas para esse problema:
 
 Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
+<a id="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field" class="xliff"></a>
+
+## Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
 
 Se a página de logon do aplicativo foi drasticamente alterada, às vezes isso causa a interrupção de nossas integrações. Um exemplo disso é quando um fornecedor de aplicativo adiciona um campo de entrada, um captcha ou uma autenticação multifator às suas experiências. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
 
@@ -83,13 +93,15 @@ Ainda que a Microsoft possua tecnologias para detectar automaticamente quando es
 
 Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
 1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  Clique em **aplicativo de SSO de senha** no Painel de Acesso.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -107,7 +119,9 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 
 

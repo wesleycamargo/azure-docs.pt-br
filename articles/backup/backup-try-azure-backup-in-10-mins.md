@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -164,6 +165,15 @@ Agora que você criou um cofre, configure-o para fazer backup de arquivos e past
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
+## <a name="network-and-connectivity-requirements"></a>Requisitos de conectividade e rede
+
+Se seu computador/proxy tiver acesso limitado à Internet, verifique se as configurações do firewall no computador/proxy estão definidas para permitir as seguintes URLs: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 ## <a name="back-up-your-files-and-folders"></a>Fazer o backup de arquivos e pastas
 O backup inicial inclui duas tarefas principais:
 
@@ -182,7 +192,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
 4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
 5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (com uma taxa máxima de três vezes por dia) ou backups semanais.

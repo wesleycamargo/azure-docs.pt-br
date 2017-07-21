@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 06/29/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5b622be66c3e009c67a00dd380efd87b013c920
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,6 +73,21 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 1. Selecione **Salvar**.
 
     Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra a folha da VM e altere sua configuração de **Desligamento Automático** 
+
+## <a name="set-auto-start"></a>Definir início automático
+A política de início automático permite que você especifique quando as VMs do laboratório atual deverão ser iniciadas.  
+
+1. Na folha **Configuração e políticas** do laboratório, selecione **Início automático**.
+   
+    ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
+
+2. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
+
+3. Se você habilitar esta política, especifique o horário de início agendado, o fuso horário e os dias da semana para os quais o horário se aplica. 
+
+4. Selecione **Salvar**.
+
+    Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra a folha da VM e altere sua configuração de **Início automático** 
 
 ## <a name="next-steps"></a>Próximas etapas
 

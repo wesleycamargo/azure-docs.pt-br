@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e33f69bf04b32a31aae3c311c41aa44e4da5016a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -95,7 +95,7 @@ Você precisa certificar-se de que as configurações de regra de alerta existen
 Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Habilitar a auditoria
-Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de que a auditoria é obrigatória é o uso, pelos aplicativos cliente, de cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para obter mais informações, consulte [Auditoria de banco de dados](sql-database-auditing.md).
+Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Para obter mais informações, consulte [Auditoria de banco de dados](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)

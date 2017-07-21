@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 656c5b3e363bd2eaa7550ffc673606d26f7d06de
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -114,7 +115,7 @@ Este [arquivo de esquema](https://github.com/Azure/iisnode/blob/master/src/confi
 ### <a name="my-node-application-is-making-too-many-outbound-calls"></a>O aplicativo de nó está fazendo muitas chamadas de saída.
 Muitos aplicativos desejam fazer conexões de saída como parte de suas operações normais. Por exemplo, quando uma solicitação chega, o aplicativo de nó deseja contatar uma API REST em outro lugar e obter algumas informações para processar a solicitação. Convém usar um agente keep alive ao fazer chamadas http ou https. Por exemplo, você pode usar o módulo agentkeepalive como seu agente keep alive ao fazer essas chamadas de saída. Isso garante que os soquetes sejam reutilizados na VM do Azure Webapp, reduzindo a sobrecarga de criação de novos soquetes para cada solicitação de saída. Além disso, garante que você use o menor número de soquetes para fazer muitas solicitações de saída e, assim, não exceda os maxSockets que são alocados por VM. A recomendação no Azure Webapps seria definir o valor de agentKeepAlive maxSockets como um total de 160 soquetes por VM. Isso significa que se há quatro node.exe em execução na VM, convém definir agentKeepAlive maxSockets como 40 por node.exe, que é um total de 160 por VM.
 
-Exemplo de configuração de agentKeepALive:
+Exemplo de configuração [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
 ```
 var keepaliveAgent = new Agent({    

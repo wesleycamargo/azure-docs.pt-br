@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
+ms.contentlocale: pt-br
 ms.lasthandoff: 12/08/2016
 
-
 ---
-# <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Conectar seu aplicativo à rede virtual usando o PowerShell
-## <a name="overview"></a>Visão geral
+# Conectar seu aplicativo à rede virtual usando o PowerShell
+<a id="connect-your-app-to-your-virtual-network-by-using-powershell" class="xliff"></a>
+## Visão geral
+<a id="overview" class="xliff"></a>
 No serviço de aplicativo do Azure, você pode conectar seu aplicativo (Web, móvel ou de API) a uma VNet (rede virtual) do Azure em sua assinatura. Esse recurso é chamado de Integração VNet. O recurso de Integração VNet não deve ser confundido com o recurso de Ambiente de Serviço de Aplicativo, que permite a execução de uma instância do Serviço de Aplicativo do Azure em sua rede virtual.
 
 O recurso de Integração VNet tem uma IU (interface de usuário) no novo portal que você pode usar para a integração com redes virtuais que são implantadas usando o modelo de implantação clássico ou o modelo de implantação do Azure Resource Manager. Para saber mais sobre o recurso, confira [Integrar seu aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md).
@@ -34,14 +36,16 @@ Antes de continuar a ler este artigo, verifique se você tem:
 * O SDK mais recente do Azure PowerShell instalado. Você pode instalá-lo usando o Web Platform Installer.
 * Um aplicativo no Serviço de Aplicativo do Azure em execução em uma SKU Standard ou Premium.
 
-## <a name="classic-virtual-networks"></a>Redes virtuais clássicas
+## Redes virtuais clássicas
+<a id="classic-virtual-networks" class="xliff"></a>
 Esta seção explica as três tarefas para redes virtuais que usam o modelo de implantação clássico:
 
 1. Conecte seu aplicativo a uma rede virtual pré-existente que tenha um gateway e esteja configurada para conectividade ponto a site.
 2. Atualize as informações de integração de rede virtual para seu aplicativo.
 3. Desconecte o aplicativo da rede virtual.
 
-### <a name="connect-an-app-to-a-classic-vnet"></a>Conectar um aplicativo a uma VNet clássica
+### Conectar um aplicativo a uma VNet clássica
+<a id="connect-an-app-to-a-classic-vnet" class="xliff"></a>
 Para conectar um aplicativo a uma rede virtual, siga estas três etapas:
 
 1. Declare ao aplicativo Web que ele ingressará em uma rede virtual específica. O aplicativo gerará um certificado que será fornecido à rede virtual para a conectividade ponto a site.
@@ -52,7 +56,8 @@ A primeira e a terceira etapas são totalmente programáveis por scripts, mas a 
 
 A rede virtual clássica precisa estar na mesma assinatura que o plano do Serviço de Aplicativo que contém o aplicativo ao qual você está fazendo a integração.
 
-##### <a name="set-up-azure-powershell-sdk"></a>Configurar o SDK do Azure PowerShell
+##### Configurar o SDK do Azure PowerShell
+<a id="set-up-azure-powershell-sdk" class="xliff"></a>
 Abra uma janela do PowerShell e configure sua conta e assinatura do Azure usando:
 
     Login-AzureRmAccount
@@ -65,7 +70,8 @@ ou o
 
     Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
-##### <a name="variables-used-in-this-article"></a>Variáveis usadas neste artigo
+##### Variáveis usadas neste artigo
+<a id="variables-used-in-this-article" class="xliff"></a>
 Para simplificar os comandos, definiremos uma variável **$Configuration** do PowerShell com a configuração específica.
 
 Defina uma variável no PowerShell da seguinte forma com os parâmetros indicados:
@@ -101,14 +107,16 @@ Para ver o que você definiu, digite **$Configuration**.
 
 O restante desta seção pressupõe que você tenha criado uma variável como acabamos de descrever.
 
-##### <a name="declare-the-virtual-network-to-the-app"></a>Declarar a rede virtual para o aplicativo
+##### Declarar a rede virtual para o aplicativo
+<a id="declare-the-virtual-network-to-the-app" class="xliff"></a>
 Use o comando a seguir para informar ao aplicativo que ele usará essa rede virtual específica. Isso fará com que o aplicativo gere os certificados necessários:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
 Se este comando for bem-sucedido, **$vnet** deverá conter uma variável **Properties**. A variável **Properties** deve conter uma impressão digital do certificado, bem como os dados do certificado.
 
-##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>Carregar o certificado do aplicativo Web para a rede virtual
+##### Carregar o certificado do aplicativo Web para a rede virtual
+<a id="upload-the-web-app-certificate-to-the-virtual-network" class="xliff"></a>
 Uma única etapa manual é necessária para cada combinação de assinatura e rede virtual. Ou seja, se estiver conectando aplicativos na Assinatura A à Rede Virtual A, você precisará executar essa etapa apenas uma vez, independentemente de quantos aplicativos configurar. Se estiver adicionando um novo aplicativo a outra rede virtual, isso precisará ser refeito. O motivo é que um conjunto de certificados é gerado em um nível de assinatura no Serviço de Aplicativo do Azure, e o conjunto é gerado uma vez para cada rede virtual à qual os aplicativos se conectarão.
 
 Os certificados já terão sido definidos se você tiver seguido as etapas ou se tiver feito a integração com a mesma rede virtual usando o portal.
@@ -122,7 +130,8 @@ O certificado estará no local que **$Configuration.GeneratedCertificatePath** e
 
 Para carregar o certificado manualmente, use o [Portal do Azure][azureportal] e **Procurar Rede Virtual (clássica)** > **Conexões VPN** > **Ponto a site** > **Gerenciar certificados**. Nesse local, carregue seu certificado.
 
-##### <a name="get-the-point-to-site-package"></a>Obter o pacote de ponto a site
+##### Obter o pacote de ponto a site
+<a id="get-the-point-to-site-package" class="xliff"></a>
 A próxima etapa na configuração de uma conexão de rede virtual em um aplicativo Web é obter o pacote de ponto a site e fornecê-lo ao aplicativo Web.
 
 Salve o modelo a seguir em um arquivo chamado GetNetworkPackageUri.json em algum lugar no computador; por exemplo, C:\Azure\Templates\GetNetworkPackageUri.json.
@@ -168,7 +177,8 @@ Chame o script:
 
 A variável **$output.Outputs.packageUri** conterá agora o URI do pacote a ser fornecido ao aplicativo Web.
 
-##### <a name="upload-the-point-to-site-package-to-your-app"></a>Carregue o pacote de ponto a site em seu aplicativo
+##### Carregue o pacote de ponto a site em seu aplicativo
+<a id="upload-the-point-to-site-package-to-your-app" class="xliff"></a>
 A etapa final é fornecer o aplicativo com este pacote. Basta executar o próximo comando:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
@@ -181,7 +191,8 @@ Depois que o comando for bem-sucedido, o aplicativo deverá estar conectado à r
 
 Se houver uma variável de ambiente chamada WEBSITE_VNETNAME com um valor que corresponda ao nome da rede virtual de destino, isso indicará que todas as configurações tiveram êxito.
 
-### <a name="update-classic-vnet-integration-information"></a>Atualizar informações de integração VNet clássica
+### Atualizar informações de integração VNet clássica
+<a id="update-classic-vnet-integration-information" class="xliff"></a>
 Para atualizar ou ressincronizar suas informações, basta repetir as etapas seguidas ao criar a integração. Essas etapas são:
 
 1. Defina as informações de configuração.
@@ -189,12 +200,14 @@ Para atualizar ou ressincronizar suas informações, basta repetir as etapas seg
 3. Obtenha o pacote de ponto a site.
 4. Carregue o pacote de ponto a site no aplicativo
 
-### <a name="disconnect-your-app-from-a-classic-vnet"></a>Desconectar o aplicativo de uma VNet clássica
+### Desconectar o aplicativo de uma VNet clássica
+<a id="disconnect-your-app-from-a-classic-vnet" class="xliff"></a>
 Para desconectar o aplicativo, você precisa das informações de configuração definidas durante a integração da rede virtual. Com essas informações, há um comando para desconectar o aplicativo da rede virtual.
 
     $vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
-## <a name="resource-manager-virtual-networks"></a>Redes virtuais do Gerenciador de Recursos
+## Redes virtuais do Gerenciador de Recursos
+<a id="resource-manager-virtual-networks" class="xliff"></a>
 As redes virtuais do Resource Manager têm APIs do Azure Resource Manager que simplificam alguns processos se comparadas com redes virtuais clássicas. Há um script que o ajudará a concluir as seguintes tarefas:
 
 * Criar uma rede virtual do Gerenciador de Recursos e integrar o aplicativo a ela.
@@ -202,7 +215,8 @@ As redes virtuais do Resource Manager têm APIs do Azure Resource Manager que si
 * Integrar o aplicativo a uma rede virtual do Gerenciador de Recursos pré-existente que tem um gateway e habilitar a conectividade ponto a site.
 * Desconecte o aplicativo da rede virtual.
 
-### <a name="resource-manager-vnet-app-service-integration-script"></a>Script de integração do Serviço de Aplicativo de VNet do Gerenciador de Recursos
+### Script de integração do Serviço de Aplicativo de VNet do Gerenciador de Recursos
+<a id="resource-manager-vnet-app-service-integration-script" class="xliff"></a>
 Copie o script a seguir e salve-o em um arquivo. Se não quiser usar o script, sinta-se à vontade para aprender com ele e saber como configurar itens com uma rede virtual do Gerenciador de Recursos.
 
     function ReadHostWithDefault($message, $default)
@@ -339,6 +353,12 @@ Copie o script a seguir e salve-o em um arquivo. Se não quiser usar o script, s
 
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -518,6 +538,12 @@ Copie o script a seguir e salve-o em um arquivo. Se não quiser usar o script, s
         # Now finish joining by getting the VPN package and giving it to the App
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -628,7 +654,8 @@ Salve uma cópia do script. Neste artigo, ele é chamado de V2VnetAllinOne.ps1, 
 
 O restante desta seção explica cada uma dessas três opções.
 
-### <a name="create-a-resource-manager-vnet-and-integrate-with-it"></a>Criar uma VNet do Gerenciador de Recursos e realizar a integração a ela
+### Criar uma VNet do Gerenciador de Recursos e realizar a integração a ela
+<a id="create-a-resource-manager-vnet-and-integrate-with-it" class="xliff"></a>
 Para criar uma nova rede virtual que usa o modelo de implantação do Gerenciador de Recursos e integrá-la a seu aplicativo, escolha **1) Adicionar uma NOVA Rede Virtual a um Aplicativo**. Isso solicitará o nome da rede virtual. No meu caso, como você pode ver nas configurações a seguir, usei o nome v2pshell.
 
 O script fornece os detalhes sobre a rede virtual que está sendo criada. Se eu quiser, posso alterar qualquer um dos valores. No exemplo em execução, criei uma rede virtual com as seguintes configurações:
@@ -649,7 +676,8 @@ Se quiser alterar algum dos valores, digite **Y** e faça as alterações. Quand
 
 Após a conclusão do script, ele informará que foi **Concluído**. Neste ponto, você terá uma rede virtual do Gerenciador de Recursos que tem o nome e as configurações que você selecionou. Essa nova rede virtual também será integrada ao aplicativo.
 
-### <a name="integrate-your-app-with-a-preexisting-resource-manager-vnet"></a>Integrar seu aplicativo a uma VNet pré-existente do Gerenciador de Recursos
+### Integrar seu aplicativo a uma VNet pré-existente do Gerenciador de Recursos
+<a id="integrate-your-app-with-a-preexisting-resource-manager-vnet" class="xliff"></a>
 Ao fazer a integração a uma rede virtual pré-existente, se você fornecer uma rede virtual do Gerenciador de Recursos que não tenha um gateway ou a conectividade ponto a site, o script fará a configuração. Se a VNET já tiver isso configurado, o script irá direto para a integração do aplicativo. Para iniciar esse processo, basta selecionar **2) Adicionar uma Rede Virtual EXISTENTE a um Aplicativo**.
 
 Essa opção só funcionará se você tiver uma rede virtual pré-existente do Gerenciador de Recursos na mesma assinatura do aplicativo. Após escolher a opção, você verá uma lista de redes virtuais do Gerenciador de Recursos.   
@@ -688,7 +716,8 @@ Neste exemplo, criei um gateway de rede virtual que tem as seguintes configuraç
 
 Se quiser, você pode alterar as configurações. Caso contrário, pressione Enter e o script criará o gateway e anexará o aplicativo à rede virtual. O tempo de criação do gateway ainda é de uma hora; portanto, lembre-se disso. Quando tudo estiver concluído, o script informará que foi **Concluído**.
 
-### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>Desconectar o aplicativo de uma VNet do Gerenciador de Recursos
+### Desconectar o aplicativo de uma VNet do Gerenciador de Recursos
+<a id="disconnect-your-app-from-a-resource-manager-vnet" class="xliff"></a>
 A desconexão de seu aplicativo da rede virtual não desativa o gateway nem desabilita a conectividade ponto a site. Afinal de contas, você poderia usá-los para alguma outra coisa. Também não o desconecta de outros aplicativos além daquele que você forneceu. Para executar essa ação, selecione **3) Remover uma Rede Virtual de um Aplicativo**. Quando você fizer isso, verá algo assim:
 
     Currently connected to VNET v2pshell

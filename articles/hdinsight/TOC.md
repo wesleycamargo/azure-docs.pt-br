@@ -22,7 +22,8 @@
 ## [Área restrita do Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Ferramentas do Data Lake com área restrita do Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Ferramentas para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [Opções de armazenamento do HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight usando o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight usando o Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # Como
 ## Usar o Hadoop para consultas em lote
@@ -74,7 +75,7 @@
 ### [Usar pacotes externos com Jupyter usando a ação de script](hdinsight-apache-spark-python-package-installation.md)
 ### [Usar um Jupyter notebook local](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Trabalhos remotos com Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Depurar trabalhos remotamente com o IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Depurar trabalhos remotamente com o IntelliJ por meio de VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Gerenciar recursos](hdinsight-apache-spark-resource-manager.md)
 ### [Rastrear e depurar trabalhos](hdinsight-apache-spark-job-debugging.md)
 ### [Problemas conhecidos](hdinsight-apache-spark-known-issues.md)
@@ -105,14 +106,18 @@
 ### [Configurar políticas de Hive](hdinsight-domain-joined-run-hive.md)
 ## Usar Kafka (Visualização)
 ### [Replicar dados do Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Configurar o armazenamento e a escalabilidade do Kafka](hdinsight-apache-kafka-scalability.md)
+### [Configurar a alta disponibilidade de dados](hdinsight-apache-kafka-high-availability.md)
 ### [Uso com Redes Virtuais](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Usar com o Spark](hdinsight-apache-spark-with-kafka.md)
+### [Usar com Spark (Transmissão estruturada)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Usar com Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Usar com o Storm](hdinsight-apache-storm-with-kafka.md)
 ## Desenvolver
 ### [Desenvolver programas de transmissão do MapReduce no C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Desenvolver programas Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Desenvolver trabalhos Scalding MapReduce](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Usar Ferramentas do HDInsight para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Usar Ferramentas do HDInsight para depurar remotamente os aplicativos Spark por meio de SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [Usar nós de borda vazios](hdinsight-apps-use-edge-node.md)
 ### [Desenvolver programas de streaming Python](hdinsight-hadoop-streaming-python.md)
 ### [Processar e analisar documentos JSON](hdinsight-using-json-in-hive.md)
@@ -132,6 +137,7 @@
 ## Estender clusters
 ### [Personalizar clusters usando Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalizar clusters usando a Ação de script](hdinsight-hadoop-customize-cluster-linux.md)
+### [Conectar HDInsight em sua rede local](connect-on-premises-network.md)
 ### [Desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md)
 ### [Instalar e usar o Presto](hdinsight-hadoop-install-presto.md)
 ### [Instalar ou atualizar Mono](hdinsight-hadoop-install-mono.md)
@@ -141,7 +147,7 @@
 ### [Usar R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Usar o Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Usar Rede Virtual](hdinsight-extend-hadoop-virtual-network.md)
-### [Usar Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Usar Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Criar aplicativos HDInsight
 #### [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md)
 #### [Instalar aplicativos personalizados](hdinsight-apps-install-custom-applications.md)
@@ -180,17 +186,23 @@
 ### [Disponibilidade e confiabilidade](hdinsight-high-availability-linux.md)
 ### [Atualizar o cluster HDInsight para uma versão mais recente](hdinsight-upgrade-cluster.md)
 ### [Aplicação de patch no cluster HDInsight](hdinsight-os-patching.md)
-## Solucionar problemas
-### [Dicas para Linux](hdinsight-hadoop-linux-information.md)
-### [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
-### [Depurar aplicativos com logs do YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-### [Habilitar despejos de heap](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-### [Corrigir erros do WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
-### [Usar Exibições do Ambari para depurar Trabalhos do Tez](hdinsight-debug-ambari-tez-view.md)
-### [Mais soluções de problemas](hdinsight-hadoop-stack-trace-error-messages.md)
+## [Solucionar problemas](hdinsight-troubleshoot-guide.md)
+### [Solucionar problemas do HBASE](hdinsight-troubleshoot-hbase.md)
+### [Solucionar problemas do HDFS](hdinsight-troubleshoot-hdfs.md)
+### [Solucionar problemas do HIVE](hdinsight-troubleshoot-hive.md)
+### [Solucionar problemas do Spark](hdinsight-troubleshoot-spark.md)
+### [Solucionar problemas do STORM](hdinsight-troubleshoot-storm.md)
+### [Solucionar problemas do YARN](hdinsight-troubleshoot-yarn.md)
+### Recursos
+#### [Informações sobre o uso do HDInsight no Linux](hdinsight-hadoop-linux-information.md)
+#### [Desempenho e memória do Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)
+#### [Acesso aos logs de aplicativo Hadoop YARN no Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+#### [Habilitar os despejos de pilha para os serviços Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+#### [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
+#### [Entenda e resolva erros do WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Configurações do Hive corrigem erro de Memória Insuficiente](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+#### [Usar Exibições do Ambari para depurar Trabalhos do Tez](hdinsight-debug-ambari-tez-view.md)
 #### [Otimizar consultas do Hive](hdinsight-hadoop-optimize-hive-query.md)
-#### [Desempenho de consulta de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referência
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
@@ -222,6 +234,8 @@
 ### [Monitorar clusters usando a API do Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Recursos
-## [Ferramentas do Windows para o HDInsight](hdinsight-hadoop-windows-tools.md)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Programa Microsoft Professional para Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Ferramentas do Windows para o HDInsight](hdinsight-hadoop-windows-tools.md)

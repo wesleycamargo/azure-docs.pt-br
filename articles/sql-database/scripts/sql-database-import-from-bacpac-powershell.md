@@ -1,6 +1,6 @@
 ---
-title: "Script do Azure PowerShell – Importar de um bacpac em um Banco de Dados SQL | Microsoft Docs"
-description: "Amostra de script do Azure PowerShell – Importar de um bacpac para um banco de dados SQL usando o PowerShell"
+title: Exemplo do PowerShell para importar um arquivo bacpac do Banco de Dados SQL do Azure | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para importar um bloco de bacpac para um banco de dados SQL
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cd6c53b7e4cc13920f1ed99934e10a38a9b3e4ed
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>Importar de um bacpac para um Banco de Dados SQL usando o PowerShell
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Use o PowerShell para importar um arquivo bacpac para um banco de dados SQL do Azure
 
-Este script do PowerShell de exemplo importa um banco de dados de um arquivo **bacpac**.  
+Este exemplo de script do PowerShell importa um banco de dados de um arquivo **bacpac** para um banco de dados SQL do Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

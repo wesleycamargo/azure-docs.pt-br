@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -41,7 +42,7 @@ A primeira parte do documento examina várias técnicas de envio em lote para ap
 ## <a name="batching-strategies"></a>Estratégias de envio em lote
 ### <a name="note-about-timing-results-in-this-topic"></a>Observação sobre os resultados de tempo neste tópico
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos há algum tempo e não correspondem necessariamente à taxa de transferência que você pode obter atualmente. O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 > 
 > 
 
@@ -120,7 +121,7 @@ Embora o uso das transações possa aumentar o desempenho, continue a [seguir as
 
 O exemplo anterior demonstra que você pode adicionar uma transação local a qualquer código ADO.NET com duas linhas. As transações oferecem uma maneira rápida de melhorar o desempenho do código que faz as operações de inserção sequencial, atualização e de exclusão. No entanto, para obter o melhor desempenho, considere alterar o código ainda mais para aproveitar o envio em lote no lado do cliente, por exemplo, com os parâmetros com valor de tabela.
 
-Para saber mais sobre transações no ADO.NET, consulte [Transações locais no ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
+Para saber mais sobre transações no ADO.NET, consulte [Transações locais no ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType**.
@@ -619,6 +620,6 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Considere o armazenamento em buffer de acordo com o tamanho e o tempo como uma maneira de implementar o envio em lote para mais cenários.
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md).
+Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 
 

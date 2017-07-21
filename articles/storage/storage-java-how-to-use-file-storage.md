@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 33630644e2b3b6565d009276145ecf220802cc63
+ms.openlocfilehash: 49b35ff1b82f5384b105d99ce95773648a11f6f4
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -233,10 +235,5 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

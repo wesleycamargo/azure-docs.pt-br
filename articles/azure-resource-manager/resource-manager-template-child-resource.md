@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 06/01/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: d7560b689d7cea56d40ffa2db9542f74a649f9c1
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -29,6 +30,16 @@ O formato do tipo do recurso filho é: `{resource-provider-namespace}/{parent-re
 O formato do nome do recurso filho é: `{parent-resource-name}/{child-resource-name}`
 
 No entanto, o tipo e o nome são especificados de forma diferente no modelo dependendo de estarem aninhados no recurso pai ou sozinhos no nível superior. Este tópico mostra como lidar com as duas abordagens.
+
+Ao construir uma referência totalmente qualificada para um recurso, a ordem para combinar os segmentos do tipo e nome não é simplesmente uma concatenação dos dois.  Em vez disso, após o namespace, use uma sequência de pares *tipo/nome* do menos específico para o mais específico:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+Por exemplo:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto, `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
 ## <a name="nested-child-resource"></a>Recurso filho aninhado
 A maneira mais fácil de definir um recurso filho é aninhando-o dentro do recurso pai. O exemplo a seguir mostra um Banco de Dados SQL aninhado em um SQL Server.

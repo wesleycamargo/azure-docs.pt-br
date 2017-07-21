@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d83e84e8ea2158ecf6c8b966732ca1d8961389e0
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 013a3175d5e19689629d1d0ea3b413184e71c485
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ As Ferramentas do HDInsight para Eclipse estão disponíveis como parte do Kit d
    * O Spark SDK deve ser definido como o local onde você baixou o SDK. O link para o local de download está incluído nos [pré-requisitos](#prerequisites) anteriormente apresentados neste artigo. Você também pode baixar o SDK no link incluído na caixa de diálogo.
 
     ![Caixa de diálogo Novo Projeto de Scala HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-4.    Na próxima caixa de diálogo, clique na guia **Bibliotecas**, mantenha os padrões e clique em **Concluir**. 
+4.  Na próxima caixa de diálogo, clique na guia **Bibliotecas**, mantenha os padrões e clique em **Concluir**. 
    
     ![Guia Bibliotecas](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
 
@@ -208,7 +208,7 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Usar o Kit de Ferramentas do Azure para IntelliJ para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o Kit de Ferramentas do Azure para IntelliJ a fim de depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

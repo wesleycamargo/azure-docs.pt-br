@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 17b0740f11fcfe200191f8695b6d885df41e68e2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -155,10 +156,13 @@ Com certeza. O Backup do Azure fornece backup no nível de VM para as máquinas 
 Sim. Instale o agente de Backup do Azure no SO convidado do Windows e faça backup de arquivos e de pastas em um armazenamento temporário. Os trabalhos de backup falham assim que os dados do armazenamento temporário são apagados. Além disso, se os dados de armazenamento temporário tiverem sido excluídos, você só poderá restaurar em um armazenamento não volátil.
 
 
-## <a name="azure-backup-server-and-data-protection-manager"></a>Servidor de Backup do Azure e o Data Protection Manager
+## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Servidor de Backup do Azure e System Center Data Protection Manager
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico? <br/>
 Sim.
+
+### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Posso registrar meu Servidor DPM para diversos cofres? <br/>
+Não. Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Há suporte para qual versão do System Center Data Protection Manager? <br/>
 Recomendamos a instalação do agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações (UR) mais recente para o System Center Data Protection Manager (DPM). A partir de agosto de 2016, o Pacote Cumulativo de Atualizações 11 é o mais recente.

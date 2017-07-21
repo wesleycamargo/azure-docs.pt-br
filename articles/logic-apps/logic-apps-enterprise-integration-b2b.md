@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: 6006df4b4ecd6dede94c1013881ddf699e741e51
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -78,7 +80,7 @@ Siga estas etapas para criar um aplicativo lógico B2B que usa as ações AS2 e 
     Adicione etapas para decodificar os dados X12 recebidos de um parceiro comercial e produza itens de saída em um objeto JSON. 
     Para informar o parceiro que os dados foram recebidos, você pode enviar uma resposta que contém a Notificação de Disposição de Mensagem (MDN) do AS2 em uma Ação de Resposta HTTP.
 
-12. Adicione a ação **Resposta** selecionando **Adicionar uma ação**.
+12.    Adicione a ação **Resposta** selecionando **Adicionar uma ação**.
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -111,9 +113,4 @@ Você concluiu a configuração de seu aplicativo lógico de B2B. Em um aplicati
 
 ## <a name="learn-more"></a>Saiba mais
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: e6cffef6559f5486bdfb111808a19da9a1391b6f
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 1a0ff3f8b8fb3eaf398d9fa925ef027b2481d47a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Este exemplo regenera qualquer tipo de chave de conta do BD Cosmos do Azure usando a CLI do Azure. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -51,9 +51,9 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | Command | Observações |
 |---|---|
 | [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Atualiza uma conta do BD Cosmos do Azure. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Atualiza uma conta do BD Cosmos do Azure. |
 | [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regenera chaves de conta do BD Cosmos do Azure. |
-| [az group delete](/cli/azure/resource#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

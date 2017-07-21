@@ -41,8 +41,8 @@ A primeira etapa é criar o pacote de aplicativos gerenciados que contém os arq
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-            "storageAccountName": {
-                "type": "String"
+          "storageAccountName": {
+              "type": "String"
           }
       },
       "resources": [{
@@ -54,10 +54,10 @@ A primeira etapa é criar o pacote de aplicativos gerenciados que contém os arq
               "name": "Standard_LRS"
           },
           "kind": "Storage",
-          "properties": {        
+          "properties": {       
           }
       }],
-      "outputs": {        
+      "outputs": {      
       }
   }
   ```
@@ -102,7 +102,7 @@ A primeira etapa é criar o pacote de aplicativos gerenciados que contém os arq
               "Parameters": {
                   "storageAccountName": {
                       "value": "[parameters('storageAccountName')]"
-                  }                
+                  }             
               }
           }
       }]
@@ -118,13 +118,13 @@ Depois que todos os arquivos necessários estiverem prontos, carregue o pacote e
 Em seguida, crie um grupo de usuário ou aplicativo que você deseja usar para gerenciar os recursos em nome do cliente. Este grupo de usuários ou aplicativo tem permissões para grupo de recursos gerenciados conforme descrito pela função. A função pode ser qualquer função RBAC interna, como **Proprietário** ou **Colaborador**. Um usuário individual também pode receber permissões para gerenciar os recursos, mas normalmente você atribui essa permissão para usar um grupo de usuários. Para criar um novo grupo de usuários do Active Directory, use:
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 Você também pode usar um grupo existente. É necessário o ID do objeto do grupo de usuário existente ou recém-criado. O exemplo a seguir mostra como obter o ID do objeto do nome de exibição que foi usado para criar o grupo.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 Exemplo:
@@ -210,3 +210,4 @@ Os parâmetros usados no exemplo anterior são:
 * Para obter exemplos dos arquivos, consulte [Exemplos de aplicativo gerenciado](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 * Para entender a experiência do usuário, consulte [Consumir um aplicativo gerenciado do Azure](managed-application-consumption.md).
 * Para saber mais sobre como criar um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+

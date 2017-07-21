@@ -17,10 +17,10 @@ ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 35ddd5c90dfba7e2e368a5f69e33616998581ff7
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: f4b2e8a5583855df7472af3fbef01ac641caf6bf
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -38,6 +38,8 @@ A tabela a seguir inclui links para scripts bash criados usando a CLI do Azure q
 | [Criar uma máquina virtual e executar a configuração da DSC](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual e usa a extensão DSC (Configuração de Estado de Desejado) do Azure para instalar o IIS. |
 |**Máquinas virtuais de rede**||
 | [Proteger o tráfego de rede entre as máquinas virtuais](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | Cria duas máquinas virtuais, todos os recursos relacionados e grupos de segurança de rede (NSG) internos e externos. |
+|**Proteger máquinas virtuais**||
+| [Criptografar uma VM e discos de dados](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um Azure Key Vault, uma chave de criptografia e entidade de serviço e, em seguida, criptografa uma VM. |
 |**Monitorar máquinas virtuais**||
 | [Monitorar uma VM com o Operations Management Suite](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual, instala o agente do Operations Management Suite e registra a VM em um espaço de trabalho do OMS.  |
 | | |

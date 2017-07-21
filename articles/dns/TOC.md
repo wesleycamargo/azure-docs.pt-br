@@ -1,4 +1,5 @@
 # Visão geral
+
 ## [O que é o DNS do Azure?](dns-overview.md)
 ## [Registros e zonas DNS](dns-zones-records.md)
 ## [Delegação de DNS com o DNS do Azure](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Como
 
 ## Gerenciar zonas DNS
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI do Azure](dns-operations-dnszones-cli.md)
+### [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md)
+### [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
-
-## [Gerenciar registros DNS](dns-operations-recordsets-portal.md)
+## Gerenciar registros DNS
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [CLI do Azure](dns-operations-recordsets-cli.md)
+### [CLI 1.0 do Azure](dns-operations-recordsets-cli-nodejs.md)
+### [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 
-## [Gerenciar registros DNS reversos](dns-reverse-dns-record-operations-ps.md)
-### [CLI do Azure](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Gerenciar DNS reverso
+### [Visão geral](dns-reverse-dns-overview.md)
+### [Zonas de pesquisa inversa de host no DNS do Azure](dns-reverse-dns-hosting.md)
+### [Gerenciar registros DNS reversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md)
 
 ## [Como importar e exportar um arquivo de zona DNS](dns-import-export.md)
 ## [Integração com outros serviços do Azure](dns-for-azure-services.md)
@@ -57,8 +62,9 @@
 ## [Aplicativos Web](/azure/app-service-web/)
 
 # Recursos
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=dns)
-## [Preços](https://azure.microsoft.com/pricing/details/dns/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Solicitações de recursos](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
-## [Solicitações de recursos](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Preços](https://azure.microsoft.com/pricing/details/dns/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=dns)

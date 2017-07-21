@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -63,7 +63,7 @@ As notificações de Detecção Inteligente ficam habilitadas por padrão e são
   
   ![Configurações de Detecção Inteligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * O link **cancelar assinatura** no email de Detecção Inteligente também 
+  * Use o link **cancelar assinatura** no email de Detecção Inteligente para parar de receber as notificações por email.
 
 Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a um email por dia por recurso do Application Insights. O email será enviado somente se houver pelo menos um novo problema que foi detectado no dia em questão. Você não receberá nenhuma mensagem repetida. 
 

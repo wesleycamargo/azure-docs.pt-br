@@ -9,17 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a8cf3ad9c252b6a1ace1e7f3cf191428b228d80
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d1acc548dca4c89572eece8dbdae0eae4853a97c
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso do PowerShell para implantar um Banco de Dados SQL do Azure em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md).
 
-Para concluir este tutorial, certifique-se de que a versão mais recente do [Azure PowerShell](/powershell/azure/overview) esteja instalada. 
-
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+Este tutorial requer o módulo do Azure PowerShell, versão 4.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -55,7 +56,7 @@ $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
 $startip = "0.0.0.0"
-$endip = "0.0.0.1"
+$endip = "0.0.0.0"
 # The database name
 $databasename = "mySampleDatabase"
 ```
@@ -92,14 +93,15 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
+## <a name="create-a-database-in-the-server-with-sample-data"></a>Criar um banco de dados no servidor com dados de exemplo
 
-Crie um Banco de Dados SQL vazio com um [nível de desempenho S0](sql-database-service-tiers.md) no servidor usando o comando [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados chamado `mySampleDatabase`. Substitua esse valor predefinido conforme desejado.
+Crie um banco de dados com um [Nível de desempenho do S0](sql-database-service-tiers.md) no servidor usando o comando [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados denominado `mySampleDatabase` e carrega os dados de exemplo AdventureWorksLT nesse banco de dados. Substitua os valores predefinidos conforme desejado (outros inícios rápidos nesta coleção aproveitam os valores neste início rápido).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
+    -SampleName "AdventureWorksLT" `
     -RequestedServiceObjectiveName "S0"
 ```
 

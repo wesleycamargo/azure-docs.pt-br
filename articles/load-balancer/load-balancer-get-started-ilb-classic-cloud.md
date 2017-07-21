@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
+<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
+
+# Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -30,7 +34,9 @@ ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Configurar o balanceador de carga interno para os serviços de nuvem
+<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
+
+## Configurar o balanceador de carga interno para os serviços de nuvem
 
 Há suporte para o balanceador de carga interno tanto para máquinas virtuais quanto para serviços de nuvem. Um ponto de extremidade de balanceador de carga interno criado no serviço de nuvem que está fora de uma rede virtual regional só estará acessível no serviço de nuvem.
 
@@ -39,7 +45,9 @@ A configuração do balancedor de carga interno deve ser definida durante a cria
 > [!IMPORTANT]
 > Um pré-requisito para executar as etapas a seguir é ter uma rede virtual já criada para a implantação em nuvem. Será necessário o nome de rede virtual e de sub-rede para criar o Balanceamento de Carga Interno.
 
-### <a name="step-1"></a>Etapa 1
+<a id="step-1" class="xliff"></a>
+
+### Etapa 1
 
 Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de nuvem no Visual Studio e adicione a seção a seguir para criar o Balanceamento de Carga Interno no último item "`</Role>`" para a configuração de rede.
 
@@ -53,7 +61,7 @@ Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de 
 </NetworkConfiguration>
 ```
 
-Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma sub-rede chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
+Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma VNET chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -67,7 +75,9 @@ Vamos adicionar os valores para o arquivo de configuração de rede para mostrar
 
 Para obter mais informações sobre o esquema do balanceador de carga, confira [Adicionar balanceador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-### <a name="step-2"></a>Etapa 2
+<a id="step-2" class="xliff"></a>
+
+### Etapa 2
 
 Altere o arquivo de definição de serviço (.csdef) para adicionar pontos de extremidade ao Balanceamento de Carga Interno. No momento em que uma instância de função é criada, o arquivo de definição de serviço adiciona as instâncias de função ao Balanceamento de Carga Interno.
 
@@ -91,15 +101,12 @@ Seguindo os mesmos valores do exemplo acima, vamos adicionar os valores ao arqui
 
 O tráfego de rede terá a carga equilibrada usando o balanceador de carga testLB com a porta 80 para solicitações de entrada, enviando a instâncias de função de trabalho também na porta 80.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 
 [Configurar um modo de distribuição do balanceador de carga usando a afinidade de IP de origem](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

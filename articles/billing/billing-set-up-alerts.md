@@ -5,7 +5,7 @@ keywords: "alerta de crédito, alerta de cobrança"
 services: 
 documentationcenter: 
 author: vikdesai
-manager: vikdesai
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -17,18 +17,21 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
 ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
+<a id="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions" class="xliff"></a>
+# Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
 Caso seja o Administrador da Conta de uma assinatura do Azure, você poderá usar o Serviço de Alerta de Cobrança do Azure para criar alertas personalizados de cobrança que ajudam a monitorar e gerenciar a atividade de cobrança de suas contas do Azure.
 
 Esse serviço está no modo preview, de modo que você precisa habilitá-lo primeiro na página Recursos do Preview.
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os alertas de limite e destinatários de email
+<a id="set-the-alert-threshold-and-email-recipients" class="xliff"></a>
+## Definir os alertas de limite e destinatários de email
 1. Visite [a página Recursos do Preview](https://account.windowsazure.com/PreviewFeatures) e habilite **Serviço de Alerta de Cobrança**.
 
 1. Depois de receber o email de confirmação de que o serviço de cobrança foi ativado para a sua assinatura, visite [a página Assinaturas](https://account.windowsazure.com/Subscriptions) no portal da conta. Clique na assinatura que você deseja monitorar e, em seguida, clique em **Alertas**.
@@ -45,13 +48,16 @@ Esse serviço está no modo preview, de modo que você precisa habilitá-lo prim
 
 O Azure é compatível com qualquer endereço de email, mas não verifica se este funciona, por isso, verifique atentamente se digitou corretamente.
 
-## <a name="check-on-your-alerts"></a>Verificar os seus alertas
+<a id="check-on-your-alerts" class="xliff"></a>
+## Verificar os seus alertas
 Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
 
-## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de cobrança para clientes do EA (Enterprise Agreement)
+<a id="billing-alerts-for-enterprise-agreement-ea-customers" class="xliff"></a>
+## Alertas de cobrança para clientes do EA (Enterprise Agreement)
 Os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Para começar, confira [Cotas de Gasto por Departamento](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA.
 
-## <a name="learn-more-about-azure-cost-management"></a>Saiba mais sobre o gerenciamento de custos do Azure
+<a id="learn-more-about-azure-cost-management" class="xliff"></a>
+## Saiba mais sobre o gerenciamento de custos do Azure
 - Faça uma estimativa dos custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), a [calculadora do custo total de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço.
 - [Analise o uso e os custos regularmente no Portal do Azure](billing-getting-started.md#costs).
 - Ative [Recomendações de custo do Assistente do Azure](../advisor/advisor-cost-recommendations.md).

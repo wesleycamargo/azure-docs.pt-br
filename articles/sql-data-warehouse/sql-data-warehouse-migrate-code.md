@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 01/30/2017
+ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar seu código SQL para o SQL Data Warehouse
-Durante a migração de seu código de outro banco de dados para o SQL Data Warehouse, provavelmente você precisará fazer alterações à sua base de código. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
+Este artigo explica as alterações de código que você provavelmente terá que fazer ao migrar seu código de outro banco de dados para o SQL Data Warehouse. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
 
 ## <a name="common-t-sql-limitations"></a>Limitações comuns do T-SQL
-A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Data Warehouse do Azure. Os links levam a soluções alternativas para o recurso sem suporte:
+A lista a seguir resume os recursos mais comuns aos quais o SQL Data Warehouse não oferece suporte. Os links levam a soluções alternativas para os recursos sem suporte:
 
 * [Junções ANSI em atualizações][ANSI joins on updates]
 * [Junções ANSI em exclusões][ANSI joins on deletes]
@@ -80,7 +80,7 @@ As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, 
 * Quando usado em instruções preparadas por sp_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp_prepare passará sem detectar o erro, mas o erro será gerado durante sp_execute.
 
 ## <a name="recursive-ctes"></a>CTEs recursivas
-As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][group by clause with rollup / cube / grouping sets options].
+As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser um pouco complexa e o melhor processo é dividi-la em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funções do sistema sem suporte
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:

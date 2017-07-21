@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 0952c0e7189dd360098744a7e19b04cd330cb617
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Como usar o Armazenamento de Blobs no Xamarin
@@ -245,9 +244,9 @@ Após a execução do aplicativo, ele criará o contêiner `mycontainer` em sua 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como criar um aplicativo de plataforma cruzada no Xamarin que usa o armazenamento do Azure, concentrando-se especificamente em um cenário no Armazenamento de Blobs. No entanto, você pode fazer muito mais, não apenas com o Armazenamento de Blobs, mas também com o Armazenamento de Filas, de Tabelas e de Arquivo. Para saber mais, veja os artigos a seguir:
 
-* [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
-* [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
-* [Introdução ao Armazenamento de Filas do Azure usando o .NET](storage-dotnet-how-to-use-queues.md)
+* [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
+* [Introdução ao armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
+* [Introdução ao armazenamento de Fila do Azure usando o .NET](storage-dotnet-how-to-use-queues.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

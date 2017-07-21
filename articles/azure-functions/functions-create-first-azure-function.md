@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
@@ -51,7 +51,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. Expanda seu novo aplicativo de funções, depois clique no botão **+** ao lado de **Functions**.
 
-2.  Na página **Início rápido**, clique no botão **WebHook + API**, escolha uma linguagem de programação para a função e clique em **Criar esta função**. 
+2.  Na página **Início rápido**, selecione **WebHook + API**, escolha uma linguagem de programação para a função e clique em **Criar esta função**. 
    
     ![Início rápido de funções no Portal do Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,11 +59,11 @@ Uma função é criada na linguagem escolhida por você usando o modelo de uma f
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Na sua nova função, clique em **</> Obter URL de função** e copie a **URL da Função**. 
+1. Em sua nova função, clique em **</> Obter URL da função**, selecione **padrão (Tecla de função)** e clique em **Copiar**. 
 
     ![Copiar a URL da função do Portal do Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Cole a URL para a solicitação HTTP na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `&name=<yourname>` a essa URL e execute a solicitação. O exemplo a seguir mostra a resposta no navegador à solicitação GET retornada pela função:
+2. Cole a URL de função na barra de endereços do navegador. Acrescente a cadeia de caracteres de consulta `&name=<yourname>` a esta URL e pressione `Enter` em seu teclado para executar a solicitação. A seguir, um exemplo de resposta retornada pela função no navegador Edge:
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

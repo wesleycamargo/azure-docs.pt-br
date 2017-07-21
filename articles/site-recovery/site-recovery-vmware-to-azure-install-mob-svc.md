@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -64,8 +64,7 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalar o Serviço de Mobilidade manualmente usando a GUI
 
 >[!IMPORTANT]
-> A instalação baseada em GUI funciona apenas com sistemas operacionais Windows.
-> Se você estiver usando um Servidor de Configuração para replicar máquinas virtuais do Azure IaaS de uma Região/Assinatura do Azure para outra, use o método de instalação baseado em Linha de comando
+> Se você estiver usando um **Servidor de Configuração** para replicar **máquinas virtuais do Azure IaaS** de uma Região/Assinatura do Azure para outra, **use o método de instalação baseado em Linha de comando**
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

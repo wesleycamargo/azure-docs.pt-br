@@ -1,34 +1,36 @@
 ---
-title: "Solucionar problemas de falha de Backup do Azure: subtarefa VM instantâneo expirou | Microsoft Docs"
-description: "Sintomas, causas e resoluções de falhas do Backup do Azure relacionadas ao erro: Não foi possível se comunicar com o agente de VM para obter o status do instantâneo. A subtarefa de VM do instantâneo atingiu o tempo limite"
+title: "Solucionar problemas de falha de Backup do Azure: indisponível no status de agente convidado | Microsoft Docs"
+description: "Sintomas, causas e resoluções para falhas de backup do Azure relacionados ao erro: não foi possível se comunicar com o agente da VM"
 services: backup
 documentationcenter: 
 author: genlin
 manager: cshepard
 editor: 
+keywords: Backup do Azure; agente da VM; conectividade de rede;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Solucionar problemas de falha de Backup do Azure: a subtarefa da VM do instantâneo atingiu o tempo limite
+# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Solucionar problemas de falha de Backup do Azure: o agente da VM não pode se comunicar com o Backup do Azure
 ## <a name="summary"></a>Resumo
-Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer um dos quatro condições podem impedir que o instantâneo do que está sendo disparado, que por sua vez, pode levar a falhas de Backup. Este artigo fornece etapas de solução de problemas para ajudar você a resolver falhas de backup de VM do Azure referentes aos erros de tempo limite do instantâneo.
+Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer um dos quatro condições podem impedir que o instantâneo do que está sendo disparado, que por sua vez, pode levar a falhas de Backup. Este artigo fornece etapas de solução de problemas para ajudar você a resolver falhas de backup relacionadas a problemas de comunicação com o agente da VM e a extensão.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Sintoma
-Backup do Azure para uma infraestrutura como serviço (IaaS) VM falha, retornando a seguinte mensagem de erro nos detalhes do erro do trabalho no [portal do Azure](https://portal.azure.com/): "Não foi possível se comunicar com o agente de VM para obter o status do instantâneo. A subtarefa de VM do instantâneo atingiu o tempo limite".
+Backup do Azure para uma infraestrutura conforme uma VM de serviço (IaaS) falha, retornando a seguinte mensagem de erro nos detalhes de erro do trabalho no [portal do Azure](https://portal.azure.com/): "Não foi possível comunicar o agente da VM com o Serviço de Backup do Azure”, “A operação do instantâneo falhou devido a falta de conectividade de rede na máquina virtual”.
 
 ## <a name="cause-1-the-vm-has-no-internet-access"></a>Causa 1: A VM tem sem acesso à Internet
 Pelo requisito de implantação, a VM não tem acesso à Internet ou tem restrições em vigor que impedem o acesso à infraestrutura do Azure.
@@ -49,6 +51,8 @@ Para resolver o problema, tente um dos seguintes métodos listados aqui.
 2. Para permitir o acesso à Internet por meio do proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver uma.
 
 Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+
+Caso você esteja usando o Managed Disks, talvez seja necessário uma porta adicional (8443) aberta nos firewalls.
 
 ## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: o agente instalado na VM está desatualizado (para VMs do Linux)
 
@@ -77,10 +81,24 @@ A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VM
 Se precisarmos do registro detalhado para waagent, siga estas etapas:
 
 1. No arquivo /etc/waagent.conf, localize a seguinte linha: **habilitar o log detalhado (y | n)**
-2. Altere o valor **Logs.Verbose** de *n* para *s*.
+2. Altere o valor **Logs.Verbose** de *n* para *y*.
 3. Salve a alteração e reinicie o waagent seguindo as etapas anteriores nesta seção.
 
-## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>Causa 3: A extensão de backup não pode ser atualizada ou carregada
+## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 3: o agente está instalado na VM, mas sem resposta (para VMs do Windows)
+
+### <a name="solution"></a>Solução
+O agente da VM pode ter sido corrompido ou o serviço deve ter sido interrompido. Reinstalar o agente da VM ajudaria a obter a versão mais recente e reiniciar a comunicação.
+
+1. Verifique se você pode exibir o serviço de agente convidado do Windows nos serviços do computador (services.msc)
+2. Se não estiver visível lá, verifique em Programas e Recursos se o serviço de agente convidado do Windows está instalado.
+3. Se você for capaz de exibir em programas e recursos, desinstale o Agente convidado do Windows.
+4. Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação.
+5. Em seguida, você deve ser capaz de exibir os serviços do agente de convidado do Windows nos serviços
+6. Tente executar um backup sob demanda/adhoc clicando em "Fazer Backup agora" no portal.
+
+Verifique também se você tem o **.NET 4.5 instalado no sistema**. Ele é necessário para o agente da VM se comunicar com o serviço
+
+## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Causa 4: a extensão de backup não pode ser atualizada ou carregada
 Se as extensões não puderem ser carregadas, o Backup falhará porque não é possível obter um instantâneo.
 
 ### <a name="solution"></a>Solução
@@ -106,7 +124,7 @@ Para desinstalar a extensão, faça o seguinte:
 
 Este procedimento faz com que a extensão seja reinstalada durante o próximo backup.
 
-## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: não é possível recuperar o status de instantâneos ou não é possível obter os instantâneos
+## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 5: não é possível recuperar o status de instantâneos ou não é possível obter os instantâneos
 O backup da máquina virtual depende de emitir um comando de instantâneo para a conta de armazenamento subjacente. Backup pode falhar porque ele não tem acesso à conta de armazenamento ou atrasar a execução da tarefa de instantâneo.
 
 ### <a name="solution"></a>Solução

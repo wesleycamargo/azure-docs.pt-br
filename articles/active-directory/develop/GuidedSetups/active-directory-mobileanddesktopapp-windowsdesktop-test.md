@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf8b96f7d7e73a978a66ed2f3dd307c348ef695f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -54,7 +54,6 @@ Você também deverá ver informações básicas sobre o token adquirido por mei
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre escopos e permissões delegadas
 A API do Graph precisa do escopo `user.read` para ler o perfil do usuário. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado em nosso portal de registro. Algumas outras APIs do Graph, bem como APIs personalizadas do servidor de back-end, exigem escopos adicionais. Por exemplo, para o Graph, `Calendars.Read` é necessário para listar os calendários do usuário. Para acessar o calendário do usuário no contexto de um aplicativo, você precisa adicionar as informações de registro do aplicativo delegado `Calendars.Read` e, em seguida, adicionar `Calendars.Read` à chamada `AcquireTokenAsync`. O usuário pode precisar fornecer consentimentos adicionais à medida que o número de escopos aumenta.
 
-Se uma API de back-end não exigir um escopo (não recomendado), você poderá usar a `ClientId` como o escopo na chamada `AcquireTokenAsync`.
 <!--end-collapse-->
 
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 2b727a56f43a727807d4452eefa4229d4d90406e
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
@@ -121,7 +121,7 @@ Você é responsável por parar seus canais quando terminar com o canal. A falha
 >
 >
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
+### <a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
 * **Parado**. Esse é o estado inicial do Canal após sua criação (a menos que o início automático tenha sido selecionado no portal). Não há cobrança nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.

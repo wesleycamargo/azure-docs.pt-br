@@ -1,8 +1,8 @@
 ---
 title: "Autoescala avançada usando máquinas virtuais do Azure | Microsoft Docs"
 description: "Usa o Resource Manager e Conjuntos de Dimensionamento de VMs com várias regras e perfis que enviam email e chamam URLs de webhook com ações de escala."
-author: kamathashwin
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
-ms.author: ashwink
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/10/2017
-
 
 ---
 

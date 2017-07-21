@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar o código C# definido pelo usuário para trabalhos U-SQL com falha
+<a id="debug-user-defined-c-code-for-failed-u-sql-jobs" class="xliff"></a>
 
-Saiba como depurar trabalhos U-SQL em falha com erros no código definido pelo usuário usando o Ferramentas do Azure Data Lake para Visual Studio.
-
-## <a name="background"></a>Segundo plano
+# Depurar o código C# definido pelo usuário para trabalhos U-SQL com falha
 
 O U-SQL oferece um modelo de extensibilidade por meio de C#, os usuários podem escrever código C# definido, como um extrator, redutor, etc. definido pelo usuário para obter mais extensibilidade (saiba mais sobre [Código U-SQL definido pelo usuário](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). No entanto, nenhum desenvolvedor pode criar código sem erros e a depuração em sistemas de big data é difícil, pois muitos sistemas fornecem apenas informações de depuração de execução limitadas, como logs, etc. 
 
@@ -34,17 +34,14 @@ O vídeo a seguir demonstra a **Falha na depuração de vértice** nas Ferrament
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > O Visual Studio pode travar ou falhar se você não tiver estas duas atualizações de janelas: [Atualização 2 Redistribuível do Microsoft Visual C++ 2015](https://www.microsoft.com/download/details.aspx?id=51682), [Tempo de Execução do Universal C para Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
 
-## <a name="prerequisites"></a>Pré-requisitos
-* Ter lido o artigo de [Introdução](data-lake-analytics-data-lake-tools-get-started.md) .
+<a id="download-failed-vertex-to-local" class="xliff"></a>
 
-## <a name="download-failed-vertex-to-local"></a>Baixe a falha de vértice para o local
+## Baixe a falha de vértice para o local
 
 Ao abrir um trabalho em falha nas Ferramentas do ADL para Visual Studio, você receberá um alerta. As informações de erro detalhadas serão exibidas na guia de erros e na barra de alerta amarela na parte superior da janela.
 
@@ -59,7 +56,9 @@ Ao abrir um trabalho em falha nas Ferramentas do ADL para Visual Studio, você r
 
 ![Vértice para download do visual studio para depuração do U-SQL no Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-## <a name="debug-job-failed-with-code-behind"></a>Depurar trabalho em falha com code-behind
+<a id="debug-job-failed-with-code-behind" class="xliff"></a>
+
+## Depurar trabalho em falha com code-behind
 
 Se você criou um código definido pelo usuário no arquivo de code-behind (geralmente chamado de "Script.usql.cs" no projeto do U-SQL) e o trabalho do U-SQL falhou, o código fonte será importado automaticamente para a solução de depuração gerada, e você pode usar a experiência de depuração baseada em Visual Studio (observação, variáveis, etc.) para solucionar o problema. 
 
@@ -73,11 +72,15 @@ Antes da depuração, verifique se você marcou **Exceções de Common Language 
 
     ![Exceção de depuração do U-SQL do Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
-## <a name="debug-job-failed-with-assemblies"></a>Depurar trabalho em falha com assemblies
+<a id="debug-job-failed-with-assemblies" class="xliff"></a>
+
+## Depurar trabalho em falha com assemblies
 
 Se você usa assemblies registrados no script U-SQL, o sistema não consegue obter o código-fonte automaticamente. Você precisa fazer algumas configurações antes de depurar o código definido pelo usuário, ou seja, deve adicionar o código-fonte dos assemblies à solução gerada automaticamente.
 
-### <a name="configure-the-solution"></a>Configurar a solução
+<a id="configure-the-solution" class="xliff"></a>
+
+### Configurar a solução
 
 1. Clique com o botão direito do mouse em **Solução 'VertexDebug'** > **Adicionar** > **Projeto Existente...** para encontrar o código-fonte dos assemblies e adicionar o projeto à solução de depuração.
 
@@ -91,7 +94,9 @@ Se você usa assemblies registrados no script U-SQL, o sistema não consegue obt
 
 4. Pressione **Ctrl+Alt+E** e marque **Exceções de Common Language Runtime** na janela Configurações de exceção.
 
-### <a name="start-debug"></a>Iniciar depuração
+<a id="start-debug" class="xliff"></a>
+
+### Iniciar depuração
 
 1. Clique com botão direito do mouse em **projeto de código-fonte do assembly** > **Recompilação** para gerar arquivos pdb no diretório de trabalho LocalVertexHost.
 
@@ -111,7 +116,9 @@ Depois que a depuração tiver sido concluída com êxito, a janela de saída mo
 
 ![Depuração do U-SQL do Azure Data Lake Analytics bem sucedida](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-## <a name="resubmit-the-job"></a>Reenviar o trabalho
+<a id="resubmit-the-job" class="xliff"></a>
+
+## Reenviar o trabalho
 Depois de concluir a depuração, você pode reenviar o trabalho que falhou.
 
 1. Registre novos assemblies .dll no seu banco de dados ADLA.
@@ -123,17 +130,13 @@ Depois de concluir a depuração, você pode reenviar o trabalho que falhou.
 2. Ou copie seu código C# de volta para o arquivo de code-behind script.usql.cs--C#.
 3. Reenvie o trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 
 * [Guia de programação do U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Tutorial: introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

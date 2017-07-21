@@ -1,38 +1,39 @@
 ---
 title: "Criar planos de recuperação para failover e recuperação no Azure Site Recovery | Microsoft Docs"
-description: "Descreve como criar e personalizar planos de recuperação para failover e recuperação de máquinas virtuais e servidores físicos no Azure Site Recovery"
+description: "Descreve como criar e personalizar planos de recuperação no Azure Site Recovery para failover e recuperação de VMs e servidores físicos"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
-ms.service: site-recovery
+ms.service: storage-backup-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
-ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="create-recovery-plans"></a>Criar planos de recuperação
 
 
-Este artigo fornece informações sobre como criar e personalizar planos de recuperação em [Azure Site Recovery?](site-recovery-overview.md).
+Este artigo fornece informações sobre como criar e personalizar planos de recuperação em [Azure Site Recovery](site-recovery-overview.md).
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Os planos de recuperação têm a seguinte função:
+ Criar planos de recuperação têm a seguinte função:
 
 * Defina grupos de computadores que fazem failover juntos e então inicialize-os juntos.
 * Modele as dependências entre os computadores juntando-os em um grupo de planos de recuperação. Por exemplo, para failover e exibir um aplicativo específico, você agrupar todas as VMs para o aplicativo no mesmo grupo de plano de recuperação.
-* O failover. Você pode executar um failover de teste planejado ou não planejado em um plano de recuperação.
+* Executar um failover. Você pode executar um failover de teste planejado ou não planejado em um plano de recuperação.
 
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
@@ -42,7 +43,7 @@ Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum
 
     - Para a replicação de VMM para VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão protegidas.
     - Para o VMM no Azure, selecione **tipo de fonte de** > **VMM**.  Selecione o servidor do VMM de origem e **Azure** como o destino.
-    - Para replicação do Hyper-V no Azure (sem VMM), selecione **tipo de fonte de** > **site Hyper-V**. Selecione o site como a origem e **Azure**como o destino.
+    - Para replicação do Hyper-V no Azure (sem VMM), selecione **tipo de fonte de** > **site Hyper-V**. Selecione o site como a origem e **Azure** como o destino.
     - Para uma VM VMware ou um servidor local físico para o Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
 2. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
 
@@ -52,7 +53,7 @@ Você pode personalizar e estender os planos de recuperação:
 
 - **Adicionar novos grupos**— adicionar grupos de plano de recuperação adicionais (até sete) ao grupo padrão e, em seguida, adicionar mais computadores ou grupos de replicação a esses grupos de plano de recuperação. Os grupos são numerados na ordem em que você os adiciona. Uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
 - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele parar no ponto em que você inseriu a ação manual. Uma caixa de diálogo solicita que você especificar que a ação manual foi concluída.
-- **Adicionar um script**— você pode adicionar scripts executados antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, ele adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- **Adicionar um script** — você pode adicionar scripts executados antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, ele adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
 - **Adicionar runbooks do Azure**— você pode estender os planos de recuperação com runbooks do Azure. Por exemplo, para automatizar tarefas ou criar recuperação de etapa única. [Saiba mais](site-recovery-runbook-automation.md).
 
 ## <a name="add-scripts"></a>Adicionar scripts
@@ -71,7 +72,7 @@ Você pode usar scripts do PowerShell em seus planos de recuperação.
 Se você estiver usando a VMM em sua implantação:
 
 * Os scripts em um plano de recuperação são executados no contexto da conta de Serviço VMM. Verifique se que essa conta tem permissões de leitura para o compartilhamento remoto no qual o script está localizado. Teste o script seja executado no nível de privilégio da conta de serviço do VMM.
-* Os cmdlets do VMM são entregues em um módulo do Windows PowerShell. O módulo é instalado quando você instala o console do VMM. Pode ser carregado em seu script, usando o seguinte comando no script: 
+* Os cmdlets do VMM são entregues em um módulo do Windows PowerShell. O módulo é instalado quando você instala o console do VMM. Pode ser carregado em seu script, usando o seguinte comando no script:
    - Import-Module-Name virtualmachinemanager. [Saiba mais](https://technet.microsoft.com/library/hh875013.aspx).
 * Verifique se você possui pelo menos um servidor de biblioteca na sua implantação do VMM. Por padrão, o caminho de compartilhamento da biblioteca de um servidor VMM pode ser encontrado localmente no servidor VMM com o nome de pasta MSCVMMLibrary.
     * Se o caminho de compartilhamento da biblioteca for remoto (ou local, mas não compartilhado com MSCVMMLibrary), configure o compartilhamento da seguinte forma (usando \\libserver2.contoso.com\share\ como um exemplo):
@@ -93,7 +94,7 @@ Você pode adicionar um script para o grupo padrão do plano de recuperação de
 6. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 
 
-### <a name="vmm-script"></a>Script do VMM
+### <a name="add-a-vmm-script"></a>Criar um script do VMM
 
 Se você tiver um site de origem do VMM, será possível criar um script no servidor VMM e incluí-lo no plano de recuperação.
 

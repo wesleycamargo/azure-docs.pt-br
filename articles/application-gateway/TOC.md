@@ -7,6 +7,7 @@
 ## [Roteamento de URL](application-gateway-url-route-overview.md)
 ## [Multissite](application-gateway-multi-site-overview.md)
 ## [SSL de Ponta a Ponta](application-gateway-backend-ssl.md)
+## [Redirecionamento](application-gateway-redirect-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limites de serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introdução
@@ -37,10 +38,13 @@
 ## Configurar hospedagem de vários sites
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Configurar redirecionamento
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Configurar investigações da integridade
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Clássico)](application-gateway-create-probe-classic-ps.md)
+## [Integração da Central de Segurança do Azure](application-gateway-integration-security-center.md)
 ## [Combinar serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Solucionar problemas
 ### [Solução dos erros no Gateway de Aplicativo](application-gateway-troubleshooting-502.md)
@@ -63,8 +67,9 @@
 ## [Balanceador de carga](/azure/load-balancer/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Preços](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

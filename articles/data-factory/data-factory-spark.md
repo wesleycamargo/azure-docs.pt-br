@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -299,7 +299,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 | className | Classe principal de Java/Spark do aplicativo | Não |
 | argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
 | proxyUser | A conta de usuário a ser representada para execução do programa Spark | Não |
-| sparkConfig | Propriedades de configuração do Spark. | Não |
+| sparkConfig | Especifique valores para propriedades de configuração do Spark listadas no tópico: [Configuração do Spark – Propriedades de aplicativo](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica quando os arquivos de log do Spark são copiados no armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não |
 | sparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. | Não |
 
@@ -310,7 +310,7 @@ Crie a seguinte estrutura de pastas no armazenamento de Blobs do Azure referenci
 
 | Caminho | Descrição | Obrigatório | Tipo |
 | ---- | ----------- | -------- | ---- |
-| .    | O caminho raiz do trabalho do Spark no serviço vinculado ao armazenamento    | Sim | Pasta |
+| . | O caminho raiz do trabalho do Spark no serviço vinculado ao armazenamento  | Sim | Pasta |
 | &lt;definido pelo usuário&gt; | O caminho que aponta para o arquivo de entrada do trabalho do Spark | Sim | Arquivo |
 | ./jars | Todos os arquivos nessa pasta são carregados e colocados no classpath de java do cluster | Não | Pasta |
 | ./pyFiles | Todos os arquivos nessa pasta são carregados e colocados no PYTHONPATH do cluster | Não | Pasta |

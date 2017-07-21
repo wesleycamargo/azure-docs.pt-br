@@ -14,9 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -68,10 +70,5 @@ O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Hello Wor
 
 ## <a name="bandwidth-monitor"></a>Monitor de largura de banda
 O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite que você monitore a largura de banda usada no cliente. Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas ao cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

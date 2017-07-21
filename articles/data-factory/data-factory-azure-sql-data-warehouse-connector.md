@@ -1,6 +1,6 @@
 ---
-title: Mover dados para dentro/fora do SQL Data Warehouse do Azure | Microsoft Docs
-description: Saiba como mover dados para/do SQL Data Warehouse do Azure usando o Azure Data Factory
+title: Copiar dados bidirecionalmente no SQL Data Warehouse do Azure | Microsoft Docs
+description: Saiba como copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 02c5b7c8932a08bac4bc9e89bd7df3b3e5c57f94
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bf4c327804e0e9d40512adacd7f13db56b799508
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory
+# <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados bidirecionalmente no SQL Data Warehouse do Azure. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.  
 
 > [!TIP]
@@ -328,13 +328,13 @@ O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabe
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
-### <a name="type-mapping-for-azure-sql-data-warehouse"></a>Mapeamento de tipo do SQL Data Warehouse do Azure
+## <a name="type-mapping-for-azure-sql-data-warehouse"></a>Mapeamento de tipo do SQL Data Warehouse do Azure
 Como mencionado no artigo sobre as [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) , a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
 
-Ao mover dados entre o SQL Azure, SQL Server e Sybase, os mapeamentos a seguir são usados do tipo SQL para o tipo .NET, e vice-versa.
+Ao mover dados bidirecionalmente no SQL Data Warehouse do Azure, os mapeamentos a seguir são usados do tipo SQL para o tipo .NET e vice-versa.
 
 O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 

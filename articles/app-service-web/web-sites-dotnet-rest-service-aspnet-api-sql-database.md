@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
-translationtype: Human Translation
-ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
-ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 64c18f2cfabbb7af6ffd89b4c2a9095fca1cf799
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -667,9 +668,7 @@ O aplicativo agora está sendo executado na nuvem, usando o Banco de dados SQL p
 > 
 > 
 
-## <a name="next-steps"></a>Próximas Etapas
-Um aplicativo real exigiria autenticação e autorização, e você usaria esse banco de dados de associação para essa finalidade. O tutorial [Implantar um aplicativo de segurança ASP.NET MVC com OAuth, Associação e banco de dados SQL (a página pode estar em inglês)](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) é baseado neste tutorial e mostra como implantar um aplicativo web com o banco de dados de associação.
-
+## <a name="next-steps"></a>Próximas etapas
 Outra maneira de armazenar dados em um aplicativo do Azure é usar o Armazenamento do Azure, que fornece armazenamento de dados não relacionais na forma de blobs e tabelas. Os links a seguir fornecem mais informações sobre a API Web, o ASP.NET MVC e o Microsoft Azure.
 
 * [Introdução ao Entity Framework usando MVC][EFCodeFirstMVCTutorial]

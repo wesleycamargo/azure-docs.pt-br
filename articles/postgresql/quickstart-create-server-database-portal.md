@@ -10,11 +10,11 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 06/19/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -104,12 +104,12 @@ Usaremos agora o utilitário de linha de comando psql para nos conectarmos ao Ba
 
    ![Banco de Dados do Azure para PostgreSQL – Prompt de bash do Azure Shell](./media/quickstart-create-database-portal/8-bash.png)
 
-3. No prompt do Cloud Shell, conecte-se ao Banco de Dados do Azure para servidor PostgreSQL usando os comandos psql. O formato a seguir é usado para conectar-se a um Banco de Dados do Azure para servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+3. No prompt do Cloud Shell, conecte-se ao Banco de Dados do Azure para servidor PostgreSQL digitando a linha de comando psql no prompt. O formato a seguir é usado para conectar-se a um Banco de Dados do Azure para servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Por exemplo, o comando a seguir se conecta ao banco de dados padrão chamado **postgres** no seu servidor PostgreSQL **mypgserver-20170401.postgres.database.azure.com** usando as credenciais de acesso. Insira a senha de administrador do servidor quando solicitado.
+   Por exemplo, o comando a seguir se conecta ao banco de dados padrão chamado **postgres** no seu servidor PostgreSQL **mypgserver-20170401.postgres.database.azure.com** usando as credenciais de acesso. Sempre use a porta **5432** ao se conectar. Insira a senha de administrador do servidor quando solicitado. Por favor, use espaços entre as --opções no comando como mostrado, mas não use espaços entre sinais de igual e os valores de parâmetro.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: elioda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 944f67d1d5a56c3c478da0c3af0b1f9b8797eee1
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 405dd2f8147c20ce7b96b228fdf417e86a86de92
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Entretanto, os serviços têm várias diferenças, que são detalhadas na tabela
 | Suporte ao protocolo de dispositivo |Dá suporte a MQTT, MQTT por WebSockets, AMQP, AMQP por WebSockets e HTTP. Além disso, o Hub IoT funciona com o [gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], uma implementação de gateway de protocolo personalizável que permite protocolos personalizados. |Compatível com AMQP, AMQP sobre WebSockets e HTTP. |
 | Segurança |Fornece identidade por dispositivo e controle de acesso revogável. Confira a [seção Segurança do guia do desenvolvedor de Hub IoT]. |Fornece [políticas de acesso compartilhado][Event Hubs - security] em todos os Hubs de Eventos, com suporte limitado à revogação usando [políticas do editor][Event Hubs publisher policies]. As soluções IoT muitas vezes devem implementar uma solução personalizada para permitir credenciais e medidas contra falsificação por dispositivo. |
 | Monitoramento de operações |Permite que as soluções IoT assinem um conjunto avançado de eventos de conectividade e gerenciamento de identidade de dispositivo, como erros de autenticação de dispositivos individuais, limitação e exceções de formato inválido. Esses eventos permitem identificar rapidamente problemas de conectividade no nível do dispositivo individual. |Expõe apenas as métricas de agregação. |
-| Escala |É otimizada para dar suporte a milhões de dispositivos conectados simultaneamente. |Pode dar suporte a uma quantidade mais limitada de conexões simultâneas: até 5.000 conexões AMQP, de acordo com as [Cotas do Barramento de Serviço do Azure][Azure Service Bus quotas]. Por outro lado, os Hubs de Eventos permitem que você especifique a partição de cada mensagem enviada. |
+| Escala |É otimizada para dar suporte a milhões de dispositivos conectados simultaneamente. |Limita as conexões conforme as [cotas do Barramento de Serviço do Azure][Azure Service Bus quotas]. Por outro lado, os Hubs de Eventos permitem que você especifique a partição de cada mensagem enviada. |
 | SDKs de dispositivo |Fornece [SDKs de dispositivo][Azure IoT SDKs] para uma grande variedade de plataformas e linguagens, além de APIs diretas de MQTT, AMQP e HTTP. |Tem suporte no .NET, Java e C, além de nas interfaces de envio AMQP e HTTP. |
 | Upload de arquivos |Permite que soluções IoT carreguem arquivos de dispositivos para a nuvem. Inclui um ponto de extremidade de notificação de arquivo para a integração de fluxo de trabalho e uma categoria de monitoramento de operações para o suporte à depuração. | Sem suporte. |
 | Rotear mensagens para vários pontos de extremidade | Há suporte para até 10 pontos de extremidade personalizados. As regras determinam como as mensagens são roteadas para os pontos de extremidade personalizados. Para saber mais, confira [Enviar e receber mensagens com o Hub IoT][lnk-devguide-messaging]. | Exige a composição e hospedagem de um código adicional para despacho de mensagens. |

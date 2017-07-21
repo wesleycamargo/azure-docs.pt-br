@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2cb8c9b50f3067561c63be194151d6128cd45299
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 624b6c8f317477d83539392c6c2f15c2dc69d401
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -153,6 +154,35 @@ Quando a fonte é do tipo **RelationalSource** (que inclui o OData), as seguinte
 | Propriedade | Descrição | Exemplo | Obrigatório |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |Não |
+
+## <a name="type-mapping-for-odata"></a>Mapeamento de tipos para OData
+Como mencionado no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas.
+
+1. Converter de tipos de fonte nativos para o tipo .NET
+2. Converter do tipo .NET para o tipo de coletor nativo
+
+Ao mover dados do OData, os seguintes mapeamentos serão usados dos tipos do OData para os tipos do .NET.
+
+| Tipo de dados OData | Tipo .NET |
+| --- | --- |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Bool |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |Decimal |
+| Edm.Double |Duplo |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
+| Edm.Int16 |Int16 |
+| Edm.Int32 |Int32 |
+| Edm.Int64 |Int64 |
+| Edm.SByte |Int16 |
+| Edm.String |Cadeia de caracteres |
+| Edm.Time |TimeSpan |
+| Edm.DateTimeOffset |Datetimeoffset |
+
+> [!Note]
+> Tipos de dados complexos do OData, por exemplo, o objeto não tem suporte.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Exemplo de JSON: copiar dados da origem do OData para o Blob do Azure
 Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de uma fonte OData para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory. O exemplo tem as seguintes entidades do Data Factory:
@@ -354,7 +384,7 @@ Ao mover dados de repositórios de dados OData, os tipos de dados OData são map
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de repositórios de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

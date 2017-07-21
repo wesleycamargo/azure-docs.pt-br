@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -92,7 +93,7 @@ Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, co
 Ao fazer backup de uma VM, a extensão de backup na VM envia os comandos de gerenciamento de instantâneo para o Armazenamento do Azure usando a API de HTTPS. Roteie o tráfego da extensão de backup por meio do proxy HTTP, pois ele é o único componente configurado para dar acesso à Internet pública.
 
 > [!NOTE]
-> Não há recomendações do software de proxy a serem usadas. Escolha um proxy que seja compatível com as etapas de configuração abaixo.
+> Não há recomendações do software de proxy a serem usadas. Escolha um proxy que tenha permanência de saída e que seja compatível com as etapas de configuração abaixo. Certifique-se de os softwares de terceiros não modificam as configurações de proxy
 >
 >
 

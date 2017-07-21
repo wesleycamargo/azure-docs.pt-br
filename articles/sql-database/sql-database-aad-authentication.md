@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 05/10/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a8c7e1859fa630fbfcebd39d0304a6e7657ac43b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 89ffa95a5889e4ebdf26f4b001edce3c5ce81ce2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -111,8 +111,6 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
 - Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](sql-database-firewall-configure.md).
-- Para obter um tutorial sobre como usar a autenticação do SQL Server, consulte [Autenticação e autorização do SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, consulte [Autenticação e autorização do Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 

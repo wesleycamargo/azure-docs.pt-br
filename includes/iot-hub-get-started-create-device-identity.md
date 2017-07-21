@@ -1,6 +1,6 @@
 ## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
 
-Nesta seção, você use uma ferramenta do Node.js chamada [iothub-explorer][iot-hub-explorer] para criar uma identidade de dispositivo para este tutorial.
+Nesta seção, você use uma ferramenta do Node.js chamada [iothub-explorer][iot-hub-explorer] para criar uma identidade de dispositivo para este tutorial. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
 
 1. Execute o seguinte em seu ambiente de linha de comando:
 
@@ -13,6 +13,8 @@ Nesta seção, você use uma ferramenta do Node.js chamada [iothub-explorer][iot
 1. Finalmente, crie uma nova identidade de dispositivo chamada `myDeviceId` com o comando:
 
     `iothub-explorer create myDeviceId --connection-string`
+
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 Anote a cadeia de conexão do dispositivo no resultado. Essa cadeia de conexão é usada pelo aplicativo do dispositivo para se conectar ao seu Hub IoT como um dispositivo.
 

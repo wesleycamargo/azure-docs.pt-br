@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 7576bf607a4bec60011ed0a009462f8cd3e0d598
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -39,7 +39,7 @@ O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop
 A IU da Web do Ambari é fornecida por padrão com clusters HDInsight que usam o sistema operacional Linux.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Conectividade
 

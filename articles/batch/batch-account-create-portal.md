@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -82,7 +82,12 @@ Ao criar sua primeira conta do Lote no modo de assinatura do usuário, execute a
 
     ![Controle de acesso de assinatura][subscription_access]
 
-4. Na folha **Adicionar permissões**, selecione a função **Colaborador** e procure **MicrosoftAzureBatch** (sem espaços). Selecione **MicrosoftAzureBatch**e clique em **Salvar**.
+4. Na folha **Adicionar permissões**, selecione a função **Colaborador**, procure a API do Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
+    1. **MicrosoftAzureBatch**.
+    2. **Lote do Microsoft Azure**. Os locatários mais recentes do Azure AD podem usar esse nome.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote. 
+
+5. Depois de encontrar a API do Lote, selecione-a e clique em **Salvar**.
 
     ![Adicionar permissões do Lote][add_permission]
 

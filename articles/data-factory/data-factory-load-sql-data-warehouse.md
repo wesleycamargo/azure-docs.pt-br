@@ -12,31 +12,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 07/11/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d0aea6ffc04792e7e70a15accf92de05c553ff46
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-azure-data-factory-copy-wizard"></a>Carregar 1 TB no Azure SQL Data Warehouse em 15 minutos com o Azure Data Factory [Assistente de Cópia]
+# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 O [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais.  Criado em arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse é otimizado para cargas de trabalho do data warehouse corporativas.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
 
-A introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca, usando o **Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para popular um SQL Data Warehouse com os dados do seu sistema existente e economizar tempo valioso ao avaliar o SQL Data Warehouse e criar suas soluções de análise adequadas a ele.  Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando o Azure Data Factory:
+A introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca, usando o **Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para popular um SQL Data Warehouse com os dados de seu sistema existente e economizar tempo valioso ao avaliar o SQL Data Warehouse e criar suas soluções de análise. Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando o Azure Data Factory:
 
 * **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
 * **Suporte de armazenamento de dados avançados**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
 * **Seguro e compatível**: os dados são transferidos por HTTPS ou ExpressRoute e a presença global do serviço garante que os dados nunca saiam do limite geográfico
 * **Desempenho incomparável usando PolyBase** – usar o Polybase é a maneira mais eficiente para mover dados para o SQL Data Warehouse. Usando o recurso de blob de preparo, você pode obter velocidades de alta carga de todos os tipos de armazenamentos de dados além do Armazenamento de Blobs do Azure, ao qual o Polybase dá suporte por padrão.
 
-Este artigo mostra como usar o Assistente para cópia de fábrica de dados para carregar 1 TB de dados do Armazenamento de Blobs do Azure no Azure SQL Data Warehouse em menos de 15 minutos, com uma taxa de transferência de mais de 1,2 GBps.
+Este artigo mostra como usar o Assistente de Cópia do Data Factory para carregar 1 TB de dados do Armazenamento de Blobs do Azure no SQL Data Warehouse do Azure em menos de 15 minutos, com uma vazão de dados superior a 1,2 GBps.
 
 Este artigo fornece instruções passo a passo para mover dados no Azure SQL Data Warehouse usando o Assistente de Cópia.
 
 > [!NOTE]
-> Veja o artigo [Mover dados para e do Azure SQL Data Warehouse usando o Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) para obter informações gerais sobre os recursos do Data Factory para movimentação de dados de/para o Azure SQL Data Warehouse.
+>  Para obter informações gerais sobre as funcionalidades do Data Factory para movimentação de dados bidirecionalmente no SQL Data Warehouse do Azure, consulte o artigo [Mover dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
 > Você também pode criar pipelines usando o Portal do Azure, Visual Studio, PowerShell, etc. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia na Azure Data Factory.  
 >
@@ -59,7 +59,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
   > [!NOTE]
   > Ao carregar do Blob do Azure, o desempenho de carregamento de dados será diretamente proporcional ao número de DWUs que você configurar no SQL Data Warehouse:
   >
-  > Carregar 1 TB em um SQL Data Warehouse com 1.000 DWU leva 87 min (taxa de transferência de aproximadamente 200 MBps) Carregar 1 TB em um SQL Data Warehouse com 2.000 DWU leva 46min (taxa de transferência de aproximadamente 380 MBps) Carregar 1 TB em um SQL Data Warehouse com 6.000 DWU leva 14min (taxa de transferência de aproximadamente 1,2GBps)
+  > Carregar 1 TB em um SQL Data Warehouse com 1.000 DWUs leva 87 minutos (vazão de dados de cerca de 200 MBps) Carregar 1 TB em um SQL Data Warehouse com 2.000 DWUs leva 46 minutos (vazão de dados de cerca de 380 MBps) Carregar 1 TB em um SQL Data Warehouse com 6.000 DWUs leva 14 minutos (vazão de dados de cerca de 1,2 GBps)
   >
   >
 
@@ -139,7 +139,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em **Próximo**.  
+3. Clique em **Avançar**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -181,7 +181,7 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Avançar**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

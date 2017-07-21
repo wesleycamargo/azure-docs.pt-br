@@ -1,6 +1,7 @@
 # Visão geral
 ## [Sobre a Rede do Azure](networking-overview.md)
 ## Arquitetura
+### [Datacenters virtuais](networking-virtual-datacenter.md)
 ### [Roteamento assimétrico com vários caminhos de rede](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Designs de rede segura](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologia hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Verificar os fluxos IP para uma VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Exemplos de scripts
 ### [CLI do Azure](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Tutoriais
 ### [VMs de balanceamento de carga](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectar computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -57,9 +59,10 @@
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Recursos
-## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 ## [Modelos de autor](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Modelos da comunidade](https://azure.microsoft.com/resources/templates/)
+## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 ## [Preços](https://azure.microsoft.com/pricing)
 ## [Disponibilidade regional](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

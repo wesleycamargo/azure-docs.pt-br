@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,6 +57,7 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 Antes de preparar seu ambiente, compreenda as limitações.
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
+* Não há suporte para o backup de máquinas virtuais com discos de mais de 4 TB. 
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * Não há suporte para backup de VMs criptografadas usando apenas BEK. Não há suporte para backup de VMs Linux criptografadas usando criptografia LUKS.
 * Não há suporte para o backup de máquinas virtuais de Linux com extensão Docker.

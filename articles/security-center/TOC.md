@@ -5,11 +5,13 @@
 ## Cenários
 ### [Resposta a incidentes](security-center-incident-response.md)
 ### [Usar recomendações para aumentar a segurança](security-center-using-recommendations.md)
+## [Migração de plataforma](security-center-platform-migration.md)
 
 # Introdução
 ## [Início rápido](security-center-get-started.md)
 ## [Planejamento e operações](security-center-planning-and-operations-guide.md)
 ## [Permissões](security-center-permissions.md)
+## [Plataformas com suporte](security-center-os-coverage.md)
 ## [Integração com parceiros](security-center-partner-integration.md)
 ## [Perguntas frequentes](security-center-faq.md)
 
@@ -17,6 +19,7 @@
 
 ## Evitar
 ### [Definir políticas de segurança](security-center-policies.md)
+### [Acesso just in time](security-center-just-in-time.md)
 ### [Implementar recomendações de segurança](security-center-recommendations.md)
 
 ### [Recomendações do aplicativo](security-center-application-recommendations.md)
@@ -69,6 +72,7 @@
 ## [Segurança do Azure](/azure/security/)
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog Segurança, Privacidade e Conformidade do Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Preços](security-center-pricing.md)
 ## [Visão geral do serviço](https://azure.microsoft.com/services/security-center/)

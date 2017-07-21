@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ Ao criar um grupo de recursos, você precisará fornecer um local para ele. Voc�
 ## <a name="resource-providers"></a>Provedores de recursos
 Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com um serviço do Azure. Por exemplo, se você quer armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault** . Este provedor de recursos oferece um tipo de recurso denominado **cofres** para criar o cofre da chave. 
 
-Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure.
+O nome de um tipo de recurso está no formato: **{provedor-de-recursos}/{tipo-de-recurso}**. Por exemplo, o tipo de cofre de chaves é **Microsoft.KeyVault\vaults**.
 
-Você pode ver todos os provedores de recursos por meio do portal. Na folha de sua assinatura, selecione **Provedores de recursos**:
-
-![exibir provedores de recursos](./media/resource-group-overview/view-resource-providers.png)
-
-Você recupera todos os provedores de recursos com o seguinte cmdlet do PowerShell:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Ou, com o Azure CLI 2.0, você recupera todos os provedores de recursos com o seguinte comando:
-
-```azurecli
-az provider list
-```
-
-Você pode verificar a lista retornada para encontrar os provedores de recursos que precisa usar.
-
-Para obter detalhes sobre um provedor de recursos, adicione o namespace do provedor ao comando. O comando retorna os tipos de recursos com suporte para o provedor de recursos e os locais e as versões de API com suporte para cada tipo de recurso. O seguinte cmdlet do PowerShell obtém os detalhes sobre Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-Ou, com o Azure CLI 2.0, recupere os tipos de recursos, locais e versões de API com suporte para Microsoft.Compute, com o seguinte comando:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Para obter mais informações, confira [Provedores do Gerenciador de Recursos, regiões, versões de API e esquemas](resource-manager-supported-services.md).
+Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure. Além disso, você precisa conhecer os locais e as versões de API válidos para cada tipo de recurso. Para saber mais, veja [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Implantação de modelo
 Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do [modelo exportado](resource-manager-export-template.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -19,14 +19,17 @@ ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
-
 ---
 
-# <a name="unexpected-application-in-my-applications-list"></a>Aplicativo inesperado em minha lista de aplicativos
+<a id="unexpected-application-in-my-applications-list" class="xliff"></a>
+
+# Aplicativo inesperado em minha lista de aplicativos
 
 Este artigo o ajudará a entender como os aplicativos aparecem na lista **Todos os Aplicativos** em **Aplicativos Empresariais**. 
 
-## <a name="how-to-see-all-applications-in-your-tenant"></a>Como ver todos os aplicativos em seu locatário
+<a id="how-to-see-all-applications-in-your-tenant" class="xliff"></a>
+
+## Como ver todos os aplicativos em seu locatário
 
 Para ver todos os aplicativos em seu locatário, você precisa usar o controle de **Filtro** para exibir **Todos os Aplicativos** na lista **Todos os Aplicativos**. Para fazer isso, siga as etapas abaixo:
 
@@ -44,7 +47,9 @@ Para ver todos os aplicativos em seu locatário, você precisa usar o controle d
 
 7.  Na folha **Filtro**, defina a opção **Exibir** como **Todos os Aplicativos.**
 
-## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Por que um aplicativo específico aparece em minha lista de todos os aplicativos?
+<a id="why-does-a-specific-application-appear-in-my-all-applications-list" class="xliff"></a>
+
+## Por que um aplicativo específico aparece em minha lista de todos os aplicativos?
 
 Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativos** mostra todos os objetos de Entidade de Serviço em seu locatário. Objetos de Entidade de Serviço podem aparecer nessa lista de uma várias maneiras:
 
@@ -78,15 +83,21 @@ Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativo
 
 Para obter mais detalhes sobre como aplicativos são adicionados ao seu diretório, leia [Como e por que os aplicativos são adicionados ao Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um usuário ou grupo específico para um aplicativo
+<a id="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application" class="xliff"></a>
+
+## Quero remover a atribuição de um usuário ou grupo específico para um aplicativo
 
 Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
-## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Quero desabilitar todo o acesso a um aplicativo para todos os usuários
+<a id="i-want-to-disable-all-access-to-an-application-for-every-user" class="xliff"></a>
+
+## Quero desabilitar todo o acesso a um aplicativo para todos os usuários
 
 Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Quero excluir um aplicativo completamente
+<a id="i-want-to-delete-an-application-entirely" class="xliff"></a>
+
+## Quero excluir um aplicativo completamente
 
 Para **excluir um aplicativo**, siga as instruções abaixo:
 
@@ -106,7 +117,9 @@ Para **excluir um aplicativo**, siga as instruções abaixo:
 
 7.  Após o aplicativo ser carregado, clique no ícone **Excluir** na folha **Visão Geral** superior do aplicativo.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
+<a id="i-want-to-disable-all-future-user-consent-operations-to-any-application" class="xliff"></a>
+
+## Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
 
 Desabilitar o consentimento do usuário para todo o seu diretório impede que os usuários finais consintam com qualquer aplicativo. Os administradores ainda podem consentir em nome dos usuários. Para saber mais sobre o consentimento de aplicativos e por que você pode ou não querer fazer isso, leia [Entendendo o consentimento do usuário e do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
@@ -124,6 +137,8 @@ Para **desabilitar todas as futuras operações de consentimento do usuário no 
 
 6.  Desabilite todas as futuras operações de consentimento do usuário definindo o controle de alternância **Os usuários podem permitir que os aplicativos acessem seus dados** como **Não** e clique no botão **Salvar**.
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
 

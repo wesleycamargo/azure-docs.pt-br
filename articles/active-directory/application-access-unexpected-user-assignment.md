@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 43ed4b0e96c583d8fd9da57eec40ddd2e96fee2f
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-assign-users-to-applications"></a>Como atribuir usuários a aplicativos
+<a id="how-to-assign-users-to-applications" class="xliff"></a>
+
+# Como atribuir usuários a aplicativos
 
 Este artigo o ajudará a compreender como usuários são atribuídos a um aplicativo em seu locatário.
 
-## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>Como os usuários são atribuídos a um aplicativo no Azure AD?
+<a id="how-do-users-get-assigned-to-an-application-in-azure-ad" class="xliff"></a>
+
+## Como os usuários são atribuídos a um aplicativo no Azure AD?
 
 Para acessar um aplicativo, o usuário precisa primeiro ser atribuído a ele de alguma forma. A atribuição pode ser feita por um administrador, um representante de negócios ou, às vezes, o próprio usuário. Abaixo, descrevemos as formas como os usuários podem ser atribuídos a aplicativos:
 
@@ -59,6 +63,8 @@ Para acessar um aplicativo, o usuário precisa primeiro ser atribuído a ele de 
 
 10. O próprio usuário [dá consentimento para um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) entrando no aplicativo
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
 

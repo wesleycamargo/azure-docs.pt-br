@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -24,13 +24,17 @@ ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="azure-resource-group-guidelines-for-windows-vms"></a>Diretrizes de grupos de recursos do Azure para VMs Windows
+<a id="azure-resource-group-guidelines-for-windows-vms" class="xliff"></a>
+
+# Diretrizes de grupos de recursos do Azure para VMs Windows
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre como criar seu ambiente logicamente e agrupar todos os componentes em Grupos de Recursos.
 
-## <a name="implementation-guidelines-for-resource-groups"></a>Diretrizes de implementação de Grupos de Recursos
+<a id="implementation-guidelines-for-resource-groups" class="xliff"></a>
+
+## Diretrizes de implementação de Grupos de Recursos
 Decisões:
 
 * Você vai criar Grupos de Recursos pelos componentes básicos da infraestrutura ou pela implantação completa do aplicativo?
@@ -43,7 +47,9 @@ Tarefas:
 * Definir quais funções de acesso de usuário serão necessárias para controlar o acesso aos Grupos de Recursos.
 * Criar o conjunto de Grupos de Recursos usando a convenção de nomenclatura. Você pode usar o Azure PowerShell ou o Portal.
 
-## <a name="resource-groups"></a>Grupos de recursos
+<a id="resource-groups" class="xliff"></a>
+
+## Grupos de recursos
 No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Os nomes de grupo de recursos podem ter, no máximo, 90 caracteres. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Um recurso importante para Grupos de Recursos é a capacidade de criar seu ambiente usando modelos. Um modelo é simplesmente um arquivo JSON que declara os recursos de armazenamento, rede e computação. Você também pode definir todas as configurações ou scripts personalizados relacionados a serem aplicados. Com esses modelos, você cria implantações consistentes e reproduzíveis para seus aplicativos. Essa abordagem facilita a criação de um ambiente em desenvolvimento e usa o mesmo modelo para criar uma implantação de produção, ou vice-versa. Para obter um melhor entendimento sobre como usar modelos, leia o [passo a passo do modelo](../../azure-resource-manager/resource-manager-template-walkthrough.md) que explica cada etapa de criação de um modelo.
@@ -55,7 +61,9 @@ Há duas abordagens diferentes que você pode adotar ao projetar seu ambiente co
 
 Conforme você escala horizontalmente, criando Grupos de Recursos centralizados para sua rede virtual e subredes, facilita a criação de conexões locais cruzadas para opções de conectividade híbrida. A abordagem alternativa é cada aplicativo ter sua própria rede virtual que requer configuração e manutenção.  [Controles de Acesso Baseado em Função](../../active-directory/role-based-access-control-what-is.md) fornecem uma maneira granular de controlar o acesso aos Grupos de Recursos. Para aplicativos de produção, é possível controlar os usuários que podem acessar esses recursos ou para os recursos de infraestrutura básica, você pode limitar apenas os engenheiros de infraestrutura a trabalhar com eles. Os proprietários do seu aplicativo só têm acesso aos componentes do aplicativo dentro de seu Grupo de Recursos e não o núcleo de infraestrutura do Azure do seu ambiente. Durante o projeto de seu ambiente, considere os usuários que precisam acessar os recursos e projete os Grupos de Recursos de forma condizente. 
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
 

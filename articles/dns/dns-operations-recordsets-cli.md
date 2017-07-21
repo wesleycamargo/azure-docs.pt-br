@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: jonatul
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: cbd906d7fb9756eabc95cb79961fcf285170561a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -51,7 +51,7 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-dns-record"></a>Criar um registro DNS
 
-Para criar um registro DNS, use o comando `az network dns record-set <record-type> add-record` (em que `<record-type>` é o tipo do registro, ou seja, a, srv, txt etc.) Para obter ajuda, consulte `az network dns record-set --help`.
+Para criar um registro DNS, use o comando `az network dns record-set <record-type> set-record` (em que `<record-type>` é o tipo do registro, ou seja, a, srv, txt etc.) Para obter ajuda, consulte `az network dns record-set --help`.
 
 Ao criar um registro, você precisa especificar o nome do grupo de recursos, o nome da zona, o nome do conjunto de registros, o tipo do registro e os detalhes do registro que está sendo criado. O nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona.
 
@@ -62,13 +62,13 @@ Se um novo conjunto de registros for criado, um TTL padrão de 3600 será usado.
 O exemplo a seguir cria um registro A chamado *www* na zona *contoso.com* no grupo de recursos *MyResourceGroup*. O endereço IP do registro A é *1.2.3.4*.
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do Registro "@", incluindo as aspas:
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>Criar um conjunto de registros DNS
@@ -91,13 +91,13 @@ O exemplo a seguir cria um conjunto de registros com duas entradas de metadados,
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-Depois de criar um conjunto de registros vazio, registros podem ser adicionados usando `azure network dns record-set <record-type> add-record` conforme descrito em [Criar um registro DNS](#create-a-dns-record).
+Depois de criar um conjunto de registros vazio, registros podem ser adicionados usando `azure network dns record-set <record-type> set-record` conforme descrito em [Criar um registro DNS](#create-a-dns-record).
 
 ## <a name="create-records-of-other-types"></a>Criar outros tipos de registro
 
 Depois de ter visto detalhadamente como criar os registros 'A', os exemplos a seguir mostram como criar registros de outros tipos, aos quais o DNS do Azure dá suporte.
 
-Os parâmetros usados para especificar os dados de registro variam dependendo do tipo de registro. Por exemplo, para um registro do tipo "A", você especifica o endereço IPv4 com o parâmetro `--ipv4-address <IPv4 address>`. Os parâmetros para cada tipo de registro podem ser listados usando `az network dns record-set <record-type> add-record --help`.
+Os parâmetros usados para especificar os dados de registro variam dependendo do tipo de registro. Por exemplo, para um registro do tipo "A", você especifica o endereço IPv4 com o parâmetro `--ipv4-address <IPv4 address>`. Os parâmetros para cada tipo de registro podem ser listados usando `az network dns record-set <record-type> set-record --help`.
 
 Em cada caso, mostraremos como criar um único registro. O registro é adicionado ao conjunto de registros existente ou um conjunto de registros é criado implicitamente. Para obter mais informações sobre como criar conjuntos de registros e definir o parâmetro do conjunto de registros explicitamente, consulte [Criar um conjunto de registros DNS](#create-a-dns-record-set).
 
@@ -106,7 +106,7 @@ Não podemos dar um exemplo para criar um conjunto de registros SOA, pois os SOA
 ### <a name="create-an-aaaa-record"></a>Criar um registro AAAA
 
 ```azurecli
-az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-a-cname-record"></a>Criar um registro CNAME
@@ -117,7 +117,7 @@ az network dns record-set aaaa add-record --resource-group myresourcegroup --zon
 > Para obter mais informações, consulte [Registros CNAME](dns-zones-records.md#cname-records).
 
 ```azurecli
-az network dns record-set cname add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
+az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
 ```
 
 ### <a name="create-an-mx-record"></a>Criar um registro MX
@@ -125,13 +125,13 @@ az network dns record-set cname add-record --resource-group myresourcegroup --zo
 Neste exemplo, usamos o nome do conjunto de registros "@" para criar o registro MX no vértice da zona (nesse caso, "contoso.com").
 
 ```azurecli
-az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>Criar um registro NS
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>Criar um registro PTR
@@ -139,15 +139,15 @@ az network dns record-set ns add-record --resource-group myresourcegroup --zone-
 Neste caso, 'minha-zona-arpa.com' representa a zona ARPA que apresenta o intervalo de IP. Cada registro PTR definido nesta zona corresponde a um endereço IP nesse intervalo de IP.  O nome do registro '10' é o último octeto do endereço IP dentro desse intervalo IP representado por esse registro.
 
 ```azurecli
-az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>Criar um registro SRV
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o  *\_serviço* e o * \_protocolo* no nome do conjunto de registros. Não é necessário incluir “@” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir “@” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
 
 ```azurecli
-az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>Criar um registro TXT
@@ -155,7 +155,7 @@ az network dns record-set srv add-record --resource-group myresourcegroup --zone
 O exemplo a seguir mostra como criar um registro TXT. Para obter mais informações sobre o tamanho máximo suportado pelos registros TXT, consulte [Registros TXT](dns-zones-records.md#txt-records).
 
 ```azurecli
-az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>Obter um conjunto de registros
@@ -188,7 +188,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Adicionar um registro a um conjunto de registros existente
 
-Você pode usar `az network dns record-set <record-type> add-record` tanto para criar um registro em um novo conjunto de registros quanto para adicionar um registro a um conjunto de registros existente.
+Você pode usar `az network dns record-set <record-type> set-record` tanto para criar um registro em um novo conjunto de registros quanto para adicionar um registro a um conjunto de registros existente.
 
 Para obter mais informações, consulte [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
 
@@ -198,7 +198,7 @@ Para remover um registro DNS de um conjunto de registros existente, use `az netw
 
 Esse comando exclui um registro DNS de um conjunto de registros. Se o último registro de um conjunto de registros é excluído, o conjunto de registros em si também é excluído. Para manter o conjunto de registros vazio em vez disso, use a opção `--keep-empty-record-set`.
 
-Você precisa especificar o registro a ser excluído e a zona da qual ele deve ser excluído, usando os mesmos parâmetros usados ao criar um registro usando `az network dns record-set <record-type> add-record`. Esses parâmetros são descritos em [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
+Você precisa especificar o registro a ser excluído e a zona da qual ele deve ser excluído, usando os mesmos parâmetros usados ao criar um registro usando `az network dns record-set <record-type> set-record`. Esses parâmetros são descritos em [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
 
 O exemplo a seguir cria um registro A com o valor '1.2.3.4' do conjunto de recursos chamado *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*.
 
@@ -217,7 +217,7 @@ Para modificar um registro existente do tipo A, AAAA, MX, NS, PTR, SRV ou TXT, v
 O exemplo a seguir mostra como modificar um registro 'A', alterando o endereço IP 1.2.3.4 para o endereço IP 5.6.7.8:
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -258,7 +258,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 O exemplo a seguir mostra como adicionar um servidor de nome adicional ao conjunto de registros NS no apex da zona:
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Para modificar o TTL de um conjunto de registros existente

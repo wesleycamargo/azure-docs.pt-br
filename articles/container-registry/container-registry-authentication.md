@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
-ms.lasthandoff: 04/17/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: aa2a6bf3d7d9ec22020036851fc0f2bca37e31bf
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
@@ -52,7 +53,7 @@ Acesso anônimo não está disponível em Registros de Contêiner do Azure. Para
 
 É possível atribuir várias entidades de serviço a um registro, o que permite definir acesso para diferentes usuários ou aplicativos. As entidades de serviço também permitem conectividade “sem periféricos” a um registro em cenários de desenvolvedor ou DevOps, como nos seguintes exemplos:
 
-  * Implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/OS, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [Serviço de Contêiner](../container-service/index.md), [Serviço de Aplicativo](../app-service/index.md), [Lote](../batch/index.md) e [Service Fabric](../service-fabric/index.md), entre outros.
+  * Implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/OS, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [Serviço de Contêiner](../container-service/index.yml), [Serviço de Aplicativo](../app-service/index.md), [Lote](../batch/index.md) e [Service Fabric](/azure/service-fabric/), entre outros.
 
   * Soluções de integração e implantação contínuas (como Visual Studio Team Services ou Jenkins) que criam imagens de contêiner e as envia por push para um registro.
 

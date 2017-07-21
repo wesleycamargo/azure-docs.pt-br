@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/13/2017
 
 
@@ -115,7 +116,7 @@ Exemplo:
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a name="a-idfmp4v20asmooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
+### <a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
 Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Os clientes com esses players podem usar um formato que desabilita a r-tag:
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)

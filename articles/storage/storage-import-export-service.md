@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -52,9 +52,7 @@ Você pode usar o serviço de Importação/Exportação do Azure para copiar os 
 Para começar o processo de importação para o armazenamento de Blob ou de exportação desse armazenamento, primeiro crie um trabalho, que pode ser um trabalho de importação ou um trabalho de exportação:
 
 * Crie um trabalho de importação quando desejar transferir dados locais para blobs em sua conta de armazenamento do Azure.
-* Crie um trabalho de exportação quando desejar transferir os dados armazenados atualmente como blobs na sua conta de armazenamento para discos rígidos enviados a você.
-
-Ao criar um trabalho, você notifica o serviço de Importação/Exportação de que enviará um ou mais discos rígidos para um data center do Azure.
+* Criar um trabalho de exportação quando desejar transferir os dados atualmente armazenados como blobs na conta de armazenamento para unidades de disco rígido que são enviados para você. Quando você criar um trabalho, notifique o serviço de Importação/Exportação que você enviará um ou mais unidades de disco rígido para um data center do Azure.
 
 * Para um trabalho de importação, você enviará discos rígidos contendo seus dados.
 * Para um trabalho de exportação, você enviará discos rígidos vazios.
@@ -69,7 +67,7 @@ Os arquivos de diário armazenam informações básicas sobre o trabalho e a uni
 
 A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Consulte a seção [Sistema Operacional](#operating-system) para obter as versões específicas do SO com suporte.
 
-Baixe a versão mais recente da [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Para obter mais detalhes sobre como usar a ferramenta WAImportExport, consulte [Como usar a ferramenta WAImportExport](storage-import-export-tool-how-to.md).
+Baixe a versão mais recente da [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Para obter mais detalhes sobre como usar a ferramenta WAImportExport, consulte [Como usar a ferramenta WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Versão anterior:** [Baixe a versão WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) da ferramenta e consulte [Guia de uso da WAImportExpot V1](storage-import-export-tool-how-to-v1.md). A versão WAImportExpot V1 da ferramenta dá suporte para **Preparação de discos quando os dados já tiverem sido gravados previamente no disco**. Também será necessário usar a ferramenta WAImportExpot V1 se a única chave disponível for a chave de SAS.
@@ -85,6 +83,8 @@ Para trabalhos de importação, somente o primeiro volume de dados na unidade se
 > As unidades de disco rígido externas que vêm com um adaptador USB interno não são suportadas por esse serviço. Além disso, o disco dentro da proteção de um HDD externo não pode ser usado; não envie HDDs externos.
 > 
 > 
+
+Abaixo está uma lista de adaptadores USB externos usados para copiar dados em HDDs internos. Anker 68UPSATAA - 02BU Anker BU 68UPSHHDS Startech SATADOCK22UE Orico 6628SUS3-C-BK (série 6628) Estação dock da unidade de disco rígido externa SATA BlacX Hot Swap Thermaltake (USB 2.0 e eSATA)
 
 ### <a name="encryption"></a>Criptografia
 Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito.
@@ -264,8 +264,8 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
 1. Identifique os dados a serem importados. Isso pode ser diretórios e arquivos autônomos no servidor local ou em um compartilhamento de rede.  
 2. Determine o número de unidades que você precisará, dependendo do tamanho total dos dados. Adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 3. Identifique a conta de armazenamento de destino, contêiner, diretórios virtuais e blobs.
-4.    Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
-5.    Crie os arquivos CSV para o conjunto de dados e driveset.
+4.  Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
+5.  Crie os arquivos CSV para o conjunto de dados e driveset.
     
     **Arquivo CSV do conjunto de dados**
     
@@ -299,8 +299,8 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
 
     Saiba mais sobre [como preparar o arquivo CSV de driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.    Use a [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar seus dados para um ou mais discos rígidos.
-7.    Você pode especificar "Encrypt" no campo Criptografia para habilitar a criptografia do Bitlocker no disco rígido. Como alternativa, você também pode habilitar manualmente a criptografia do Bitlocker no disco rígido, especificar "AlreadyEncrypted" e fornecer a chave no CSV do driveset durante a execução da ferramenta.
+6.  Use a [ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar seus dados para um ou mais discos rígidos.
+7.  Você pode especificar "Encrypt" no campo Criptografia para habilitar a criptografia do Bitlocker no disco rígido. Como alternativa, você também pode habilitar manualmente a criptografia do Bitlocker no disco rígido, especificar "AlreadyEncrypted" e fornecer a chave no CSV do driveset durante a execução da ferramenta.
 
 8. Não modifique os dados em unidades de disco rígido ou o arquivo de diário depois de concluir a preparação do disco.
 
@@ -471,9 +471,11 @@ Não. Todas as unidades são criptografadas com o BitLocker.
 
 Não. Você precisará enviar suas próprias unidades para os trabalhos de importação e exportação.
 
+** Como acesso os dados importados por este serviço** Os dados em sua conta de armazenamento do Azure podem ser acessados por meio do Portal do Azure ou usando uma ferramenta autônoma chamado Gerenciador de Armazenamento. https://docs.microsoft.com/pt-br/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **Depois de o trabalho de importação ser concluído, como ficarão meus dados na conta de armazenamento? A hierarquia de diretório será preservada?**
 
-Ao preparar um disco rígido para um trabalho de importação, o destino será especificado pelo parâmetro DstBlobPathOrPrefix no CSV do conjunto de dados. É o contêiner de destino na conta de armazenamento para o qual os dados do disco rígido serão copiados. Dentro desse contêiner de destino, diretórios virtuais são criados para as pastas do disco rígido e blobs são criados para os arquivos.
+Ao preparar um disco rígido para um trabalho de importação, o destino será especificado pelo parâmetro DstBlobPathOrPrefix no CSV do conjunto de dados. É o contêiner de destino na conta de armazenamento para o qual os dados do disco rígido serão copiados. Dentro desse contêiner de destino, diretórios virtuais são criados para as pastas do disco rígido e blobs são criados para os arquivos. 
 
 **Se a unidade tiver arquivos que já existem na minha conta de armazenamento, o serviço substituirá os blobs existentes em minha conta de armazenamento?**
 
@@ -498,9 +500,9 @@ Observe que a mídia física que está enviando talvez precise cruzar fronteiras
 
 Alguns locais de armazenamento de conta são mapeados para os locais de entrega alternativos. Locais de envio disponíveis anteriormente também podem ser temporariamente mapeados para locais alternativos. Sempre verifique o endereço de envio fornecido durante a criação do trabalho antes de enviar suas unidades.
 
-**Ao enviar a unidade, a transportadora solicitará o nome e o número de telefone de contato do data center. O que devo fornecer?**
+**Ao enviar a unidade, a transportadora solicitará o endereço e o número de telefone de contato do data center. O que devo fornecer?**
 
-O número de telefone é fornecido a você durante a criação do trabalho. Se você precisar de um nome de contato, entre em contato conosco em waimportexport@microsoft.com e forneceremos essas informações.
+O número de telefone e o endereço DC são fornecidos como parte da criação do trabalho.
 
 **Posso usar o serviço de Importação/Exportação do Azure para copiar os dados do SharePoint e as caixas de correio PST para O365?**
 
@@ -510,11 +512,11 @@ Confira [Import PST files or SharePoint data to Office 365](https://technet.micr
 
 Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
 
-**Qual é o número máximo de HDDs em uma remessa?
+**Qual é o número máximo de HDDs em uma remessa?**
 
 Qualquer número de HDDs pode ser em uma remessa e se os discos pertencerem a vários trabalhos, é recomendável a) Rotular os discos com os nomes de trabalho correspondentes. b) Atualizar os trabalhos com um número de acompanhamento com um sufixo -1,-2, etc.
   
-**Qual é o Tamanho Máximo de Blob de Blocos e de Blob de Páginas com suporte na Importação/Exportação de Disco?
+**Qual é o Tamanho Máximo de Blob de Blocos e de Blob de Páginas com suporte na Importação/Exportação de Disco?**
 
 O tamanho máximo de Blob de Blocos é de aproximadamente 4,768 TB ou 5.000.000 MB.
 O tamanho máximo de Blob de Páginas é de 1 TB.

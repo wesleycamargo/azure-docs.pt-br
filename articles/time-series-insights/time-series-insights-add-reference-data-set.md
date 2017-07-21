@@ -1,0 +1,55 @@
+---
+title: "Adicione um conjunto de dados de referência ao ambiente de Análise de Séries Temporais do Azure | Microsoft Docs"
+description: "Neste tutorial, você deve adicionar o conjunto de dados de referência ao seu ambiente de Análise de Séries Temporais"
+keywords: 
+services: time-series-insights
+documentationcenter: 
+author: venkatgct
+manager: almineev
+editor: cgronlun
+ms.assetid: 
+ms.service: time-series-insights
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 06/29/2017
+ms.author: venkatja
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 23444297b5231e6a026bcd9ce3ee9f943bf05867
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/04/2017
+
+---
+
+# Criar um conjunto de dados de referência para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
+<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+
+Um conjunto de dados de referência é uma coleção de itens que são aumentados com os eventos da fonte de evento. O mecanismo de entrada da Análise de Séries Temporais une um evento da fonte de evento a um item em seu conjunto de dados de referência. Esse evento aumentado é disponibilizado para consulta. Essa junção baseia-se nas chaves definidas no conjunto de dados de referência.
+
+## Etapas para adicionar um conjunto de dados de referência ao seu ambiente
+<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
+
+1. Entre no [portal do Ibiza](https://portal.azure.com).
+2. Clique em "Todos os recursos" no menu à esquerda do portal do Ibiza.
+3. Selecione o seu ambiente de Análise de Séries Temporais.
+
+    ![Criar o conjunto de dados de referência Análises de Séries Temporais](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+
+4. Selecione "Conjuntos de dados de referência" e clique em "+ Adicionar".
+
+    ![Criar o conjunto de dados de referência Análises de Séries Temporais - detalhes](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+
+5. Especifique o nome do conjunto de dados de referência.
+6. Especifique o nome da chave e seu tipo. Esse nome e o tipo são usados para selecionar a propriedade correta do evento na fonte de evento. Por exemplo, se você fornecer o nome da chave como "DeviceId" e digitar como "String", em seguida, o mecanismo de entrada da Análise de Séries Temporais procurará uma propriedade com o nome "DeviceId" do tipo "String" no evento de entrada. Você pode fornecer mais de uma chave para unir ao evento. A correspondência de nome de propriedade diferencia maiúsculas de minúsculas.
+
+     ![Criar o conjunto de dados de referência Análises de Séries Temporais - detalhes](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+
+7. Clique em “Criar”.
+
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+* [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
+* Para obter a referência completa de API, confira o documento [API de Dados de Referência](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

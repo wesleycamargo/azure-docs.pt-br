@@ -15,18 +15,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 02/02/2017
-ms.author: rasquill
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7a989ffd72dd3636419dfb91f696f0e38f9271c2
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
+<a id="add-a-disk-to-a-linux-vm" class="xliff"></a>
+
+# Adicionar um disco a uma VM do Linux
 Este artigo mostra como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento. 
 
-## <a name="quick-commands"></a>Comandos rápidos
+<a id="quick-commands" class="xliff"></a>
+
+## Comandos rápidos
 O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
 
 Para usar os discos gerenciados:
@@ -43,12 +48,16 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="attach-a-managed-disk"></a>Anexar um disco gerenciado
+<a id="attach-a-managed-disk" class="xliff"></a>
+
+## Anexar um disco gerenciado
 
 O uso de discos gerenciados permite que você se concentre em suas VMs e nos discos sem se preocupar com as contas de Armazenamento do Azure. Você pode criar e anexar rapidamente um disco gerenciado a uma VM usando o mesmo grupo de recursos do Azure, ou pode criar qualquer quantidade de discos e anexá-los.
 
 
-### <a name="attach-a-new-disk-to-a-vm"></a>Anexar um novo disco a uma VM
+<a id="attach-a-new-disk-to-a-vm" class="xliff"></a>
+
+### Anexar um novo disco a uma VM
 
 Se você precisar apenas de um novo disco em sua VM, você pode usar o comando `az vm disk attach`.
 
@@ -57,7 +66,9 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Anexar um disco existente 
+<a id="attach-an-existing-disk" class="xliff"></a>
+
+### Anexar um disco existente 
 
 Em muitos casos, você anexa discos que já foram criados. Primeiro você encontrará a ID do disco e depois a passará para o comando `az vm disk attach`. O exemplo a seguir usa um disco criado com `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
 
@@ -95,7 +106,9 @@ A saída é algo semelhante ao seguinte (você pode usar a opção `-o table` pa
 ```
 
 
-## <a name="attach-an-unmanaged-disk"></a>Anexar um disco não gerenciado
+<a id="attach-an-unmanaged-disk" class="xliff"></a>
+
+## Anexar um disco não gerenciado
 
 O processo de anexar um novo disco é rápido se você não se importar em criar um disco na mesma conta de armazenamento que sua VM. Digite `azure vm disk attach-new` para criar e anexar um novo disco GB à sua VM. Se você não identificar explicitamente uma conta de armazenamento, qualquer disco que você criar será colocado na mesma conta de armazenamento na qual o disco do sistema operacional reside. O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
 
@@ -104,7 +117,9 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conectar-se à VM do Linux para montar o novo disco
+<a id="connect-to-the-linux-vm-to-mount-the-new-disk" class="xliff"></a>
+
+## Conectar-se à VM do Linux para montar o novo disco
 > [!NOTE]
 > Este tópico faz a conexão com uma VM usando nomes de usuário e senhas. Para usar pares de chaves pública e privada a fim de se comunicar com a VM, confira [Como usar SSH com Linux no Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
@@ -310,7 +325,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > 
 > A opção **nofail** garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte a TRIM/UNMAP para Linux no Azure
+<a id="trimunmap-support-for-linux-in-azure" class="xliff"></a>
+
+### Suporte a TRIM/UNMAP para Linux no Azure
 Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Isso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Isso poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
 
 Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
@@ -336,10 +353,14 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Solucionar problemas
+<a id="troubleshooting" class="xliff"></a>
+
+## Solucionar problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+<a id="next-steps" class="xliff"></a>
+
+## Próximas etapas
 * Lembre-se de que o novo disco não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter desempenho adicional.

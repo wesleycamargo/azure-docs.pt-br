@@ -16,17 +16,16 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b25ef8333a2836f976a974d6ea6e7fdcea2745e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Ruby para conectar e consultar dados
 
-Este guia de início rápido demonstra como usar o [Ruby](https://Ruby.org) para conectar-se a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS e Linux Ubuntu.
+Este guia de início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para conectar-se a um banco de dados SQL do Azure; em seguida, use as instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados em plataformas Mac OS e Linux Ubuntu.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +63,7 @@ make install
 gem install tiny_tds
 ```
 
-## <a name="get-connection-information"></a>Obter informações de conexão
+## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 

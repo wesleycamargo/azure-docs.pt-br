@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0850b42e15e2daf4868560a1518f7906c7ae0800
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: bfe86b8cfe9ad0fc9fbda7664873b2b590fc2805
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ O Data Factory é um serviço de gerenciamento de informações baseado em nuvem
 [A empresa de automação industrial reduz até 90% dos custos com soluções de Big Data](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
-[Para qual jogo você vai levar este hambúrguer? A Ziosk já deve saber.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[Para qual jogo você quer levar este hambúrguer? A Ziosk já deve saber.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
 [A companhia aérea usa tablets e Serviços de Nuvem para oferecer mais entretenimento durante voo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)

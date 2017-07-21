@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
-ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -40,7 +41,6 @@ Os tópicos a seguir mostram como habilitar a telemetria:
 [Habilitar a telemetria com .NET](media-services-dotnet-telemetry.md) 
 
 [Habilitar a telemetria com REST](media-services-rest-telemetry.md)
-
 
 ## <a name="consuming-telemetry-information"></a>Consumindo informações de telemetria
 
@@ -67,11 +67,9 @@ Isso permite a eficiência de muitas consultas comuns:
 - Recuperação de todos os dados de um serviço específico em um intervalo de datas.
 - Recuperação dos dados mais recentes de um serviço.
 
-
 ### <a name="telemetry-table-storage-output-schema"></a>Esquema de saída do armazenamento de tabelas de telemetria
 
 Os dados de telemetria são armazenados de forma agregada em uma tabela, "TelemetryMetrics20160321", em que "20160321" é a data de criação da tabela. O sistema de telemetria cria uma tabela separada para cada dia novo com base em 00:00 UTC. A tabela é usada para armazenar valores recorrentes, como taxa de bits de ingestão dentro de um determinado intervalo de tempo, bytes enviados etc. 
-
 
 Propriedade|Valor|Exemplos/notas
 ---|---|---
@@ -83,7 +81,6 @@ Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|A hora na qual o evento de telemetria ocorreu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>A hora observada é fornecida pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de hora entre os componentes para que esse valor seja aproximado
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriedades específicas da entidade|Conforme definido pelo evento|StreamName: stream1, Bitrate 10123, …<br/><br/>As propriedades restantes são definidas para o tipo de evento específico. O conteúdo da Tabela do Azure são pares de chave/valor.  (ou seja, linhas diferentes na tabela têm conjuntos diferentes de propriedades).
-
 
 ### <a name="entity-specific-schema"></a>Esquema específico à entidade
 
@@ -112,7 +109,6 @@ BytesSent|Bytes agregados enviados|2987358
 ServerLatency|Latência média do servidor (incluindo armazenamento)|129
 E2ELatency|Latência média de ponta a ponta|250
 
-
 **Canal dinâmico**
 
 Propriedade|Valor|Exemplos/notas
@@ -138,7 +134,6 @@ UnalignedPresentationTime|Se recebemos fragmentos (em níveis/controle de qualid
 UnexpectedBitrate|True, se a taxa de bits calculada/real para controle de áudio/vídeo for maior do que 40.000 bps, e IncomingBitrate == 0 OU IncomingBitrate e actualBitrate diferirem em 50% |Verdadeiro
 Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|Verdadeiro<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Arquivamento dinâmico**
 
 Propriedade|Valor|Exemplos/notas
@@ -156,7 +151,6 @@ TrackType|Tipo da faixa|Áudio/vídeo
 CustomAttribute|Cadeia de caracteres hexadecimal que diferencia faixas diferentes com o mesmo nome e a taxa de bits (ângulo da câmeras múltiplas)|
 Bitrate|Controlar taxa de bits|785000
 Healthy|True, se FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (esses dois valores não estão presentes na métrica, mas estão presentes no evento de origem)<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## <a name="general-qa"></a>Perguntas e respostas gerais
 
@@ -226,9 +220,4 @@ O sistema de telemetria não oferece gerenciamento de retenção de dados ou exc
 ## <a name="provide-feedback"></a>Fornecer comentários
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

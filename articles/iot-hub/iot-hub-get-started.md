@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 64b09448149b7e1efd8b76663a27b6c7ec1eb3c7
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d3d74d44bdd7ce6b49ec58b70c7ddb8081e11f96
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,18 +34,19 @@ Você pode usar o Hub IoT do Azure e os SDKs do dispositivo IoT do Azure para cr
 
 Estes tutoriais apresentam a você o Hub IoT do Azure e os SDKs do dispositivo. Os tutoriais abordam os cenários comuns de IoT para demonstrar os recursos do Hub IoT. Os tutoriais também ilustram como combinar o Hub IoT com outros serviços e ferramentas do Azure para criar soluções de IoT mais eficazes. Nos tutoriais, você pode optar por usar dispositivos IoT simulados ou reais. Além disso, você pode aprender como usar um gateway de modo a habilitar dispositivos para conectar ao seu Hub IoT.
 
-## <a name="device-setup-scenario-connect-iot-device-or-gateway-to-azure-iot-hub"></a>Cenário de configuração de dispositivo: conectar o dispositivo IoT ou gateway ao Hub IoT do Azure
+## <a name="setup-your-device-connect-iot-device-or-gateway-to-azure-iot-hub"></a>Configure seu dispositivo: conectar o dispositivo IoT ou gateway ao Hub IoT do Azure
 
 Você pode escolher o dispositivo real ou simulado para começar.
 
 | Dispositivo IoT                       | Linguagem de programação |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]           |
 | Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
-| Dispositivo simulado                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Dispositivo simulado no computador          | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Simulador de dispositivo online         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 Além disso, você pode usar um gateway IoT Edge para habilitar os dispositivos a conectarem-se ao seu Hub IoT.
 
@@ -54,26 +55,12 @@ Além disso, você pode usar um gateway IoT Edge para habilitar os dispositivos 
 | Intel NUC (modelo DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
 | Gateway simulado            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-## <a name="extended-iot-scenarios-use-other-azure-services-and-tools"></a>Cenários de IoT estendidos: usar outros serviços e ferramentas do Azure
-
-Depois de conectar o dispositivo ao Hub IoT, você poderá explorar cenários adicionais que usam outros serviços e ferramentas do Azure:
-
-| Cenário                                    | Serviço ou ferramenta do Azure              |
-|---------------------------------------------|------------------------------------|
-| [Gerenciar mensagens do Hub IoT][Mg_IoT_Hub_Msg]                    | ferramenta iothub-explorer               |
-| [Gerenciar seu dispositivo IoT][Mg_IoT_Dv]               | ferramenta iothub-explorer               |
-| [Salvar mensagens do Hub IoT no armazenamento do Azure][Sv_IoT_Msg_Stor]                      | Armazenamento de tabelas do Azure               |
-| [Visualizar dados do sensor][Vis_Data]             | Microsoft Power BI, Aplicativos Web do Azure |
-| [Previsão meteorológica com dados de sensor][Weather_Forecast] | Azure Machine Learning             |
-| [Detecção de anomalias e reação automáticas][Anomaly_Detect]    | Aplicativo Lógico do Azure                   |
-
-## <a name="next-steps"></a>Próximas etapas
-
-Após a conclusão desses tutoriais, você poderá explorar mais os recursos do Hub IoT no [Guia do desenvolvedor][lnk-dev-guide]. Você encontra mais tutoriais na seção de [instruções][lnk-how-to].
+[!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
@@ -86,11 +73,5 @@ Após a conclusão desses tutoriais, você poderá explorar mais os recursos do 
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
 [Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: iot-hub-windows-iot-edge-get-started.md
-[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
-[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
-[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
-[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-dev-guide]: iot-hub-devguide.md
-[lnk-how-to]: iot-hub-how-to.md
+[Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md
+

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 9bed9392502dae01724c4ca86b8c735ab60a2882
-ms.lasthandoff: 01/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,22 +30,25 @@ ms.lasthandoff: 01/11/2017
 > 
 > 
 
-Este tópico é útil para clientes que têm **Ponto de Extremidade de Streaming** do tipo **Premium**. Para saber mais sobre tipos de ponto de extremidade de streaming e configuração de CDN, confira o tópico [Visão geral do Ponto de Extremidade do Streaming](media-services-portal-manage-streaming-endpoints.md).
+Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma SU (unidade de streaming). O ponto de extremidade de streaming pode ser dimensionado com a adição de SUs. Cada SU fornece uma capacidade de largura de banda adicional para o aplicativo. Para saber mais sobre tipos de ponto de extremidade de streaming e configuração de CDN, confira o tópico [Visão geral do Ponto de Extremidade do Streaming](media-services-portal-manage-streaming-endpoints.md).
  
-Com um tipo **Premium**, por padrão, você obtém 1 SU (unidade de streaming). Se você precisar dimensionar seu ponto de extremidade de streaming, siga as etapas neste tópico.
+Este tópico mostra como dimensionar um ponto de extremidade de streaming.
 
 Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## <a name="scale-streaming-endpoints"></a>Dimensionar pontos de extremidade de streaming
 
-Para criar e alterar o número de unidades de streaming, faça o seguinte:
+Para alterar o número de unidades de streaming, faça o seguinte:
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na janela **Configurações**, selecione **Pontos de extremidade de streaming**.
 3. Clique no ponto de extremidade de streaming que você deseja dimensionar. 
+
+    [!NOTE] É possível dimensionar apenas pontos de extremidade de streaming **Premium**.
+
 4. Mova o controle deslizante para especificar o número de unidades de streaming.
 
-![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+    ![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.

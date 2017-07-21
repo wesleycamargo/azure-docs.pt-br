@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 8a1e5333e893e2a3a205f08223f103793df452cd
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -35,20 +36,26 @@ Figura 1 – Diagrama do par da região do Azure
 
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
+| Ásia |Ásia Oriental |Sudeste Asiático |
+| Austrália |Leste da Austrália |Sudeste da Austrália |
+| Canadá |Canadá Central |Leste do Canadá |
+| China |Norte da China |Leste da China|
+| Índia |Índia Central |Sul da Índia |
+| Japão |Leste do Japão |Oeste do Japão |
+| Coreia |Coreia Central |Sul da Coreia |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
 | Europa |Norte da Europa |Europa Ocidental |
-| Ásia |Sudeste da Ásia |Ásia Oriental |
-| China |China Oriental |Norte da China |
 | Japão |Leste do Japão |Oeste do Japão |
 | Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
-| Austrália |Leste da Austrália |Sudeste da Austrália |
 | Governo dos EUA |Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
-| Índia |Índia Central |Sul da Índia |
-| Canadá |Canadá Central |Leste do Canadá |
+| Governo dos EUA |Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
+| Governo dos EUA |Governo dos EUA do Texas |Governo dos EUA do Arizona |
+| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 

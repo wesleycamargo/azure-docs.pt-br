@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a4e73e9c8a66fca132b1f26913ee8ef5e397269
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -51,9 +53,4 @@ Atualmente, o site de Informações de Segurança do Azure aborda as seguintes c
 >
 
 Queremos sua opinião! Se houver outras categorias que você deseja que sejam adicionadas, fale conosco! Se houver artigos que você deseja adicionar a uma categoria existente, fale conosco sobre isso também! Você pode usar a seção Comentários abaixo ou escrever para [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e nos incorporaremos suas recomendações a nossos planos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

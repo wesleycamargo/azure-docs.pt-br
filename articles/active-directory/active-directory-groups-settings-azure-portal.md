@@ -24,10 +24,12 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gerenciar as configurações para um grupo no Azure Active Directory
+# Gerenciar as configurações para um grupo no Azure Active Directory
+<a id="manage-the-settings-for-a-group-in-azure-active-directory" class="xliff"></a>
 Este artigo explica como alterar as configurações de um grupo no Azure AD (Azure Active Directory).
 
-## <a name="how-do-i-find-and-change-the-settings"></a>Como localizo e altero as configurações?
+## Como localizo e altero as configurações?
+<a id="how-do-i-find-and-change-the-settings" class="xliff"></a>
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
@@ -36,14 +38,15 @@ Este artigo explica como alterar as configurações de um grupo no Azure AD (Azu
 
    ![Abrir a folha de grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo – *nomedogrupo***, escolha **Propriedades**.
+5. Na folha **Grupo – *nomedogrupo*** , escolha **Propriedades**.
 
    ![Abrir a folha Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Quando terminar de alterar as propriedades do grupo, escolha **Salvar**.    
 
    ![Salvar alterações de propriedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
+<a id="next-steps" class="xliff"></a>
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Ver grupos existentes](active-directory-groups-view-azure-portal.md)

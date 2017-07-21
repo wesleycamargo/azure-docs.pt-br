@@ -20,7 +20,6 @@ ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -42,6 +41,8 @@ Você pode criar um Hub IoT usando os métodos a seguir:
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Escolher o nome do Hub IoT
 Para criar um Hub IoT, você deve dar um nome a ele. Esse nome deve ser exclusivo entre os Hubs IoT. Não é permitida a duplicação de hubs no back-end da solução, portanto é recomendável que esse hub tenha o nome mais exclusivo possível.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 ### <a name="choose-the-pricing-tier"></a>Escolher a camada de preços
 Você pode escolher entre quatro camadas: **Gratuita**, **Padrão 1**, **Padrão 2** e **Padrão S3**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
@@ -133,7 +134,7 @@ Clique em **Rotas** para gerenciar como o Hub IoT envia suas mensagens do dispos
 
 ![][14]
 
-Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas***, inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
+Você pode adicionar rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha **Rotas*** inserindo as informações necessárias e clicando em **OK**. A rota é listada na folha **Rotas** principal. Para editar uma rota, clique nela na lista de rotas. Para habilitar uma rota, clique nela na lista de rotas e defina o botão **Habilitar/Desabilitar** como **Desabilitar**. Clique em **OK** na parte inferior da folha para salvar a alteração.
 
 ![][15]
 

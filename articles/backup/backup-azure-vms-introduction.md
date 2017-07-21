@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
+ms.date: 5/22/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b6780e3dc0833c9a074ba85566848ac4246fa848
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -118,7 +119,8 @@ Uma operação de restauração consiste em duas subtarefas principais: a cópia
 * Agende os backups de VM fora do horário de pico. Dessa forma, o serviço de Backup usa o IOPS para transferir dados da conta de armazenamento do cliente para o cofre.
 * Certifique-se de que uma política seja aplicada às VMs distribuídas entre diferentes contas de armazenamento. Sugerimos que não mais do que 20 discos de uma única conta de armazenamento sejam protegidos pelo mesmo agendamento de backup. Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
 * Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
-* Recomendamos a execução de cada VM Premium em uma conta de armazenamento premium distinta para garantir um melhor desempenho de backup.
+* Para backup de VM Premium, certifique-se de que a conta de armazenamento que hospeda os discos premium tem pelo menos 50% de espaço livre para preparar instantâneo de um backup bem-sucedido. 
+* Verifique se essa versão do python em VMs do Linux habilitado para backup é 2.7
 
 ## <a name="data-encryption"></a>Criptografia de dados
 O Backup do Azure não criptografa os dados como parte do processo de backup. No entanto, você pode criptografar os dados dentro da VM e fazer backup dos dados protegidos diretamente (leia mais sobre [backup de dados criptografados](backup-azure-vms-encryption.md)).

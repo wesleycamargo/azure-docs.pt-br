@@ -1,6 +1,6 @@
 ---
 title: "Modificar os prefixos de endereço IP do gateway de rede local e o endereço IP do Gateway de VPN | Azure | CLI | Microsoft Docs"
-description: "Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando a CLI do Azure"
+description: "Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando a CLI do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,19 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/19/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 81c1a6e2357c8d336449224fac841be8dcc2a3cd
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: cbcb0b626aceccf9c5a29e60e5b0c66e7812dee1
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as configurações de gateway de rede local usando a CLI do Azure
 
-Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. Este artigo mostra como modificar as configurações de gateway de rede local. Você também pode modificar essas configurações no portal do Azure ou do PowerShell.
+Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. Este artigo mostra como modificar as configurações de gateway de rede local. Também é possível modificar essas configurações usando um método diferente, selecionando uma opção diferente da lista a seguir:
+
+> [!div class="op_single_selector"]
+> * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+> * [CLI do Azure](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+>
 
 ## <a name="before-you-begin"></a>Antes de começar
 

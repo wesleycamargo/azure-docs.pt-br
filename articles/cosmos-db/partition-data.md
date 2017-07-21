@@ -16,17 +16,17 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>Como particionar e dimensionar no BD Cosmos do Azure
 
-O [BD Cosmos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) é um serviço com vários modelos de banco de dados, distribuído globalmente, que foi criado para ajudá-lo a obter um desempenho rápido e previsível e a dimensionar continuamente conforme o crescimento de seu aplicativo. Este artigo fornece uma visão geral de como o particionamento funciona para todos os modelos de dados no BD Cosmos do Azure e descreve como você pode configurar os contêineres do BD Cosmos do Azure para dimensionar seus aplicativos com eficiência.
+O [BD Cosmos do Microsoft Azure](https://azure.microsoft.com/services/cosmos-db/) é um serviço com vários modelos de banco de dados, distribuído globalmente, que foi criado para ajudá-lo a obter um desempenho rápido e previsível e a dimensionar continuamente conforme o crescimento de seu aplicativo. Este artigo fornece uma visão geral de como o particionamento funciona para todos os modelos de dados no BD Cosmos do Azure e descreve como você pode configurar os contêineres do BD Cosmos do Azure para dimensionar seus aplicativos com eficiência.
 
 O particionamento e as chaves de partição também são abordados neste vídeo do Azure Friday com Scott Hanselman e o gerente de engenharia principal do BD Cosmos do Azure, Shireesh Thota.
 

@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/15/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b9d6eb9bcc4afe0e68920bbd5da7c259ceb0c67
-ms.lasthandoff: 04/06/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 953704c7eb8613d321a15a9f245118f87d33b51e
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -33,10 +34,10 @@ Neste artigo, vamos falar sobre os diferentes usos dos discos e discutir os dife
 Vamos dar uma olhada em como os discos são usados pelas máquinas virtuais.
 
 ### <a name="operating-system-disk"></a>Disco do sistema operacional
-Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C: por padrão. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). 
+Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C: por padrão. Este disco tem uma capacidade máxima de 2048 gigabytes (GB). 
 
 ### <a name="temporary-disk"></a>Disco temporário
-Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou durante a [reimplantação de uma VM](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária devem persistir.
+Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária devem persistir.
 
 O disco temporário é rotulado como a unidade D: por padrão e é usado para armazenar o arquivo pagefile.sys. Para remapear este disco para uma letra de unidade diferente, consulte [Alterar a letra da unidade de disco temporário do Windows](../virtual-machines/windows/change-drive-letter.md). O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquinas virtuais do Windows](../virtual-machines/windows/sizes.md).
 
@@ -44,7 +45,7 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 
 
 ### <a name="data-disk"></a>Disco de dados
-Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
+Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 4095 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
 > [!NOTE]
 > Para obter mais informações sobre as capacidades de máquinas virtuais, veja [Tamanhos das máquinas virtuais do Windows](../virtual-machines/windows/sizes.md).
@@ -63,6 +64,7 @@ Se você usar discos padrão não gerenciados (HDD), será necessário habilitar
 
 Você pode executar esse comando para verificar a configuração de TRIM. Abra um prompt de comando na sua VM do Windows e digite:
 
+
 ```
 fsutil behavior query DisableDeleteNotify
 ```
@@ -73,10 +75,13 @@ Se o comando retornar 0, o TRIM estará habilitado corretamente. Se ele retornar
 fsutil behavior set DisableDeleteNotify 0
 ```
 
+> [!NOTE]
+> Observação: O suporte de corte começa com o Windows Server 2012 / Windows 8 e posterior, consulte [Nova API permite que aplicativos enviem "CORTE e desmapeamento" dicas para mídia de armazenamento](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> 
+
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Próximas etapas
 * [Anexar um disco](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para adicionar mais armazenamento à sua VM.
-* [Carregue uma imagem de VM do Windows no Azure](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para utilização durante a criação de uma nova VM.
 * [Altere a letra da unidade do disco temporário do Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para que seu aplicativo possa usar a unidade D: para dados.
 
 

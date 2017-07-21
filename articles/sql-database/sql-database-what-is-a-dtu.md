@@ -17,10 +17,10 @@ ms.workload: NA
 ms.date: 04/13/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d233bea6d0314f0bda0ebfe6fb310f1c6b1579d1
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: fac947fa153d83b614dc35c3cc0d8e640bfe1c95
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -45,7 +45,7 @@ Você pode [alterar os níveis de serviço](sql-database-service-tiers.md) a qua
 ![Introdução ao Banco de Dados SQL: DTUs de banco de dados individual por camada e por nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>O que são eDTUs (Unidades de transação de banco de dados elástico)
-Em vez de fornecer um conjunto dedicado de recursos (DTUs) para um Banco de Dados SQL que está sempre disponível independentemente de ser necessário ou não, é possível colocar os bancos de dados em um [pool elástico](sql-database-elastic-pool.md) em um servidor de Banco de Dados SQL que compartilha um pool de recursos entre esses bancos de dados. Os recursos compartilhados em um pool elástico medidos por Unidades de Transação de Banco de Dados elástico ou eDTUs. Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis. Em um pool elástico, é possível garantir que nenhum banco de dados use todos os recursos no pool, bem como que uma quantidade mínima de recursos esteja sempre disponível para um banco de dados em um pool elástico. Confira [Pools e elásticos e camadas de serviço](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) para saber mais.
+Em vez de fornecer um conjunto dedicado de recursos (DTUs) para um Banco de Dados SQL que está sempre disponível independentemente de ser necessário ou não, é possível colocar os bancos de dados em um [pool elástico](sql-database-elastic-pool.md) em um servidor de Banco de Dados SQL que compartilha um pool de recursos entre esses bancos de dados. Os recursos compartilhados em um pool elástico medidos por Unidades de Transação de Banco de Dados elástico ou eDTUs. Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis. Em um pool elástico, é possível garantir que nenhum banco de dados use todos os recursos no pool, bem como que uma quantidade mínima de recursos esteja sempre disponível para um banco de dados em um pool elástico. Confira [pools elásticos](sql-database-elastic-pool.md) para obter mais informações.
 
 ![Introdução ao Banco de Dados SQL: eDTUs por camada e por nível](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 

@@ -10,6 +10,8 @@ Crie um Hub IoT ao qual o aplicativo de dispositivo simulado poderá se conectar
     ![Folha Hub IoT][2]
    
    1. Na caixa **Nome** , insira um nome para identificar seu hub IoT. Se o **Nome** for válido e estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Selecione um [tipo de preço e de dimensionamento][lnk-pricing]. Este tutorial não requer uma camada específica. Para este tutorial, use a camada F1 gratuita.
    1. Em **Grupo de recursos**, crie um grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][lnk-resource-groups].
    1. Em **Local**, selecione o local para hospedar o hub IoT. Para este tutorial, escolha o local mais próximo.
