@@ -19,6 +19,7 @@
 
 ## Evitar
 ### [Definir políticas de segurança](security-center-policies.md)
+### [Acesso just in time](security-center-just-in-time.md)
 ### [Implementar recomendações de segurança](security-center-recommendations.md)
 
 ### [Recomendações do aplicativo](security-center-application-recommendations.md)
