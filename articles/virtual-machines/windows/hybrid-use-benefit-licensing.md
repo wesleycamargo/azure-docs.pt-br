@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/1/2017
-ms.author: kmouss
+ms.date: 5/26/2017
+ms.author: xujing
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0854ceddc473a362221140f32b24138221a6f175
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 Para clientes com o Software Assurance, o Benefício de Uso Híbrido do Azure permite usar as licenças locais do Windows Server e do Windows Client e executar máquinas virtuais Windows no Azure a um custo reduzido. O Benefício de Uso Híbrido do Azure para o Windows Server inclui o Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. O Benefício de Uso Híbrido do Azure para o Windows Client inclui o Windows 10. Para obter mais informações, consulte a página [Licenciamento de Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 >[!IMPORTANT]
->Atualmente, o Benefício de Uso Híbrido do Azure para o Windows Client está na Versão prévia. Somente clientes Enterprise com o Windows 10 Enterprise E3/E5 por usuário ou o Windows VDA por usuário (Licenças de Assinatura de Usuário ou Licenças de Assinatura de Usuário Complementares) (“Licenças Aplicáveis”) são qualificados.
+>Os Benefícios de Uso Híbrido do Cliente do Azure para Windows está atualmente em Visualização usando a imagem do Windows 10 no Azure Marketplace. Somente clientes Enterprise com o Windows 10 Enterprise E3/E5 por usuário ou o Windows VDA por usuário (Licenças de Assinatura de Usuário ou Licenças de Assinatura de Usuário Complementares) (“Licenças Aplicáveis”) são qualificados.
 >
 >
 
@@ -59,8 +59,8 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
 
-## <a name="upload-a-windows-vhd"></a>Carregar um VHD do Windows
-Para implantar uma VM Windows no Azure, primeiro você precisa criar um VHD que contém o build base do Windows. Esse VHD deve estar preparado adequadamente por meio do Sysprep antes de carregá-lo no Azure. Você pode [ler mais sobre os requisitos de VHD e o processo Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Faça backup da VM antes de executar o Sysprep. 
+## <a name="upload-a-windows-server-vhd"></a>Carregar um VHD do Windows Server
+Para implantar uma VM do Windows Server no Azure, primeiro você precisa criar um VHD que contém a compilação base do Windows. Esse VHD deve estar preparado adequadamente por meio do Sysprep antes de carregá-lo no Azure. Você pode [ler mais sobre os requisitos de VHD e o processo Sysprep](upload-generalized-managed.md) e [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Faça backup da VM antes de executar o Sysprep. 
 
 Verifique se você [instalou e configurou o Azure PowerShell mais recente](/powershell/azure/overview). Depois de preparar o VHD, carregue-o em sua conta de Armazenamento do Azure usando o cmdlet `Add-AzureRmVhd` da seguinte maneira:
 
@@ -74,10 +74,10 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 >
 
-Você também pode ler mais sobre como [carregar o VHD no processo do Azure](upload-image.md#upload-the-vhd-to-your-storage-account)
+Você também pode ler mais sobre como [carregar o VHD no processo do Azure](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
 
 
-## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Implantar uma VM carregada por meio do Resource Manager
+## <a name="deploy-a-vm-via-resource-manager-template"></a>Implantar uma VM por meio de um modelo do Resource Manager
 Nos modelos do Resource Manager, um parâmetro adicional para `licenseType` pode ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md). Quando o VHD for carregado no Azure, edite o modelo do Resource Manager para incluir o tipo de licença como parte do provedor de computação e implantar o modelo como normal:
 
 Para Windows Server:
@@ -89,7 +89,7 @@ Para Windows Server:
    }
 ```
 
-Para Windows Client:
+Para o Cliente Windows, para uso apenas com a Imagem do Azure Marketplace:
 ```json
 "properties": {  
    "licenseType": "Windows_Client",
@@ -98,7 +98,7 @@ Para Windows Client:
    }
 ```
 
-## <a name="deploy-an-uploaded-vm-via-powershell-quickstart"></a>Implantar uma VM carregada por meio do início rápido do PowerShell
+## <a name="deploy-a-vm-via-powershell-quickstart"></a>Implantar uma VM por meio do início rápido do PowerShell
 Ao implantar a VM do Windows Server por meio do PowerShell, você tem um parâmetro adicional para `-LicenseType`. Depois de carregar o VHD no Azure, você cria uma VM usando `New-AzureRmVM` e especifica o tipo de licenciamento da seguinte maneira:
 
 Para Windows Server:
@@ -106,7 +106,7 @@ Para Windows Server:
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
 ```
 
-Para Windows Client:
+Para o Cliente Windows, para uso apenas com a Imagem do Azure Marketplace:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
@@ -211,11 +211,6 @@ Finalmente, crie sua VM e defina o tipo de licenciamento para utilizar o Benefí
 Para Windows Server:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
-```
-
-Para Windows Client:
-```powershell
-New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Implantar um conjunto de dimensionamento de máquinas virtuais por meio do modelo do Gerenciador de Recursos

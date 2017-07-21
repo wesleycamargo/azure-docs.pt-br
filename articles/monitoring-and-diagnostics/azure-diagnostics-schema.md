@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8075ab1f36f66a718b2a53d5f42f0c267d58050f
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="list-of-azure-diagnostics-versions"></a>Lista de versões de Diagnóstico do Azure
+# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Versões diferentes do Diagnóstico do Azure usam esquemas de configuração dif
 
 [Esquema de Configuração do Diagnóstico 1.3 e posterior](azure-diagnostics-schema-1dot3-and-later.md)  
 
-## <a name="version-history"></a>Histórico de Versões
+## <a name="version-history"></a>Histórico de versão
 
 
 ### <a name="diagnostics-extension-19"></a>Extensão do Diagnóstico 1.9 
@@ -131,7 +131,7 @@ Tipo de armazenamento adicionado a PublicConfig. StorageType pode ser *Table*, *
 ### <a name="diagnostics-extension-17"></a>Extensão do Diagnóstico 1.7 
 Adição da habilidade para rotear ao Hub de Eventos.
 
-### <a name="diagnostics-extention-15"></a>Extensão do Diagnóstico 1.5
+### <a name="diagnostics-extension-15"></a>Extensão do diagnóstico 1.5
 Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos ao [Application Insights](../application-insights/app-insights-cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK 2.6 do Azure e esquema de extensão 1.3 

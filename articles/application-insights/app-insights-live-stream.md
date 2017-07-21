@@ -1,5 +1,5 @@
 ---
-title: "Métrica e diagnósticos personalizados em tempo real no Application Insights do Azure | Microsoft Docs"
+title: "Live Metrics Stream com métricas personalizadas e diagnósticos no Azure Application Insights | Microsoft Docs"
 description: "Monitore seu aplicativo Web em tempo real usando métrica personalizada e diagnostique problemas com um feed em tempo real de falhas, rastreamentos e eventos."
 services: application-insights
 documentationcenter: 
@@ -11,36 +11,69 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/24/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 86e01cf6cb14334e85da4102610fa7feb66cb543
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
-# <a name="custom-live-metrics-and-events-monitor--diagnose-with-1-second-latency"></a>Métricas e eventos personalizados em tempo real: monitorar e diagnosticar com latência de um segundo 
-O Live Metrics Stream mostra as métricas e eventos do [Application Insights](app-insights-overview.md) com uma latência quase de tempo real de um segundo. Esse monitoramento instantâneo ajuda a reduzir o tempo médio para detectar e diagnosticar e o ajuda a manter os SLAs. Você pode:
-* Monitorar KPIs personalizados em tempo real: faça experimentos filtros e com a divisão e segmentação Application Insights Telemetry existente para obter os KPIs mais relevantes instantaneamente no portal. Nenhuma alteração de código ou de configuração ou implantações é necessária. Qualquer métrica ou medida personalizada que você estiver enviando também fica disponível.
-* Detectar e diagnosticar em tempo real: veja falhas de solicitação e de dependência quando elas ocorrem, bem como rastreamentos de exceção detalhados. Filtre todos os problemas conhecidos para se concentrar em problemas novos/reais.
-* Depuração em tempo real: reproduza um problema e veja toda a telemetria relacionada em tempo real, com filtragem personalizada até chegar a uma ID de sessão específica (ou com qualquer atributo personalizado) que identifica a interação reproduzida. Colete informações de quaisquer/todos os servidores para obter um ponto de partida para corrigir o problema.
-* Veja instantaneamente como o consumo de recursos reage à carga: monitore *qualquer* contador de desempenho do Windows em tempo real, enquanto executa testes de carga ou monitore a produção para agir antes que algo seja afetado negativamente. Nenhuma alteração de configuração ou implantação é necessária.
-* Valide uma correção que está sendo lançada. Verifique se a atualização de seu serviço está indo bem enquanto ela ocorre. Valide se a falha que você corrigiu de fato parou de ocorrer.
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo 
+
+Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Juntamente com [Criador de perfil](app-insights-profiler.md), [Depurador de instantâneo](app-insights-snapshot-debugger.md) e [testes de desempenho](app-insights-monitor-web-app-availability.md#performance-tests), o Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ao vivo.
+
+Com o Live Metrics Stream, você pode:
+
+* Valide uma correção enquanto ela é liberado, observando as contagens de falha e desempenho.
+* Observe o efeito de cargas de teste e diagnostique problemas em tempo real. 
+* Concentre-se em sessões de teste específicas ou filtre os problemas conhecidos, selecionando e filtrando as métricas que você deseja inspecionar.
+* Obter rastreamentos de exceção quando eles ocorrerem.
+* Experimente os filtros para localizar os KPIs mais relevantes.
+* Monitore qualquer contador de desempenho do Windows em tempo real.
 * Identifique com facilidade um servidor que está apresentando problemas e filtre todo o KPI/feed em tempo real para apenas aquele servidor.
 
-Os dados do Fluxo de eventos e métricas em tempo real são gratuitos: eles não são acrescentados à sua fatura. Os dados são transmitidos de seu servidores sob demanda quando você abre a experiência do portal. Os dados persistem somente durante o período em que estão no gráfico e, em seguida, são descartados. Toda a funcionalidade está disponível para aplicativos clássicos ASP.NET e aplicativos .NET Core têm apenas um conjunto fixo de métricas em tempo real e falhas de exemplo no momento. Estamos atualizando todos os SDKs com suporte de acordo com os recursos de transmissão ao vivo mais recentes. 
+[![Vídeo do Live Metrics Stream](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Nós coletamos a o fluxo em tempo real das instâncias do aplicativo antes que qualquer amostragem ou qualquer TelemetryProcessors personalizado seja aplicado. 
+O Live Metrics Stream está disponível em aplicativos ASP.NET executados localmente ou na nuvem. 
 
-![Vídeo do Live Metrics Stream](./media/app-insights-live-stream/youtube.png) [Vídeo do Live Metrics Stream](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+## <a name="get-started"></a>Introdução
 
-Acesse as métricas e eventos em tempo real clicando na opção à esquerda ou no botão na folha de Visão geral:
+1. Se você ainda não [instalou o Application Insights](app-insights-asp-net.md) no aplicativo Web ASP.NET ou [aplicativo do Windows Server](app-insights-windows-services.md), faça isso agora. 
+2. **Atualização para a última versão** do pacote do Application Insights. No Visual Studio, clique com o botão direito do mouse em seu projeto e escolha **Gerenciar pacotes Nuget**. Abra a guia **Atualizações**, marque **Incluir pré-lançamento** e selecione todos os pacotes Microsoft.ApplicationInsights.*.
+
+    Reimplante o aplicativo.
+
+3. No [Portal do Azure](https://portal.azure.com), abra o recurso Application Insights para o aplicativo e abra o Live Stream.
+
+4. [Proteja o canal de controle](#secure-the-control-channel) se você puder usar dados confidenciais, como nomes de clientes, em seus filtros.
+
 
 ![Na folha Visão Geral, clique em Live Stream](./media/app-insights-live-stream/live-stream-2.png)
 
-## <a name="custom-live-kpi"></a>KPI em tempo real personalizado
+### <a name="no-data-check-your-server-firewall"></a>Não há dados? Verificar o firewall de servidor
+
+Verifique se as [portas de saída para o Live Metrics Stream](app-insights-ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores. 
+
+
+## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Como o Live Metrics Stream difere do Metrics Explorer e Analytics?
+
+| |Live Stream | Metrics Explorer e Analytics |
+|---|---|---|
+|Latência|Dados exibidos em um segundo|Agregado ao longo de minutos|
+|Nenhuma retenção|Os dados persistem enquanto estão no gráfico e depois são descartados|[Dados retidos por 90 dias](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
+|Sob demanda|Os dados são transmitidos enquanto você abre o Live Metrics|Os dados são enviados sempre que o SDK está instalado e habilitado|
+|Grátis|Não há nenhum custo para dados do Live Stream|Sujeito a [preços](app-insights-pricing.md)
+|Amostragem|Todas as métricas e os contadores selecionados são transmitidos. Há amostras de falhas e rastreamentos de pilha. TelemetryProcessors não são aplicados.|Os eventos podem ter [amostras](app-insights-api-filtering-sampling.md)|
+|Canal de controle|Os sinais de controle de filtro são enviados ao SDK. Recomendamos que você [proteja este canal](#secure-channel).|A comunicação é unidirecional para o portal|
+
+
+## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar suas métricas
+
+(Disponível em aplicativos ASP.NET clássicos com o SDK mais recente).
+
 Você pode monitorar o KPI personalizado em tempo real aplicando filtros arbitrários a qualquer Application Insights Telemetry no portal. Clique no controle de filtro que é exibido quando você passa o mouse sobre qualquer um dos gráficos. O gráfico a seguir plota um KPI personalizado de contagem de solicitações com filtros nos atributos de URL e a duração. Valide seus filtros com a seção Versão Prévia do Fluxo, que mostra um feed em tempo real da telemetria que corresponde aos critérios que você especificou em qualquer ponto no tempo. 
 
 ![KPI de solicitação personalizado](./media/app-insights-live-stream/live-stream-filteredMetric.png)
@@ -77,7 +110,7 @@ Se você quiser monitorar uma instância de função de servidor específico, fi
 ## <a name="sdk-requirements"></a>Requisitos do SDK
 O Fluxo de métricas em tempo real personalizado está disponível com a versão 2.4.0-beta2 ou mais recente do [SDK do Application Insights para Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Lembre-se de selecionar a opção "Incluir pré-lançamento" no gerenciador de pacotes do NuGet.
 
-## <a name="authenticated-channel"></a>Canal autenticado
+## <a name="secure-the-control-channel"></a>Proteger o canal de controle
 Os critérios de filtro personalizados especificados são enviados para o componente de Métricas em tempo real no SDK do Application Insights. Os filtros podem conter informações confidenciais, como customerIDs. Você pode proteger o canal com uma chave de API secreta além da chave de instrumentação.
 ### <a name="create-an-api-key"></a>Criar uma chave de API
 
@@ -108,6 +141,15 @@ No entanto, caso reconheça e confie em todos os servidores conectados, você po
 >É altamente recomendável que você configure o canal autenticado antes de inserir informações potencialmente confidenciais, como CustomerIDs, nos critérios de filtro.
 >
 
+## <a name="generating-a-performance-test-load"></a>Geração de uma carga de teste de desempenho
+
+Se você quiser observar o efeito de um aumento de carga, use a folha de Teste de Desempenho. Ele simula solicitações de vários usuários simultâneos. Ele pode executar "testes manuais" (testes de ping) de uma única URL ou pode executar um [teste de desempenho da Web de várias etapas](app-insights-monitor-web-app-availability.md#multi-step-web-tests) que você carrega (da mesma forma como um teste de disponibilidade).
+
+> [!TIP]
+> Depois de criar o teste de desempenho, abra o teste e a folha do Live Stream em janelas separadas. Você pode ver quando o teste de desempenho na fila é iniciado e assistir à transmissão ao vivo ao mesmo tempo.
+>
+
+
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 Não há dados? Se seu aplicativo estiver em uma rede protegida: o Fluxo de métricas em tempo real usará endereços IP diferentes de outras Application Insights Telemetries. Certifique-se de que [esses endereços IP](app-insights-ip-addresses.md) estejam abertos em seu firewall.
@@ -117,5 +159,5 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: o Fluxo de mét
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitorando o uso com o Application Insights](app-insights-web-track-usage.md)
 * [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
-
-
+* [Criador de perfil](app-insights-profiler.md)
+* [Depurador instantâneo](app-insights-snapshot-debugger.md)

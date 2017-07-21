@@ -1,6 +1,6 @@
 ---
-title: "Script da CLI do Azure dimensiona um pool elástico | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure - Dimensionar um pool de banco de dados elástico"
+title: "O exemplo de CLI dimensiona um pool elástico do banco de dados SQL do Azure | Microsoft Docs"
+description: "Script de exemplo da CLI do Azure para dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5ca7befc4b7ea031287b81ae6834496579b480fd
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: abceba7d250622d8cf27e41d3bb37f3d8a995b5f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
-# <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>Dimensionar um pool elástico no Banco de Dados SQL do Azure usando a CLI do Azure
+# <a name="use-azure-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Use a CLI do Azure para dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure
 
-Esse script da CLI de exemplo cria pools elásticos, move os bancos de dados em pools e altera os níveis de desempenho. 
+Este exemplo de script da CLI do Azure cria pools elásticos do SQL, move os bancos de dados em pools e altera os níveis de desempenho do pool elástico. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -54,9 +54,9 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um servido
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Cria um pool de banco de dados elástico dentro do servidor lógico. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Cria um pool de banco de dados elástico dentro do servidor lógico. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Cria o Banco de Dados SQL no servidor lógico. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pools#update) | Atualiza um pool de banco de dados elástico, neste exemplo altera o eDTU atribuído. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update) | Atualiza um pool de banco de dados elástico, neste exemplo altera o eDTU atribuído. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

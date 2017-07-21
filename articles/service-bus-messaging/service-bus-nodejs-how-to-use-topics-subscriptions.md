@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ef14dbaecf5675fa92c91cb5df58b65f59764fa7
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,9 +64,9 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
 O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZURE\_SERVICEBUS\_ACCESS\_KEY para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createServiceBusService**.
 
-Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, confira [Serviço de Nuvem do Node.js com Armazenamento][Node.js Cloud Service with Storage].
+Para obter um exemplo de como definir as variáveis de ambiente para um serviço de nuvem do Azure, confira [Serviço de nuvem do Node.js com armazenamento][Node.js Cloud Service with Storage].
 
-Para ver um exemplo de como definir variáveis de ambiente no [Portal Clássico do Azure][Portal Clássico do Azure] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][Node.js Web Application with Storage].
+Para ver um exemplo de como definir variáveis de ambiente para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Criar um tópico
 O objeto **ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 885de1e94e3ce520621dc8dc7a4a495501f6a429
-ms.openlocfilehash: 35b4c30de20c46312bd7e4524a4264450184138a
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 3714730dce9c856f602cf46e013b1ff6a89cfb07
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução Gerenciamento de Alertas no OMS (Operations Management Suite)
 
 ![Ícone do Gerenciamento de Alertas](media/log-analytics-solution-alert-management/icon.png)
 
-A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu repositório do Log Analytics.  Esses alertas podem ser provenientes de várias fontes, incluindo aqueles [criados pelo Log Analytics](log-analytics-alerts.md) ou [importados de Nagios ou Zabbix](log-analytics-linux-agents.md#linux-alerts).  A solução também importa alertas de quaisquer [grupos de gerenciamento do SCOM (System Center Operations Manager) conectados](log-analytics-om-agents.md).
+A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu repositório do Log Analytics.  Esses alertas podem ser provenientes de várias fontes, incluindo aqueles [criados pelo Log Analytics](log-analytics-alerts.md) ou [importados de Nagios ou Zabbix](log-analytics-linux-agents.md).  A solução também importa alertas de quaisquer [grupos de gerenciamento do SCOM (System Center Operations Manager) conectados](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A solução funcionará com quaisquer registros no repositório do Log Analytics que sejam do tipo **Alerta**, portanto, você deverá executar qualquer configuração que for necessária para coletar esses registros.
 
 - Para alertas do Log Analytics, [crie regras de alerta](log-analytics-alerts.md) para criar registros de alerta diretamente no repositório.
-- Para alertas do Nagios e Zabbix, [configure esses servidores](log-analytics-linux-agents.md#linux-alerts) para enviar alertas para o Log Analytics.
+- Para alertas do Nagios e Zabbix, [configure esses servidores](log-analytics-linux-agents.md) para enviar alertas para o Log Analytics.
 - Para alertas do SCOM, [conecte seu grupo de gerenciamento do Operations Manager para seu espaço de trabalho do Log Analytics](log-analytics-om-agents.md).  Todos os alertas criados no SCOM serão importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração

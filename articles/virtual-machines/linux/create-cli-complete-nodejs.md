@@ -16,10 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6fcdd64759cb12ae8804bd0cc8dc4edfeec949bd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -33,8 +34,6 @@ O ambiente contém:
 * Duas VMs dentro de um conjunto de disponibilidade.
 * Um balanceador de carga com uma regra de balanceamento de carga na porta 80.
 * Regras de NSG (grupo de segurança de rede) para proteger sua VM contra tráfego indesejado.
-
-![Visão geral do ambiente básico](./media/create-cli-complete/environment_overview.png)
 
 Para criar esse ambiente personalizado, é necessário ter a última [CLI 1.0 do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) no modo Resource Manager (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
 

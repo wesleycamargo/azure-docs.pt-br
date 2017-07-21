@@ -1,28 +1,35 @@
 ---
-title: Auditoria, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
+title: Auditoria de tabela, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
 description: "Saiba mais sobre alterações de auditoria, redirecionamento TDS e ponto de extremidade IP ao implementar a auditoria de tabela no Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: ronitr
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
-ms.lasthandoff: 02/17/2017
+ms.date: 05/31/2017
+ms.author: giladm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Banco de Dados SQL - Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria
+
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
+
+> [!IMPORTANT]
+> Este documento se aplica somente à Auditoria de Tabela, que **agora foi preterida**.<br>
+> Use o novo método de [Auditoria de Blob](sql-database-auditing.md), que **não** exige modificações de cadeia de conexão de cliente de nível inferior. Informações adicionais sobre a Auditoria de Blob podem ser encontradas em [Introdução à auditoria de banco de dados SQL](sql-database-auditing.md).
+
 A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
 
 ## <a id="subheading-1"></a>Suporte a clientes de versão anterior

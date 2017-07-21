@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
@@ -124,7 +123,7 @@ Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    >
    >
-2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) da VM do servidor de arquivos do portal do Azure Site Recovery.
+2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) da VM do servidor de arquivos do portal do Azure Site Recovery.
 3. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 4. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 

@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 12af426a7392ca96f4a98df5da0cf8d16e58f897
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -54,7 +54,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 
 ## <a name="custom-serialization"></a>Serialização personalizada
 
-Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles precisam serializar informações sobre o tipo. 
+Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles não precisam serializar informações sobre o tipo. 
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
 

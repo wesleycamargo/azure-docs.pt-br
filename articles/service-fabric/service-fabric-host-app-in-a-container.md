@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 05/19/2017
 ms.author: mikhegn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a965fcb9dd5caf9656af5ae381b25baaaa01ec6d
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 56788914452c0f3a7072d6b2805866072b9b7fea
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 ---
 
@@ -30,21 +30,19 @@ Este tutorial mostra como implantar um aplicativo ASP.NET existente em um contê
 
 1. Instalar o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) de forma que você possa executar contêineres no Windows 10.
 2. Familiarizar-se com o [início rápido dos Contêineres do Windows 10][link-container-quickstart].
-3. Neste artigo, usamos o **Fabrikam Fiber**, um aplicativo de exemplo que pode ser baixado [aqui][link-fabrikam-github].
+3. Para este tutorial, usamos o **Fabrikam Fiber CallCenter**, um aplicativo de exemplo que você pode baixar [aqui][link-fabrikam-github].
 4. [Azure PowerShell][link-azure-powershell-install]
 5. [Extensão Ferramentas de Entrega Contínua para Visual Studio 2017][link-visualstudio-cd-extension]
+6. Uma [assinatura do Azure][link-azure-subscription] e uma [conta do Visual Studio Team Services][link-vsts-account]. Você pode usar este tutorial usando camadas gratuitas de todos os serviços.
 
 >[!NOTE]
 >Se essa for a primeira vez que você estiver executando imagens de contêiner do Windows no computador, o Docker CE deverá obter as imagens base para os contêineres. As imagens usadas neste tutorial têm 14 GB. Vá em frente e execute o seguinte comando do PowerShell para receber as imagens base:
->
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
+>1. docker pull microsoft/mssql-server-windows-developer
+>2. docker pull microsoft/aspnet:4.6.2
 
 ## <a name="containerize-the-application"></a>Colocar o aplicativo em um contêiner
 
-Para começar a executar o aplicativo em um contêiner, precisamos adicionar o **Suporte do Docker** ao projeto no Visual Studio. Quando você adiciona o **Suporte do Docker** ao aplicativo, duas coisas acontecem. Primeiro, um arquivo _docker_ é adicionado ao projeto. Esse novo arquivo descreve como a imagem de contêiner deve ser criada. Em segundo lugar, um novo projeto _docker-compose_ é adicionado à solução. Esse novo projeto contém alguns arquivos docker-compose, que podem ser usados para descrever como o contêiner é executado.
+Para começar a executar o aplicativo em um contêiner, precisamos adicionar o **Suporte do Docker** ao projeto no Visual Studio. Quando você adiciona o **Suporte do Docker** ao aplicativo, duas coisas acontecem. Primeiro, um arquivo _docker_ é adicionado ao projeto. Esse novo arquivo descreve como a imagem de contêiner deve ser criada. Em segundo lugar, um novo projeto _docker-compose_ é adicionado à solução. O novo projeto contém alguns arquivos docker-compose. Os arquivos de composição do docker podem ser usados para descrever como o contêiner é executado.
 
 Mais informações sobre como trabalhar com as [Ferramentas de Contêiner do Visual Studio][link-visualstudio-container-tools].
 
@@ -56,8 +54,8 @@ Mais informações sobre como trabalhar com as [Ferramentas de Contêiner do Vis
 
 ### <a name="add-support-for-sql"></a>Adicionar suporte para SQL
 
-Esse aplicativo usa o SQL como o provedor de dados e, portanto, um SQL Server é necessário para executar o aplicativo. Neste tutorial, usamos o SQL Server em execução em um contêiner.
-Para informar ao Docker que desejamos executar um SQL Server em um contêiner, podemos referenciar uma imagem de contêiner do SQL Server em nosso arquivo docker-compose.override.yml no projeto docker-compose. Dessa forma, o SQL Server em execução no contêiner é usado ao depurar o aplicativo no Visual Studio.
+Esse aplicativo usa o SQL como o provedor de dados e, portanto, um SQL Server é necessário para executar o aplicativo. Neste tutorial, usamos o SQL Server em execução em um contêiner para depuração local.
+Para executar um SQL Server em um contêiner, durante a depuração, podemos fazer referência a uma imagem de contêiner do SQL Server no arquivo docker-compose.override.yml. 
 
 1. Abra o **Gerenciador de Soluções**.
 
@@ -82,16 +80,13 @@ Para informar ao Docker que desejamos executar um SQL Server em um contêiner, p
    >[!NOTE]
    >Você pode usar qualquer SQL Server que preferir para a depuração local, desde que ele seja acessível no host. No entanto, **localdb** não dá suporte à comunicação `container -> host`.
 
-   >[!NOTE]
-   >Se você sempre desejar executar o SQL Server em um contêiner, poderá optar por adicionar o anterior ao arquivo docker-compose.yml em vez de ao arquivo docker-compose.override.yml.
-
+   >[!WARNING]
+   >A execução do SQL Server em um contêiner não dá suporte a dados persistentes, quando o contêiner é interrompido. Não use essa configuração para produção.
 
 4. Modifique o nó `fabrikamfiber.web` e adicione um novo nó filho chamado `depends_on:`. Isso garante que o serviço `db` (o contêiner do SQL Server) é iniciado antes de nosso aplicativo Web (fabrikamfiber.web).
 
    ```yml
      fabrikamfiber.web:
-       ports:
-         - "80"
        depends_on:
          - db
    ```
@@ -100,7 +95,6 @@ Para informar ao Docker que desejamos executar um SQL Server em um contêiner, p
 
    ```xml
    <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
-   
    <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
@@ -115,27 +109,32 @@ Para informar ao Docker que desejamos executar um SQL Server em um contêiner, p
 
 O aplicativo agora está pronto para ser compilado e empacotado em um contêiner. Depois de compilar a imagem de contêiner no computador, você poderá enviá-la por push para qualquer registro de contêiner e efetuar pull dela em qualquer host para execução.
 
-No restante deste tutorial, você usará o Visual Studio Team Services para compilar e implantar o contêiner, enviá-lo por push para um Registro de Contêiner do Azure e implantá-lo no Service Fabric, em execução no Azure.
+Para o restante deste tutorial, você usa o Visual Studio Team Services para implantar o contêiner no Service Fabric, em execução no Azure.
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
 Se você já tiver um cluster do Service Fabric para implantar em seu aplicativo, ignore esta etapa. Caso contrário, vamos continuar e criar um Cluster do Service Fabric.
 
 >[!NOTE]
->O procedimento a seguir cria um cluster do Service Fabric, protegido por um certificado autoassinado, que é colocado em um KeyVault, criado como parte da implantação. Para obter mais informações sobre como usar a autenticação do Azure Active Directory, consulte o artigo [Criar um cluster do Service Fabric usando o Azure Resource Manager][link-servicefabric-create-secure-clusters].
+>O procedimento a seguir cria um cluster de Visualização do Service Fabric de nó único (máquina virtual única), protegido por um certificado autoassinado, que é colocado no KeyVault.
+>Clusters de nó único não podem ser dimensionados além de uma máquina virtual, e clusters de visualização não podem ser atualizados para versões mais recentes.
+>Para calcular o custo incorrido ao executar um cluster do Service Fabric no Azure, use a [Calculadora de Preços do Azure][link-azure-pricing-calculator].
+>Para obter mais informações sobre como criar clusters do Service Fabric, confira o artigo [Criar um cluster do Service Fabric usando o Azure Resource Manager][link-servicefabric-create-secure-clusters].
 
-1. Baixe uma cópia local do modelo e dos arquivos de parâmetros do Azure referenciados a seguir.
-    * [Modelo do Azure Resource Manager para o Service Fabric][link-sf-clustertemplate] – o modelo do Resource Manager que define um Cluster do Service Fabric.
-    * [Arquivo de parâmetros de modelo][link-sf-clustertemplate-parameters] – um arquivo de parâmetros para personalizar a implantação do cluster.
+1. Baixe uma cópia local do modelo do Azure Resource Manager e o arquivo de parâmetro deste repositório do GitHub:
+    * [Modelo do Azure Resource Manager para o Service Fabric][link-sf-clustertemplate]
+       - **azuredeploy.json** – modelo do Azure Resource Manager que define um Cluster do Service Fabric.
+       - **azuredeploy.parameters.json** – um arquivo de parâmetros para personalizar a implantação do cluster.
 2. Personalize os seguintes parâmetros no arquivo de parâmetros:
   
-   | Parâmetro       | Descrição |
-   | --------------- | ----------- |
-   | clusterName     | Nome do cluster. |
-   | adminUserName   | A conta do administrador local nas máquinas virtuais do cluster. |
-   | adminPassword   | Senha da conta do administrador local nas máquinas virtuais do cluster. |
-   | clusterLocation | A região do Azure na qual o cluster será implantado. |
-   | vmInstanceCount | O número de nós no cluster (pode ser 1) |
+   | Parâmetro       | Descrição | Valor sugerido |
+   | --------------- | ----------- | --------------- |
+   | clusterLocation | A região do Azure na qual o cluster será implantado. | *Por exemplo, westeurope, eastasia, eastus* |
+   | clusterName     | Nome do cluster. | *Por exemplo, bobs-sfpreviewcluster* |
+   | adminUserName   | A conta do administrador local nas máquinas virtuais do cluster. | *Qualquer nome de usuário válido do Windows Server* |
+   | adminPassword   | Senha da conta do administrador local nas máquinas virtuais do cluster. | *Qualquer senha válida do Windows Server* |
+   | clusterCodeVersion | A versão do Service Fabric a ser executada. (255.255.X.255 são versões de visualização). | **255.255.5713.255** |
+   | vmInstanceCount | O número de máquinas virtuais no cluster (pode ser 1 ou 3-99). | **1** |
 
 3. Abra o **PowerShell**.
 4. **Faça logon** no Azure.
@@ -159,13 +158,13 @@ Se você já tiver um cluster do Service Fabric para implantar em seu aplicativo
 7. **Crie o cluster** executando o seguinte comando:
 
    ```powershell
-   New-AzureRmServiceFabricCluster 
-       -TemplateFile C:\users\me\downloads\PreviewSecureClusters.json `
-       -ParameterFile C:\users\me\downloads\myCluster.parameters.json `
-       -CertificateOutputFolder C:\users\me\desktop\ `
-       -CertificatePassword $pwd `
-       -CertificateSubjectName "mycluster.westeurope.cloudapp.azure.com" `
-       -ResourceGroupName myclusterRG
+      New-AzureRmServiceFabricCluster
+          -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
+          -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
+          -CertificateOutputFolder C:\Users\me\Desktop\ `
+          -CertificatePassword $pwd `
+          -CertificateSubjectName "mycluster.westeurope.cloudapp.azure.com" `
+          -ResourceGroupName myclusterRG
    ```
 
    >[!NOTE]
@@ -173,7 +172,55 @@ Se você já tiver um cluster do Service Fabric para implantar em seu aplicativo
    
     Quando a configuração for concluída, ela gerará informações sobre o cluster criado no Azure, além de copiar o certificado para o diretório -CertificateOutputFolder.
 
-8. **Clique duas vezes** no certificado para instalá-lo no computador local.
+8. **Clique duas vezes** no certificado para abrir o Assistente para Importação de Certificados.
+
+9. Use as configurações padrão, mas marque a caixa de seleção **Marcar esta chave como exportável.** , na etapa **proteção de chave privada**. O Visual Studio precisa exportar o certificado ao configurar o Registro de Contêiner do Azure para autenticação do Cluster do Service Fabric, mais adiante neste tutorial.
+
+10. Agora você pode abrir o Service Fabric Explorer em um navegador. A URL é o **ManagementEndpoint** na saída do CmdLet do PowerShell, por exemplo, *https://mycluster.westeurope.cloudapp.azure.com:19080* 
+
+>[!NOTE]
+>Ao abrir o Service Fabric Explorer, você verá um erro de certificado, pois está usando um certificado autoassinado. No Edge, você precisa clicar em *Detalhes* e no link *Ir para a página da Web*. No Chrome, você precisa clicar em *Avançado* e no link *Continuar*.
+
+>[!NOTE]
+>Se a criação do cluster falhar, você sempre poderá executar novamente o comando, o que atualiza os recursos já implantados. Se um certificado tiver sido criado como parte da implantação com falha, um novo será gerado. Para solucionar problemas de criação do cluster, acesse o artigo: [Criar um cluster do Service Fabric usando o Azure Resource Manager][link-servicefabric-create-secure-clusters].
+
+## <a name="getting-the-application-ready-for-the-cloud"></a>Preparando o aplicativo para a nuvem
+
+Para preparar o aplicativo para execução no Service Fabric no Azure, precisamos concluir duas etapas:
+
+1. Expor a porta em que queremos poder acessar o aplicativo Web no cluster do Service Fabric
+2. Fornecer um banco de dados SQL pronto para produção para o aplicativo
+
+### <a name="1-exposing-the-web-application-in-service-fabric"></a>1. Expondo o aplicativo Web no Service Fabric
+O cluster do Service Fabric que configuramos tem a porta 80 aberta por padrão no Azure Load Balancer, o que equilibra o tráfego de entrada para o cluster. É possível expor o contêiner nessa porta por meio do arquivo docker-compose.yml.
+
+1. Abra o **Gerenciador de Soluções**.
+
+2. Abra **docker-compose** > **docker-compose.yml**.
+
+3. Modifique o nó `fabrikamfiber.web`, adicione um novo nó filho chamado `ports:` e a cadeia de caracteres `- "80:80"`. O arquivo docker-compose.yml completo deve ter esta aparência:
+
+   ```yml
+      version: '3'
+
+      services:
+        fabrikamfiber.web:
+          image: fabrikamfiber.web
+          build:
+            context: .\FabrikamFiber.Web
+            dockerfile: Dockerfile
+          ports:
+            - "80:80"
+   ```
+
+### <a name="2-provide-a-production-ready-sql-database-for-our-application"></a>2. Fornecer um banco de dados SQL pronto para produção para o aplicativo
+Quando colocamos esse aplicativo no contêiner e habilitamos a depuração local, o configuramos para a execução do SQL Server em um contêiner. Essa abordagem é uma boa solução ao depurar o aplicativo localmente, pois não exigimos que os dados no banco de dados sejam persistentes. No entanto, ao executar em produção, os dados precisam ser mantidos no banco de dados. Atualmente, não existe uma maneira de garantir a persistência de dados em um contêiner. Portanto, você não pode armazenar dados de produção no SQL Server em um contêiner.
+
+Como resultado, se oi serviço requer um banco de dados SQL persistente, é recomendável utilizar um banco de dados do SQL Azure. Para configurar e executar um SQL Server gerenciado no Azure, acesse o artigo [Inícios rápidos do Banco de Dados SQL Azure][[link-azure-sql]].
+
+>[!NOTE]
+>Lembre-se de alterar as cadeias de conexão para o SQL Server no arquivo web.release.config no projeto FabrikamFiber.Web.
+>Esse aplicativo falha normalmente se nenhum banco de dados SQL está acessível. Você pode optar por implantar o aplicativo sem um servidor SQL.
 
 ## <a name="deploy-with-visual-studio"></a>Implantação com o Visual Studio
 
@@ -213,9 +260,13 @@ Agora que seu código está sincronizado com um repositório de origem do VSTS, 
 
    ![configurar a integração contínua do service fabric][image-setup-ci]
    
-   Depois que a configuração for concluída, o contêiner será implantado no Service Fabric sempre que você enviar atualizações por push ao repositório.
+   Depois que a configuração for concluída, o contêiner será implantado no Service Fabric. Sempre que você envia atualizações ao repositório, uma nova compilação e versão são executadas.
+   
+   >[!NOTE]
+   >A criação das imagens de contêiner leva aproximadamente 15 minutos.
+   >A primeira implantação para o cluster do Service Fabric faz com que as imagens de contêiner do Windows Server Core sejam baixadas. O download leva 5 a 10 minutos adicionais para ser concluído.
 
-7. **Inicie um build** usando o **Team Explorer** e veja seu aplicativo de contêiner em execução no Service Fabric.
+7. Navegue até o aplicativo Fabrikam Call Center usando a url do cluster. Por exemplo, *http://mycluster.westeurope.cloudapp.azure.com*
 
 Agora que você colocou a solução Fabrikam Call Center em um contêiner e a implantou, poderá abrir o [portal do Azure][link-azure-portal] e ver o aplicativo em execução no Service Fabric. Para experimentar o aplicativo, abra um navegador da Web e acesse a URL do cluster do Service Fabric.
 
@@ -236,10 +287,12 @@ Agora que você colocou a solução Fabrikam Call Center em um contêiner e a im
 [link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
 [link-azure-portal]: https://portal.azure.com
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
-[link-sf-clustertemplate-parameters]: https://aka.ms/securepreviewonelineclusterparameters
+[link-azure-pricing-calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[link-azure-subscription]: https://azure.microsoft.com/en-us/free/
+[link-vsts-account]: https://www.visualstudio.com/team-services/pricing/
+[link-azure-sql]: /sql-database
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
 [image-publish-repo]: media/service-fabric-host-app-in-a-container/publish-repo.png
 [image-setup-ci]: media/service-fabric-host-app-in-a-container/configure-continuous-integration.png
-
