@@ -50,7 +50,7 @@
 ## Gerenciar logs de diagnóstico
 ### [Arquivar](monitoring-archive-diagnostic-logs.md)
 ### [Transmitir para Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-### [Habilitar configurações de diagnóstico usando modelos do Resource Manager](monitoring-enable-diagnostic-logs-using-template.md)
+### [Habilitar configurações de Diagnóstico usando modelos do Gerenciador de Recursos](monitoring-enable-diagnostic-logs-using-template.md)
 ## Usar a API REST
 ### [Passo a passo usando a API REST](monitoring-rest-api-walkthrough.md)
 ## Use a extensão de Diagnóstico do Azure
@@ -74,3 +74,4 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Exemplos do PowerShell](insights-powershell-samples.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Modelos de início rápido](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
