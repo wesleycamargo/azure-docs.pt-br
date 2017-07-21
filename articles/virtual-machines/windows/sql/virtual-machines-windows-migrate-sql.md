@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/17/2017
 ms.author: carlasab
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 8403b5454b387fa7062d188b18cdd595bf24aecd
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure
@@ -56,9 +56,9 @@ A tabela a seguir lista os principais métodos de migração e discute quando o 
 
 | Método | Versão do banco de dados de origem | Versão do banco de dados de destino | Restrição de tamanho do backup do banco de dados de origem | Observações |
 | --- | --- | --- | --- | --- |
-| [Execute o backup local usando a compactação e copie manualmente o arquivo de backup para a máquina virtual do Azure](#backup-to-file-and-copy-to-vm-and-restore) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Essa é uma técnica muito simples e bem testada para mover bancos de dados entre máquinas. |
+| [Execute o backup local usando a compactação e copie manualmente o arquivo de backup para a máquina virtual do Azure](#backup-and-restore) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Essa é uma técnica muito simples e bem testada para mover bancos de dados entre máquinas. |
 | [Execute um backup para URL e restaure na máquina virtual do Azure desde a URL](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 ou posterior |SQL Server 2012 SP1 CU2 ou posterior |< 12,8 TB para SQL Server 2016, caso contrário, < 1 TB | Este método é somente outra forma de mover o arquivo de backup para a VM usando o armazenamento do Azure. |
-| [Desanexe e copie os arquivos de log e dados para o armazenamento de blob do Azure e anexe à máquina virtual do SQL Server no Azure desde a URL](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 ou posterior |SQL Server 2014 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use este método quando pretender [armazenar esses arquivos usando o serviço de armazenamento de Blob do Azure](https://msdn.microsoft.com/library/dn385720.aspx) e anexá-los ao SQL Server em execução em uma VM do Azure, especialmente com bancos de dados muito grandes. |
+| [Desanexe e copie os arquivos de log e dados para o armazenamento de blob do Azure e anexe à máquina virtual do SQL Server no Azure desde a URL](#detach-and-attach-from-url) |SQL Server 2005 ou posterior |SQL Server 2014 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use este método quando pretender [armazenar esses arquivos usando o serviço de armazenamento de Blob do Azure](https://msdn.microsoft.com/library/dn385720.aspx) e anexá-los ao SQL Server em execução em uma VM do Azure, especialmente com bancos de dados muito grandes. |
 | [Converta a máquina local em VHDs do Hyper-V, carregue no armazenamento de Blob do Azure e, em seguida, implante uma nova máquina virtual usando o VHD carregado](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use quando estiver [trazendo sua própria licença do SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) ao migrar um banco de dados que você executará em uma versão anterior do SQL Server ou ao migrar bancos de dados do sistema e do usuário como parte da migração de banco de dados dependente de outros bancos de dados do usuário e/ou bancos de dados do sistema. |
 | [Remeter o disco rígido usando o Serviço de Importação/Exportação do Windows](#ship-hard-drive) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use o [Serviço de Importação/Exportação do Windows](../../../storage/storage-import-export-service.md) quando o método de cópia manual for muito lento, como com bancos de dados muito grandes |
 | [Usar o Assistente para Adicionar uma Réplica do Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 ou posterior |SQL Server 2012 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimiza o tempo de inatividade, use quando tiver uma implantação local do AlwaysOn |
@@ -85,7 +85,7 @@ Desanexar os banco de dados e arquivos de log e transferi-los para [Armazenament
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>Converter a VM e carregar a URL e implantar como uma nova VM
 Use esse método para migrar todos os sistemas e bancos de dados de usuário em uma instância local do SQL Server para a máquina virtual do Azure. Use as seguintes etapas gerais para migrar de uma instância inteira do SQL Server usando este método manual:
 
-1. Converta máquinas físicas ou virtuais em VHDs do Hyper-V usando o [Conversor de Máquina Virtual da Microsoft](http://technet.microsoft.com/library/dn873998.aspx).
+1. Converta máquinas físicas ou virtuais em VHDs do Hyper-V usando o [Conversor de Máquina Virtual da Microsoft](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx).
 2. Carregue arquivos de VHD no armazenamento do Azure usando o [cmdlet Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3. Implante uma nova máquina virtual usando o VHD carregado.
 

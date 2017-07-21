@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9c29390756ac2cd925ed7d2989393e63ed0a1239
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -58,6 +58,29 @@ Você também pode [anexar um disco de dados usando o Powershell](attach-disk-ps
 8. Na caixa de diálogo **Formatar novo disco**, verifique as configurações e, em seguida, clique em **Iniciar**.
 9. Você receberá um aviso informando que a formatação dos discos apagará todos os dados; clique em **OK**.
 10. Quando a formatação for concluída, clique em **OK**.
+
+## <a name="use-trim-with-standard-storage"></a>Usar TRIM com o armazenamento padrão
+
+Se você usar o armazenamento padrão (HDD), será necessário habilitar o TRIM. O TRIM descarta os blocos não usados do disco para que você seja cobrado apenas pelo armazenamento que está efetivamente sendo usado. Isso poderá representar uma economia dos custos se você criar arquivos grandes e, em seguida, excluí-los. 
+
+Você pode executar esse comando para verificar a configuração de TRIM. Abra um prompt de comando na sua VM do Windows e digite:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+Se o comando retornar 0, o TRIM estará habilitado corretamente. Se ele retornar 1, execute o seguinte comando para habilitar o TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+Após a exclusão de dados do disco, você pode garantir a liberação de operações TRIM corretamente executando a desfragmentação com TRIM:
+
+```
+defrag.exe <volume:> -l
+```
+
+Você também pode garantir que o volume inteiro seja reduzido formatando-o.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso seu aplicativo precise usar a unidade D: para armazenar dados, é possível [alterar a letra da unidade do disco temporário do Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

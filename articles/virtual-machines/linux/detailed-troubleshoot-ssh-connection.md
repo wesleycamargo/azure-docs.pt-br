@@ -14,17 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 03/07/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: df65c08a56596af2341b9cad4c89b5d18f6c6404
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="detailed-ssh-troubleshooting-steps"></a>Etapas detalhadas de solução de problemas de SSH
-Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
+# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
+Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](troubleshoot-ssh-connection.md), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
 
 ## <a name="take-preliminary-steps"></a>Realizar etapas preliminares
 O diagrama a seguir mostra os componentes que estão envolvidos.
@@ -95,7 +96,7 @@ Para que o dispositivo de borda de sua organização deixe de ser a fonte da fal
 
 ![Diagrama que realça o dispositivo de borda da organização](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
+Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](quick-create-cli.md). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
 
 Se você puder criar uma conexão SSH com um computador conectado diretamente à Internet, verifique se há o seguinte no dispositivo de borda da organização:
 
@@ -113,7 +114,7 @@ Para que o ponto de extremidade de serviço de nuvem e uma ACL deixem de ser a f
 
 ![Diagrama que realça a ACL e o ponto de extremidade do serviço de nuvem](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Se não houver outra VM na mesma rede virtual, você poderá criar facilmente uma nova. Para saber mais, veja [Criar uma VM do Linux no Azure usando a CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Exclua a VM extra ao concluir o teste.
+Se não houver outra VM na mesma rede virtual, você poderá criar facilmente uma nova. Para saber mais, veja [Criar uma VM do Linux no Azure usando a CLI](quick-create-cli.md). Exclua a VM extra ao concluir o teste.
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique as seguintes áreas:
 
@@ -143,6 +144,6 @@ Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a s
 * Um software de detecção de invasão ou de monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de SSH.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](troubleshoot-app-connection.md)
 
 

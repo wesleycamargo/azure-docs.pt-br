@@ -17,17 +17,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 93ea31b4469f21e92337a768668ae6d93bbc6ba6
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: db5dff01c0459db746eace0c9a4535aeccd4dcfa
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
-<a id="use-the-beeline-client-with-apache-hive" class="xliff"></a>
-
-# Usar o cliente Beeline com o Apache Hive
+# <a name="use-the-beeline-client-with-apache-hive"></a>Usar o cliente Beeline com o Apache Hive
 
 Saiba como usar o [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas Hive no HDInsight.
 
@@ -50,7 +47,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 * Um cluster do Hadoop no HDInsight baseado em Linux.
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Um cliente SSH ou um cliente Beeline local. A maioria das etapas neste documento pressupõe que você está usando o Beeline em uma sessão SSH para o cluster. Para saber mais sobre como executar o Beeline fora do cluster, veja a seção [Usar o Beeline remotamente](#remote).
 
@@ -86,7 +83,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 
 3. Use o comando a seguir para exibir o esquema para a hivesampletable:
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 

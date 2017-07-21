@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
@@ -203,7 +203,7 @@ O Active Directory do Azure fornece vários relatórios e alertas para ajudar vo
 | Controlar as alterações feitas com relação a quem pode acessar um aplicativo específico |[Eventos de relatório de auditoria do Active Directory do Azure](active-directory-reporting-audit-events.md) |
 | Exportar os dados desses relatórios para suas ferramentas preferenciais usando a API de Relatório |[Introdução à API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md) |
 
-Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md#report-editions).
+Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md).
 
 ## <a name="see-also"></a>Consulte também
 [O que é o Active Directory do Azure?](active-directory-whatis.md)

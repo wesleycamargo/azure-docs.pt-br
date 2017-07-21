@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5ff598af73b6be727753ecac5b99f28bae19a417
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1ed0bfe4f1b77db00dc858f010f72e084e77039e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 ---
 
-#  <a name="prerequisites-for-replication-to-azure-by-using-azure-site-recovery"></a>Pré-requisitos para replicação no Azure usando o Azure Site Recovery
+#  <a name="prerequisites-for-replication-from-on-premises-to-azure-using-azure-site-recovery"></a>Pré-requisitos para replicação do local para o Azure usando o Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Replicar do Azure para o Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Replicar do local para o Azure](site-recovery-prereq.md)
 
-O serviço Azure Site Recovery contribui para a continuidade e a estratégia de recuperação de desastres (BCDR) do seu negócio ao orquestrar a replicação de servidores físicos locais e máquinas virtuais na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você pode fazer failover em um local secundário a fim de manter aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você pode realizar o failback. Para mais informações sobre o Site Recovery, consulte [O que é Site Recovery?](site-recovery-overview.md).
+O serviço Azure Site Recovery contribui para a continuidade e a estratégia de recuperação de desastres (BCDR) do seu negócio ao orquestrar a replicação de máquina virtual do Azure para outra região do Azure e servidores físicos locais, e máquinas virtuais na nuvem (Azure), ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você pode fazer failover em um local secundário a fim de manter aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você pode realizar o failback. Para mais informações sobre o Site Recovery, consulte [O que é Site Recovery?](site-recovery-overview.md).
 
 Este artigo resume os pré-requisitos necessários para começar a replicação do Site Recovery no Azure.
 
 Poste comentários no final do artigo ou faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="azure-requirements"></a>Requisitos do Azure
 
@@ -67,7 +70,7 @@ A seguir estão os componentes obrigatórios para a recuperação de desastres d
 | --- | --- |
 | **Local** (VMs VMware) | As VMs replicadas devem ter as ferramentas VMware instaladas e em execução.<br/><br/> Para que seja possível criar VMs do Azure, elas devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/>A capacidade do disco individual nos computadores protegidos não deve ser maior que 1.023 GB. <br/><br/>Um mínimo de 2 GB de espaço disponível na unidade de instalação é necessário para a instalação do componente.<br/><br/>A porta 20004 deverá ser aberta no firewall local da VM se você desejar habilitar a consistência de múltiplas VMs.<br/><br/>Os nomes dos computadores devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois de habilitar a replicação em um computador, você poderá modificar o nome do Azure.<br/><br/> |
 | **Computadores Windows** (físicos ou VMware) | O computador deve estar executando um sistema operacional de 64 bits com suporte: Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 com, ao menos, SP1.<br/><br/> O sistema operacional deve ser instalado na unidade C. O disco do sistema operacional deve ser um disco básico do Windows, e não dinâmico. O disco de dados pode ser dinâmico.<br/><br/>|
-| **Computadores com Linux** (físicos ou VMware) | Você precisa de um sistema operacional de 64 bits com suporte: Red Hat Enterprise Linux 6.7, 6.8, 7.1 ou 7.2; CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 ou 7.2; Oracle Enterprise Linux 6.4 ou 6.5 executando o kernel compatível do Red Hat ou o Unbreakable Enterprise Kernel Versão 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>Seus arquivos /etc/hosts nos computadores protegidos devem conter entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.<br/><br/>Se você quiser se conectar a uma máquina virtual do Azure que executa o Linux após o failover usando um cliente Secure Shell (ssh), verifique se o serviço do Secure Shell na máquina protegida está definido para ser iniciado automaticamente na inicialização do sistema e se as regras de firewall permitem uma conexão ssh para ele.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivos, os caminhos do sistema Linux e os nomes de arquivos (por exemplo: /etc/; /usr) devem estar somente em inglês.<br/><br/>Os diretórios a seguir (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco (disco do sistema operacional) no servidor de origem: / (raiz), /boot, /usr, /usr/local, /var e /etc<br/><br/>No momento não há suporte para recursos do XFS v5, como a soma de verificação de metadados, pela ASR em sistemas de arquivos XFS. Verifique se seus sistemas de arquivos XFS não estão usando recursos da v5. Você pode usar o utilitário xfs_info para verificar o super-bloco XFS da partição. Se ftype está definido como 1, os recursos XFSv5 estão sendo usados.<br/><br/>Em servidores Red Hat Enterprise Linux 7 e CentOS 7, o utilitário lsof deve estar instalado e disponível.<br/><br/>
+| **Computadores com Linux** (físicos ou VMware) | Você precisa de um sistema operacional de 64 bits com suporte: Red Hat Enterprise Linux 6.7, 6.8, 7.1 ou 7.2; CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 ou 7.2; servidor LTS do Ubuntu 14.04 LTS (para obter uma lista de versões de kernel com suporte no Ubuntu, confira [sistemas operacionais com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)); Oracle Enterprise Linux 6.4 ou 6.5 executando o kernel compatível do Red Hat ou o Unbreakable Enterprise Kernel Versão 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>Seus arquivos /etc/hosts nos computadores protegidos devem conter entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.<br/><br/>Se você quiser se conectar a uma máquina virtual do Azure que executa o Linux após o failover usando um cliente Secure Shell (ssh), verifique se o serviço do Secure Shell na máquina protegida está definido para ser iniciado automaticamente na inicialização do sistema e se as regras de firewall permitem uma conexão ssh para ele.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivos, os caminhos do sistema Linux e os nomes de arquivos (por exemplo: /etc/; /usr) devem estar somente em inglês.<br/><br/>Os diretórios a seguir (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco (disco do sistema operacional) no servidor de origem: / (raiz), /boot, /usr, /usr/local, /var e /etc<br/><br/>No momento não há suporte para recursos do XFS v5, como a soma de verificação de metadados, pela ASR em sistemas de arquivos XFS. Verifique se seus sistemas de arquivos XFS não estão usando recursos da v5. Você pode usar o utilitário xfs_info para verificar o super-bloco XFS da partição. Se ftype está definido como 1, os recursos XFSv5 estão sendo usados.<br/><br/>Em servidores Red Hat Enterprise Linux 7 e CentOS 7, o utilitário lsof deve estar instalado e disponível.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager"></a>Recuperação de Desastre de máquinas virtuais do Hyper-V no Azure (sem Virtual Machine Manager)

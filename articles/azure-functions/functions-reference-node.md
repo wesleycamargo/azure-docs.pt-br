@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: chrande, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -136,6 +136,21 @@ O exemplo a seguir grava no console no nível de rastreamento de aviso:
 context.log.warn("Something has happened."); 
 ```
 Você pode definir o limite do nível de rastreamento para registrar em log no arquivo host.json, ou desativá-lo.  Para saber mais sobre como gravar nos logs, veja a próxima seção.
+
+## <a name="binding-data-type"></a>Tipo de dados de associação
+
+Para definir o tipo de dados para uma associação de entrada, use a propriedade `dataType` na definição de associação. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, use o tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Outras opções para `dataType` são `stream` e `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Gravar a saída de rastreamento no console 
 

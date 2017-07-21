@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,6 +33,9 @@ Este artigo descreve os processos para criar e editar regras de alerta usando o 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 Para criar uma regra de alerta usando o portal do OMS, você começa criando uma pesquisa de log para os registros que devem invocar o alerta.  O botão **alerta** estará disponível para que você possa criar e configurar a regra de alerta.
+
+>[!NOTE]
+> Atualmente, podem ser criadas no máximo 250 regras de alerta em um espaço de trabalho do OMS. 
 
 1. Na página de Visão Geral do OMS, clique em **Pesquisa de Log**.
 2. Crie uma nova consulta de pesquisa de log ou selecione uma pesquisa de log salva. 

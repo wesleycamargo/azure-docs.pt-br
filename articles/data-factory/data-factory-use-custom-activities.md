@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -138,26 +138,26 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
 
     ```csharp
 
-// Comment these lines if using VS 2017
-using System.IO;
-using System.Globalization;
-using System.Diagnostics;
-using System.Linq;
-// --------------------
+    // Comment these lines if using VS 2017
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    // --------------------
 
-// Comment these lines if using <= VS 2015
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// ---------------------
+    // Comment these lines if using <= VS 2015
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    // ---------------------
 
-using Microsoft.Azure.Management.DataFactories.Models;
-using Microsoft.Azure.Management.DataFactories.Runtime;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
 
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. Altere o nome do **namespace** para **MyDotNetActivityNS**.
 
@@ -267,7 +267,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path    
+        // log the output folder path   
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -303,7 +303,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
             return null;
         }
 
-        // get type properties of the dataset    
+        // get type properties of the dataset   
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -389,8 +389,8 @@ using Microsoft.WindowsAzure.Storage.Blob;
     > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
 
     ![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
-14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.    
-15. Carregue MyDotNetActivity.zip como um blob para customactivitycontainer em um armazenamento de blobs do Azure de **uso geral** (e não um armazenamento de blobs de blocos quente/frio) que seja referenciado por AzureStorageLinkedService.  
+14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir. 
+15. Carregue MyDotNetActivity.zip como um blob para customactivitycontainer em um armazenamento de Blobs do Azure de **uso geral** (e não um armazenamento de Blobs de dinâmico/estático) que seja referenciado por AzureStorageLinkedService.  
 
 > [!IMPORTANT]
 > Se você adicionar este projeto de atividade do .NET a uma solução no Visual Studio que contenha um projeto de Data Factory e adicionar uma referência ao projeto de atividade do .NET do projeto de aplicativo do Data Factory, não será necessário executar as duas últimas etapas de criar o arquivo zip e carregá-lo para o armazenamento de blobs do Azure de uso geral. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Para obter mais informações, consulte a seção [projeto de Data Factory no Visual Studio](#data-factory-project-in-visual-studio).
