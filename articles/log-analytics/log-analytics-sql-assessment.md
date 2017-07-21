@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do SQL Server com a solução de Avaliação de SQL da Log Analytics
+
+![Símbolo da Avaliação do SQL](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 Você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo ajudará você a instalar a solução para que você possa tomar ações corretivas para potenciais problemas.
 

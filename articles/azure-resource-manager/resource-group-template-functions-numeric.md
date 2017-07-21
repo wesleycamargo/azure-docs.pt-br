@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: f14bc4e8091eb1f0dccb761d9df1c931b9b77732
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -51,7 +51,11 @@ Retorna a soma dos dois inteiros fornecidos.
 |operand1 |Sim |int |Primeiro número a ser adicionado. |
 |operand2 |Sim |int |Segundo número a ser adicionado. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que contém a soma dos parâmetros.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir adiciona dois parâmetros.
 
@@ -62,12 +66,14 @@ O exemplo a seguir adiciona dois parâmetros.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +90,11 @@ O exemplo a seguir adiciona dois parâmetros.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que contém a soma dos parâmetros.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +118,7 @@ A propriedade **loopName** permite que você especifique se copyIndex se refere 
  
 Para obter uma descrição completa de como usar **copyIndex**, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="examples"></a>Exemplos
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra um loop de cópia e o valor de índice incluído no nome. 
 
@@ -146,7 +154,11 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos.
 | operand1 |Sim |int |O número que está sendo dividido. |
 | operand2 |Sim |int |O número usado para dividir. Não pode ser 0. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa a divisão.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir divide um parâmetro por outro parâmetro.
 
@@ -157,12 +169,14 @@ O exemplo a seguir divide um parâmetro por outro parâmetro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +193,11 @@ O exemplo a seguir divide um parâmetro por outro parâmetro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa a divisão.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +212,10 @@ Converte o valor em um número de ponto flutuante. Você só usa essa função a
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |string ou int |O valor a ser convertido em um número de ponto flutuante. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+Um número de ponto flutuante.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar float para passar parâmetros para um aplicativo lógico:
 
@@ -214,9 +233,6 @@ O exemplo a seguir mostra como usar float para passar parâmetros para um aplica
         },
 ```
 
-### <a name="return-value"></a>Valor de retorno
-Um número de ponto flutuante.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +246,11 @@ Converte o valor especificado em um inteiro.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim |string ou int |O valor a ser convertido em um inteiro. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro do valor convertido.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em inteiro.
 
@@ -239,25 +259,28 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em int
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
+
 
 <a id="min" />
 
@@ -272,7 +295,11 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa o valor mínimo da coleção.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
 
@@ -300,9 +327,12 @@ O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa o valor mínimo da coleção.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +347,11 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa o valor máximo da coleção.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
 
@@ -345,9 +379,12 @@ O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa o valor máximo da coleção.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +400,10 @@ Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos.
 | operand1 |Sim |int |O número que está sendo dividido. |
 | operand2 |Sim |int |O número usado para dividir. Não pode ser 0. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+Um inteiro que representa o resto.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir retorna o resto da divisão de um parâmetro por outro parâmetro.
 
@@ -374,12 +414,14 @@ O exemplo a seguir retorna o resto da divisão de um parâmetro por outro parâm
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +438,11 @@ O exemplo a seguir retorna o resto da divisão de um parâmetro por outro parâm
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
-Um inteiro que representa o resto.
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +458,11 @@ Retorna a multiplicação de dois inteiros fornecidos.
 | operand1 |Sim |int |Primeiro número a ser multiplicado. |
 | operand2 |Sim |int |Segundo número a ser multiplicado. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa a multiplicação.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir multiplica um parâmetro por outro parâmetro.
 
@@ -424,12 +473,14 @@ O exemplo a seguir multiplica um parâmetro por outro parâmetro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +497,11 @@ O exemplo a seguir multiplica um parâmetro por outro parâmetro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa a multiplicação.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +517,10 @@ Retorna a subtração dos dois inteiros fornecidos.
 | operand1 |Sim |int |O número do qual é subtraído. |
 | operand2 |Sim |int |O número subtraído. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+Um inteiro que representa a subtração.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir subtrai um parâmetro de outro parâmetro.
 
@@ -475,12 +531,14 @@ O exemplo a seguir subtrai um parâmetro de outro parâmetro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +555,11 @@ O exemplo a seguir subtrai um parâmetro de outro parâmetro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
-Um inteiro que representa a subtração.
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).

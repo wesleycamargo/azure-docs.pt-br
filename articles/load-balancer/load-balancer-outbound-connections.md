@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -45,7 +46,9 @@ Você pode usar [Log Analytics para o Balanceador de Carga](load-balancer-monito
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>VM com balanceamento de carga com nenhum endereço IP público em nível de instância
 
-Nesse cenário, a VM faz parte de um pool do Azure Load Balancer. A VM não tem um endereço IP público atribuído a ela. Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP público do frontend do Balanceador de Carga público. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público do Balanceador de Carga são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos de saída são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
+Nesse cenário, a VM faz parte de um pool do Azure Load Balancer.  A VM não tem um endereço IP público atribuído a ela. O recurso do Load Balancer deve ser configurado com uma regra para vincular o front-end de IP público com o pool de back-end.  Se você não concluir esta configuração, o comportamento será como descrito na seção acima para [VM Autônoma sem IP Público de Nível de Instância](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+
+Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP público do frontend do Balanceador de Carga público. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público do Balanceador de Carga são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos de saída são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
 
 As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, consumem uma única porta SNAT por destino. O endereço IP de destino torna os fluxos exclusivos.
 

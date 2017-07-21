@@ -4,7 +4,7 @@ description: "Descreve como implantar o Azure Site Recovery em um ambiente de mu
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: jwhit
+manager: rochakm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/23/2017
 ms.author: manayar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 801eb19a2c1601653f229a5175fc71d6551ebe08
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/30/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -32,13 +32,13 @@ Observe que este guia usa intensamente a documentação existente para replicar 
 Há três modelos principais de multilocatários:
 
 1.  **Provedor de Serviços de Hospedagem (HSP) Compartilhado** – Aqui, o parceiro possui a infraestrutura física e usa os recursos compartilhados (vCenter, datacenters, armazenamento físico etc.) para hospedar VMs de vários locatários na mesma infraestrutura. O gerenciamento de recuperação de desastres pode ser fornecido pelo parceiro como um serviço gerenciado ou pertencer ao locatário como uma solução de recuperação de desastres de autoatendimento.
-2.  **Provedor de Serviços de Hospedagem Dedicado** – Aqui, o parceiro possui a infraestrutura física, mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos etc) para hospedar VMs de cada locatário em uma infraestrutura separada. Novamente, o gerenciamento de recuperação de desastres pode ser gerenciado por parceiro ou autoatendimento pelo locatário.
+2.  **Provedor de Serviços de Hospedagem Dedicado** – Aqui, o parceiro possui a infraestrutura física, mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos etc.) para hospedar VMs de cada locatário em uma infraestrutura separada. Novamente, o gerenciamento de recuperação de desastres pode ser gerenciado por parceiro ou autoatendimento pelo locatário.
 3.  **Provedor de Serviços Gerenciado (MSP)** – Aqui, o cliente possui a infraestrutura física que hospeda as VMs, e os parceiros fornecem habilitação e gerenciamento de recuperação de desastres.
 
 ## <a name="shared-hosting-multi-tenant-guidance"></a>Diretriz de multilocatário de hospedagem compartilhada
 Este guia aborda com detalhes o cenário de hospedagem compartilhado. Os outros dois cenários são subconjuntos do cenário de hospedagem compartilhado e usam os mesmos princípios. As diferenças são descritas ao final do guia de hospedagem compartilhado.
 
-O requisito básico em um cenário multilocatário é isolar os locatários diferentes, ou seja, um locatário não deve ser capaz de observar o que outro locatário tem hospedado. Em um ambiente totalmente gerenciado por parceiros, esse requisito não é tão importante quanto para um ambiente de autoatendimento, no qual ele pode ser fundamental. Este guia presume que o isolamento de locatários é necessário.
+O requisito básico em um cenário multilocatário é isolar os locatários diferentes: um locatário não deve ser capaz de observar o que outro locatário tem hospedado. Em um ambiente totalmente gerenciado por parceiros, esse requisito não é tão importante quanto para um ambiente de autoatendimento, no qual ele pode ser fundamental. Este guia presume que o isolamento de locatários é necessário.
 
 A arquitetura tem a seguinte aparência:
 
@@ -46,7 +46,7 @@ A arquitetura tem a seguinte aparência:
 
 **Figura 1: Cenário de hospedagem compartilhada com um vCenter**
 
-Conforme visto na representação acima, cada cliente terá um Servidor de Gerenciamento separado. Isso é feito para limitar o acesso do locatário a VMs específicas ao locatário a fim de habilitar o isolamento do locatário. O cenário de replicação de máquina virtual do VMware usa o servidor de configuração para gerenciar contas a fim de descobrir VMs e instalar agentes. Seguimos os mesmos princípios para ambientes multilocatários, mas acrescentando a restrição à descoberta de VM por meio do controle de acesso do vCenter.
+Conforme visto na representação acima, cada cliente terá um Servidor de Gerenciamento separado. Isso limita o acesso do locatário a VMs de locatário específicas e habilita o isolamento de locatários. O cenário de replicação de máquina virtual do VMware usa o servidor de configuração para gerenciar contas a fim de descobrir VMs e instalar agentes. Seguimos os mesmos princípios para ambientes multilocatários, mas acrescentando a restrição à descoberta de VM por meio do controle de acesso do vCenter.
 
 O requisito de isolamento de dados exige que todas as informações confidenciais da infraestrutura (como credenciais de acesso) continuem sendo divulgadas pelos locatários. Por esse motivo, recomendamos que todos os componentes do servidor de gerenciamento (CS [Servidor de Configuração], PS [Servidor de Processo] e MT [Servidor de Destino Mestre]) permaneçam sob o controle exclusivo do parceiro. Isso inclui PS de expansão.
 
@@ -57,7 +57,7 @@ O requisito de isolamento de dados exige que todas as informações confidenciai
 
 ### <a name="requirements-for-vcenter-access-account"></a>Requisitos para contas de acesso do vCenter
 
-Conforme detalhado na seção anterior, o CS exige a configuração com uma conta que tem uma função especial atribuída. É importante observar que essa atribuição de função precisa ser feita para a conta de acesso do vCenter para cada objeto do vCenter, e não propagada para os objetos filhos. Isso é feito para garantir o isolamento do locatário, pois a propagação de acesso também pode resultar em acesso acidental a outros objetos
+Conforme detalhado na seção anterior, o CS exige a configuração com uma conta que tem uma função especial atribuída. É importante observar que essa atribuição de função precisa ser feita para a conta de acesso do vCenter para cada objeto do vCenter, e não propagada para os objetos filhos. Isso garante o isolamento do locatário, pois a propagação de acesso também pode resultar em acesso acidental a outros objetos
 
 ![permissões sem propagação](./media/site-recovery-multi-tenant-support-vmware-using-csp/assign-permissions-without-propagation.png)
 
@@ -91,9 +91,9 @@ O procedimento de acesso da conta do vCenter é o seguinte:
 | Servidor de Gerenciamento | Azure_Site_Recovery | Isso inclui acesso a todos os componentes – CS, PS e MT – se algum estiver fora da máquina CS. |
 | VMs do locatário | Azure_Site_Recovery | Certifique-se de que quaisquer VMs de locatário novas de um locatário específico também recebam esse acesso, ou não serão descobertas por meio do Portal do Azure. |
 
-O acesso à conta do vCenter está concluído. Isso preenche o requisito mínimo de permissões para concluir as operações de failback. Observe que essas permissões de acesso também podem ser usadas com as políticas existentes. Basta modificar suas permissões existentes definidas a fim de incluir permissões do ponto 2 detalhado acima.
+O acesso à conta do vCenter está concluído. Isso preenche o requisito mínimo de permissões para concluir as operações de failback. Essas permissões de acesso também podem ser usadas com as políticas existentes. Basta modificar suas permissões existentes definidas a fim de incluir permissões do ponto 2 detalhado acima.
 
-Para restringir operações de recuperação de desastres até o estado de failover, ou seja, sem os recursos de failback, siga o procedimento acima, mas em vez de atribuir a função 'Azure_Site_Recovery' à conta de acesso do vCenter, atribua apenas uma função 'Read Only' a essa conta. Esse conjunto de permissões permite failover e replicação de VM e não permite failback. Observe que todo o restante do processo acima permanece como está. Cada permissão ainda é atribuída apenas no nível do objeto e não propagada aos objetos filhos, a fim de garantir o isolamento do locatário e restringir a descoberta da VM.
+Para restringir operações de recuperação de desastres até o estado de failover, ou seja, sem os recursos de failback, siga o procedimento acima, mas em vez de atribuir a função 'Azure_Site_Recovery' à conta de acesso do vCenter, atribua apenas uma função 'Read Only' a essa conta. Esse conjunto de permissões permite failover e replicação de VM e não permite failback. O resto do processo acima permanece como está. Cada permissão ainda é atribuída apenas no nível do objeto e não propagada aos objetos filhos, a fim de garantir o isolamento do locatário e restringir a descoberta da VM.
 
 ## <a name="other-multi-tenant-environments"></a>Outros ambientes multilocatários
 
@@ -119,7 +119,7 @@ A diferença de arquitetura aqui é que a infraestrutura de cada locatário tamb
 ## <a name="csp-program-overview"></a>Visão geral do programa CSP
 O [programa](https://partner.microsoft.com/en-US/cloud-solution-provider) CSP (Provedor de Soluções de Nuvem) da Microsoft promove histórias de trabalho em conjunto com parceiros a fim de oferecer todos os serviços de nuvem da Microsoft, incluindo O365, EMS e o Microsoft Azure. Ele permite que nossos parceiros controlem a relação de ponta a ponta com clientes e se tornem o ponto de contato principal do relacionamento. Por meio do CSP, um parceiro pode implantar as assinaturas do Azure para os clientes e combinar essas assinaturas com suas próprias ofertas personalizadas de valor agregado.
 
-No caso do Azure Site Recovery, os parceiros podem gerenciar a solução completa de Recuperação de desastres para os clientes diretamente do CSP, ou usar o CSP para configurar os ambientes do Azure Site Recovery e permitir que os clientes gerenciem suas próprias necessidades de recuperação de desastres por meio do autoatendimento. Nos dois cenários, o parceiro é o elo entre o Azure Site Recovery e os clientes finais, e o parceiro realiza o relacionamento com os clientes e os cobra pelo uso do Azure Site Recovery.
+Com o Azure Site Recovery, os parceiros podem gerenciar a solução completa de Recuperação de desastres para os clientes diretamente do CSP, ou usar o CSP para configurar os ambientes do Azure Site Recovery e permitir que os clientes gerenciem suas próprias necessidades de recuperação de desastres por meio do autoatendimento. Nos dois cenários, o parceiro é o elo entre o Azure Site Recovery e os clientes finais, e o parceiro realiza o relacionamento com os clientes e os cobra pelo uso do Azure Site Recovery.
 
 ## <a name="creating-and-managing-tenant-accounts"></a>Criar e gerenciar contas de locatário
 
@@ -153,7 +153,7 @@ Os pré-requisitos de VM são iguais aos descritos na [documentação](site-reco
 
 ### <a name="step-2-access-tenant-account"></a>Etapa 2: Acessar a conta de locatário
 
-1.  Você pode acessar a assinatura do locatário na página 'Clientes' em seu Painel, conforme descrito na etapa 1. Navegue até aqui e clique no nome da conta de locatário que você acabou de criar.
+1.  Você pode acessar a assinatura do locatário na página 'Clientes' em seu Painel, conforme descrito na etapa 1. Navegue até aqui e clique no nome da conta de locatário criada.
 2.  Isso abrirá a seção Assinaturas da conta de locatário e, a partir daqui, você pode monitorar as assinaturas existentes da conta e adicionar outras assinaturas conforme o necessário. Para gerenciar as operações de recuperação de desastres do locatário, selecione a opção Todos os recursos (Portal do Azure), no lado direito da página.
 
     ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
@@ -171,7 +171,7 @@ Agora você pode executar todas as operações do Site Recovery do locatário po
 
     ![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
-### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Etapa 4: Registrar a infraestrutura de recuperação de site no cofre dos Serviços de Recuperação
+### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Etapa 4: Registrar a infraestrutura do Site Recovery no cofre dos Serviços de Recuperação
 1.  Abra o Portal do Azure e, no cofre criado anteriormente, registre o servidor do vCenter no CS registrado na etapa anterior. Use a conta de acesso do vCenter para essa finalidade.
 2.  Conclua o processo de 'Preparação da infraestrutura' para o Site Recovery de acordo com o processo normal.
 3.  Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário estão visíveis na folha de seleção da VM, sob a opção Replicar.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b34362203984a368bb74395e3e9f466b086b7521
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5d887e20a03e160df70ac4f3484da1ada4b592d2
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
-Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o Azure Data Factory (ADF).
+# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
+Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o ADF (Azure Data Factory).
 
 Para conferir uma tabela que resume diversas opções de movimentação de dados para um Banco de Dados SQL do Azure, consulte [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
@@ -42,7 +42,7 @@ O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples
 ## <a name="scenario"></a>O cenário
 Criamos um pipeline do ADF que compõe duas atividades de migração de dados. Juntas, elas movem dados diariamente entre um banco de dados do SQL local e um banco de dados SQL do Azure na nuvem. As duas atividades são:
 
-* copiar os dados de um banco de dados de SQL Server local para uma conta de armazenamento de blob do Azure
+* copiar os dados de um banco de dados de SQL Server local para uma conta de Armazenamento de Blobs do Azure
 * copiar dados da conta de armazenamento de blob do Azure para um banco de dados do SQL Azure.
 
 > [!NOTE]
@@ -66,13 +66,13 @@ Este tutorial presume que você tenha:
 ## <a name="upload-data"></a> Carregar os dados para o SQL Server local
 Usamos o [conjunto de dados de Táxi de NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados de Táxi de NYC está disponível, como observado nessa postagem, nos [Dados de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/)do armazenamento de blobs do Azure. Os dados têm dois arquivos, o arquivo trip_data.csv que contém detalhes da viagem e o arquivo trip_far.csv que contém detalhes das tarifas pagas para cada viagem. Um exemplo e uma descrição desses arquivos são fornecidos na [Descrição do Conjunto de Dados de Viagens de Táxi de NYC](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
-Você pode adaptar o procedimento fornecido aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de Táxi de NYC em seu banco de dados do SQL Server local, execute o procedimento descrito em [Importação de dados em massa para o Banco de Dados do SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Essas instruções são para um SQL Server em uma máquina Virtual do Azure, mas o procedimento para carregar o SQL Server no local é o mesmo.
+Você pode adaptar o procedimento fornecido aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de Táxi de NYC em seu banco de dados do SQL Server local, siga o procedimento descrito em [Importação de dados em massa para o Banco de Dados do SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Essas instruções são para um SQL Server em uma máquina virtual do Azure, mas o procedimento para carregar o SQL Server local é o mesmo.
 
 ## <a name="create-adf"></a> Criar uma Data Factory do Azure
 As instruções para criar um novo Azure Data Factory e um grupo de recursos no [Portal do Azure](https://portal.azure.com/) são fornecidas em [Create an Azure Data Factory (Criar um Azure Data Factory)](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Nomeie a nova instância ADF como *adfdsp* e nomeie o grupo de recursos criado como *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar e configurar o Gateway de gerenciamento de dados
-Para habilitar os pipelines em um Azure Data Factory para trabalhar com um SQL Server local, você precisa adicioná-los como um Serviço vinculado à fábrica de dados. Para criar um Serviço vinculado para o SQL Server local, você precisa:
+Para habilitar os pipelines em um Azure Data Factory para trabalhar com um SQL Server local, você precisa adicioná-los como um Serviço vinculado à fábrica de dados. Para criar um Serviço Vinculado para o SQL Server local, você precisa:
 
 * baixar e instalar o Gateway de Gerenciamento de Dados Microsoft no computador local.
 * configurar o serviço vinculado para a fonte de dados local para usar o gateway.
@@ -246,12 +246,12 @@ Usando as definições de tabela fornecidas anteriormente, a definição de pipe
             "name": "AMLDSProcessPipeline",
             "properties":
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premise SQL to Azure blob",
+                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
                  "activities":
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premise SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server to blob",     
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],

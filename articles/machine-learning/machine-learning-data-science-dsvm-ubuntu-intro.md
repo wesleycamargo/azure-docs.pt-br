@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -153,7 +153,7 @@ Para saber mais, confira a seção sobre CNTK do [GitHub](https://github.com/Mic
 Caffe é uma estrutura de aprendizado aprofundado da Berkeley Vision and Learning Center. Ele está disponível em /opt/caffe. Exemplos podem ser encontrados em /opt/caffe/examples.
 
 #### <a name="h2o"></a>H2O
-H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. A interface de usuário da Web do Flow pode ser iniciada com "java -jar /dsvm/tools/h2o/current/h2o.jar". Navegue até http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
+H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. Para iniciar o H2O na linha de comandon execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; Existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode configurar. A interface de usuário da Web do Flow pode ser acessada navegando para http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="keras"></a>Keras
 Keras é uma API de rede neural de alto nível em Python que é capaz de ser executada em cima de Tensorflow ou Theano. Ela está disponível nos ambientes raiz e py35 do Python. 

@@ -3,7 +3,7 @@ title: "Backups do Banco de Dados SQL do Azure – automático, com redundância
 description: "O Banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica de acesso de leitura do Azure para redundância geográfica."
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
-ms.lasthandoff: 04/15/2017
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +42,6 @@ Use esses backups para:
 
 > [!NOTE]
 > No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
-> 
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quanto armazenamento de backup é incluído sem custo adicional?
@@ -69,7 +69,6 @@ Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da 
 > [!IMPORTANT]
 > Se você excluir o SQL Server do Azure que hospeda Bancos de Dados SQL, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
 > 
-> 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Como estender o período de retenção de backup?
 Caso seu aplicativo precise que os backups estejam disponíveis por um período mais longo, é possível estender o período de retenção interno, configurando a política de retenção de backup de longo prazo em bancos de dados individuais (política LTR). Isso permite que você estenda o período de retenção interno de 35 dias para até 10 anos. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
@@ -79,6 +78,10 @@ Depois de adicionar a política LTR a um banco de dados usando o portal do Azure
 > [!TIP]
 > Para um guia de instruções, consulte [Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure](sql-database-long-term-backup-retention-configure.md)
 >
+
+## <a name="are-backups-encrypted"></a>Os backups são criptografados?
+
+Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups também são criptografados. Todos os novos bancos de dados SQL do Azure são configurados com TDE habilitada por padrão. Para obter mais informações sobre a TDE, confira [Transparent Data Encryption com o Banco de Dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
 ## <a name="next-steps"></a>Próximas etapas
 

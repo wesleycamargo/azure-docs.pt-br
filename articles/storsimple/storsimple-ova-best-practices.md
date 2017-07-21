@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 06/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -163,7 +164,7 @@ Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamen
 * Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs.
 
 #### <a name="volumeshare-type"></a>Tipo de volume/compartilhamento
-O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no uso: fixados localmente e em camadas. Os volumes/compartilhamentos localmente fixados são fortemente provisionados, enquanto os volumes/compartilhamentos em camadas têm provisionamento dinâmico. 
+O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no uso: fixados localmente e em camadas. Os volumes/compartilhamentos localmente fixados são fortemente provisionados, enquanto os volumes/compartilhamentos em camadas têm provisionamento dinâmico. Não é possível converter um volume/compartilhamento localmente afixado em camadas ou *vice-versa* depois de criado.
 
 É recomendável que você implemente as seguintes práticas recomendadas ao configurar volumes/compartilhamentos do StorSimple:
 

@@ -1,6 +1,6 @@
 ---
 title: "Saiba mais sobre as opções de Suporte do Azure Service Fabric | Microsoft Docs"
-description: "Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte."
+description: "Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte"
 services: service-fabric
 documentationcenter: .net
 author: pkc
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -78,13 +78,13 @@ Consulte os documentos a seguir para obter detalhes sobre como manter o cluster 
  
 Veja a seguir a lista das versões do Service Fabric com suporte e as datas de fim de suporte.
 
-| **Cluster de tempo de execução do Service Fabric** | **Data de fim do suporte** |
-| --- | --- |
-| Todas as versões de cluster anteriores a 5.3.121 |20 de janeiro de 2017 |
-| 5.3.* |24 de fevereiro de 2017 |
-| 5.4.* |10 de maio de 2017     |
-| 5.5.* |10 de julho de 2017    |
-| 5.6.* |Versão atual e, portanto, sem data de término
+| **Cluster de tempo de execução do Service Fabric** | **Compatível com SDK/versões do pacote NuGet** | **Data de fim do suporte** |
+| --- | --- | --- |
+| Todas as versões de cluster anteriores a 5.3.121 |Menor ou igual à versão 2.3 |20 de janeiro de 2017 |
+| 5.3.* |Menor ou igual à versão 2.3 |24 de fevereiro de 2017 |
+| 5.4.* |Menor ou igual à versão 2.4 |10 de maio de 2017     |
+| 5.5.* |Menor ou igual à versão 2.5 |10 de agosto de 2017    |
+| 5.6.* |Menor ou igual à versão 2.6 |Versão atual e, portanto, sem data de término
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões prévias do Service Fabric – sem suporte para uso em produção.

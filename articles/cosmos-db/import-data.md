@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 7b3bf2ebb02b748801f418066e9f16cb0197cde5
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 23a4a82dbdb611f4da90562af936fca28da9b24d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>Como importar dados para o Azure Cosmos DB da API do DocumentDB?
 
-Este tutorial fornece instruções sobre como usar a ferramenta de Migração de Dados do Azure Cosmos DB, que pode importar dados de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, Armazenamento de tabelas do Azure, Amazon DynamoDB e coleções do DocumentDB para o Azure Cosmos DB. A ferramenta de Migração de Dados também pode ser usada ao migrar de uma coleção de partição única para uma coleção de várias partições na API do DocumentDB.
+Este tutorial fornece instruções sobre como usar a ferramenta BD Cosmos do Azure: Migração de Dados da API DocumentDB, que pode importar dados de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, Armazenamento de tabelas do Azure, Amazon DynamoDB e coleções da API DocumentDB do BD Cosmos do Azure para usar com o BD Cosmos do Azure e a API DocumentDB. A ferramenta de Migração de Dados também pode ser usada ao migrar de uma coleção de partição única para uma coleção de várias partições na API do DocumentDB.
 
 A ferramenta de Migração de Dados só funciona durante a importação de dados para o Azure Cosmos DB para uso com a API do DocumentDB. No momento, não há suporte para a importação de dados para uso com a API de Tabela ou a API do Graph. 
 
@@ -112,7 +112,7 @@ Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
 
 A opção de importador de origem do MongoDB permite importar de uma coleção do MongoDB individual e opcionalmente filtrar documentos usando uma consulta e/ou modificar a estrutura do documento usando uma projeção.  
 
-![Captura de tela das opções de origem do MongoDB — banco de dados de documentos vs. mongodb](./media/import-data/mongodbsource.png)
+![Captura de tela das opções de fonte do MongoDB](./media/import-data/mongodbsource.png)
 
 A cadeia de conexão está no formato padrão do MongoDB:
 
@@ -142,7 +142,7 @@ Aqui estão alguns exemplos de linha de comando para importar por meio do MongoD
 
 A opção do importador de origem de arquivo JSON de exportação do MongoDB permite que você importe um ou mais arquivos JSON produzidos por meio do utilitário mongoexport.  
 
-![Captura de tela das opções de origem de exportação do MongoDB — banco de dados de documentos vs. mongodb](./media/import-data/mongodbexportsource.png)
+![Captura de tela das opções de fonte de exportação do MongoDB](./media/import-data/mongodbexportsource.png)
 
 Ao adicionar pastas que contêm arquivos JSON de exportação do MongoDB, você tem a opção de pesquisar recursivamente arquivos em subpastas.
 
@@ -253,7 +253,7 @@ O formato da cadeia de conexão do Amazon DynamoDB é:
 
 Aqui está um exemplo de linha de comando para importar do Amazon DynamoDB:
 
-    dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
+    dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
 ## <a id="BlobImport"></a>Para importar arquivos do Armazenamento de blobs do Azure
 O arquivo JSON, arquivo de exportação do MongoDB e opções de importador de origem do arquivo CSV permitem que você importe um ou mais arquivos de Armazenamento de Blob do Azure. Depois de especificar uma URL do contêiner de Blob e a chave de conta, basta fornece uma expressão regular para selecionar os arquivos a serem importados.
@@ -264,7 +264,7 @@ Eis um exemplo de linha de comando para importar arquivos JSON do Armazenamento 
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Para importar do DocumentDB
+## <a id="DocumentDBSource"></a>Para importar de uma coleção da API DocumentDB do BC Cosmos do Azure
 A opção de importador de origem do Azure Cosmos DB permite importar dados de uma ou mais coleções do Azure Cosmos DB e, opcionalmente, filtrar documentos usando uma consulta.  
 
 ![Captura de tela das opções de fonte do Azure Cosmos DB](./media/import-data/documentdbsource.png)
@@ -315,7 +315,7 @@ Estas são algumas amostras de linha de comando para importar do Azure Cosmos DB
     dt.exe /s:CosmosDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 
 > [!TIP]
-> A ferramenta de Importação de Dados do Azure Cosmos DB também dá suporte à importação de dados do [Emulador do Azure Cosmos DB](local-emulator.md). Ao importar dados de um emulador local, defina o ponto de extremidade como https://localhost:<port>. 
+> A ferramenta de Importação de Dados do Azure Cosmos DB também dá suporte à importação de dados do [Emulador do Azure Cosmos DB](local-emulator.md). Ao importar dados de um emulador local, defina o ponto de extremidade como `https://localhost:<port>`. 
 > 
 > 
 
@@ -339,7 +339,7 @@ Aqui está um exemplo de linha de comando para importar do HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Para importar para o DocumentDB (Importação em Massa)
+## <a id="DocumentDBBulkTarget"></a>Para importar para a API DocumentDB (importação em massa)
 O importador em Massa do Azure Cosmos DB permite importar de qualquer uma das opções de origem disponíveis, usando um procedimento armazenado do Azure Cosmos DB para maior eficiência. A ferramenta dá suporte à importação para uma coleção de partição única do Azure Cosmos DB, bem como à importação fragmentada, por meio da qual os dados são particionados em várias coleções de partição única do Azure Cosmos DB. Para obter mais informações sobre o particionamento de dados, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md). A ferramenta vai criar, executar e, em seguida, excluir o procedimento armazenado da(s) coleção(ões) de destino.  
 
 ![Captura de tela das opções em massa do Azure Cosmos DB](./media/import-data/documentdbbulk.png)
@@ -403,7 +403,7 @@ O importador em Massa do Azure Cosmos DB tem as seguintes opções avançadas ad
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Para importar para o DocumentDB (Importação de Registro Sequencial)
+## <a id="DocumentDBSeqTarget"></a>Para importar para a API DocumentDB (Importação de Registro Sequencial)
 O importador de registro sequencial do Azure Cosmos DB permite que você importe de qualquer uma das opções de origem disponíveis com base em cada registro. Você pode escolher esta opção se estiver importando para uma coleção existente que já atingiu a cota de procedimentos armazenados. A ferramenta dá suporte à importação para uma coleção (com partição única e com várias partições) do Azure Cosmos DB, bem como à importação fragmentada, por meio da qual os dados são particionados em várias coleções de partição única e/ou com várias partições do Azure Cosmos DB. Para obter mais informações sobre o particionamento de dados, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
 
 ![Captura de tela das opções de importação de registro sequencial do Azure Cosmos DB](./media/import-data/documentdbsequential.png)
@@ -414,7 +414,7 @@ O formato da cadeia de conexão do Azure Cosmos DB é:
 
 A cadeia de conexão da conta do Azure Cosmos DB pode ser recuperada na folha Chaves do portal do Azure, conforme descrito em [Como gerenciar uma conta do Azure Cosmos DB](manage-account.md); no entanto, o nome do banco de dados deve ser acrescentado à cadeia de conexão no seguinte formato:
 
-    Database=<CosmosDB Database>;
+    Database=<Azure Cosmos DB Database>;
 
 > [!NOTE]
 > Use o comando Verify para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de conexão pode ser acessada.

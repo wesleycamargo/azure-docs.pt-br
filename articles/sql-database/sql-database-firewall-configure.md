@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 744ad6cfc15453e1db7a012eebe09ceba226fde9
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -69,11 +69,16 @@ Para permitir que os aplicativos do Azure se conectem ao seu SQL Server do Azure
 
 ## <a name="creating-and-managing-firewall-rules"></a>Criar e gerenciar regras de firewall
 A primeira configuração de firewall no nível do servidor pode ser criada usando o [Portal do Azure](https://portal.azure.com/) ou com programação usando [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [CLI do Azure](/cli/azure/sql/server/firewall-rule#create) ou a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). As regras de firewall no nível de servidor subsequentes podem ser criadas e gerenciados usando esses métodos e por meio de Transact-SQL. 
+
 > [!IMPORTANT]
 > As regras de firewall no nível de banco de dados só podem ser criadas e gerenciadas usando com o Transact-SQL. 
 >
 
 Para melhorar o desempenho, as regras de firewall de nível de servidor são temporariamente armazenadas em cache no nível do banco de dados. Para atualizar o cache, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
+
+> [!TIP]
+> Você pode usar a [Auditoria de Banco de Dados SQL](sql-database-auditing.md) para auditar alterações de firewall no nível do servidor e no nível de banco de dados.
+>
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -149,7 +154,7 @@ O exemplo a seguir define uma regra de firewall no nível de servidor usando o P
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.1"
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
 
 > [!TIP]
@@ -169,7 +174,7 @@ O exemplo a seguir define uma regra de firewall no nível de servidor usando a C
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
+    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]

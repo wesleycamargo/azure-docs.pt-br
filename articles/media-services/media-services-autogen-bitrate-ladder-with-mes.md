@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 06/06/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 244413be8b094605883445bb3cbf675b538b704e
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/10/2017
 Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p em 3Mbps, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3Mbps.
 
 Para usar esse recurso, você precisa especificar a predefinição do **Streaming Adaptável** ao criar uma tarefa de codificação. Ao usar a predefinição do **Streaming Adaptável**, o codificador MES protegerá, de forma inteligente, uma escada de taxa de bits. No entanto, não será possível controlar os custos de codificação, já que o serviço determina quantas camadas usar e em qual resolução. Você pode ver exemplos das camadas de saída produzidas por MES como resultado de codificação com a predefinição do **Streaming Adaptável** no [final](#output) deste tópico.
+
+>[!NOTE]
+> Essa predefinição deve ser usada somente quando a intenção é produzir um Ativo de saída de fluxo. Em particular, o Ativo de saída conterá arquivos MP4 onde áudio e vídeo não são intercalados. Se você precisa que a saída tenha arquivos MP4 que têm vídeo e áudio intercalados (por exemplo, para uso como um arquivo de download progressivo), use uma das predefinições listada [nesta seção](media-services-mes-presets-overview.md).
 
 ## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 

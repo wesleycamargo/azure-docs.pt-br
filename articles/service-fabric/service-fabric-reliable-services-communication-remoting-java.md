@@ -11,12 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 11e300b3b1d0433bd4790332593ada2d3eede883
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -86,6 +87,23 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ```
 
 A estrutura remota propaga exceções lançadas no serviço para o cliente. A lógica de manipulação de exceção no cliente usando `ServiceProxyBase` pode manipular diretamente as exceções que o serviço lança.
+
+## <a name="service-proxy-lifetime"></a>Tempo de vida de Proxy do Serviço
+A criação do ServiceProxy é uma operação simples, logo, o usuário pode criar quantos precisar. O Proxy do Serviço pode ser reutilizado desde que o usuário precise. O usuário pode reutilizar o mesmo proxy em caso de exceção. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao invocar a API, temos uma verificação interna para saber se o cliente de comunicação usado é válido. Com base nesse resultado, recriamos o cliente da comunicação. Portanto, o usuário não precisa recriar serviceproxy em caso de exceção.
+
+### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
+[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) é um alocador que cria um proxy para interfaces remotas diferentes. Se você usar a API `ServiceProxyBase.create` para criar um proxy, o framework cria um `FabricServiceProxyFactory`.
+É útil para criá-lo manualmente quando você precisa substituir propriedades [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory).
+Alocador é uma operação cara. `FabricServiceProxyFactory` mantém o cache dos clientes de comunicação.
+A prática recomendada é armazenar em cache `FabricServiceProxyFactory` por mais tempo possível.
+
+## <a name="remoting-exception-handling"></a>Tratamento de exceções remotas
+Todas as exceções remotas lançadas pela API de serviço são reenviadas para o cliente como RuntimeException ou FabricException.
+
+ServiceProxy trata todas as exceções de failover da partição de serviço para a qual foi criado. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e repetirá a chamada com o ponto de extremidade correto. O número de tentativas da exceção de failover é indefinido.
+No caso de TransientExceptions, ele repete apenas a chamada.
+
+Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) O usuário pode configurar esses valores passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

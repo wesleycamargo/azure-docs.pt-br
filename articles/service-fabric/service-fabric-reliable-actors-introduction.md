@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -144,15 +145,9 @@ O tempo de execução dos Atores permite reentrância por padrão. Isso signific
 O tempo de execução dos Atores fornece essas garantias de simultaneidade em situações em que ele controla a invocação desses métodos. Por exemplo, ele fornece essas garantias para as invocações de método que são feitas em resposta à solicitação de cliente, bem como para retornos de chamada de temporizador e lembrete. No entanto, se o código de ator envolver diretamente esses métodos fora dos mecanismos fornecidos pelo tempo de execução dos Atores, o tempo de execução não poderá fornecer nenhuma garantia de simultaneidade. Por exemplo, se o método for invocado no contexto de alguma tarefa que não está associada à tarefa retornada pelos métodos de ator, o tempo de execução não poderá fornecer garantias de simultaneidade. Se o método for chamado de um thread criado pelo ator por conta própria, o tempo de execução também não poderá fornecer garantias de simultaneidade. Portanto, para executar operações em segundo plano, os atores devem usar [temporizadores e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md) que respeitam a simultaneidade baseada em turno.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução aos Reliable Actors](service-fabric-reliable-actors-get-started.md)
-* [Como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md)
-* [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
-* [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
-* [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
-* [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
-* [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
+* Comece criando seu primeiro serviço de Reliable Actors:
+   * [Introdução aos Reliable Actors no .NET](service-fabric-reliable-actors-get-started.md)
+   * [Introdução aos Reliable Actors em Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
