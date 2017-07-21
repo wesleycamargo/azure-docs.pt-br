@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -36,7 +37,7 @@ Este artigo não abordará todas as APIs expostas no Azure, mas sim usará algum
 
 ## <a name="authentication"></a>Autenticação
 A autenticação para o Resource Manager é tratada pelo Azure Active Directory (AD). Para se conectar a uma API, você primeiro precisa se autenticar com o Azure AD para receber um token de autenticação que poderá ser passado em cada solicitação. Como estamos descrevendo uma chamada simples diretamente para as APIs REST, presumimos que você não deseja autenticar quando um nome de usuário e senha forem solicitados. Também supomos que você não está usando mecanismos de autenticação de dois fatores. Portanto, criaremos o que chamamos de Aplicativo do Azure AD e uma entidade de serviço que será usada para fazer logon. Mas lembre-se de que o Azure AD dá suporte a vários procedimentos de autenticação e todos eles podem ser usados para recuperar esse token de autenticação necessário para solicitações subsequentes de API.
-Siga [Criar Aplicativo do Azure AD e Entidade de Serviço](resource-group-create-service-principal-portal.md) para obter instruções detalhadas.
+Siga [Criar aplicativo do Azure AD e Entidade de Serviço](resource-group-create-service-principal-portal.md) para obter etapas detalhadas.
 
 ### <a name="generating-an-access-token"></a>Gerando um token de acesso
 A autenticação no Azure AD é feita chamando o Azure AD localizado em login.microsoftonline.com. Para autenticar, você precisa ter as seguintes informações:

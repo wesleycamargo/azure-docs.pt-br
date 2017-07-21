@@ -21,8 +21,6 @@
 #### [Armazenamento em fila e serviços conectados](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Armazenamento de tabelas e serviços conectados](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurar pacotes para compilação e implantação contínuas
-#### [Visual Studio Team Services e Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS e o Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurar regras de tráfego para uma função](cloud-services-enable-communication-role-instances.md)
 ### [Manipular eventos de ciclo de vida do Serviço de Nuvem](cloud-services-role-lifecycle-dotnet.md)
