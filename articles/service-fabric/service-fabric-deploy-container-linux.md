@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
+ms.date: 6/29/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9dcec753e5f999a1bac07276373c0c25f89ec58d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -57,44 +57,50 @@ Execute os seguintes comandos para instalar o docker em sua caixa de desenvolvim
 ```
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-1. Em um terminal, digite `yo azuresfguest`.
-2. Para o framework, escolha **Contêiner**.
-3. Dê um nome para o seu aplicativo, por exemplo, SimpleContainerApp
-4. Forneça a URL da imagem do contêiner de um repositório DockerHub. O parâmetro da imagem assume a forma [repositório]/[nome da imagem]
+1. Em um terminal, digite `yo azuresfcontainer`.
+2. Dê um nome para o seu aplicativo, por exemplo, mycontainerap
+3. Forneça a URL da imagem do contêiner de um repositório DockerHub. O parâmetro da imagem assume a forma [repositório]/[nome da imagem]
+4. Se a imagem não tiver um ponto de entrada de carga de trabalho definido, em seguida, você precisa especificar explicitamente os comandos de entrada com um conjunto delimitado por vírgulas de comandos para serem executados dentro do contêiner, que manterá o contêiner em execução após a inicialização.
 
 ![Gerador de Yeoman do Service Fabric para contêineres][sf-yeoman]
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
+
+### <a name="using-xplat-cli"></a>Usando a CLI XPlat
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Azure.
 
 1. Conectar-se ao cluster local do Service Fabric.
 
-```bash
+    ```bash
     azure servicefabric cluster connect
-```
+    ```
 
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
 
-```bash
+    ```bash
     ./install.sh
-```
+    ```
 
 3. Abra um navegador e navegue até o Service Fabric Explorer em http://localhost:19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X).
 4. Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 5. Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo e cancelar o registro do tipo de aplicativo.
 
-```bash
+    ```bash
     ./uninstall.sh
-```
+    ```
+
+### <a name="using-azure-cli-20"></a>Usando a CLI do Azure 2.0
+
+Confira o documento de referência sobre como gerenciar um [ciclo de vida do aplicativo usando a CLI do Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
 Para obter um aplicativo de exemplo, [confira os códigos de exemplo de contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
-Para adicionar outro serviço de contêiner a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+Para adicionar outro serviço de contêiner a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Execute o `yo azuresfguest:AddService`
+2. Execute o `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
@@ -124,6 +130,9 @@ No manifesto do serviço, adicione um `ContainerHost` do ponto de entrada. Em se
 
 Você pode fornecer comandos de entrada especificando o elemento opcional `Commands` com uma vírgula delimitada por conjunto de comandos a serem executados dentro do contêiner.
 
+> [!NOTE]
+> Se a imagem não tiver um ponto de entrada de carga de trabalho definido, em seguida, você precisa especificar explicitamente os comandos de entrada dentro do elemento `Commands` com um conjunto delimitado por vírgulas de comandos para serem executados dentro do contêiner, que manterá o contêiner em execução após a inicialização.
+
 ## <a name="understand-resource-governance"></a>Compreender a governança de recursos
 A governança de recursos é uma funcionalidade do contêiner e restringe os recursos que o contêiner pode usar no host. O `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Limites de recursos podem ser definidos para os seguintes recursos:
 
@@ -135,8 +144,8 @@ A governança de recursos é uma funcionalidade do contêiner e restringe os rec
 
 > [!NOTE]
 > Em uma versão futura, será incluído suporte para especificar limites de E/S de um bloco específico, como IOPs, leitura/gravação de BPS e outros.
-> 
-> 
+>
+>
 
 ```xml
     <ServiceManifestImport>
@@ -209,7 +218,7 @@ Se você especificar um ponto de extremidade, usando a marca `Endpoint` no manif
     </ServiceManifestImport>
 ```
 
-Ao se registrar com o serviço de Nomenclatura, você poderá fazer a comunicação de contêiner para contêiner facilmente no código dentro do contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). A comunicação é realizada fornecendo a porta de escuta de proxy reverso http e o nome dos serviços com os quais você deseja se comunicar como variáveis de ambiente. Para obter mais informações, confira a próxima seção. 
+Ao se registrar com o serviço de Nomenclatura, você poderá fazer a comunicação de contêiner para contêiner facilmente no código dentro do contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). A comunicação é realizada fornecendo a porta de escuta de proxy reverso http e o nome dos serviços com os quais você deseja se comunicar como variáveis de ambiente. Para obter mais informações, confira a próxima seção.
 
 ## <a name="configure-and-set-environment-variables"></a>Configurar e definir as variáveis de ambiente
 Variáveis de ambiente podem ser especificadas para cada pacote de código no manifesto de serviço, tanto para serviços implantados em contêineres quanto para serviços implantados como processos/executáveis convidados. Esses valores de variável de ambiente podem ser substituídos especialmente no manifesto do aplicativo ou especificados durante a implantação como parâmetros do aplicativo.
@@ -317,4 +326,9 @@ Agora que você implantou um serviço em contêiner, saiba como gerenciar seu ci
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## <a name="related-articles"></a>Artigos relacionados
+
+* [Introdução ao Service Fabric e à CLI 2.0 do Azure](service-fabric-azure-cli-2-0.md)
+* [Introdução à CLI XPlat do Service Fabric](service-fabric-azure-cli.md)
 

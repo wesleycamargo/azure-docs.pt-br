@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4ed26f1a30501d9ce67845795606f6d8e77ac53f
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Criar um aplicativo sem servidor no Visual Studio com os Aplicativos Lógicos e o Functions
@@ -34,7 +34,7 @@ Aqui estão os pré-requisitos necessários para criar um aplicativo sem servido
 * [Ferramentas de Aplicativos Lógicos para Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [SDK mais recente do Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou superior)
 * [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
-* [CLI do Azure Functions](https://www.npmjs.com/package/azure-functions-cli) para depurar Funções localmente
+* [Ferramentas Básicas do Azure Functions](https://www.npmjs.com/package/azure-functions-core-tools) para depurar Funções localmente
 * Acesso à Web ao usar o designer de Aplicativo Lógico incorporado
 
 ## <a name="getting-started-with-a-deployment-template"></a>Introdução a um modelo de implantação
@@ -94,3 +94,4 @@ Se usar JavaScript, Python, F #, Bash, Lote ou PowerShell, siga as [etapas na CL
 <!-- Image references -->
 [1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
 [2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
+

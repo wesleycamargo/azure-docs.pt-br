@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para verificar se o endereço IP *10.0.0.7* está disponível em uma VNet *TestV
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes de [Criar uma rede Virtual](virtual-networks-create-vnet-classic-portal.md) para criar uma VNet denominada *TestVnet* e verificar se ela usa o espaço de endereço *10.0.0.0/8*.
+> Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes em [Criar uma rede virtual (clássica)](virtual-networks-create-vnet-classic-pportal.md) para criar uma rede virtual denominada *TestVnet* e verificar se ela usa o espaço de endereço *10.0.0.0/8*.
 > 
 > 
 

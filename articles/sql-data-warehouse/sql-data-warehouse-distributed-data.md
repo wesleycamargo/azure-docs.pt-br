@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -65,12 +65,10 @@ Uma distribuição é a unidade básica de armazenamento de dados distribuídos 
 ### <a name="can-i-view-the-compute-nodes"></a>Posso exibir os nós de Computação?
 Cada nó de computação tem uma ID de nó e está visível nas exibições do sistema referentes ao SQL Data Warehouse e ao Parallel Data Warehouse.  Você pode ver o nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista das exibições de sistema, consulte [Exibição do sistema MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="Replicated"></a>Tabelas replicadas para o Parallel Data Warehouse
-Aplica-se a: Parallel Data Warehouse
+## <a name="Replicated"></a>Tabelas Replicadas
+Uma tabela replicada tem uma cópia completa da tabela armazenada em cada nó de Computação. Replicar uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de uma junção ou agregação. Tabelas replicadas só são viáveis com tabelas pequenas devido ao armazenamento extra necessário para armazenar a tabela completa em cada nó de computação.  
 
-Além de usar tabelas distribuídas, o Parallel Data Warehouse oferece uma opção para replicar tabelas. Um *tabela replicada* é uma tabela armazenada em sua totalidade em cada nó de Computação. Replicar uma tabela elimina a necessidade de transferir suas linhas de tabela entre nós de Computação antes de usar a tabela em uma junção ou agregação. Tabelas replicadas só são viáveis com tabelas pequenas devido ao armazenamento extra necessário para armazenar a tabela completa em cada nó de computação.  
-
-O diagrama a seguir mostra uma tabela replicada armazenada em cada nó de Computação. Tabela replicada é armazenada em todos os discos atribuídos ao nó de Computação. Essa estratégia de disco é implementada usando grupos de arquivos do SQL Server.  
+O diagrama a seguir mostra uma tabela replicada armazenada em cada nó de Computação. Para o SQL Data Warehouse, a tabela replicada é mantida por uma tabela de round-robin e copiada totalmente para o primeiro banco de dados de distribuição em cada nó de Computação. Para o Data Warehouse Paralelo, a tabela replicada é armazenada em todos os discos atribuídos ao nó de Computação.  Essa estratégia de disco é implementada usando grupos de arquivos do SQL Server.  
 
 ![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 

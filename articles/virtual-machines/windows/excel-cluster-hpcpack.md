@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -61,7 +61,7 @@ Use um modelo de início rápido do Azure para implantar de maneira rápida um c
    
    a. Na página **Parâmetros** , insira ou modifique os valores para os parâmetros de modelo. Clique no ícone ao lado de cada configuração para obter informações de Ajuda. Os valores de exemplo são mostrados na tela a seguir. Este exemplo cria um cluster denominado *hpc01* no domínio *hpc.local*, que consiste em um nó do cabeçalho e dois nós de computação. Os nós de computação são criados com base em uma imagem de VM do HPC Pack que inclui o Microsoft Excel.
    
-   ![Inserir parâmetros][parameters]
+   ![Inserir parâmetros][parameters-new-portal]
    
    > [!NOTE]
    > A VM do nó de cabeçalho é criada automaticamente com base na [imagem mais recente do Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do HPC Pack 2012 R2 no Windows Server 2012 R2. Atualmente, a imagem se baseia no HPC Pack 2012 R2 Update 3.
@@ -79,9 +79,9 @@ Use um modelo de início rápido do Azure para implantar de maneira rápida um c
    e. Na página **Termos legais** , analise os termos. Se concordar, clique em **Comprar**. Quando tiver terminado de definir os valores para o modelo, clique em **Criar**.
 4. Quando a implantação for concluída (normalmente leva cerca de 30 minutos), exporte o arquivo de certificado de cluster do nó principal do cluster. Em uma etapa posterior, este certificado público será importado no computador cliente para fornecer a autenticação no servidor para a associação segura de HTTP.
    
-   a. Conecte-se ao nó principal pela Área de Trabalho Remota no portal do Azure.
+   a. No portal do Azure, vá para o painel, selecione o nó principal e, em seguida, clique em **Conectar** na parte superior da página para se conectar usando a Área de Trabalho Remota.
    
-    ![Conectar-se ao nó principal][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. Use os procedimentos padrão no Gerenciador de Certificados para exportar o certificado de nó principal (localizado em Cert:\LocalMachine\My) sem a chave privada. Neste exemplo, exporte *CN = hpc01.eastus.cloudapp.azure.com*.
    
@@ -333,12 +333,12 @@ Para usar a associação de HTTP sem uma fila de armazenamento do Azure, defina 
 ```
 
 ### <a name="use-nettcp-binding"></a>Usar associação NetTcp
-Para usar a associação NetTcp, a configuração é semelhante a conectar-se a um cluster local. Você precisa abrir alguns pontos de extremidade na VM do nó de cabeçalho. Se você usou o script de implantação de IaaS do HPC Pack para criar o cluster, por exemplo, defina os pontos de extremidade no portal clássico do Azure, conforme descrito a seguir.
+Para usar a associação NetTcp, a configuração é semelhante a conectar-se a um cluster local. Você precisa abrir alguns pontos de extremidade na VM do nó de cabeçalho. Se você usou o script de implantação de IaaS do HPC Pack para criar o cluster, por exemplo, defina os pontos de extremidade no portal do Azure, conforme descrito a seguir.
 
 1. Pare a VM.
 2. Adicione as portas TCP 9090, 9087, 9091 e 9094 para a Sessão, Agente, trabalho do Agente e Serviços de dados, respectivamente
    
-    ![Configurar pontos de extremidade][endpoint]
+    ![Configurar pontos de extremidade][endpoint-new-portal]
 3. Inicie a VM.
 
 O aplicativo cliente SOA não requer alterações, exceto do nome principal para o nome completo do cluster IaaS.
@@ -352,6 +352,7 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -360,5 +361,6 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

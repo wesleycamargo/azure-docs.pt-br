@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9d22438c6ca14ddb8843f4b72cae40e3b622e849
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -228,10 +229,7 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 Como mostrado acima, o método `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) aceita uma interface `IActorReminder`(C#) ou `ActorReminder`(Java). A classe base de ator dá suporte a um método `GetReminder`(C#) ou `getReminder`(Java), que pode ser usado para recuperar a interface `IActorReminder`(C#) ou `ActorReminder`(Java) passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder`(C#) ou `ActorReminder`(Java) que foi retornada com a chamada do método `RegisterReminder`(C#) ou `registerReminder`(Java).
 
 ## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre reentrada e eventos de Ator Confiável:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
-* [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

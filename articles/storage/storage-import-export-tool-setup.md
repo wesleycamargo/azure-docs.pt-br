@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 06/29/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2aebded82fcf67bf9ad4a00a703e62eb12e2370c
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: d39ec89b4877e2fca01b68b30bb287a120f2eb71
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -32,23 +33,23 @@ A Ferramenta de Importação/Exportação do Microsoft Azure é a ferramenta de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se estiver **preparando as unidades** para um trabalho de importação, você precisará atender aos seguintes pré-requisitos:
+Se estiver **preparando as unidades** para um trabalho de importação, os seguintes pré-requisitos devem ser cumpridos:
 
 * É necessário ter uma assinatura ativa do Azure.
 * A assinatura deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os arquivos que você pretende importar.
-* É necessário pelo menos uma das chaves da conta de armazenamento.
+* É necessário pelo menos uma das chaves de acesso da conta de armazenamento.
 * É necessário um computador (o “computador de cópia”) com o Windows 7, Windows Server 2008 R2 ou um sistema operacional Windows mais novo instalado.
 * O .NET Framework 4 deve ser instalado no computador de cópia.
 * O BitLocker deve estar habilitado no computador de cópia.
-* Você precisará de um ou mais discos rígidos SATA de 3,5 polegadas vazios conectados ao computador de cópia.
+* Você precisa de um ou mais discos rígidos SATA de 3,5 polegadas vazios conectados ao computador de cópia.
 * Os arquivos que você pretende importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou um disco rígido local.
 
-Se estiver tentando **reparar uma importação** com falha parcial, serão necessários:
+Se estiver tentando **reparar uma importação** com falha parcial, é necessário:
 
 * Os arquivos de log de cópia
 * A chave da conta de armazenamento
 
-Se estiver tentando **reparar uma exportação** com falha parcial, serão necessários:
+Se estiver tentando **reparar uma exportação** com falha parcial, é necessário:
 
 * Os arquivos de log de cópia
 * Os arquivos de manifesto (opcional)
@@ -56,7 +57,7 @@ Se estiver tentando **reparar uma exportação** com falha parcial, serão neces
 
 ## <a name="installing-the-azure-importexport-tool"></a>Instalando a ferramenta de Importação/Exportação do Azure
 
-Primeiro, [baixe a Ferramenta de Importação/Exportação do Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) e a extraia em um diretório do computador, por exemplo, `c:\WAImportExport`.
+Primeiro, [baixe a Ferramenta de Importação/Exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e a extraia em um diretório do computador, por exemplo, `c:\WAImportExport`.
 
 A Ferramenta de Importação/Exportação do Azure consiste nos seguintes arquivos:
 
@@ -65,45 +66,37 @@ A Ferramenta de Importação/Exportação do Azure consiste nos seguintes arquiv
 * hddid.dll
 * Microsoft.Data.Services.Client.dll
 * Microsoft.WindowsAzure.Storage.dll
+* Microsoft.WindowsAzure.Storage.pdb
+* Microsoft.WindowsAzure.Storage.xml
 * WAImportExport.exe
 * WAImportExport.exe.config
+* WAImportExport.pdb
 * WAImportExportCore.dll
+* WAImportExportCore.pdb
 * WAImportExportRepair.dll
+* WAImportExportRepair.pdb
 
 Em seguida, abra uma janela do Prompt de Comando no **modo Administrador** e mude para o diretório que contém os arquivos extraídos.
 
-Para gerar a saída do comando, execute a ferramenta sem parâmetros:
+Para gerar a saída do comando, execute a ferramenta (`WAImportExport.exe`) sem parâmetros:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId> [/logdir:<LogDirectory>]
-        [/sk:<StorageAccountKey>]
-        [/silentmode]
-        [/InitialDriveSet:<driveset.csv>]
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
+        [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]
         DataSet:<dataset.csv>
 
 Add more drives:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AdditionalDriveSet:<driveset.csv>
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 
 Abort an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AbortSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 Resume an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /ResumeSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 
 List drives:
     WAImportExport.exe PrepImport /j:<JournalFile> /ListDrives
@@ -178,7 +171,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export service
+          blob list blob format in the Put Job operation of the Import/Export Service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.

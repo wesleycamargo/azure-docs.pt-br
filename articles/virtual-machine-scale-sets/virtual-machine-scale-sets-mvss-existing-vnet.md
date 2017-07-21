@@ -1,5 +1,5 @@
 ---
-title: "Fazer referência a uma rede virtual em um modelo do conjunto de dimensionamento do Azure | Microsoft Docs"
+title: "Fazer referência a uma rede virtual existente em um modelo do conjunto de dimensionamento do Azure | Microsoft Docs"
 description: "Saiba como adicionar uma rede virtual a um modelo existente do conjunto de dimensionamento de máquinas virtuais do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/06/2017
+ms.date: 06/27/2017
 ms.author: negat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8e9caf7eebc17682b3204004e3a74331efbd04fb
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual a um modelo do conjunto de dimensionamento do Azure
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual existente em um modelo do conjunto de dimensionamento do Azure
 
 Este artigo mostra como modificar o [modelo de conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) para implantar em uma rede virtual existente em vez de criar uma nova.
 

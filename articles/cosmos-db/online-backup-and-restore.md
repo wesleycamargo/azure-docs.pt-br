@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 11e60ab8dfada4b8b0e1cd73ca60dc428364dc68
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -51,8 +51,9 @@ A imagem a seguir ilustra os backups completos periódicos de todas as entidades
 ![Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="retention-period-for-a-given-snapshot"></a>Período de retenção para um instantâneo específico
-Conforme descrito acima, podemos tirar instantâneos dos dados periodicamente e, de acordo com nossas regulamentações de conformidade, podemos manter o instantâneo mais recente por 90 dias. Se uma conta ou um contêiner for excluído, o Cosmos DB armazenará o último backup por 90 dias.
+Conforme descrito acima, podemos tirar instantâneos de seus dados a cada 4 horas e manter os últimos dois instantâneos por 30 dias. De acordo com nossas regulamentações de conformidade, os instantâneos são limpos após 90 dias.
 
+Se você quiser manter seus próprios instantâneos, pode usar o opção Exportar para JSON na [ferramenta de Migração de Dados](import-data.md#export-to-json-file) do Azure Cosmos DB para agendar backups adicionais. 
 
 ## <a name="restore-database-from-the-online-backup"></a>Restaurar o banco de dados do backup online
 Caso exclua seus dados acidentalmente, você pode [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [ligar para o suporte do Azure](https://azure.microsoft.com/support/options/) a fim de restaurar os dados usando o último backup automático. Para que um instantâneo específico do backup seja restaurado, o Cosmos DB exige que os dados estejam disponíveis para nós durante, no mínimo, o ciclo de backup do instantâneo.

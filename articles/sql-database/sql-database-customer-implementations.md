@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b05b24bf9a14570b07c2c1ab3076835c7167b647
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -32,3 +32,10 @@ ms.lasthandoff: 03/10/2017
 - [SnelStart](sql-database-implementation-snelstart.md): a SnelStart torna populares programas de software de gerenciamento financeiro e comercial para SMBs (pequenas e médias empresas) nos Países Baixos. Seus 55.000 clientes são atendidos por uma equipe de 110 funcionários, incluindo uma equipe de TI de 35 pessoas. Ao passar do software de área de trabalho para uma oferta de SaaS (software como serviço) criada no Azure, a SnelStart aproveita ao máximo os serviços internos, automatizando o gerenciamento usando um ambiente familiar em C# e otimizando o desempenho e a escalabilidade sem provisionamento em excesso ou escasso às empresas usando pools elásticos. Usando o Azure, a SnelStart tem a fluidez de mover os clientes entre o local e a nuvem.
 
 - [Umbraco](sql-database-implementation-umbraco.md): para simplificar as implantações do cliente, a Umbraco adicionou a UaaS (Umbraco como serviço): uma oferta de SaaS (software como serviço) que elimina a necessidade de implantações locais, fornece dimensionamento interno e elimina a sobrecarga de gerenciamento permitindo que os desenvolvedores se concentrem na inovação de produtos em vez de no gerenciamento de soluções. A Umbraco é capaz de fornecer todos esses benefícios confiando no modelo flexível de PaaS (plataforma como serviço) oferecido pelo Microsoft Azure.
+
+- [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): o Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL.
+
+- [Quest](https://customers.microsoft.com/en-US/story/quest): o Quest oferece o Spotlight no serviço SQL Server Enterprise com um objetivo em mente: fornecer as melhores ferramentas disponíveis aos profissionais de banco de dados para proteção de dados, movimentação dos dados e monitoramento de operações de bancos de dados. Com o Spotlight, usando o Microsoft Azure e Banco de Dados SQL do Azure, os administradores de Banco de Dados do SQL Server podem monitorar, detectar, diagnosticar e fornecer uma maneira de resolver problemas de desempenho no SQL Server, seja de suas mesas de trabalho ou em casa.
+
+- [Microsoft Synamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as melhores práticas e lições aprendidas com a experiência da equipe do produto 365 Dynamics 365 for Operations em migrar para o banco de dados SQL do Azure a fim de fornecer aos clientes um SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
+

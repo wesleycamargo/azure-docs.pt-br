@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -101,6 +101,8 @@ Estes são os limites de definição de um único aplicativo lógico.
 |Profundidade de aninhamento de ação permitida|5|Você pode adicionar fluxos de trabalho aninhados para estendê-lo conforme necessário|
 |Fluxos de trabalho por região e assinatura|1000||
 |Gatilhos por fluxo de trabalho|10||
+|Limite de casos de escopo do comutador|25||
+|Número de variáveis por fluxo de trabalho|250||
 |Máximo de caracteres por expressão|8.192||
 |Tamanho máximo de `trackedProperties` em caracteres|16.000|
 |`action`/`trigger` |80||

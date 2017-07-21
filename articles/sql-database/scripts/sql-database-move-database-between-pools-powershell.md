@@ -1,6 +1,6 @@
 ---
-title: "Script do Azure PowerShell – mover um Banco de Dados SQL e pools elásticos | Microsoft Docs"
-description: "Amostra de Script do Azure PowerShell – Mover um Banco de Dados SQL entre pools elásticos usando o Azure PowerShell"
+title: "Exemplo do PowerShell para mover um pool elástico do banco de dados SQL do Azure | Microsoft Docs"
+description: "Script de exemplo do Azure PowerShell para mover um banco de dados SQL entre pools elásticos usando o Azure PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3e483b2f3fe180219334d0c08512eae82a47a8a7
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: a883c3c6156e8e1f6d56c9be4c1e9c8a7990d16a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>Criar pools Elásticos e mover bancos de dados entre pools e fora de um pool usando o PowerShell
 
-Este exemplo de script do PowerShell cria dois pools elásticos e move um banco de dados de um pool elástico para outro pool elástico, depois move um banco de dados fora de um pool elástico para um nível de desempenho de banco de dados individual. 
+Este exemplo de script do PowerShell cria dois pools elásticos e move um banco de dados de um pool elástico para outro pool elástico, depois move um banco de dados de um pool elástico para um nível de desempenho de banco de dados individual. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

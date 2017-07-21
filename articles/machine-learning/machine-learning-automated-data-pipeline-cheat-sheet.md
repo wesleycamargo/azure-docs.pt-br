@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -40,7 +41,7 @@ Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automa
 ## <a name="more-help-with-machine-learning-studio"></a>Mais ajuda com Estúdio de Aprendizado de Máquina
 * Para obter uma visão geral de Aprendizado de Máquina do Microsoft Azure, consulte [Introdução ao aprendizado de máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 * Para obter uma explicação de como implantar seu serviço Web de pontuação, confira [Implantar um serviço Web de Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md)
-* Para conferir uma discussão de como consumir um serviço Web de pontuação, confira [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
+* Para conferir uma discussão de como consumir um serviço Web de pontuação, confira [Como consumir um serviço Web do Azure Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

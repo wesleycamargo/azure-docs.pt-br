@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/09/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -37,7 +37,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
-As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta: 
+As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) são necessárias para usar a Visão do Desempenho de Consulta: 
 
 * As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
 * As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
@@ -80,7 +80,7 @@ No [portal](http://portal.azure.com) , faça o descrito a seguir:
      
      Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico usando as caixas de seleção.
 3. Se os dados se tornarem obsoletos, clique no botão **Atualizar** .
-4. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos:  ![configurações](./media/sql-database-query-performance/zoom.png)
+4. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos: ![configurações](./media/sql-database-query-performance/zoom.png)
 5. Opcionalmente, se você quiser uma exibição diferente, você pode selecionar a guia **Personalizar** e definir:
    
    * Métrica (CPU, duração, contagem de execução)

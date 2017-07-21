@@ -12,43 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 06/15/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f307a26bfbb55b395f4073f4368432ae69b867ae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar o log de serviços Web de Aprendizado de Máquina
-Este documento fornece informações sobre o recurso de registro em log de serviços Web clássicos. Habilitar o log em serviços Web fornece informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning.  
+Este documento fornece informações sobre o recurso de logs de serviços Web do Machine Learning. Os logs fornecem informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning.  
 
-Para habilitar o log nos serviços Web no portal clássico do Azure:   
+## <a name="how-to-enable-logging-for-a-web-service"></a>Como habilitar o registro em log para um serviço Web
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/)
-2. Na coluna de recursos à esquerda, clique em **MACHINE LEARNING**.
-3. Clique em seu espaço de trabalho e, em seguida, em **SERVIÇOS WEB**.
-4. Na lista de serviços Web, clique no nome do serviço Web.
-5. Na lista de pontos de extremidade, clique no nome do ponto de extremidade.
-6. Clique em **CONFIGURAR**.
-7. Defina o **DIAGNOSTICS TRACE LEVEL** como *Erro* ou *Todos* e, em seguida, clique em **SALVAR**.
+Você hara habilita os logs no portal de [serviços Web do Azure Machine Learning](https://services.azureml.net). 
 
-Para habilitar o registro em log no portal de serviços Web do Azure Machine Learning.
+1. Entre no portal de Serviços Web do Azure Machine Learning em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web Clássico, você também pode acessar o portal clicando em **Nova Experiência de Serviços Web** na página de Serviços Web do Machine Learning no Machine Learning Studio.
 
-1. Entre no [portal de serviços Web do Azure Machine Learning](https://services.azureml.net).
-2. Clique em Classic Web Services.
-3. Na lista de serviços Web, clique no nome do serviço Web.
-4. Na lista de pontos de extremidade, clique no nome do ponto de extremidade.
-5. Clique em **Configurar**.
-6. Defina **Registro em log** como *Erro* ou *Todos*, e, em seguida, clique em **SALVAR**.
+   ![Novo link de Experiência dos Serviços Web](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
+
+2. Na barra de menus superior, clique em **Serviços Web** para um novo serviço Web ou clique em **Serviços Web Clássicos** para um serviço Web Clássico.
+
+   ![Selecione serviços Web Novos ou Clássicos](media/machine-learning-web-services-logging/select-web-service.png)
+
+3. Para um novo serviço Web, clique no nome de serviço Web. Para um serviço Web Clássico, clique no nome do serviço Web e clique no ponto de extremidade apropriado na próxima página.
+
+4. Na barra de menus superior, clique em **Configurar**.
+
+5. Defina a opção **Habilitar Log** como *Erro* (para registrar somente erros) ou *Todos* (para registro em log completo).
+
+   ![Selecionar o nível de log](media/machine-learning-web-services-logging/enable-logging.png)
+
+6. Clique em **Salvar**.
+
+7. Para os serviços Web Clássicos, crie o contêiner **ml-diagnostics**.
+
+   Todos os logs de serviço Web são mantidos em um contêiner de blob denominado **ml diagnóstico** na conta de armazenamento associada ao serviço Web. Para novos serviços Web, esse contêiner é criado na primeira vez que você acessa o serviço Web. Para serviços Web Clássico, você precisa criar o contêiner, se ele ainda não existe. 
+
+   1. No [portal do Azure](https://portal.azure.com), vá para a conta de armazenamento associada ao serviço Web.
+
+   2. Em **Serviço Blob**, clique em **Contêineres**.
+
+   3. Se o contêiner **ml-diagnostics** não existir, clique em **+Contêiner**, dê ao contêiner o nome "ml-diagnostics" e selecione o **Tipo de acesso** como "Blob". Clique em **OK**.
+
+      ![Selecionar o nível de log](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
+
+> [!TIP]
+>
+> Para um serviço Web Clássico, o Painel de Serviços Web no Machine Learning Studio também tem uma opção para habilitar o log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você tiver habilitado os logs no Studio, no Portal de Serviços Web, desabilite os logs e habilite-os novamente.
+
 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log
-Quando o registro em log estiver habilitado, todos os diagnósticos e erros do ponto de extremidade selecionado serão registrados na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Você pode ver essa conta de armazenamento no modo de exibição do Painel do portal clássico do Azure (parte inferior da seção Visão Rápida) do seu espaço de trabalho.  
+Quando o log estiver habilitado, os diagnósticos e erros do ponto de extremidade de serviço Web serão registrados no contêiner de blobs **ml-diagnostics** na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta conta de armazenamento.
 
-Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para 'explorar' uma Conta de Armazenamento do Azure. A maneira mais fácil pode ser simplesmente navegar até a Conta de Armazenamento no portal clássico do Azure e, então, clicar em **CONTÊINERES**. Em seguida, você verá um Contêiner chamado **ml-diagnostics**. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta Conta de Armazenamento. 
+Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para explorar uma Conta de Armazenamento do Azure. A maneira mais fácil possível de navegar para a conta de armazenamento no portal do Azure: clique em **Contêineres** e clique no contêiner **ml diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Informações detalhadas do log blob
-Cada blob no contêiner mantém as informações de diagnóstico para exatamente o seguinte:
+Cada blob no contêiner contém as informações de diagnóstico para um das seguintes ações:
 
 * Uma execução do método Batch-Execution  
 * Uma execução do método Request-Response  
@@ -56,17 +78,14 @@ Cada blob no contêiner mantém as informações de diagnóstico para exatamente
 
 O nome de cada blob tem um prefixo da seguinte forma: 
 
-{ID do espaço de trabalho}-{ID do serviço Web}-{ID do ponto de extremidade}/{Tipo de log}  
 
-Sendo que Tipo de log assume um dos seguintes valores:  
+`{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
+
+
+Sendo que _Tipo de log_ assume um dos seguintes valores:  
 
 * lote  
 * pontuação/solicitações  
 * pontuação/init  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,8 +31,6 @@ Há dois conceitos a entender sobre políticas:
 * atribuição de política - aplicar a definição de política a um escopo (assinatura ou grupo de recursos)
 
 Este tópico se concentra na definição de política. Para obter informações sobre a atribuição de política, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md) ou [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
-
-O Azure fornece algumas definições de política internas que podem reduzir o número de políticas que você precisa definir. Se uma definição de política interna funciona para seu cenário, use essa definição ao atribuir a um escopo.
 
 Políticas são avaliadas durante a criação e atualização de recursos (PUT e operações de PATCHES).
 
@@ -50,6 +48,22 @@ Para usar políticas, você deve estar autenticado pelo RBAC. Especificamente, a
 * `Microsoft.Authorization/policyassignments/write` permissão para atribuir uma política 
 
 Essas permissões não estão incluídas na função **Colaborador**.
+
+## <a name="built-in-policies"></a>Políticas internas
+
+O Azure fornece algumas definições de política internas que podem reduzir o número de políticas que você precisa definir. Antes de continuar com as definições de política, você deve considerar se uma política interna já fornece a definição de que você precisa. As definições de políticas internas são:
+
+* Locais permitidos
+* Tipos de recursos permitidos
+* SKUs de contas de armazenamento permitidas
+* SKUs de máquinas virtuais permitidas
+* Aplicar a marca e o valor padrão
+* Impor a marca e o valor
+* Tipos de recursos não permitidos
+* Requer o SQL Server versão 12.0
+* Exigir criptografia de conta de armazenamento
+
+Você pode atribuir qualquer uma dessas políticas por meio do [portal](resource-manager-policy-portal.md), do [PowerShell](resource-manager-policy-create-assign.md#powershell) ou da [CLI do Azure](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Estrutura da definição de política
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
@@ -149,7 +163,7 @@ Os operadores lógicos com suporte são:
 
 O **não** sintaxe inverte o resultado da condição. A sintaxe de **allOf** (semelhante à operação **E** lógica) requer que todas as condições sejam verdadeiras. A sintaxe de **anyOf** (semelhante à operação **Ou** lógica) requer que uma ou mais condições sejam verdadeiras.
 
-Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação **Não** operação é aninhada dentro de uma operação **E**. 
+Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação **not** operação é aninhada dentro de uma operação **allOf**. 
 
 ```json
 "if": {
@@ -168,7 +182,7 @@ Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação
 },
 ```
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>Condições
 Uma condição avalia se um **campo** atende a determinados critérios. As condições com suporte são:
 
 * `"equals": "value"`
@@ -194,27 +208,7 @@ Há suporte para os seguintes campos:
 * `location`
 * `tags`
 * `tags.*` 
-* aliases de propriedade
-
-Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. Os aliases com suporte são:
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
 
 ### <a name="effect"></a>Efeito
 A política dá suporte a três tipos de efeito - `deny`, `audit` e `append`. 
@@ -237,127 +231,131 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON. 
 
+## <a name="aliases"></a>Aliases
+
+Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Defina se a porta (6379) do servidor Redis não ssl está habilitada. |
+| Microsoft.Cache/Redis/shardCount | Defina o número de fragmentos a serem criados em um Cache de Cluster Premium.  |
+| Microsoft.Cache/Redis/sku.capacity | Defina o tamanho do cache Redis a ser implantado.  |
+| Microsoft.Cache/Redis/sku.family | Veja a família de SKU a ser usada. |
+| Microsoft.Cache/Redis/sku.name | Defina o tipo de Cache Redis a ser implantado. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Defina o nome do tipo de preços. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageVersion | Defina a versão da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageVersion | Defina a versão da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/licenseType | Defina que a imagem ou o disco está licenciado no local. Esse valor é usado apenas para imagens que contêm o sistema operacional Windows Server.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/virtualMachines/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/virtualMachines/imageVersion | Defina a versão da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Defina o URI do vhd. |
+| Microsoft.Compute/virtualMachines/sku.name | Defina o tamanho da máquina virtual. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Defina o nome do publicador da extensão. |
+| Microsoft.Compute/virtualMachines/extensions/type | Defina o tipo de extensão. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Defina a versão da extensão. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/imageVersion | Defina a versão da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
+| Microsoft.Compute/licenseType | Defina que a imagem ou o disco está licenciado no local. Esse valor é usado apenas para imagens que contêm o sistema operacional Windows Server. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Defina o prefixo do nome do computador para todas as máquinas virtuais no conjunto de dimensionamento. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Defina o URI de blob da imagem de usuário. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Defina as URLs de contêiner que são usadas para armazenar discos do sistema operacional para o conjunto de dimensionamento. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Defina o tamanho das máquinas virtuais em um conjunto de dimensionamento. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Defina o nível de máquinas virtuais em um conjunto de dimensionamento. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Defina o tamanho do gateway. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Defina o tipo deste gateway de rede virtual. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Defina o nome da SKU de gateway. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Defina a versão do servidor. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Defina a edição do banco de dados. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Defina o nome do pool elástico em que o banco de dados está. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Defina a ID de objetivo de nível de serviço configurada do banco de dados. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Defina o nome do objetivo de nível de serviço configurado do banco de dados.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina o DTU compartilhado total para o pool elástico de banco de dados. |
+| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do pool elástico. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Descrição |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Defina o nível de acesso usado para cobrança. |
+| Microsoft.Storage/storageAccounts/accountType | Defina o nome da SKU. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Defina se o serviço criptografa os dados conforme eles são armazenados no serviço de armazenamento de blobs. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Defina se o serviço criptografa os dados conforme eles são armazenados no serviço de armazenamento de arquivos. |
+| Microsoft.Storage/storageAccounts/sku.name | Defina o nome da SKU. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Configurado para permitir somente o tráfego https para o serviço de armazenamento. |
+
+
 ## <a name="policy-examples"></a>Exemplos de políticas
 
 Os tópicos a seguir contêm exemplos de política:
 
 * Para obter exemplos de políticas de marca, veja [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
+* Para obter exemplos de padrões de nomenclatura e texto, confira [Aplicar políticas de recursos a nomes e texto](resource-manager-policy-naming-convention.md).
 * Para obter exemplos de políticas de armazenamento, veja [Aplicar políticas de recursos para contas de armazenamento](resource-manager-policy-storage.md).
 * Para obter exemplos de políticas de máquina virtual, veja [Aplicar políticas de recursos a VMs Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Aplicar políticas de recursos a VMs do Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-### <a name="allowed-resource-locations"></a>Locais de recursos permitidos
-Para especificar quais locais são permitidos, veja o exemplo da seção [Estrutura da definição de política](#policy-definition-structure). Para atribuir essa definição de política, use a política interna com a ID de recurso `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### <a name="not-allowed-resource-locations"></a>Não permitido locais de recursos
-Para especificar quais locais não são permitidas, use a seguinte definição de política:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>Tipos de recursos permitidos
-O exemplo a seguir mostra uma política que permite implantações somente nos tipos de recurso Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network. Todos os outros são negados:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>Definir a convenção de nomenclatura
-O exemplo a seguir mostra o uso de curingas, que é compatível com a condição **like**. A condição declara que, se o nome corresponder ao padrão mencionado (namePrefix\*nameSuffix), a solicitação será negada:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Para especificar que nomes de recurso correspondem a um padrão, use a condição match. O exemplo a seguir exige que os nomes comecem com `contoso` e contenham seis letras adicionais:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Para exigir um padrão de data de dois dígitos, hífen, três letras, traço e quatro dígitos, use:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Depois de definir uma regra de política, atribua um escopo. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
