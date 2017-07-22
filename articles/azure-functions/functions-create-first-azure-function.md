@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 07/19/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
@@ -69,11 +69,9 @@ Uma função é criada na linguagem escolhida por você usando o modelo de uma f
 
     A URL da solicitação inclui uma chave que é necessária, por padrão, para acessar sua função via HTTP.   
 
-## <a name="view-the-function-logs"></a>Exibir os logs da função 
+3. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta para cima na parte inferior da tela para expandir **Logs**. 
 
-Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta para cima na parte inferior da tela para expandir **Logs**. 
-
-![Visualizador de log de função no Portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Visualizador de log de função no Portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

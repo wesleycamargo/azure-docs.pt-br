@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b53e7f5454cd97f013fdce052f0a990a44958dee
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicar máquinas virtuais Hyper-V em nuvens VMM no Azure usando o Site Recovery no Portal do Azure
@@ -59,7 +59,7 @@ Siga o artigo para concluir estas etapas de implantação:
 **Requisito de suporte** | **Detalhes**
 --- | ---
 **As tabelas** | Saiba mais sobre os [requisitos do Azure](site-recovery-prereq.md#azure-requirements).
-**Servidores locais** | [Saiba mais](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) sobre os requisitos do servidor VMM local e dos hosts Hyper-V.
+**Servidores locais** | [Saiba mais](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) sobre os requisitos do servidor VMM local e dos hosts Hyper-V.
 **VMs do Hyper-V locais** | As VMs que você deseja replicar devem estar executando um [sistema operacional com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) e estar de acordo com os [pré-requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **URLs do Azure** | O servidor VMM precisa de acesso a estas URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Se tiver regras de firewall baseadas no endereço IP, verifique se elas permitem a comunicação com o Azure.<br/></br> Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/></br> Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
 
