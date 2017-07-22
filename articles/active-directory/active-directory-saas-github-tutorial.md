@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.reviewer: jeedes
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory ao GitHub
@@ -126,10 +127,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 4. Na seção **Atributos do Usuário**, selecione **Identificador de Usuário** como user.mail.
 
     ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
 
-     ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
 
@@ -167,9 +168,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 
     a. **URL de Logon**: insira **URL de Serviço de logon único de SAML** na seção **Configurar o GitHub** no Azure AD
 
-      b. **Emissor**: insira **ID da Entidade SAML** na seção **Configurar GitHub** do Azure AD
+    b. **Emissor**: insira **ID da Entidade SAML** na seção **Configurar GitHub** do Azure AD
 
-       c. **Certificado Público**: abra o certificado baixado no Azure AD em um bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE"
+    c. **Certificado Público**: abra o certificado baixado no Azure AD em um bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE"
 
     ![Configurações](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
