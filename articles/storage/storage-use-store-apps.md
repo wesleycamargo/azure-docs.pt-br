@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
-ms.openlocfilehash: 7b02809da6082886b4e2982a698cef09212b6862
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 43d38584270fbbbe6fa4e4ff8cef72ca44e14acc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Como usar o Armazenamento do Azure em aplicativos da Windows Store
@@ -27,7 +26,7 @@ ms.lasthandoff: 07/06/2017
 Este guia mostra como iniciar o desenvolvimento de um aplicativo da Windows Store que utiliza o armazenamento do Azure.
 
 ## <a name="download-required-tools"></a>Baixar as ferramentas necessárias
-* O [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) facilita a criação, a depuração, a localização, o empacotamento e a implantação de aplicativos da Windows Store. É necessário o Visual Studio 2012 ou posterior.
+* O [Visual Studio](https://www.visualstudio.com/downloads/) facilita a criação, a depuração, a localização, o empacotamento e a implantação de aplicativos da Windows Store. É necessário o Visual Studio 2012 ou posterior.
 * A [Biblioteca de cliente de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornece uma biblioteca de classes do Windows Runtime para trabalhar com o armazenamento do Azure.
 * [Ferramentas do WCF Data Services para aplicativos da Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliam a experiência Adicionar Referência de Serviço com o suporte a OData no lado do cliente para aplicativos da Windows Store no Visual Studio.
 
