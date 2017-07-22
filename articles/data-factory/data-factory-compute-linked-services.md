@@ -20,7 +20,6 @@ ms.openlocfilehash: 97e40e0081e1dcce0ed42748a053c46cecf569ba
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
@@ -123,9 +122,10 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "clusterSize": 4,
+            "version": "3.5",
+            "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "linux",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }

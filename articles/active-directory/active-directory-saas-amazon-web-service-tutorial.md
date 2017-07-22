@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o AWS (Amazon Web Services)
@@ -133,7 +133,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     | Nome do atributo  | Valor do atributo | Namespace |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Função               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Você precisa configurar o provisionamento do usuário no Azure AD para buscar todas as funções no Console do AWS. Veja as etapas de provisionamento abaixo.
@@ -172,13 +172,13 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
    
     ![Configurar Logon Único][14]
  
-      a. Como **Tipo de provedor**, selecione **SAML**.
+    a. Como **Tipo de provedor**, selecione **SAML**.
 
-      b. Na caixa de texto **Nome do provedor**, digite um nome de provedor (p. ex.: *WAAD*).
+    b. Na caixa de texto **Nome do provedor**, digite um nome de provedor (p. ex.: *WAAD*).
 
-      c. Para carregar o arquivo de metadados baixado, clique em **Escolher arquivo**.
+    c. Para carregar o arquivo de metadados baixado, clique em **Escolher arquivo**.
 
-      d. Clique em **Próxima etapa**.
+    d. Clique em **Próxima etapa**.
 
 13. Na página de diálogo **Verificar informações do provedor**, clique em **Criar**. 
     
@@ -192,25 +192,25 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     ![Configurar Logon Único][17] 
 
-      a. Na caixa de texto **Nome da função** , digite um nome de função (por exemplo: *TestUser*). 
+    a. Na caixa de texto **Nome da função** , digite um nome de função (por exemplo: *TestUser*). 
 
-      b. Clique em **Próxima etapa**.
+    b. Clique em **Próxima etapa**.
 
 16. Na caixa de diálogo **Selecionar Tipo de Função** , execute as seguintes etapas: 
     
     ![Configurar Logon Único][18] 
 
-      a. Selecione **Função de acesso do provedor de identidade**. 
+    a. Selecione **Função de acesso do provedor de identidade**. 
 
-      b. Na seção **Conceder acesso de logon único da Web (WebSSO) a provedores SAML**, clique em **Selecionar**.
+    b. Na seção **Conceder acesso de logon único da Web (WebSSO) a provedores SAML**, clique em **Selecionar**.
 
 17. Na caixa de diálogo **Estabelecer Confiança** , execute as seguintes etapas:  
     
     ![Configurar Logon Único][19] 
 
-      a. Como provedor SAML, selecione o provedor SAML criado anteriormente (por exemplo: *WAAD*)
+    a. Como provedor SAML, selecione o provedor SAML criado anteriormente (por exemplo: *WAAD*)
   
-      b. Clique em **Próxima etapa**.
+    b. Clique em **Próxima etapa**.
 
 18. Na caixa de diálogo **Verificar Confiança na Função**, clique em **Próxima Etapa**.
     
@@ -224,7 +224,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     ![Configurar Logon Único][34]
  
-      a. Clique em **Criar função**.
+    a. Clique em **Criar função**.
 
     b. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
 
