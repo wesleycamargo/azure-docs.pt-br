@@ -29,16 +29,6 @@ abstract:
     implementação de cargas de trabalho essenciais e exigentes que são
     escalonáveis, confiáveis e gerenciáveis. Saiba como usar o Azure Service
     Fabric com nossos guias de início rápido, tutoriais e exemplos.
-  aside:
-    image:
-      alt: null
-      height: 140
-      src: >-
-        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
-      width: 250
-    title: 'Introdução ao Service Fabric (3:53)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
-    width: 250
 sections:
   - title: Guia de início rápido de 5 minutos
     items:
