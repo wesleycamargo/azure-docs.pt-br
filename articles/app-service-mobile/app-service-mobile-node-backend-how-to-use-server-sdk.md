@@ -750,7 +750,7 @@ O SDK dos Aplicativos Móveis do Azure usa o [middleware de analisador de corpo]
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-O arquivo é codificado em base&64; antes da transmissão.  Isso aumenta o tamanho do carregamento real (e, portanto, o tamanho que você deve considerar).
+O arquivo é codificado em base 64 antes da transmissão.  Isso aumenta o tamanho do carregamento real (e, portanto, o tamanho que você deve considerar).
 
 ### <a name="howto-customapi-sql"></a>Como executar instruções SQL personalizadas
 O SDK de Aplicativos Móveis do Azure permite o acesso a todo o Contexto por meio do objeto da solicitação, permitindo que você execute facilmente instruções SQL com parâmetros para o provedor de dados definido:
