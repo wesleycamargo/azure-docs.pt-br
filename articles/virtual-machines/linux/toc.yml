@@ -400,6 +400,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Solucionar problemas
       items:
+        - name: >-
+            Capacidade de adicionar a VM do Azure a um conjunto de
+            disponibilidade existente
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Redefinir a senha da máquina virtual
           href: virtual-machines-linux-reset-password.md
         - name: Entender a reinicialização do sistema

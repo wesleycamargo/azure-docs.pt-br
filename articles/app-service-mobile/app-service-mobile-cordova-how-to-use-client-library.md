@@ -27,7 +27,7 @@ ms.lasthandoff: 02/07/2017
 Este guia ensina a executar cenários comuns usando o mais recente [Plug-in do Apache Cordova para os Aplicativos Móveis do Azure]. Se você for novo nos Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto Apache Cordova pré-criado. Neste guia, abordaremos o Plug-in do Apache Cordova do lado do cliente.
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
-Esse SDK dá suporte à versão&6;.0.0 do Apache Cordova e posterior nos dispositivos iOS, Android e Windows.  O suporte de plataforma é o seguinte:
+Esse SDK dá suporte à versão 6.0.0 do Apache Cordova e posterior nos dispositivos iOS, Android e Windows.  O suporte de plataforma é o seguinte:
 
 * API do Android 19 a 24 (KitKat usando Nougat).
 * iOS versão 8.0 e posterior.

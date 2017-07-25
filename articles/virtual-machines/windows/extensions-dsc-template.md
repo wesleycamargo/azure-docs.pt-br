@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: e85d5563a314964ad1ed43c693cdebe7a30297de
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>Windows VMSS e configuração de estado desejado com modelos do Azure Resource Manager
@@ -56,6 +56,7 @@ O trecho a seguir vai na seção Recursos do modelo.
                   "protectedSettings": {
                       "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
+              }
 
 ```
 
@@ -89,6 +90,7 @@ Um nó VMSS tem uma seção "properties" com o atributo "VirtualMachineProfile",
                     }
                 }
             ]
+        }
 ```
 
 ## <a name="detailed-settings-information"></a>Informações de configuração detalhadas

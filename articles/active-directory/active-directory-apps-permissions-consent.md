@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/07/2016
 
 ---
 
@@ -215,10 +217,5 @@ No caso de FabrikamMail, ele tem esta aparência:
 (**ClientId** é a ID de objeto da entidade de serviço do FabrikamMail (aquele recém-criado), **PrincipalId** é a ID de objeto de usuário (do usuário que deu consentimento), **ResourceId** é a ID de objeto da entidade de serviço do Exchange, Scope é a permissão no Exchange para a qual o consentimento foi dado).
 
 Se os usuários não têm permissão para dar consentimento, eles verão uma tela que diz que essa permissão é necessária.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

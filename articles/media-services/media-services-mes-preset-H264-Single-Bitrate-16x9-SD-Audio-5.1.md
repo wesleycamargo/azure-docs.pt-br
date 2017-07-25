@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
 ms.openlocfilehash: 8ca2eb740a2b2b1ef60fdb6037c619fb378b2575
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/29/2016
 
 ---
-
 
 # <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 Taxa de Bits Única 16x9 SD Audio 5.1
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -117,8 +117,4 @@ ms.openlocfilehash: 8ca2eb740a2b2b1ef60fdb6037c619fb378b2575
   ]  
 }  
 ```
-
-
-<!--HONumber=Nov16_HO5-->
-
 

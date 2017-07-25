@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 63ad1dcc5a069a9958e56c8260f9aa208fafc645
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -30,7 +30,7 @@ Os pré-requisitos são resumidos na tabela.
 **Pré-requisito** | **Detalhes** 
 --- | --- 
 **As tabelas** | Saiba mais sobre os [requisitos do Azure](site-recovery-prereq.md#azure-requirements).
-**Servidores locais** | [Saiba mais](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager) sobre os requisitos dos hosts Hyper-V locais.
+**Servidores locais** | [Saiba mais](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm) sobre os requisitos dos hosts Hyper-V locais.
 **VMs do Hyper-V locais** | As VMs que você deseja replicar devem estar executando um [sistema operacional com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) e estar de acordo com os [pré-requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **URLs do Azure** | Os hosts Hyper-V precisam de acesso a essas URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Se tiver regras de firewall baseadas no endereço IP, verifique se elas permitem a comunicação com o Azure.<br/></br> Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/></br> Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
 
@@ -38,6 +38,6 @@ Os pré-requisitos são resumidos na tabela.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se estiver fazendo uma implantação completa, vá para a [Etapa 3: Planejar a capacidade](hyper-v-site-walkthrough-capacity.md)
+- Se estiver fazendo uma implantação completa, vá para a [Etapa 3: planejar a capacidade](hyper-v-site-walkthrough-capacity.md)
 - Se estiver fazendo uma implantação de teste simples, vá para a [Etapa 4: Planejar a rede](hyper-v-site-walkthrough-network.md).
 

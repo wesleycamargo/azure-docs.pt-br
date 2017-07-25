@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de Serviços de Mídia para .NET
@@ -47,7 +48,7 @@ A tabela a seguir descreve as exceções que o SDK dos Serviços de Mídia para 
 | StorageException |Não |Sim |Não |Não |
 | IOException |Não |Sim |Não |Não |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> Códigos de status WebException
+### <a name="WebExceptionStatus"></a> Códigos de status WebException
 A tabela a seguir mostra para quais códigos de erro WebException a lógica de repetição é implementada. A enumeração [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define os códigos de status.  
 
 | Status | Solicitação da Web | Armazenamento | Consultar | SaveChanges |
@@ -65,7 +66,7 @@ A tabela a seguir mostra para quais códigos de erro WebException a lógica de r
 | Tempo limite |Sim |Sim |Sim |Não |
 | ProtocolError <br/>A repetição em ProtocolError é controlada pela manipulação do código de status HTTP. Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> Códigos de status de erro HTTP
+### <a name="HTTPStatusCode"></a> Códigos de status de erro HTTP
 Quando as operações de Consulta e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de status de erro HTTP retorna na propriedade StatusCode.  A tabela a seguir mostra para quais códigos de erro a lógica de repetição é implementada.  
 
 | Status | Solicitação da Web | Armazenamento | Consultar | SaveChanges |
@@ -86,10 +87,5 @@ Se você quiser dar uma olhada na implementação real do SDK dos Serviços de M
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
