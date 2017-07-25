@@ -11,20 +11,18 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b9048731fed94a71dc8fb7125961265232fb65c
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-# Banco de Dados do Azure para MySQL: usar Java para se conectar e consultar dados
-<a id="azure-database-for-mysql-use-java-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas nesta seção pressupõem que você esteja familiarizado com o desenvolvimento usando o Java e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## Pré-requisitos
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -34,19 +32,17 @@ Você também precisará:
 - Incluir o arquivo jar do JDBC (por exemplo mysql-conector-java-5.1.42-bin.jar) no classpath do aplicativo.
 - Verificar se a segurança de conexão do Banco de Dados do Azure para MySQL está configurado com o firewall aberto e as configurações de SSL ajustadas para seu aplicativo se conectar com êxito.
 
-## Obter informações de conexão
-<a id="get-connection-information" class="xliff"></a>
+## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **myserver4demo**.
+2. No painel esquerdo, clique em **Todos os recursos** e, em seguida, procure o servidor que você criou (por exemplo, **myserver4demo**).
 3. Clique no nome do servidor.
 4. Selecione a página **Propriedades** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
  ![Nome do servidor do Banco de Dados do Azure para MySQL](./media/connect-java/1_server-properties-name-login.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
-## Conectar-se, criar tabela e inserir dados
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
+## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar e carregar os dados usando a função com uma instrução SQL **INSERT**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL. Os métodos [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) e execute () são usados para cancelar e criar a tabela. O objeto prepareStatement é usado para criar os comandos insert, com setString() e setInt() para associar os valores de parâmetro. O método executeUpdate() executa o comando para cada conjunto de parâmetros a fim de inserir os valores. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -148,8 +144,7 @@ public class CreateTableInsertRows {
 
 ```
 
-## Ler dados
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>Ler dados
 Use o código a seguir para ler os dados com uma instrução SQL **SELECT**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL. Os métodos [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) e executeQuery() são usados para se conectar e executar a instrução select. Os resultados são processados usando um objeto [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html). 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -236,8 +231,7 @@ public class ReadTable {
 }
 ```
 
-## Atualizar dados
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>Atualizar dados
 Use o código a seguir para alterar os dados com uma instrução SQL **UPDATE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL. Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -318,8 +312,7 @@ public class UpdateTable {
 }
 ```
 
-## Excluir dados
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>Excluir dados
 Use o código a seguir para remover dados com uma instrução SQL **DELETE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL.  Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -400,8 +393,7 @@ public class DeleteTable {
 }
 ```
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração](concepts-migrate-dump-restore.md)
 

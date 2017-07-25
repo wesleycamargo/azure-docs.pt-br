@@ -3,8 +3,8 @@ title: "Criar um aplicativo Cordova nos Aplicativos Móveis do Serviço de Aplic
 description: "Siga este tutorial para começar a usar back-ends de aplicativos móveis do Azure para desenvolvimento do Apache Cordova"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: "cordova,javascript,móvel,cliente"
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar um aplicativo Apache Cordova
@@ -34,7 +34,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* Um computador com o [Visual Studio Community 2015] ou mais recente.
+* Um computador com o [Visual Studio Community 2017] ou mais recente.
 * [Ferramentas do Visual Studio para Apache Cordova].
 * Uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +74,7 @@ Saiba como usar os SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Dados Off-line]: app-service-mobile-offline-data-sync.md
 [Autenticação]: app-service-mobile-auth.md
