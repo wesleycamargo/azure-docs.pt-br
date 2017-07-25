@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
@@ -42,10 +41,10 @@ Aqui está um resumo do que você tem com cada rota:
 | [Exceções mais detalhadas](app-insights-asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](app-insights-asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | [Contadores de desempenho do sistema](app-insights-performance-counters.md) |Sim |Sim |
-| [API de telemetria personalizada][api] |Sim | |
-| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim | |
-| [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim | |
-| Não há necessidade de recompilar o código |Não | |
+| [API de telemetria personalizada][api] |Sim |Não |
+| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim |Não |
+| [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim |Não |
+| É necessário recompilar o código |Sim | Não |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorar um aplicativo da web ao vivo

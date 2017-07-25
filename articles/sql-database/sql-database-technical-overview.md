@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 0dbe945f619cf3841b5ae72943d51d3931a3f251
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 17b51afc0c67377dccdef63deacdcc67af8df576
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="what-is-the-azure-sql-database-service" class="xliff"></a>
-
-# O que é o serviço do Banco de Dados SQL do Azure? 
+# <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
 O Banco de Dados SQL é um serviço de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. Ele oferece [desempenho dinamicamente escalonável](sql-database-service-tiers.md) e fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise e geração de relatórios extremas e [OLTP in-memory](sql-database-in-memory.md) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente. 
 
@@ -40,23 +38,17 @@ O Banco de Dados SQL oferece um desempenho previsível em vários níveis de ser
 > Confira a [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/security/) para saber mais sobre a segurança da plataforma do Azure.
 >
 
-<a id="scalable-performance-and-pools" class="xliff"></a>
-
-## Pools e desempenho dimensionável
+## <a name="scalable-performance-and-pools"></a>Pools e desempenho dimensionável
 
 Com o Banco de Dados SQL, cada banco de dados é isolado de outro e é portátil, cada um com sua própria [camada de serviço](sql-database-service-tiers.md) com um nível de desempenho garantido. O Banco de Dados SQL fornece diferentes níveis de desempenho para diferentes necessidades e permite que bancos de dados sejam colocados em pool para maximizar o uso de recursos e economizar dinheiro.
 
-<a id="adjust-performance-and-scale-without-downtime" class="xliff"></a>
-
-### Ajuste de desempenho e dimensionamento sem tempo de inatividade
+### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste de desempenho e dimensionamento sem tempo de inatividade
 
 O Banco de Dados SQL oferece quatro camadas de serviço para dar suporte a cargas de trabalho de banco de dados leves ou pesadas: Básico, Standard, Premium e RS Premium. Você pode criar seu primeiro aplicativo em um único banco de dados pequeno por um valor baixo por mês e alterar sua camada de serviço manualmente ou por meio de programação a qualquer momento para atender às necessidades de sua solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
    ![dimensionamento](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-<a id="elastic-pools-to-maximize-resource-utilization" class="xliff"></a>
-
-### Pools elásticos para maximizar a utilização de recursos
+### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 
 Para muitas empresas e aplicativos, ser capaz de criar bancos de dados únicos e ajustar o desempenho sob demanda é o suficiente, especialmente se os padrões de uso forem relativamente previsíveis. Mas se você tiver os padrões de uso imprevisíveis, pode ser difícil de gerenciar os custos e o seu modelo de negócios. [Pools elásticos](sql-database-elastic-pool.md) são projetados para resolver esse problema. O conceito é simples. Você aloca recursos de desempenho para um pool em vez de um banco de dados individual e paga pelos recursos de desempenho coletivo do pool em vez do desempenho do banco de dados único. 
 
@@ -64,15 +56,11 @@ Para muitas empresas e aplicativos, ser capaz de criar bancos de dados únicos e
 
 Com os pools elásticos, você não precisa se concentrar em expandir ou reduzir o desempenho do banco de dados conforme a demanda de recursos flutua. Os bancos de dados em pool consomem os recursos de desempenho do pool elástico conforme necessário. Os bancos de dados em pool consomem, mas não excedem os limites do pool. Portanto, o custo permanece previsível, mesmo que o uso do banco de dados individual não permaneça. Além disso, é possível [adicionar e remover bancos de dados do pool](sql-database-elastic-pool-manage-portal.md), escalar seu aplicativo por meio de alguns bancos de dados para milhares, tudo dentro de um orçamento que você pode controlar. Você também pode controlar os recursos mínimos e máximos disponíveis para bancos de dados no pool, para garantir que nenhum deles use todos os recursos do pool e que todos tenham um mínimo de recursos garantido. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<a id="blend-single-databases-with-pooled-databases" class="xliff"></a>
-
-### Combinar bancos de dados individuais a bancos de dados agrupados
+### <a name="blend-single-databases-with-pooled-databases"></a>Combinar bancos de dados individuais a bancos de dados agrupados
 
 Seja qual for a sua escolha (bancos de dados únicos ou pools elásticos), você não está limitado. Você pode misturar bancos de dados individuais a pools elásticos e alterar as camadas de serviço dos bancos de dados individuais e pools elásticos de forma rápida e fácil para se adaptar à sua situação. Com a potência e o alcance do Azure, você pode combinar e corresponder outros serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
 
-<a id="extensive-monitoring-and-alerting-capabilities" class="xliff"></a>
-
-### Monitoramento abrangente e recursos de alerta
+### <a name="extensive-monitoring-and-alerting-capabilities"></a>Monitoramento abrangente e recursos de alerta
 
 Mas como você pode comparar o desempenho relativo de bancos de dados únicos e pools elásticos? Como você sabe o momento certo de parar ao fazer o ajuste? Você usa as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md), combinadas às classificações de desempenho com base em [DTUs (unidades de transação de banco de dados) para bancos de dados único e eDTUs (DTUs elásticos) para pools elásticos](sql-database-what-is-a-dtu.md). Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Confira [Opções e desempenho de Banco de Dados SQL: saiba o que está disponível em cada camada de serviço](sql-database-service-tiers.md) para obter detalhes.
 
@@ -84,9 +72,7 @@ Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
-<a id="availability-capabilities" class="xliff"></a>
-
-## Recursos de disponibilidade
+## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
 Os acordos de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/)de disponibilidade de 99,99% de líderes do setor do Azure, alimentados por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. Além disso, o Banco de Dados SQL fornece recursos internos de [continuidade dos negócios e a escalabilidade global](sql-database-business-continuity.md), incluindo:
 
@@ -95,15 +81,11 @@ Os acordos de nível de serviço [(SLA)](http://azure.microsoft.com/support/lega
 - **[Replicação geográfica ativa](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você configure até quatro bancos de dados secundários legíveis no mesmo data center do Azure ou em outros distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover afunilamentos no primário devido a cargas de trabalho de leitura. 
 - **[Grupos de failover](sql-database-geo-replication-overview.md)**: o Banco de Dados SQL permite que você habilite a alta disponibilidade e o balanceamento de carga em escala global, incluindo a replicação geográfica transparente e o failover de grandes conjuntos de bancos de dados e de pools elásticos. Grupos de failover e replicação geográfica permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL.
 
-<a id="built-in-intelligence" class="xliff"></a>
-
-## Inteligência interna
+## <a name="built-in-intelligence"></a>Inteligência interna
 
 Com o Banco de Dados SQL, você obtém inteligência interna que ajuda a reduzir significativamente os custos de execução e gerenciamento de bancos de dados e maximiza o desempenho e a segurança de seu aplicativo. Executando milhões de cargas de trabalho de clientes sem parar, o Banco de Dados SQL coleta e processa uma grande quantidade de dados telemétricos enquanto respeita a privacidade dos clientes nos bastidores. Vários algoritmos estão avaliando os dados telemétricos continuamente para que o serviço possa aprender e se adaptar ao seu aplicativo. Com base nesta análise, o serviço surge com recomendações personalizadas de melhoria de desempenho para sua carga de trabalho específica. 
 
-<a id="automatic-performance-tuning" class="xliff"></a>
-
-### Ajuste automático de desempenho
+### <a name="automatic-performance-tuning"></a>Ajuste automático de desempenho
 
 O Banco de Dados SQL fornece informações detalhadas sobre as consultas que você precisa monitorar. O Banco de Dados SQL aprende seus padrões de banco de dados e permite adaptar seu esquema de banco de dados à carga de trabalho. O Banco de Dados SQL fornece recomendações de ajuste de desempenho usando o [Assistente do Banco de Dados SQL](sql-database-advisor.md), em que você pode revisar as ações de ajuste e aplicá-las. No entanto, monitorar o banco de dados é uma tarefa difícil e entediante, especialmente ao lidar com muitos bancos de dados. Gerenciar um grande número de bancos de dados pode ser impossível de se fazer com eficiência, mesmo com todas as ferramentas e relatórios disponíveis fornecidos pelo Banco de Dados SQL e pelo portal do Azure. Em vez de monitorar e ajustar o banco de dados manualmente, você pode considerar delegar algumas das ações de monitoramento e ajustes usando o recurso de ajuste automático do Banco de Dados SQL. O Banco de Dados SQL aplica recomendações, testa e verifica cada uma das suas ações de ajustes automaticamente para garantir a melhoria do desempenho. Dessa forma, o Banco de Dados SQL se adapta à sua carga de trabalho de maneira segura e controlada automaticamente. O ajuste automático significa que o desempenho do banco de dados é monitorado cuidadosamente e comparado antes e depois de cada ação de ajuste, e se o desempenho não melhora, a ação de ajuste é revertida.
 
@@ -114,69 +96,47 @@ Há dois aspectos de ajuste automático que estão disponíveis no Banco de Dado
 - **[Gerenciamento de índice automático](sql-database-automatic-tuning.md#automatic-index-management)**: identifica os índices que devem ser adicionados ao seu banco de dados e os índices que devem ser removidos.
 - **[Correção automática de plano](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: identifica planos problemáticos e corrige problemas de desempenho do plano SQL (em breve; já está disponível no SQL Server 2017).
 
-<a id="adaptive-query-processing" class="xliff"></a>
+### <a name="adaptive-query-processing"></a>Processamento de consulta adaptável
 
-### Processamento de consulta adaptável
+Também estamos adicionando a família de recursos de [processamento de consulta adaptável](/sql/relational-databases/performance/adaptive-query-processing.md) de recursos ao Banco de Dados SQL, incluindo execução intercalada de funções com valor de tabela com várias instruções, comentários de concessão de memória de modo em lotes e junções adaptáveis do modo de lote. Cada um desses recursos de processamento de consulta adaptável aplica técnicas "aprender e adaptar" semelhantes, ajudando a solucionar problemas de otimização de consulta relacionados a problemas de otimização de consultas historicamente problemáticos.
 
-Também estamos adicionando a família de recursos de processamento de consulta adaptável de recursos ao Banco de Dados SQL, incluindo [execução intercalada de funções com valor de tabela com várias instruções, comentários de concessão de memória de modo em lotes](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/) e [junções adaptáveis do modo de lote](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Cada um desses recursos de processamento de consulta adaptável aplica técnicas "aprender e adaptar" semelhantes, ajudando a solucionar problemas de otimização de consulta relacionados a problemas de otimização de consultas historicamente problemáticos.
-
-<a id="intelligent-threat-detection" class="xliff"></a>
-
-### Detecção de ameaças inteligente
+### <a name="intelligent-threat-detection"></a>Detecção de ameaças inteligente
 
  A [Detecção de ameaças SQL](sql-database-threat-detection.md) aproveita a [auditoria do Banco de Dados SQL](sql-database-auditing.md) para monitorar continuamente os Bancos de Dados SQL do Azure em relação a tentativas potencialmente prejudiciais de acesso a dados confidenciais. A detecção de ameaças do SQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança sobre atividades anômalas. Os usuários recebem alertas em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de acesso ao banco de dados. Os alertas da detecção de ameaças do SQL fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça. Os usuários podem explorar os eventos suspeitos para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A detecção de ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
 
-<a id="advanced-security-and-compliance" class="xliff"></a>
-
-## Segurança e conformidade avançadas
+## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
 O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança. 
 
-<a id="auditing-for-compliance-and-security" class="xliff"></a>
-
-### Auditoria de segurança e conformidade
+### <a name="auditing-for-compliance-and-security"></a>Auditoria de segurança e conformidade
 
 A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
-<a id="data-encryption-at-rest" class="xliff"></a>
-
-### Criptografia de dados em repouso
+### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
 
 O [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) do Banco de Dados SQL ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo. A partir de maio de 2017, todos os Bancos de Dados SQL do Azure são protegidos automaticamente com TDE (Transparent Data Encryption). A TDE é a tecnologia de criptografia ociosa comprovada da SQL exigida por vários padrões de conformidade para proteger contra roubo de mídia de armazenamento. Os clientes podem gerenciar as chaves de criptografia da TDE e outros segredos de forma segura e em conformidade usando o Azure Key Vault.
 
-<a id="data-encryption-in-motion" class="xliff"></a>
-
-### Criptografia dos dados em trânsito
+### <a name="data-encryption-in-motion"></a>Criptografia dos dados em trânsito
 
 O Banco de Dados SQL é o único sistema de banco de dados a oferecer proteção de dados confidenciais em trânsito, ociosos e durante a consulta de processamento com [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted é pioneiro na indústria, oferecendo segurança de dados incomparável contra violações envolvendo o roubo de dados críticos. Por exemplo, com o Always Encrypted, números de cartão de crédito dos clientes são armazenados sempre criptografados no banco de dados, mesmo durante a consulta de processamento, permitindo a descriptografia no ponto de uso por pessoal autorizado ou aplicativos que precisem processar os dados.
 
-<a id="dynamic-data-masking" class="xliff"></a>
-
-### Mascaramento de dados dinâmicos
+### <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos
 
 A [máscara de dados dinâmicos no Banco de Dados SQL](sql-database-dynamic-data-masking-get-started.md) limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. A Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que os clientes especifiquem qual a quantidade de dados confidenciais revelar, com impacto mínimo sobre a camada de aplicativo. É um recurso de segurança baseado em políticas que oculta os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designado, enquanto os dados no banco de dados não são alterados.
 
-<a id="row-level-security" class="xliff"></a>
-
-### Segurança em nível de linha
+### <a name="row-level-security"></a>Segurança em nível de linha
 
 A [segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário que executa uma consulta (por exemplo, uma associação de grupo ou um contexto de execução). A RLS (Segurança em Nível de Linha) simplifica o design e codificação de segurança em seu aplicativo. Ela permite implementar restrições de acesso à linha de dados. Por exemplo, garantindo que os funcionários tenham acesso somente às linhas de dados relevantes aos seus respectivos departamento ou restringindo o acesso de um cliente apenas aos dados pertinentes à sua empresa.
 
-<a id="azure-active-directory-integration-and-multi-factor-authentication" class="xliff"></a>
-
-### Integração do Azure Active Directory e autenticação multifator
+### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
 O Banco de Dados SQL permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](sql-database-aad-authentication.md). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure Active Directory dá suporte a [MFA](sql-database-ssms-mfa-authentication.md) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dar suporte a um único processo de entrada.
 
-<a id="compliance-certification" class="xliff"></a>
-
-### Certificação de conformidade
+### <a name="compliance-certification"></a>Certificação de conformidade
 
 O Banco de Dados SQL participa de auditorias regulares e foi certificado por vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<a id="easy-to-use-tools" class="xliff"></a>
-
-## Ferramentas fáceis de usar
+## <a name="easy-to-use-tools"></a>Ferramentas fáceis de usar
 
 O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais fáceis e produtivos. O Banco de Dados SQL permite a você focar no que há de melhor: compilar aplicativos ótimos. Você pode gerenciar e desenvolver no Banco de Dados SQL usando ferramentas e técnicas já existentes.
 
@@ -187,9 +147,7 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 
 O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, Node.js, PHP, Ruby e .NET no MacOS, Linux e Windows. O Banco de Dados SQL dá suporte às mesmas [bibliotecas de conexão](sql-database-libraries.md) do SQL Server.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Confira a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de custos entre o banco de dados único e pools elásticos e calculadoras.
 

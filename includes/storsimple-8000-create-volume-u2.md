@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Para criar um volume
 1. Na lista tabular de dispositivos na folha **Dispositivos**, selecione seu dispositivo. Clique em **+ Adicionar volume**.
@@ -11,7 +11,7 @@
 
    2. Na lista suspensa, selecione o contêiner de volume em que você precisa adicionar um volume. 
 
-   3.  Digite uma **Nome** para o seu volume.
+   3.  Digite uma **Nome** para o seu volume. Você não pode renomear um volume quando ele é criado.
 
    4. Na lista suspensa, selecione o **Tipo** para o seu volume. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um volume **Fixado localmente** . Para todos os outros dados, selecione um volume **Em camadas** . Se estiver usando esse volume para dados de arquivamento, marque **Usar este volume para dados de arquivamento acessados com menos frequência**.
       

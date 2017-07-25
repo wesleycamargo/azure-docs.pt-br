@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Conjuntos de Dimensionamento de VMs do Azure e discos de dados anexados
@@ -112,7 +112,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 Da mesma forma, você pode também remover um disco de um conjunto de dimensionamento ao remover uma entrada da propriedade _dataDisks_ no _storageProfile_ e aplicar a alteração. 
 
 ## <a name="additional-notes"></a>Observações adicionais
-O suporte a discos gerenciados pelo Azure e a discos de dados anexados do conjunto de dimensionamento foi adicionado à versão [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) da API Microsoft.Compute. Você pode usar qualquer SDK ou a ferramenta de linha de comando criada com esta versão ou posterior da API.
+O suporte a discos Gerenciados pelo Azure e a discos de dados anexados do conjunto de dimensionamento está disponível na versão [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) ou posterior da API Microsoft.Compute.
 
 A implementação inicial do suporte de disco anexado para conjuntos de escala, você não pode anexar ou desanexar discos de dados de VMs individuais em um conjunto de escala.
 

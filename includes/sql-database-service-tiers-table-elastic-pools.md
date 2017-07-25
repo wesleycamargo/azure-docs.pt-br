@@ -5,9 +5,7 @@ sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
  
-<a id="basic-elastic-pool-limits" class="xliff"></a>
-
-### Limites de pool elástico Básico
+### <a name="basic-elastic-pool-limits"></a>Limites de pool elástico Básico
 
 | Tamanho do pool (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
@@ -22,9 +20,7 @@ sql-database-service-tiers.md
 | Armazenamento máximo de dados por banco de dados | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 
 ||||||||
 
-<a id="standard-elastic-pool-limits" class="xliff"></a>
-
-### Limites de pool elástico Standard
+### <a name="standard-elastic-pool-limits"></a>Limites de pool elástico Standard
 
 | Tamanho do pool (eDTUs)  | **50** | **100** | **200**** | **300**** | **400**** | **800****| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
@@ -36,12 +32,10 @@ sql-database-service-tiers.md
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Mínimo de eDTUs por banco de dados** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Máximo de eDTUs por banco de dados** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| Armazenamento máximo de dados por banco de dados | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
+| Armazenamento máximo de dados por banco de dados | 50 GB | 100 GB | 200 GB | 250 GB | 250 GB | 250 GB |
 ||||||||
 
-<a id="standard-elastic-pool-limits-continued" class="xliff"></a>
-
-### Limites de pool elástico Standard (continuação) 
+### <a name="standard-elastic-pool-limits-continued"></a>Limites de pool elástico Standard (continuação) 
 
 | Tamanho do pool (eDTUs)  |  **1200**** | **1600**** | **2000**** | **2500**** | **3000**** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -56,9 +50,7 @@ sql-database-service-tiers.md
 | Armazenamento máximo de dados por banco de dados | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 
 ||||||||
 
-<a id="premium-elastic-pool-limits" class="xliff"></a>
-
-### Limites de pool elástico Premium
+### <a name="premium-elastic-pool-limits"></a>Limites de pool elástico Premium
 
 | Tamanho do pool (eDTUs)  | **125** | **250** | **500** | **1000** | **1500*****| 
 |:---|---:|---:|---:| ---: | ---: | 
@@ -70,12 +62,10 @@ sql-database-service-tiers.md
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000 | 
 | Máximo de eDTUs por banco de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000 |
-| Armazenamento máximo de dados por banco de dados | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Armazenamento máximo de dados por banco de dados | 250 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
-<a id="premium-elastic-pool-limits-continued" class="xliff"></a>
-
-### Limites de pool elástico Premium (continuação) 
+### <a name="premium-elastic-pool-limits-continued"></a>Limites de pool elástico Premium (continuação) 
 
 | Tamanho do pool (eDTUs) | **2000***** | **2500***** | **3000***** | **3500***** | **4000*****|
 |:---|---:|---:|---:| ---: | ---: | 
@@ -90,9 +80,7 @@ sql-database-service-tiers.md
 | Armazenamento máximo de dados por banco de dados | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
-<a id="premium-rs-elastic-pool-limits" class="xliff"></a>
-
-### Limites de pool elástico Premium RS
+### <a name="premium-rs-elastic-pool-limits"></a>Limites de pool elástico Premium RS
 
 | Tamanho do pool (eDTUs)  | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -104,7 +92,7 @@ sql-database-service-tiers.md
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 |
 | Mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
 | Máximo de eDTUs por banco de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Armazenamento máximo de dados por banco de dados | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Armazenamento máximo de dados por banco de dados | 250 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 > [!IMPORTANT]
@@ -113,5 +101,5 @@ sql-database-service-tiers.md
 >
 >\*\*O mín/máx de eDTUs por banco de dados começando em 200 eDTUs e mais está na versão prévia pública.
 >
->\*\*\* Armazenamento de dados máximo padrão por pool para os pools Premium com 500 eDTUs ou mais é de 750 GB. Para obter o maior tamanho de armazenamento de dados máximo por pool Premium para 1000 ou mais eDTUs, esse tamanho deve ser explicitamente selecionado usando o portal do Azure ou o [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Os pools Premium com mais de 1000 GB de armazenamento estão atualmente em versão prévia nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. O armazenamento máximo por pool para todas as outras regiões é atualmente limitado a 750 GB.
+>\*\*\* Armazenamento de dados máximo padrão por pool para os pools Premium com 500 eDTUs ou mais é de 750 GB. Para obter o maior tamanho de armazenamento de dados máximo por pool Premium para 1000 ou mais eDTUs, esse tamanho deve ser explicitamente selecionado usando o portal do Azure, o [PowerShell](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), a [CLI do Azure](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), ou a [API REST](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api). Os pools Premium com mais de 1000 GB de armazenamento estão atualmente em versão prévia nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. O armazenamento máximo por pool para todas as outras regiões é atualmente limitado a 750 GB.
 >

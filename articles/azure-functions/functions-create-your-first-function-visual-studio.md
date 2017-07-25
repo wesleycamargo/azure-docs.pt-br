@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Criar sua primeira função usando o Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Criar sua primeira função usando o Visual Studio
 
-O Azure Functions lhe permite executar seu código em um ambiente sem servidor sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web. 
+O Azure Functions lhe permite executar seu código em um ambiente sem servidor sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web.
+
+> [!IMPORTANT]
+> Este tópico usa uma Versão Prévia do Visual Studio para concluir as etapas. Certifique-se de que você instalou a [Versão prévia 15.3 do Visual Studio 2017](https://www.visualstudio.com/vs/preview/) antes de avançar.
 
 Neste tópico, você aprenderá a usar as Ferramentas do Azure Functions para Visual Studio 2017 a fim de criar e testar uma função de "Olá, Mundo" localmente. Em seguida, você publicará o código de função no Azure.
 
@@ -37,7 +39,7 @@ Neste tópico, você aprenderá a usar as Ferramentas do Azure Functions para Vi
 Para concluir este tutorial, instale:
 
 * [Versão prévia do Visual Studio 2017 15.3](https://www.visualstudio.com/vs/preview/), incluindo a carga de trabalho **Desenvolvimento do Azure**.
-    
+
     ![Instalar o Visual Studio de 2017 com a carga de trabalho de desenvolvimento do Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

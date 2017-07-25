@@ -1,30 +1,33 @@
 ---
-title: "Criar um aplicativo de contêiner do Azure Service Fabric | Microsoft Docs"
-description: "Criar seu primeiro aplicativo de contêiner no Azure Service Fabric.  Criar uma imagem do Docker com o seu aplicativo, forçar a imagem para um registro de contêiner, criar e implantar um aplicativo de contêiner do Service Fabric."
+title: "Como criar um aplicativo de contêiner do Azure Service Fabric | Microsoft Docs"
+description: "Crie seu primeiro aplicativo de contêiner do Windows no Azure Service Fabric.  Compile uma imagem do Docker com o seu aplicativo Python, envie a imagem por push para um registro de contêiner, compile e implante um aplicativo de contêiner do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/08/2017
+ms.date: 06/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 
-# <a name="create-your-first-service-fabric-container-app"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric
-Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este guia rápido orienta a criação de uma imagem de Docker, que contém um aplicativo Web, enviar a nova imagem do Registro de Contêiner do Azure, criando um aplicativo de contêiner do Service Fabric e implantando do aplicativo de contêiner para um cluster do Service Fabric.  Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
+# <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-get-started-containers.md)
+> * [Linux](service-fabric-get-started-containers-linux.md)
+
+Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo mostra como criar uma imagem do Docker que contém um aplicativo de web Python [Flask](http://flask.pocoo.org/) e a implantá-lo em um cluster do Service Fabric.  Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/).  Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Um computador de desenvolvimento executando:
@@ -32,121 +35,134 @@ Um computador de desenvolvimento executando:
 * [Ferramentas e SDK do Service Fabric](service-fabric-get-started.md).
 *  Docker para Windows.  [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Isso é necessário para executar imagens do Docker com base no Windows.
 
-Um cluster do Windows com três ou mais nós em execução no Windows Server 2016 com contêineres - [Criar um cluster](service-fabric-get-started-azure-cluster.md) ou [experimente o Service Fabric gratuitamente](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
+Um cluster do Windows com três ou mais nós em execução no Windows Server 2016 com contêineres - [Criar um cluster](service-fabric-cluster-creation-via-portal.md) ou [experimente o Service Fabric gratuitamente](https://aka.ms/tryservicefabric). 
 
 Um registro no Registro de Contêiner do Azure - [Crie um registro de contêiner](../container-registry/container-registry-get-started-portal.md) em sua assinatura do Azure. 
 
-## <a name="create-a-simple-web-app"></a>Criar um aplicativo Web simples
-Colete todos os ativos que você precisa carregar em uma imagem de Docker em um único local. Para esse início rápido, crie um aplicativo Web "Olá, Mundo" no computador de desenvolvimento.
+## <a name="define-the-docker-container"></a>Defina o contêiner Docker
+Crie uma imagem com base na [imagem do Python](https://hub.docker.com/_/python/) localizada no Hub do Docker. 
 
-1. Crie um diretório, como *c:\temp\helloworldapp*.
-2. Criar um subdiretório *c:\temp\helloworldapp\content*.
-3. Crie um arquivo *index.html* em *c:\temp\helloworldapp\content*.
-4. Edite *index.html* e adicione a seguinte linha:
-    ```
-    <h1>Hello World!</h1>
-    ```
-5. Salve suas alterações em *index.html*.
+Defina o contêiner do Docker em um Dockerfile. O Dockerfile contém instruções para configurar o ambiente do seu contêiner, carregar o aplicativo que você deseja executar e mapear portas. O Dockerfile é a entrada para o comando `docker build`, que cria a imagem. 
 
-## <a name="build-the-docker-image"></a>Criar a imagem de Docker
-Crie uma imagem com base na [imagem do microsoft/iis](https://hub.docker.com/r/microsoft/iis/) localizada no Hub do Docker. A imagem do microsoft/iis deriva da imagem do sistema operacional básico do Windows Server Core e contém Serviços de Informações da Internet (IIS).  Executar essa imagem em seu contêiner automaticamente inicia o IIS e os sites instalados.
+Crie um diretório vazio e crie o arquivo *Dockerfile* (sem extensão de arquivo). Adicione o seguinte ao *Dockerfile* e salve as alterações:
 
-Defina a imagem do Docker em um Dockerfile. O Dockerfile contém instruções para criar a imagem e carregar o aplicativo que você deseja executar. O Dockerfile é a entrada para o comando ```docker build```, que cria a imagem. 
+```
+# Use an official Python runtime as a base image
+FROM python:2.7-windowsservercore
 
-1. Crie um arquivo *Dockerfile* (sem nenhuma extensão de arquivo) em *c:\temp\helloworldapp* e adicione o seguinte:
+# Set the working directory to /app
+WORKDIR /app
 
-    ```
-    # The `FROM` instruction specifies the base image. You are
-    # extending the `microsoft/iis` image.
-    FROM microsoft/iis
+# Copy the current directory contents into the container at /app
+ADD . /app
 
-    # Create a directory to hold the web app in the container.
-    RUN mkdir C:\site
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
 
-    # Create a new IIS site.
-    RUN powershell -NoProfile -Command \
-        Import-module IISAdministration; \
-        New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-    # Opens port 8000 on the container.
-    EXPOSE 8000
+# Define environment variable
+ENV NAME World
 
-    # The final instruction copies the web app you created earlier into the container.
-    ADD content/ /site
-    ```
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
 
-    Não há nenhum comando ```ENTRYPOINT``` neste Dockerfile. Você não precisa de um. Ao executar o Windows Server com IIS, o processo do IIS é o ponto de entrada, que é configurado para iniciar a imagem base.
+Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para saber mais informações.
 
-    Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para saber mais informações.
+## <a name="create-a-simple-web-application"></a>Criar um aplicativo Web simples
+Crie um aplicativo Web Flask que escuta a porta 80 retornar "Olá, Mundo!".  No mesmo diretório, crie o arquivo *requirements.txt*.  Adicione o seguinte e salve as alterações:
+```
+Flask
+```
 
-2. Execute o comando ```docker build``` para criar a imagem que executa seu aplicativo Web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o comando a seguir:
+Crie também o arquivo *app.py* e adicione o seguinte:
 
-    ```
-    docker build -t helloworldapp .
-    ```
-    Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (-t marcação) a imagem "helloworldapp". Criar uma imagem puxa a imagem base do Hub do Docker e cria uma nova imagem que adiciona seu aplicativo sobre a imagem base.  A [imagem do microsft/iis](https://hub.docker.com/r/microsoft/iis/) e as imagens base do sistema operacional possuem 10.5 GB e demoram para serem baixadas e extraídas para o seu computador de desenvolvimento.  Talvez seja melhor você sair para almoçar ou tomar um café.  O download leva menos tempo se colocada anteriormente recebeu a imagem base do sistema operacional em seu computador de desenvolvimento.
+```python
+from flask import Flask
 
-3. Depois de concluir o comando de compilação, execute o comando `docker images` para ver informações sobre a nova imagem:
+app = Flask(__name__)
 
-    ```
-    docker images
+@app.route("/")
+def hello():
     
-    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-    helloworldapp              latest              86838648aab6        2 minutes ago       10.1 GB
-    ```
+    return 'Hello World!'
 
-## <a name="verify-the-image-runs-locally"></a>Verifique se a imagem é executada localmente
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
+```
+
+## <a name="build-the-image"></a>Criar a imagem
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
+
+```
+docker build -t helloworldapp .
+```
+
+Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (-t marcação) a imagem "helloworldapp". A criação de uma imagem puxa a imagem base do Hub do Docker e cria uma nova imagem que adiciona seu aplicativo sobre a imagem base.  
+
+Depois de concluir o comando de compilação, execute o comando `docker images` para ver informações sobre a nova imagem:
+
+```
+$ docker images
+    
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
+```
+
+## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 Verifique a imagem localmente antes de enviá-la ao registro de contêiner.  
 
-1. Iniciar o contêiner com ```docker run```:
+Executar o aplicativo:
 
-    ```
-    docker run -d -p 8000:8000 --name my-web-site helloworldapp
-    ```
+```
+docker run -d --name my-web-site helloworldapp
+```
 
-    *name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
+*name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
 
-2. Depois que o contêiner iniciar, localize seu endereço IP para que você pode se conectar ao seu contêiner em execução em um navegador:
-    ```
-    docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
-    ```
+Depois que o contêiner iniciar, localize seu endereço IP para que você pode se conectar ao seu contêiner em execução em um navegador:
+```
+docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
 
-3. Conectar-se ao contêiner em execução.  Abra um navegador da Web apontando para o endereço IP retornado na porta 8000, por exemplo "http://172.31.194.61:8000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução.  Abra um navegador da Web apontando para o endereço IP retornado, por exemplo "http://172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-4. Para interromper o contêiner, execute:
+Para interromper o contêiner, execute:
 
-    ```
-    docker stop my-web-site
-    ```
+```
+docker stop my-web-site
+```
 
-5. Exclua o contêiner do seu computador de desenvolvimento:
+Exclua o contêiner do seu computador de desenvolvimento:
 
-    ```
-    docker rm my-web-site
-    ```
+```
+docker rm my-web-site
+```
 
 ## <a name="push-the-image-to-the-container-registry"></a>Enviar a imagem para o registro de contêiner
 Depois de verificar que o contêiner é executado na máquina de desenvolvimento, envie a imagem para seu registro no Registro de Contêiner do Azure.
 
-1. Execute ``docker login`` para fazer logon em seu registro de contêiner as [credenciais de registro](../container-registry/container-registry-authentication.md).
+Execute ``docker login`` para fazer logon em seu registro de contêiner as [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-    O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação.
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou pode fazer logon usando o nome de usuário e a senha do registro.
 
-    ```
-    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
-    ```
+```
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
 
-2. O comando a seguir cria uma marca ou alias imagem, com um caminho totalmente qualificado para o registro. Este exemplo coloca a imagem no namespace ```samples``` para evitar confusão na raiz do registro.
+O comando a seguir cria uma marca ou alias imagem, com um caminho totalmente qualificado para o registro. Este exemplo coloca a imagem no namespace ```samples``` para evitar confusão na raiz do registro.
 
-    ```
-    docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
+```
 
-3.  Enviar a imagem para o eu registro de contêiner:
+Enviar a imagem para o eu registro de contêiner:
 
-    ```
-    docker push myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker push myregistry.azurecr.io/samples/helloworldapp
+```
 
 ## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Criar e empacotar o serviço em contêineres no Visual Studio
 As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para ajudar você a implantar um contêiner em um cluster do Service Fabric.
@@ -156,19 +172,19 @@ As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para aju
 3. Selecione **Contêiner Convidado** na lista de **modelos de serviço**.
 4. Em **Nome da imagem** insira "myregistry.azurecr.io/samples/helloworldapp", a imagem é enviada para o seu repositório de contêiner. 
 5. Dê um nome ao seu serviço e clique em **OK**.
-6. Se o seu serviço em contêiner precisar de um ponto de extremidade para comunicação, você poderá adicionar o protocolo, a porta e o tipo a um ```Endpoint``` no arquivo ServiceManifest.xml. Para esse início rápido, o serviço em contêineres escuta na porta 80: 
+6. Se o seu serviço em contêiner precisar de um ponto de extremidade para comunicação, você poderá adicionar o protocolo, a porta e o tipo a um ```Endpoint``` no arquivo ServiceManifest.xml. Neste artigo, o serviço em contêineres escuta na porta 80: 
 
     ```xml
-    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     ```
     Ao fornecer ```UriScheme```, o ponto de extremidade do contêiner é registrado automaticamente no serviço de Nomenclatura do Service Fabric para capacidade de descoberta. Um arquivo de exemplo servicemanifest. XML completo é fornecido no final deste artigo. 
-7. Configure o mapeamento de porta, da porta para o host, do contêiner especificando uma política ```PortBinding``` no ```ContainerHostPolicies``` do arquivo ApplicationManifest.xml.  Para esse início rápido, ```ContainerPort``` é 8000 (o contêiner expõe a porta 8000, conforme especificado no Dockerfile) e ```EndpointRef``` é "Guest1TypeEndpoint" (o ponto de extremidade definido no manifesto do serviço).  As solicitações de entrada para o serviço na porta 80 são mapeadas para a porta 8000 no contêiner.  Se o seu contêiner precisar autenticar com um repositório privado, adicione ```RepositoryCredentials```.  Para esse início rápido, adicione o nome da conta e a senha para o registro de contêiner de myregistry.azurecr.io. 
+7. Configure o mapeamento de porta, da porta para o host, do contêiner especificando uma política ```PortBinding``` no ```ContainerHostPolicies``` do arquivo ApplicationManifest.xml.  Para este artigo, ```ContainerPort``` é 8081 (o contêiner expõe a porta 80, conforme especificado no Dockerfile) e ```EndpointRef``` é "Guest1TypeEndpoint" (o ponto de extremidade definido no manifesto do serviço).  As solicitações de entrada para o serviço na porta 8081 são mapeadas para a porta 80 no contêiner.  Se o seu contêiner precisar autenticar com um repositório privado, adicione ```RepositoryCredentials```.  Para este artigo, adicione o nome da conta e a senha para o registro de contêiner de myregistry.azurecr.io. 
 
     ```xml
     <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
             <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>
     ```
@@ -181,16 +197,16 @@ As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para aju
     
 9. Salve todos os arquivos e crie seu projeto.  
 
-10. Para empacotar seu aplicativo, clique com o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Empacotar**. 
+10. Para empacotar seu aplicativo, clique o botão direito do mouse em **MyFirstContainer** no gerenciador de soluções e selecione **Pacote**. 
 
-## <a name="deploy-the-container-app"></a>Implantar o aplicativo de contêiner
-1. Para publicar o seu aplicativo, clique com o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Publicar**.
+## <a name="deploy-the-container-application"></a>Como implantar o aplicativo de contêiner
+Para publicar o seu aplicativo, clique o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Publicar**.
 
-2. O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implantação do aplicativo.  O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem):  ![Erro][1]
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e acesse http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implantação do aplicativo.  O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Erro][1]
 
-3. O aplicativo estará pronto quando ele estiver em no estado ```Ready``` :  ![Pronto][2]
+O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 
-4. Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Abra um navegador e acesse http://containercluster.westus2.cloudapp.azure.com:8081. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ## <a name="clean-up"></a>Limpar
 Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Clusters de terceiros](http://tryazureservicefabric.westus.cloudapp.azure.com/) são excluídos automaticamente após algumas horas.
@@ -203,7 +219,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo de manifestos de serviço e aplicativo do Service Fabric
-Aqui estão os manifestos de aplicativo e serviço completos usados neste guia rápido.
+Aqui estão os manifestos de aplicativo e serviço completos usados neste artigo.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -244,7 +260,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste guia r
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -269,7 +285,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste guia r
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -290,6 +306,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste guia r
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-containers-overview.md).
+* Leia o tutorial [Como implantar um aplicativo .NET em um contêiner](service-fabric-host-app-in-a-container.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.
 * Confira os [exemplos de código do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) no GitHub.
 

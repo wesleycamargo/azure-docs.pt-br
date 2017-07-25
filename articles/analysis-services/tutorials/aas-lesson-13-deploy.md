@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lição 13: implantar
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Nesta lição, você configura as propriedades de implantação especificando um servidor do Analysis Services no Azure ou então um servidor local do SQL Server vNext Analysis Services e um nome para o modelo. Em seguida, você implanta o modelo para essa instância. Após o modelo ser implantado, os usuários podem se conectar a ele usando um aplicativo cliente de relatório. Para saber mais, confira [Implantar no Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+Nesta lição, você configura as propriedades de implantação especificando um servidor do Azure Analysis Services para implantar e um nome para o modelo. Em seguida, você implanta o modelo para essa instância. Após o modelo ser implantado, os usuários podem se conectar a ele usando um aplicativo cliente de relatório. Para saber mais, confira [Implantar no Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Tempo estimado para a conclusão desta lição: **Cinco minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Importante:** se você instalou o banco de dados de exemplo AdventureWorksDW2014 em um SQL Server local e você está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
+> [!IMPORTANT]  
+> Você deve ter [permissões de Administrador](../analysis-services-server-admins.md) no servidor remoto do Analysis Services para poder implantar nele.  
+
+> [!IMPORTANT]  
+> Se você instalou o banco de dados de exemplo AdventureWorksDW2014 em um SQL Server local e está implantando seu modelo em um servidor do Azure Analysis Services, um [Gateway de dados local](../analysis-services-gateway.md) é necessário.
   
 ## <a name="deploy-the-model"></a>Implantar o modelo  
   
@@ -42,12 +46,9 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
 1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** e depois clique em **Propriedades**.  
   
-2.  Na caixa de diálogo **Páginas de Propriedades de Vendas pela Internet da AW**, no **Servidor de Implantação**, na propriedade **Servidor**, digite o nome de um servidor do Analysis Services no Azure ou local.  
+2.  Na caixa de diálogo **Páginas de Propriedades de Vendas pela Internet da AW**, no **Servidor de Implantação**, na propriedade **Servidor**, digite o servidor completo.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > Você deve ter permissões de Administrador na instância remota do Analysis Services para poder implantar nela.  
   
 3.  Na propriedade **Banco de Dados**, digite **Vendas pela Internet da Adventure Works**.  
   
@@ -61,7 +62,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
 2.  Clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Implantar**.
 
-    Ao implantar para os Azure Analysis Services, pode ser solicitado que você insira sua conta. Insira sua conta e senha organizacionais, por exemplo, nancy@adventureworks.com. Essa conta deve constar na lista Admins na instância do servidor.
+    Ao implantar para os Azure Analysis Services, pode ser solicitado que você insira sua conta. Insira sua conta e senha organizacionais, por exemplo, nancy@adventureworks.com. Esta conta deve constar na lista Admins no servidor.
   
     A caixa de diálogo Implantar aparece e exibe o status da implantação dos metadados e cada tabela incluída no modelo.  
     
@@ -77,9 +78,8 @@ Parabéns! Você terminou de criar e implantar seu primeiro modelo tabular do An
   
   
 ## <a name="whats-next"></a>O que vem a seguir?
-*  [Lição Suplementar – Segurança Dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Lição suplementar – linhas de detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Lição Suplementar – hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Conecte-se com o Power BI Desktop](../analysis-services-connect-pbi.md)   
+[Lição suplementar - Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lição suplementar - Linhas de detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Lição Suplementar – hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 
