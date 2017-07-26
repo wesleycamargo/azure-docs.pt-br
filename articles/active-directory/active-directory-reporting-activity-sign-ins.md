@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/20/2017
 
 ---
-# Relatórios de atividades de entrada no portal do Azure Active Directory
-<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
 Com os relatórios do Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
@@ -38,22 +37,18 @@ A arquitetura de relatório no Azure Active Directory consiste nos seguintes com
 
 Este tópico fornece uma visão geral das atividades de entrada.
 
-## Pré-requisito
-<a id="pre-requisite" class="xliff"></a>
+## <a name="pre-requisite"></a>Pré-requisito
 
-### Quem pode acessar os dados?
-<a id="who-can-access-the-data" class="xliff"></a>
+### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 * Usuários na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Qualquer usuário (não administradores) pode acessar suas próprias entradas 
 
-### Qual licença do Azure AD você precisa para acessar a atividade de entrada?
-<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
 * Seu locatário deve ter uma licença do Azure AD Premium associada a ele para ver o relatório de atividade de entrada
 
 
-## Atividades de entrada
-<a id="signs-in-activities" class="xliff"></a>
+## <a name="signs-in-activities"></a>Atividades de entrada
 
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
@@ -89,8 +84,7 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/43.png "Atividade de entrada")
 
 
-## Filtragem de atividades de entrada
-<a id="filtering-sign-in-activities" class="xliff"></a>
+## <a name="filtering-sign-in-activities"></a>Filtragem de atividades de entrada
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de entradas usando os seguintes campos:
 
@@ -126,8 +120,7 @@ O filtro **status de entrada** permite que você selecione um dos filtros abaixo
 - Failure
 
 
-## Atalhos de atividades de entrada
-<a id="sign-in-activities-shortcuts" class="xliff"></a>
+## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de entrada
 
 Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrada adicionais para dados de atividade de entrada:
 
@@ -135,8 +128,7 @@ Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrad
 - Aplicativos empresariais
 
 
-### Atividades de entrada de usuários e grupos
-<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
+### <a name="users-and-groups-sign-ins-activities"></a>Atividades de entrada de usuários e grupos
 
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
@@ -172,8 +164,7 @@ A opção **entradas** fornece uma visão geral completa de todas as entradas de
 
 
 
-## Uso de aplicativos gerenciados
-<a id="usage-of-managed-applications" class="xliff"></a>
+## <a name="usage-of-managed-applications"></a>Uso de aplicativos gerenciados
 
 Com uma exibição centrada no aplicativo de seus dados de entrada, você pode responder a perguntas como:
 
@@ -206,8 +197,8 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 
 
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
-Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Próximas etapas
+
+Se você quiser saber mais sobre os códigos de erro da atividade de entrada, confira o [Códigos de erro do relatório de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 
 

@@ -12,14 +12,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 6d8e6ef070c3b9d9623f4b29ab97a5d20f69d499
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>Conectar o Raspberry Pi3 à solução de monitoramento remoto e enviar telemetria de um sensor real usando o Node.js
@@ -60,33 +59,44 @@ Instale Node. js em seu Raspberry Pi. O SDK do IoT para Node.js exige a versão 
 
 1. Use o seguinte comando para atualizar o Raspberry Pi:
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Use o seguinte comando para baixar os binários do Node.js no Raspberry Pi:
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use o seguinte comando para instalar os binários:
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use o seguinte comando para verificar se você instalou com êxito o Node.js v6.10.2:
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>Clonar os repositórios
 
 Caso ainda não tenha feito isso, clone os repositórios necessários executando os seguintes comandos em seu Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```
 
 ### <a name="update-the-device-connection-string"></a>Atualizar a cadeia de conexão do dispositivo
 
 Abra o arquivo de origem de exemplo no editor **nano** usando o seguinte comando:
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 Localize a linha:
 
@@ -100,13 +110,16 @@ Substitua os valores do espaço reservado pelas informações de dispositivo e H
 
 Execute os seguintes comandos para instalar os pacotes de pré-requisito do exemplo:
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic
+npm install
+```
 
 Agora você pode executar o programa de exemplo no Raspberry Pi. Insira o comando:
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 O que você vê a seguir é um exemplo da saída vista no prompt de comando do Raspberry Pi:
 
@@ -119,7 +132,6 @@ Pressione **Ctrl-C** para sair do programa a qualquer momento.
 ## <a name="next-steps"></a>Próximas etapas
 
 Visite o [Centro de Desenvolvimento do Azure IoT](https://azure.microsoft.com/develop/iot/) para obter mais exemplos e a documentação sobre o Azure IoT.
-
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-basic/app-output.png
 

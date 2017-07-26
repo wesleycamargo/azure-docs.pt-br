@@ -13,26 +13,21 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a42138ae234313c7c6cbfcaa8b851ad47f82133b
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="get-started-using-r-server-on-hdinsight" class="xliff"></a>
-
-# Aprenda a usar o Servidor R no HDInsight
+# <a name="get-started-using-r-server-on-hdinsight"></a>Aprenda a usar o Servidor R no HDInsight
 
 HDInsight inclui uma opção de R Server para ser integrada ao seu cluster HDInsight. Essa opção permite que scripts R usem o Spark e MapReduce para executar cálculos distribuídos. Neste documento, você aprende a criar um R Server no cluster do HDInsight e executar um script R que demonstra o uso do Spark para cálculos R distribuídos.
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**: antes de começar este tutorial, você deve ter uma assinatura do Azure. Acesse o artigo [Obtenha uma avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) para saber mais.
 * **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight.](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -42,9 +37,7 @@ HDInsight inclui uma opção de R Server para ser integrada ao seu cluster HDIns
 > As etapas neste documento pressupõem que você esteja usando uma senha.
 
 
-<a id="automated-cluster-creation" class="xliff"></a>
-
-## Criação de cluster automatizada
+## <a name="automated-cluster-creation"></a>Criação de cluster automatizada
 
 Você pode automatizar a criação de HDInsight R Servers usando modelos do Azure Resource Manager, SDK e também PowerShell.
 
@@ -54,9 +47,7 @@ Você pode automatizar a criação de HDInsight R Servers usando modelos do Azur
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
-<a id="create-the-cluster-using-the-azure-portal" class="xliff"></a>
-
-## Como criar o cluster usando o portal do Azure
+## <a name="create-the-cluster-using-the-azure-portal"></a>Como criar o cluster usando o portal do Azure
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -162,9 +153,7 @@ Você pode automatizar a criação de HDInsight R Servers usando modelos do Azur
    >
 
 <a name="connect-to-rstudio-server"></a>
-<a id="connect-to-rstudio-server" class="xliff"></a>
-
-## Conectar-se ao RStudio Server
+## <a name="connect-to-rstudio-server"></a>Conectar-se ao RStudio Server
 
 Se você optou por incluir o RStudio Server Community Edition em sua instalação, poderá acessar o logon do RStudio por dois métodos diferentes.
 
@@ -182,9 +171,7 @@ Se você optou por incluir o RStudio Server Community Edition em sua instalaçã
    > Não importa o método usado: na primeira vez em que você fizer logon, precisará autenticar duas vezes.  Na primeira autenticação, forneça a *ID de usuário* e *senha de Administrador do cluster*. Na segunda autenticação, forneça a *ID de usuário* e a *senha do SSH*. Os logons subsequentes exigirão apenas a *ID de usuário* e a *senha do SSH*.
 
 <a name="connect-to-edge-node"></a>
-<a id="connect-to-the-r-server-edge-node" class="xliff"></a>
-
-## Conecte-se ao nó de borda do Servidor R
+## <a name="connect-to-the-r-server-edge-node"></a>Conecte-se ao nó de borda do Servidor R
 
 Conecte-se ao nó de borda do Servidor R do cluster HDInsight usando o SSH com o comando:
 
@@ -208,9 +195,7 @@ Uma vez conectado, você chegará em um prompt semelhante ao seguinte:
     sername@ed00-myrser:~$
 
 <a name="enable-concurrent-users"></a>
-<a id="enable-multiple-concurrent-users" class="xliff"></a>
-
-## Habilitar múltiplos usuário simultâneos
+## <a name="enable-multiple-concurrent-users"></a>Habilitar múltiplos usuário simultâneos
 
 Você pode habilitar vários usuários simultâneos adicionando mais usuários ao nó de borda em que a versão da comunidade RStudio é executada.
 
@@ -239,16 +224,12 @@ Como o RStudio Server Community está em execução no nó de borda do cluster, 
 2. Adicionar mais usuários do Linux ao nó de borda
 3. Use a versão do RStudio Community com o usuário criado
 
-<a id="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node" class="xliff"></a>
-
-### Etapa 1: usar o usuário SSH criado para fazer logon no nó de borda
+### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>Etapa 1: usar o usuário SSH criado para fazer logon no nó de borda
 
 Baixe uma ferramenta SSH (como o Putty) e use o usuário SSH existente para fazer logon. Em seguida, siga as instruções fornecidas em [Conectar-se ao HDInsight (Hadoop) usando o SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para acessar o nó de borda. O endereço do nó de borda para o R Server no cluster HDInsight: *clustername-ed-ssh.azurehdinsight.net*
 
 
-<a id="step-2-add-more-linux-users-in-edge-node" class="xliff"></a>
-
-### Etapa 2: adicionar mais usuários do Linux ao nó de borda
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Etapa 2: adicionar mais usuários do Linux ao nó de borda
 
 Para adicionar um usuário ao nó de borda, execute os comandos:
 
@@ -262,9 +243,7 @@ Você verá os seguintes itens retornados:
 Quando a Senha atual do Kerberos for solicitada, basta pressionar **Enter** para ignorar a solicitação. A opção `-m` no comando `useradd` indica que o sistema criará uma pasta base para o usuário, obrigatória para a versão do RStudio Community.
 
 
-<a id="step-3-use-rstudio-community-version-with-the-user-created" class="xliff"></a>
-
-### Etapa 3: usar a versão do RStudio Community com o usuário criado
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Etapa 3: usar a versão do RStudio Community com o usuário criado
 
 Use o usuário criado para entrar no RStudio:
 
@@ -355,9 +334,7 @@ Observe também que os usuários adicionados recentemente não têm privilégios
 
 
 <a name="use-r-console"></a>
-<a id="use-the-r-console" class="xliff"></a>
-
-## Use o console R
+## <a name="use-the-r-console"></a>Use o console R
 
 1. Na sessão de SSH, use o seguinte comando para iniciar o console R:  
 
@@ -393,9 +370,7 @@ Observe também que os usuários adicionados recentemente não têm privilégios
     rxHadoopListFiles("wasbs:///")
 
 
-<a id="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client" class="xliff"></a>
-
-## Usando o Servidor R no HDI de uma instância remota do Microsoft R Server ou Microsoft R Client
+## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Usando o Servidor R no HDI de uma instância remota do Microsoft R Server ou Microsoft R Client
 
 É possível configurar o acesso ao contexto de computação Spark HDI Hadoop de uma instância remota do Microsoft R Server ou do Microsoft R Client em execução em um computador ou laptop. Consulte a subseção **Usando o Microsoft R Server como um cliente Hadoop** em [Criando contexto de computação para o Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md). Para isso, você precisará especificar as seguintes opções ao definir o contexto de computação RxSpark em seu laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. Por exemplo:
 
@@ -423,9 +398,7 @@ Observe também que os usuários adicionados recentemente não têm privilégios
     )
 
 
-<a id="use-a-compute-context" class="xliff"></a>
-
-## Use um contexto de computação
+## <a name="use-a-compute-context"></a>Use um contexto de computação
 
 Um contexto de computação permite que você controle se o cálculo é executado localmente no nó de borda ou distribuído entre os nós no cluster HDInsight.
 
@@ -549,9 +522,7 @@ Um contexto de computação permite que você controle se o cálculo é executad
    > Você também pode usar o MapReduce para distribuir a computação nos nós do cluster. Para saber mais sobre o contexto de computação, confira [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
 
-<a id="distribute-r-code-to-multiple-nodes" class="xliff"></a>
-
-## Distribua o código R em vários nós
+## <a name="distribute-r-code-to-multiple-nodes"></a>Distribua o código R em vários nós
 
 Com o R Server, você pode facilmente usar o código R existente e executá-lo em vários nós no cluster usando o `rxExec`. Essa função é útil ao fazer uma limpeza de parâmetro ou simulações. O código abaixo é um exemplo de como usar o `rxExec`:
 
@@ -576,9 +547,7 @@ Se você ainda estiver usando o contexto do Spark ou do MapReduce, esse comando 
     "wn3-myrser"
 
 
-<a id="accessing-data-in-hive-and-parquet" class="xliff"></a>
-
-## Acessando dados no Hive e no Parquet
+## <a name="accessing-data-in-hive-and-parquet"></a>Acessando dados no Hive e no Parquet
 
 Um recurso disponível no R Server 9.1 permite acesso direto a dados no Hive e no Parquet para serem usados pelas funções ScaleR no contexto de computação do Spark. Esses recursos estão disponíveis por meio de novas funções de fontes de dados ScalR chamadas RxHiveData e RxParquetData, que funcionam com o uso de Spark SQL para carregar dados diretamente em um DataFrame do Spark para serem analisados pelo ScaleR.  
 
@@ -618,9 +587,7 @@ O código abaixo fornece exemplos de código na utilização das novas funções
 Para saber mais sobre o uso dessas novas funções, confira a ajuda online no R Server usando os comandos `?RxHivedata` e `?RxParquetData`.  
 
 
-<a id="install-additional-r-packages-on-the-edge-node" class="xliff"></a>
-
-## Instalar pacotes R adicionais no nó de borda
+## <a name="install-additional-r-packages-on-the-edge-node"></a>Instalar pacotes R adicionais no nó de borda
 
 Se desejar instalar pacotes R adicionais no nó de borda, você poderá usar o `install.packages()` diretamente do console R quando conectado ao nó de borda por meio do SSH. No entanto, se você precisar instalar pacotes R em nós de trabalho do cluster, você deverá usar uma Ação de Script.
 
@@ -667,9 +634,7 @@ As Ações de Script são scripts de Bash que são usados para fazer alteraçõe
 4. Escolha **Criar** para executar o script. Quando o script é concluído, os pacotes R ficam disponíveis em todos os nós de trabalho.
 
 
-<a id="using-microsoft-r-server-operationalization" class="xliff"></a>
-
-## Usando a operacionalização do Microsoft R Server
+## <a name="using-microsoft-r-server-operationalization"></a>Usando a operacionalização do Microsoft R Server
 
 Quando sua modelagem de dados for concluída, você poderá operacionalizar o modelo para fazer previsões. Para configurar a operacionalização do Microsoft R Server, execute as seguintes etapas:
 
@@ -677,10 +642,15 @@ Primeiro, ssh no nó de borda. Por exemplo,
 
     ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Depois de usar o ssh, altere o diretório para o seguinte diretório e sudo dotnet dll:
+Depois de usar o ssh, altere o diretório para a versão relevante e sudo a dll dotnet: 
 
-    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- Para o Microsoft R Server 9.1:
+
+    cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0   sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- Para o Microsoft R Server 9.0:
+
+    cd /usr/lib64/microsoft-deployr/9.0.1   sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 Para configurar a operacionalização do Microsoft R Server com uma caixa configuração, faça o seguinte:
 
@@ -703,9 +673,7 @@ Como uma etapa opcional, você pode executar verificações de diagnóstico com 
 
 Nesse estágio, a configuração de operacionalização foi concluída. Agora, você pode usar o pacote 'mrsdeploy' em seu RClient para conectar a operacionalização no nó de borda e começar a usar seus recursos, como a [execução remota](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) e os [serviços web](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). A depender se o cluster está configurado em uma rede virtual ou não, você pode precisar configurar o túnel de encaminhamento da porta por meio de logon de SSH. As seções a seguir explicam como configurar esse túnel.
 
-<a id="rserver-cluster-on-virtual-network" class="xliff"></a>
-
-### Cluster do RServer em Rede Virtual
+### <a name="rserver-cluster-on-virtual-network"></a>Cluster do RServer em Rede Virtual
 
 Lembre-se de permitir o tráfego pela porta 12800 para o nó de borda. Dessa forma, você pode usar o nó de borda para se conectar ao recurso de operacionalização.
 
@@ -721,9 +689,7 @@ Lembre-se de permitir o tráfego pela porta 12800 para o nó de borda. Dessa for
 
 Se o `remoteLogin()` não puder se conectar ao nó de borda, mas for possível executar o SSH para o nó de borda, você precisará verificar se a regra que permite o tráfego na porta 12800 foi configurada corretamente. Caso o problema persista, você pode usar uma solução alternativa configurando o túnel de encaminhamento da porta por meio de SSH. Para obter instruções, consulte a seção a seguir.
 
-<a id="rserver-cluster-not-set-up-on-virtual-network" class="xliff"></a>
-
-### Cluster do RServer não configurado em rede virtual
+### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>Cluster do RServer não configurado em rede virtual
 
 Se o cluster não estiver configurado na rede virtual ou se você estiver tendo problemas com a conectividade por meio da rede virtual, use o túnel SSH de encaminhamento da porta:
 
@@ -745,13 +711,9 @@ Depois que a sessão SSH estiver ativa, o tráfego da porta 12800 da máquina se
     )
 
 
-<a id="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes" class="xliff"></a>
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Como dimensionar nós de computação de operacionalização do Microsoft R Server em nós de trabalho do HDInsight
 
-## Como dimensionar nós de computação de operacionalização do Microsoft R Server em nós de trabalho do HDInsight
-
-<a id="decommission-the-worker-nodes" class="xliff"></a>
-
-### Encerrar os nós de trabalho
+### <a name="decommission-the-worker-nodes"></a>Encerrar os nós de trabalho
 
 Atualmente, o Microsoft R Server não é gerenciado por meio de Yarn. Se os nós de trabalho não forem encerrados, o Gerenciador de Recursos Yarn não funcionará como esperado porque não estará ciente dos recursos consumidos pelo servidor. Para evitar essa situação,recomendamos desativar os nós de trabalho antes de expandir os nós de computação.
 
@@ -770,9 +732,7 @@ Etapas para encerramento de nós de trabalho:
 * Desmarque os nós de trabalho e selecione os nós de cabeça
 * Selecione **Ações** > **Hosts selecionados** > "**Hosts** > **Reiniciar Todos os Componentes**
 
-<a id="configure-compute-nodes-on-each-decommissioned-worker-nodes" class="xliff"></a>
-
-### Configurar nós de computação em cada nó de trabalho encerrado
+### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Configurar nós de computação em cada nó de trabalho encerrado
 
 1. SSH em cada nó de trabalho desativado.
 2. Executar o utilitário Administrador usando `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
@@ -780,9 +740,7 @@ Etapas para encerramento de nós de trabalho:
 4. Insira "c" para selecionar a opção "C. Nó de computação”. Isso configura o nó de computação no nó de trabalho.
 5. Saia do utilitário de administração.
 
-<a id="add-compute-nodes-details-on-web-node" class="xliff"></a>
-
-### Adicionar detalhes de nós de computação no nó da Web
+### <a name="add-compute-nodes-details-on-web-node"></a>Adicionar detalhes de nós de computação no nó da Web
 
 Depois que todos os nós de trabalho encerrados forem configurados para executar o nó de computação, volte ao nó de borda e adicione os endereços IP dos nós de trabalho encerrados na configuração do nó de web do Microsoft R Server:
 
@@ -793,16 +751,12 @@ Depois que todos os nós de trabalho encerrados forem configurados para executar
     ![encerrar nós de trabalho cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Solucionar problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora você deve entender como criar um novo cluster HDInsight que inclui o R Server e os fundamentos de como usar o console do R em uma sessão SSH. Os tópicos abaixo explicam outras maneiras de gerenciar e trabalhar com R Server no HDInsight:
 

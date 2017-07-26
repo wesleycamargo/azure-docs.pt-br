@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Configurar políticas de segurança na Central de Segurança do Azure
@@ -43,7 +42,7 @@ Por exemplo, os recursos usados para o desenvolvimento ou teste podem ter requis
     ![Definir a política](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. A folha **Política de segurança** da assinatura selecionada é aberta com um conjunto de opções. As opções disponíveis nesta folha são:
 
-   * **Política prevenção**: use essa opção para configurar as políticas por assinatura ou grupo de recursos.  
+   * **Política prevenção**: use esta opção para configurar as políticas por assinatura.  
    * **Notificação por email**: use essa opção para configurar uma notificação por email que é enviada na primeira ocorrência diária de um alerta e para os alertas de alta gravidade. As preferências do email podem ser configuradas apenas para as políticas da assinatura. Leia [Fornecer detalhes de contato da segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para obter mais informações sobre como configurar uma notificação por email.
    * **Camada de preços**: use essa opção para atualizar a seleção do tipo de preços. Confira os [Preços da Central de Segurança](security-center-pricing.md) para saber mais sobre as opções de preços.
 4. Verifique se a opção **Coletar dados das máquinas virtuais** está **Ativada**. Essa opção habilita a coleta de log automática para os recursos novos e existentes usando o Microsoft Monitoring Agent – este é o mesmo agente usado pelo serviço Operations Management Suite e Log Analytics. Os dados coletados desse agente são armazenados em um espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho, levando em conta a localização geográfica da VM.

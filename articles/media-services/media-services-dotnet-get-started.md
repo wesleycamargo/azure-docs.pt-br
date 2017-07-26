@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/10/2017
+ms.date: 07/16/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: a8e69933b977f60d09837f0f0360a274ef1b5dcd
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -81,37 +81,8 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. No Visual Studio, crie um novo aplicativo de console C#. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em **OK**.
-2. Use o pacote NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **extensões do SDK .NET dos Serviços de Mídia do Azure**.  As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
-
-    Para adicionar referências usando o NuGet, faça o seguinte: no Gerenciador de Soluções, clique no botão direito do mouse no nome do projeto, selecione **Gerenciar pacotes NuGet**. Em seguida, pesquise por **windowsazure.mediaservices.extensions** e clique em **Instalar**.
-
-3. Adicione uma referência ao assembly do System.Configuration. Esse assembly contém a classe **System.Configuration.ConfigurationManager** que é utilizada para acessar arquivos de configuração, como App.config.
-
-    Para adicionar uma referência, faça o seguinte: no Gerenciador de Soluções, clique com o botão direito do mouse no nome do projeto, selecione **Adicionar** > **Referência...** e digite a configurações na caixa de pesquisa.
-
-4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. Para obter as informações de chave e nome da conta, vá para o [Portal do Azure](https://portal.azure.com/) e selecione sua conta do AMS. Em seguida, selecione **Configurações** > **Chaves**. A janela Gerenciar chaves mostra o nome da conta e as chaves primária e secundária são exibidas. Copie os valores do nome da conta e a chave primária.
-
-        <configuration>
-        ...
-          <appSettings>
-            <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-            <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-          </appSettings>
-
-        </configuration>
-5. Substitua as instruções **using** existentes no início do arquivo Program.cs pelo código a seguir.
-
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.Threading.Tasks;
-        using System.Configuration;
-        using System.Threading;
-        using System.IO;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-6. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um arquivo .mp4 que você deseja codificar e transmitir ou baixar progressivamente. Este exemplo usa o caminho "C:\VideoFiles".
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+2. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um arquivo .mp4 que você deseja codificar e transmitir ou baixar progressivamente. Este exemplo usa o caminho "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Conectar-se à conta dos Serviços de Mídia
 
@@ -129,48 +100,44 @@ A função **Main** chama métodos que serão definidos posteriormente nesta se�
     class Program
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-        // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         static void Main(string[] args)
         {
-            try
-            {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+        try
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Add calls to methods defined in this section.
-        // Make sure to update the file name and path to where you have your media file.
-                IAsset inputAsset =
-                    UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                IAsset encodedAsset =
-                    EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+            // Add calls to methods defined in this section.
+            // Make sure to update the file name and path to where you have your media file.
+            IAsset inputAsset =
+            UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
-                PublishAssetGetURLs(encodedAsset);
-            }
-            catch (Exception exception)
-            {
-                // Parse the XML error message in the Media Services response and create a new
-                // exception with its content.
-                exception = MediaServicesExceptionParser.Parse(exception);
+            IAsset encodedAsset =
+            EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                Console.Error.WriteLine(exception.Message);
-            }
-            finally
-            {
-                Console.ReadLine();
-            }
+            PublishAssetGetURLs(encodedAsset);
+        }
+        catch (Exception exception)
+        {
+            // Parse the XML error message in the Media Services response and create a new
+            // exception with its content.
+            exception = MediaServicesExceptionParser.Parse(exception);
+
+            Console.Error.WriteLine(exception.Message);
+        }
+        finally
+        {
+            Console.ReadLine();
+        }
         }
     }
 
