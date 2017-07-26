@@ -1,5 +1,5 @@
 ---
-title: "Personalizar clusters do HDInsight usando a Inicialização | Microsoft Docs"
+title: "Personalizar clusters do HDInsight usando a Inicialização – Azure | Microsoft Docs"
 description: "Saiba como personalizar os clusters HDInsight usando a Inicialização."
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
-ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c7a6fafa90eac66774d564c82c926c662baf784c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -127,7 +128,7 @@ Você pode usar o bootstrap no modelo do Resource Manager:
     }
 
 
-![Bootstrap personalizar clusters Hadoop no HDInsight no modelo do Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![O Hadoop HDInsight personaliza o modelo do Azure Resource Manager para inicialização de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Consulte também
 * [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster] fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.

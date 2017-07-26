@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e286693b585a5991dbecd537fe5cd6621dd27e01
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -61,9 +61,11 @@ Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Evento
 
-Adicione os seguintes pacotes NuGet ao projeto:
-* [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
-* [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
+Adicione os pacotes NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) de biblioteca do .NET Standard ao projeto seguindo estas etapas: 
+
+1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
+2. Clique na guia **Procurar**, pesquise por "Microsoft.Azure.EventHubs" e selecione o pacote **Microsoft.Azure.EventHubs**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
+3. Repita as etapas 1 e 2 e instalar o pacote **Microsoft.Azure.EventHubs.Processor**.
 
 ## <a name="implement-the-ieventprocessor-interface"></a>Implementar a interface IEventProcessor
 

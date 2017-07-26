@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 > 
 
-Os backups são salvos com uma extensão. abf. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares de Consulta Direta, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas. 
+Os backups são salvos com uma extensão abf. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas. 
 
 
 
@@ -55,7 +55,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
     ![Selecione o contêiner](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Salve as configurações de backup. Sempre que você alterar as configurações de armazenamento, ou habilitar ou desabilitar o backup, você deverá salvar as alterações.
+5. Salve as configurações de backup.
 
     ![Salvar as configurações de backup](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -67,7 +67,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 2. Em **Banco de Dados de Backup** > **Arquivo de Backup**, clique em **Navegar**.
 
-3. Na caixa de diálogo **Salvar arquivo como** verifique o caminho da pasta e digite um nome para o arquivo de backup. Por padrão, o nome do arquivo recebe uma extensão .abf. 
+3. Na caixa de diálogo **Salvar arquivo como** verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 
 4. Na caixa de diálogo **Banco de Dados de Backup**, selecione as opções.
 
@@ -89,7 +89,7 @@ Durante a restauração, o arquivo de backup deve ser na conta de armazenamento 
 
 
 > [!NOTE]
-> Se você estiver restaurando um modelo de banco de dados tabular de um servidor do SQL Server Analysis Services local, você deverá primeiro remover todos os usuários de domínio de funções do modelo e adicioná-los de volta para as funções como usuários do Azure Active Directory. As funções serão iguais.
+> Se você estiver restaurando de um servidor local, é necessário remover todos os usuários de domínio das funções do modelo e adicioná-los de volta às funções como usuários do Azure Active Directory.
 > 
 > 
 

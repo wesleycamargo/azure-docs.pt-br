@@ -13,12 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/05/2017
+ms.date: 06/18/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -37,17 +38,18 @@ O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciad
 
 **Não está no escopo** 
 
-*Gerenciamento de conteúdo* (ou gerenciamento de índice) refere-se a operações, como análise de tráfego de pesquisa para entender o volume de consultas, descobrir quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedida são para a orientação dos clientes para documentos específicos no índice. Gerenciamento de conteúdo está além do escopo deste artigo. Para obter instruções sobre como obter informações sobre operações internas no nível do índice, consulte [Análise de tráfego de pesquisa para o Azure Search](search-traffic-analytics.md).
+*Gerenciamento de conteúdo* (ou gerenciamento de índice) refere-se a operações, como análise de tráfego de pesquisa para entender o volume de consultas, descobrir quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedida são para a orientação dos clientes para documentos específicos no índice. Para ajuda nessa área, veja [Análise de Tráfego de Pesquisa para o Azure Search](search-traffic-analytics.md).
 
 *desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
+*Atualizar* não é uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Veja [Criar um serviço do Azure Search](search-create-service-portal.md) para obter detalhes.
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Direitos de administrador
 O provisionamento ou encerramento do serviço em si podem ser feitos por um administrador ou coadministrador de assinatura do Azure.
 
-Em um serviço, qualquer pessoa com acesso à URL do serviço e uma chave de api de administração tem acesso de leitura e gravação para o serviço, com capacidade proporcional para adicionar, excluir ou modificar objetos de servidor, como chaves de api, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementado por meio de [funções definidas pelo RBAC](#rbac).
+Em um serviço, qualquer pessoa com acesso à URL do serviço e uma chave de API de administração tem acesso de leitura-gravação para o serviço. Acesso de leitura-gravação fornece a capacidade de adicionar, excluir ou modificar objetos de servidor, incluindo chaves de API, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementados por meio de [funções definidas pelo RBAC](#rbac).
 
 Todas as interações do usuário com o Azure Search se enquadram em um destes modos: acesso de leitura e gravação para o serviço (direitos de administrador) ou acesso somente de leitura ao serviço (direitos de consulta). Para obter mais informações, consulte [Gerenciar as chaves de api](#manage-keys).
 
@@ -64,7 +66,7 @@ Para o Azure Search, as permissões de RBAC determinam as seguintes tarefas admi
 | Colaborador |Mesmo nível de acesso como Proprietário, menos gerenciamento de funções RBAC. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função. |
 | Leitor |Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem alterar a configuração do serviço, nem exibir chaves admin. |
 
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
+As funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Log e informações do sistema
@@ -81,7 +83,7 @@ Em termos de informações gerais sobre o serviço, você pode obter informaçõ
 ## <a name="manage-api-keys"></a>Gerenciar api-keys
 Todas as solicitações para um serviço de pesquisa precisam de uma chave de api gerada especificamente para o seu serviço. Esta chave de API é o único mecanismo para autenticar o acesso ao ponto de extremidade do seu serviço de pesquisa. 
 
-Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. Ela é gerado exclusivamente pelo seu serviço. Por meio de [permissões RBAC](#rbac), você pode excluir ou ler as chaves, mas você não pode substituir uma chave gerada por uma cadeia de caracteres definida pelo usuário (especificamente, se você tiver as senhas que costuma usar, você não pode substituir uma chave de api por uma senha definida pelo usuário). 
+Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. Por meio de [permissões RBAC](#rbac), você pode excluir ou ler as chaves, mas você não pode substituir uma chave por uma senha definida pelo usuário. 
 
 Dois tipos de chaves são usados para acessar seu serviço de pesquisa:
 
@@ -127,9 +129,11 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 
 Embora possamos recuperar seus dados, o Azure Search não fornece failover instantâneo do serviço se há uma interrupção no cluster ou no nível do datacenter. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Haverá tempo de inatividade durante a restauração do serviço. É possível solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [SLA (Contrato de Nível de Serviço)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Para garantir o serviço contínuo, incluindo falhas catastróficas fora do controle da Microsoft, é necessário [provisionar um serviço adicional](search-create-service-portal.md) em outra região e implementar uma estratégia de replicação geográfica para garantir que os índices são totalmente redundantes em todos os serviços.
+Se o serviço contínuo for necessário em caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em outra região e implementar uma estratégia de replicação geográfica para garantir que os índices seja totalmente redundantes em todos os serviços.
 
-Os clientes que usam indexadores para popular e atualizar índices lidam com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Em vez de indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços em paralelo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
+Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, poderiam indexar da mesma fonte de dados para obter redundância geográfica. Se você estiver indexando fontes de dados que também são com redundância geográfica, lembre-se de que a indexadores do Azure Search só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, verifique se você apontou novamente o indexador para a nova réplica primária. 
+
+Se você não usar indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 
@@ -141,9 +145,9 @@ Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice 
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Expandir ou reduzir
-Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você tiver se inscrito em recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), será possível clicar no bloco **ESCALA** no painel de serviço para ajustar o número de partições e réplicas usadas pelo serviço.
+Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você se inscreveu um [camada que fornece recursos dedicados](search-limits-quotas-capacity.md), clique no bloco **ESCALA** no painel de serviço para ajustar o uso de recursos.
 
-Quando você adiciona capacidade por meio de qualquer recurso, o serviço as utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
+Quando você adiciona capacidade por meio de qualquer recurso, o serviço as utiliza automaticamente. Não será necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
 
  ![][10]
 
@@ -160,7 +164,7 @@ A maioria dos aplicativos de serviço possui uma necessidade integrada de mais r
 Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Isso é um artefato de fragmentação. Um índice é criado em 12 fragmentos, que podem todos ser armazenados em 1 partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
 
 ### <a name="remove-replicas"></a>Remover réplicas
-Após períodos de grandes volumes de consulta, é mais provável que você reduza réplicas quando as cargas de consulta tiverem se normalizado (por exemplo, após as vendas de final de ano).
+Após períodos de grandes volumes de consulta, você poderá reduzir réplicas quando as cargas de pesquisa tiverem se normalizado (por exemplo, após as vendas de final de ano).
 
 Para fazer isso, mova o controle deslizante de réplicas para um número mais baixo. Não são necessárias mais medidas de sua parte. Reduzir o número de réplicas libera máquinas virtuais no datacenter. Suas operações de consulta e ingestão de dados passarão a ser executadas em menos VMs do que antes. O limite mínimo é uma réplica.
 
@@ -183,11 +187,11 @@ Este vídeo de 30 minutos examina as práticas recomendadas para cenários de im
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de compreender os tipos de operações relativas à administração do serviço, considere as diversas abordagens para o gerenciamento de serviço:
+Depois de compreender os conceitos por trás de administração do serviço, considere o uso do [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
-* [PowerShell](search-manage-powershell.md)
+Também é recomendável examinar o [artigo de desempenho e otimização](search-performance-optimization.md).
 
-Além disso, se você ainda não fez isso, examine o [artigo de desempenho e otimização](search-performance-optimization.md), e, opcionalmente, assista ao vídeo observado na seção anterior para obter mais detalhes e demonstrações técnicas recomendadas.
+Outra recomendação é assistir ao vídeo mencionado na seção anterior. Ele fornece uma cobertura mais profunda das técnicas mencionadas nesta seção.
 
 <!--Image references-->
 [7]: ./media/search-manage/rbac-icon.png

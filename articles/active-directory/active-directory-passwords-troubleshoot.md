@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 963749bce0a84a97a0938f5531ebf7d694a3ca58
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -144,7 +143,7 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 
 Se você estiver enfrentando interrupções de serviço com o componente de write-back de senha do Azure AD Connect, abaixo estão algumas etapas rápidas que você pode seguir para resolver esse problema:
 
-* [Reiniciar o serviço de sincronização do Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Reiniciar o serviço de sincronização do Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Desabilitar e reabilitar o recurso de write-back de senha](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalar a versão mais recente do Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback)
@@ -200,6 +199,27 @@ Essas etapas restabelecerão a conexão com nosso serviço de nuvem e resolverã
 
 Se a instalação da última versão do servidor Azure AD Connect não resolver o problema, recomendamos que você tente desabilitar e habilitar novamente o Write-back de Senha como uma etapa final depois de instalar a última versão.
 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Verificar se o Azure AD Connect tem a permissão necessária para write-back de senha 
+O Azure AD Connect requer a permissão para **Redefinir Senha** do AD a fim de executar o write-back de senha. Para descobrir se o Azure AD Connect tem a permissão para uma determinada conta de Usuário do AD local, você pode usar o recurso de Permissão Efetiva do Windows:
+
+1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** (Iniciar → Serviço de Sincronização).
+2. Na guia **Conectores**, selecione o **Conector AD** local e clique em **Propriedades**.  
+![Permissão Efetiva – Etapa 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. Na caixa de diálogo pop-up, selecione a guia **Conectar-se à Floresta do Active Directory** e anote a propriedade **Nome de usuário**. Essa é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório. Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para Redefinir Senha.  
+![Permissão Efetiva – Etapa 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. Faça logon no Controlador de Domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
+5. Clique em **Exibir** e certifique-se de que a opção **Recursos Avançados** esteja habilitada.  
+![Permissão Efetiva – Etapa 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. Procure a conta de Usuário do AD que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
+![Permissão Efetiva – Etapa 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. Na caixa de diálogo pop-up, vá até a guia **Segurança** e clique em **Avançado**.  
+![Permissão Efetiva – Etapa 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. Na caixa de diálogo pop-up Configurações de Segurança Avançadas, vá até a guia **Acesso Efetivo**.
+9. Clique em **Selecionar um usuário** e selecione a conta do AD DS usada pelo Azure AD Connect (consulte a etapa 3). Em seguida, clique em **Exibir acesso efetivo**.  
+![Permissão Efetiva – Etapa 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. Role para baixo e procure **Redefinir senha**. Se a entrada estiver marcada, isso significa que a conta do AD DS tem permissão para redefinir a senha da conta de Usuário do AD selecionada.  
+![Permissão Efetiva – Etapa 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## <a name="azure-ad-forums"></a>Fóruns do Azure AD
 
 Caso você tenha uma pergunta geral sobre o Azure AD e o autoatendimento de redefinição de senha, peça ajuda à comunidade nos [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Os membros da comunidade incluem Engenheiros, Gerentes de Produto, MVPs e colegas Profissionais de TI.
@@ -236,11 +256,11 @@ Os links a seguir fornecem informações adicionais sobre a redefinição de sen
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição** ](active-directory-passwords-best-practices.md) -planeje e implante a SSPR para seus usuários usando as diretrizes encontradas aqui
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
 * [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
 * [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
 * [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
 * [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
-* [**Aprofundamento técnico** ](active-directory-passwords-how-it-works.md) - Entenda como ele funciona
-* [**Perguntas frequentes (FAQ)**](active-directory-passwords-faq.md) - Como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 

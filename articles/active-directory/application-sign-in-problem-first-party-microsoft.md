@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c3594b292a5b548bcb1e0df5959775d139576597
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -504,7 +504,7 @@ O acesso do aplicativo pode ser bloqueado porque a operação de consentimento d
 
 ### <a name="perform-a-user-level-consent-operation"></a>Executar uma operação de consentimento de nível de usuário
 
--   Para qualquer aplicativo, navegando até a tela de entrada do aplicativo execute um consentimento de nível de usuário para o aplicativo do usuário conectado.
+-   Para qualquer aplicativo habilitado para Open ID Connect que solicita permissões, navegar até a tela de entrada do aplicativo executa um consentimento de nível de usuário para o aplicativo do usuário conectado.
 
 -   Se você quiser fazer isso programaticamente, consulte [Solicitando consentimento do usuário individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
 

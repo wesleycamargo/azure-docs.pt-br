@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
@@ -39,7 +38,25 @@ Links relacionados:
 * [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
-## <a name="115220"></a>1.1.522.0
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Serviços Web genéricos:
+  * A ferramenta Wsconfig não converteu corretamente a matriz JSON de "solicitação de exemplo" para o método de serviço REST. Por isso, houve problemas com a serialização dessa matriz JSON para a solicitação REST.
+  * A Ferramenta de Configuração do Conector do Serviço Web não dá suporte ao uso de símbolos de espaço em nomes de atributo JSON O padrão de substituição pode ser adicionado manualmente ao arquivo WSConfigTool.exe.config, por exemplo, ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * Quando a opção **Permitir certificadores personalizados para a organização/as unidades organizacionais** está desabilitada, o conector falha durante a exportação (Atualização) Após o fluxo de exportação, todos os atributos são exportados para o Domino mas, no momento da exportação, uma KeyNotFoundException é retornada para Sincronização. Isso acontece porque a operação de renomeação falha ao tentar alterar o DN (atributo UserName) alterando um dos atributos abaixo:  
+    - Sobrenome
+    - Nome
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  * Quando a opção **Permitir certificadores personalizados para a organização/as unidades organizacionais** está habilitada, mas os certificadores necessários ainda estão vazios, ocorre uma KeyNotFoundException.
 
 ### <a name="enhancements"></a>Melhorias:
 

@@ -14,17 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 31582a87354bf915f058090add02d837f835a77c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 35cddba38c364dfb2f6a8646b0014d48ca4cb795
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="installing-the-azure-toolkit-for-eclipse"></a>Instalação do Kit de Ferramentas do Azure para o Eclipse
-O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidade que permitem criar, desenvolver, testar e implantar com facilidade aplicativos Azure usando o ambiente de desenvolvimento do Eclipse. O Kit de Ferramentas do Azure para Eclipse é um projeto de código-fonte aberto, cujo código-fonte está disponível de acordo com a Licença do MIT no site do projeto no GitHub na seguinte URL:
-
-<https://github.com/microsoft/azure-tools-for-java>
+O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidade que permitem criar, desenvolver, testar e implantar com facilidade aplicativos Azure usando o ambiente de desenvolvimento do Eclipse. O Kit de Ferramentas do Azure para Eclipse é um projeto de software livre. O código-fonte está disponível sob a licença do MIT em <https://github.com/microsoft/azure-tools-for-java>.
 
 As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Eclipse.
 
@@ -32,10 +31,10 @@ As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Ec
 
 ## <a name="to-install-the-azure-toolkit-for-eclipse"></a>Para instalar o Kit de Ferramentas do Azure para o Eclipse
 1. Inicie o Eclipse.
-2. Quando o Eclipse é aberto, clique no menu **Ajuda** e em **Instalar Novo Software**, conforme mostrado na ilustração a seguir.
+2. Clique no menu **Ajuda** e, em seguida, clique em **Instalar Novo Software**, conforme mostrado na ilustração a seguir.
    
     ![Instalação do Kit de Ferramentas do Azure para o Eclipse][01]
-3. Na caixa de diálogo **Software Disponível**, na caixa de texto **Trabalhar com**, digite **http://dl.microsoft.com/eclipse** seguido da tecla **Enter**.
+3. Na caixa de diálogo **Software Disponível** na caixa de texto **Trabalhar com**, digite `http://dl.microsoft.com/eclipse` seguido pela tecla **Enter**.
 4. No painel **Nome**, marque **Kit de Ferramentas do Azure para o Eclipse** e desmarque **Entrar em contato com todos os sites de atualização durante a instalação para encontrar o software necessário**. Sua tela será semelhante à seguinte:
    
     ![Instalação do Kit de Ferramentas do Azure para o Eclipse][02]
@@ -50,7 +49,7 @@ As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Ec
    * **Microsoft JDBC Driver 4.2 para SQL Server**: esse componente fornece a API JDBC para SQL Server e Banco de Dados SQL do Microsoft Azure para Java Platform Enterprise Edition 8.
    * **Pacote para Bibliotecas de Cliente do Apache Qpid para JMS**: esse componente fornece o componente de cliente JMS a partir do projeto do Apache Qpid para habilitar seu aplicativo a usar o sistema de mensagens baseado no protocolo AMQP no Microsoft Azure.
    * **Pacote para Bibliotecas do Microsoft Azure para Java**: esse componente fornece APIs para acessar serviços do Microsoft Azure, como armazenamento, barramento de serviço, tempo de execução do serviço, etc.
-6. Clique em **Próximo**. (Se você experimentar atrasos incomuns ao instalar o kit de ferramentas, certifique-se de que a opção **Contatar todos os sites de atualização durante a instalação para encontrar o software necessário** está desmarcada.)
+6. Clique em **Avançar**. (Se você experimentar atrasos incomuns ao instalar o kit de ferramentas, certifique-se de que a opção **Contatar todos os sites de atualização durante a instalação para encontrar o software necessário** está desmarcada.)
 7. No diálogo **Instalar Detalhes**, clique em **Avançar**.
    
     ![Revisão dos detalhes de instalação][03]

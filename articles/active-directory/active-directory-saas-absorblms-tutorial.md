@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e42c541ce15b2e025c7019e91ae3c6c74483b6c2
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 5119772dd7c3d55ed4e0ad44e71bd67b2e923409
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -240,7 +241,7 @@ Para o Absorb LMS, o provisionamento é uma tarefa manual.
 
     d. Na caixa de texto **Senha**, digite a senha de Brenda Fernandes.
 
-    e. Na lista suspensa **Confirmar senha**, selecione a confirmação da senha de Brenda Fernandes.
+    e. Na caixa de texto **Confirmar Senha**, digite a mesma senha.
     
     f. Torne-a **ATIVA**.    
 

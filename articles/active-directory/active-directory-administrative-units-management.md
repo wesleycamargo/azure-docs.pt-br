@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5bf0e7f631a86a9d413415ab73e03fa00a0e9325
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 355ae7a13ab3d32b69a2b90e5410d5fc90fb6916
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -28,7 +28,7 @@ Este artigo descreve as unidades administrativas – um novo contêiner de recur
 Isso é útil em organizações com divisões independentes, por exemplo, uma grande universidade que é composta de muitas escolas independentes (Faculdade de Administração, Faculdade de Engenharia e assim por diante) que são independentes umas das outras. Essas divisões têm seus próprios administradores de TI que controlam o acesso, gerenciam usuários e definem políticas especificamente para sua divisão. Os administradores centrais desejam poder conceder essas divisões permissões de administradores entre os usuários em suas divisões específicas. Mais especificamente, usando esse exemplo, um administrador central pode, por exemplo, criar uma unidade administrativa de uma faculdade específica (Faculdade de Administração) e preenchê-la com somente os usuários da Faculdade de Negócios. Um administrador central pode incluir a equipe de TI da Faculdade de Negócios em uma função com escopo definido, em outras palavras, concede à equipe de TI da Faculdade de Administração permissões administrativas do Business somente para a unidade administrativa da Faculdade de Administração.
 
 > [!IMPORTANT]
-> Você pode criar e usar unidades administrativas somente se você habilitar o Active Directory Premium do Azure. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
+> Você poderá atribuir funções de administrador com escopo de unidade administrativa somente se você habilitar o Azure Active Directory Premium. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
 >
 
 

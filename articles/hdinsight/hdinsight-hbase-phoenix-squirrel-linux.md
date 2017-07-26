@@ -1,5 +1,5 @@
 ---
-title: Use o Apache Phoenix e o SQuirreL com o Azure HDInsight | Microsoft Docs
+title: "Use o Apache Phoenix e o SQuirreL com o HBase – Azure HDInsight | Microsoft Docs"
 description: "Saiba como usar o Apache Phoenix no HDInsight e como instalar e configurar o SQuirreL na sua estação de trabalho para se conectar a um cluster HBase no HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/26/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -37,15 +38,15 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 Antes de poder usar o SQLLine, você deve ter o seguinte:
 
 * **Um cluster HBase no HDInsight**. Para obter informações sobre como provisionar o cluster HBase, consulte [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started].
-* **Conectar-se ao cluster HBase por meio do protocolo de área de trabalho remoto**. Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-manage-portal].
+* **Conectar-se ao cluster HBase por meio do protocolo de área de trabalho remoto**. Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure][hdinsight-manage-portal].
 
-Ao se conectar a um cluster HBase, você precisará se conectar a um dos Zookeepers. Cada cluster HDInsight possui 3 Zookeepers.
+Ao se conectar a um cluster HBase, você precisa se conectar a um dos Zookeepers. Cada cluster HDInsight tem três Zookeepers.
 
 **Para descobrir o nome de host do Zookeeper**
 
 1. Abra o Ambari navegando até **https://<ClusterName>.azurehdinsight.net**.
 2. Insira o nome de usuário HTTP (cluster) e a senha para fazer logon.
-3. Clique em **ZooKeeper** no menu à esquerda. Você deverá ver três **Servidores do ZooKeeper** listados.
+3. Clique em **ZooKeeper** no menu à esquerda. Você vê três **Servidores do ZooKeeper** listados.
 4. Clique em um dos **Servidores do ZooKeeper** listados. No painel Resumo, encontre o **Nome do host**. Ele é semelhante a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **Usar SQLLine**

@@ -14,36 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 5d15ad7a4e75410390891b5e11f72c6a649ebf53
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 7a28c92e921354cd4a623af29098a40e1c8b56b0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
-
-
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: solicitando tokens de acesso
-
 
 Um token de acesso (chamado de **token\_de acesso**) é uma forma de token de segurança que um cliente pode usar para acessar os recursos que são protegidos por um [servidor de autorização](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), por exemplo, uma API Web. Tokens de acesso são representados como [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) e contêm informações sobre o servidor do recurso pretendido e as permissões concedidas ao servidor. Ao chamar o servidor do recurso, o token de acesso deve estar presente na solicitação HTTP.
 
 Este artigo descreve como configurar um aplicativo cliente e fazê-lo gerar uma solicitação para adquirir um **token\_de acesso** dos pontos de extremidade `authorize` e `token`.
 
+> [!NOTE]
+> **Não há suporte a cadeias de API Web (em nome de) no Azure AD B2C.**
+>
+> Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, ambas protegidas pelo AD B2C do Azure. Este cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço online da Microsoft, como a API do Graph do AD do Azure.
+>
+> Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em Nome de não está implementado atualmente no Azure AD B2C.
+
 ## <a name="prerequisite"></a>Pré-requisito
 
-Antes de solicitar um token de acesso, você primeiro precisa registrar uma API Web e publicar as permissões que podem ser concedidas ao aplicativo cliente. Comece seguindo as etapas abaixo na seção [Registrar uma API Web](active-directory-b2c-app-registration.md).
+Antes de solicitar um token de acesso, você primeiro precisa registrar uma API Web e publicar as permissões que podem ser concedidas ao aplicativo cliente. Comece seguindo as etapas abaixo na seção [Registrar uma API Web](active-directory-b2c-app-registration.md#register-a-web-api).
 
 ## <a name="granting-permissions-to-a-web-api"></a>Conceder permissões a uma API Web
 
 Para um aplicativo cliente obter permissões específicas para uma API, o aplicativo cliente precisa receber tais permissões por meio do Portal do Azure. Para conceder permissões a um aplicativo cliente:
 
 1. Navegue até o menu **Aplicativos** na folha de recursos do B2C.
-2. Clique em seu aplicativo cliente (ou clique em [Registrar um aplicativo](active-directory-b2c-app-registration.md) se você não tiver um).
-3. Selecione **Acesso à API**.
-4. Clique em **Adicionar**.
-5. Selecione sua API Web e os escopos (permissões) que você deseja conceder.
-6. Clique em **OK**.
+1. Registre um aplicativo cliente ([aplicativo Web](active-directory-b2c-app-registration.md#register-a-web-application) ou [cliente nativo](active-directory-b2c-app-registration.md#register-a-mobilenative-application)) se você ainda não tem um.
+1. Na folha de configurações do seu aplicativo, selecione **Acesso à Api**.
+1. Clique em **Adicionar**.
+1. Selecione sua API Web e os escopos (permissões) que você deseja conceder.
+1. Clique em **OK**.
 
 > [!NOTE]
 > O Azure AD B2C não solicitará o consentimento dos usuários do aplicativo cliente. Em vez disso, todo o consentimento é fornecido pelo administrador, com base nas permissões configuradas entre os aplicativos descritos acima. Se uma concessão de permissão de um aplicativo for revogada, todos os usuários que antes podiam adquirir essa permissão não serão mais capazes de fazer isso.
@@ -51,6 +56,9 @@ Para um aplicativo cliente obter permissões específicas para uma API, o aplica
 ## <a name="requesting-a-token"></a>Solicitar um token
 
 Para obter um token de acesso para um aplicativo de recurso, o aplicativo cliente precisa especificar as permissões desejadas no parâmetro **scope** da solicitação. Por exemplo, para obter a permissão de "leitura" para o aplicativo de recurso que tem o URI de ID do aplicativo de `https://contoso.onmicrosoft.com/notes`, o escopo seria `https://contoso.onmicrosoft.com/notes/read`. Abaixo está um exemplo de uma solicitação de código de autorização para o ponto de extremidade `authorize`.
+
+> [!NOTE]
+> Neste momento, não há suporte para os domínios personalizados junto com os tokens de acesso. Você deve usar seu domínio yourtenantId.onmicrosoft.com na URL de solicitação.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
@@ -97,3 +105,4 @@ Em um **token\_de acesso** obtido com êxito (do ponto de extremidade `authorize
 Quando sua API recebe o **token\_de acesso**, ela deve [validar o token](active-directory-b2c-reference-tokens.md) para provar que o token é autêntico e que tem as declarações corretas.
 
 Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este tópico ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+

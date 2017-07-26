@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 852a0fab2fa7a50eb315e7107749e391031b463e
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 024a9dd00d086d5c1cc14d6731b34ee0eab3b2c5
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
 
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos de Hubs de Eventos do Azure usando Java
+
 
 ## <a name="introduction"></a>Introdução
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
@@ -68,6 +69,11 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-eventhubs-eph</artifactId>
+  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -220,7 +226,7 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
     ```
 
 > [!NOTE]
-> Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup** . Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
+> Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost, preferencialmente em computadores separados.  Isso também fornecerá redundância.   Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup** . Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
 > 
 > 
 

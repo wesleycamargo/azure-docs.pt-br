@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b4d3d114f6947639ef865861337ce9f2a6452e76
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -47,11 +47,11 @@ Para saber os padrões pré-configurado para o aplicativo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -91,11 +91,11 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você precisa configurar o logon único.
 
@@ -103,7 +103,11 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 8.  Vá para a seção **Certificado de Autenticação SAML** e, em seguida, clique no valor da coluna **Download**. Dependendo do aplicativo que exigir a configuração de logon único, você verá a opção para baixar o Certificado ou o XML de Metadados.
 
-O Azure do AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
+O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
+
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Não sei como personalizar declarações SAML enviadas para um aplicativo
+
+Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)

@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/13/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 5c4a08d96175d431e0a29dfc5927b64567c40117
-ms.openlocfilehash: d1c8a39bbcda7d22fdce08d122098e994ca87451
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,17 +29,29 @@ A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Fun�
 
 A Central de Segurança avalia a configuração de seus recursos para identificar problemas de segurança e vulnerabilidades. Na Central de Segurança, você vê apenas as informações relacionadas a um recurso quando for atribuído à função de Proprietário, Colaborador ou Leitor da assinatura ou do grupo de recursos ao qual o recurso pertence.
 
+Além dessas funções, há duas funções específicas da Central de Segurança:
+
+* **Leitor de Segurança**: um usuário que pertence a essa função tem direitos de exibição para a Central de Segurança. O usuário pode exibir as recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações.
+* **Administrador de Segurança**: um usuário que pertence a essa função tem os mesmos direitos que o Leitor de Segurança e também pode atualizar a política de segurança e ignorar alertas e recomendações.
+
+> [!NOTE]
+> As funções de segurança, o Leitor de Segurança e o Administrador de Segurança têm acesso somente na Central de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
+>
+>
+
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
 A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança. Um X indica que a ação é permitida para essa função.
 
-| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso | Corrigir ou Ignorar alertas | Exibir os alertas em uma assinatura | Exibir os alertas de um recurso específico |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Proprietário da assinatura | X | X | X | X | X |
-| Colaborador da assinatura | X | X | X | X | X |
-| Proprietário do Grupo de Recursos | -- | X | -- | -- | X |
-| Colaborador do Grupo de Recursos | -- | X | -- | -- | X |
-| Leitor | -- | -- | -- | X | X |
+| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso | Ignorar alertas e recomendações | Exibir alertas e recomendações |
+|:--- |:---:|:---:|:---:|:---:|
+| Proprietário da assinatura | X | X | X | X |
+| Colaborador da assinatura | X | X | X | X |
+| Proprietário do Grupo de Recursos | -- | X | -- | X |
+| Colaborador do Grupo de Recursos | -- | X | -- | X |
+| Leitor | -- | -- | -- | X |
+| Administrador de segurança | X | -- | X | X |
+| Leitor de segurança | -- | -- | -- | X |
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, atribua a função Leitor aos usuários que precisam apenas exibir informações sobre a integridade da segurança de um recurso, mas que não precisam executar nenhuma ação, como aplicar recomendações ou editar políticas.
@@ -52,9 +66,4 @@ Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permi
 - [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorando soluções de parceiros com a Central de Segurança do Azure)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

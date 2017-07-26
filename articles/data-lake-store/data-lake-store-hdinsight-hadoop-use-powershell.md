@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/08/2017
+ms.date: 06/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a6a87bb3d13f5d9acea7cd84fe7eea901ab263e5
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 7a7069adab5742a9dae2833c13a1db57337a41a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -32,16 +32,17 @@ ms.lasthandoff: 05/09/2017
 
 Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Store **como armazenamento adicional**. Para obter instruções sobre como criar um cluster HDInsight com o Azure Data Lake Store como armazenamento padrão, veja [Criar um cluster HDInsight com o Data Lake Store como armazenamento padrão](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
+> [!NOTE]
+> Se você pretende usar o Azure Data Lake Store como armazenamento adicional para o cluster HDInsight, é altamente recomendável que faça isso ao criar o cluster, conforme descrito neste artigo. Adicionar o Azure Data Lake Store como mais armazenamento para um cluster HDInsight existente é um processo complicado e propenso a erros.
+>
+
 Para tipos de cluster com suporte, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Store é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Blobs de Armazenamento do Azure (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, embora os dados que você queira processar possam ser armazenados em uma conta do Data Lake Store. O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster.
 
 ## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento do cluster HDInsight
 
 Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento adicional está disponível para o HDInsight versões 3.2, 3.4 e 3.5.
-
-* Para clusters HBase (Windows e Linux), o Data Lake Store **não é compatível** como uma opção de armazenamento, tanto para armazenamento padrão quanto para armazenamento adicional.
-
+* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento adicional está disponível para o HDInsight versões 3.2, 3.4, 3.5 e 3.6.
 
 A configuração do HDInsight para trabalhar com o Repositório Data Lake usando o PowerShell envolve as seguintes etapas:
 

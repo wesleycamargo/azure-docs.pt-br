@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
-ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 37df8d66d0a3ce738db2960d4283bdc672fb0fc4
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: considerações especiais para instâncias
@@ -38,7 +39,7 @@ Recursos atualmente indisponíveis no Microsoft Cloud Alemanha:
 
 * O **Azure AD Connect Health** não está disponível.
 * As **Atualizações automáticas** não estão disponíveis.
-* O **write-back de senha** não está disponível.
+* O **Write-back de senha** está disponível em versão prévia no Azure AD Connect versão 1.1.570.0 e posteriores.
 * Outros serviços do Azure AD Premium não estão disponíveis.
 
 ## <a name="microsoft-azure-government-cloud"></a>Nuvem do Microsoft Azure Governamental
@@ -49,6 +50,7 @@ Esta nuvem teve suporte em versões mais antigas do DirSync. A partir da build 1
 | URLs para abrir no servidor proxy |
 | --- |
 | \*.microsoftonline.com |
+| \*.microsoftonline.us |
 | \*.gov.us.microsoftonline.com |
 | + Listas de revogação de certificados |
 
@@ -63,14 +65,9 @@ Recursos atualmente indisponíveis na nuvem do Microsoft Azure Governamental:
 
 * O **Azure AD Connect Health** não está disponível.
 * As **Atualizações automáticas** não estão disponíveis.
-* O **write-back de senha** não está disponível.
+* O **Write-back de senha** está disponível em versão prévia no Azure AD Connect versão 1.1.570.0 e posterior.
 * Outros serviços do Azure AD Premium não estão disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

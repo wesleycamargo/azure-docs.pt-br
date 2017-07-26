@@ -3,7 +3,7 @@ title: "Gerenciando os dados de Automação do Azure | Microsoft Docs"
 description: "Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.  Atualmente, inclui a Retenção de dados e o backup da Recuperação de desastres na Automação do Azure."
 services: automation
 documentationcenter: 
-author: SnehaGunda
+author: mgoedtel
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
-ms.author: bwren;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8ac93de19685c11dd25fd746e69ba1066fb35af
+ms.date: 06/02/201
+ms.author: magoedte;bwren;sngun
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -42,6 +44,8 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 | Relatórios de Nó |Removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó |
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
+
+No entanto, se você precisar manter os dados por um período de tempo maior, poderá encaminhar logs de trabalho de runbook para Log Analytics.  Para obter mais informações, examine [encaminhar dados do trabalho de Automação do Azure para Log Analytics do OMS](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Fazendo backup da Automação do Azure
 Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo de sua conta de automação antes de excluí-la. 
@@ -78,10 +82,5 @@ A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias
 | Leste do Japão |Oeste do Japão |
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

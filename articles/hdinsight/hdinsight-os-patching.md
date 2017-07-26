@@ -1,5 +1,5 @@
 ---
-title: "Configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux - Azure | Microsoft Docs"
+title: "Configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux – Azure | Microsoft Docs"
 description: "Saiba como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux."
 services: hdinsight
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f39dfdff2239bb0b55eca50a1e7c706a5408b83a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Com a ação de script descrita neste artigo, você pode modificar a agenda de a
 
 Ao usar esse script você precisará das seguintes informações:
 1. O local de script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-     O HDInsight usa esse URI para localizar e executar o script em todas as máquinas virtuais no cluster.
+    O HDInsight usa esse URI para localizar e executar o script em todas as máquinas virtuais no cluster.
   
 2. Os tipos de nós do cluster ao qual o script é aplicado: nó de cabeçalho, nó de trabalho, zookeeper. Esse script deve ser aplicado a todos os tipos de nó do cluster. Se não for aplicado a um tipo de nó, as máquinas virtuais desse tipo de nó continuarão a usar a agenda anterior de aplicação de patches.
 

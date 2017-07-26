@@ -1,5 +1,5 @@
 ---
-title: "Azure AD B2C integra trocas de declarações da API REST como validação em Políticas Personalizadas | Microsoft Docs"
+title: "Azure Active Directory B2C: Trocas de declarações da API REST como validação | Microsoft Docs"
 description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 46abe48c3c9a7aab3fe013811d088a63957fe500
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/24/2017
 
 ---
 
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journeys-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST nos seus percursos do usuário do Azure AD B2C como validação à entrada do usuário
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 
-A **Identity Experience Framework** (IEF) subjacente ao Azure AD B2C permite que o desenvolvedor de identidade integre uma interação com uma API RESTful em um percurso do usuário.  
+A IEF (Estrutura de Experiência de Identidade) subjacente ao Azure AD B2C (Azure Active Directory B2C) permite que o desenvolvedor de identidade integre uma interação com uma API RESTful em um percurso do usuário.  
 
-No final deste passo a passo, você poderá criar percursos do usuário do Azure AD B2C que interajam com os serviços RESTful.
+Ao final deste passo a passo, você estará apto a criar um percurso do usuário do Azure AD B2C que interage com serviços RESTful.
 
-A IEF envia dados em declarações e recebe dados de volta em declarações.  A interação com a API pode ser criada como uma troca de declarações de API REST, como um perfil de validação, o que acontece dentro de uma etapa de orquestrações.
+A IEF envia dados em declarações e recebe dados de volta em declarações. A interação com a API:
 
-- Isso normalmente valida a entrada do usuário
-- Se o valor do usuário for rejeitado, o usuário poderá tentar novamente ao inserir um valor válido com a oportunidade de retornar uma mensagem de erro para o usuário.
+- Pode ser criada como uma troca de declarações da API REST ou como um perfil de validação, que ocorre em uma etapa de orquestração.
+- Normalmente valida a entrada do usuário. Se o valor do usuário for rejeitado, o usuário poderá tentar inserir um valor válido novamente com a oportunidade de retornar uma mensagem de erro.
 
-A interação também pode ser projetada como uma etapa de orquestração. Para saber mais, veja [Passo a passo: Integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md).
+Você também pode criar a interação como uma etapa de orquestração. Para obter mais informações, consulte [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md).
 
-No exemplo de perfil de validação, usaremos o percurso do usuário de Edição de Perfil no arquivo de starter pack ProfileEdit.xml.
+No exemplo de perfil de validação, usaremos o percurso do usuário de edição de perfil no arquivo de starter pack ProfileEdit.xml.
 
-Podemos verificar que o nome fornecido pelo usuário na edição de perfil não faz parte de uma lista excluída.
+Podemos verificar que o nome fornecido pelo usuário na edição de perfil não faz parte de uma lista de exclusões.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma configuração de locatário do Azure AD B2C para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
-- Um ponto de extremidade de API REST com o qual se irá interagir. Um site de demonstração [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) foi configurado com um serviço da API REST que será usado para este passo a passo.
+- Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
+- Um ponto de extremidade de API REST com o qual se irá interagir. Para este passo a passo, criamos um site de demonstração chamado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) com um serviço de API REST.
 
-## <a name="step-1---prepare-the-rest-api-function"></a>Etapa 1 - Preparar a função da API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: preparar a função da API REST
 
 > [!NOTE]
-> A configuração de funções da API REST está fora do escopo deste artigo. [Aplicativos do Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
+> A configuração das funções da API REST está fora do escopo deste artigo. O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
 
-Nós criamos um Azure Function que recebe uma declaração que ele espera como "playerTag" e valida se essa declaração existe ou não. Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Criamos uma função do Azure que recebe uma declaração esperada como `playerTag`. A função valida se essa declaração existe. Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -76,14 +76,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-A declaração `userMessage` retornada pelo Azure Function é esperada pela estrutura de experiência de identidade e será apresentada como uma cadeia de caracteres para o usuário se a validação falhar, como quando um status de conflito 409 é retornado no exemplo acima.
+O IEF espera a declaração `userMessage` retornada pela função do Azure. Essa declaração será apresentada como uma cadeia de caracteres para o usuário se a validação falhar, como quando um status de conflito 409 é retornado no exemplo anterior.
 
-## <a name="step-2---configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Etapa 2 - Configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Etapa 2: Configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworkExtensions.xml
 
-Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo `TrustFrameworkExtensions.xml` e adicione o trecho XML abaixo ao elemento `<ClaimsProviders>`.
+Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte trecho de código XML dentro do elemento `<ClaimsProviders>`.
 
 > [!NOTE]
-> Considere o "Provedor Restful, versão 1.0.0.0" descrito abaixo como o protocolo da função que irá interagir com o serviço externo.  Você encontrará uma definição completa do esquema <!-- TODO: Link to RESTful Provider schema definition>-->
+> No XML a seguir, o provedor RESTful `Version=1.0.0.0` é descrito como o protocolo. Considere-o como a função que interagirá com o serviço externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -111,27 +111,27 @@ Um perfil técnico é a configuração completa da troca desejada com o serviço
 </ClaimsProvider>
 ```
 
-O elemento `InputClaims` define as declarações que serão enviadas pela IEE para o serviço REST. No exemplo acima, o conteúdo das declarações `givenName` será enviado para o serviço REST como `playerTag`. Neste exemplo, a IEE não espera declarações novamente e em vez disso, aguarda uma resposta do serviço REST e age com base nos códigos de status recebidos.
+O elemento `InputClaims` define as declarações que serão enviadas pela IEF para o serviço REST. Neste exemplo, o conteúdo da declaração `givenName` será enviado para o serviço REST como `playerTag`. Neste exemplo, o IEF não espera declarações novamente. Em vez disso, ele aguarda uma resposta do serviço REST e age de acordo com os códigos de status recebidos.
 
-## <a name="step-3---include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-wish-to-validate-the-user-input"></a>Etapa 3 - Incluir a troca de declarações do serviço RESTful no perfil técnico autodeclarado onde você deseja validar a entrada do usuário
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Etapa 3: Incluir a troca de declarações do serviço RESTful no perfil técnico autodeclarado no qual você deseja validar a entrada do usuário
 
-O uso mais comum da etapa de validação é na interação com um usuário.  Todas as interações onde o usuário deve fornecer entrada são **Perfis Técnicos Autodeclarado**. Para este exemplo, adicionaremos essa validação ao perfil técnico (TP) **Self-Asserted-ProfileUpdate**.  Esse é o TP usado pelo arquivo de política de RP `Profile Edit`.
+O uso mais comum da etapa de validação é na interação com um usuário. Todas as interações nas quais o usuário deve fornecer uma entrada são *perfis técnicos autodeclarados*. Para este exemplo, adicionaremos essa validação ao perfil técnico Self-Asserted-ProfileUpdate. Esse é o perfil técnico utilizado pelo arquivo de política de RP (terceira parte confiável) `Profile Edit`.
 
-Para adicionar a troca de declarações ao Perfil Técnico Autodeclarado:
+Para adicionar a troca de declarações ao perfil técnico autodeclarado:
 
-1. Abra o arquivo TrustFrameworkBase e procure `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Examine a configuração desse TP e observe como a troca com o usuário é definida como declarações que serão feitas sobre o usuário (declarações de entrada) e declarações esperadas do provedor autodeclarado (declarações de saída)
-3. Procure `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, observe que esse perfil será invocado como a Etapa 6 da Orquestração do `<UserJourney Id="ProfileEdit">`
+1. Abra o arquivo TrustFrameworkBase.xml e pesquise `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
+2. Examine a configuração desse perfil técnico. Observe como a troca com o usuário é definida como declarações que serão solicitadas ao usuário (declarações de entrada) e declarações esperadas novamente do provedor autodeclarado (declarações de saída).
+3. Pesquise `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate` e observe que esse perfil é invocado como a etapa de orquestração 6 do `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4---upload-and-test-the-profile-edit-rp-policy-file"></a>Etapa 4 - Carregar e testar o arquivo de política de RP de Edição de Perfil
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Etapa 4: Carregar e testar o arquivo de política de RP de edição de perfil
 
-1. Carregue a nova versão do arquivo `TrustframeworkExtensions`.
+1. Carregue a nova versão do arquivo TrustFrameworkExtensions.xml.
 2. Use **Executar agora** para testar o arquivo de política de edição do perfil RP.
-3. Teste a validação ao fornecer um dos nomes existentes (por exemplo: mcvinny) no campo **Nome**. Se tudo estiver configurado corretamente, você deverá receber uma mensagem informando ao usuário que o `player tag` já está sendo usado.
+3. Teste a validação fornecendo um dos nomes existentes (por exemplo, mcvinny) no campo **Nome Fornecido**. Se tudo estiver configurado corretamente, você deverá receber uma mensagem que notifica o usuário de que a marcação de player já está sendo usada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como modificar a edição de perfil e o registro de usuário para coletar informações adicionais de seus usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modificar a edição de perfil e o registro de usuário para coletar informações adicionais dos usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Passo a passo: Integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md)
+[Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -101,7 +101,7 @@ Cada solução pré-configurada do Azure IoT Suite cria instâncias dos serviço
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
 * [**Stream Analytics do Azure**](https://azure.microsoft.com/services/stream-analytics/): processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 * [**Serviços de Aplicativos do Azure**](https://azure.microsoft.com/services/app-service/): uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
-* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas – regras e ações que usam conectores avançados para integrar a seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
+* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 * [**Armazenamento de Blobs do Azure**](https://azure.microsoft.com/services/storage/): armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas

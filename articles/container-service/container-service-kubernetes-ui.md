@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
-translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 5987b1034fc9c52b13606c469683adff06729984
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5cc5860025e8f6fb3eaf7ab213e4655e9519ae0c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -61,7 +62,7 @@ Você pode iniciar a interface do usuário Web Kubernetes executando:
 $ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-Isso deve abrir um navegador da Web configurado para se comunicar com um proxy seguro, conectando o computador local à interface do usuário Web Kubernetes.
+Isso deve abrir um navegador da Web configurado para comunicar-se com um proxy seguro conectando seu computador local à interface do usuário Web do Kubernetes.
 
 ### <a name="create-and-expose-a-service"></a>Criar e expor um serviço
 1. Na interface do usuário da Web Kubernetes, clique no botão **Criar** na janela superior direita.

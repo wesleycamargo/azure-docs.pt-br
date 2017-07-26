@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -34,7 +34,8 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 * XML
 * ZIP
 * EML
-* Arquivos de texto sem formatação  
+* RTF
+* Arquivos de texto sem formatação
 * JSON (consulte a versão prévia do recurso [Indexando blobs JSON](search-howto-index-json-blobs.md))
 * CSV (consulte a versão prévia do recurso [Indexando blobs CSV](search-howto-index-csv-blobs.md))
 
@@ -141,7 +142,7 @@ Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de
 
 > [!NOTE]
 > Por padrão, os blobs com conteúdo estruturado, como JSON, CSV e indexados como uma única parte de texto. Se você desejar indexar blobs JSON e CSV de uma maneira estruturada, consulte as versões prévias dos recursos [Indexando blobs JSON](search-howto-index-json-blobs.md) e [Indexando blobs CSV](search-howto-index-csv-blobs.md).
-> 
+>
 > Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado contendo anexos) também é indexado como um único documento.
 
 * O conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
@@ -366,7 +367,9 @@ A tabela a seguir resume o processo executado para cada formato de documento, e 
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Remoção da marcação XML e extração do texto |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, consulte [Como indexar blobs JSON](search-howto-index-json-blobs.md) para obter detalhes |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extração do texto, incluindo anexos |
-| Texto sem formatação (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF (aplicativo/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extrair texto|
+| Texto sem formatação (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrair texto|
+
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Caso você tenha solicitações de recursos ou ideias para melhorias, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

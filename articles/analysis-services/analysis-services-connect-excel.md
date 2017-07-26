@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88d0c2495a13ccf02f7d0e56ce7158ac80dcc2d5
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="connect-with-excel"></a>Conectar com o Excel
 
-Depois de criar um servidor no Azure e implantar um modelo tabular, você estará pronto para se conectar e começar a explorar os dados. 
+Depois de criar um servidor no Azure e implantar um modelo tabular, você estará pronto para se conectar e começar a explorar os dados.
 
 
 ## <a name="connect-in-excel"></a>Conectar-se no Excel
 
-A conexão com o Excel tem suporte pelo uso de Obter Dados no Excel 2016 ou no Power Query em versões anteriores. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot. 
+Há suporte para a conexão com um servidor no Excel usando Obter Dados no Excel 2016. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot. 
 
 **Para se conectar no Excel 2016**
 

@@ -1,6 +1,6 @@
 ---
-title: "Conexões de fonte de dados | Microsoft Docs"
-description: "Descreve as conexões de fonte de dados para modelos de dados no Azure Analysis Services."
+title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
+description: Descreve as fontes de fonte de dados com suporte para modelos de dados no Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,22 +13,49 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="datasource-connections"></a>Conexões de fonte de dados
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
+Os servidores do Azure Analysis Services oferecem suporte à conexão às fontes de dados na nuvem e locais na sua organização. O tempo todo são adicionadas mais fontes de dados com suporte. Verifique com frequência. 
+
+Atualmente, há suporte às seguintes fontes de dados:
+
+| Nuvem  |
+|---|
+| Armazenamento de Blobs do Azure*  |
+| Banco de Dados SQL do Azure  |
+| Data Warehouse do Azure |
+
+
+| Configuração local  |   |   |   |
+|---|---|---|---|
+| Banco de Dados do Access  | Pasta* | Banco de dados Oracle  | Banco de dados Teradata |
+| Active Directory*  | Documento JSON*  | Banco de Dados SQL Postgre*  |Tabela XML* |
+| Serviços de análise  | Linhas de binário*  | SAP HANA*  |
+| Analytics Platform System  | Banco de Dados MySQL  | SAP Business Warehouse*  | |
+| Dynamics CRM*  | Feed OData*  | SharePoint*  |
+| Pasta de trabalho do Excel  | Consulta ODBC  | Banco de Dados SQL  |
+| Exchange*  | OLE DB  | Banco de dados Sybase  |
+
+\*Somente modelos Tabular 1400. 
+
+> [!IMPORTANT]
+> A conexão com fontes de dados locais exige um [gateway de dados local](analysis-services-gateway.md) instalado em um computador em seu ambiente.
+
+## <a name="data-providers"></a>Provedores de dados
+
 Os modelos de dados no Azure Analysis Services podem exigir diferentes provedores de dados durante a conexão com certas fontes de dados. Em alguns casos, modelos de tabela que se conectam a fontes de dados usando provedores nativos, como o SQL Server Native Client (SQLNCLI11), podem retornar um erro.
 
-Para modelos de dados na memória de DirectQuery que se conectam a uma fonte de dados de nuvem, como o Banco de Dados SQL do Azure, se você usar provedores nativos diferentes de SQLOLEDB, verá a mensagem de erro: **"O provedor 'SQLNCLI11.1' não está registrado"**. Ou, se você tiver um modelo DirectQuery que se conecta a fontes de dados locais, se você usar provedores nativos, verá a mensagem de erro: **"Erro ao criar o conjunto de linhas do OLE DB. Sintaxe incorreta próxima a 'LIMIT' "**.
+Para modelos de dados que se conectam a uma fonte de dados de nuvem, como o Banco de Dados SQL do Azure, se você usar provedores nativos diferentes de SQLOLEDB, verá a mensagem de erro: **"O provedor 'SQLNCLI11.1' não está registrado"**. Ou, se você tiver um modelo DirectQuery que se conecta a fontes de dados locais, se você usar provedores nativos, verá a mensagem de erro: **"Erro ao criar o conjunto de linhas do OLE DB. Sintaxe incorreta próxima a 'LIMIT' "**.
 
-## <a name="data-source-providers"></a>Provedores de fonte de dados
 Os provedores de fonte de dados a seguir têm suporte para modelos de dados na memória ou DirectQuery ao se conectar a fontes de dados da nuvem ou locais:
 
 ### <a name="cloud"></a>Nuvem

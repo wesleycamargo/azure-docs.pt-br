@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 209d4f3874123b3f630d3648264e9afc438da184
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -47,7 +47,7 @@ Por esse motivo, nosso conselho é sempre iniciar, certificando-se de ter atendi
 
 Particularmente, a seção sobre como configurar o KCD em 2012R2, pois isso emprega uma abordagem fundamentalmente diferente para configurar o KCD em versões anteriores do Windows, mas também enquanto estiver sendo atento a várias outras considerações:
 
--   Não é incomum para um servidor membro do domínio para abrir uma caixa de diálogo de canal seguro com um controlador de domínio específico. Posteriormente, altere para outro a qualquer momento, para que hosts de conector não geralmente devem ser restritos para serem capazes de se comunicar com os controladores de domínio locais.
+-   Não é incomum que um servidor membro do domínio abra uma caixa de diálogo de canal seguro com um controlador de domínio específico. Então passe para outra caixa de diálogo a qualquer momento, de modo que hosts de conector geralmente não devem estar restritos a poderem comunicar-se apenas com os DCs locais.
 
 -   Semelhante ao ponto acima, cenários entre domínios dependem de referências para direcionarem um host de conector para controladores de domínio que estejam fora do perímetro da rede local. Neste cenário é igualmente importante garantir que também permita tráfego para os controladores de domínio que representam outros respectivos domínios ou falha de delegação else.
 

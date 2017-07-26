@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 37a9de5909cf4d6b4568e40de001861d083a85df
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -106,12 +106,14 @@ Contêineres do Docker são um método amplamente usado para implantar aplicativ
 
       * **Novas credenciais de logon**: crie um novo conjunto de credenciais de logon. Se você selecionar essa opção, faça o seguinte:
 
-        a. Na guia **Credenciais de VM**, forneça as seguintes informações para as credenciais de logon da máquina virtual de seu host do Docker:      * **Nome de usuário**: insira o nome de usuário para as credenciais de logon da máquina virtual.
+        a. Na guia **Credenciais de VM**, forneça as seguintes informações para as credenciais de logon da máquina virtual de seu host do Docker: * **Nome de usuário**: insira o nome de usuário para as credenciais de logon da máquina virtual.
              * **Senha** e **Confirmar**: especifica a senha para as credenciais de logon da máquina virtual.
-             * **SSH**: insira as configurações de SSH (Secure Shell) para o host do Docker. Selecione uma das seguintes opções:         * **Nenhum**: especifica que a sua máquina virtual não permita conexões SSH.
+             * **SSH**: insira as configurações de SSH (Secure Shell) para o host do Docker. Você pode selecionar uma das seguintes opções: * **Nenhum**: especifica que a sua máquina virtual não permite conexões SSH.
                 * **Gerar automaticamente**: cria automaticamente as configurações necessárias para conectar-se via SSH.
-                * **Importar do diretório**: permite que você especifique um diretório que contém um conjunto de configurações de SSH salvas anteriormente. O diretório deve conter os dois arquivos a seguir:            *  *id_rsa*: contém a identificação de RSA para um usuário.
-                   * *id_rsa.pub*: esse arquivo contém a chave pública RSA, que é usada para autenticação.
+                * **Importar do diretório**: permite que você especifique um diretório que contém um conjunto de configurações de SSH salvas anteriormente. O diretório deve conter os dois arquivos a seguir:
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. Na guia **Acesso ao Daemon do Docker**, forneça as seguintes informações:
 

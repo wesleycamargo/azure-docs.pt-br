@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c88dc19cdacc94b9b81adcdbf69f22aac8f6eabe
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.lasthandoff: 03/22/2017
 Diariamente, a Central de Segurança do Azure analisa as configurações do sistema operacional (SO) da sua máquina virtual (VM) que podem tornar a VM mais vulnerável a ataques e recomenda as alterações de configuração para corrigir essas vulnerabilidades. A Central de Segurança recomenda que você resolva as vulnerabilidades quando a configuração do SO da VM não seguir as regras de configuração recomendadas.
 
 > [!NOTE]
-> Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). No momento, não há suporte completo para o Windows Server 2016.
+> Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
+> Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
 >
 >
 
@@ -53,7 +54,7 @@ Diariamente, a Central de Segurança do Azure analisa as configurações do sist
 2. Selecionar uma máquina virtual. Uma folha dessa VM é aberta e exibe as regras que falharam.
    ![Regras de configuração que falharam][2]
 
-3. Selecione uma regra. Neste exemplo, você pode selecionar **A senha deve atender a requisitos de complexidade**. Uma folha será aberta descrevendo a regra com falha e o impacto. Confira os detalhes e considere como as configurações do sistema operacional serão aplicadas.
+3. Selecione uma regra. Neste exemplo, você pode selecionar **A senha deve atender a requisitos de complexidade**. Uma folha será aberta descrevendo a regra com falha e o impacto. Examine os detalhes e considere como as configurações do sistema operacional são aplicadas.
   ![Descrição da regra com falha][3]
 
   A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. As informações a seguir são fornecidas nessa folha:
@@ -72,15 +73,16 @@ Diariamente, a Central de Segurança do Azure analisa as configurações do sist
 ## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir vulnerabilidades do sistema operacional". Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm) para obter mais informações.
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
-* [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+* [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md) – fornece uma lista de VMs Windows e Linux com suporte.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
+* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png

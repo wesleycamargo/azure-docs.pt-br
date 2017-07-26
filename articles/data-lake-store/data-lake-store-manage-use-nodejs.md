@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 06/06/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 8c7a2e6ca061bbfa077592efb73d592906c3d070
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/01/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -29,14 +29,14 @@ ms.lasthandoff: 02/01/2017
 > * [SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
-> * [CLI do Azure](data-lake-store-get-started-cli.md)
+> * [CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 > 
 
 > [!NOTE]
-> Para carregar e baixar grandes quantidades de dados (arquivos grandes, uma grande quantidade de arquivos ou ambos), recomendamos o uso do [SDK do Python](data-lake-store-get-started-python.md), do [SDK do .NET](data-lake-store-get-started-net-sdk.md) ou do [Azure PowerShell](data-lake-store-get-started-powershell.md). Essas opções têm um desempenho melhor, pois usam vários threads para paralelizar a movimentação de dados.
+> Para carregar e baixar grandes quantidades de dados (arquivos grandes, um grande número de arquivos ou ambos), recomendamos o uso do [SDK do Python](data-lake-store-get-started-python.md), do [SDK do .NET](data-lake-store-get-started-net-sdk.md), da [CLI do Azure 2.0](data-lake-store-get-started-cli-2.0.md) ou do [Azure PowerShell](data-lake-store-get-started-powershell.md). Essas opções têm um desempenho melhor, pois usam vários threads para paralelizar a movimentação de dados.
 > 
 > 
 
@@ -50,7 +50,7 @@ Saiba como usar o SDK do Azure para Node.js para criar uma conta do Azure Data L
 Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Criar um aplicativo do Azure Active Directory**. Você pode usar o aplicativo Azure AD para autenticar o aplicativo Data Lake Store com o Azure AD. Há diferentes abordagens para autenticar com o Azure AD, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como autenticar, confira [Autenticar com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+* **Criar um aplicativo do Azure Active Directory**. Você pode usar o aplicativo Azure AD para autenticar o aplicativo Data Lake Store com o Azure AD. Há diferentes abordagens para autenticar com o Azure AD, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="how-to-install"></a>Como instalar
 ```bash

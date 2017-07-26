@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 07/05/2017
 ms.author: ganesr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b8c23a623a5c6c65c5239e6af694bc92c4de4682
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 43f49a1309ccf18ae515d0ff86fac9fb82505a4d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -63,7 +63,7 @@ Você pode compartilhar um circuito da Rota Expressa entre várias assinaturas. 
 Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
 
 > [!NOTE]
-> As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
+> As cobranças por conectividade e largura de banda pelo circuito ExpressRoute serão aplicadas ao proprietário da assinatura. Todas as redes virtuais compartilham a mesma largura de banda.
 > 
 > 
 

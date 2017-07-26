@@ -1,6 +1,6 @@
 ---
 title: "Criar MapReduce em Java para Hadoop – Azure HDInsight | Microsoft Docs"
-description: "Saiba como desenvolver programas Java MapReduce e como implantá-los no Hadoop no HDInsight."
+description: Saiba como usar o Apache Maven para criar um aplicativo de MapReduce baseado em Java e, em seguida, execute-o com o Hadoop no Azure HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,7 +9,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: ce5661febe502e9da9682166af1b601b1fc0b965
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 33705cff8d65b40aeca2cdaf0b102bf7fbbfa9d6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -257,7 +257,7 @@ Use o comando a seguir para carregar o arquivo jar para o nó do HDInsight:
 
 Esse comando copia os arquivos do sistema local para o nó principal. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run"></a>Executar o trabalho MapReduce
+## <a name="run"></a>Para executar o trabalho MapReduce no Hadoop
 
 1. Conecte-se ao HDInsight usando o SSH. Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

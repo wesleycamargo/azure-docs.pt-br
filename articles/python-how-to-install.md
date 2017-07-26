@@ -14,10 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 90c8c6d91de667f2d234b1d4e89ce7336813fb62
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -100,7 +101,7 @@ O uso do PTVS é opcional, mas recomendável, pois ele dá suporte a Solução/P
 
 O PTVS também torna fácil a implantação ao Microsoft Azure, com suporte para implementação em [Serviços de Nuvem](cloud-services/cloud-services-python-ptvs.md) e [Sites](app-service-web/web-sites-python-ptvs-django-mysql.md).
 
-O PTVS funciona com sua instalação existente do Visual Studio 2013 ou 2015.  Para documentação, downloads e discussões, consulte [Ferramentas do Python Visual Studio].  
+O PTVS funciona com sua instalação existente do Visual Studio 2013, 2015 ou 2017.  Para documentação, downloads e discussões, consulte [Ferramentas do Python Visual Studio].  
 
 ## <a name="python-azure-scenarios-for-linux-and-macos"></a>Cenários do Python Azure para Linux e MacOS
 Para Linux ou MacOS, os principais cenários do Azure têm suporte:

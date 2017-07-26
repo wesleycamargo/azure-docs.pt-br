@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/14/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
-ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos da Rota Expressa e domínios de roteamento
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 ## <a name="expressroute-circuits"></a>Circuitos da Rota Expressa
-Um *circuito da Rota Expressa* representa uma conexão lógica entre a infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. É possível solicitar vários circuitos da Rota Expressa. Os circuitos podem estar na mesma região ou em regiões diferentes, bem como podem ser conectados aos respectivos locais por meio de diferentes provedores de conectividade. 
+Um *circuito da Rota Expressa* representa uma conexão lógica entre a infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. É possível solicitar vários circuitos da Rota Expressa. Os circuitos podem estar na mesma região ou em regiões diferentes, bem como podem ser conectados aos seus locais por meio de diferentes provedores de conectividade. 
 
 Os circuitos da Rota Expressa não são mapeados para entidades físicas. Um circuito é identificado exclusivamente por um GUID padrão chamado de chave de serviço (s-key). A chave de serviço é a única informação trocada entre a Microsoft, o provedor de conectividade e você. A chave-s não é um segredo para fins de segurança. Há um mapeamento de 1:1 entre um circuito da Rota Expressa e a chave-s.
 
@@ -74,7 +75,7 @@ A tabela abaixo compara os três domínios de roteamento.
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
 | **Suporte a Hash MD5** |Sim |Sim |Sim |
 
-Você pode optar por habilitar um ou mais domínios de roteamento como parte do respectivo circuito da Rota Expressa. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
+Você pode optar por habilitar um ou mais domínios de roteamento como parte do seu circuito ExpressRoute. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
 
 Se você optar por ter todas as três sessões de emparelhamento, você deve ter três pares de sessões BGP (um par para cada tipo de emparelhamento). Os pares de sessões BGP fornecem um link altamente disponível. Se estiver conectando por meio de provedores de conectividade da camada 2, você será responsável por configurar e gerenciar o roteamento. Saiba mais analisando os [fluxos de trabalho](expressroute-workflows.md) para configurar a Rota Expressa.
 
@@ -85,10 +86,5 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
   * [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
   * [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

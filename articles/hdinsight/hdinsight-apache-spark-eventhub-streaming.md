@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 86ec34dccb4518c31d9762e68f272382ee544713
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41019b4ae022602d2688399d1fc309151174e157
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -31,9 +31,9 @@ Neste artigo, você criará um exemplo de streaming do Apache Spark que envolve 
 
 1. Você pode usar um aplicativo autônomo para ingerir mensagens em um Hub de Eventos do Azure.
 
-2. Leia as mensagens do Hub de Eventos em tempo real usando um aplicativo em execução no cluster Spark no HDInsight.
+2. Com duas abordagens diferentes, você recupera as mensagens do Hub de Eventos em tempo real usando um aplicativo em execução no cluster Spark no Azure HDInsight.
 
-3. Roteie os dados para saídas diferentes, como o Azure Storage Blob, tabela do Hive ou uma tabela SQL. 
+3. Você cria pipelines analíticos para persistir dados para diferentes sistemas de armazenamento de streaming ou obter insights de dados em tempo real.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste artigo, você criará um exemplo de streaming do Apache Spark que envolve 
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="what-is-apache-spark-streaming"></a>O que é streaming do Apache Spark?
+## <a name="spark-streaming-concepts"></a>Conceitos de Streaming do Spark
 
 Para obter uma explicação detalhada do streaming Spark, veja [Visão geral do streaming do Apache Spark](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). O HDInsight traz os mesmos recursos de streaming para um cluster Spark no Azure.  
 
@@ -53,28 +53,28 @@ Neste artigo, para criar um exemplo de streaming do Spark, execute as seguintes 
 
 2. Execute um aplicativo local autônomo que gere eventos e envie-os por push ao Hub de Eventos do Azure. O aplicativo de exemplo que faz isso é publicado em [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
 
-3. Execute um exemplo do Hub de Eventos do Azure em um cluster Spark que lê eventos de streaming do Hub de Eventos do Azure e os envia para locais diferentes, como Blob do Azure, tabela do Hive e tabela do Banco de Dados SQL.
+3. Execute um aplicativo de streaming remotamente em um cluster Spark que lê o eventos de streaming do Hub de Eventos do Azure e execute procedimentos diversos de análise/processamento de dados.
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure
 
-1. Faça logon no [Portal do Azure](https://manage.windowsazure.com) e clique em **Novo** na parte superior esquerda da tela.
+1. Faça logon no [Portal do Azure](https://ms.portal.azure.com) e clique em **Novo** na parte superior esquerda da tela.
 
 2. Clique em **Internet das Coisas** e, em seguida, clique em **Hubs de Eventos**.
-   
+
     ![Criar hub de eventos para exemplo de streaming do Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Criar hub de eventos para exemplo de streaming do Spark")
 
 3. Na folha **Criar um namespace** , insira um nome de namespace. Escolha o tipo de preço (Básico ou Standard). Além disso, escolha uma assinatura do Azure, o grupo de recursos e o local no qual o recurso será criado. Clique em **Criar** para criar o namespace.
-   
-    ![Fornecer um nome ao hub de eventos para o exemplo de streaming do Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornecer um nome ao hub de eventos para o exemplo de streaming do Spark")
+
+      ![Fornecer um nome ao hub de eventos para o exemplo de streaming do Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornecer um nome ao hub de eventos para o exemplo de streaming do Spark")
 
     > [!NOTE]
-       > Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
-       > 
-       > 
+    > Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
+    >
+    >
 
 4. Na lista de namespaces do Hubs de Eventos, clique no namespace recém-criado.      
-   
-    
+
+
 5. Na folha de namespace, clique em **Hubs de Eventos** e, em seguida, clique em **+ Hub de Eventos** para criar um novo Hub de Eventos.
    
     ![Criar hub de eventos para exemplo de streaming do Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "Criar hub de eventos para exemplo de streaming do Spark")
@@ -102,13 +102,123 @@ Nesta seção, você usará um aplicativo Scala autônomo local que gera um flux
 1. Verifique se os itens a seguir estão instalados no computador no qual você está executando esse aplicativo.
 
     * Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-    * Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
+    * Apache Maven. Você pode baixá-lo [aqui](https://maven.apache.org/download.cgi). As instruções para instalar o Maven estão disponíveis [aqui](https://maven.apache.org/install.html).
 
-2. Abra o aplicativo **EventhubsSampleEventProducer**no IntelliJ IDEA.
+2. Abra um prompt de comando e navegue até o local em que você clonou o repositório do GitHub para o aplicativo de exemplo do Scala e execute o comando a seguir para compilar o aplicativo.
 
-3. Compile o projeto. No menu **Build**, clique em **Criar Projeto**. O local da criação do jar de saída depende de sua configuração do IDEA IntelliJ. Normalmente, ele está em **\classes\artifacts**.
+        mvn package
+
+3. O jar de saída para o aplicativo, **com-microsoft-azure-eventhubs-client-example-0.2.0.jar**, é criado sob o diretório **/target**. Você pode usar este JAR posteriormente neste artigo para testar a solução completa.
 
 ## <a name="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster"></a>Criar aplicativo para receber mensagens do Hub de Eventos em um cluster Spark 
+
+Temos duas abordagens para conectar o Streaming do Spark e Hubs de Eventos do Azure, conexão com base no destinatário e conexão com base em Direct DStream. A conexão com base em Direct DStream foi introduzida em janeiro de 2017 na versão 2.0.3. Ela é destinada a substituir a conexão original com base no receptor, pois é mais eficaz e usa os recursos de modo mais eficiente. Mais detalhes podem ser encontrados em [https://github.com/hdinsight/spark-eventhubs](https://github.com/hdinsight/spark-eventhubs). O Direct DStream dá suporte apenas ao Spark 2.0+.
+
+### <a name="build-applications-with-the-dependency-to-spark-eventhubs-connector"></a>Criar aplicativos com a dependência para o conector spark-eventhubs
+
+Publicaremos também a versão de preparo do Spark-EventHubs no GitHub. Para usar a versão de preparo do Spark EventHubs, a primeira etapa é indicar o GitHub como o repositório de origem, adicionando a seguinte entrada a pom.xml:
+
+```xml
+<repository>
+      <id>spark-eventhubs</id>
+      <url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+</repository>
+```
+
+Em seguida, você pode adicionar a dependência a seguir ao seu projeto para usar a versão de pré-lançamento.
+
+Dependência do Maven
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11 -->
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spark-streaming-eventhubs_2.11</artifactId>
+    <version>2.0.4</version>
+</dependency>
+```
+
+Dependência SBT
+
+```
+// https://mvnrepository.com/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11
+libraryDependencies += "com.microsoft.azure" % "spark-streaming-eventhubs_2.11" % "2.0.4"
+```
+
+### <a name="direct-dstream-connection"></a>Conexão por Direct DStream
+
+Um arquivo jar pré-criado que contém exemplos que usam Direct DStream pode ser baixado em [http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar](http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar).
+
+O arquivo jar contém três exemplos cujo código-fonte está disponível em [https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream](https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream).
+
+Usando [WindowingWordCount](https://github.com/hdinsight/spark-eventhubs/blob/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream/WindowingWordCount.scala) como um exemplo:
+
+```scala
+private def createStreamingContext(
+  sparkCheckpointDir: String,
+  batchDuration: Int,
+  namespace: String,
+  eventHunName: String,
+  eventhubParams: Map[String, String],
+  progressDir: String) = {
+val ssc = new StreamingContext(new SparkContext(), Seconds(batchDuration))
+ssc.checkpoint(sparkCheckpointDir)
+val inputDirectStream = EventHubsUtils.createDirectStreams(
+  ssc,
+  namespace,
+  progressDir,
+  Map(eventHunName -> eventhubParams))
+
+inputDirectStream.map(receivedRecord => (new String(receivedRecord.getBody), 1)).
+  reduceByKeyAndWindow((v1, v2) => v1 + v2, (v1, v2) => v1 - v2, Seconds(batchDuration * 3),
+    Seconds(batchDuration)).print()
+
+ssc
+}
+
+def main(args: Array[String]): Unit = {
+
+if (args.length != 8) {
+  println("Usage: program progressDir PolicyName PolicyKey EventHubNamespace EventHubName" +
+    " BatchDuration(seconds) Spark_Checkpoint_Directory maxRate")
+  sys.exit(1)
+}
+
+val progressDir = args(0)
+val policyName = args(1)
+val policykey = args(2)
+val namespace = args(3)
+val name = args(4)
+val batchDuration = args(5).toInt
+val sparkCheckpointDir = args(6)
+val maxRate = args(7)
+
+val eventhubParameters = Map[String, String] (
+  "eventhubs.policyname" -> policyName,
+  "eventhubs.policykey" -> policykey,
+  "eventhubs.namespace" -> namespace,
+  "eventhubs.name" -> name,
+  "eventhubs.partition.count" -> "32",
+  "eventhubs.consumergroup" -> "$Default",
+  "eventhubs.maxRate" -> s"$maxRate"
+)
+
+val ssc = StreamingContext.getOrCreate(sparkCheckpointDir,
+  () => createStreamingContext(sparkCheckpointDir, batchDuration, namespace, name,
+    eventhubParameters, progressDir))
+
+ssc.start()
+ssc.awaitTermination()
+}
+```
+
+No exemplo acima, `eventhubParameters` são os parâmetros específicos para uma única instância de EventHubs e é necessário passá-los para a API `createDirectStreams`, que constrói um mapeamento de objeto Direct DStream para um namespace de Hubs de Eventos. Sobre o objeto DStream direto, você pode chamar qualquer API DStream fornecida pela estrutura de API de Streaming do Spark. Neste exemplo, calculamos a frequência de cada palavra nos últimos três microintervalos de lote.
+
+### <a name="receiver-based-connection"></a>Conexão com base em receptor
 
 Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos e os encaminha para destinos diferentes, está disponível em [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Execute as etapas abaixo para atualizar o aplicativo para sua configuração do Hub de Eventos e criar o jar de saída.
 
@@ -126,7 +236,7 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
    
     ![Exemplo de streaming do Apache Spark – Definir compilador](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-java-8-compiler.png "Exemplo de streaming do Apache Spark – Definir compilador")
 5. Abra o **pom.xml** e verifique se que a versão do Spark está correta. No nó `<properties>`, procure o trecho a seguir e verifique a versão do Spark.
-   
+
         <scala.version>2.11.8</scala.version>
         <scala.compat.version>2.11.8</scala.compat.version>
         <scala.binary.version>2.11</scala.binary.version>
@@ -136,14 +246,14 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
      
      1. Na janela IntelliJ IDEA em que o aplicativo abrir, clique em **Arquivo**, clique em **Estrutura do Projeto** e clique em **Bibliotecas**. 
      2. Clique no ícone de adicionar (![adicionar ícone](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), clique em **Java**e, em seguida, navegue até a localização em que você baixou o jar do driver JDBC. Siga os prompts para adicionar o arquivo jar à biblioteca do projeto.
-        
+
          ![adicionar dependências ausentes](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Adicionar jars de dependência ausente")
      3. Clique em **Aplicar**.
 
 7. Crie o arquivo jar de saída. Execute as seguintes etapas:
-   
-   1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
-      
+
+   1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.      
+       
        ![Exemplo de streaming do Apache Spark – Criar JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Exemplo de streaming do Apache Spark – Criar JAR")
    2. Na caixa de diálogo **Criar JAR de Módulos,** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.
    3. Na caixa de diálogo **Selecionar Classe Principal**, selecione qualquer uma das classes disponíveis e clique em **OK**.
@@ -152,7 +262,7 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
    4. Na caixa de diálogo **Criar JAR de Módulos**, certifique-se de que a opção **extrair para o JAR de destino** esteja selecionada e, em seguida, clique em **OK**. Isso cria um JAR único com todas as dependências.
       
        ![Exemplo de streaming do Apache Spark – criar jar a partir de módulos](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Exemplo de streaming do Apache Spark – criar jar a partir de módulos")
-   5. A guia **Layout de Saída** lista todos os jars incluídos como parte do projeto Maven. Você pode selecionar e excluir aqueles dos quais o aplicativo Scala não tem qualquer dependência direta. Para o aplicativo que estamos criando aqui, você pode remover tudo, exceto o último (**microsoft-spark-streaming-examples compile output**). Selecione os jars para excluir e, em seguida, clique no ícone **Excluir** (![ícone de excluir](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
+   5. A guia **Layout de Saída** lista todos os jars incluídos como parte do projeto Maven. Você pode selecionar e excluir aqueles dos quais o aplicativo Scala não tem qualquer dependência direta. Para o aplicativo que estamos criando aqui, você pode remover tudo, exceto o último (**spark-streaming-data-persistence-examples compile output**). Selecione os jars para excluir e, em seguida, clique no ícone **Excluir** (![ícone de excluir](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
       
        ![Exemplo de streaming do Apache Spark – excluir jars extraídos](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Exemplo de streaming do Apache Spark – excluir jars extraídos")
       
@@ -175,8 +285,8 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
 Neste artigo, usaremos o Livy para executar remotamente o aplicativo de streaming do Apache Spark em um cluster Spark. Para uma discussão detalhada de como usar Livy com cluster HDInsight Spark, consulte [Enviar trabalhos remotamente para um cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-livy-rest-interface.md). Antes de começar a executar o aplicativo de streaming Spark, há algumas ações que você deve executar:
 
 1. Inicie o aplicativo autônomo local para gerar eventos e enviar ao hub de eventos. Use o seguinte comando para fazer isso:
-   
-        java -cp com-microsoft-azure-eventhubs-client-example.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
+
+        java -cp com-microsoft-azure-eventhubs-client-example-0.2.0.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
 2. Copiar o jar de transmissão (**spark-streaming-data-persistence-examples.jar**) para o armazenamento de Blobs do Azure associado ao cluster. Isso torna o jar acessível ao Livy. Você pode usar [**AzCopy**](../storage/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes que podem ser usados para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 3. Instale CURL no computador do qual você está executando a esses aplicativos. Usamos CURL para invocar os pontos de extremidade do Livy para executar os trabalhos remotamente.
@@ -201,8 +311,8 @@ Vamos entender quais são os parâmetros no arquivo de entrada:
 
 > [!NOTE]
 > Você não precisa criar as pastas de saída (EventCheckpoint, EventCount/EventCount10) que são usadas como parâmetros. O aplicativo de streaming cria para você.
-> 
-> 
+>
+>
 
 Quando você executar o comando, deve ver uma saída semelhante à seguinte:
 
@@ -320,6 +430,7 @@ Você deverá ver uma saída semelhante ao seguinte:
 
 ## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Design de Conexão com Base no Receptor e Direct DStream](https://www.slideshare.net/NanZhu/seattle-sparkmeetup032317)
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
@@ -334,7 +445,7 @@ Você deverá ver uma saída semelhante ao seguinte:
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -350,6 +461,5 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/
 
