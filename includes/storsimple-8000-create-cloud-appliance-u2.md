@@ -5,7 +5,7 @@
     ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Na folha **Criar dispositivo de nuvem**, especifique os detalhes a seguir.
    
-    ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nome** – Um nome exclusivo para seu dispositivo de nuvem.
    2. **Modelo** – Escolha o modelo do dispositivo de nuvem. Um dispositivo 8010 oferece 30 TB de armazenamento padrão enquanto 8020 tem 64 TB de armazenamento Premium. Especifique 8010 para implantar cenários de recuperação de nível de item de backups. Selecione 8020 para implantar cargas de trabalho de baixa latência e alto desempenho, ou use como um dispositivo secundário para recuperação de desastre.
