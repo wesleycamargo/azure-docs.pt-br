@@ -12,93 +12,116 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: aceba2cfeac03eae78e89ef46926b2a388663f09
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 
-# <a name="how-to-troubleshoot-azure-active-directory-pass-through-authentication"></a>Como solucionar problemas de Autenticação de Passagem do Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
-Este artigo ajudará a localizar informações de solução de problemas comuns durante a instalação, o registro ou a desinstalação dos conectores de Autenticação de Passagem (por meio do Azure AD Connect ou de modo autônomos). E durante a habilitação e a operação do recurso de Autenticação de Passagem do Azure AD (Azure Active Directory) no seu locatário.
+Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados à autenticação de passagem do Azure AD.
 
-## <a name="issues-during-installation-of-connectors-either-via-azure-ad-connect-or-standalone"></a>Problemas durante a instalação dos conectores (sejam por meio do Azure AD Connect ou autônomos)
+>[!IMPORTANT]
+>Se você está enfrentando problemas de conexão de usuário com a autenticação de passagem, não desabilite o recurso nem desinstale os agentes de autenticação de passagem sem ter uma conta Administrador Global somente de nuvem à qual realizar fallback. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
 
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Já existe um conector de Proxy de Aplicativo do Azure AD
+## <a name="general-issues"></a>Problemas gerais
 
-Um conector de Autenticação de Passagem não pode ser instalado no mesmo servidor que um conector de [Proxy de Aplicativo do Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). Você precisará instalar o conector de Autenticação de Passagem em um servidor separado.
+### <a name="user-facing-sign-in-error-messages"></a>Mensagens de erro de entrada voltadas ao usuário
 
-### <a name="an-unexpected-error-occured"></a>Erro inesperado
-
-[Colete logs do conector](#collecting-pass-through-authentication-connector-logs) do servidor e contate o Suporte da Microsoft com o seu problema.
-
-## <a name="issues-during-registration-of-connectors"></a>Problemas durante o registro de conectores
-
-### <a name="registration-of-the-connecter-failed-due-to-blocked-ports"></a>O registro do conector falhou devido a portas bloqueadas
-
-Certifique-se de que o servidor no qual o conector foi instalado possa se comunicar com as URLs e portas de nosso serviço listadas [aqui](active-directory-aadconnect-pass-through-authentication.md#prerequisites).
-
-### <a name="registration-of-the-connector-failed-due-to-token-or-account-authorization-errors"></a>Falha no registro do conector devido a erros de autorização de token ou conta
-
-Use uma conta de Administrador Global somente de nuvem para todas as operações de registro e instalação de conector do Azure AD Connect ou autônomo. Há um problema conhecido com contas de Administrador Global habilitadas para MFA; desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
-
-### <a name="an-unexpected-error-occurred"></a>Erro inesperado
-
-[Colete logs do conector](#collecting-pass-through-authentication-connector-logs) do servidor e contate o Suporte da Microsoft com o seu problema.
-
-## <a name="issues-during-uninstallation-of-connectors"></a>Problemas durante a desinstalação de conectores
-
-### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensagem de aviso ao desinstalar o Azure AD Connect
-
-Se você tiver a Autenticação de Passagem habilitada em seu locatário e tentar desinstalar o Azure AD Connect, será mostrada a seguinte mensagem de aviso: "Os usuários não poderão entrar no Azure AD, a menos que você tenha outros agentes de Autenticação de Passagem instalados em outros servidores.".
-
-Você precisa ter uma configuração de [alta disponibilidade](active-directory-aadconnect-pass-through-authentication.md) em vigor antes de desinstalar o Azure AD Connect para evitar interrupção na entrada de usuários.
-
-## <a name="issues-with-enabling-the-pass-through-authentication-feature"></a>Problemas com a habilitação do recurso de Autenticação de Passagem
-
-### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>A habilitação da funcionalidade falhou porque não havia nenhum conector disponível
-
-Você precisa ter pelo menos um conector ativo para habilitar a Autenticação de Passagem no seu locatário. Você pode instalar um conector instalando o Azure AD Connect ou um conector autônomo.
-
-### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>A habilitação da funcionalidade falhou devido a portas bloqueadas
-
-Certifique-se de que o servidor no qual o Azure AD Connect está instalado possa se comunicar com as URLs e portas de nosso serviço listadas [aqui](active-directory-aadconnect-pass-through-authentication.md#prerequisites).
-
-### <a name="the-enabling-of-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Falha na habilitação do registro devido a erros de autorização de token ou conta
-
-Use uma conta de Administrador Global somente de nuvem ao habilitar o recurso. Há um problema conhecido com contas de Administrador Global habilitadas para MFA (autenticação multifator); desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
-
-## <a name="issues-while-operating-the-pass-through-authentication-feature"></a>Problemas ao operar o recurso de Autenticação de Passagem
-
-### <a name="user-facing-sign-in-errors"></a>Erros de entrada voltada para o usuário
-
-A funcionalidade relata os erros voltados para o usuário a seguir na tela de entrada do Azure AD. Elas são detalhadas abaixo junto com as respectivas etapas de resolução apropriada.
+Se o usuário não consegue entrar usando a autenticação de passagem, ele poderá ver um dos seguintes erros voltados ao usuário na tela de entrada do Azure AD: 
 
 |Erro|Descrição|Resolução
 | --- | --- | ---
-|AADSTS80001|Não é possível conectar ao Active Directory|Verifique se os servidores do conector são membros da mesma floresta do AD que os usuários cujas senhas precisam ser validadas e se são capazes de se conectar ao Active Directory.  
-|AADSTS8002|Um tempo limite ao estabelecer conexão com o Active Directory|Verifique se o Active Directory está disponível e respondendo a solicitações dos conectores.
-|AADSTS80004|O nome de usuário passado para o conector não era válido|Verifique se o usuário está tentando fazer logon com o nome de usuário correto.
-|AADSTS80005|Validação encontrou WebException imprevisível|Esse é provavelmente um problema temporário. Tente novamente a solicitação. Caso a falha persista, contate o Suporte da Microsoft.
-|AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs de conector para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
+|AADSTS80001|Não é possível conectar ao Active Directory|Verifique se os servidores do agente são membros da mesma floresta do AD que os usuários cujas senhas precisam ser validadas e se são capazes de se conectar ao Active Directory.  
+|AADSTS8002|Um tempo limite ao estabelecer conexão com o Active Directory|Verifique se o Active Directory está disponível e respondendo às solicitações dos agentes.
+|AADSTS80004|O nome de usuário passado para o agente não era válido|Verifique se o usuário está tentando fazer logon com o nome de usuário correto.
+|AADSTS80005|Validação encontrou WebException imprevisível|Um erro transitório. Tente novamente a solicitação. Caso a falha persista, contate o Suporte da Microsoft.
+|AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs do agente para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
 
-## <a name="collecting-pass-through-authentication-connector-logs"></a>Coletar logs do conector de Autenticação de Passagem
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory
 
-Dependendo do tipo de problema você tiver, será preciso examinar locais diferentes em busca de logs do conector de Autenticação de Passagem.
+Um bom local para iniciar a solução de problemas de conexão de usuário com a autenticação de passagem é o exame do [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-### <a name="connector-event-logs"></a>Logs de eventos do conector
+![Relatório de entradas](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Para erros relacionados ao conector, abra o aplicativo Visualizador de Eventos e verifique em **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+Navegue até **Azure Active Directory** -> **Entradas** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique na atividade de entrada de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
-Para análises detalhadas e logs de depuração, você pode habilitar o log de "Sessão". Não execute o conector com esse log habilitado durante operações normais; use somente para solução de problemas. Observe que o conteúdo do log é visível apenas depois que o log está desabilitado novamente.
+|Código de erro de logon|Motivo da falha no logon|Resolução
+| --- | --- | ---
+| 50144 | A senha do Active Directory do usuário expirou. | Redefina a senha do usuário em seu Active Directory local.
+| 80001 | Nenhum Agente de Autenticação disponível. | Instale e registre um Agente de Autenticação.
+| 80002 | A solicitação de validação de senha do Agente de Autenticação atingiu o tempo limite. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
+| 80003 | Resposta inválida recebida pelo Agente de Autenticação. | Se o problema puder ser reproduzido de forma consistente entre vários usuários, verifique a configuração do Active Directory.
+| 80004 | Nome UPN incorreto usado na solicitação de entrada. | Peça ao usuário para entrar com o nome de usuário correto.
+| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente mais tarde.
+| 80007 | O Agente de Autenticação não pode se conectar ao Active Directory. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
+| 80010 | O Agente de Autenticação não pode descriptografar a senha. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual. 
+| 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
+
+## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do Agente de Autenticação
+
+### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Já existe um conector de Proxy de Aplicativo do Azure AD
+
+Um Agente de Autenticação de Passagem não pode ser instalado no mesmo servidor que um conector de [Proxy de Aplicativo do Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). Instale o Agente de Autenticação de Passagem em um servidor separado.
+
+### <a name="an-unexpected-error-occurred"></a>Erro inesperado
+
+[Colete os logs do agente](#collecting-pass-through-authentication-agent-logs) do servidor e entre em contato com o Suporte da Microsoft com o seu problema.
+
+## <a name="authentication-agent-registration-issues"></a>Problemas de registro do Agente de Autenticação
+
+### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>O registro do Agente de Autenticação falhou devido a portas bloqueadas
+
+Verifique se o servidor no qual o Agente de Autenticação foi instalado pode se comunicar com as URLs e portas do nosso serviço listadas [aqui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+
+### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Falha no registro do Agente de Autenticação devido a erros de autorização de token ou de conta
+
+Use uma conta Administrador Global somente de nuvem para todas as operações de registro e instalação de Agente de Autenticação do Azure AD Connect ou autônomo. Há um problema conhecido com contas de Administrador Global habilitadas para MFA; desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
+
+### <a name="an-unexpected-error-occurred"></a>Erro inesperado
+
+[Colete os logs do agente](#collecting-pass-through-authentication-agent-logs) do servidor e entre em contato com o Suporte da Microsoft com o seu problema.
+
+## <a name="authentication-agent-uninstallation-issues"></a>Problemas de desinstalação do Agente de Autenticação
+
+### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensagem de aviso ao desinstalar o Azure AD Connect
+
+Se você tiver a Autenticação de Passagem habilitada em seu locatário e tentar desinstalar o Azure AD Connect, será mostrada a seguinte mensagem de aviso: "Os usuários não poderão entrar no Azure AD, a menos que você tenha outros agentes de Autenticação de Passagem instalados em outros servidores."
+
+Verifique se sua configuração é de [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar interrupção na entrada de usuários.
+
+## <a name="issues-with-enabling-the-feature"></a>Problemas com a habilitação do recurso
+
+### <a name="enabling-the-feature-failed-because-there-were-no-authentication-agents-available"></a>A habilitação do recurso falhou porque não haviam Agentes de Autenticação disponíveis
+
+Você precisa ter pelo menos um Agente de Autenticação ativo para habilitar a Autenticação de Passagem em seu locatário. Você pode instalar um Agente de Autenticação através da instalação do Azure AD Connect ou de um Agente de Autenticação autônomo.
+
+### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>A habilitação do recurso falhou devido a portas bloqueadas
+
+Certifique-se de que o servidor no qual o Azure AD Connect está instalado possa se comunicar com as URLs e portas de nosso serviço listadas [aqui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+
+### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>A habilitação do recurso falhou devido a erros de autorização de token ou de conta
+
+Use uma conta de Administrador Global somente de nuvem ao habilitar o recurso. Há um problema conhecido com contas de Administrador Global habilitadas para MFA (autenticação multifator); desative a MFA temporariamente como uma solução alternativa (somente para concluir as operações).
+
+## <a name="collecting-pass-through-authentication-agent-logs"></a>Coletar logs do Agente de Autenticação de Passagem
+
+Dependendo do tipo de problema que você tem, é preciso examinar locais diferentes em busca de logs do Agente de Autenticação de Passagem.
+
+### <a name="authentication-agent-event-logs"></a>Logs de eventos do Agente de Autenticação
+
+Para erros relacionados ao Agente de Autenticação, abra o aplicativo Visualizador de Eventos no servidor e verifique em **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+
+Para análises detalhadas, habilite o log de "Sessão". Não execute o Agente de Autenticação com esse log habilitado durante operações normais; use somente para solução de problemas. O conteúdo do log é visível somente depois que o log está desabilitado novamente.
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhados
 
-Para solucionar problemas de falhas de conexão do usuário, procure logs de rastreamento em **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Esses logs incluem os motivos pelos quais um usuário específico falha ao entrar usando o recurso de Autenticação de Passagem. Abaixo está um exemplo de entrada de log:
+Para solucionar problemas de falhas de conexão do usuário, procure logs de rastreamento em **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Esses logs incluem os motivos pelos quais um usuário específico falha ao entrar usando o recurso de Autenticação de Passagem. Esses erros também são mapeados para os motivos de falha no logon mostrados na [tabela](#sign-in-failure-reasons-on-the-Azure-portal) anterior. A seguir está um exemplo de entrada de log:
 
 ```
     ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -106,17 +129,15 @@ Para solucionar problemas de falhas de conexão do usuário, procure logs de ras
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Você pode obter detalhes descritivos do erro ('1328' no exemplo acima) abrindo o prompt de comando e executando o comando a seguir. Observação: Você precisará substituir '1328' pelo número real do erro que você vê em seus logs.
+Você pode obter detalhes descritivos do erro ("1328" no exemplo anterior) abrindo o prompt de comando e executando o comando a seguir. (Observação: substitua "1328" pelo número de erro real que você vê em seus logs):
 
 `Net helpmsg 1328`
-
-O resultado deve ser semelhante a este:
 
 ![Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
 ### <a name="domain-controller-logs"></a>Logs do controlador de domínio
 
-Se o log de auditoria estiver habilitado, será possível encontrar informações adicionais no logs de segurança dos controladores de domínio. Uma maneira simples de consultar solicitações de entrada enviadas pelos conectores de Autenticação de Passagem é a seguinte:
+Se o log de auditoria estiver habilitado, será possível encontrar informações adicionais no logs de segurança dos controladores de domínio. Uma maneira simples de consultar solicitações de entrada enviadas pelos Agentes de Autenticação de Passagem é a seguinte:
 
 ```
     <QueryList>

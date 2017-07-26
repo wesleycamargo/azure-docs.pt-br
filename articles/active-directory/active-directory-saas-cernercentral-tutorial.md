@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 5e363a3e59b077a7bccfaff2ae6eee51418c77e5
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD ao Cerner Central, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do Cerner Central habilitada para logon único
+- Uma Conta Sistema aprovada do Cerner Central
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -110,18 +110,33 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor usando o seguinte padrão: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata`
+    a. Na caixa de texto **Identificador**, digite o valor usando os seguintes padrões:
+    
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso`
+    b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões: 
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+    | `https://cernercentral.com/<instasncename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
     > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com o Identificador e a URL de resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Entre em contato com a [equipe de suporte do Cerner Central](https://www.cerner.com/support) para obter esses valores.
+    > Esses não são os valores reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) para obter esses valores.
  
-5. Clique no botão **Salvar** .
+4. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. Para gerar a URL de **Metadados**, execute as seguintes etapas:
+5. Para gerar a URL de **Metadados**, execute as seguintes etapas:
 
     a. Clique em **Registros do aplicativo**.
     
@@ -141,7 +156,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. Para configurar o logon único no lado do **Cerner Central**, você precisa enviar a **URL de Metadados** para o [suporte do Cerner Central](https://www.cerner.com/support). Eles configuram o SSO no lado do aplicativo para concluir a integração.
+6. Para configurar o logon único no lado do **Cerner Central**, você precisa enviar a **URL de Metadados** para o [suporte do Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Eles configuram o SSO no lado do aplicativo para concluir a integração.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,7 +195,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-cerner-central-test-user"></a>Criar um usuário de teste do Cerner Central
 
-Para permitir que os usuários do Azure AD façam logon no Cerner Central, eles devem ser provisionados no Cerner Central. Há várias maneiras de criar usuários no aplicativo Cerner Central. Para criar manualmente o usuário no aplicativo Cerner Central, trabalhe com a equipe de [suporte do Cerner Central](https://www.cerner.com/support).
+O aplicativo **Cerner Central** permite a autenticação por meio de qualquer provedor de identidade federada. Se um usuário conseguir fazer logon na home page do aplicativo, ele será federado e não precisará de nenhum provisionamento manual.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -216,7 +231,7 @@ Nesta seção, ao conceder a Brenda Fernandes acesso ao Cerner Central, você pe
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Cerner Central no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo do Cerner Central. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Ao clicar no bloco do Cerner Central no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo do Cerner Central. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

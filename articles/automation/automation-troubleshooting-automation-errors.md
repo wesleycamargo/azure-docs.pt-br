@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados
 **Dicas de solução de problemas:** para usar um certificado com os cmdlets do Azure Service Management, veja [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Cenário: foram feitas três tentativas de início do trabalho de runbook, mas todas elas falharam
+**Erro:** seu runbook falha com o erro "O trabalho foi tentado três vezes, mas falhou".
+
+**Motivo do erro:** esse erro pode ser causado pelos seguintes motivos:  
+
+1. Limite de Memória.  Documentamos limites na quantidade de memória alocada a [Limites do serviço de automação](../azure-subscription-service-limits.md#automation-limits) da Área Restrita, de modo que um trabalho pode falhar se estiver usando mais de 400 MB de memória. 
+
+2. Módulo Incompatível.  Isso poderá ocorrer se as dependências do módulo não estiverem corretas, caso em que seu runbook normalmente retornará uma mensagem de “Comando não encontrado” ou “Não é possível associar o parâmetro”. 
+
+**Dicas de solução de problemas:** qualquer uma das soluções a seguir corrigirá o problema:  
+
+* Métodos sugeridos para trabalhar dentro do limite de memória são dividir a carga de trabalho entre vários runbooks, não processar muitos dados na memória, não gravar saída desnecessária de seus runbooks nem considerar quantos pontos de verificação você grava nos runbooks de fluxo de trabalho do PowerShell.  
+
+* Você precisa atualizar os módulos do Azure seguindo as etapas [Como atualizar os módulos do Azure PowerShell na automação do Azure](automation-update-azure-modules.md).  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Cenário: O Runbook falha devido a objeto desserializado
 **Erro:** o runbook falha com o erro "Não é possível associar o parâmetro ``<ParameterName>``. Não é possível converter o valor ``<ParameterType>`` do tipo ``<ParameterType>`` Desserializado no tipo ``<ParameterType>``".
 
@@ -172,9 +190,4 @@ Se tiver seguido as etapas de solução de problemas acima e não tiver encontra
 * Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
 * Publique uma Solicitação de Script no [Script Center](https://azure.microsoft.com/documentation/scripts/) se estiver procurando uma solução de runbook ou um módulo de integração da Automação do Azure.
 * Poste comentários ou solicitações de recursos para a Automação do Azure no [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

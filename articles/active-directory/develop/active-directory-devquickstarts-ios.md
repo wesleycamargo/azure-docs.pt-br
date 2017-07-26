@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 384f4bc285f62b102778118a92a912e73d241663
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -60,8 +60,8 @@ O formato do iOS para um URI de redirecionamento é:
 <app-scheme>://<bundle-id>
 ```
 
-* **aap-scheme**: isso é registrado em seu projeto XCode. É como os outros aplicativos podem chamar você. Você pode encontrá-lo no projeto no XCode em **Info.plist** > **Tipos de URL** > **Identificador de URL**. Você deve criar um se você ainda não tiver um ou mais configurados.
-* **bundle-id**: esse é o Identificador de Pacote localizado em **identidade**, nas configurações do seu projeto no XCode.
+* **app-scheme** – isso é registrado no projeto XCode. É como os outros aplicativos podem chamar você. Você pode encontrar isso em Info.plist -> tipos de URL -> identificador de URL. Você deve criar um se você ainda não tiver um ou mais configurados.
+* **bundle-id** - esse é o identificador de pacote localizado em "identidade" nas configurações do seu projeto no XCode.
 
 Um exemplo para este código de Início Rápido é: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

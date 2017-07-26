@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 90be27584e22740d92d149810f5d0a6991cfa20b
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 2a363dfeb4492b79872d95a2ab080ee034cf64d8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,14 +27,14 @@ ms.lasthandoff: 05/01/2017
 Geralmente, é bem fácil configurar um trabalho do Stream Analytics e executar alguns dados de exemplo nele. O que podemos fazer quando precisamos executar o mesmo trabalho com um volume de dados maior? Precisamos entender como configurar o trabalho do Stream Analytics para que ele possa ser escalado. Neste documento, nos concentraremos nos aspectos especiais do dimensionamento de trabalhos do Stream Analytics com funções do Aprendizado de Máquina. Para saber mais sobre como dimensionar trabalhos do Stream Analytics em geral, confira o artigo [Dimensionar os trabalhos do Stream Analytics](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Aprendizado de Máquina do Azure no Stream Analytics?
-Uma função do Aprendizado de Máquina no Stream Analytics pode ser usada como uma chamada de função normal na linguagem de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, solicitações de Serviço Web do Aprendizado de Máquina do Azure. Os serviços Web do Aprendizado de Máquina oferecem suporte à inclusão de várias linhas em "lotes", o que é chamado de lote simplificado, na mesma chamada à API de serviço Web, a fim de melhorar a produtividade geral. Confira os artigos a seguir para obter mais detalhes. [Funções do Azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [Serviços Web do Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
+Uma função do Aprendizado de Máquina no Stream Analytics pode ser usada como uma chamada de função normal na linguagem de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, solicitações de Serviço Web do Aprendizado de Máquina do Azure. Os serviços Web do Aprendizado de Máquina oferecem suporte à inclusão de várias linhas em "lotes", o que é chamado de lote simplificado, na mesma chamada à API de serviço Web, a fim de melhorar a produtividade geral. Confira os artigos a seguir para obter mais detalhes. [Funções do Azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [Serviços Web do Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar seu trabalho do Stream Analytics com funções de Aprendizado de Máquina
-Ao configurar uma função do Aprendizado de Máquina para um trabalho do Stream Analytics, há dois parâmetros a serem considerados, o tamanho do lote das chamadas de função do Aprendizado de Máquina e as Unidades de Streaming (SUs) provisionadas para o trabalho do Stream Analytics. Para determinar seus valores apropriados, é necessário tomar uma decisão primeiro entre a latência e a produtividade, ou seja, latência do trabalho do Stream Analytics e a produtividade de cada SU. As SUs podem ser adicionadas sempre a um trabalho a fim de aumentar a produtividade de uma consulta do Stream Analytics bem particionada, embora SUs adicionais aumentem o custo da execução do trabalho.
+Ao configurar uma função do Machine Learning para um trabalho do Stream Analytics, há dois parâmetros a serem considerados, o tamanho do lote das chamadas de função do Machine Learning e as SUs (unidades de streaming) provisionadas para o trabalho do Stream Analytics. Para determinar seus valores apropriados, é necessário tomar uma decisão primeiro entre a latência e a produtividade, ou seja, latência do trabalho do Stream Analytics e a produtividade de cada SU. As SUs podem ser adicionadas sempre a um trabalho a fim de aumentar a produtividade de uma consulta do Stream Analytics bem particionada, embora SUs adicionais aumentem o custo da execução do trabalho.
 
 Portanto, é importante determinar a *tolerância* de latência da execução de um trabalho do Stream Analytics. A latência adicional proveniente da execução de solicitações de serviço do Aprendizado de Máquina do Azure aumenta naturalmente com o tamanho do lote, que vai compor a latência do trabalho do Stream Analytics. Por outro lado, o aumento do tamanho do lote permite que o trabalho do Stream Analytics processe *mais eventos com o *mesmo número* de solicitações de serviço Web do Machine Learning. Geralmente, o aumento da latência do serviço Web do Aprendizado de Máquina é sub-linear ao aumento do tamanho do lote. Portanto, é importante considerar o tamanho de lote mais econômico e eficiente para um serviço Web do Aprendizado de Máquina em qualquer situação. O tamanho de lote padrão para as solicitações de serviço Web é 1.000 e pode ser modificado usando a [API REST do Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST do Stream Analytics") ou o [Cliente PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Cliente PowerShell para Stream Analytics").
 
-Depois de determinar um tamanho de lote, a quantidade de Unidades de Streaming (SUs) pode ser determinada, com base no número de eventos que a função precisa processar por segundo. Para saber mais sobre Unidades de Streaming, confira o artigo [Trabalhos de escala do Stream Analytics](stream-analytics-scale-jobs.md#configuring-streaming-units).
+Depois de determinar um tamanho de lote, a quantidade de SUs (unidades de streaming) pode ser determinada com base no número de eventos que a função precisa processar por segundo. Para obter mais informações sobre o unidades de streaming, consulte Dimensionar trabalhos do [Trabalhos de escala do Stream Analytics](stream-analytics-scale-jobs.md).
 
 Em geral, há 20 conexões simultâneas com o serviço Web do Aprendizado de Máquina para cada seis SUs, com exceção dos trabalhos de uma SU e os trabalhos de três SUs que receberão 20 conexões simultâneas também.  Por exemplo, se a taxa de dados de entrada for 200.000 eventos por segundo, e o tamanho do lote for deixado com o valor padrão de 1000, a latência de serviço Web resultante com um lote simplificado de 1000 eventos será de 200 ms. Isso significa que cada conexão pode fazer cinco solicitações para o serviço Web do Aprendizado de Máquina em um segundo. Com 20 conexões, o trabalho do Stream Analytics poderá processar 20.000 eventos em 200 ms e, portanto, 100.000 eventos em um segundo. Então, para processar 200.000 eventos por segundo, o trabalho do Stream Analytics precisará de 40 conexões simultâneas, provenientes de 12 SUs. O diagrama a seguir ilustra as solicitações do trabalho do Stream Analytics para o ponto de extremidade de serviço Web do Aprendizado de Máquina – a cada 6 SUs há, no máximo, 20 conexões simultâneas com o serviço Web do Aprendizado de Máquina.
 
@@ -119,9 +119,8 @@ Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo.
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Stream Analytics, confira:
 
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

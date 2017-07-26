@@ -1,6 +1,6 @@
 ---
-title: Acesso condicional ao Azure Active Directory | Microsoft Docs
-description: "Use o controle de acesso condicional no Azure Active Directory para verificar se há condições específicas ao autenticar para acessar aplicativos."
+title: "Acesso condicional no portal clássico do Azure | Microsoft Docs"
+description: "Use o controle de acesso condicional no portal clássico do Azure para verificar se há condições específicas ao autenticar para acessar aplicativos."
 services: active-directory
 keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Acesso condicional no portal clássico do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal clássico do Azure](active-directory-conditional-access.md)
-> * [Portal do Azure](active-directory-conditional-access-azure-portal.md)
+Este tópico é sobre acesso condicional no portal clássico do Azure. Para obter informações mais recentes sobre o acesso condicional no Azure Active Directory, consulte [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
 
 Os recursos de controle de acesso condicional do Azure AD (Azure Active Directory) oferecem maneiras simples para ajudar a proteger recursos na nuvem e local. Políticas de acesso condicional, como autenticação multifator, podem ajudar a proteger contra o risco de roubo e captura de credenciais. Outras políticas de acesso condicional podem ajudar a proteger os dados de sua organização. Por exemplo, além de exigir credenciais, você pode ter uma política para que apenas dispositivos registrados em um sistema de gerenciamento de dispositivos móveis, como o Microsoft Intune, possam acessar serviços confidenciais de sua organização.
 

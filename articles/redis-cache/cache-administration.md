@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias de Cache Redis do Azure.
-
-> [!IMPORTANT]
-> As configurações e os recursos descritos neste artigo só estão disponíveis para os caches da camada Premium.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 A folha **Reinicializar** permite a reinicialização de um ou mais nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
@@ -53,7 +48,7 @@ O impacto em aplicativos cliente varia de acordo com quais nós você reiniciali
 * **Nós de um cache Premium com cluster habilitado** – quando você reinicializa um ou mais nós de um cache Premium com clustering habilitado, o comportamento dos nós selecionados é o mesmo de quando você reinicializa o nó ou nós correspondentes de um cache não clusterizado.
 
 > [!IMPORTANT]
-> A reinicialização está disponível somente para caches do nível Premium.
+> A reinicialização agora está disponível para todos os tipos de preço.
 > 
 > 
 
@@ -84,10 +79,10 @@ Se você reinicializar apenas um dos nós, normalmente os dados não serão perd
 Sim, para ver as instruções do PowerShell, confira [Para reinicializar um cache Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Que tipos de preços podem usar a funcionalidade de reinicialização?
-A reinicialização está disponível apenas no tipo de preços premium.
+A reinicialização está disponível para todos os tipos de preço.
 
 ## <a name="schedule-updates"></a>Agendar atualizações
-A folha **Agendar atualizações** permite designar uma janela de manutenção para seu cache. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. 
+A folha **Agendar atualizações** permite designar uma -janela de manutenção para seu cache de camada Premium. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. 
 
 > [!NOTE] 
 > A janela de manutenção se aplica apenas às atualizações do servidor Redis e não a quaisquer atualizações do Azure ou atualizações do sistema operacional das VMs que hospedam o cache.

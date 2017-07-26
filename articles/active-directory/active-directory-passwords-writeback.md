@@ -6,22 +6,21 @@ keywords: "Gerenciamento de senhas do Active Directory, gerenciamento de senhas,
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
@@ -198,3 +197,4 @@ Os links a seguir fornecem informações adicionais sobre a redefinição de sen
 * [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Habilitar write-back de senha no Azure AD Connect"
+

@@ -1,7 +1,7 @@
 ---
 
 title: "O que é o licenciamento baseado em grupo no Azure Active Directory? | Microsoft Docs"
-description: "Descrição de licenciamento baseado em grupo do Azure Active Directory, como ele funciona, como começar e práticas recomendadas"
+description: "Descrição de licenciamento baseado em grupo do Azure Active Directory, como ele funciona e práticas recomendadas"
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: 
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.reviewer: piotrci
+ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Noções básicas de licenciamento baseado em grupo no Azure Active Directory
 
-Os serviços de nuvem da Microsoft, como Office 365 Enterprise Mobility + Security, Dynamics CRM e outros produtos similares, exigem licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
+O uso de serviços de nuvem pagos da Microsoft, como Office 365, Enterprise Mobility + Security, Dynamics CRM e outros produtos similares, exige licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
 
 Até agora, as licenças podiam ser atribuídas apenas no nível de usuário individual, o que pode dificultar o gerenciamento em larga escala. Por exemplo, para adicionar ou remover licenças de usuário com base nas alterações organizacionais, como usuários ingressando na organização ou em um departamento ou saindo deles, com frequência um administrador deve escrever um script complexo do PowerShell. Esse script faz chamadas individuais para o serviço de nuvem.
 
@@ -58,6 +59,7 @@ Aqui estão os principais recursos do licenciamento baseado em grupo:
 
 Para saber mais sobre outros cenários de gerenciamento de licenças por meio de licenciamento baseado em grupo, confira:
 
+* [Introdução às licenças do Azure Active Directory](active-directory-licensing-get-started-azure-portal.md)
 * [Atribuição de licenças a um grupo no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

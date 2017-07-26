@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -135,13 +136,15 @@ Outra maneira de autenticar um aplicativo do AD do Azure é usar uma ID do Clien
 4. Adicionar um certificado ao seu aplicativo Web
 
 **Obter ou Criar um Certificado** Para os nossos objetivos, definiremos um certificado de teste. Veja alguns comandos que você pode usar em um Prompt de Comando do Desenvolvedor para criar um certificado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.  Além disso, para a data inicial e a data final do certificado, use a data atual mais 1 ano.
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2016 e test123). Você precisará delas mais tarde.
 
 Para saber mais sobre a criação de um certificado de teste, confira [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/library/ff699202.aspx)
 
-**Associar o Certificado um aplicativo do AD do Azure** Agora que você tem um certificado e precisa associá-lo a um aplicativo do AD do Azure. No momento, o Portal do Azure não dá suporte a esse fluxo de trabalho; ele pode ser concluído usando o PowerShell. Execute os seguintes comandos para associar o certificado ao aplicativo do Azure AD:
+**Associar o Certificado um aplicativo do AD do Azure** Agora que você tem um certificado e precisa associá-lo a um aplicativo do AD do Azure. No momento, o Portal do Azure não dá suporte a esse fluxo de trabalho; isso pode ser concluído usando o PowerShell. Execute os seguintes comandos para associar o certificado ao aplicativo do Azure AD:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")

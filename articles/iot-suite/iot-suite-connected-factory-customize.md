@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4e466f34880bf6ffce5012353f539ee93160892b
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="introduction"></a>Introdução
 
-A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução.
+A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para saber mais informações sobre UA OPC, confira as [Perguntas Frequentes][lnk-faq].
 
 Exemplos de dados agregados na solução incluem a OEE (Eficiência Geral de Equipamentos) e os KPIs (Indicadores Chave de Desempenho) que podem ser exibidos no painel nos níveis da fábrica, da linha e da estação. A captura de tela a seguir mostra os valores de OEE e KPI da estação **Assembly** na **Linha de produção 1**, na fábrica de **Munique**:
 
@@ -174,7 +174,7 @@ O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do
 Saiba mais sobre a solução pré-configurada de fábrica conectada lendo os seguintes artigos:
 
 * [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
-* [Conecte o dispositivo à solução pré-configurada de fábrica conectada][lnk-connect-cf]
+* [Implantar um gateway para a fábrica conectada][lnk-connect-cf]
 * [Permissões no site azureiotsuite.com][lnk-permissions]
 * [Perguntas frequentes][lnk-faq]
 
@@ -188,7 +188,7 @@ Saiba mais sobre a solução pré-configurada de fábrica conectada lendo os seg
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

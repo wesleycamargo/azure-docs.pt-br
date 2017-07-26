@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 3ae4701914fb759efe7a890d5906f231c1def2e2
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
-Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar esses gateways e suas Conexões. O Observador de Rede fornece a capacidade de solucionar problemas das Conexões e dos Gateways de Rede Virtual. Essa solução pode ser chamada pelo PowerShell, pela CLI ou pela REST API. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway de rede virtual e retorna os resultados adequados. Essa solicitação é uma transação de longa duração e os resultados são retornados quando o diagnóstico for concluído.
+Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar esses gateways e suas Conexões. O Observador de Rede fornece a capacidade de solucionar problemas das Conexões e dos Gateways de Rede Virtual. Ela pode ser chamada pelo Portal, pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway de rede virtual e retorna os resultados adequados. Essa solicitação é uma transação de longa duração e os resultados são retornados quando o diagnóstico for concluído.
+
+![portal][2]
 
 ## <a name="results"></a>Resultados
 
@@ -78,6 +81,24 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
 | Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |Sim|
 
+## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
+
+A lista a seguir mostra quais gateways e conexões têm suporte com a solução de problemas do Observador de Rede.
+|  |  |
+|---------|---------|
+|**Tipos de gateway**   |         |
+|VPN      | Suportado        |
+|ExpressRoute | Sem suporte |
+|Hypernet | Sem suporte|
+|**Tipos de VPN** | |
+|Baseada em Rota | Suportado|
+|Baseada em Políticas | Sem suporte|
+|**Tipos de conexão**||
+|IPsec| Suportado|
+|VNet2Vnet| Suportado|
+|ExpressRoute| Sem suporte|
+|Hypernet| Sem suporte|
+|VPNClient| Sem suporte|
 
 ## <a name="log-files"></a>Arquivos de log
 
@@ -193,8 +214,9 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como diagnosticar Gateways de VPN e Conexões com o PowerShell visitando [Solução de Problemas de Gateway - PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+Saiba como diagnosticar Gateways de VPN e Conexões por meio do Portal visitando [Solução de Problemas de Gateway – Portal do Azure](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png
 

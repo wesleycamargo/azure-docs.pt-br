@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="azure-cdn-pop-locations"></a>Locais POP da CDN do Azure
-Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e **Azure CDN da Akamai**.
+Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e  **Azure CDN da Akamai**.
 
 > [!IMPORTANT]
 > \*Os locais de POP do **Azure CDN da Akamai** não são divulgados individualmente.  
@@ -40,7 +41,7 @@ Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e **Azu
 | Sul da Europa |Madri, Espanha<br />Milão, Itália |**&#x2713;**\* |
 | Ásia Oriental |Tóquio, Japão<br />Osaka, Japão<br />Batam, Indonésia<br />Jacarta, Indonésia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seul, Coreia do Sul<br />Cingapura |**&#x2713;**\* |
 | Sul e Centro da Ásia |Bangalore, Índia<br />Chennai, Índia<br />Délhi, Índia<br />Mumbai, Índia |**&#x2713;**\* |
-| Oriente Médio/Oeste da Ásia |Mascate, Omã |**&#x2713;**\* |
+| Oriente Médio/Oeste da Ásia |Mascate, Omã <br /> Fujirah, Emirados Árabes Unidos |**&#x2713;**\* |
 | África | |**&#x2713;**\* |
 | Austrália e Nova Zelândia |Melbourne, Austrália<br />Sydney, Austrália |**&#x2713;**\* |
 

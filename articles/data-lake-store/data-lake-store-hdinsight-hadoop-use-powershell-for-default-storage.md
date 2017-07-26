@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d129ea9e5f3e320ccd705028f9860188babe2fe4
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 77eb83b80312eca401e6f60d57ed6a5668ea442e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -33,11 +33,9 @@ Saiba como usar o Azure PowerShell para configurar clusters Azure HDInsight com 
 
 Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão está disponível para o HDInsight versão 3.5.
+* A opção de criar clusters do HDInsight com acesso ao Data Lake Store como armazenamento padrão está disponível para o HDInsight versões 3.5 e 3.6.
 
 * A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão *não está disponível* para clusters HDInsight Premium.
-
-* Para clusters HBase (Windows e Linux), *não há suporte* para o Data Lake Store como uma opção de armazenamento, tanto para o armazenamento padrão quanto para o adicional.
 
 Para configurar o HDInsight para trabalhar com o Data Lake Store usando o PowerShell, siga as instruções das próximas cinco seções.
 
@@ -46,7 +44,7 @@ Antes de começar este tutorial, verifique se você atende aos seguintes requisi
 
 * **Uma assinatura do Azure**: acesse [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**: consulte [Como instalar e configurar o PowerShell](/powershell/azure/overview).
-* **Software Development Kit do Windows (SDK do Windows)**: para instalar o SDK do Windows, acesse [Downloads e ferramentas para o Windows 10](https://dev.windows.com/en-us/downloads). Você usa o SDK do Windows para criar um certificado de segurança.
+* **Software Development Kit do Windows (SDK do Windows)**: para instalar o SDK do Windows, acesse [Downloads e ferramentas para o Windows 10](https://dev.windows.com/en-us/downloads). O SDK é usado para criar um certificado de segurança.
 * **Entidade de serviço do Azure Active Directory**: este tutorial descreve como criar uma entidade de serviço no Azure AD (Azure Active Directory). No entanto, para criar uma entidade de serviço, você deve ser um administrador do Azure AD. Se você for um administrador, ignore esse pré-requisito e continue com o tutorial.
 
     >[!NOTE]
@@ -187,7 +185,7 @@ Nesta seção, você cria um cluster Linux Hadoop HDInsight com o Data Lake Stor
         # Set these variables
 
         $location = "East US 2"
-        $storageAccountName = $dataLakeStoreName                          # Data Lake Store account name
+        $storageAccountName = $dataLakeStoreName                       # Data Lake Store account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
@@ -205,7 +203,7 @@ Nesta seção, você cria um cluster Linux Hadoop HDInsight com o Data Lake Stor
                -DefaultStorageAccountType AzureDataLakeStore `
                -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
                -DefaultStorageRootPath $storageRootPath `
-               -Version "3.5" `
+               -Version "3.6" `
                -SshCredential $sshCredentials `
                -AadTenantId $tenantId `
                -ObjectId $objectId `

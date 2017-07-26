@@ -1,5 +1,5 @@
 ---
-title: "Configurar clusters HDInsight ingressados no domínio usando o Azure PowerShell | Microsoft Docs"
+title: "Configurar clusters HDInsight ingressados no domínio usando o PowerShell – Azure | Microsoft Docs"
 description: "Saiba como instalar e configurar clusters HDInsight ingressados no domínio usando o Azure PowerShell"
 services: hdinsight
 documentationcenter: 
@@ -17,15 +17,18 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurar clusters HDInsight ingressados no domínio (visualização) usando o Azure PowerShell
 Saiba como configurar um cluster Azure HDInsight com o Azure AD (Azure Active Directory) e o [Apache Ranger](http://hortonworks.com/apache/ranger/) usando o Azure PowerShell. Um script do Azure PowerShell é fornecido para tornar a configuração mais rápida e menos sujeita a erros. O HDInsight ingressado em domínio só pode ser configurado em clusters baseados em Linux. Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md).
+
+> [!IMPORTANT]
+> O Oozie não está habilitado no HDInsight ingressado no domínio.
 
 Uma configuração típica de cluster HDInsight ingressado em um domínio envolve as seguintes etapas:
 
@@ -60,7 +63,7 @@ Você deve ter os seguintes itens para percorrer este tutorial:
 * PowerShell do Azure.  Confira [Instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Crie uma VNet clássica do Azure para o Azure AD.
-Para instruções, confira [aqui](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+Para instruções, confira [aqui](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic).
 
 ## <a name="create-and-configure-azure-ad-and-azure-ad-ds"></a>Crie e configure o Azure AD e o Azure AD DS.
 Para instruções, confira [aqui](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
@@ -74,7 +77,7 @@ O script do PowerShell pode ser baixado no [GitHub](https://github.com/hdinsight
 2. Preencha os valores das seguintes variáveis:
    
    * **$SubscriptionName** – o nome da assinatura do Azure em que você deseja criar o cluster HDInsight. Você já criou uma rede virtual clássica nesta assinatura e criará uma rede virtual do Azure Resource Manager para o cluster HDInsight na assinatura.
-   * **$ClassicVNetName** -a rede virtual clássica que contém o Azure AD DS. Essa rede virtual deve estar na mesma assinatura fornecida acima. Essa rede virtual deve ser criada usando o portal do Azure, e não o portal clássico. Se você seguir as instruções em [Configurar clusters HDInsight ingressados no domínio (Visualização)](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet), o nome padrão é contosoaadvnet.
+   * **$ClassicVNetName** -a rede virtual clássica que contém o Azure AD DS. Essa rede virtual deve estar na mesma assinatura fornecida acima. Essa rede virtual deve ser criada usando o portal do Azure, e não o portal clássico. Se você seguir as instruções em [Configurar clusters HDInsight ingressados no domínio (Visualização)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic), o nome padrão é contosoaadvnet.
    * **$ClassicResourceGroupName** – o nome do grupo do Gerenciador de Recursos para a rede virtual clássica mencionada acima. Por exemplo, contosoaadrg. 
    * **$ArmResourceGroupName** – o nome do grupo de recursos em que você deseja criar o cluster HDInsight. Você pode usar o mesmo grupo de recursos de $ArmResourceGroupName.  Se o grupo de recursos não existir, o script o criará.
    * **$ArmVNetName** -o nome da rede virtual do Gerenciador de Recursos na qual você deseja criar o cluster HDInsight. Essa rede virtual será colocada em $ArmResourceGroupName.  Se a rede virtual não existir, o script do PowerShell a criará. Se existir, ela deve ser parte do grupo de recursos fornecido acima.

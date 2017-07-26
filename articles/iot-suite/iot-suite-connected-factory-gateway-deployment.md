@@ -15,15 +15,28 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 06/08/2017
 
 ---
 
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implantar um gateway no Windows ou Linux para a solução pré-configurada de fábrica conectada
+
+O software necessário para implantar um gateway para a solução pré-configurada de fábrica conectada tem dois componentes:
+
+* O *Proxy OPC* estabelece uma conexão ao Hub IoT e aguarda até que as mensagens de comando e controle do navegador de OPC integrado que é executado no portal da solução de fábrica conectada.
+* O *Publicador OPC* conecta-se a servidores OPC UA locais existentes e encaminha mensagens de telemetria deles para o Hub IoT.
+
+Ambos os componentes são de código livre e estão disponíveis como origem no GitHub e nos contêineres do Docker:
+
+| GitHub | DockerHub |
+| ------ | --------- |
+| [Publicador OPC][lnk-publisher-github] | [Publicador OPC][lnk-publisher-docker] |
+| [Proxy OPC][lnk-proxy-github] | [Proxy OPC][lnk-proxy-docker] |
+
+Nenhum endereço IP voltado ao público nem falhas no firewall do gateway são necessários para nenhum desses componentes. O Proxy OPC e o Publicador OPC usam somente as portas de saída 443, 5671 e 8883.
 
 As etapas neste artigo mostram como implantar um gateway usando o Docker no Windows ou Linux. O gateway permite conectividade com a solução pré-configurada de fábrica conectada.
 
@@ -58,7 +71,7 @@ Você também pode executar essa etapa após a instalação do docker usando o m
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt;** é o nome do aplicativo OPC UA que o gateway cria no formato **publicador.&lt;seu nome de domínio totalmente qualificado&gt;**. Por exemplo, **publicador.microsoft.com**.
+    * **&lt;ApplicationName&gt;** é o nome a dar ao Publicador OPC UA no formato **publisher.&lt;seu nome de domínio totalmente qualificado&gt;**. Por exemplo, se sua rede de fábrica é chamada **myfactorynetwork.com**, o valor de **ApplicationName** é **publisher.myfactorynetwork.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;** é a cadeia de conexão **iothubowner** que você copiou na etapa anterior. Essa cadeia de conexão é usada apenas nessa etapa e você não precisará dela novamente.
 
     A pasta D:\\docker (o argumento `-v`) mapeada é usada posteriormente para persistir os dois certificados X.509 usados pelos módulos de gateway.
@@ -67,7 +80,7 @@ Você também pode executar essa etapa após a instalação do docker usando o m
 
 1. Reinicie o gateway usando os seguintes comandos:
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e \_GW\_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
@@ -152,5 +165,10 @@ Para saber mais sobre a arquitetura da solução pré-configurada de fábrica co
 [portal do Azure]: http://portal.azure.com/
 [cliente OPC UA de software livre]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Instale o Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-overview.md
+[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [Azure IoT Edge]: https://github.com/Azure/iot-edge
+
+[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
+[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
+[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy

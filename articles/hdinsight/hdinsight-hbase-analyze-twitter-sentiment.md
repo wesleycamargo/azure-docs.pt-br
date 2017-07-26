@@ -1,5 +1,5 @@
 ---
-title: Analisar o sentimento do Twitter em tempo real com HBase | Microsoft Docs
+title: "Analisar o sentimento do Twitter em tempo real com HBase – Azure | Microsoft Docs"
 description: "Saiba como fazer a análise de sentimento de Big Data em tempo real, usando o HBase em um cluster HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5fa91c0fb1858a46745ff50991b843530f0a5d23
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 7a16a1c2a10279b5e7fb523addfdfcd433c8937e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/10/2017
 
 
 ---

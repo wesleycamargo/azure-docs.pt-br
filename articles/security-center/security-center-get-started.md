@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 392c814b7d3ff6b4f0f7850a51960576775e0307
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/09/2017
 Este artigo ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure, pois o orienta em relação aos componentes de monitoramento da segurança e gerenciamento de políticas da Central de Segurança.
 
 > [!NOTE]
-> Este artigo apresenta o serviço usando uma implantação de exemplo. Ele não é um guia passo a passo.
+> A partir do início de junho de 2017, a Central de Segurança usará o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md) para saber mais. As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
 >
 >
 
@@ -41,9 +41,16 @@ Você acessar a Central de Segurança pelo [portal do Azure](https://azure.micro
 Na Central de Segurança, você vê apenas informações relacionadas a um recurso do Azure quando está atribuído a uma função de Proprietário, Colaborador ou Leitor para a assinatura ou grupo de recursos a que o recurso pertence. Confira [Permissões na Central de Segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
 
 ## <a name="data-collection"></a>Coleta de dados
-A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as VMs em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança.
+A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as VMs em sua assinatura. A Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as VMs do Azure existentes com suporte e em quaisquer novas VMs criadas. Consulte [Habilitar coleta de dados](security-center-enable-data-collection.md) para saber mais sobre como a coleta de dados funciona.
+
+A coleta de dados é recomendada. Se você estiver usando a Camada gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de VMs desligando a coleta de dados na política de segurança. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança. Veja [Tipos de preço da Central de Segurança](security-center-pricing.md) para saber mais sobre os tipos de preço Gratuito e Standard.
 
 As etapas a seguir descrevem como acessar e usar os componentes da Central de Segurança. Nestas etapas, mostramos como desativar a coleta de dados se você optar pelo cancelamento.
+
+> [!NOTE]
+> Este artigo apresenta o serviço usando uma implantação de exemplo. Ele não é um guia passo a passo.
+>
+>
 
 ## <a name="access-security-center"></a>Acessar a Central de Segurança
 No Portal, execute estas etapas para acessar a Central de Segurança:
@@ -60,21 +67,13 @@ No Portal, execute estas etapas para acessar a Central de Segurança:
 Você pode configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure. Vamos configurar uma política de segurança para sua assinatura:
 
 1. Na folha **Central de Segurança**, selecione o bloco **Política**.
-   ![Política de segurança][3]
-2. Na folha **Política de segurança - definir política por assinatura ou grupo de recursos** , selecione uma assinatura.
-3. Na folha **Política de segurança**, a **Coleta de dados** é habilitada para coletar os registros automaticamente. A extensão de monitoramento é provisionada em todas as VMs atuais e novas na assinatura. (Você pode recusar a coleta de dados definindo a **Coleta de dados** para **Desativada**, mas isso impedirá que a Central de Segurança forneça recomendações e alertas de segurança.)
-4. Na folha **Política de segurança**, selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver VMs em execução, escolha a conta de armazenamento na qual os dados coletados dessas VMs serão armazenados. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
+2. Na folha **Política de segurança – definir política por assinatura**, selecione uma assinatura.
+3. Na folha **Política de segurança**, a **Coleta de dados** é habilitada para coletar os registros automaticamente. A extensão de monitoramento é provisionada em todas as VMs atuais e novas na assinatura. (Na camada Gratuita da Central de Segurança, você pode optar por não usar a coleta de dados configurando **Coleta de dados** como **Desligada**. Definir a **Coleta de dados** como **Desligada** impede que a Central de Segurança forneça recomendações e alertas de segurança.)
+4. Na folha **Política de segurança**, selecione **Política de prevenção**. Isso abre a folha **Política de prevenção**.
+5. Na folha **Política de prevenção**, ative as recomendações que você deseja ver como parte de sua política de segurança. Exemplos:
 
-   > [!NOTE]
-   > É recomendável que você habilite a coleta de dados e escolha uma conta de armazenamento no nível da assinatura primeiro. As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da conta de armazenamento e da coleta de dados ocorre apenas no nível da assinatura.
-   >
-   >
-5. Na folha **Política de segurança**, selecione **Política de prevenção**. Isso abre a folha **Política de prevenção**.
-   ![Política de prevenção][4]
-6. Na folha **Política de prevenção**, ative as recomendações que você deseja ver como parte de sua política de segurança. Exemplos:
-
-   * Definir as **Atualizações do sistema** como **Ativado** verificará todas as máquinas virtuais com suporte quanto às atualizações do SO que faltam.
-   * Definir as **Vulnerabilidade do SO** para **Ativado** verificará as máquinas virtuais com suporte para identificar as configurações do SO que poderiam tornar a máquina virtual mais vulnerável a ataques.
+   * Definir as **Atualizações do sistema** como **Ligadas** verificará todas as VMs com suporte quanto às atualizações do SO ausentes.
+   * Definir **Vulnerabilidade do SO** como **Ligado** verificará as VMs com suporte para identificar as configurações do SO que poderiam tornar a VM mais vulnerável a ataques.
 
 ### <a name="view-recommendations"></a>Exibir recomendações
 1. Volte para a folha **Central de Segurança** e selecione o bloco **Recomendações**. A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações na folha **Recomendações** .
@@ -82,11 +81,11 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
 2. Selecione uma recomendação na folha **Recomendação** para exibir mais informações e/ou tomar medidas para resolver o problema.
 
 ### <a name="view-the-security-state-of-your-resources"></a>Exiba o estado de segurança de seus recursos
-1. Volte para a folha **Central de segurança** . A seção **Prevenção** do painel contém indicadores do estado da segurança para máquinas virtuais, rede, dados e aplicativos.
+1. Volte para a folha **Central de segurança** . A seção **Prevenção** do painel contém indicadores do estado da segurança para VMs, rede, dados e aplicativos.
 2. Selecione **Computação** para exibir mais informações. A folha **Computação** será aberta mostrando três guias:
 
-  - **Visão geral** - Contém recomendações de monitoramento e da máquina virtual.
-  - **Máquinas virtuais** - Lista todas as máquinas virtuais e seu estado de segurança atual.
+  - **Visão geral** – contém recomendações de monitoramento e da VM.
+  - **Máquinas virtuais** – lista todas as VMs e seu estado de segurança atual.
   - **Serviços de nuvem** - Lista as funções da Web e de trabalho monitoradas pela Central de Segurança.
 
     ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
@@ -117,6 +116,7 @@ Neste artigo, você foi apresentado aos componentes de monitoramento de seguran�
 * Configure uma política de segurança para sua assinatura do Azure. Para saber mais, confira [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md).
 * Use as recomendações na Central de Segurança para ajudar a proteger os recursos do Azure. Para saber mais, confira [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 * Confira e gerencie os alertas de segurança atuais. Para saber mais, confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+- [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md) – saiba como os dados são gerenciados e protegidos na Central de Segurança do Azure.
 * Saiba mais sobre os [recursos avançados de detecção de ameaça](security-center-detection-capabilities.md) que vêm com a [camada Standard](security-center-pricing.md) da Central de Segurança. A camada Standard é oferecida gratuitamente nos 60 primeiros dias.
 * Se você tiver dúvidas sobre como usar a Central de Segurança, confira as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
 

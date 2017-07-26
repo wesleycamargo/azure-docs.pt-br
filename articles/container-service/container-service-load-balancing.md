@@ -14,50 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 06/02/2017
 ms.author: rogardle
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 75e9e93b374a21a54405454a8914db8aaf5ff699
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
-Neste artigo, exploraremos como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/OS usando o Marathon-LB. Isso permitirá que você dimensione horizontalmente seus aplicativos. Também ajudará você a tirar proveito dos clusters de agentes públicos e privados, colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado.
+Neste artigo, exploramos como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/SO usando o Marathon-LB. Essa configuração permite que você dimensione seus aplicativos horizontalmente. Também permite que você aproveite os clusters de agentes públicos e privados colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado. Neste tutorial, você:
 
-## <a name="prerequisites"></a>Pré-requisitos
-[Implantar uma instância do Serviço de Contêiner do Azure](container-service-deployment.md) com o tipo de orquestrador DC/OS e [garantir que o cliente possa se conectar ao cluster](container-service-connect.md). 
+> [!div class="checklist"]
+> * Configurar um balanceador de carga do Marathon
+> * Implantar um aplicativo usando o balanceador de carga
+> * Configurar um Azure Load Balancer
 
-## <a name="load-balancing"></a>Balanceamento de carga
-Há duas camadas de balanceamento de carga no cluster do Serviço de Contêiner que criaremos: 
+É necessário um cluster de DC/SO do ACS para concluir as etapas neste tutorial. Se necessário, [este exemplo de script](./scripts/container-service-cli-deploy-dcos.md) pode criar um para você.
 
-1. O Azure Load Balancer fornece pontos de entrada públicos (aqueles que os usuários finais acessarão). Isso é fornecido automaticamente pelo Serviço de Contêiner do Azure e, por padrão, é configurado para exibir as portas 80, 443 e 8080.
-2. O Balanceador de Carga do Marathon (marathon-lb) encaminha as solicitações de entrada para as instâncias do contêiner que atendem essas solicitações. Como dimensionamos os contêineres fornecendo nosso serviço Web, o marathon-lb se adapta dinamicamente. Esse balanceador de carga não é fornecido por padrão em seu Serviço de Contêiner, mas é muito fácil de instalar.
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="marathon-load-balancer"></a>Balanceador de Carga do Marathon
-O Balanceador de Carga do Marathon reconfigura dinamicamente baseado nos contêineres que você implantou. Também é resistente à perda de um contêiner ou um agente - se isso ocorrer, o Apache Mesos simplesmente reiniciará o contêiner em outro lugar e o marathon-lb se adaptará.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar o Balanceador de Carga do Marathon, você pode usar a IU da Web do DC/SO ou a linha de comando.
+## <a name="load-balancing-overview"></a>Visão geral do balanceamento de carga
 
-### <a name="install-marathon-lb-using-dcos-web-ui"></a>Instalar o Marathon-LB usando a IU da Web do DC/SO
-1. Clicar em 'Universo'
-2. Pesquisar 'Marathon-LB'
-3. Clicar em ‘Instalar’
+Há duas camadas de balanceamento de carga em um cluster de DC/SO do Serviço de Contêiner do Azure: 
 
-![Instalando o marathon-lb por meio da Interface da Web do DC/SO](./media/dcos/marathon-lb-install.png)
+O **Azure Load Balancer** fornece pontos de entrada públicos (aqueles que os usuários finais acessarão). Um Azure LB é fornecido automaticamente pelo Serviço de Contêiner do Azure e, por padrão, é configurado para exibir as portas 80, 443 e 8080.
 
-### <a name="install-marathon-lb-using-the-dcos-cli"></a>Instalar o Marathon-LB usando a CLI do DC/SO
-Depois de instalar a CLI do DC/SO e assegurar que você pode conectar o cluster, execute o seguinte comando a partir do computador cliente:
+O **Balanceador de Carga Marathon** (marathon-lb) encaminha as solicitações de entrada às instâncias do contêiner que atendem a essas solicitações. Conforme dimensionamos os contêineres fornecendo nosso serviço Web, o marathon-lb adapta-se dinamicamente. Esse balanceador de carga não é fornecido por padrão em seu Serviço de Contêiner, mas é muito fácil de instalar.
 
-```bash
+## <a name="configure-marathon-load-balancer"></a>Configurar Balanceador de Carga Marathon
+
+O Balanceador de Carga do Marathon reconfigura dinamicamente baseado nos contêineres que você implantou. Ele também é resistente à perda de um contêiner ou de um agente. Se isso ocorrer, o Apache Mesos reiniciará o contêiner em outro lugar e o marathon-lb se adaptará.
+
+Execute o seguinte comando para instalar o balanceador de carga Marathon no cluster do agente público.
+
+```azurecli-interactive
 dcos package install marathon-lb
 ```
 
-Este comando instala automaticamente o balanceador de carga no cluster de agentes público.
+## <a name="deploy-load-balanced-application"></a>Implantar aplicativo com balanceamento de carga
 
-## <a name="deploy-a-load-balanced-web-application"></a>Implantar um Aplicativo Web com Carga Balanceada
-Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicativo para o qual desejamos balancear a carga. Para este exemplo, implantaremos um servidor Web simples usando a seguinte configuração:
+Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicativo para o qual desejamos balancear a carga. 
+
+Primeiro, obtenha o FQDN dos agentes expostos publicamente.
+
+```azurecli-interactive
+az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].fqdn" --output tsv
+```
+
+Em seguida, crie um arquivo chamado *hello-web.json* e copie o seguinte conteúdo. O rótulo `HAPROXY_0_VHOST` precisa ser atualizado com o FQDN dos agentes DC/SO. 
 
 ```json
 {
@@ -91,47 +100,34 @@ Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicat
     "HAPROXY_0_MODE":"http"
   }
 }
-
 ```
 
-* Defina o valor de `HAPROXY_0_VHOST` para o FQDN do balanceador de carga de seus agentes. Isso está no formato `<acsName>agents.<region>.cloudapp.azure.com`. Por exemplo, se você criasse um cluster do Serviço de Contêiner com o nome `myacs`, na região `West US`, o FQDN seria `myacsagents.westus.cloudapp.azure.com`. Você também pode encontrar isso procurando o balanceador de carga com "agente" no nome ao examinar os recursos no grupo de recursos criado para o Serviço de Contêiner no [Portal do Azure](https://portal.azure.com).
-* Defina o `servicePort` para uma porta >= 10.000. Isso identifica o serviço que está sendo executado no contêiner; o marathon-lb o utiliza para identificar os serviços que deve balancear.
-* Defina o rótulo `HAPROXY_GROUP` como "externo".
-* Defina `hostPort` como 0. Isso significa que o Marathon alocará arbitrariamente uma porta disponível.
-* Defina `instances` como o número de instâncias que você deseja criar. Sempre é possível dimensionar isso posteriormente.
+Use a CLI do DC/SO para executar o aplicativo. Por padrão, o Marathon implanta o aplicativo no cluster privado. Isso significa que a implantação acima está acessível apenas por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
-Vale a pena saber que, por padrão, o Marathon implantará o cluster privado, o que significa que a implantação acima só poderá ser acessada por meio do balanceador de carga, que geralmente é o comportamento desejado.
-
-### <a name="deploy-using-the-dcos-web-ui"></a>Implantar usando a IU da Web do DC/SO
-1. Visite a página do Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md)) e clique em `Create Application`
-2. No diálogo `New Application`, clique em `JSON Mode` no canto superior direito
-3. Colar o JSON acima no editor
-4. Clique em `Create Application`
-
-### <a name="deploy-using-the-dcos-cli"></a>Implantar usando a CLI do DC/SO
-Para implantar esse aplicativo com a CLI do DC/SO, basta copiar o JSON acima para um arquivo chamado `hello-web.json` e executar:
-
-```bash
+```azurecli-interactive
 dcos marathon app add hello-web.json
 ```
 
-## <a name="azure-load-balancer"></a>Azure Load Balancer
-Por padrão, o Azure Load Balancer expõe as portas 80, 8080 e 443. Se você estiver usando uma dessas três portas (como ocorre no exemplo acima), não haverá mais nada a fazer. Você deve conseguir atingir o FQDN do balanceador de carga do agente, e cada vez que atualizar, encontrará um dos três servidores Web em round-robin. Se, no entanto, você usar uma porta diferente, será necessário adicionar uma regra de round robin e uma investigação ao balanceador de carga do Azure à porta usada. Você pode fazer isso na [CLI do Azure](../xplat-cli-azure-resource-manager.md) com os comandos `azure network lb rule create` e `azure network lb probe create`. Você também pode fazer isso usando o Portal do Azure.
+Depois que o aplicativo tiver sido implantado, navegue até o FQDN do cluster do agente para exibir o aplicativo com balanceamento de carga.
 
-## <a name="additional-scenarios"></a>Cenários adicionais
-Você pode ter um cenário onde usa domínios diferentes para expor serviços diferentes. Por exemplo:
+![Imagem do aplicativo com balanceamento de carga](media/container-service-load-balanging/lb-app.png)
 
-mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
-mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
+## <a name="configure-azure-load-balancer"></a>Configurar o Azure Load Balancer
 
-Para tanto, confira os [hosts virtuais](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), que fornecem uma maneira de associar os domínios aos caminhos específicos do marathon-lb.
+Por padrão, o Azure Load Balancer expõe as portas 80, 8080 e 443. Se você estiver usando uma dessas três portas (como ocorre no exemplo acima), não haverá mais nada a fazer. Você deve conseguir atingir o FQDN do balanceador de carga do agente e, cada vez que atualizar, encontrará um dos três servidores Web em round robin. 
 
-Como alternativa, você pode expor portas diferentes e remapeá-las para o serviço correto por trás do marathon-lb. Por exemplo:
-
-Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
-Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
+Se você usar uma porta diferente, precisará adicionar uma regra de round robin e uma investigação ao balanceador de carga para a porta usada. Você pode fazer isso na [CLI do Azure](../xplat-cli-azure-resource-manager.md) com os comandos `azure network lb rule create` e `azure network lb probe create`.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja a documentação do DC/SO para saber mais sobre o [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
+Neste tutorial, você aprendeu sobre balanceamento de carga no ACS com os maratona balanceadores de carga Marathon e Azure, incluindo as seguintes ações:
 
+> [!div class="checklist"]
+> * Configurar um balanceador de carga do Marathon
+> * Implantar um aplicativo usando o balanceador de carga
+> * Configurar um Azure Load Balancer
+
+Avance para o próximo tutorial para saber mais sobre como integrar o armazenamento do Azure ao DC/SO no Azure.
+
+> [!div class="nextstepaction"]
+> [Montar o compartilhamento de arquivos do Azure no cluster de DC/SO](./container-service-dcos-fileshare.md)

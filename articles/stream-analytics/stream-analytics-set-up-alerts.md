@@ -13,62 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 06/26/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: d9578aa13fc22a148f76d95a2c548b88b699e723
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a0c9c771c273728cf35d9cd727e1570e2a9bff5a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Stream Analytics do Azure
 ## <a name="introduction-monitor-page"></a>Introdução: Página do monitor
-Você pode configurar alertas para disparar um alerta quando uma métrica atinge uma condição que você especifica.
+Você pode configurar alertas para disparar um alerta quando uma métrica atinge uma condição que você especifica. Por exemplo, você pode configurar um alerta para uma condição semelhante à seguinte:
 
-Por exemplo, “Se Eventos de Saída dos últimos 15 minutos forem inferiores a 100, enviar notificação por email à ID de email: xyz@company.com”.
+`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
 
 As regras podem ser configuradas em métricas por meio do portal ou [de modo programático](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) pelos dados dos Logs de Operação.
 
-## <a name="set-up-alerts-through-the-azure-classic-portal"></a>Configurar alertas por meio do Portal Clássico do Azure
-Há duas maneiras de configurar alertas no Portal Clássico do Azure:  
-
-1. Na guia **Monitorar** do seu trabalho do Stream Analytics  
-2. No Log de Operações nos Serviços de gerenciamento  
-
-## <a name="set-up-alert-through-the-monitor-tab-of-the-job-in-the-portal"></a>Configurar alertas por meio da guia Monitor do trabalho no portal
-1. Selecione a métrica na guia Monitorar, clique no botão **Adicionar Regra** na parte inferior do painel e configure as regras.  
-   
-   ![Painel](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)  
-2. Defina o nome e a descrição do alerta  
-   
-   ![Criar Regra](./media/stream-analytics-set-up-alerts/02-stream-analytics-set-up-alerts.png)  
-3. Insira os limites, a janela de avaliação do alerta e as ações para o alerta  
-   
-   ![Definir Condições](./media/stream-analytics-set-up-alerts/03-stream-analytics-set-up-alerts.png)  
-
-## <a name="set-up-alerts-through-the-operations-logs"></a>Configurar alertas pelos Logs de operações
-1. Vá para a guia **Alertas** nos Serviços de Gerenciamento, no [Portal Clássico do Azure](https://manage.windowsazure.com).  
-2. Clique em **Adicionar Regra**  
-   
-   ![Critérios](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
-3. Defina o nome e a descrição do alerta. Selecione 'Stream Analytics' como Tipo de Serviço e o nome do trabalho como o Nome do Serviço.  
-   
-   ![Definir Alerta](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)  
-
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurar alertas no Portal do Azure
-No portal do Azure, navegue até o trabalho do Stream Analytics do qual você deseja receber alertas e clique na seção **Monitoramento** .  Na folha **Métrica** que é aberta, clique no comando **Adicionar alerta**.
+1. No Portal do Azure, abra o trabalho do Stream Analytics para o qual você deseja criar um alerta. 
 
-  ![Configuração do portal do Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. Na folha **Trabalho**, clique na seção **Monitoramento**.  
 
-Você pode nomear a regra de alerta e escolher uma descrição que aparecerá no email de notificação.
+3. Na folha **Métrica**, clique no comando **Adicionar alerta**.
 
-Ao selecionar Métricas, você escolherá uma condição e um valor de limite para a métrica.
+      ![Configuração do portal do Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
-  ![Seleção de métrica no portal do Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
+4. Insira um nome e uma descrição.
+
+5. Use os seletores para definir a condição sob a qual o alerta será enviado.
+
+6. Forneça informações sobre qual deve ser o destino do alerta.
+
+      ![Configurar um alerta para um trabalho do Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
 
 Para obter mais detalhes sobre como configurar alertas no portal do Azure, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

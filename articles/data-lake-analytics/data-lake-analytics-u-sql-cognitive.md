@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,11 +28,11 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 Os recursos cognitivos para o U-SQL permitem aos desenvolvedores colocar inteligência em seus programas de Big Data. O processo geral de maneira simples:
 
 * Usar a instrução REFERENCE ASSEMBLY para habilitar os recursos cognitivos para o Script U-SQL
-* Utilização da operação PROCESS para usar os recursos cognitivos 
+* Chame a operação PROCESS para usar os recursos Cognitivos 
 
-## <a name="imaging-scenarios"></a>Cenários de geração de imagens
+## <a name="imaging-scenarios"></a>Imaginando cenários
 
-### <a name="a-simple-example-image-tagging"></a>Um exemplo simples: marcação de imagem
+### <a name="example-image-tagging"></a>Exemplo: marcação de imagem
 
 O exemplo a seguir mostra um uso de ponta a ponta dos recursos de geração de imagens para detectar objetos nas imagens.
 
@@ -104,7 +106,7 @@ Suponha que temos uma entrada que consiste em "Guerra e Paz" de Leo Tolstóy.
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### <a name="extract-key-phrases-for-each-paragraph"></a>Extrair frases-chave de cada parágrafo.
+### <a name="extract-key-phrases-for-each-paragraph"></a>Extraia frases-chave de cada parágrafo
 
     @keyphrase =
         PROCESS @WarAndPeace
@@ -150,10 +152,5 @@ Suponha que temos uma entrada que consiste em "Guerra e Paz" de Leo Tolstóy.
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

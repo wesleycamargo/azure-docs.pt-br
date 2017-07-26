@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/12/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 88ed466053efd62370afd31f68c9617e79936267
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -105,7 +105,7 @@ Cada oferta de Cache Redis do Azure fornece diferentes níveis de opções **tam
 
 Veja abaixo as considerações para a escolha de uma oferta de Cache.
 
-* **Memória**: as camadas Básica e Standard oferecem 250 MB – 53 GB. A camada Premium oferece até 530 GB com mais espaço disponível [mediante solicitação](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para saber mais, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
+* **Memória**: as camadas Básica e Standard oferecem 250 MB – 53 GB. A camada Premium oferece até 530 GB. Para saber mais, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
 * **Desempenho de rede**: se você tiver uma carga de trabalho que requer uma alta taxa de transferência, a camada Premium oferece mais largura de banda quando comparada às camadas Standard ou Básica. Também dentro de cada camada, caches de tamanhos maiores têm mais largura de banda, devido à VM subjacente que hospeda o cache. Confira a [tabela a seguir](#cache-performance) para saber mais.
 * **Taxa de transferência**: a camada Premium oferece a maior taxa de transferência disponível. Se o cliente ou o servidor de cache atingir os limites de largura de banda, você poderá receber tempos limite no lado do cliente. Para obter mais informações, confira a tabela a seguir.
 * **Alta Disponibilidade/SLA**: o Cache Redis do Azure garante que um cache Standard/Premium esteja disponível durante, pelo menos, 99,9% do tempo. Para saber mais sobre nosso SLA, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA abrange apenas a conectividade com os pontos de extremidade do Cache. O SLA não abrange a proteção contra perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados.
@@ -467,10 +467,14 @@ Outro aspecto fundamental do sucesso do Redis é o ecossistema de software livre
 Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do Cache Redis do Azure](index.md).
 
 ### <a name="managed-cache-service"></a>Serviço de Cache gerenciado
-[O serviço de Cache Gerenciado foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[O serviço de Cache Gerenciado foi descontinuado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+Para exibir a documentação arquivada, consulte [Documentação de Serviço de Cache Gerenciado arquivada](https://msdn.microsoft.com/library/azure/dn386094.aspx).
 
 ### <a name="in-role-cache"></a>Cache em Função
-[O serviço de Cache na Função foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Cache na função foi descontinuado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+Para exibir a documentação arquivada, consulte [Documentação de Cache na função arquivada](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
