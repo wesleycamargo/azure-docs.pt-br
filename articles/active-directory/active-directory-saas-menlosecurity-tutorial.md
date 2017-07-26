@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: baf984be59e19f7503c36b12d2b90570ce957edf
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -224,7 +224,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você testará sua configuração de logon único do Azure AD.
 
-Faça logon no seu aplicativo por meio de qualquer URL precedida (por exemplo, `https://safe.menlosecurity.com/http://www.cnn.com/`) e digite as credenciais do Azure AD. Você será então redirecionado para o site adequado após uma autenticação bem-sucedida.
+Abra uma janela de navegador em um modo "InPrivate" ou "Anônimo" para disparar uma nova autenticação.  No Internet Explorer, use Ctrl + Shift + P.  No Chrome, use Ctrl + Shift + N.  Na janela de navegação privada, navegue até um recurso protegido e realize um logon do Azure AD.  Após o logon bem-sucedido, você será levado para o site solicitado em uma sessão de isolamento.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

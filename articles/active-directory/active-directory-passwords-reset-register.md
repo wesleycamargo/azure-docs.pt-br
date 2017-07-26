@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 485dfa067bd64312f6ae68a533117db1556318ed
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro de redefinição de senha de autoatendimento
@@ -45,6 +45,16 @@ Como um usuário final, você poderá redefinir sua senha ou desbloquear sua con
 Se você inserir dados no telefone ou email de autenticação, eles não ficarão visíveis no diretório global. As únicas pessoas que podem ver esses dados são você e seus administradores. Só você pode ver as respostas para suas perguntas de segurança.
 
 Os administradores podem exigir que você confirme os métodos de autenticação após um período de tempo para confirmar que os métodos apropriados estão registrados.
+
+## <a name="common-problems-and-their-solutions"></a>problemas comuns e suas soluções
+
+ Aqui estão alguns casos de erro comuns e suas soluções:
+
+| Caso de erro| Que erro você vê?| Solução |
+| --- | --- | --- |
+| Uma página “Contate seu administrador” é exibida após a inserção da minha ID de usuário | Entre em contato com o seu administrador <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Portanto, não podemos redefinir sua senha automaticamente. <br> <br> Você precisa entrar em contato com sua equipe de TI para receber mais assistência. | Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no ambiente local e não permite que você redefina sua senha usando o link Não consegue acessar sua conta? <br> <br> Para redefinir sua senha, contate a equipe de TI diretamente para obter ajuda e informe que deseja redefinir sua senha, para que ela possa habilitar o recurso para você.|
+| Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha usando o link Não consegue acessar sua conta? para sua organização ou não licenciou o uso por você. <br> <br> Para redefinir sua senha, clique no link “Contate um administrador” para enviar um email à equipe de TI da empresa e informe que deseja redefinir sua senha para que ela possa habilitar o recurso para você. |
+| Recebo uma mensagem de erro "não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, vá para http://aka.ms/ssprsetup depois que você tiver recuperado o acesso à sua conta. <br> <br> A fim de redefinir sua senha, clique no link contate um administrador para enviar um email à equipe de TI da empresa. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

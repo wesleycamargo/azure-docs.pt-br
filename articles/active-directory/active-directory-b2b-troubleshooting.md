@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -35,12 +35,13 @@ Para casos nos quais os usuários externos não são preenchidos na lista, o obj
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um usuário convidado de B2B não está aparecendo no seletor de pessoas do SharePoint Online/OneDrive 
  
-A capacidade de pesquisar por usuários convidados existentes no seletor de pessoas do SharePoint Online está desativado por padrão para coincidir com o comportamento herdado.
-Isso pode ser habilitado usando a configuração 'ShowPeoplePickerSuggestionsForGuestUsers' na coleta do site e do locatário. Isso pode ser definido usando os cmdlets Set-SPOTenant e SPOSite, que permite que os membros pesquisem todos os usuários convidados existentes no diretório. Alterações no escopo de locatário não afetam sites SPO já provisionados.
+A capacidade de pesquisar por usuários convidados existentes no seletor de pessoas do SharePoint Online (SPO) está desativado por padrão para coincidir com o comportamento herdado.
+
+Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSuggestionsForGuestUsers' na coleta do site e do locatário. Defina esse recurso usando os cmdlets Set-SPOTenant e SPOSite, que permitem aos membros pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo de locatário não afetam sites SPO já provisionados.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Os convites foram desabilitados para o diretório
 
-Se você receber uma mensagem de erro indicando que você não tem permissões para convidar usuários, verifique se a sua conta de usuário tem autorização para convidar usuários externos. Isso pode ser feito nas Configurações do Usuário:
+Se você receber uma notificação indicando que você não tem permissões para convidar usuários, verifique se a sua conta de usuário tem autorização para convidar usuários externos em Configurações do Usuário:
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -58,13 +59,13 @@ Ao convidar usuários cuja organização está usando o Azure Active Directory o
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>O usuário externo ainda não existe em um domínio federado
 
-Em casos nos quais o usuário externo está usando uma solução de federação em que a autenticação está sendo executada no local, e o usuário ainda não existe no Azure Active Directory, o usuário não poderá ser convidado.
+Se você estiver usando a autenticação de Federação e o usuário ainda não existir no Azure Active Directory, o usuário não poderá ser convidado.
 
 Para resolver esse problema, o administrador do usuário externo deve sincronizar a conta do usuário ao Azure Active Directory.
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como ‘\#’, que normalmente não é um caractere válido, é sincronizado com o Azure AD?
 
-“\#” é um caractere reservado em UPNs para colaboração B2B do Azure AD ou usuários externos (ou seja, o user@contoso.com convidado torna-se user_contoso.com#EXT@fabrikam.onmicrosoft.com); portanto, \# em UPNs obtidos localmente não tem permissão para entrar no portal do Azure.
+"\#" é um caractere reservado no UPNs para colaboração B2B do Azure AD ou usuários externos, pois a conta convidada user@contoso.com se torna user_contoso.com#EXT@fabrikam.onmicrosoft.com. Portanto, não há permissão para \# em UPNs provenientes do local entrar no Portal do Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar usuários externos a um grupo sincronizado
 
@@ -76,7 +77,12 @@ O convidado deve verificar com seu ISP ou o filtro de spam para garantir que o s
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Observei que, às vezes, a mensagem personalizada não é incluída nas mensagens de convite
 
-A fim de estar em conformidade as leis de privacidade, nossas APIs não incluem mensagens personalizadas no convite por email quando o emissor do convite não tem um endereço de email na organização do recurso (também conhecida como o locatário emissor do convite) ou quando uma entidade de serviço de aplicativo envia o convite. Se esse for um cenário importante para você, você poderá suprimir nossa API de enviar o email de convite e enviá-lo por meio de um mecanismo de email de sua escolha. Lembre-se de consultar o departamento jurídico de sua organização para verificar se todo email enviado dessa forma também está em conformidade com as leis de privacidade.
+Para cumprir as leis de privacidade, nossas APIs não incluem mensagens personalizadas no convite por email quando:
+
+- O emissor do convite não tem um endereço de email no locatário que está convidando
+- Quando uma entidade do serviço de aplicativo envia o convite
+
+Se esse cenário for importante para você, suprima nosso email de convite de API e envie-o por meio de um mecanismo de email de sua escolha. Consulte o departamento jurídico de sua organização para verificar se todo email enviado dessa forma também está em conformidade com as leis de privacidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

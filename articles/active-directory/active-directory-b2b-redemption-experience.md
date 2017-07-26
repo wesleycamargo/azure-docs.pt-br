@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 05/24/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fd02c79d967c5076353f1f9219c22f068b56fb1d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,9 +32,10 @@ ms.lasthandoff: 05/02/2017
 Para usuários com uma conta existente do Azure AD ou com contas da Microsoft, a experiência de resgate é tão fácil quanto entrar na conta.
 
 ## <a name="social-id-user-first-time-redemption"></a>Primeiro resgate de usuário de ID Social
-A colaboração do Azure AD B2B facilita o uso de qualquer endereço de email para o resgate. Confira a experiência de resgate quando um endereço de email que não é da Microsoft é usado para colaboração B2B. Esse é um fluxo de resgate que precisa de mais envolvimento, pois talvez seja necessário criar uma conta no momento do resgate. Confira no vídeo a seguir:
+A colaboração do Azure AD B2B facilita o uso de qualquer endereço de email para o resgate. Confira a experiência de resgate quando um endereço de email que não é da Microsoft é usado para colaboração B2B. Esse fluxo de resgate precisa de mais envolvimento, pois talvez seja necessário criar uma conta no momento do resgate. Confira no vídeo a seguir:
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> 
 
 ## <a name="next-steps"></a>Próximas etapas
 

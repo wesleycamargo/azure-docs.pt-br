@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 953a99a1fc09a960c94eebbc0486e4782e5dd87c
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -62,9 +62,9 @@ Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação 
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 6. Salve seu trabalho e crie um novo arquivo no Dropbox para ativar o fluxo de trabalho.  
 
-## <a name="view-the-swagger"></a>Exibir o swagger
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Consulte os [detalhes do Swagger](/connectors/dropbox/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/dropbox/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

@@ -16,20 +16,15 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
 O conector da Microsoft para DB2 conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados DB2 da IBM. Este conector inclui um cliente Microsoft para se comunicar com computadores de servidores DB2 remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de plataformas e versões do IBM DB2 com suporte (neste tópico).
-
-> [!NOTE]
-> Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA). 
-> 
-> 
 
 O Conector DB2 oferece suporte às seguintes operações do banco de dados:
 
@@ -283,8 +278,9 @@ Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem co
 * IBM DB2 para LUW 11
 * IBM DB2 para LUW 10.5
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
-Consulte os [detalhes do Swagger](/connectors/db2/). 
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
+
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
