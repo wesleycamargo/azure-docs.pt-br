@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -140,11 +140,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-    a. Clique em Adicionar atributo para abrir a página de detalhes do atributo. Adicione o atributo department conforme mostrado abaixo.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-    b. Clique em **OK** para salvar o atributo.
+       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+       b. Click on **Ok** to save the attribute.
+
+    c. Altere o nome do atributo **emailaddress** para **email**.
+
 
 10. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
@@ -237,6 +240,7 @@ Quando você clica no bloco LinkedIn Elevate no Painel de Acesso, você deve obt
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
+* [Tutorial: Configurar o LinkedIn Elevate para o provisionamento automático de usuário com o Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -254,4 +258,3 @@ Quando você clica no bloco LinkedIn Elevate no Painel de Acesso, você deve obt
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

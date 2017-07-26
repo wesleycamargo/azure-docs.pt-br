@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3c228be32539050123b01c5ccd74547b0d04ed28
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,11 +32,6 @@ Com o Banco de Dados SQL, você:
 * Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação). 
 
 Este tópico mostra como usar o conector do Banco de Dados SQL em um aplicativo lógico, além de listar as ações.
-
-> [!NOTE]
-> Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA). 
-> 
-> 
 
 Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -73,8 +68,9 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
    > 
 5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
-Consulte os [detalhes do Swagger](/connectors/sql/). 
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
+
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).

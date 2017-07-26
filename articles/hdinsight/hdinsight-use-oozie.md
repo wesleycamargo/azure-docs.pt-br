@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -60,7 +61,7 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 > 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte item:
 
 * **Uma estação de trabalho com o PowerShell do Azure**. 
   
@@ -128,13 +129,13 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 Existem duas ações definidas no fluxo de trabalho. A ação de início é *RunHiveScript*. Se a ação for executada, a próxima ação será *RunSqoopExport*.
 
-O RunHiveScript possui várias variáveis. Você irá passar os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o PowerShell do Azure.
+O RunHiveScript possui várias variáveis. Você passará os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o Azure PowerShell.
 
 <table border = "1">
 <tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost: 9010</strong> nas versões 3.0 e 2.1 do HDInsight.</td></tr>
 <tr><td>${nameNode}</td><td>Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, <i>wasbs://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho será enviado. Use o <strong>padrão</strong>.</td></tr>
+<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho é enviado. Use o <strong>padrão</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -147,7 +148,7 @@ O RunHiveScript possui várias variáveis. Você irá passar os valores ao envia
 <table border = "1">
 <tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Especifica a cadeia de conexão do Banco de Dados SQL do Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados serão exportados.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados são exportados.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
 </table>
 
@@ -171,7 +172,7 @@ Existem três variáveis usadas no script:
 
 O arquivo de definição do fluxo de trabalho (workflow.xml neste tutorial) irá passar esses valores para o script HiveQL em tempo de execução.
 
-O arquivo de fluxo de trabalho e o arquivo do HiveQL são armazenados em um contêiner de blob.  O script do PowerShell que você usará mais tarde neste tutorial copiará ambos os arquivos na conta de Armazenamento padrão. 
+O arquivo de fluxo de trabalho e o arquivo do HiveQL são armazenados em um contêiner de blob.  O script do PowerShell que você usará mais tarde neste tutorial copia ambos os arquivos na conta de Armazenamento padrão. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Enviar trabalhos do Oozie usando o PowerShell
 Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de serviços Web do Oozie, consulte a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para o HDInsight versão 3.0) ou a [Documentação do Oozie Apache 3.3.2][apache-oozie-332] (para o HDInsight versão 2.1).
@@ -581,7 +582,7 @@ Aqui está o script.  Você pode executar o script do ISE do Windows PowerShell.
 
 **Para executar o tutorial novamente**
 
-Para executar novamente o fluxo de trabalho, execute o seguinte procedimento:
+Para executar novamente o fluxo de trabalho, exclua os seguintes itens:
 
 * Exclua o arquivo de saída do script do Hive
 * Exclua os dados na tabela log4jLogsCount

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b4e14ff2e7e6575574e9da412d29cc2c228990f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -101,8 +101,9 @@ Na próxima etapa, você adicionará uma ação do Twitter que postará um tweet
 7. Salve seu trabalho e envie um tweet com a hashtag #Seattle para ativar o fluxo de trabalho.  
 
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
-Consulte os [detalhes do Swagger](/connectors/twitterconnector/). 
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
+
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)

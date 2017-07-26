@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a78679782f538121c2451a6e2d1519f457ad057c
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -254,7 +254,7 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
 2. Inicie o **Editor de Regras de Sincronização** no menu **Iniciar**.
 3. Em **Tipos de Regra**, clique em **Saída**.
-4. Encontre a regra chamada **Saída para AAD – SOAInAD de Ingresso de Usuário** e clique em **Editar**.
+4. Encontre a regra chamada **Saída para AAD – Ingresso de Usuário** e clique em **Editar**.
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
 7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **Valor**, digite **@contoso.com** e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **Valor**, digite **@contoso.com**.
