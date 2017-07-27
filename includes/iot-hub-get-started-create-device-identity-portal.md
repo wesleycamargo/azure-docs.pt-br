@@ -1,6 +1,6 @@
 ## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
 
-Nesta seção, use o [portal do Azure] [ lnk-azure-portal] para criar uma identidade de dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. O **Device Explorer** no portal ajuda você a gerar uma ID e chave do dispositivo exclusiva com as quais seu dispositivo poderá identificar-se ao conectar-se ao Hub IoT. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
+Nesta seção, use o [portal do Azure][lnk-azure-portal] para criar uma identidade de dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. O **Device Explorer** no portal ajuda você a gerar uma ID e chave do dispositivo exclusiva com as quais seu dispositivo poderá identificar-se ao conectar-se ao Hub IoT. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
 
 1. Verifique se você entrou no [portal do Azure][lnk-azure-portal].
 
