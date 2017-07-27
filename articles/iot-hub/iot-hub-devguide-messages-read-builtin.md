@@ -23,7 +23,7 @@ ms.lasthandoff: 06/03/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
-Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Esse ponto de extremidade é atualmente apenas exposto usando o protocolo [AMQP] [ lnk-amqp] na porta 5671. Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
+Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Esse ponto de extremidade é atualmente apenas exposto usando o protocolo [AMQP][lnk-amqp] na porta 5671. Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |

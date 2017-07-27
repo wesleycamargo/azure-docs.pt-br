@@ -84,7 +84,7 @@ Para decidir qual configuração de conta usar, considere a que melhor se adapta
     - A configuração da conta do Serviço Lote dá suporte ao acesso às APIs do Lote usando a autenticação de chave compartilhada ou a [autenticação do Azure Active Directory](batch-aad-auth.md). 
     - Você pode usar nós de computação de baixa prioridade ou dedicados em pools na configuração da conta de Serviço Lote.
     - Não use a configuração da conta do serviço Lote se você planeja criar pools de máquina virtual do Azure de imagens VM personalizadas ou se planeja usar uma rede virtual. Crie sua conta com a configuração de conta de Assinatura de usuário.
-    - Os pools de máquina virtual provisionados em uma conta com a configuração de conta de assinatura do serviço Lote devem ser criados com imagens do [Marketplace de máquinas virtuais do Azure] [ vm_marketplace].
+    - Os pools de máquina virtual provisionados em uma conta com a configuração de conta de assinatura do serviço Lote devem ser criados com imagens do [Marketplace de máquinas virtuais do Azure][vm_marketplace].
 
 * **Assinatura de usuário**: com a configuração de conta de Assinatura de usuário, os pools do Lote são alocados na assinatura do Azure em que a conta é criada. Tenha em mente estes pontos-chave sobre a configuração de conta de Assinatura de usuário:
      
@@ -93,7 +93,7 @@ Para decidir qual configuração de conta usar, considere a que melhor se adapta
     - Você deve autenticar solicitações para o serviço Lote usando [autenticação do Azure Active Directory](batch-aad-auth.md). 
     - A configuração de conta de Assinatura de usuário requer que você configure um cofre de chaves do Azure para sua conta do Lote. 
     - Você pode usar somente nós de computação dedicados em pools em uma conta criada com a configuração da conta de Assinatura de usuário. Não há suporte para nós de baixa prioridade.
-    - Os pools de máquina virtual provisionados em uma conta com a configuração de conta de Assinatura de usuário devem ser criados com imagens do [Marketplace de máquinas virtuais do Azure] [vm_marketplace] ou de imagens personalizadas fornecidas por você.
+    - Os pools de máquina virtual provisionados em uma conta com a configuração de conta de Assinatura de usuário devem ser criados com imagens do [Marketplace de máquinas virtuais do Azure][vm_marketplace] ou de imagens personalizadas fornecidas por você.
 
 > [!IMPORTANT]
 > Atualmente, o Lote dá suporte apenas ao tipo da conta de armazenamento de Uso geral, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). As tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) devem especificar os arquivos de recurso que residem nas contas de armazenamento de finalidade geral.
