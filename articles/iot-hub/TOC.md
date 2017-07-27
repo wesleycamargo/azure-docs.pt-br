@@ -173,7 +173,7 @@
 # Recursos
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)
 ## [Centro de desenvolvedores do Azure IoT](https://azure.microsoft.com/develop/iot/)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [ferramenta DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [ferramenta iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)
 ## [ferramenta iothub-explorer](https://github.com/Azure/iothub-explorer)

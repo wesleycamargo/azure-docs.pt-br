@@ -222,7 +222,7 @@
 
 # Recursos
 ## [Comunidade dos Serviços de Mídia do Azure](media-services-community.md)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Preços](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Notas de versão](media-services-release-notes.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

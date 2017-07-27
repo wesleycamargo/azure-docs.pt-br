@@ -21,4 +21,4 @@
 
 # Recursos
 ## [Vídeos do Azure Advisor](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
