@@ -5,8 +5,7 @@
 > 
 > 
 
-## Introdução
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>Introdução
 
 Em [Introdução a dispositivos gêmeos do Hub IoT][lnk-twin-tutorial], você aprendeu a definir metadados de dispositivo do back-end de solução usando *marcas*, relatar as condições de dispositivo de um aplicativo de dispositivo usando *propriedades relatadas* e consultar essas informações usando uma linguagem semelhante a SQL.
 
