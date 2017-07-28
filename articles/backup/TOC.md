@@ -17,7 +17,7 @@
 ### Fazer backup de VMs
 #### [Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
 #### [Fazer backup de máquinas virtuais criptografadas](backup-azure-vms-encryption.md)
-#### [Fazer backup de máquinas virtuais do Azure no cofre de backup](backup-azure-vms.md)
+#### [Fazer backup de máquinas virtuais do Azure](backup-azure-vms.md)
 ### Gerenciar e monitorar VMs
 #### [Gerenciar backups de VM do Azure no Portal do Azure](backup-azure-manage-vms.md)
 #### [Monitorar alertas de backups de VM do Azure no Portal do Azure](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Preparar as cargas de trabalho do DPM no portal do Azure](backup-azure-dpm-introduction.md)
 ### [Preparar as cargas de trabalho do DPM no portal clássico](backup-azure-dpm-introduction-classic.md)
 ### [Usar o DPM do System Center para fazer backup de um servidor do Exchange](backup-azure-backup-exchange-server.md)
-### [Recuperar dados no cofre de Backup para um servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
+### [Recuperar dados em um servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
 ### [Usar o DPM para fazer backup de cargas de trabalho do SQL Server](backup-azure-backup-sql.md)
 ### [Usar o DPM para fazer backup de um farm do SharePoint](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Conceitos
 ## [Visão geral de cofres de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md)
 ## [Atualizando um cofre de Backup para um cofre de Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Excluir um cofre de Backup do Azure](backup-azure-delete-vault.md)
+## [Excluir um cofre dos Serviços de Recuperação](backup-azure-delete-vault.md)
 ## [Controle de acesso baseado em função](backup-rbac-rs-vault.md)
 ## [Segurança para backups híbridos](backup-azure-security-feature.md)
 ## [Configurar relatórios de Backup do Azure](backup-azure-configure-reports.md)
 ## [Modelo de dados para os relatórios de Backup do Azure](backup-azure-reports-data-model.md)
+## [Modelo de dados do Log Analytics para o Backup do Azure](backup-azure-log-analytics-data-model.md)
 ## [Configurar o backup offline](backup-azure-backup-import-export.md)
 ## [Substitua sua biblioteca de fitas](backup-azure-backup-cloud-as-tape.md)
 ## [Backups consistentes do aplicativo das VMs Linux](backup-azure-linux-app-consistent.md)

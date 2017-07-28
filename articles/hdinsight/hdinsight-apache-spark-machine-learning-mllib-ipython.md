@@ -23,7 +23,6 @@ ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Spark MLlib para compilar uma aplicativo de aprendizado de máquina e analisar um conjunto de dados
 
@@ -93,7 +92,7 @@ Podemos usar `sqlContext` para executar transformações de dados estruturados. 
             sio.close()
             return value
 
-        inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
 1. Agora temos o arquivo CSV como um RDD.  Recuperaremos uma linha de RDD para compreender o esquema dos dados.
 
@@ -253,7 +252,7 @@ Podemos usar o modelo criado anteriormente para *prever* quais serão os resulta
 
 1. O trecho de código a seguir cria um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O trecho de código também cria uma tabela temporária **Previsões** com base no dataframe.
 
-        testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
                  .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
         testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")

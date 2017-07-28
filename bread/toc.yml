@@ -131,9 +131,19 @@
     - name: Conectores
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
+    - name: Instâncias de Contêiner
+      tocHref: /azure/container-instances/
+      topicHref: /azure/container-instances/
     - name: Serviço de Contêiner
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
+      items:
+        - name: Controlador de domínio/sistema operacional e Swarm
+          tocHref: /azure/container-service/dcos-swarm/
+          topicHref: /azure/container-service/dcos-swarm/
+        - name: kubernetes
+          tocHref: /azure/container-service/kubernetes/
+          topicHref: /azure/container-service/kubernetes/
     - name: CosmosDB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/

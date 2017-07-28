@@ -22,7 +22,6 @@ ms.openlocfilehash: be2f356886c0c9b5f47b2336870bb6232482a1fb
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar um aplicativo Maven Scala para execução no cluster do Apache Spark no HDInsight
 
@@ -96,12 +95,12 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
    
-            rdd1.saveAsTextFile("wasbs:///HVACout")
+            rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
 9. Atualize o pom.xml.
