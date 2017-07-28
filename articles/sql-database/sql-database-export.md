@@ -21,7 +21,6 @@ ms.openlocfilehash: bb5a4bed556e12cd6295ba0b999f359ceb66c204
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC
 
@@ -86,16 +85,16 @@ Use o cmdlet [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-a
 Para verificar o status da solicitação de exportação, use o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus). Executar isso imediatamente após a solicitação geralmente retorna **Status: InProgress**. Quando você vir **Status: Êxito**, a exportação estará concluída.
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 [Console]::Write("Exporting")
-while ($importStatus.Status -eq "InProgress")
+while ($exportStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }
 [Console]::WriteLine("")
-$importStatus
+$exportStatus
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

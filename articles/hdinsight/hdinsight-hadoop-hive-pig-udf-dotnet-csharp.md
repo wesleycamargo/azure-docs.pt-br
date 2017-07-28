@@ -199,7 +199,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasbs:///HiveCSharp.exe;
+    -- add file wasb:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Store
     -- add file adl:///HiveCSharp.exe;
 

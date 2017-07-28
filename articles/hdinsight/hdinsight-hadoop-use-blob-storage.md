@@ -23,7 +23,6 @@ ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -105,6 +104,8 @@ Independentemente de onde estiverem, cada blob que você criar pertencerá a um 
 
 O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters HDInsight. Isso pode corromper o histórico de trabalhos. É recomendável usar um contêiner diferente para cada cluster e colocar os dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes, e não na conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight][hdinsight-creation]. No entanto, você pode reutilizar um contêiner de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode realmente manter os dados e o esquema de tabela do HBase criando um novo cluster HBase com o contêiner de blobs padrão usado por um cluster HBase que foi excluído.
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Ao criar um cluster HDInsight no Portal, você tem as opções (como mostrado abaixo) para fornecer os detalhes da conta de armazenamento. Você também pode especificar se deseja uma conta de armazenamento adicional associada ao cluster e, em caso afirmativo, escolher entre o Data Lake Store ou outro Azure Storage Blob como o armazenamento adicional.
 
@@ -175,8 +176,8 @@ O &lt;StorageAccountName&gt; identifica o nome da conta do Armazenamento do Azur
 
 Se nem &lt;BlobStorageContainerName&gt; nem &lt;StorageAccountName&gt; for especificado, o sistema de arquivos padrão será usado. Para os arquivos no sistema de arquivos padrão, você pode usar um caminho absoluto ou um caminho relativo. Por exemplo, o arquivo *hadoop-mapreduce-examples.jar* fornecido com clusters HDInsight pode ser referenciado para usar um dos seguintes procedimentos:
 
-    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasbs:///example/jars/hadoop-mapreduce-examples.jar
+    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasb:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
@@ -269,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ### <a name="use-azure-cli"></a>Usar a CLI do Azure
 Use o comando a seguir para listar os comandos relacionados ao blob:

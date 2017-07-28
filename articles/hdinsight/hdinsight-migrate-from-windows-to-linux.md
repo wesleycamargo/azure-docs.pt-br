@@ -85,7 +85,7 @@ Use as etapas a seguir para copiar os dados do cluster de produção para o clus
 6. Na sessão SSH, use o comando a seguir para copiar arquivos da conta de armazenamento vinculada para a nova conta de armazenamento padrão. Substitua CONTÊINER pelas informações de contêiner retornadas pelo PowerShell. Substitua __CONTA__ pelo nome da conta. Substitua o caminho para dados pelo caminho para um arquivo de dados.
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -280,9 +280,9 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 * **Depois de carregar para o cluster**: use o seguinte comando em uma sessão SSH para o cluster do Linux para modificar o script.
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

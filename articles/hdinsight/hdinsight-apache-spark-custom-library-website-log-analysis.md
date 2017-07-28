@@ -22,7 +22,6 @@ ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar logs do site usando uma biblioteca personalizada do Python com cluster Spark no HDInsight
 
@@ -69,7 +68,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
 1. Crie um RDD usando os dados de log de exemplo já disponíveis no cluster. Você pode acessar os dados na conta de armazenamento padrão associada ao cluster em **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 1. Recupere um log de exemplo definido para verificar se a etapa anterior foi concluída com êxito.
@@ -93,7 +92,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
     No entanto, essa biblioteca não está no `PYTHONPATH`, então não podemos usá-la com uma instrução de importação como `import iislogparser`. Para usar essa biblioteca, devemos distribuí-la para todos os nós de trabalho. Execute o trecho de código a seguir.
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 1. O `iislogparser` fornece uma função `parse_log_line` que retorna `None` se uma linha do log for uma linha de cabeçalho, e retorna uma instância da classe `LogLine` se encontrar uma linha do log. Use a classe `LogLine` para extrair somente as linhas do log do RDD:
@@ -120,7 +119,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    Você verá algo semelhante ao mostrado a seguir:
 
