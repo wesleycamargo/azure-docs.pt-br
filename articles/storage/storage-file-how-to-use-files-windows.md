@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Como montar um compartilhamento de arquivos do Azure e acessar o compartilhamento no Windows
 O [Armazenamento de arquivos do Azure](storage-dotnet-how-to-use-files.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows e no Windows Server. Este artigo mostra três maneiras diferentes de montagem de compartilhamento de arquivos do Azure no Windows: com a IU do explorador de arquivos, por meio do PowerShell e por meio do Prompt de comando. 
 
-Para montar um compartilhamento de arquivos do Azure fora da região na qual o Azure está hospedado, como no local ou em uma região diferente do Azure, o sistema operacional deve dar suporte a SMB 3.x. A tabela a seguir mostra a versão do SMB das publicações recentes do Windows:
+Para montar um compartilhamento de Arquivos do Azure fora da região na qual o Azure está hospedado, como no local ou em uma região diferente do Azure, o sistema operacional deve dar suporte a SMB 3.0. 
 
-| Versão do Windows | Versão do SMB | Oferece suporte à montagem de VM do Azure | Oferece suporte à montagem no local | Mínimo de KB recomendado |
-|----|----|----|----|----|
-| Windows 10, versão 1703 | SMB 3.1.1 | Sim | Sim | |
-| Windows Server 2016 | SMB 3.1.1 | Sim | Sim | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10, versão 1607 | SMB 3.1.1 | Sim | Sim | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10, versão 1511 | SMB 3.1.1 | Sim | Sim | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10, versão 1507 | SMB 3.1.1 | Sim | Sim | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Sim | Sim | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Sim | Sim | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Sim | Sim | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Sim | Não | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Sim | Não | [KB4012215](https://support.microsoft.com/help/4012215) |
+O compartilhamento de Arquivos do Azure pode ser montado no computador Windows do local ou na VM do Azure, dependendo da versão do sistema operacional. A tabela abaixo ilustra 
+
+| Versão do Windows        | Versão do SMB |Montável na VM do Azure|Montável no local|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Sim                 | Não                  |
+| Windows Server 2008 R2 | SMB 2.1     | Sim                 | Não                  |
+| Windows 8              | SMB 3.0     | Sim                 | Sim                 |
+| Windows Server 2012    | SMB 3.0     | Sim                 | Sim                 |
+| Windows Server 2012 R2 | SMB 3.0     | Sim                 | Sim                 |
+| Windows 10             | SMB 3.0     | Sim                 | Sim                 |
 
 > [!Note]  
-> É sempre recomendável obter o KB mais recente para a sua versão do Windows. O mínimo recomendado de KB visa fornecer o pacote mais recente com correções SMB para os administradores de TI avessos a atualizações.
+> É sempre recomendável obter o KB mais recente para a sua versão do Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Pré-requisitos para montar o compartilhamento de arquivos do Azure com o Windows 
 * **Nome da conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, você precisará do nome da conta de armazenamento.
@@ -144,3 +142,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 ### <a name="reference"></a>Referência
 * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Referência à API REST do serviço de arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
