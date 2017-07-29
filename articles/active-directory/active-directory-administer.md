@@ -4,7 +4,6 @@ description: "Explica o que é um locatário do Azure AD e como gerenciar o Azur
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/08/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administrar seu diretório do Azure AD
@@ -55,7 +56,7 @@ Por exemplo, se você originalmente se inscreveu para uma assinatura do Microsof
 Para obter mais informações sobre como integrar seu diretório local ao Azure AD, consulte [Integração de diretórios](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Associar um diretório do Azure AD a uma nova assinatura do Azure
-Você pode associar uma nova assinatura do Azure ao mesmo diretório que autentica o logon para uma assinatura existente do Office 365 ou Microsoft Intune. Entre no Portal de Gerenciamento do Azure usando sua conta corporativa ou de estudante. O Portal de Gerenciamento retorna uma mensagem de que não foi possível encontrar nenhuma assinatura para essa conta. Selecione **Inscrever-se no Azure**e seu diretório ficará disponível para administração dentro do portal. Para obter mais informações, consulte [Gerenciar o diretório para sua assinatura do Office 365 no Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Você pode associar uma nova assinatura do Azure ao mesmo diretório que autentica o logon para uma assinatura existente do Office 365 ou Microsoft Intune. Entre no portal do Azure usando sua conta corporativa ou de estudante. O portal retorna uma mensagem informando que não foi possível encontrar assinaturas para essa conta. Selecione **Inscrever-se no Azure**e seu diretório ficará disponível para administração dentro do portal. Para obter mais informações, consulte [Gerenciar o diretório para sua assinatura do Office 365 no Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 Para obter um vídeo sobre questões de uso comuns do Azure AD, consulte [Azure Active Directory - Questões comuns sobre inscrição, logon e uso](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
@@ -76,7 +77,7 @@ Não há nenhum custo associado ao uso do Azure AD. O diretório é um recurso g
 Para alterar o nome de exibição do diretório, clique no diretório no portal e em **Configurar**. Conforme explicado neste tópico, você pode adicionar um novo diretório ou excluir um diretório de que não precisa mais. Para associar sua assinatura a um diretório diferente, clique na extensão **Configurações** no painel de navegação esquerdo e, na parte inferior da página **Assinaturas**, clique em **Editar Diretório**. Você também pode criar um domínio personalizado usando um nome DNS que você registrou ao invés do domínio padrão *.onmicrosoft.com, que pode ser preferível com um serviço como o SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>Como posso gerenciar dados de diretório
-Como administrador de uma ou mais assinaturas de serviços de nuvem da Microsoft, você pode usar o Portal de Gerenciamento do Azure, o portal de conta do Microsoft Intune ou o Centro de Administração do Office 365 para gerenciar os dados de diretório da sua organização. Você também pode baixar e executar cmdlets do [Microsoft Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) para ajudá-lo a gerenciar dados armazenados no Azure AD.
+Como administrador de uma ou mais assinaturas de serviços de nuvem da Microsoft, você pode usar o [Cetro de administração do Azure](https://aad.portal.azure.com), o portal de conta do Microsoft Intune ou o Centro de Administração do Office 365 para gerenciar os dados de diretório da sua organização. Você também pode baixar e executar cmdlets do [Microsoft Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) para ajudá-lo a gerenciar dados armazenados no Azure AD.
 
 De qualquer um desses portais (ou cmdlets), você pode:
 
@@ -84,7 +85,7 @@ De qualquer um desses portais (ou cmdlets), você pode:
 * Gerenciar serviços de nuvem relacionados nas quais sua organização está inscrita
 * Configurar a integração local com seu serviço de diretório
 
-O Portal de Gerenciamento do Azure, o Centro de Administração do Office 365, o portal de conta do Microsoft Intune e os cmdlets do Azure AD realizam leituras e gravações a partir de uma única instância compartilhada do Azure AD que está associada ao diretório da sua organização, conforme mostrado na ilustração a seguir. Dessa forma, os portais (ou cmdlets) agem como uma interface de front-end que recebe e/ou modifica os dados do diretório.
+O [Centro de administração do Azure](https://aad.portal.azure.com), o Centro de Administração do Office 365, o portal de conta do Microsoft Intune e os cmdlets do Azure AD realizam leituras e gravações a partir de uma única instância compartilhada do Azure AD que está associada ao diretório da sua organização, conforme mostrado na ilustração a seguir. Dessa forma, os portais (ou cmdlets) agem como uma interface de front-end que recebe ou modifica os dados do diretório.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Quando você fizer uma alteração nos dados da sua organização usando qualque
 Por exemplo, se você usou o Centro de Administração do Office 365 para bloquear a conexão de um usuário, essa ação impedirá que o usuário faça logon em qualquer outro serviço ao qual sua organização tenha se inscrito atualmente. Se você analisar a conta desse mesmo usuário sob o contexto do portal de contas do Microsoft Intune, você verá que o usuário está bloqueado.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Como posso adicionar e gerenciar vários diretórios?
-Você pode adicionar um diretório do Azure AD no Portal de Gerenciamento do Azure. Selecione a extensão **Active Directory** à esquerda e clique em **Adicionar**.
+Você pode adicionar um diretório do Azure AD no [Portal clássico do Azure AD](https://manage.windowsazure.com). No painel **Visão geral**, selecione a extensão **Active Directory** à esquerda e, em seguida, clique em **Novo**.
 
 Você pode gerenciar cada diretório como um recurso completamente independente: cada diretório é um par, com recursos completos e logicamente independente de outros diretórios que você gerencia; não há nenhuma relação de pai-filho entre os diretórios. Essa independência entre diretórios inclui independência de recursos, independência administrativa e independência de sincronização.
 
@@ -116,7 +117,7 @@ Observe também que, ao contrário de outros recursos do Azure, seus diretórios
 Um administrador global pode excluir um diretório do Azure AD a partir do portal. Quando um diretório é excluído, todos os recursos contidos no diretório também serão excluídos; portanto, você deve se certificar de que não precisa do diretório antes de excluí-lo.
 
 > [!NOTE]
-> Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com,, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
+> Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
 > 
 > 
 
@@ -130,7 +131,7 @@ As seguintes condições são verificadas:
 * Não pode haver assinaturas para Microsoft Online Services, como o Microsoft Azure, Office 365 ou Azure AD Premium associadas ao diretório. Por exemplo, se um diretório padrão tiver sido criado para você no Azure, você não poderá excluir esse diretório se sua assinatura do Azure ainda depender desse diretório para autenticação. Da mesma forma, você não pode excluir um diretório se outro usuário tiver associado uma assinatura a ele. Para associar sua assinatura a um diretório diferente, entre no Portal de Gerenciamento do Azure e clique em **Configurações** no painel de navegação esquerdo. Em seguida, na parte inferior da página **Assinaturas**, clique em **Editar Diretório**. Para obter mais informações sobre as assinaturas do Azure, consulte [Como as assinaturas do Azure são associadas ao Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com,, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
+> Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
 > 
 > 
 
