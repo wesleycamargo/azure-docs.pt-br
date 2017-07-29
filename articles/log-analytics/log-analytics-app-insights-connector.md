@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -86,6 +85,8 @@ Clique no bloco **Application Insights** para abrir o painel **Application Insig
 ![Painel do Application Insights](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Coluna** | **Descrição** |
 | --- | --- |
