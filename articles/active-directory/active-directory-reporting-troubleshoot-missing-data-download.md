@@ -23,30 +23,25 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-# Não consigo encontrar dados nos logs de atividade do Azure Active Directory que baixei
-<a id="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded" class="xliff"></a>
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Não consigo encontrar dados nos logs de atividade do Azure Active Directory que baixei
 
 
-## Sintomas
-<a id="symptoms" class="xliff"></a>
+## <a name="symptoms"></a>Sintomas
 
 Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
 
  ![Relatórios](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
-## Causa
-<a id="cause" class="xliff"></a>
+## <a name="cause"></a>Causa
 
 Quando você baixa os logs de atividade no portal do Azure, limitamos a escala para 120 mil registros, classificados pelos mais recentes. 
 
-## Resolução
-<a id="resolution" class="xliff"></a>
+## <a name="resolution"></a>Resolução
 
 Você pode aproveitar as [APIs de relatórios do Azure AD](active-directory-reporting-api-getting-started.md) para buscar até um milhões de registros em qualquer momento determinado. Nossa abordagem recomendada é executar um script de uma forma agendada que chame as APIs de geração de relatórios para buscar registros de maneira incremental durante um período de tempo (por exemplo, por dia ou por semana).
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 Veja as [Perguntas frequentes sobre os relatórios do Azure Active Directory](active-directory-reporting-faq.md).
 
 

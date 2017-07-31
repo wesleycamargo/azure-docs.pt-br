@@ -20,8 +20,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/09/2017
 
 ---
-# Relatório de entradas de risco no portal do Azure Active Directory
-<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
 Com os relatórios de segurança no Azure Active Directory (Azure AD) você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
 
@@ -38,8 +37,7 @@ Você pode encontrar os relatórios de segurança no [Portal do Azure](https://p
 ![Entradas de risco](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## Edições gratuita e básica do Azure Active Directory
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
 
 As edições gratuita e básica do Azure Active Directory fornecem uma lista de entradas de risco que foram detectadas dos seus usuários. O relatório de eventos de risco oferece:
 
@@ -64,8 +62,7 @@ Com base em sua investigação da entrada arriscada, você poderá fazer coment�
 
 Para obter mais detalhes, veja [Fechando eventos de risco manualmente](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## Edições premium do Azure Active Directory
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Edições premium do Azure Active Directory
 
 O relatório de entradas de risco nas edições premium do Azure Active Directory oferece:
 
@@ -114,8 +111,7 @@ Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes
 
 
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Azure Active Directory Identity Protection, veja [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
