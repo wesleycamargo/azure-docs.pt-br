@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Para excluir uma política de backup do StorSimple
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Para excluir uma política de backup do StorSimple
 
 1. Acesse seu dispositivo StorSimple e clique em **Política de backup**.
 

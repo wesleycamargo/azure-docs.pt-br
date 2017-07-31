@@ -21,8 +21,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 07/12/2017
 
 ---
-# Implantar e remover aplicativos usando o Visual Studio
-<a id="deploy-and-remove-applications-using-visual-studio" class="xliff"></a>
+# <a name="deploy-and-remove-applications-using-visual-studio"></a>Implantar e remover aplicativos usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -34,14 +33,11 @@ ms.lasthandoff: 07/12/2017
 
 A extensão do Service Fabric do Azure para Visual Studio permite facilmente repetir e executar por script a publicação de um aplicativo em um cluster do Service Fabric.
 
-## Os artefatos necessários para publicação
-<a id="the-artifacts-required-for-publishing" class="xliff"></a>
-### Deploy-FabricApplication.ps1
-<a id="deploy-fabricapplicationps1" class="xliff"></a>
+## <a name="the-artifacts-required-for-publishing"></a>Os artefatos necessários para publicação
+### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 Este é um script do PowerShell que usa um caminho de perfil de publicação como um parâmetro para a publicação de aplicativos do Service Fabric. Como esse script faz parte do seu aplicativo, fique à vontade para modificá-lo como achar melhor para ele.
 
-### Perfis de publicação
-<a id="publish-profiles" class="xliff"></a>
+### <a name="publish-profiles"></a>Perfis de publicação
 Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles** contém arquivos XML que armazenam informações essenciais para a publicação de aplicativos, como:
 
 * Parâmetros de conexão de cluster do Service Fabric
@@ -50,15 +46,13 @@ Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles**
 
 Por padrão, o aplicativo incluirá três perfis de publicação: Local.1Node.xml, Local.5Node.xml e Cloud.xml. Você pode adicionar mais perfis copiando e colando um dos arquivos padrão.
 
-### Arquivos de parâmetros de aplicativo
-<a id="application-parameter-files" class="xliff"></a>
+### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
 Uma pasta no projeto de aplicativo do Service Fabric chamada **ApplicationParameters** contém arquivos XML com valores de parâmetro do manifesto do aplicativo especificados pelo usuário. Os arquivos de manifesto do aplicativo podem ser parametrizados, de modo que você possa usar valores diferentes para configurações de implantação. Para saber mais sobre a parametrização de aplicativo, confira [Gerenciar vários ambientes no Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > Para serviços de ator, você deve compilar o projeto antes de tentar editar o arquivo em um editor ou por meio da caixa de diálogo de publicação. Isso ocorre porque parte dos arquivos de manifesto serão gerados durante a compilação.
 
-## Para publicar um aplicativo usando a caixa de diálogo Publicar Aplicativo do Service Fabric
-<a id="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box" class="xliff"></a>
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Para publicar um aplicativo usando a caixa de diálogo Publicar Aplicativo do Service Fabric
 As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diálogo **Publicar Aplicativo do Service Fabric** fornecida pelas Ferramentas do Service Fabric do Visual Studio.
 
 1. No menu de atalho do projeto Aplicativo do Service Fabric, escolha **Publicar...** para exibir a caixa de diálogo **Publicar Aplicativo do Service Fabric**.
@@ -94,8 +88,7 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
    > 
 6. Quando você terminar de especificar todas as configurações necessárias, escolha o botão **Publicar** para publicar seu aplicativo no cluster do Service Fabric selecionado. As configurações especificadas por você são aplicadas ao processo de publicação.
 
-## Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
-<a id="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters" class="xliff"></a>
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
 A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, três perfis de publicação são fornecidos por padrão, **Local.1Node.xml**, **Local.5Node.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
 
 Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, assim como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
@@ -112,8 +105,7 @@ Se você está se conectando a um cluster não seguro, tudo de que precisa é o 
 
   Observe que, nesse caso, o novo perfil de publicação aponta para um dos arquivos de parâmetro do aplicativo padrão. Isso é ideal se você deseja publicar a mesma configuração de aplicativo em vários ambientes. Por outro lado, quando você deseja ter configurações diferentes para cada ambiente que quiser publicar, faz sentido criar um arquivo de parâmetros de aplicativo correspondente.
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 Para saber como automatizar o processo de publicação em um ambiente de integração contínua, confira [Set up Service Fabric continuous integration](service-fabric-set-up-continuous-integration.md)(Configurar a integração contínua no Service Fabric).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
