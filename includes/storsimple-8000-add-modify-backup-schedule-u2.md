@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Para adicionar ou modificar uma agenda de backup do StorSimple
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Para adicionar ou modificar uma agenda de backup do StorSimple
 
 1. Acesse seu dispositivo StorSimple e clique em **Política de backup**.
 
