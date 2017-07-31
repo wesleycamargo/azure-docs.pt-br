@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
-
-# Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
 > [!IMPORTANT]
 > **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, encontre mais informações [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -32,9 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 Este documento ajudará a esclarecer a estrutura de nó para o mapeamento de um protocolo OData para CSDL. É importante observar que a estrutura de nó é um XML bem estruturado. Então o esquema raiz, pai e filho é aplicável ao desenhar o seu mapeamento de OData.
 
-<a id="ignored-elements" class="xliff"></a>
-
-## Elementos ignorados
+## <a name="ignored-elements"></a>Elementos ignorados
 A seguir estão os elementos CSDL de alto nível (nós XML) que não serão usados pelo back-end do Azure Marketplace durante a importação de metadados do serviço web. Eles podem estar presentes, mas serão ignorados.
 
 | Elemento | Escopo |
@@ -51,9 +47,7 @@ A seguir estão os elementos CSDL de alto nível (nós XML) que não serão usad
 
 A seguir está a descrição detalhada das alterações (elementos adicionados e ignorados) em vários nós de XML CSDL.
 
-<a id="functionimport-node" class="xliff"></a>
-
-## Nó FunctionImport
+## <a name="functionimport-node"></a>Nó FunctionImport
 Um nó FunctionImport representa uma URL (ponto de entrada) que expõe um serviço para o usuário final. O nó permite descrever como a URL é abordada, quais parâmetros estão disponíveis para o usuário final e como esses parâmetros são fornecidos.
 
 Há detalhes sobre esse nó [aqui][MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx)
@@ -155,9 +149,7 @@ Os nós filho adicionais (não cobertos pela documentação CSDL) dentro do nó 
 
 **d:ErrorMessage** - Extensão opcional do OData
 
-<a id="parameter-node" class="xliff"></a>
-
-## Nó do parâmetro
+## <a name="parameter-node"></a>Nó do parâmetro
 Esse nó representa um parâmetro que é exposto como parte do modelo de URI / corpo da solicitação que foi especificado no nó FunctionImport.
 
 Uma página de documento detalhada muito útil sobre o nó de "Elemento do parâmetro" pode ser encontrada [aqui](http://msdn.microsoft.com/library/ee473431.aspx) (use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação). *Exemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -180,9 +172,7 @@ Estes são os atributos que foram adicionados à especificação do CSDL:
 | **d:Nullable** *(Opcional)* |Permite definir se um parâmetro pode ser nulo. O padrão é true. No entanto, os parâmetros que são expostos como parte do caminho do modelo de URI não podem ser nulos. Quando o atributo é definido como false para esses parâmetros – a entrada do usuário é substituída. **Exemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(Opcional)* |Um valor de exemplo para exibir como uma observação para o cliente na interface do usuário.  É possível adicionar vários valores usando uma lista separada por pipe, ou seja `a |
 
-<a id="entitytype-node" class="xliff"></a>
-
-## Nó EntityType
+## <a name="entitytype-node"></a>Nó EntityType
 Esse nó representa um dos tipos que são retornados do Marketplace para o usuário final. Ele também contém o mapeamento da saída que é retornado pelo serviço do provedor de conteúdo para os valores que são retornados para o usuário final.
 
 Os detalhes sobre esse nó podem ser encontrados [aqui](http://msdn.microsoft.com/library/bb399206.aspx) (use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação).
@@ -206,9 +196,7 @@ A expressão XPath deve ser /foo/bar porque cada nó de barra é o nó repetido 
 
 **Key** - Esse atributo é ignorado pelo Marketplace. Em geral, os serviços web baseado em REST não expõem uma chave primária.
 
-<a id="property-node" class="xliff"></a>
-
-## Nó de propriedade
+## <a name="property-node"></a>Nó de propriedade
 Esse nó contém uma propriedade do registro.
 
 Os detalhes sobre esse nó podem ser encontrados em [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use a lista suspensa **Outra versão** para selecionar uma versão diferente, se for necessário, para exibir a documentação). *Exemplo:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
@@ -264,9 +252,7 @@ A expressão XPath aqui seria ./bar/baz0 para obter o nó baz0 do serviço do pr
 
 **d:DatabaseDataType** - É o tipo de dados da coluna no banco de dados, ou seja, o tipo de dados SQL. Exemplo de CSDL de DataService
 
-<a id="supported-parametersproperty-types" class="xliff"></a>
-
-## Tipos de parâmetros/propriedade compatíveis
+## <a name="supported-parametersproperty-types"></a>Tipos de parâmetros/propriedade compatíveis
 A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferencia maiúsculas de minúsculas)
 
 | Tipos primitivos | Descrição |
@@ -284,9 +270,7 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 | Int64 |Representa um valor inteiro assinado de 64 bits |
 | Cadeia de caracteres |Representa dados de caracteres de comprimento fixo ou variável |
 
-<a id="see-also" class="xliff"></a>
-
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * Se estiver interessado em entender o processo e a finalidade geral do mapeamento de OData, leia este artigo [Mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping.md) para examinar as definições, as estruturas e as instruções.
 * Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
