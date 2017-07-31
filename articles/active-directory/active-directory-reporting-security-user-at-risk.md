@@ -20,8 +20,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/09/2017
 
 ---
-# Relatório de segurança de usuários em risco no portal do Azure Active Directory
-<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Relatório de segurança de usuários em risco no portal do Azure Active Directory
 
 Com os relatórios de segurança no Azure Active Directory (Azure AD) você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
 
@@ -37,8 +36,7 @@ Você pode encontrar os relatórios de segurança no Portal do Azure na folha **
 
 ![Entradas de risco](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## Edições gratuita e básica do Azure Active Directory
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
 
 O relatório de segurança de usuários em risco nas edições gratuita e básica do Azure Active Directory fornece uma lista de contas de usuário que podem ter sido comprometidas. 
 
@@ -50,8 +48,7 @@ Você pode examinar o histórico de entradas dos usuários em risco e redefinir 
 
 ![Entradas de risco](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## Edições premium do Azure Active Directory
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Edições premium do Azure Active Directory
 
 O relatório de usuários em risco nas edições premium do Azure Active Directory oferece:
 
@@ -88,8 +85,7 @@ Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes
 
 
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Azure Active Directory Identity Protection, veja [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
