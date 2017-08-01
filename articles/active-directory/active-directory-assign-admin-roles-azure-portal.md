@@ -22,9 +22,7 @@ ms.lasthandoff: 06/13/2017
 
 
 ---
-<a id="assigning-administrator-roles-in-azure-active-directory" class="xliff"></a>
-
-# Atribuindo funções de administrador no Azure Active Directory
+# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-assign-admin-roles-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-assign-admin-roles.md)
@@ -96,73 +94,53 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Administrador da Conta de Usuário**: os usuários com essa função podem criar e gerenciar todos os aspectos de usuários e grupos. Além disso, essa função inclui a capacidade de gerenciar tíquetes de suporte e monitora a integridade do serviço. Algumas restrições se aplicam. Por exemplo, essa função não permite a exclusão de um administrador global e, embora permita a alteração de senhas para não administradores, ela não permite a alteração de senhas para os administradores globais ou outros administradores com privilégios.
 
-<a id="administrator-permissions" class="xliff"></a>
+## <a name="administrator-permissions"></a>Permissões de administrador
 
-## Permissões de administrador
-
-<a id="billing-administrator" class="xliff"></a>
-
-### Administrador de cobrança
+### <a name="billing-administrator"></a>Administrador de cobrança
 
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
 |<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p> |<p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p>|
 
-<a id="global-administrator" class="xliff"></a>
-
-### Administrador global
+### <a name="global-administrator"></a>Administrador global
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
 | <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Redefinir senhas de usuário</p>
 <p>Redefinir senhas de outro administrador</p> <p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |N/D |
 
-<a id="password-administrator" class="xliff"></a>
-
-### Administrador de senha
+### <a name="password-administrator"></a>Administrador de senha
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
 | <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário</p> <p>Redefinir senhas de outro administrador</p>|<p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir relatórios</p>|
 
-<a id="service-administrator" class="xliff"></a>
-
-### Administrador de serviço
+### <a name="service-administrator"></a>Administrador de serviço
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
 | <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p> |<p>Redefinir senhas de usuário</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p> |
 
-<a id="user-administrator" class="xliff"></a>
-
-### Administrador de usuários
+### <a name="user-administrator"></a>Administrador de usuários
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
 | <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário, com limitações.</p><p>Redefinir senhas de outro administrador</p><p>Redefinir senhas de outros usuários</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário, com limitações. Eles não podem excluir um administrador global ou criar outros administradores.</p> |<p>Executar operações de cobrança e compra de produtos do Office</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |
 
-<a id="security-reader" class="xliff"></a>
-
-### Leitor de segurança
+### <a name="security-reader"></a>Leitor de segurança
 | Nesse | O que ele pode fazer |
 | --- | --- |
 | Identity Protection Center |Ler todos os relatórios de segurança e informações de configurações para recursos de segurança<ul><li>Anti-spam<li>Criptografia<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de fluxo de mensagens |
 | Privileged Identity Management |<p>Tem acesso somente leitura a todas as informações exibidas no Azure AD PIM: políticas e relatórios de atribuições de função do Azure AD, análises de segurança e, no futuro, acesso de leitura aos dados de política e relatórios para cenários além da atribuição de função do Azure AD.<p>**Não pode** se inscrever no Azure AD PIM nem fazer alterações nele. No portal do PIM ou por meio do PowerShell, alguém nesta função poderá ativar funções adicionais (por exemplo, administrador global ou administrador com função com privilégios) se o usuário for um candidato a elas. |
 | <p>Monitorar a integridade do serviço Office 365</p><p>Centro de Conformidade e Segurança do Office 365</p> |<ul><li>Ler e gerenciar alertas<li>Ler políticas de segurança<li>Ler informações sobre inteligência contra ameaças, Cloud App Discovery e quarentena em Pesquisar e Investigar<li>Ler todos os relatórios |
 
-<a id="security-administrator" class="xliff"></a>
-
-### Administrador de segurança
+### <a name="security-administrator"></a>Administrador de segurança
 | Nesse | O que ele pode fazer |
 | --- | --- |
 | Identity Protection Center |<ul><li>Todas as permissões da função Leitor de Segurança.<li>Além disso, a capacidade de executar todas as operações de IPC, exceto para a redefinição de senhas. |
 | Privileged Identity Management |<ul><li>Todas as permissões da função Leitor de Segurança.<li>**Não é possível** gerenciar associações de função ou configurações do Azure AD. |
 | <p>Monitorar a integridade do serviço Office 365</p><p>Centro de Conformidade e Segurança do Office 365 |<ul><li>Todas as permissões da função Leitor de Segurança.<li>Pode configurar todas as configurações no recurso de Proteção avançada contra ameaças (proteção contra malware e vírus, configuração de URL mal-intencionado, rastreamento de URL, etc). |
 
-<a id="details-about-the-global-administrator-role" class="xliff"></a>
-
-## Detalhes sobre a função de administrador global
+## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
 
-<a id="to-add-a-colleague-as-a-global-administrator" class="xliff"></a>
-
-### Para adicionar um colega como um administrador global
+### <a name="to-add-a-colleague-as-a-global-administrator"></a>Para adicionar um colega como um administrador global
 
 1. Entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com uma conta que seja um administrador global do diretório de locatário.
 
@@ -176,14 +154,10 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
  
 5. Na folha da função de diretório, selecione a função **Administrador global** e salve.
 
-<a id="assign-or-remove-administrator-roles" class="xliff"></a>
-
-## Atribuir ou remover funções de administrador
+## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no modo de visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
 
-<a id="deprecated-roles" class="xliff"></a>
-
-## Funções preteridas
+## <a name="deprecated-roles"></a>Funções preteridas
 
 As seguintes funções não devem ser usadas. Elas foram preteridas e serão removidas do Azure AD no futuro.
 
@@ -194,9 +168,7 @@ As seguintes funções não devem ser usadas. Elas foram preteridas e serão rem
 * Usuários de Dispositivo
 * Ingresso no Dispositivo no Local de Trabalho
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)

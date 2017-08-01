@@ -22,26 +22,18 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs" class="xliff"></a>
-
-# Usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics
 O serviço Azure Data Lake Analytics arquiva os trabalhos enviados em um [repositório de consultas](#query-store). Neste artigo, você aprende como usar o Navegador de Trabalhos e Exibição de Trabalho nas Ferramentas do Azure Data Lake para Visual Studio para localizar as informações de histórico do trabalho. 
 
 Por padrão, o serviço Data Lake Analytics arquiva os trabalhos por 30 dias. O período de validade pode ser configurado do Portal do Azure, configurando a política de expiração personalizada. Você não poderá acessar as informações sobre o trabalho após a expiração. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Veja [Pré-requisitos das Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
-<a id="open-the-job-browser" class="xliff"></a>
-
-## Abrir o Navegador de Trabalhos
+## <a name="open-the-job-browser"></a>Abrir o Navegador de Trabalhos
 O Navegador de Trabalhos pode ser acessado via **Gerenciador de Servidores > Azure > Data Lake Analytics > Trabalhos** no Visual Studio.  Usando o navegador, você pode acessar o repositório de consultas de uma conta do Data Lake Analytics. O Navegador de Trabalhos mostra o Repositório de Consultas à esquerda, o qual mostra as informações básicas sobre trabalhos; já a Exibição de Trabalho é mostrada à direita e que fornece as informações detalhadas sobre um trabalho.
 
-<a id="job-view" class="xliff"></a>
-
-## Exibição de Trabalho
+## <a name="job-view"></a>Exibição de Trabalho
 A Exibição de Trabalho mostra as informações detalhadas de um trabalho. Para abrir um trabalho, clique duas vezes em um trabalho no Navegador de Trabalhos ou abra-o do menu do Data Lake clicando em Exibição de Trabalho. Você deve ver uma caixa de diálogo populada com a URL do trabalho.
 
 ![Navegador de Trabalhos das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
@@ -166,9 +158,7 @@ A Exibição de Trabalho contém:
   * Uso de recursos: se você tiver alocado mais paralelismo do que necessário ou paralelismo insuficiente, haverá problemas. Você pode também clicar em Uso de recursos para ver mais detalhes e executar cenários hipotéticos para localizar uma melhor alocação de recurso (para obter mais detalhes, consulte este guia).
   * Verificação de memória: se qualquer um deles usar mais de 5 GB de memória, haverá problemas. Se o trabalho usar mais memória do que a limitação do sistema, o próprio sistema poderá interromper sua execução.
 
-<a id="job-detail" class="xliff"></a>
-
-## Detalhes do Trabalho
+## <a name="job-detail"></a>Detalhes do Trabalho
 Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o Script, Recursos e Modo de Exibição de Execução de Vértice.
 
 ![Detalhes do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
@@ -183,9 +173,7 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
   
     Mostra detalhes de execução de vértices. O Perfil de Trabalho arquiva o todos os logs de execução de vértices, como o total de dados lidos/gravados, tempo de execução, estado, etc. Por meio desse modo de exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
 * Para usar o modo de exibição de execução de vértice, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
