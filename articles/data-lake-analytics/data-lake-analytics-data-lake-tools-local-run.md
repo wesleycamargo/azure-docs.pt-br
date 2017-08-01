@@ -22,15 +22,11 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk" class="xliff"></a>
-
-# Testar e depurar trabalhos do U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake
+# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Testar e depurar trabalhos do U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake
 
 Você pode usar as Ferramentas do Azure Data Lake para Visual Studio e SDK para U-SQL do Azure Data Lake a fim de executar trabalhos de U-SQL na sua estação de trabalho da mesma forma que faz no serviço Azure Data Lake. Esses dois recursos de execução local economizam tempo no teste e na depuração de seus trabalhos de U-SQL.
 
-<a id="understand-the-data-root-folder-and-the-file-path" class="xliff"></a>
-
-## Compreender a pasta raiz de dados e o caminho do arquivo
+## <a name="understand-the-data-root-folder-and-the-file-path"></a>Compreender a pasta raiz de dados e o caminho do arquivo
 
 Tanto a execução local quanto o SDK para U-SQL exigem uma pasta raiz de dados. A pasta raiz de dados é um "repositório local" para a conta de computador local. Ela equivale à conta do Azure Data Lake Store de uma conta do Data Lake Analytics. Alternar para uma pasta raiz de dados diferente é como alternar para uma conta de repositório diferente. Se você quiser acessar dados compartilhados normalmente com pastas raiz de dados diferentes, deverá usar caminhos absolutos em seus scripts. Ou criar links simbólicos de sistema de arquivo (por exemplo, **mklink** em NTFS) na pasta raiz de dados para apontar para os dados compartilhados.
 
@@ -47,9 +43,7 @@ Você pode usar um caminho relativo e um caminho absoluto local em scripts U-SQL
 |abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
 |D:/abc/def/input.csv |D:\abc\def\input.csv|
 
-<a id="use-local-run-from-visual-studio" class="xliff"></a>
-
-## Usar execução local no Visual Studio
+## <a name="use-local-run-from-visual-studio"></a>Usar execução local no Visual Studio
 
 As Ferramentas do Data Lake para Visual Studio proporcionam experiência de execução local do U-SQL no Visual Studio. Usando esse recurso, você pode:
 
@@ -61,9 +55,7 @@ As Ferramentas do Data Lake para Visual Studio proporcionam experiência de exec
 
 O instalador das Ferramentas do Data Lake cria uma pasta C:\LocalRunRoot para ser usada como a pasta raiz de dados padrão. O paralelismo da execução local padrão é 1.
 
-<a id="to-configure-local-run-in-visual-studio" class="xliff"></a>
-
-### Para configurar a execução local no Visual Studio
+### <a name="to-configure-local-run-in-visual-studio"></a>Para configurar a execução local no Visual Studio
 
 1. Abra o Visual Studio.
 2. Abra o **Gerenciador de Servidores**.
@@ -75,9 +67,7 @@ O instalador das Ferramentas do Data Lake cria uma pasta C:\LocalRunRoot para se
 
 É necessário um projeto U-SQL do Visual Studio para realizar a execução local. Essa parte é diferente de executar scripts U-SQL no Azure.
 
-<a id="to-run-a-u-sql-script-locally" class="xliff"></a>
-
-### Para executar um script U-SQL localmente
+### <a name="to-run-a-u-sql-script-locally"></a>Para executar um script U-SQL localmente
 1. No Visual Studio, abra o projeto U-SQL.   
 2. Clique com o botão direito do mouse em um script U-SQL no Gerenciador de Soluções e clique em **Enviar Script**.
 3. Selecione **(Local)** como a conta do Analytics para executar o script localmente.
@@ -85,15 +75,11 @@ Você pode também clicar na conta **(Local)** na parte superior da janela do sc
 
     ![Enviar trabalhos de execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
-<a id="debug-scripts-and-c-assemblies-locally" class="xliff"></a>
-
-### Depurar scripts e assemblies do C# localmente
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts e assemblies do C# localmente
 
 É possível depurar assemblies do C# sem os enviar nem os registrar para o Serviço Azure Data Lake Analytics. Você pode definir pontos de interrupção no arquivo code-behind e em um projeto do C# referenciado.
 
-<a id="to-debug-local-code-in-code-behind-file" class="xliff"></a>
-
-#### Para depurar o código local no arquivo code-behind
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Para depurar o código local no arquivo code-behind
 
 1. Definir pontos de interrupção no arquivo code-behind.
 2. Pressione F5 para depurar o script localmente.
@@ -103,9 +89,7 @@ Você pode também clicar na conta **(Local)** na parte superior da janela do sc
    >
    >
 
-<a id="to-debug-local-code-in-a-referenced-c-project" class="xliff"></a>
-
-#### Para depurar o código local em um projeto do C# referenciado
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Para depurar o código local em um projeto do C# referenciado
 
 1. Crie um projeto de Assembly do C# e compile-o para gerar o dll de saída.
 2. Registre o dll usando uma instrução U-SQL:
@@ -115,18 +99,14 @@ Você pode também clicar na conta **(Local)** na parte superior da janela do sc
 3. Definir pontos de interrupção no código C#.
 4. Pressione F5 para depurar o script referenciando a dll do C# localmente.
 
-<a id="use-local-run-from-the-data-lake-u-sql-sdk" class="xliff"></a>
-
-## Usar execução local no SDK para U-SQL do Data Lake
+## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Usar execução local no SDK para U-SQL do Data Lake
 
 Além de executar scripts U-SQL localmente usando o Visual Studio, você pode usar o SDK para U-SQL do Azure Data Lake para executá-los localmente com interfaces de programação e linha de comando. Você pode dimensionar seu teste local U-SQL com eles.
 
 Saiba mais sobre o [SDK do U-SQL do Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma consulta mais complexa, consulte [Analisar logs de site usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Para ver detalhes do trabalho, confira [Usar o Navegador de Trabalhos e o Modo de Exibição de Trabalho para trabalhos do Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
