@@ -21,14 +21,10 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="find-out-when-a-specific-user-will-be-able-to-access-an-application" class="xliff"></a>
-
-# Descubra quando um usuário específico será capaz de acessar um aplicativo
+# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Descubra quando um usuário específico será capaz de acessar um aplicativo
 Ao usar o provisionamento automático de usuário com um aplicativo, o Azure AD automaticamente provisionar e atualizar contas de usuário em um aplicativo com base em coisas como [atribuição de usuário e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) em um intervalo de tempo agendado regularmente, normalmente a cada 10 minutos.
 
-<a id="how-long-does-it-take" class="xliff"></a>
-
-## Quanto tempo demora?
+## <a name="how-long-does-it-take"></a>Quanto tempo demora?
 
 O tempo necessário para que um determinado usuário seja provisionado depende principalmente se uma sincronização "completa" inicial já ocorreu.
 
@@ -36,9 +32,7 @@ A primeira sincronização entre o Azure AD e um aplicativo pode levar de 20 min
 
 Sincronizações subsequentes após a sincronização inicial ser mais rápido (por exemplo, em 10 minutos), como o serviço de provisionamento armazena as marcas d'água que representam o estado dos dois sistemas após a sincronização inicial, melhorando o desempenho de sincronizações subsequentes.
 
-<a id="how-to-check-the-status-of-a-user" class="xliff"></a>
-
-## Como verificar o status de um usuário
+## <a name="how-to-check-the-status-of-a-user"></a>Como verificar o status de um usuário
 
 Para ver o status de provisionamento para um usuário selecionado, consulte os logs de auditoria no Azure AD.
 
@@ -53,8 +47,6 @@ Os logs de auditoria de provisionamento registram todas as operações executada
 * Comparando objetos de usuário entre o sistema
 * Adicionar, atualizar ou desabilitar a conta de usuário no sistema de destino com base na comparação
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
 

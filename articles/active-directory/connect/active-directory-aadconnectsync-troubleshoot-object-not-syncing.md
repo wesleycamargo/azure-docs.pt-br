@@ -21,8 +21,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/04/2017
 
 ---
-# Solucionar problemas de um objeto que não está sincronizando com o Azure AD
-<a id="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad" class="xliff"></a>
+# <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
 Se um objeto não está sincronizando com o Azure AD como esperado, isso pode ser devido a vários motivos. Se você recebeu uma mensagem de erro do Azure AD ou está vendo o erro no Azure AD Connect Health, leia [Solucionar problemas de erros de exportação](active-directory-aadconnect-troubleshoot-sync-errors.md). Mas se estiver solucionando um problema em que o objeto não está no Azure AD, este tópico será ideal para você. Ele descreve como encontrar erros na sincronização do Azure AD Connect do componente local.
 
@@ -34,8 +33,7 @@ Para encontrar os erros, você observará alguns lugares diferentes na seguinte 
 
 Inicie o [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) antes de começar estas etapas.
 
-## Operações
-<a id="operations" class="xliff"></a>
+## <a name="operations"></a>Operações
 A guia de operações no Synchronization Service Manager é o local em que você deve iniciar a solução de problemas. A guia Operações mostra os resultados das operações mais recentes.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
@@ -53,8 +51,7 @@ A coluna **Status** traz as informações mais importantes e mostra o problema m
 
 Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os detalhes dessa execução. À extrema esquerda da parte inferior, talvez você veja uma lista indicando **Etapa nº**. Essa lista só será exibida se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. Em **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. É possível clicar nos links para obter uma lista dos objetos alterados. Se você tiver objetos com erros, eles aparecerão em **erros de sincronização**.
 
-### Solucionar problemas de erros na guia Operações
-<a id="troubleshoot-errors-in-operations-tab" class="xliff"></a>
+### <a name="troubleshoot-errors-in-operations-tab"></a>Solucionar problemas de erros na guia Operações
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
 Quando houver erros, o objeto com erro e o próprio erro serão exibidos como links que fornecerão mais informações.
 
@@ -68,12 +65,10 @@ Clique com o botão direito do mouse na caixa **informações da pilha de chamad
 
 Se o erro em si não fornecer informações suficientes, será o momento de examinar os próprios dados. É possível clicar no link com o identificador de objeto e continuar solucionando problemas do [objeto importado do espaço conector](#cs-import).
 
-## Propriedades do objeto do espaço conector
-<a id="connector-space-object-properties" class="xliff"></a>
+## <a name="connector-space-object-properties"></a>Propriedades do objeto do espaço conector
 Se você não encontrar nenhum erro na guia [operações](#operations), a próxima etapa será seguir o objeto do espaço conector do Active Directory, para o metaverso e para o Azure AD. Nesse caminho, você deverá encontrar onde está o problema.
 
-### Pesquisar um objeto no CS
-<a id="search-for-an-object-in-the-cs" class="xliff"></a>
+### <a name="search-for-an-object-in-the-cs"></a>Pesquisar um objeto no CS
 
 No **Synchronization Service Manager**, clique em **Conectores**, selecione o Active Directory Connector e **Pesquisar Espaço Conector**.
 
@@ -86,8 +81,7 @@ Outra pesquisa útil é selecionar o Conector do Azure AD, em **Escopo**, seleci
 ![Órfão de pesquisa do Espaço Conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
 Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine essa lista e considere a remoção desses objetos usando os cmdlets do [PowerShell do Azure AD](http://aka.ms/aadposh).
 
-### Importação do CS
-<a id="cs-import" class="xliff"></a>
+### <a name="cs-import"></a>Importação do CS
 Quando você abre um objeto CS, há várias guias na parte superior. A guia **Importação** exibe os dados preparados após uma importação.  
 ![Objeto do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 O **Valor Antigo** mostra o que está atualmente armazenado no Connect e o **Novo Valor**, o que foi recebido do sistema de origem e ainda não foi aplicado. Se houver um erro no objeto, as alterações não serão processadas.
@@ -96,8 +90,7 @@ O **Valor Antigo** mostra o que está atualmente armazenado no Connect e o **Nov
 ![Objeto do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 A guia **Erro de Sincronização** só estará visível se houver um problema com o objeto. Para obter mais informações, consulte [Solucionar problemas de erros de sincronização](#troubleshoot-errors-in-operations-tab).
 
-### Linhagem do CS
-<a id="cs-lineage" class="xliff"></a>
+### <a name="cs-lineage"></a>Linhagem do CS
 A guia de linhagem mostra como o objeto do espaço conector está relacionado ao objeto de metaverso. Você pode ver quando o Conector realizou a última importação de uma alteração do sistema conectado e quais regras foram aplicadas para popular dados no metaverso.  
 ![Linhagem do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
 Na coluna **Ação**, você pode ver que há uma regra de sincronização de **Entrada** com a ação **Provisionar**. Isso indica que, desde que esse objeto do espaço do conector esteja presente, o objeto do metaverso permanece. Se, em vez disso, a lista de regras de sincronização mostrar uma regra de sincronização com direção de **Saída** e **Provisionar**, isso indicará que o objeto será excluído quando o objeto de metaverso for excluído.  
@@ -108,23 +101,19 @@ Na guia de linhagem, é possível acessar o metaverso clicando em [Propriedades 
 
 Na parte inferior de todas as guias, há dois botões: **Visualização** e **Log**.
 
-### Visualização
-<a id="preview" class="xliff"></a>
+### <a name="preview"></a>Visualização
 A página de visualização é usada para sincronizar um único objeto. Isso será útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e desejar ver o efeito de uma alteração em um único objeto. É possível selecionar entre **Sincronização completa** e **Sincronização delta**. Também é possível selecionar entre **Gerar Visualização**, que mantém apenas a alteração na memória e **Confirmar Visualização**, que atualiza o metaverso e prepara todas as alterações para os espaços conectores de destino.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 É possível inspecionar o objeto e qual regra é aplicada a um fluxo de atributos específico.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
-### Registro
-<a id="log" class="xliff"></a>
+### <a name="log"></a>Registro
 A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## Propriedades do objeto do metaverso
-<a id="metaverse-object-properties" class="xliff"></a>
+## <a name="metaverse-object-properties"></a>Propriedades do objeto do metaverso
 Em geral, é melhor começar a pesquisa no [espaço conector](#connector-space) de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.
 
-### Pesquisar um objeto no MV
-<a id="search-for-an-object-in-the-mv" class="xliff"></a>
+### <a name="search-for-an-object-in-the-mv"></a>Pesquisar um objeto no MV
 No **Synchronization Service Manager**, clique em **Pesquisa de Metaverso**. Crie uma consulta que você sabe que encontrará o usuário. É possível pesquisar atributos comuns, como accountName (sAMAccountName) e userPrincipalName. Para obter mais informações, consulte [Pesquisa de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
@@ -132,8 +121,7 @@ Na janela **Resultados da Pesquisa**, clique no objeto.
 
 Se você não encontrou o objeto, isso indica que ele ainda não chegou ao metaverso. Continue pesquisando o objeto no [espaço conector](#connector-space-object-properties) do Active Directory. Pode haver um erro de sincronização que está impedindo a chegada do objeto ao metaverso ou pode haver um filtro aplicado.
 
-### Atributos do MV
-<a id="mv-attributes" class="xliff"></a>
+### <a name="mv-attributes"></a>Atributos do MV
 Na guia Atributos, é possível ver os valores e qual Conector os forneceu.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
 
@@ -141,8 +129,7 @@ Se um objeto não está sincronizando, observe os seguintes atributos no metaver
 - O atributo **cloudFiltered** está presente e está definido como **true**? Nesse caso, ele foi filtrado de acordo com as etapas descritas em [filtragem baseada em atributo](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
 - O atributo **sourceAnchor** está presente? Caso contrário, você tem uma topologia de floresta de conta-recurso? Se um objeto for identificado como uma caixa de correio vinculada (o atributo **msExchRecipientTypeDetails** tem o valor 2), sourceAnchor será uma contribuição da floresta com uma conta do Active Directory habilitada. Verifique se a conta mestra foi importada e sincronizada corretamente. A conta mestra deve estar listada nos [conectores](#mv-connectors) do objeto.
 
-### Conectores do MV
-<a id="mv-connectors" class="xliff"></a>
+### <a name="mv-connectors"></a>Conectores do MV
 A guia Conectores mostra todos os espaços conectores que contêm uma representação do objeto.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 É necessário ter um conector para:
@@ -154,8 +141,7 @@ Se você não tiver o conector do Azure AD, leia [Atributos do MV](#MV-attribute
 
 Essa guia também permite navegar até o [objeto do espaço conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

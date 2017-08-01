@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problem-configuring-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-# Como configurar o logon único com senha para um aplicativo que não seja da galeria
+# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
 Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo que não seja da Galeria.
 
-<a id="how-to-capture-sign-in-fields-for-an-application" class="xliff"></a>
-
-## Como capturar campos de entrada para um aplicativo
+## <a name="how-to-capture-sign-in-fields-for-an-application"></a>Como capturar campos de entrada para um aplicativo
 
 Captura de campo de entrada só tem suporte para páginas de entrada habilitadas por HTML e **não tem suporte para páginas de entrada não padrão**, como aquelas que usam Flash ou outras tecnologias de HTML não habilitado.
 
@@ -45,9 +41,7 @@ Há duas maneiras que você pode capturar campos de entrada para aplicativos per
 
 Em geral, **se captura manual do campo de entrada não funcionar, é recomendável sempre tentar a opção manual.**
 
-<a id="how-to-automatically-capture-sign-in-fields-for-an-application" class="xliff"></a>
-
-### Como capturar automaticamente os campos de entrada para um aplicativo
+### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Como capturar automaticamente os campos de entrada para um aplicativo
 
 Configurar **Logon único baseado em senha** para um aplicativo usando **captura automática do campo de entrada**, siga as etapas abaixo:
 
@@ -75,9 +69,7 @@ Configurar **Logon único baseado em senha** para um aplicativo usando **captura
 
 11. Depois de fazer isso, vamos extrair automaticamente essa URL para uma caixa de entrada de nome de usuário e de senha e permitir que você use o Azure AD para transmitir com segurança as senhas para o aplicativo usando a extensão de navegador de painel de acesso.
 
-<a id="how-to-manually-capture-sign-in-fields-for-an-application" class="xliff"></a>
-
-## Como capturar manualmente campos de entrada para um aplicativo
+## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Como capturar manualmente campos de entrada para um aplicativo
 
 Para capturar manualmente os campos de entrada, você deve primeiramente ter a extensão de navegador do painel de acesso instalada e **não estar sendo executado no modo inPrivate, incógnito ou privado.** Para instalar a extensão do navegador, siga as etapas na seção [Como instalar a extensão de navegador do painel de acesso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
@@ -117,23 +109,17 @@ Para configurar **Logon único baseado em senha** para um aplicativo usando **ca
 
 16. Siga as instruções na tela para usar o painel de acesso.
 
-<a id="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error" class="xliff"></a>
-
-## Vejo o erro "Não foi possível encontrar os campos de entrada nessa URL"
+## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Vejo o erro "Não foi possível encontrar os campos de entrada nessa URL"
 
 Você vê este erro quando a detecção automática de campos de entrada falha. Para resolver esse problema, tente detecção de campo de entrada manual, seguindo as etapas na seção [Como capturar manualmente os campos de entrada para um aplicativo](#how-to-manually-capture-sign-in-fields-for-an-application).
 
-<a id="i-see-an-unable-to-save-single-sign-on-configuration-error" class="xliff"></a>
-
-## Vejo um erro de "não é possível salvar a configuração de logon único"
+## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Vejo um erro de "não é possível salvar a configuração de logon único"
 
 Em alguns casos raros, atualizar a configuração de logon único pode falhar. Para resolver isso, tente salvar a configuração de logon único novamente.
 
 Se isso continuar falhando consistentemente, abra um caso de suporte e forneça as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
 
-<a id="i-cannot-manually-detect-sign-in-fields-for-my-application" class="xliff"></a>
-
-## Não posso manualmente detectar os campos de entrada para meu aplicativo
+## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Não posso manualmente detectar os campos de entrada para meu aplicativo
 
 Alguns dos comportamentos que você pode ver quando a detecção manual não está funcionando incluem:
 
@@ -159,9 +145,7 @@ Verifique se você encontra algum desses problemas:
 
 Se nenhuma dessas abordagens funcionar para você, podemos ajudar. Abra um caso de suporte com os detalhes de que você tentou, bem como as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se aplicável).
 
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Como instalar a extensão do Navegador do Painel de Acesso
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
@@ -185,9 +169,7 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-<a id="how-to-see-the-details-of-a-portal-notification" class="xliff"></a>
-
-## Como ver os detalhes de uma notificação do portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
@@ -207,21 +189,15 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
 
 6.  Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
-<a id="how-to-get-help-by-sending-notification-details-to-a-support-engineer" class="xliff"></a>
-
-## Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
 É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
 
-<a id="notification-details-explained" class="xliff"></a>
-
-## Detalhes da notificação explicados
+## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
 Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
 
-<a id="essential-notification-items" class="xliff"></a>
-
-### Itens de notificação essenciais
+### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
 -   **Título** – o título descritivo da notificação
 
@@ -259,9 +235,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
     -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
-<a id="detailed-notification-items" class="xliff"></a>
-
-### Itens de notificação detalhados
+### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
 -   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
@@ -283,9 +257,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
     -   Exemplo – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
 
 

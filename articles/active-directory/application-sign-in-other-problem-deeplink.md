@@ -21,9 +21,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-signing-in-to-an-application-using-a-deeplink" class="xliff"></a>
-
-# Problemas para entrar em um aplicativo usando um DeepLink
+# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas para entrar em um aplicativo usando um DeepLink
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
 
@@ -31,9 +29,7 @@ Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O
 
 DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar para acessar seus aplicativos SSO de senha diretamente de suas barras de URLs de navegadores. Ao navegar até esse link, os usuários serão automaticamente conectados ao aplicativo sem ter que ir primeiro ao Painel de Acesso. Esse é o mesmo link que os usuários usam para acessar esses aplicativos a partir do aplicativo de inicialização do Office 365.
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Questões gerais que primeiro devem ser verificadas
+## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
 
 -   Verifique se você está usando um **navegador** que atenda aos requisitos mínimos para o Painel de Acesso.
 
@@ -55,9 +51,7 @@ DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar
 
 -   Tente também eliminar os cookies do navegador e tente entrar novamente.
 
-<a id="checking-the-deeplink" class="xliff"></a>
-
-## Verificar o DeepLink
+## <a name="checking-the-deeplink"></a>Verificar o DeepLink
 
 Para verificar se você tem o DeepLink correto, siga as etapas abaixo:
 
@@ -89,9 +83,7 @@ Para verificar se você tem o DeepLink correto, siga as etapas abaixo:
 
 12. Localize o rótulo **URL de acesso do Usuário**. O DeepLink deve corresponder a essa URL.
 
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Como instalar a extensão do Navegador do Painel de Acesso
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
@@ -115,9 +107,7 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-## Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -125,9 +115,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-### Adicionar um aplicativo da galeria do Azure AD
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
 Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
@@ -151,9 +139,7 @@ Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-### Configurar o aplicativo para logon único com senha
+### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -179,9 +165,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-## Como configurar o logon único com senha para um aplicativo inexistente na galeria
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -189,9 +173,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-a-non-gallery-application" class="xliff"></a>
-
-### Adicionar um aplicativo inexistente na galeria
+### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
@@ -211,9 +193,7 @@ Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-### Configurar o aplicativo para logon único com senha
+### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -241,9 +221,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
-
-## Como atribuir um usuário diretamente a um aplicativo
+## <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -281,9 +259,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
-
-## Se essas etapas de solução de problemas não resolverem o problema. 
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema. 
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -299,8 +275,6 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

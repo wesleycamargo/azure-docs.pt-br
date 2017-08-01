@@ -21,23 +21,17 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problem-creating-an-application-proxy-application" class="xliff"></a>
-
-# Problemas ao criar um aplicativo de Application Proxy 
+# <a name="problem-creating-an-application-proxy-application"></a>Problemas ao criar um aplicativo de Application Proxy 
 
 Abaixo estão alguns dos problemas comuns que as pessoas enfrentam ao criar um novo aplicativo de Application Proxy.
 
-<a id="recommended-documents" class="xliff"></a>
-
-## Documentos recomendados 
+## <a name="recommended-documents"></a>Documentos recomendados 
 
 Para saber mais sobre como criar um aplicativo de Application Proxy por meio do Portal de administração, consulte [publicar aplicativos usando o Application Proxy do Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
 Se você estiver seguindo as etapas na documentação e estiver recebendo um erro ao criar o aplicativo, consulte os detalhes do erro para obter informações e sugestões para corrigir o aplicativo. A maioria das mensagens de erro incluem uma correção sugerida. 
 
-<a id="specific-things-to-check" class="xliff"></a>
-
-## Itens específicos a serem verificados
+## <a name="specific-things-to-check"></a>Itens específicos a serem verificados
 
 Para evitar erros comuns, verifique se:
 
@@ -55,8 +49,6 @@ A mensagem de erro deve ser exibida no canto superior direito ao criar o aplicat
 
    ![Prompt de notificação](./media/application-proxy-config-problem/error-message.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md)
 
