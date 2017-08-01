@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao BD Cosmos do Azure | Microsoft Docs"
-description: "Saiba mais sobre o BD Cosmos do Azure. Este multimodelo de banco de dados distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência."
+title: "Introdução ao Azure Cosmos DB | Microsoft Docs"
+description: "Saiba mais sobre o Azure Cosmos DB. Este multimodelo de banco de dados distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -23,11 +23,11 @@ ms.lasthandoff: 07/22/2017
 
 ---
 
-# <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao BD Cosmos do Azure
+# <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
 O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o clique de um botão, o BD Cosmos do Azure permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer.
 
-![O BD Cosmos do Azure é serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
+![O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente pela Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que se beneficiam do Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
 
 * **Garantir disponibilidade "sempre ativa"**
     * Disponibilidade de 99,99% em uma única região.
-    * Implantar em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
+    * Implante em qualquer número de[regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
     * [Simule uma falha](regional-failover.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
 
 * **Escrever aplicativos distribuídos globalmente, da maneira correta**
@@ -70,7 +70,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * [Contratos de nível de serviço](https://aka.ms/acdbsla) para disponibilidade, latência, taxa de transferência e consistência. 
 
 * **Sem gerenciamento de esquema/índice de banco de dados**
-    * Parar de se preocupar sobre como manter o esquema e os índices do seu banco de dados em sincronia com o esquema do seu aplicativo. Somos livres de esquema. 
+    * Pare de se preocupar sobre como manter o esquema e os índices do seu banco de dados em sincronia com o esquema do seu aplicativo. Somos livres de esquema. 
     * O mecanismo de banco de dados do Azure Cosmos DB é completamente independente de esquema: ele indexa automaticamente todos os dados que ingere sem a necessidade de qualquer esquema ou índice e proporciona consultas incrivelmente rápidas. 
 
 * **Baixo custo de propriedade**
@@ -79,7 +79,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
 
 ## <a name="capability-comparison"></a>Comparação de funcionalidade
 
-O BD Cosmos do Azure fornece as melhores funcionalidades de bancos de dados relacionais e não relacionais.
+O Azure Cosmos DB fornece as melhores funcionalidades de bancos de dados relacionais e não relacionais.
 
 | Funcionalidades | Bancos de dados relacionais   | Bancos de dados não relacionais (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
@@ -92,10 +92,10 @@ O BD Cosmos do Azure fornece as melhores funcionalidades de bancos de dados rela
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Comece no BD Cosmos do Azure com um dos nossos guias de início rápido:
+Comece no Azure Cosmos DB com um dos nossos guias de início rápido:
 
-* [Introdução à API DocumentDB do BD Cosmos do Azure](create-documentdb-dotnet.md)
-* [Introdução à API MongoDB do BD Cosmos do Azure](create-mongodb-nodejs.md)
-* [Introdução à API do Graph do BD Cosmos do Azure](create-graph-dotnet.md)
-* [Introdução à API de Tabela do BD Cosmos do Azure](create-table-dotnet.md)
+* [Introdução à API DocumentDB do Azure Cosmos DB](create-documentdb-dotnet.md)
+* [Introdução à API MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
+* [Introdução à API do Graph do Azure Cosmos DB](create-graph-dotnet.md)
+* [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
