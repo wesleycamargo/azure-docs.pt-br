@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Criar, iniciar ou excluir um gateway de aplicativo usando o Gerenciador de Recursos do Azure
@@ -171,10 +170,10 @@ Neste exemplo, haverá dois pools de back-end para rotear o tráfego de rede com
 
 ### <a name="step-3"></a>Etapa 3
 
-Defina as configurações de **poolsetting01** do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end. Cada pool de back-end pode ter sua própria configuração de pool de back-end.  As configurações HTTP de back-end são usadas pelas regras para rotear o tráfego para os membros do pool de back-end corretos. As configurações HTTP de back-end determinam o protocolo e a porta usados ao enviar tráfego para os membros do pool de back-end. As sessões baseadas em cookies também são determinadas pelas configurações HTTP de back-end.  Se habilitada, a afinidade de sessão baseada em cookies envia o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
+Defina as configurações de **poolsetting** do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end. Cada pool de back-end pode ter sua própria configuração de pool de back-end.  As configurações HTTP de back-end são usadas pelas regras para rotear o tráfego para os membros do pool de back-end corretos. As configurações HTTP de back-end determinam o protocolo e a porta usados ao enviar tráfego para os membros do pool de back-end. As sessões baseadas em cookies também são determinadas pelas configurações HTTP de back-end.  Se habilitada, a afinidade de sessão baseada em cookies envia o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Etapa 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Crie a regra de roteamento do balanceador de carga chamada **rule01**, que configura o comportamento do balanceador de carga. As configurações do pool de back-end, o ouvinte e o pool de back-end criados nas etapas anteriores fazem a regra. Com base nos critérios definidos, o tráfego é roteado para o back-end apropriado.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Etapa 8

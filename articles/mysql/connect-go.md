@@ -12,10 +12,10 @@ ms.devlang: go
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ffe09758d0bf5dd4a6e599b1a606d9ae5fce4bf9
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -38,6 +38,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 5. Defina a variável de ambiente para GOPATH apontar para o diretório de código de origem. `set GOPATH=%USERPROFILE%\go`.
 6. Instale o [go-sql-driver para mysql](https://github.com/go-sql-driver/mysql#installation) executando o comando `go get github.com/go-sql-driver/mysql`.
 
+   Em resumo, instale o Go e execute esses comandos no prompt de comando:
    ```cmd
    mkdir  %USERPROFILE%\go\src\mysqlgo
    cd %USERPROFILE%\go\src\mysqlgo
@@ -53,6 +54,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
 6. Instale o [go-sql-driver para mysql](https://github.com/go-sql-driver/mysql#installation) executando o comando `go get github.com/go-sql-driver/mysql`.
 
+   Em resumo, execute estes comandos bash:
    ```bash
    sudo apt-get install golang-go
    mkdir -p ~/go/src/mysqlgo/
@@ -69,13 +71,13 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
 6. Instale o [go-sql-driver para mysql](https://github.com/go-sql-driver/mysql#installation) executando o comando `go get github.com/go-sql-driver/mysql`.
 
+   Em resumo, instale o Go e, em seguida, execute esses comandos bash:
    ```bash
    mkdir -p ~/go/src/mysqlgo/
    cd ~/go/src/mysqlgo/
    export GOPATH=~/go/
    go get github.com/go-sql-driver/mysql
    ```
-
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
@@ -89,10 +91,12 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
    
 
 ## <a name="build-and-run-go-code"></a>Compilar e executar o código Go 
-1. Cole o código Go das seções abaixo em arquivos de texto e salve-os em sua pasta de projeto com a extensão de arquivo *.go, como caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou caminho do Linux `~/go/src/mysqlgo/createtable.go`.
-2. Inicie o prompt de comando ou shell Bash. Altere o diretório na pasta do seu projeto. Por exemplo, no Windows `cd %USERPROFILE%\go\src\mysqlgo\`. No Linux `cd ~/go/src/mysqlgo/`.
-3. Execute o código, digitando o comando `go run createtable.go` para compilar o aplicativo e executá-lo.
-4. Como alternativa, para compilar o código em um aplicativo nativo, `go build createtable.go`, inicie `createtable.exe` para executar o aplicativo.
+1. Para escrever código Golang, você pode usar um editor de texto simples, como o Bloco de Notas no Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou [Nano](https://www.nano-editor.org/) no Ubuntu ou Editor de Texto no macOS. Se você preferir IDE (Ambiente de Desenvolvimento Integrado) mais avançado, experimente o [Gogland](https://www.jetbrains.com/go/) da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/) da Microsoft ou o [Atom](https://atom.io/).
+2. Cole o código Go das seções abaixo em arquivos de texto e salve-os em sua pasta de projeto com a extensão de arquivo \*.go, como caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou caminho do Linux `~/go/src/mysqlgo/createtable.go`.
+3. Localize as constantes `HOST`, `DATABASE`, `USER`, e `PASSWORD` no código e substitua os valores de exemplo com seus próprios valores. 
+4. Inicie o prompt de comando ou shell Bash. Altere o diretório na pasta do seu projeto. Por exemplo, no Windows `cd %USERPROFILE%\go\src\mysqlgo\`. No Linux `cd ~/go/src/mysqlgo/`.  Alguns dos editores IDE mencionados oferecem recursos de depuração e tempo de execução sem a necessidade de comandos do shell.
+5. Execute o código, digitando o comando `go run createtable.go` para compilar o aplicativo e executá-lo. 
+6. Como alternativa, para compilar o código em um aplicativo nativo, `go build createtable.go`, inicie `createtable.exe` para executar o aplicativo.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar ao servidor, criar uma tabela e carregar os dados usando uma instrução SQL **INSERT**. 

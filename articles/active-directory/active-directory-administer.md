@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d68b641ac934c3930366be3dbf89a86e9611c7b7
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administrar seu diretório do Azure AD
@@ -40,7 +40,7 @@ O Azure AD oferece os principais recursos de gerenciamento de diretório e de id
 * Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-Quando você se inscreve para qualquer um desses serviços de nuvem da Microsoft, você obterá um diretório do Azure AD. Você pode criar diretórios adicionais conforme necessário. Por exemplo, você pode manter seu primeiro diretório como um diretório de produção e, em seguida, criar um outro diretório para teste ou preparo.
+Você obtém um diretório do Azure quando se inscreve para qualquer um desses serviços em nuvem da Microsoft. Você pode criar diretórios adicionais conforme necessário. Por exemplo, você pode manter seu primeiro diretório como um diretório de produção e, em seguida, criar um outro diretório para teste ou preparo.
 
 > [!NOTE]
 > Após se inscrever em seu primeiro serviço, recomendamos que você use a mesma conta de administrador associada à sua organização ao se inscrever para outros serviços de nuvem da Microsoft.
@@ -65,7 +65,7 @@ Se você ainda não tiver uma assinatura para um serviço de nuvem da Microsoft,
 
 * [Microsoft Azure](https://account.windowsazure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
-* [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
+* [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="manage-an-azure-provisioned-default-directory"></a>Gerenciar um diretório padrão de provisionamento do Azure
 Hoje, um diretório é criado automaticamente ao se inscrever para o Azure, e sua assinatura é associada a esse diretório. Mas se você tiver originalmente se inscrito no Azure antes de outubro de 2013, um diretório não terá sido criado automaticamente. Nesse caso, o Azure pode ter "aterrado" sua conta fornecendo um diretório padrão para ela. Sua assinatura é então associada a esse diretório padrão.
@@ -91,7 +91,7 @@ O [Centro de administração do Azure](https://aad.portal.azure.com), o Centro d
 
 Esses portais de conta e os cmdlets associados do PowerShell do Azure AD usados para gerenciar usuários e grupos são criados sobre a plataforma do Azure AD.
 
-Quando você fizer uma alteração nos dados da sua organização usando qualquer um dos portais (ou cmdlets) enquanto estiver conectado sob o contexto de um desses serviços, a alteração também será mostrada nos outros portais da próxima vez que entrar no contexto desse serviço, porque estes dados são compartilhados entre os serviços de nuvem da Microsoft para os quais você se inscreveu.
+Quando você fizer uma alteração nos dados da sua organização usando qualquer um dos portais (ou cmdlets) enquanto estiver conectado sob o contexto de um desses serviços, a alteração também será mostrada nos outros portais da próxima vez que entrar no contexto desse serviço, porque estes dados são compartilhados entre os serviços em nuvem da Microsoft para os quais você se inscreveu.
 Por exemplo, se você usou o Centro de Administração do Office 365 para bloquear a conexão de um usuário, essa ação impedirá que o usuário faça logon em qualquer outro serviço ao qual sua organização tenha se inscrito atualmente. Se você analisar a conta desse mesmo usuário sob o contexto do portal de contas do Microsoft Intune, você verá que o usuário está bloqueado.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Como posso adicionar e gerenciar vários diretórios?

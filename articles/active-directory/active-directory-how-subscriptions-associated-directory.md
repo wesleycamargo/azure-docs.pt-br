@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7a82dcddcd051c88c2a6a515ed2353961307182a
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Como as assinaturas do Azure são associadas ao Azure Active Directory
 Este artigo aborda informações sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o Azure Active Directory (Azure AD).
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo.
 
 ## <a name="accounts-that-you-can-use-to-sign-in"></a>Contas que você pode usar para entrar
 Vamos começar com as contas que você pode usar para entrar. Há dois tipos: uma conta da Microsoft (anteriormente conhecida como Microsoft Live ID) e uma conta corporativa ou de estudante, que é uma conta armazenada no AD do Azure.
@@ -120,8 +124,7 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
-* Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles.md)
-* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+* Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

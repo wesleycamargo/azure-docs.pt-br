@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Active Directory Premium do Azure"
-description: "Um tópico que explica como inscrever-se no Azure Active Directory Premium Edition por meio do site de Licenciamento por Volume."
+description: Explica como inscrever-se no Azure Active Directory Premium Edition por meio do site de Licenciamento por Volume.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: pt-br
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Introdução ao Active Directory Premium do Azure
+Este artigo mostra como começar a usar um Azure Active Directory Premium adquirido por meio do Programa de Licenciamento por Volume. Se ainda não estiver familiarizado com as diferentes edições do Azure Active Directory, confira [Edições do Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. 
+
 Para se inscrever no Active Directory Premium, você tem várias opções: 
 
 **Azure ou Office 365** ‒ como assinante do Azure ou do Office 365, você pode comprar o Active Directory Premium online. Para obter etapas detalhadas, confira [Como comprar o Azure Active Directory Premium ‒ clientes existentes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) ou [Como comprar o Azure Active Directory Premium ‒ novos clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -29,8 +34,6 @@ Para se inscrever no Active Directory Premium, você tem várias opções:
 **Enterprise Mobility Suite** ‒ o Enterprise Mobility Suite + Security (conhecido anteriormente como Enterprise Mobility Suite) é uma forma econômica para que as organizações usem os seguintes serviços em conjunto em um plano de licenciamento: Active Directory Premium, Azure Rights Management e Microsoft Intune. Para obter mais informações, veja o site [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Para obter uma avaliação gratuita de 30 dias, clique [aqui](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 **Microsoft Volume Licensing** ‒ o Azure Active Directory Premium está disponível por meio de um [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 ou mais licenças) ou um programa [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 – 250 licenças).
-
-Este tópico mostra como começar a usar um Azure Active Directory Premium adquirido por meio do Programa de Licenciamento por Volume. Se ainda não estiver familiarizado com as diferentes edições do Azure Active Directory, confira [Edições do Azure Active Directory](active-directory-editions.md).  
 
 > [!NOTE]
 > As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
