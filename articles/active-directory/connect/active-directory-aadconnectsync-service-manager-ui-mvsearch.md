@@ -21,8 +21,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/04/2017
 
 ---
-# Pesquisa de Metaverso do Synchronization Service Manager
-<a id="sync-service-manager-metaverse-search" class="xliff"></a>
+# <a name="sync-service-manager-metaverse-search"></a>Pesquisa de Metaverso do Synchronization Service Manager
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -30,8 +29,7 @@ A guia Pesquisa de Metaverso é útil para solucionar problemas relacionados a d
 
 Nos resultados da pesquisa, selecione um objeto e **Propriedades** para ver as [propriedades de objeto do metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

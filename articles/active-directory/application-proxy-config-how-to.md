@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-configure-an-application-proxy-application" class="xliff"></a>
-
-# Como configurar um aplicativo de Application Proxy
+# <a name="how-to-configure-an-application-proxy-application"></a>Como configurar um aplicativo de Application Proxy
 
 Este artigo o ajudará a compreender como configurar um aplicativo de Application Proxy no Azure AD para expor seus aplicativos locais para a nuvem.
 
-<a id="recommended-documents" class="xliff"></a>
-
-## Documentos recomendados 
+## <a name="recommended-documents"></a>Documentos recomendados 
 
 Para saber mais sobre a criação de um aplicativo de Application Proxy por meio do Portal de administração e configurações iniciais, siga o [publicar aplicativos usando o Application Proxy do Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
@@ -37,9 +33,7 @@ Para obter detalhes sobre como configurar conectores, consulte [habilitar Applic
 
 Para obter informações sobre como carregar certificados e usar domínios personalizados, consulte [trabalhando com domínios personalizados no Application Proxy do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains).
 
-<a id="create-the-applicationsetting-the-urls" class="xliff"></a>
-
-## Criar o aplicativo/Definindo as URLs
+## <a name="create-the-applicationsetting-the-urls"></a>Criar o aplicativo/Definindo as URLs
 
 Se você estiver seguindo as etapas na documentação [publicar aplicativos usando o Application Proxy do Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e está recebendo um erro ao criar o aplicativo, consulte os detalhes do erro para obter informações e sugestões para corrigir o aplicativo. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, verifique se:
 
@@ -57,17 +51,13 @@ A mensagem de erro deve ser exibida no canto superior direito ao criar o aplicat
 
    ![Prompt de notificação](./media/application-proxy-config-how-to/error-message.png)
 
-<a id="configure-connectorsconnector-groups" class="xliff"></a>
-
-## Configurar grupos de conectores/conectores
+## <a name="configure-connectorsconnector-groups"></a>Configurar grupos de conectores/conectores
 
 Se você tiver dificuldades para configurar seu aplicativo por causa de aviso sobre conectores e grupos de conector, consulte as instruções sobre como habilitar o Application Proxy para obter detalhes sobre como baixar conectores. Se você quiser saber mais sobre conectores, consulte a [documentação de conectores](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
 
 Se os conectores estão inativos, isso significa que eles são incapazes de alcançar o serviço. Isso geralmente é porque todas as portas necessárias não estão abertas. Para ver uma lista de portas necessárias, consulte a seção de pré-requisitos da documentação para habilitação do Application Proxy.
 
-<a id="upload-certificates-for-custom-domains" class="xliff"></a>
-
-## Carregar certificados para domínios personalizados
+## <a name="upload-certificates-for-custom-domains"></a>Carregar certificados para domínios personalizados
 
 Domínios personalizados permitem que você especifique o domínio de suas URLs externas. Para usar domínios personalizados, você precisa carregar o certificado para esse domínio. Para obter informações sobre como usar domínios personalizados e certificados, consulte [trabalhando com domínios personalizados no Application Proxy do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). 
 
@@ -83,8 +73,6 @@ A mensagem de erro é exibida no canto superior direito ao tentar carregar o cer
 
    ![Prompt de notificação](./media/application-proxy-config-how-to/error-message2.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](application-proxy-publish-azure-portal.md)
 

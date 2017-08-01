@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="no-working-connector-group-found-for-an-application-proxy-application" class="xliff"></a>
-
-# Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy
+# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy
 
 Ajuda neste artigo você resolver os problemas mais comuns enfrentados quando não há um conector detectado para um aplicativo de Application Proxy integrado ao Azure Active Directory.
 
-<a id="overview-of-steps" class="xliff"></a>
-
-## Visão geral das etapas
+## <a name="overview-of-steps"></a>Visão geral das etapas
 Se não houver nenhum conector funcionando em um grupo de conector para o seu aplicativo, haverá algumas maneiras de resolver o problema:
 
 -   Se você tiver não conectores no grupo, você poderá:
@@ -52,9 +48,7 @@ Para obter detalhes sobre cada uma dessas opções, consulte a seção correspon
 
    ![Gerenciamento de grupo do conector no Portal do Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
-<a id="download-a-new-connector" class="xliff"></a>
-
-## Baixar um novo conector
+## <a name="download-a-new-connector"></a>Baixar um novo conector
 
 Para baixar um novo conector, use o botão "Baixar conector" na parte superior da página.
 
@@ -62,23 +56,17 @@ observe que o conector deve ser instalado em um computador com a linha direta de
 
    ![Baixe o conector do Portal do Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
-<a id="move-an-active-connector" class="xliff"></a>
-
-## Mova um conector ativo
+## <a name="move-an-active-connector"></a>Mova um conector ativo
 
 Se você tiver um conector ativo que deve pertencer ao grupo e tem metas claras para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para fazer isso, clique no conector. No campo "Conector de grupo", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
 
-<a id="resolve-an-inactive-connector" class="xliff"></a>
-
-## Resolver um conector inativo
+## <a name="resolve-an-inactive-connector"></a>Resolver um conector inativo
 
 Se os conectores apenas no grupo estão inativos, eles estão provavelmente em um computador que não tem todas as portas desbloqueadas.
 
 consulte o documento de resolução de problemas das portas para obter detalhes sobre como investigar esse problema.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)
 
 

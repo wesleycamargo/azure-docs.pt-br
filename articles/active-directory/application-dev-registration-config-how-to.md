@@ -21,9 +21,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-select-permissions-for-a-given-api" class="xliff"></a>
-
-# Como selecionar permissões para determinada API
+# <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para determinada API
 
 Você pode encontrar os pontos de extremidade de autenticação para seu aplicativo no [portal do Azure](https://portal.azure.com).
 
@@ -37,8 +35,6 @@ Você pode encontrar os pontos de extremidade de autenticação para seu aplicat
 
 -   Use o ponto de extremidade específico ao protocolo de autenticação que você está usando, em conjunto com a ID do aplicativo, para criar a autenticação de solicitação específicas ao aplicativo.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
 
