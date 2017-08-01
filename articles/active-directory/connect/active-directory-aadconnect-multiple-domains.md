@@ -21,12 +21,10 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 01/12/2017
 
 ---
-# Suporte a Vários Domínios para Federação com o Azure AD
-<a id="multiple-domain-support-for-federating-with-azure-ad" class="xliff"></a>
+# <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
 A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios  de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
 
-## Suporte para vários domínios de nível superior
-<a id="multiple-top-level-domain-support" class="xliff"></a>
+## <a name="multiple-top-level-domain-support"></a>Suporte para vários domínios de nível superior
 A federação de vários domínios de nível superior com o Azure AD requer configuração adicional que não é necessária na federação de um único domínio de nível superior.
 
 Quando um domínio é federado com o Azure AD, várias propriedades são definidas no domínio no Azure.  Uma delas é IssuerUri.  Isso é um URI usado pelo Azure AD para identificar o domínio ao qual o token está associado.  O URI não precisa resolver para nada, mas deve ser um URI válido.  Por padrão, o Azure AD define isso como o valor do identificador do serviço de federação em sua configuração local do AD FS.
@@ -48,8 +46,7 @@ Quando tentamos converter nosso domínio bmfabrikam.com em federado, recebemos u
 
 ![Erro de federação](./media/active-directory-multiple-domains/error.png)
 
-### Parâmetro SupportMultipleDomain
-<a id="supportmultipledomain-parameter" class="xliff"></a>
+### <a name="supportmultipledomain-parameter"></a>Parâmetro SupportMultipleDomain
 Para solucionar isso, precisamos adicionar um IssuerUri diferente. Isso pode ser feito usando o parâmetro `-SupportMultipleDomain`.  Esse parâmetro é usado com os seguintes cmdlets:
 
 * `New-MsolFederatedDomain`
@@ -82,8 +79,7 @@ Abaixo vemos a regra de declaração personalizada que implementa essa lógica:
 > 
 > 
 
-## Como atualizar a relação de confiança entre o AD FS e o Azure AD
-<a id="how-to-update-the-trust-between-ad-fs-and-azure-ad" class="xliff"></a>
+## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Como atualizar a relação de confiança entre o AD FS e o Azure AD
 Se você não tiver configurado a confiança federada entre o AD FS e a instância do Azure AD, será preciso recriá-la.  Isso ocorre porque, quando ela é originalmente configurada sem o parâmetro `-SupportMultipleDomain` , o IssuerUri é definido com o valor padrão.  Na captura de tela abaixo, você pode ver que IssuerUri está definido como https://adfs.bmcontoso.com/adfs/services/trust.
 
 Agora, se adicionarmos um novo domínio no portal do Azure AD com êxito e tentarmos convertê-lo usando `Convert-MsolDomaintoFederated -DomainName <your domain>`, obteremos o seguinte erro.
@@ -127,8 +123,7 @@ Use as etapas a seguir para adicionar o novo domínio de nível superior usando 
    ![Adicionar um domínio do Azure AD](./media/active-directory-multiple-domains/add2.png)
 5. Clique em Instalar
 
-### Verifique o novo domínio de nível superior
-<a id="verify-the-new-top-level-domain" class="xliff"></a>
+### <a name="verify-the-new-top-level-domain"></a>Verifique o novo domínio de nível superior
 Usando o comando `Get-MsolDomainFederationSettings -DomainName <your domain>`do PowerShell, você pode exibir o IssuerUri atualizado.  A captura de tela abaixo mostra que as configurações de federação foram atualizadas no nosso domínio original http://bmcontoso.com/adfs/services/trust
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
@@ -137,14 +132,12 @@ E IssuerUri em nosso novo domínio foi definido como https://bmfabrikam.com/adfs
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-## Suporte para Subdomínios
-<a id="support-for-sub-domains" class="xliff"></a>
+## <a name="support-for-sub-domains"></a>Suporte para Subdomínios
 Quando você adiciona um subdomínio, devido à maneira usada pelo Azure AD para tratar domínios, ele herda as configurações do pai.  Isso significa que o IssuerUri precisa corresponder aos pais.
 
 Digamos, por exemplo, que tenho bmcontoso.com e adiciono corp.bmcontoso.com.  Isso significa que o IssuerUri para um usuário do corp.bmcontoso.com precisará ser **http://bmcontoso.com/adfs/services/trust**.  No entanto, a regra padrão implementada acima para o Azure AD irá gerar um token com um emissor como **http://corp.bmcontoso.com/adfs/services/trust**. , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
 
-### Como habilitar o suporte para subdomínios
-<a id="how-to-enable-support-for-sub-domains" class="xliff"></a>
+### <a name="how-to-enable-support-for-sub-domains"></a>Como habilitar o suporte para subdomínios
 Para solucionar esse problema, a relação de confiança de terceira parte confiável do AD FS do Microsoft Online precisa ser atualizada.  Para isso, você precisa configurar a regra de declaração personalizada para que ela ignore os subdomínios do sufixo UPN do usuário ao construir o valor de Issuer personalizado. 
 
 A declaração a seguir fará isso:

@@ -23,8 +23,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/03/2017
 
 ---
-# Perguntas frequentes sobre gerenciamento de senhas
-<a id="password-management-frequently-asked-questions" class="xliff"></a>
+# <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
 Veja abaixo algumas perguntas frequentes sobre tudo relativo à redefinição de senhas.
 
@@ -38,8 +37,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [**Perguntas sobre relatórios de gerenciamento de senha**](#password-management-reports)
 * [**Perguntas sobre o write-back de senha**](#password-writeback)
 
-## Registro de redefinição de senha
-<a id="password-reset-registration" class="xliff"></a>
+## <a name="password-reset-registration"></a>Registro de redefinição de senha
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
   > **R:** Sim, desde que a redefinição de senha esteja habilitada e eles sejam licenciados, eles podem ir para o portal de Registro de Redefinição de Senha em http://aka.ms/ssprsetup para registrar as informações de autenticação. Os usuários também podem se registrar se conectando ao painel de acesso em http://myapps.microsoft.com, clicando na guia perfil e clicando na opção Registrar-se para a redefinição de senha.
@@ -84,8 +82,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** Um usuário é considerado registrado para o SSPR quando ele registrou, pelo menos, o **Número de métodos obrigatórios para a redefinição** que você definiu no [portal do Azure](https://portal.azure.com).
   >
   >
-## Redefinição de senha
-<a id="password-reset" class="xliff"></a>
+## <a name="password-reset"></a>Redefinição de senha
 * **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
 
   > **R:** Emails, mensagens SMS e chamadas telefônicas devem ser recebidas em menos de um minuto, normalmente de 5 a 20 segundos.
@@ -177,8 +174,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## Alteração de senha
-<a id="password-change" class="xliff"></a>
+## <a name="password-change"></a>Alteração de senha
 * **P: onde os usuários devem ir para alterar suas senhas?**
 
   > **R:** Os usuários podem alterar suas senhas em qualquer lugar em que veem seus ícones ou imagens de perfil (como no canto superior direito das experiências do [Office 365](https://portal.office.com) ou do [Painel de Acesso](https://myapps.microsoft.com)). Os usuários podem alterar suas senhas na [página de perfil do Painel de Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também poderão ser solicitados a alterar suas senhas automaticamente na tela de conexão do Azure AD se elas expirarem. Por fim, os usuários podem navegar até o [Portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem alterar suas senhas.
@@ -190,8 +186,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## Relatórios de gerenciamento de senha
-<a id="password-management-reports" class="xliff"></a>
+## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
 * **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
 
   > **R:** os dados devem ser exibidos nos relatórios de gerenciamento de senha entre 5 e 10 minutos. Em algumas instâncias, pode levar até uma hora para que sejam exibidos.
@@ -223,8 +218,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## Write-back de senha
-<a id="password-writeback" class="xliff"></a>
+## <a name="password-writeback"></a>Write-back de senha
 * **P: como funciona os bastidores do write-back de senha?**
 
   > **R:** Consulte [Como funciona o write-back de senha](active-directory-passwords-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
@@ -261,8 +255,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
 

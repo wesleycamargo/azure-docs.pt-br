@@ -22,16 +22,14 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-<a id="data-factory-scheduling-and-execution" class="xliff"></a>
-# Agendamento e execução com o Data Factory
+# <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os seguintes artigos:
 
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
 * [Conjunto de dados](data-factory-create-datasets.md) 
 
-<a id="start-and-end-times-of-pipeline" class="xliff"></a>
-## Horas de início e término do pipeline
+## <a name="start-and-end-times-of-pipeline"></a>Horas de início e término do pipeline
 Um pipeline está ativo somente entre suas horas de **início** e **término**. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
 
 ```json
@@ -43,8 +41,7 @@ Um pipeline está ativo somente entre suas horas de **início** e **término**. 
 Para obter mais informações sobre essas propriedades, consulte o artigo [Criar pipelines](data-factory-create-pipelines.md). 
 
 
-<a id="specify-schedule-for-an-activity" class="xliff"></a>
-## Especificar o agendamento de uma atividade
+## <a name="specify-schedule-for-an-activity"></a>Especificar o agendamento de uma atividade
 Não é o pipeline que é executado. São as atividades no pipeline que são executadas no contexto geral do pipeline. É possível especificar um agendamento recorrente para uma atividade usando a seção **agendador** do JSON da atividade. Por exemplo, você pode agendar uma atividade para ser executada a cada hora, da seguinte maneira:  
 
 ```json
@@ -60,8 +57,7 @@ Conforme mostrado no diagrama a seguir, especificar um agendamento para uma ativ
 
 A propriedade **agendador** de uma atividade é opcional. Se você especificar essa propriedade, ela deverá corresponder à cadência especificada na definição do conjunto de dados de saída da atividade. Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Portanto, é necessário criar um conjunto de dados de saída mesmo que a atividade não produza nenhuma saída. 
 
-<a id="specify-schedule-for-a-dataset" class="xliff"></a>
-## Especificar o agendamento de um conjunto de dados
+## <a name="specify-schedule-for-a-dataset"></a>Especificar o agendamento de um conjunto de dados
 Uma atividade em um pipeline do Data Factory pode usar zero ou mais **conjuntos de dados** de entrada e gerar um ou mais conjuntos de dados de saída. Para uma atividade, você pode especificar a cadência na qual os dados de entrada estão disponíveis ou os dados de saída são gerados usando a seção **disponibilidade** nas definições do conjunto de dados. 
 
 **Frequência** na seção **disponibilidade** especifica a unidade de tempo. Os valores permitidos para a frequência são: Minuto, Hora, Dia, Semana e Mês. A propriedade **intervalo** na seção de disponibilidade especifica um multiplicador para a frequência. Por exemplo: se a frequência for definida como Dia e o intervalo for definido como 1 para um conjunto de dados de saída, os dados de saída serão gerados diariamente. Caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15. 
@@ -181,12 +177,10 @@ Você pode usar essas variáveis para finalidades diferentes em sua atividade JS
 
 No exemplo anterior, o agendamento especificado para conjuntos de dados de entrada e saída é o mesmo (por hora). Se o conjunto de dados de entrada da atividade estiver disponível em uma frequência diferente, digamos, a cada 15 minutos, a atividade que produz esse conjunto de dados de saída ainda será executada uma vez por hora, pois o conjunto de dados de saída é o que conduz o agendamento da atividade. Para obter mais informações, consulte [Modelar conjuntos de dados com frequências diferentes](#model-datasets-with-different-frequencies).
 
-<a id="dataset-availability-and-policies" class="xliff"></a>
-## Políticas e disponibilidade do conjunto de dados
+## <a name="dataset-availability-and-policies"></a>Políticas e disponibilidade do conjunto de dados
 Você já viu o uso da frequência e das propriedades de intervalo na seção de disponibilidade da definição do conjunto de dados. Há algumas outras propriedades que afetam o agendamento e a execução de uma atividade. 
 
-<a id="dataset-availability" class="xliff"></a>
-### Disponibilidade do conjunto de dados 
+### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
 A tabela a seguir descreve as propriedades que você pode usar na seção de **availability**:
 
 | Propriedade | Descrição | Obrigatório | Padrão |
@@ -197,8 +191,7 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de **a
 | anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
 | deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
 
-<a id="offset-example" class="xliff"></a>
-### exemplo de deslocamento
+### <a name="offset-example"></a>exemplo de deslocamento
 Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em hora UTC de 12: 00 (meia-noite). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no trecho a seguir: 
 
 ```json
@@ -209,8 +202,7 @@ Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em h
     "offset": "06:00:00"
 }
 ```
-<a id="anchordatetime-example" class="xliff"></a>
-### Exemplo de anchorDateTime
+### <a name="anchordatetime-example"></a>Exemplo de anchorDateTime
 No exemplo a seguir, o conjunto de dados é gerado uma vez a cada 23 horas. Primeira fatia começa no momento especificado pelo anchorDateTime, que é definido como `2017-04-19T08:00:00` (hora UTC).
 
 ```json
@@ -222,8 +214,7 @@ No exemplo a seguir, o conjunto de dados é gerado uma vez a cada 23 horas. Prim
 }
 ```
 
-<a id="offsetstyle-example" class="xliff"></a>
-### Exemplo de deslocamento/estilo
+### <a name="offsetstyle-example"></a>Exemplo de deslocamento/estilo
 O conjunto de dados a seguir é um conjunto de dados mensal e é produzido no dia 3 de cada mês, às 8:00 h (`3.08:00:00`):
 
 ```json
@@ -235,8 +226,7 @@ O conjunto de dados a seguir é um conjunto de dados mensal e é produzido no di
 }
 ```
 
-<a id="dataset-policy" class="xliff"></a>
-### Política do conjunto de dados
+### <a name="dataset-policy"></a>Política do conjunto de dados
 Um conjunto de dados pode ter uma política de validação definida que especifica como os dados gerados pela execução de uma fatia podem ser validados antes de estarem prontos para consumo. Nesses casos, quando a execução da fatia tiver terminado, o status da fatia de saída será alterado para **Aguardando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**. Se uma fatia de dados foi produzida mas não passou na validação, as execuções de atividade para fatias downstream que dependem dessa fatia não são processadas. [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) .
 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender. A seguinte tabela descreve as propriedades que você pode usar na seção **política**:
@@ -246,8 +236,7 @@ A seção **política** na definição do conjunto de dados define os critérios
 | minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |blob do Azure |Não |ND |
 | minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
 
-<a id="examples" class="xliff"></a>
-#### Exemplos
+#### <a name="examples"></a>Exemplos
 **minimumSizeMB:**
 
 ```json
@@ -275,8 +264,7 @@ A seção **política** na definição do conjunto de dados define os critérios
 
 Para obter mais informações sobre essas propriedades e exemplos, consulte o artigo [Criar conjuntos de dados](data-factory-create-datasets.md). 
 
-<a id="activity-policies" class="xliff"></a>
-## Políticas de atividades
+## <a name="activity-policies"></a>Políticas de atividades
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
 | Propriedade | Valores permitidos | Valor Padrão | Descrição |
@@ -291,14 +279,12 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 
 Para obter mais informações, consulte o artigo [Pipelines](data-factory-create-pipelines.md). 
 
-<a id="parallel-processing-of-data-slices" class="xliff"></a>
-## Processamento paralelo de fatias de dados
+## <a name="parallel-processing-of-data-slices"></a>Processamento paralelo de fatias de dados
 Você pode definir a data de início do pipeline no passado. Quando você faz isso, o Data Factory calcula automaticamente (faz preenchimento de fundo) todas as fatias de dados no passado e começa a processá-las. Por exemplo: se você criar um pipeline com a data de início 01/04/2017 e a data atual for 10/04/2017. Se a cadência do conjunto de dados de saída for diária, o Data Factory começará a processar todas as fatias de 01/04/2017 a 09/04/2017 imediatamente porque a data de início está no passado. A fatia de 10/04/2017 ainda não será processada porque o valor da propriedade de estilo na seção de disponibilidade é EndOfInterval por padrão. A fatia mais antiga é processada primeiro, pois o valor padrão de executionPriorityOrder é OldestFirst. Para obter uma descrição da propriedade de estilo, consulte a seção [disponibilidade do conjunto de dados](#dataset-availability). Para obter uma descrição da seção executionPriorityOrder, consulte a seção [políticas de atividades](#activity-policies). 
 
 Você pode configurar as fatias de dados com preenchimento de fundo para serem processadas em paralelo definindo a propriedade **simultaneidade** na seção **política** do JSON da atividade. Essa propriedade determina o número de execuções de atividade paralela que podem ocorrer em fatias diferentes. O valor padrão da propriedade de simultaneidade é 1. Portanto, uma única fatia é processada por vez, por padrão. O valor máximo é 10. Quando um pipeline precisa passar por um grande conjunto de dados disponíveis, ter um valor de simultaneidade maior acelera o processamento dos dados. 
 
-<a id="rerun-a-failed-data-slice" class="xliff"></a>
-## Executar novamente uma fatia de dados com falha
+## <a name="rerun-a-failed-data-slice"></a>Executar novamente uma fatia de dados com falha
 Quando ocorre um erro durante o processamento de uma fatia de dados, você pode descobrir por que o processamento de uma fatia falhou usando folhas do portal do Azure ou o Aplicativo Monitorar e Gerenciar. Confira [Monitorar e gerenciar pipelines usando folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) ou [aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Considere o exemplo a seguir, que mostra duas atividades. Activity1 e Activity2. A Activity1 consome uma fatia do Dataset1 e produz uma fatia do Dataset2, que é consumida como entrada pela Activity2 para gerar uma fatia do Conjunto de Dados Final.
@@ -313,8 +299,7 @@ Após você executar novamente a fatia de 9-10h para o **Dataset2**, o Data Fact
 
 ![Executar novamente uma fatia com falha](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-<a id="multiple-activities-in-a-pipeline" class="xliff"></a>
-## Várias atividades em um pipeline
+## <a name="multiple-activities-in-a-pipeline"></a>Várias atividades em um pipeline
 Você pode ter mais de uma atividade em um pipeline. Caso você tenha várias atividades em um pipeline e a saída de uma atividade não seja uma entrada de outra atividade, as atividades poderão ser executadas em paralelo se as fatias de dados de entrada das atividades estiverem prontas.
 
 É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. As atividades podem estar no mesmo pipeline ou em pipelines diferentes. A segunda atividade é executada apenas quando a primeira é concluída com êxito.
@@ -336,12 +321,10 @@ Conforme mencionado anteriormente, as atividades poderiam estar em pipelines dif
 
 Consulte a seção [copiar sequencialmente](#copy-sequentially) no apêndice para obter um exemplo.
 
-<a id="model-datasets-with-different-frequencies" class="xliff"></a>
-## Modelar conjuntos de dados com frequências diferentes
+## <a name="model-datasets-with-different-frequencies"></a>Modelar conjuntos de dados com frequências diferentes
 Nos exemplos, as frequências de conjuntos de dados de entrada e saída e a janela de agendamento de atividade foram iguais. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente de frequências de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
 
-<a id="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour" class="xliff"></a>
-### Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
 Considere um cenário em que temos dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de Blobs do Azure. Você deseja produzir um relatório diário de agregação com estatísticas, como média, máximo e mínimo para o dia com a [Atividade hive do Data Factory](data-factory-hive-activity.md).
 
 Veja como você pode modelar esse cenário com o Data Factory:
@@ -461,8 +444,7 @@ O diagrama a seguir mostra o cenário de um ponto de vista de dependência de da
 
 A fatia de saída para cada dia depende de 24 fatias horárias do conjunto de dados de entrada. O Data Factory calcula essas dependências automaticamente descobrindo as fatias de dados de entrada que equivalem ao mesmo período de tempo utilizado para a produção da fatia de saída. Se qualquer uma das 24 fatias de entrada não estiver disponível, o Data Factory aguardará até que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
 
-<a id="sample-2-specify-dependency-with-expressions-and-data-factory-functions" class="xliff"></a>
-### Exemplo 2: especificar dependência com expressões e funções do Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
 Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você queira fazer uma associação entre as duas entradas e produzir uma saída diariamente.
 
 A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
@@ -616,11 +598,9 @@ A atividade de hive usa as duas entradas e produz uma fatia de saída todos os d
 
 Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis às quais o Azure Data Factory dá suporte.
 
-<a id="appendix" class="xliff"></a>
-## Apêndice
+## <a name="appendix"></a>Apêndice
 
-<a id="example-copy-sequentially" class="xliff"></a>
-### Exemplo: copiar sequencialmente
+### <a name="example-copy-sequentially"></a>Exemplo: copiar sequencialmente
 É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Por exemplo, você pode ter duas atividades de cópia em um pipeline (CopyActivity1 e CopyActivity2) com os seguintes conjuntos de dados de saída dos dados de entrada:   
 
 CopyActivity1

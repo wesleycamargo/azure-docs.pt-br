@@ -22,9 +22,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
 ---
-<a id="how-to-use-ssh-keys-with-windows-on-azure" class="xliff"></a>
-
-# Como usar chaves SSH com o Windows no Azure
+# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 > [!div class="op_single_selector"]
 > * [Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,9 +31,7 @@ ms.lasthandoff: 04/27/2017
 
 Quando você se conecta a VMs (máquinas virtuais) Linux no Azure, é preciso usar [criptografia de chave pública](https://wikipedia.org/wiki/Public-key_cryptography) para fornecer uma maneira mais segura de fazer logon na VM Linux. Esse processo envolve uma troca de chaves públicas e privadas usando o comando SSH (secure shell) para autenticar a si mesmo em vez de um nome de usuário e uma senha. As senhas são vulneráveis a ataques de força bruta, especialmente em VMs voltadas para a Internet, como os servidores Web. Este artigo oferece uma visão geral das chaves SSH e explica como gerar as chaves apropriadas em um computador Windows.
 
-<a id="overview-of-ssh-and-keys" class="xliff"></a>
-
-## Visão geral do SSH e das chaves
+## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e das chaves
 Você pode fazer logon com segurança na VM Linux usando chaves públicas e privadas:
 
 * A **chave pública** é colocada na VM Linux ou em qualquer outro serviço que você queira usar com criptografia de chave pública.
@@ -47,9 +43,7 @@ O SSH é um protocolo de conexão criptografada que permite logons seguros por c
 
 Se não quiser usar chaves SSH, você ainda pode fazer logon em suas VMs Linux usando uma senha. Se a VM não for exposta à Internet, o uso de senhas pode ser suficiente. No entanto, é preciso gerenciar as senhas para cada VM Linux, bem como manter políticas e práticas íntegras de senha, como comprimento mínimo e atualização regular. O uso de chaves SSH reduz a complexidade do gerenciamento de credenciais individuais em várias VMs.
 
-<a id="windows-packages-and-ssh-clients" class="xliff"></a>
-
-## Pacotes do Windows e clientes SSH
+## <a name="windows-packages-and-ssh-clients"></a>Pacotes do Windows e clientes SSH
 Você se conecta às VMs Linux e as gerencia no Azure usando um **cliente SSH**. Os computadores Windows geralmente não têm um cliente SSH instalado. A Atualização de Aniversário do Windows 10 adicionou o Bash for Windows, e a Atualização do Windows 10 para Criadores fornece atualizações adicionais. Esse Subsistema do Windows para Linux permite executar e acessar utilitários como um cliente SSH nativamente dentro de um shell do Bash. Você pode seguir qualquer um dos documentos do Linux, como [Gerar pares de chaves SSH para Linux](mac-create-ssh-keys.md). O Bash para Windows ainda está em desenvolvimento e é considerado uma versão beta. Para saber mais sobre o Bash para Windows, confira [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash no Ubuntu no Windows).
 
 Se quiser usar algo diferente do Bash for Windows, entre os clientes do Windows SSH que pode instalar estarão os seguintes pacotes:
@@ -60,9 +54,7 @@ Se quiser usar algo diferente do Bash for Windows, entre os clientes do Windows 
 * [Cygwin](https://cygwin.com/)
 
 
-<a id="which-key-files-do-you-need-to-create" class="xliff"></a>
-
-## Quais arquivos de chave você precisa criar?
+## <a name="which-key-files-do-you-need-to-create"></a>Quais arquivos de chave você precisa criar?
 O Azure requer chaves públicas e privadas de pelo menos 2048 bits em formato **ssh-rsa**. Se estiver gerenciando recursos do Azure usando o modelo de implantação Clássico, você também precisará gerar um PEM (arquivo `.pem`).
 
 Estes são os cenários de implantação e os tipos de arquivo que você usa em cada um deles:
@@ -72,9 +64,7 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 2. Um arquivo `.pem` é exigido para criar VMs que usam a implantação Clássica. Essas chaves têm suporte em implantações clássicas ao usar o [Portal do Azure](https://portal.azure.com) ou a [CLI do Azure](../../cli-install-nodejs.md).
    * Você só precisará criar esses certificados e chaves adicionais se estiver gerenciando recursos criados usando o modelo de implantação Clássico.
 
-<a id="install-git-for-windows" class="xliff"></a>
-
-## Instalar o Git for Windows
+## <a name="install-git-for-windows"></a>Instalar o Git for Windows
 A seção anterior lista vários pacotes que incluem a ferramenta `openssl` para Windows. Essa ferramenta é necessária para criar chaves públicas e privadas. Os exemplos a seguir detalham como instalar e usar o **Git para Windows**, embora você possa escolher qualquer pacote de sua preferência. O **Git para Windows** fornece acesso a alguns utilitários e ferramentas [OSS](https://en.wikipedia.org/wiki/Open-source_software) (software livre) adicionais que podem ser úteis enquanto trabalha com VMs Linux.
 
 1. Baixe e instale o **Git for Windows** do seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
@@ -83,9 +73,7 @@ A seção anterior lista vários pacotes que incluem a ferramenta `openssl` para
 
     ![Shell do Bash do Git para Windows](./media/ssh-from-windows/git-bash-window.png)
 
-<a id="create-a-private-key" class="xliff"></a>
-
-## Criar uma chave privada
+## <a name="create-a-private-key"></a>Criar uma chave privada
 1. Na janela **Git Bash**, use `openssl.exe` para criar uma chave privada. O seguinte exemplo cria uma chave chamada `myPrivateKey` e um certificado chamado `myCert.pem`:
 
     ```bash
@@ -134,9 +122,7 @@ A seção anterior lista vários pacotes que incluem a ferramenta `openssl` para
     openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
     ```
 
-<a id="create-a-private-key-for-putty" class="xliff"></a>
-
-## Criar uma chave privada para PuTTY
+## <a name="create-a-private-key-for-putty"></a>Criar uma chave privada para PuTTY
 O PuTTY é um cliente SSH comum do Windows. Você pode usar qualquer cliente SSH que quiser. Para usar o PuTTY, é preciso criar um tipo de chave adicional — uma PPK (chave privada PuTTY). Se não quiser usar PuTTY, pule esta seção.
 
 O exemplo a seguir cria essa chave privada adicional especialmente para uso de PuTTY:
@@ -180,9 +166,7 @@ O exemplo a seguir cria essa chave privada adicional especialmente para uso de P
     Se quiser inserir uma frase secreta, clique em **Não**, insira uma frase secreta na janela principal de PuTTYgen e clique novamente em **Salvar chave privada**. Caso contrário, clique em **Sim** para continuar sem fornecer a frase secreta opcional.
 9. Insira um nome e local para salvar o arquivo PPK.
 
-<a id="use-putty-to-ssh-to-a-linux-machine" class="xliff"></a>
-
-## Usar Putty para SSH em um computador Linux
+## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Usar Putty para SSH em um computador Linux
 Repetindo, PuTTY é um cliente de SSH comum do Windows. Você pode usar qualquer cliente SSH que quiser. As etapas a seguir detalham como usar a chave privada para autenticação com sua VM do Azure usando o SSH. As etapas são semelhantes em outros clientes de chave SSH em termos de precisar carregar a chave privada para autenticar a conexão SSH.
 
 1. Baixe e execute o putty do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
@@ -194,9 +178,7 @@ Repetindo, PuTTY é um cliente de SSH comum do Windows. Você pode usar qualquer
     ![Selecionar a Chave Privada PuTTY para autenticação](./media/ssh-from-windows/putty-auth-dialog.png)
 4. Clique em **Abrir** para se conectar a sua máquina virtual
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Você também pode gerar as chaves públicas e privadas [usando OS X e Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para saber mais sobre o Bash para Windows e os benefícios de ter ferramentas OSS prontamente disponíveis no seu computador Windows, confira [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash no Ubuntu no Windows).
