@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### Para adicionar uma política de backup do StorSimple
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Para adicionar uma política de backup do StorSimple
 
 1. Acesse seu dispositivo StorSimple e clique em **Política de backup**.
 
@@ -13,7 +12,7 @@
    
    1. **Selecionar dispositivo** é preenchido automaticamente com base no dispositivo selecionado.
    
-   2. Especifique um **Nome de política** de backup que contenha de três a 150 caracteres.
+   2. Especifique um **Nome de política** de backup que contenha de três a 150 caracteres. Depois que a política é criada, você não pode renomeá-la.
        
    3. Para atribuir volumes a essa política de backup, selecione **Adicionar volumes** e na lista tabular de volumes, clique nas caixas de seleção para atribuir um ou mais volumes a essa política de backup.
 
