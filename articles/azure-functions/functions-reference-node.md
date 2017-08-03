@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: chrande, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
@@ -198,7 +197,7 @@ O Functions permite a definição do nível de rastreamento de limite para grava
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"      
+        "consoleLevel": "verbose"     
     }
 }  
 ```
@@ -281,7 +280,7 @@ As etapas a seguir permitem que você inclua pacotes em seu aplicativo de funç�
 2. Clique em **Console de Depuração** > **CMD**.
 
 3. Acesse `D:\home\site\wwwroot`e arraste o arquivo package.json para a pasta **wwwroot** na metade superior da página.  
-    Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#fileupdate). 
 
 4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu**.  
     Essa ação baixa os pacotes indicados no arquivo package.json e reinicia o aplicativo de função.

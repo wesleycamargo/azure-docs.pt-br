@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema do Media Encoder Standard
@@ -64,11 +64,11 @@ Contém uma sequência dos elementos a seguir.
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Condição** |**xs:string** | Quando a entrada não possui vídeo, é possível forçar o codificador para inserir uma faixa de vídeo monocromático. Para fazer isso, utilize Condition="InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo apenas na taxa de bits mais baixa) ou Condition="InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) tópico.|
+| **Condição** |**xs:string** | Quando a entrada não possui vídeo, é possível forçar o codificador para inserir uma faixa de vídeo monocromático. Para fazer isso, utilize Condition="InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo apenas na taxa de bits mais baixa) ou Condition="InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída irá conter apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) tópico.
+Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída irá conter apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.
               
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9f6ea8296f1bf81813594b07c50f70dd8647f032
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -32,16 +32,16 @@ Você poderá observar o problema em que uma conexão VPN Ponto a Site nova ou e
 
 ### <a name="prerequisite-step"></a>Etapa de pré-requisito
 
-Verifique o tipo de gateway de rede virtual do Azure:
+Verifique o tipo de gateway de rede virtualdo  Azure:
 
 1. Vá para o [portal do Azure](https://portal.azure.com).
-2. Confira a página **Visão Geral** do gateway de rede virtual para obter as informações de tipo.
+2. Verifique a página **Visão Geral** do gateway de rede virtual para os tipos de informações.
     
-    ![A visão geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![Visão geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Etapa 1 Verificar se o dispositivo VPN local é validado
 
-1. Verifique se você está usando um [dispositivo VPN e uma versão do sistema operacional validados](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). Se o dispositivo VPN não for validado, talvez você precise contatar o fabricante do dispositivo para ver se há algum problema de compatibilidade.
+1. Verifique se você está usando um [dispositivo VPN e uma versão do sistema operacional validados](vpn-gateway-about-vpn-devices.md#devicetable). Se o dispositivo VPN não for validado, talvez você precise contatar o fabricante do dispositivo para ver se há algum problema de compatibilidade.
 2. Verifique se o dispositivo VPN está configurado corretamente. Para obter mais informações, consulte [Editando amostras de configuração de dispositivo](vpn-gateway-about-vpn-devices.md#editing).
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>Etapa 2 Verificar as configurações de Associação de Segurança (para gateways de rede virtual do Azure baseados em políticas)
@@ -74,6 +74,6 @@ O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiv
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Configurar a política IPsec/IKE para conexões VPN Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+- [Configure a política IPsec/IKE para conexões VPN Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
 

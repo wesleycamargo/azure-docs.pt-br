@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: a6c33f11dfcbb02689956269ce5a37408534b6cd
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
@@ -28,7 +28,6 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [bool](#bool)
 * [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
@@ -254,60 +253,7 @@ A saída do exemplo anterior com os valores padrão é:
 | toStringOutput | Cadeia de caracteres | um, dois, três |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
-<a id="bool" />
 
-## <a name="bool"></a>bool
-`bool(arg1)`
-
-Converte o parâmetro em um booliano.
-
-### <a name="parameters"></a>parâmetros
-
-| Parâmetro | Obrigatório | Tipo | Descrição |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
-
-### <a name="return-value"></a>Valor de retorno
-Um booliano do valor convertido.
-
-### <a name="examples"></a>Exemplos
-
-O exemplo a seguir mostra como usar um booliano com uma cadeia de caracteres ou um inteiro.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
-    }
-}
-```
-
-A saída do exemplo anterior com os valores padrão é:
-
-| Nome | Tipo | Valor |
-| ---- | ---- | ----- |
-| trueString | Bool | True  |
-| falseString | Bool | Falso |
-| trueInt | Bool | True  |
-| falseInt | Bool | Falso |
 
 <a id="concat" />
 

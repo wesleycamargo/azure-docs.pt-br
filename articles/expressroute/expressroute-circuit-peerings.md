@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos da Rota Expressa e domínios de roteamento
@@ -83,8 +83,7 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços da Rota Expressa](expressroute-locations.md).
 * Verifique se todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 * Configurar sua conexão da Rota Expressa.
-  * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
-  * [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
-  * [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
+  * [Criar e gerenciar circuitos de ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configurar o roteamento (emparelhamento) para circuitos ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 
 

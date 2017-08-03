@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/25/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3ed2ee8c996628caabefd60b5ecff7528402eb52
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,6 +33,7 @@ Os cenários a seguir têm suporte total durante a visualização:
 
 - Entradas de usuário em todos os aplicativos baseados em navegador da Web.
 - Entradas de usuário em aplicativos cliente Office 365 com suporte para [autenticação moderna](https://aka.ms/modernauthga).
+- Ingresso do Azure AD para dispositivos Windows 10.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
@@ -41,7 +42,6 @@ Os cenários a seguir _não_ têm suporte durante a versão prévia:
 - Entradas de usuário em aplicativos cliente Office e Exchange ActiveSync herdados (ou seja, aplicativos de email nativos em dispositivos móveis). As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna permite o suporte à autenticação de passagem, mas também ajuda a proteger suas identidades usando recursos de [acesso condicional](../active-directory-conditional-access.md) como a MFA (Autenticação Multifator).
 - Logons de usuário no aplicativo cliente Skype for Business.
 - Logons de usuário no PowerShell v1.0. É recomendável usar o PowerShell v2.0.
-- Ingresso do Azure AD para dispositivos Windows 10.
 
 >[!IMPORTANT]
 >Como alternativa para cenários sem suporte, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect. A sincronização de hash de senha age como um fallback _somente_ para os cenários anteriores (e _não_ como um fallback genérico para autenticação de passagem). Se você não precisar desses cenários, desligue a sincronização de hash de senha.

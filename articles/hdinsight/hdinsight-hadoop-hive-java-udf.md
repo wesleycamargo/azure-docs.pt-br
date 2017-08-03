@@ -1,6 +1,6 @@
 ---
-title: "Usar um UDF (função definida pelo usuário) do Java com o Hive no HDInsight | Microsoft Docs"
-description: "Saiba como criar e usar um UDF (função definida pelo usuário) do Java do Hive no HDInsight."
+title: "UDF (função definida pelo usuário) do Java com o Hive no HDInsight – Azure | Microsoft Docs"
+description: "Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -8,33 +8,32 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
 
-Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive.
+Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. O UDF Java neste exemplo converte uma tabela de cadeias de caracteres de texto em caracteres minúsculos.
 
 ## <a name="requirements"></a>Requisitos
 
-* Um cluster HDInsight (Windows ou Linux)
+* Um cluster HDInsight 
 
     > [!IMPORTANT]
-    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-    A maioria das etapas neste documento funcionam em ambos os tipos de cluster. No entanto, as etapas usadas para carregar o UDF compilado ao cluster e executá-lo são específicas para clusters baseados em Linux. São fornecidos links para informações que podem ser usados com clusters baseados em Windows.
+    A maioria das etapas neste documento funciona tanto em clusters baseados em Windows quanto nos baseados em Linux. No entanto, as etapas usadas para carregar o UDF compilado ao cluster e executá-lo são específicas para clusters baseados em Linux. São fornecidos links para informações que podem ser usados com clusters baseados em Windows.
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 ou posterior (ou um equivalente, como OpenJDK)
 
@@ -43,9 +42,9 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 * Um editor de texto ou Java IDE
 
     > [!IMPORTANT]
-    > Se estiver usando um servidor HDInsight baseado em Linux, mas criando os arquivos de Python em um cliente Windows, você deverá usar um editor que usa LF como uma terminação de linha. Se você não tem certeza se o seu editor usa LF ou CRLF, veja a seção de [Solução de problemas](#troubleshooting) para ver as etapas para remover o caractere CR usando utilitários no cluster HDInsight.
+    > Se você criar os arquivos de Python em um cliente Windows, você deverá usar um editor que usa LF como uma terminação de linha. Se você não tem certeza se o seu editor usa LF ou CRLF, veja a seção de [Solução de problemas](#troubleshooting) para ver as etapas para remover o caractere CR.
 
-## <a name="create-an-example-udf"></a>Criar um exemplo de UDF
+## <a name="create-an-example-java-udf"></a>Criar UDF Java de exemplo 
 
 1. Na linha de comando, use o seguinte para criar um novo projeto Maven:
 
@@ -60,7 +59,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 
 2. Quando o projeto tiver sido criado, exclua o diretório **exampleudf/src/teste** que foi criado como parte do projeto.
 
-3. Abra o **exampleudf/pom.xml** e substitua a entrada `<dependencies>` existente pelo seguinte:
+3. Abra o **exampleudf/pom.xml** e substitua a entrada `<dependencies>` existente pelo seguinte XML:
 
     ```xml
     <dependencies>
@@ -81,7 +80,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 
     Essas entradas especificam a versão do Hadoop e do Hive incluídas com o HDInsight 3.5. Você pode encontrar informações sobre as versões do Hadoop e do Hive fornecidas com o HDInsight no documento [Controle de versão de componente do HDInsight](hdinsight-component-versioning.md) .
 
-    Adicione uma seção `<build>` antes da linha `</project>` no final do arquivo. Esta seção deve conter o seguinte:
+    Adicione uma seção `<build>` antes da linha `</project>` no final do arquivo. Esta seção deve conter o XML a seguir:
 
     ```xml
     <build>
@@ -178,7 +177,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
     mvn compile package
     ```
 
-    Isso compila e empacota o UDF em **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+    Este comando cria e empacota o UDF no arquivo `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
 2. Use o comando `scp` para copiar o arquivo para o cluster do HDInsight.
 
@@ -186,7 +185,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Substitua **myuser** pela conta de usuário SSH para o cluster. Substitua **mycluster** pelo nome do cluster. Se você tiver usado uma senha para proteger a conta SSH, você precisará digitá-la. Se você tiver usado um certificado, talvez precise usar o parâmetro `-i` para especificar o arquivo da chave privada.
+    Substitua `myuser` pela conta de usuário SSH para o cluster. Substitua `mycluster` pelo nome do cluster. Se você tiver usado uma senha para proteger a conta SSH, você precisará digitá-la. Se você tiver usado um certificado, talvez precise usar o parâmetro `-i` para especificar o arquivo da chave privada.
 
 3. Conecte-se ao cluster usando o SSH.
 
@@ -215,12 +214,12 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 2. Quando você chegar ao prompt `jdbc:hive2://localhost:10001/>` , digite o seguinte para adicionar o UDF no Hive e expô-lo como uma função.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > Este exemplo assume que o Armazenamento do Azure é o armazenamento padrão do cluster. Se o cluster usar o Data Lake Store em vez disso, altere o valor `wasbs:///` para `adl:///`.
+    > Este exemplo assume que o Armazenamento do Azure é o armazenamento padrão do cluster. Se o cluster usar o Data Lake Store em vez disso, altere o valor `wasb:///` para `adl:///`.
 
 3. Use o UDF para converter valores recuperados de uma tabela em cadeias de caracteres de letras minúsculas.
 
@@ -228,7 +227,7 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Essa consulta seleciona a plataforma do dispositivo (Android, Windows, iOS etc.) na tabela, converte a cadeia de caracteres em letras minúsculas e as exibe. A saída é semelhante ao exemplo a seguir.
+    Essa consulta seleciona a plataforma do dispositivo (Android, Windows, iOS etc.) na tabela, converte a cadeia de caracteres em letras minúsculas e as exibe. A saída é semelhante ao texto a seguir:
 
         +----------+--+
         |   _c0    |

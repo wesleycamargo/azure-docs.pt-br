@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,13 +33,13 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 |Recurso|Media Encoder Standard|Fluxo de trabalho do Media Encoder Premium|
 |---|---|---|
 |Aplicar a lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, codificar como áudio 5.1)|Não|Sim|
-|Legendagem oculta|Não|[Sim](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|Legendagem oculta|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com Dialogue Intelligence™|Não|Sim|
 |Desentrelaçamento, telecine inverso|Basic|Qualidade de difusão|
 |Detectar e remover bordas pretas <br/>(formatos pillarbox e letterbox)|Não|Sim|
-|Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
-|Distorção/filtragem e costura de vídeos|[Sim](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Sim|
-|Sobreposições de áudio ou vídeo|[Sim](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
+|Distorção/filtragem e costura de vídeos|[Sim](media-services-advanced-encoding-with-mes.md#trim_video)|Sim|
+|Sobreposições de áudio ou vídeo|[Sim](media-services-advanced-encoding-with-mes.md#overlay)|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Sobreposições de elementos gráficos|De fontes de imagem|De fontes de imagem e texto|
 |Várias faixas de idioma de áudio|Limitado|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
