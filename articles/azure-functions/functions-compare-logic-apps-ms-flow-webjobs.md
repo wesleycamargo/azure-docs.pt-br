@@ -1,4 +1,4 @@
----
+﻿---
 title: "Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs | Microsoft Docs"
 description: "Compare e contraste os serviços de integração na nuvem da Microsoft e decida quais deles você deve usar."
 services: functions,app-service\logic
@@ -36,7 +36,7 @@ Todos esses serviços são úteis para "unir" sistemas diferentes. Todos eles de
 <a name="flow"></a>
 
 ## <a name="flow-vs-logic-apps"></a>Flow vs. Aplicativos Lógicos
-Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure juntos porque são ambos integrações de *configuration-first*, o que facilita a criação de processos e fluxos de trabalho e a integração com diversos aplicativos SaaS e corporativos. 
+Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure porque são ambos integrações de *configuration-first* , o que facilita a criação de processos e fluxos de trabalho e se integram a diversos aplicativos SaaS e corporativos. 
 
 * O Flow é criado em cima de Aplicativos Lógicos
 * Eles têm o mesmo designer de fluxo de trabalho
