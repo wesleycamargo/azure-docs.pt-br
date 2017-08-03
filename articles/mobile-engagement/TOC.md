@@ -130,6 +130,7 @@
 ## [Exemplo de API .NET](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Preços](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Aplicativos de demonstração de amostra](mobile-engagement-demo-apps.md)
 ## [Contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [Vídeos e atualizações](https://azure.microsoft.com/documentation/services/mobile-engagement/)

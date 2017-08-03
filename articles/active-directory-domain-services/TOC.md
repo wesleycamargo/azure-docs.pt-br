@@ -47,6 +47,9 @@
 ### [Habilitar a experiência de versão prévia do portal do Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolver erros de locatário incompatíveis](active-directory-ds-mismatched-tenant-error.md)
 
+# Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Relacionados
 ## [Active Directory do Azure](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fale conosco](active-directory-ds-contact-us.md)
 ## [Preços](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-ds)

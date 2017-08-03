@@ -30,6 +30,7 @@
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=containers)
 ## [Preços](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidade de região](https://azure.microsoft.com/regions/services/)
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)
