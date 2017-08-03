@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
-#### Clássico
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupos de segurança de rede
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [DMZ com firewall, UDR e NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Aplicativo de exemplo](virtual-networks-sample-app.md)
 
+### Clássico
+#### [Rede virtual](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## Configurar
 ### Máquinas virtuais
 #### [Adicionar ou remover interfaces de rede](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Não é possível excluir as redes virtuais](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Gerenciador de Recursos)](/powershell/module/azurerm.network)
 ## [PowerShell (Clássico)](/powershell/module/azure/)
 ## [CLI do Azure](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 ## [Fórum de rede](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Preços](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

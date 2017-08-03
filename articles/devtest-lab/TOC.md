@@ -71,3 +71,4 @@
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
