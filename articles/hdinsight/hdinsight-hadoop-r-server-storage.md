@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 017a66ae1ade5e0f64fc799b7bb6aa97b67791a8
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Soluções de Armazenamento do Azure para R Server no HDInsight
@@ -77,14 +76,14 @@ Se necessário, você pode acessar várias contas de armazenamento ou contêiner
         #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Todas as referências de diretório e arquivo apontam para a conta de armazenamento wasbs://container1@storage1.blob.core.windows.net. Essa é a **conta de armazenamento padrão** associada ao cluster do HDInsight.
+Todas as referências de diretório e arquivo apontam para a conta de armazenamento wasb://container1@storage1.blob.core.windows.net. Essa é a **conta de armazenamento padrão** associada ao cluster do HDInsight.
 
 Agora, suponha que você queira processar um arquivo chamado mySpecial.csv, localizado no diretório /private de **container2** em **storage2**.
 
 No código R, aponte a referência de nó de nome para a conta de armazenamento **storage2** .
 
 
-    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
     #Location of the data:
@@ -102,14 +101,14 @@ No código R, aponte a referência de nó de nome para a conta de armazenamento 
     #Specify the input file to analyze in HDFS:
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Todas as referências de diretório e arquivo agora apontam para a conta de armazenamento wasbs://container2@storage2.blob.core.windows.net. Esse é o **Nome de Nó** que você especificou.
+Todas as referências de diretório e arquivo agora apontam para a conta de armazenamento wasb://container2@storage2.blob.core.windows.net. Esse é o **Nome de Nó** que você especificou.
 
 Você precisa configurar o diretório /user/RevoShare/<SSH username> no **storage2** da seguinte maneira:
 
 
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 
 
