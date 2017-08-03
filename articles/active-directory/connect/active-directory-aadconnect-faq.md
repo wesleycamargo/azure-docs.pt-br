@@ -20,11 +20,9 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/30/2017
 
 ---
-# Perguntas frequentes sobre o Azure Active Directory Connect
-<a id="frequently-asked-questions-for-azure-active-directory-connect" class="xliff"></a>
+# <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
-## Instalação geral
-<a id="general-installation" class="xliff"></a>
+## <a name="general-installation"></a>Instalação geral
 **P: a instalação funcionará se o Administrador Global do AD do Azure tem 2FA habilitado?**  
 Há suporte para isso nas compilações de fevereiro de 2016.
 
@@ -39,8 +37,7 @@ Sim. Depois de instalar o agente, você pode concluir o processo de registro usa
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-## Rede
-<a id="network" class="xliff"></a>
+## <a name="network"></a>Rede
 **P: Tenho um firewall, dispositivo de rede ou outra coisa que limita o tempo máximo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limiar de tempo limite no lado do cliente ao usar o Azure Connect AD?**  
 Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 5 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Isso também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
 
@@ -50,21 +47,18 @@ Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usand
 **P: Há suporte a nomes NetBios com pontos?**  
 Não, o Azure AD Connect não oferece suporte a florestas/domínios locais em que o nome NetBios contém um ponto "." no nome.
 
-## Federação
-<a id="federation" class="xliff"></a>
+## <a name="federation"></a>Federação
 **P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365?**  
 Use as diretrizes descritas no tópico [Renovar certificados](active-directory-aadconnect-o365-certs.md) para saber como renovar o certificado.
 
 **P: Defini a opção “Atualizar automaticamente terceira parte confiável” para a terceira parte confiável do O365. Preciso realizar alguma ação quando meu certificado de autenticação de tokens é substituído automaticamente?**  
 Use as diretrizes descritas no artigo [Renovar certificados](active-directory-aadconnect-o365-certs.md).
 
-## Ambiente
-<a id="environment" class="xliff"></a>
+## <a name="environment"></a>Ambiente
 **P: É possível renomear o servidor após a instalação do Azure AD Connect?**  
 Não. Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
 
-## Dados de identidade
-<a id="identity-data" class="xliff"></a>
+## <a name="identity-data"></a>Dados de identidade
 **P: O atributo UPN (userPrincipalName) no AD do Azure não coincide com o UPN local - por quê?**  
 Consulte estes artigos:
 
@@ -81,8 +75,7 @@ Não, não há suporte para esse recurso no momento.
 
 
 
-## Configuração personalizada
-<a id="custom-configuration" class="xliff"></a>
+## <a name="custom-configuration"></a>Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?**  
 Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
 
@@ -100,8 +93,7 @@ Não.
 
 
 
-## Solucionar problemas
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Solucionar problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

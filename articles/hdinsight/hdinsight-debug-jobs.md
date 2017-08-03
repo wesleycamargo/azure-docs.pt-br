@@ -1,5 +1,5 @@
 ---
-title: 'Depurar o Hadoop no HDInsight: exibir logs e interpretar mensagens de erro | Microsoft Docs'
+title: "Depurar o Hadoop no HDInsight: exibir logs e interpretar mensagens de erro – Azure | Microsoft Docs"
 description: "Saiba quais são as mensagens de erro que você pode receber ao administrar o HDInsight usando o PowerShell, e as etapas que podem ser executadas para recuperação."
 services: hdinsight
 tags: azure-portal
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
-ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
-ms.lasthandoff: 02/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 3031644e2975fd59edff13c7a9da1efa418e8abd
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---

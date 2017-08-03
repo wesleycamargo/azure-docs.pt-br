@@ -21,9 +21,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/29/2017
 
 ---
-<a id="move-data-from-a-web-table-source-using-azure-data-factory" class="xliff"></a>
-
-# Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
+# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para mover dados de uma tabela em uma página Web para um armazenamento de dados do coletor com suporte. Este artigo se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e a lista de armazenamentos de dados com suporte, como fontes/coletores.
 
 Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma tabela da Web para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para uma tabela da Web.
@@ -31,9 +29,7 @@ Atualmente, o data factory dá suporte apenas para a movimentação de dados de 
 > [!IMPORTANT]
 > No momento, esse conector da Web dá suporte apenas à extração do conteúdo da tabela de uma página HTML. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](data-factory-http-connector.md) em vez disso.
 
-<a id="getting-started" class="xliff"></a>
-
-## Introdução
+## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
@@ -49,9 +45,7 @@ Ao usar o assistente, as definições de JSON para essas entidades do Data Facto
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a uma tabela da Web:
 
-<a id="linked-service-properties" class="xliff"></a>
-
-## Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado à Web.
 
 | Propriedade | Descrição | Obrigatório |
@@ -60,9 +54,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | Url |URL para a origem da Web |Sim |
 | authenticationType |Anônima. |Sim |
 
-<a id="using-anonymous-authentication" class="xliff"></a>
-
-### Usando a autenticação anônima
+### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
 ```json
 {
@@ -79,9 +71,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 }
 ```
 
-<a id="dataset-properties" class="xliff"></a>
-
-## Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **WebTable** tem as propriedades a seguir
@@ -113,9 +103,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 }
 ```
 
-<a id="copy-activity-properties" class="xliff"></a>
-
-## Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
 Por outro lado, as propriedades disponíveis na seção typeProperties da atividade variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
@@ -123,9 +111,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 Atualmente, quando a origem na atividade de cópia é do tipo **WebSource**, não há suporte para propriedades adicionais.
 
 
-<a id="json-example-copy-data-from-web-table-to-azure-blob" class="xliff"></a>
-
-## Exemplo de JSON: copiar dados de uma tabela da Web para o Blob do Azure
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Exemplo de JSON: copiar dados de uma tabela da Web para o Blob do Azure
 O exemplo a seguir mostra:
 
 1. Um serviço vinculado do tipo [Web](#linked-service-properties).
@@ -274,9 +260,7 @@ Confira [Propriedades do tipo WebSource](#copy-activity-type-properties) para ob
 }
 ```
 
-<a id="get-index-of-a-table-in-an-html-page" class="xliff"></a>
-
-## Obter índice de uma tabela em uma página HTML
+## <a name="get-index-of-a-table-in-an-html-page"></a>Obter índice de uma tabela em uma página HTML
 1. Inicie o **Excel 2016** e alterne para a guia **Dados**.  
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 
@@ -304,8 +288,6 @@ Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](h
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
-<a id="performance-and-tuning" class="xliff"></a>
-
-## Desempenho e Ajuste
+## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 

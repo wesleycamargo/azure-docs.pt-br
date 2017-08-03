@@ -1,9 +1,9 @@
 ---
-title: "Ações e NotActions - Funções no RBAC do Azure | Microsoft Docs"
-description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
+title: "Ações e NotActions – controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs"
+description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função). As funções são adicionadas continuamente, portanto, verifique a atualização da documentação."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: curtand
 manager: femila
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/21/2017
-ms.author: kgremban
+ms.date: 06/28/2017
+ms.author: curtand
+ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7f1aa292e6c15e2702f939b9751fe13a27bc5b7f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o Controle de Acesso Baseado em Função do Azure
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
 
 ## <a name="roles-in-azure"></a>Funções no Azure
@@ -30,12 +31,12 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 
 A ação define o tipo das operações que você pode executar em um determinado tipo de recurso. Por exemplo:
 - **Gravar** permite que você execute operações PUT, POST, PATCH e DELETE.
-- **Ler** permite que você execute operações GET. 
+- **Ler** permite que você execute operações GET.
 
-Este artigo aborda apenas as diferentes funções que existem atualmente. Quando atribui uma função a um usuário, no entanto, você pode limitar mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um colaborador do site, mas apenas para um grupo de recursos. 
+Este artigo aborda apenas as diferentes funções que existem atualmente. Quando atribui uma função a um usuário, no entanto, você pode limitar mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um colaborador do site, mas apenas para um grupo de recursos.
 
 > [!NOTE]
-> As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Use o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para listar todas as funções atuais. Você pode se aprofundar em uma função específica usando `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para listar operações de provedores de recursos do Azure específicos. 
+> As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Use o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para listar todas as funções atuais. Você pode se aprofundar em uma função específica usando `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para listar operações de provedores de recursos do Azure específicos.
 
 
 | Nome da função | Descrição |
@@ -57,6 +58,8 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
 | [Colaborador de conta do Azure Cosmos DB](#documentdb-account-contributor) |Pode gerenciar contas do Azure Cosmos DB |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerenciar contas do Intelligent Systems |
+| Colaborador de aplicativo lógico | Pode gerenciar todos os aspectos de um aplicativo lógico, mas não pode criar um novo. |
+| Operador de aplicativo lógico |Pode iniciar e parar fluxos de trabalho definidos dentro de um aplicativo lógico. |
 | [Leitor de monitoramento](#monitoring-reader) |Pode ler todos os dados de monitoramento |
 | [Colaborador de monitoramento](#monitoring-contributor) |Pode ler dados de monitoramento e editar configurações de monitoramento |
 | [Colaborador de rede](#network-contributor) |Pode gerenciar todos os recursos de rede |
@@ -67,11 +70,15 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) |Pode gerenciar coleções de trabalhos do agendador |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) |Pode gerenciar serviços de pesquisa |
 | [Gerenciador de Segurança](#security-manager) |Pode gerenciar componentes de segurança, políticas de segurança e máquinas virtuais |
+| [Colaborador do Site Recovery](#site-recovery-contributor) | Pode gerenciar o Site Recovery no cofre dos Serviços de Recuperação |
+| [Operador do Site Recovery](#site-recovery-operator) | Pode gerenciar operações de failover e failback do Site Recovery no cofre dos Serviços de Recuperação |
+| [Leitor do Site Recovery](#site-recovery-reader) | Pode exibir todas as operações de gerenciamento do Site Recovery  |
 | [Colaborador do banco de dados SQL](#sql-db-contributor) |Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança |
 | [Gerenciador de Segurança do SQL](#sql-security-manager) |Pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL |
 | [Colaborador do SQL Server](#sql-server-contributor) |Pode gerenciar bancos de dados e servidores SQL, mas não suas políticas relacionadas à segurança |
 | [Colaborador da conta de armazenamento clássica](#classic-storage-account-contributor) |Pode gerenciar contas de armazenamento clássicas |
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) |Pode gerenciar contas de armazenamento |
+| [Colaborador de solicitação de suporte](#support-request-contributor) | Pode criar e gerenciar solicitações de suporte |
 | [Administrador de Acesso do Usuário](#user-access-administrator) |Pode gerenciar o acesso do usuário aos recursos do Azure |
 | [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) |Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
 | [Colaborador de Máquina Virtual](#virtual-machine-contributor) |Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
@@ -184,7 +191,7 @@ Pode gerenciar todas as ações de gerenciamento de backup, exceto criar o cofre
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Criar e gerenciar itens submetidos a backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Criar e gerenciar contêineres que armazenam itens de backup |
 | Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerenciar certificados relacionados a backup em um cofre de Serviços de Recuperação |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
@@ -219,8 +226,8 @@ Pode gerenciar todas as ações de gerenciamento de backup, exceto a criação d
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Ler itens submetidos a backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Ler contêineres submetidos a backup que armazenam itens de backup |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre | 
-| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Gravar informações estendidas relacionadas ao cofre | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Gravar informações estendidas relacionadas ao cofre |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Ler resultados de operações executadas em itens registrados do cofre |
@@ -259,7 +266,7 @@ Pode monitorar o gerenciamento de backup em um cofre de Serviços de Recuperaç�
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registrados do cofre |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Ler o uso do cofre de Serviços de Recuperação |
 
-## <a name="billing-reader"></a>Leitor de cobrança
+### <a name="billing-reader"></a>Leitor de cobrança
 Pode exibir todas as informações de Cobranças
 
 | **Ações** |  |
@@ -516,6 +523,131 @@ Pode gerenciar componentes de segurança, políticas de segurança e máquinas v
 | Microsoft.Security/* |Criar e gerenciar políticas e componentes de segurança |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
+### <a name="site-recovery-contributor"></a>Colaborador do Site Recovery
+Pode gerenciar todas as ações de gerenciamento do Site Recovery, exceto criar o cofre de Serviços de Recuperação e atribuir direitos de acesso a outros usuários
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+| Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
+| Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
+| Microsoft.RecoveryServices/Vaults/certificates/write | Atualiza o certificado de credencial de cofre |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/* | Criar ou atualizar as configurações de alerta de replicação |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler eventos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/* | Criar e gerenciar malhas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/* | Criar e gerenciar políticas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Criar e gerenciar planos de recuperação |
+| Microsoft.RecoveryServices/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read | Ler informações de token do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/usages/read | Ler os detalhes de uso de um cofre de Serviços de Recuperação |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
+| Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="site-recovery-operator"></a>Operador do Site Recovery
+Pode fazer failover e failback, mas pode não executar outras ações de gerenciamento do Site Recovery nem atribuir acesso a outros usuários
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+| Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
+| Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Ler o status da operação e o resultado de uma operação enviada |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Ler contêineres registrados para um recurso |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler definições de alerta de replicação |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler eventos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificar a consistência das malhas |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler malhas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Reassociar o gateway de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar o certificado de malha de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler redes de malha de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Ler o mapeamento de rede de malha de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Ler contêineres de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Retornar a lista de todos os itens que podem ser protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Aplicar um ponto de recuperação específico |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Confirmar failover para um item que sofreu failover |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | Iniciar o failover planejado para um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Obter a lista de todos os itens protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Obter a lista de pontos de recuperação disponíveis |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Reparar a replicação para um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Começar a proteger novamente um item protegido|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Iniciar o failover de teste de um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Iniciar a limpeza de um failover de teste |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Iniciar o failover não planejado de um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Atualizar o Serviço de mobilidade |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler mapeamentos de contêiner de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Ler provedores de Serviços de Recuperação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Atualizar o provedor de Serviços de Recuperação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Ler classificações de armazenamento para as malhas replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler mapeamentos de classificação de armazenamento |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler informações do vCenter registradas |
+| Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler políticas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/action | Confirmar failover para failover do plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Iniciar o failover de um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler planos de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Começar a proteger novamente um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Iniciar o failover de teste de um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Iniciar a limpeza do failover de teste de um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Iniciar o failover não planejado de um plano de recuperação |
+| Microsoft.RecoveryServices/Vaults/storageConfig/read | Ler a configuração de armazenamento de um cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read | Ler informações de token do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/usages/read | Ler os detalhes de uso de um cofre de Serviços de Recuperação |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
+| Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
+| Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+### <a name="site-recovery-reader"></a>Leitor do Site Recovery
+Pode monitorar o status do Site Recovery no cofre de Serviços de Recuperação e gerar tíquetes de suporte
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Ler informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/read  | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Ler o status da operação e o resultado de uma operação enviada |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler contêineres registrados para um recurso |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler definições de alerta de replicação |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read  | Ler eventos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Ler malhas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Ler redes de malha de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Ler o mapeamento de rede de malha de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Ler contêineres de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Retornar a lista de todos os itens que podem ser protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Obter a lista de todos os itens protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Obter a lista de pontos de recuperação disponíveis |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Ler mapeamentos de contêiner de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read  | Ler provedores de Serviços de Recuperação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Ler classificações de armazenamento para as malhas replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Ler mapeamentos de classificação de armazenamento |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Ler informações do vCenter registradas |
+| Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Ler o status dos trabalhos de replicação |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Ler políticas de replicação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read  |  Ler planos de recuperação |
+| Microsoft.RecoveryServices/Vaults/storageConfig/read  |  Ler a configuração de armazenamento de um cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read  |  Ler informações de token do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Ler os detalhes de uso de um cofre de Serviços de Recuperação |
+| Microsoft.Support/*  |  Criar e gerenciar tíquetes de suporte |
+
 ### <a name="sql-db-contributor"></a>Colaborador do banco de dados SQL
 Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança
 
@@ -619,6 +751,15 @@ Pode gerenciar contas de armazenamento, mas não acessá-las.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/* |Criar e gerenciar contas de armazenamento |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="support-request-contributor"></a>Colaborador de solicitação de suporte
+Pode criar e gerenciar os tíquetes de suporte no escopo de assinatura
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read | Ler autorização |
+| Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Ler funções e atribuições de função |
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso do Usuário
 Pode gerenciar o acesso do usuário aos recursos do Azure

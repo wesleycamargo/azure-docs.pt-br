@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: db658319637f1a45616091e034a0fc4db44885d4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 
@@ -101,8 +101,8 @@ As entradas podem ser longas.  Exporte para CSV para uma análise mais detalhada
 
 Saiba mais sobre essa ferramentas de análise [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
-^[!NOTE]
-^A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê na sua instância do Application Insights e fornece uma exibição bem estruturada dos eventos userjourney.  Obtenha o código-fonte e o implante em sua própria solução.
+>[!NOTE]
+>A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê na sua instância do Application Insights e fornece uma exibição bem estruturada dos eventos userjourney.  Obtenha o código-fonte e o implante em sua própria solução.
 
 [Repositório Github para obter exemplos de política personalizada sem suporte e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 94ae2fa4600c007725ae2615554144d12306e833
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
@@ -59,7 +58,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium oferece suporte às VMs das séries DS, DSv2, GS e Fs. Você tem sete opções de tamanho de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls e Fs. Você tem sete opções de tamanho de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 

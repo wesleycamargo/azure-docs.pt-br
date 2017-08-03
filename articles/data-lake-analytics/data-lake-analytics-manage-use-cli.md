@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Gerenciar a Análise Azure Data Lake usando a CLI (interface de linha de comando) do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise Azure Data Lake usando o Azure. Para ver o tópico de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+Saiba como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando a CLI do Azure. Para ver os tópicos de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+
 
 **Pré-requisitos**
 
@@ -165,15 +167,6 @@ O catálogo do U-SQL é usado para estruturar dados e código para que eles poss
     azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 
 Os tipos incluem database, schema, assembly, external data source, table, table valued function ou table statistics.
-
-### <a name="create-catalog-secret"></a>Criar segredo do catálogo
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="modify-catalog-secret"></a>Modificar segredo do catálogo
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="delete-catalog-secret"></a>Excluir segredo do catálogo
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->

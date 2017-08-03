@@ -4,7 +4,7 @@ description: "Este documento o ajuda a usar a opção de inteligência contra am
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,9 +84,21 @@ O **mapa de inteligência contra ameaças** o ajudará a identificar os locais a
 > [!NOTE]
 > Você pode ver uma demonstração sobre como usar essa funcionalidade durante um processo de resposta a incidentes assistindo à apresentação [Mitigar as ameaças de segurança de datacenter com investigação guiada usando o Operations Management Suite](https://myignite.microsoft.com/videos/5000) entregue no Microsoft Ignite.
 > 
-> 
 
-## <a name="see-also"></a>Confira também
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>Respondendo a IP mal-intencionado distinto acessado
+Em alguns cenários, você pode observar um potencial IP mal-intencionado que foi acessado de um computador monitorado:
+
+![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Este e outros alertas na mesma categoria são gerados via Segurança do OMS, aproveitando a [Inteligência contra Ameaças da Microsoft](https://youtu.be/O4WtxgUrDc8). Os dados de Inteligência contra Ameaças são coletados pela Microsoft e também adquiridos dos principais provedores de inteligência contra ameaças. Esses dados são atualizados com frequência e adaptados para ameaças ágeis. Devido à sua natureza, ele deve ser combinado com outras fontes de informações de segurança durante a [investigação](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) de um alerta de segurança. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>Personalizar alertas recebidos via email
+
+Você pode personalizar quais usuários em sua organização serão notificados quando os alertas de segurança forem disparados pela Segurança do OMS. Essa opção está disponível em Visão geral / Configurações no painel do OMS:
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
+
+## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu a usar a opção **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para responder a alertas de segurança. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)

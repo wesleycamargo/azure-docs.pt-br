@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introdução à solução de Segurança e Auditoria do Operations Management Suite
@@ -73,6 +72,8 @@ Os cenários de investigação forense e de resposta a incidentes aproveitarão 
 ![Registros de segurança ao longo do tempo](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 Quando você clicar neste bloco, a folha **Pesquisa** será aberta, mostrando um resultado da consulta para **Eventos de Segurança** (Type=SecurityEvents) com dados baseados nos últimos sete dias, conforme mostrado abaixo:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Registros de segurança ao longo do tempo](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

@@ -20,9 +20,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="troubleshoot-azure-active-directory-application-development" class="xliff"></a>
-
-# Solucionar problemas de Desenvolvimento de Aplicativo no Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-application-development"></a>Solucionar problemas de Desenvolvimento de Aplicativo no Azure Active Directory
 Os links a seguir conduzirão a um mapa de conteúdo que irá ajudá-lo a resolver alguns dos problemas mais comuns enfrentados no desenvolvimento de aplicativo com o **Registro de Aplicativo** no Azure Active Directory.
 
 * [Problemas com a Configuração de Aplicativo e Registro](active-directory-application-dev-config-content-map.md)

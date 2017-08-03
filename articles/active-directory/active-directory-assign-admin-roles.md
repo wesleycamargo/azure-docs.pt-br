@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b29633d93484950d6657fc1d618fa0f1a2d5c01a
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -35,7 +35,9 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Administrador de Cobrança**: faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
 
-* **Administrador de Conformidade**: os usuários com essa função têm permissões de gerenciamento no Centro de Conformidade e Segurança do Office 365 e no Centro de Administração do Exchange. Mais informações em “[Sobre funções de administrador do Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”.
+* **Administrador de Conformidade**: os usuários com essa função têm permissões de gerenciamento no Centro de Segurança e Conformidade do Office 365 e no Centro de Administração do Exchange. Mais informações em “[Sobre funções de administrador do Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”.
+
+* **Administrador de acesso condicional**: os usuários com essa função têm a capacidade de gerenciar configurações de acesso condicional do Azure Active Directory.
 
 * **Administrador de Serviços do CRM**: os usuários com essa função têm permissões globais no Microsoft CRM Online quando o serviço está presente, além da capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -102,11 +104,15 @@ As seguintes funções de administrador estão disponíveis:
 | --- | --- |
 |<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p> |<p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p>|
 
+### <a name="conditional-access-administrator"></a>Administrador de acesso condicional
+| O que ele pode fazer | O que não pode fazer |
+| --- | --- |
+|<p>Exibir informações da empresa e do usuário</p><p>Gerenciar configurações de acesso condicional</p> |<p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p>|
+
 ### <a name="global-administrator"></a>Administrador global
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
-| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Redefinir senhas de usuário</p>
-<p>Redefinir senhas de outro administrador</p> <p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |N/D |
+|<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Redefinir senhas de usuário</p><p>Redefinir senhas de outro administrador</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |<p>N/D</p>|
 
 ### <a name="password-administrator"></a>Administrador de senha
 | O que ele pode fazer | O que não pode fazer |
@@ -156,6 +162,17 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Funções preteridas
+
+As seguintes funções não devem ser usadas. Elas foram preteridas e serão removidas do Azure AD no futuro.
+
+* Administrador de Licenças AdHoc
+* Criador de Usuário Verificado por Email
+* Ingresso de Dispositivo
+* Gerenciadores de Dispositivo
+* Usuários de Dispositivo
+* Ingresso no Dispositivo no Local de Trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)

@@ -16,10 +16,10 @@ ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/17/2017
 Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure a um cluster existente do HDInsight que usa o Linux como sistema operacional.
 
 > [!IMPORTANT]
-> As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar outras contas de armazenamento durante a criação do cluster, veja a seção __Usar armazenamento adicional__ do documento [Criar clusters HDInsight com base no Linux](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
+> As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -122,7 +122,7 @@ Para contornar esse problema, remova a entrada existente da conta de armazenamen
 
 2. Na lista de serviços à esquerda da página, selecione __HDFS__. Em seguida, selecione a guia __Configurações__ no centro da página.
 
-3. No campo __Filtrar...__, insira um valor de __fs.azure.account__. Isso retorna entradas para quaisquer outras contas de armazenamento que foram adicionadas ao cluster. Há dois tipos de entradas; __keyprovider__ e __key__. Ambas contêm o nome da conta de armazenamento como parte do nome da chave. 
+3. No campo __Filtrar...__, insira um valor de __fs.azure.account__. Isso retorna entradas para quaisquer outras contas de armazenamento que foram adicionadas ao cluster. Há dois tipos de entradas; __keyprovider__ e __key__. Ambas contêm o nome da conta de armazenamento como parte do nome da chave.
 
     Veja a seguir exemplos de entradas para uma conta de armazenamento chamada __mystorage__:
 
@@ -150,3 +150,4 @@ Se a conta de armazenamento estiver em uma região diferente do cluster do HDIns
 ## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu a adicionar outras contas de armazenamento a um cluster HDInsight existente. Para saber mais sobre as ações de script, confira [Personalizar clusters HDInsight com base em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
+

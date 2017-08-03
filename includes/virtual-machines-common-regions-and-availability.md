@@ -81,7 +81,7 @@ Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que 
 
 ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../articles/virtual-machines/linux/manage-availability.md) ou [VMs Windows](../articles/virtual-machines/linux/manage-availability.md).
+Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../articles/virtual-machines/linux/manage-availability.md) ou [VMs Windows](../articles/virtual-machines/windows/manage-availability.md).
 
 ### <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilham a mesma fonte de alimentação e o mesmo comutador de rede, de forma semelhante a um rack em um datacenter local. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de falha. Essa abordagem limita o impacto de possíveis falhas de hardware físico, interrupções de rede ou interrupções de energia.

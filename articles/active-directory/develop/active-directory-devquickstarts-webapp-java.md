@@ -22,9 +22,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/18/2017
 
 ---
-<a id="java-web-app-sign-in-and-sign-out-with-azure-ad" class="xliff"></a>
-
-# Entrada e saída do aplicativo Web com o Azure AD
+# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Entrada e saída do aplicativo Web com o Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 O Azure Active Directory (Azure AD) torna simples e direto terceirizar o gerenciamento de identidades de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Você pode conectar e desconectar os usuários de aplicativos Web Java usando a implementação da Microsoft da biblioteca de autenticação do Azure Active Directory para Java (ADAL4J) direcionada à comunidade.
@@ -35,18 +33,14 @@ Este artigo mostra como usar o ADAL4J para:
 * Exibir informações do usuário.
 * Desconectar os usuários dos aplicativos.
 
-<a id="before-you-get-started" class="xliff"></a>
-
-## Antes de começar
+## <a name="before-you-get-started"></a>Antes de começar
 
 * Baixe o [esqueleto do aplicativo](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou baixe o [exemplo concluído](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
 * Você também precisará de um locatário do Azure AD no qual registrar o aplicativo. Se você ainda não tiver um locatário do Azure AD, [saiba como obter um](active-directory-howto-tenant.md).
 
 Quando estiver pronto, siga os procedimentos nas próximas nove seções.
 
-<a id="step-1-register-the-new-app-with-azure-ad" class="xliff"></a>
-
-## Etapa 1: registrar o novo aplicativo com o Azure AD
+## <a name="step-1-register-the-new-app-with-azure-ad"></a>Etapa 1: registrar o novo aplicativo com o Azure AD
 Para configurar o aplicativo para autenticar usuários, primeiro registre-o em seu locatário, fazendo o seguinte:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -61,9 +55,7 @@ Para configurar o aplicativo para autenticar usuários, primeiro registre-o em s
 
 Quando você estiver no portal para o aplicativo, crie e copie uma chave para o aplicativo na página **Configurações**. Em breve, você precisará da chave.
 
-<a id="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven" class="xliff"></a>
-
-## Etapa 2: configurar o aplicativo para usar o ADAL4J e os pré-requisitos usando o Maven
+## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>Etapa 2: configurar o aplicativo para usar o ADAL4J e os pré-requisitos usando o Maven
 Nesta etapa, você configurará o ADAL4J para usar o protocolo de autenticação OpenID Connect. Use o ADAL4J para emitir solicitações de entrada e saída, gerenciar sessões de usuário, obter informações sobre o usuário e assim por diante.
 
 No diretório raiz do projeto, abra/crie `pom.xml`, localize `// TODO: provide dependencies for Maven` e substitua-o pelo seguinte:
@@ -178,9 +170,7 @@ No diretório raiz do projeto, abra/crie `pom.xml`, localize `// TODO: provide d
     </project>
 ```
 
-<a id="step-3-create-the-java-web-app-files-web-inf" class="xliff"></a>
-
-## Etapa 3: criar os arquivos de aplicativo Web para Java (WEB-INF)
+## <a name="step-3-create-the-java-web-app-files-web-inf"></a>Etapa 3: criar os arquivos de aplicativo Web para Java (WEB-INF)
 Nesta etapa, configure o aplicativo Web Java para usar o protocolo de autenticação OpenID Connect. Use o ADAL4J para emitir solicitações de entrada e saída, gerenciar a sessão do usuário, obter informações sobre o usuário e assim por diante.
 
 1. Abra o arquivo web. xml localizado em \webapp\WEB-INF\, e insira os valores de configuração do aplicativo no XML. O arquivo XML deve conter o código a seguir:
@@ -269,9 +259,7 @@ Nesta etapa, configure o aplicativo Web Java para usar o protocolo de autentica�
 
  Esse código diz ao aplicativo Web para usar o Spring e indica onde encontrar o arquivo JSP, que você gravará na próxima seção.
 
-<a id="step-4-create-the-jsp-view-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Etapa 4: criar os arquivos de exibição de JSP (para BasicFilter MVC)
+## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>Etapa 4: criar os arquivos de exibição de JSP (para BasicFilter MVC)
 Você está na metade da configuração do seu aplicativo Web no WEB-INF. Em seguida, crie os arquivos JSP para o controlador de exibição do modelo BasicFilter (MVC), que executa o aplicativo Web. Nós sugerimos criar os arquivos durante a configuração.
 
 Anteriormente, você disse ao Java nos arquivos de configuração XML que você tem um `/` recurso que carrega arquivos JSP e tem um `/secure` recurso que passa por um filtro, que é chamado de BasicFilter.
@@ -341,9 +329,7 @@ Para criar os arquivos JSP, faça o seguinte:
 
 Agora é preciso configurar os arquivos Java para que o servlet possa fazer seu trabalho.
 
-<a id="step-5-create-some-java-helper-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Etapa 5: criar alguns arquivos Java auxiliares (para BasicFilter MVC)
+## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>Etapa 5: criar alguns arquivos Java auxiliares (para BasicFilter MVC)
 Nosso objetivo nesta etapa é criar arquivos Java que:
 
 * Permitirão a entrada e a saída do usuário.
@@ -738,9 +724,7 @@ Para gravar alguns arquivos Java para este trabalho:
 
     ```
 
-<a id="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Etapa 6: criar os arquivos de Modelo da API do Graph (para BasicFilter MVC)
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Etapa 6: criar os arquivos de Modelo da API do Graph (para BasicFilter MVC)
 Como indicado anteriormente, use a API do Graph para obter dados do usuário conectado. Para facilitar esse processo, crie um arquivo para representar um objeto de diretório e um arquivo para representar o usuário, de forma que o padrão OO do Java possa ser usado.
 
 1. Crie um arquivo chamado DirectoryObject.java, que você pode usar para armazenar dados básicos sobre qualquer objeto do diretório. Você pode usar esse arquivo mais tarde para qualquer outra consulta do Graph que possa executar. Para criar o arquivo, cole o seguinte código:
@@ -1311,9 +1295,7 @@ Como indicado anteriormente, use a API do Graph para obter dados do usuário con
 
     ```
 
-<a id="step-7-create-the-authentication-model-and-controller-files-for-basicfilter" class="xliff"></a>
-
-## Etapa 7: criar os arquivos do modelo e do controlador de autenticação (para o BasicFilter)
+## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>Etapa 7: criar os arquivos do modelo e do controlador de autenticação (para o BasicFilter)
 Reconhecemos que o Java pode ser detalhado, mas você está quase terminando. Antes de criar o servlet BasicFilter para manipular as solicitações, você precisa criar mais alguns arquivos auxiliares que o ADAL4J necessita.
 
 1. Crie um arquivo chamado AuthHelper.java, que fornecerá métodos que serão usados para determinar o estado do usuário conectado. Os métodos incluem:
@@ -1465,9 +1447,7 @@ Reconhecemos que o Java pode ser detalhado, mas você está quase terminando. An
 
     ```
 
-<a id="step-8-create-the-basicfilter-file-for-basicfilter-mvc" class="xliff"></a>
-
-## Etapa 8: criar o arquivo BasicFilter (para o BasicFilter MVC)
+## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>Etapa 8: criar o arquivo BasicFilter (para o BasicFilter MVC)
 Agora você pode criar o arquivo BasicFilter.java, que trata as solicitações de arquivos de exibição de JSP. Para criar o arquivo, cole o seguinte código:
 
 ```Java
@@ -1719,9 +1699,7 @@ Este servlet expõe todos os métodos que o ADAL4J espera que o aplicativo execu
 * **createSessionPrincipal()**: cria uma entidade de sessão a ser usada para acesso à API do Graph.
 * **getRedirectUrl()**: obtém o redirectURL para compará-lo com o valor inserido no portal.
 
-<a id="step-9-compile-and-run-the-sample-in-tomcat" class="xliff"></a>
-
-## Etapa 9: compilar e executar o exemplo no Tomcat
+## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>Etapa 9: compilar e executar o exemplo no Tomcat
 
 1. Mude para o seu diretório raiz.
 2. Para construir o exemplo que você acabou de criar usando `maven`, execute o seguinte comando:
@@ -1736,9 +1714,7 @@ Agora você deve ter um arquivo adal4jsample.war no diretório /destinos. Você 
 > Você pode implantar facilmente um arquivo .war com os servidores mais recentes do Tomcat. Vá para http://localhost:8080/manager/ e siga as instruções para carregar o arquivo adal4jsample.war. Ele será implantado automático com o ponto de extremidade correto.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora você tem um aplicativo Java em funcionamento que pode autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre os usuários. Se você ainda não fez isso, agora é um bom momento para popular seu locatário com alguns usuários.
 
 Como referência adicional, você pode obter o exemplo concluído (sem seus valores de configuração) de duas maneiras:

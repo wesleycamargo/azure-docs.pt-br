@@ -23,9 +23,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 03/22/2017
 
 ---
-<a id="create-a-vm-classic-with-multiple-nics-using-powershell" class="xliff"></a>
-
-# Criar uma VM (Clássica) com diversas NICs usando PowerShell
+# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (Clássica) com diversas NICs usando PowerShell
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -38,26 +36,20 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os servidores Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSStory* com todos os recursos necessários para este cenário. Para criar esses recursos, conclua as etapas a seguir. Crie uma rede virtual seguindo as etapas no artigo [Criar uma rede virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-<a id="create-the-back-end-vms" class="xliff"></a>
-
-## Criar VMs de back-end
+## <a name="create-the-back-end-vms"></a>Criar VMs de back-end
 As VMs de back-end dependem da criação dos seguintes recursos:
 
 * **Sub-rede de back-end**. Os servidores de banco de dados serão parte de uma sub-rede separada, para segregar o tráfego. O script a seguir espera que essa sub-rede exista em uma vnet chamada *WTestVnet*.
 * **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
 * **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
 
-<a id="step-1---start-your-script" class="xliff"></a>
-
-### Etapa 1 – Iniciar o script
+### <a name="step-1---start-your-script"></a>Etapa 1 – Iniciar o script
 Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
 1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
@@ -82,9 +74,7 @@ Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent
     $numberOfVMs           = 2
     ```
 
-<a id="step-2---create-necessary-resources-for-your-vms" class="xliff"></a>
-
-### Etapa 2 – Criar recursos necessários para as VMs
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2 – Criar recursos necessários para as VMs
 Você precisa criar um novo serviço de nuvem e conta de armazenamento para os discos de dados para todas as VMs. Você também precisa especificar uma imagem e uma conta de administrador local para as VMs. Para criar esses recursos, siga estes etapas:
 
 1. Crie um novo serviço de nuvem
@@ -122,9 +112,7 @@ Você precisa criar um novo serviço de nuvem e conta de armazenamento para os d
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
-<a id="step-3---create-vms" class="xliff"></a>
-
-### Etapa 3 - Criar VMs
+### <a name="step-3---create-vms"></a>Etapa 3 - Criar VMs
 Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e VMs necessárias dentro do loop. Para criar as NICs e VMs, faça o seguinte:
 
 1. Inicie um loop `for` para repetir os comandos para criar uma VM e duas NICs, quantas vezes forem necessárias, com base no valor da variável `$numberOfVMs`.
@@ -193,9 +181,7 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
     }
     ```
 
-<a id="step-4---run-the-script" class="xliff"></a>
-
-### Etapa 4 – Executar o script
+### <a name="step-4---run-the-script"></a>Etapa 4 – Executar o script
 Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
 
 1. Salve seu script e execute-o no prompt de comando do **PowerShell** ou **PowerShell ISE**. A saída inicial será exibida, conforme mostrado abaixo:

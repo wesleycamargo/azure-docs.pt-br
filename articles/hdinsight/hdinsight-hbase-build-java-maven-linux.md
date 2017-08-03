@@ -21,7 +21,6 @@ ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
@@ -459,7 +458,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

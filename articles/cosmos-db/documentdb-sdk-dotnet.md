@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: a41df84034dbc2f1ec6c61d027ced77694354d51
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="documentdb-net-sdk-download-and-release-notes"></a>SDK de .NET do DocumentDB: download e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed de alterações do .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/06/2017
 * Adicionada uma sobrecarga ao Uri com base no método ExecuteStoredProcedureAsync que recebe RequestOptions como um parâmetro.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Adicionado suporte a TTL (vida útil) para documentos.
+* Adicionado suporte a TTL (tempo de vida) para documentos.
 
 ### <a name="a-name163163"></a><a name="1.6.3"/>1.6.3
 * Correção de um bug no pacote Nuget do SDK do .NET para empacotamento como parte de uma solução do Serviço de Nuvem do Azure.
@@ -220,7 +220,7 @@ ms.lasthandoff: 07/06/2017
 * Adicionada dependência de Newtonsoft.Json v5.0.7.
 * Alterações feitas para dar suporte a Order By:
   
-  * Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
+  * Suporte ao provedor LINQ para OrderBy() ou OrderByDescending()
   * IndexingPolicy para dar suporte a Order By 
     
     **Possível alteração interruptiva** 

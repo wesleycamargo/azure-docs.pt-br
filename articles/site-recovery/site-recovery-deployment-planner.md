@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planejador de implantação do Azure Site Recovery
@@ -456,7 +455,9 @@ A planilha de Entrada fornece uma visão geral do ambiente VMware com criação 
 **Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para o [Armazenamento Premium do Azure](https://aka.ms/premium-storage-workload). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
 * <128 GB é P10.
 * 128 GB até 512 GB é P20.
-* 512 GB a 1023 GB é P30.
+* 512 GB a 1024 GB é P30.
+* 1025 GB a 2048 GB é P40.
+* 2049 GB a 4095 GB é P50.
 
 Se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapear para um tipo de disco de armazenamento premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
@@ -494,7 +495,8 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
-* O tamanho do disco é > 1023 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco maiores que 1 TB.
+* O tamanho do disco é > 4095 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco de dados maiores que 4095 GB.
+* O disco do sistema operacional é >2048 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco do sistema operacional maiores que 2048 GB.
 * O tipo de inicialização é EFI. O Azure Site Recovery atualmente dá suporte apenas a máquinas virtuais com tipo de inicialização BIOS.
 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
@@ -560,6 +562,15 @@ Para atualizar o planejador de implantação, faça o seguinte:
 
 
 ## <a name="version-history"></a>Histórico de versão
+
+### <a name="131"></a>1.3.1
+Atualização: 19 de julho de 2017
+
+O novo recurso a seguir foi adicionado:
+
+* Suporte adicionado para discos grandes (> 1TB) na geração de relatório. Agora você pode usar o planejador de implantação para planejar a replicação para máquinas virtuais com tamanhos de disco maiores que 1 TB (até 4095 GB).
+Leia mais sobre [Suporte a discos grandes no Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
 
 ### <a name="13"></a>1,3
 Atualização: 9 de maio de 2017

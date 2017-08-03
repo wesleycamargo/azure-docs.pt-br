@@ -21,9 +21,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="tutorial-azure-active-directory-integration-with-mobilexpense" class="xliff"></a>
-
-# Tutorial: integração do Azure Active Directory ao MobileXpense
+# <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Tutorial: integração do Azure Active Directory ao MobileXpense
 
 Neste tutorial, você aprenderá a integrar o MobileXpense ao Azure AD (Azure Active Directory).
 
@@ -35,9 +33,7 @@ A integração do MobileXpense ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao MobileXpense, você precisará dos seguintes itens:
 
@@ -52,17 +48,13 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-<a id="scenario-description" class="xliff"></a>
-
-## Descrição do cenário
+## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o MobileXpense da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-<a id="adding-mobilexpense-from-the-gallery" class="xliff"></a>
-
-## Adicionar o MobileXpense da galeria
+## <a name="adding-mobilexpense-from-the-gallery"></a>Adicionar o MobileXpense da galeria
 Para configurar a integração do MobileXpense com o Azure AD, você precisará adicionar o MobileXpense por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o MobileXpense por meio da galeria, realize as seguintes etapas:**
@@ -87,9 +79,7 @@ Para configurar a integração do MobileXpense com o Azure AD, você precisará 
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_addfromgallery.png)
 
-<a id="configuring-and-testing-azure-ad-single-sign-on" class="xliff"></a>
-
-##  Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o MobileXpense, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do MobileXpense é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do MobileXpense.
@@ -104,9 +94,7 @@ Para configurar e testar o logon único do Azure AD com o MobileXpense, você pr
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
-<a id="configuring-azure-ad-single-sign-on" class="xliff"></a>
-
-### Configuração do logon único do Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo MobileXpense.
 
@@ -149,9 +137,7 @@ Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `h
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-<a id="creating-an-azure-ad-test-user" class="xliff"></a>
-
-### Criação de um usuário de teste do AD do Azure
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
@@ -182,15 +168,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-<a id="creating-a-mobilexpense-test-user" class="xliff"></a>
-
-### Criar um usuário de teste do MobileXpense
+### <a name="creating-a-mobilexpense-test-user"></a>Criar um usuário de teste do MobileXpense
 
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no MobileXpense. Trabalhe com a [equipe de suporte do MobileXpense](http://www.mobilexpense.net/contact) para adicionar os usuários na plataforma do MobileXpense. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
-<a id="assigning-the-azure-ad-test-user" class="xliff"></a>
-
-### Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo-lhe acesso ao MobileXpense.
 
@@ -220,18 +202,14 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-<a id="testing-single-sign-on" class="xliff"></a>
-
-### Teste do logon único
+### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do MobileXpense no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do MobileXpense.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586). 
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -24,17 +24,13 @@ ms.lasthandoff: 07/06/2017
 
 ---
 
-<a id="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell" class="xliff"></a>
-
-# Mover uma VM do Windows do AWS (Amazon Web Services) para o Azure usando o PowerShell
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Mover uma VM do Windows do AWS (Amazon Web Services) para o Azure usando o PowerShell
 
 Se você estiver avaliando máquinas virtuais do Azure para hospedar suas cargas de trabalho, poderá exportar uma instância existente de VM do Windows EC2 do AWS (Amazon Web Services) e carregar o VHD (disco rígido virtual) no Azure. Após o carregamento do VHD, você pode criar uma nova VM no Azure a partir do VHD. 
 
 Este tópico aborda a movimentação de uma VM individual do AWS para o Azure. Se você quiser migrar VMs do AWS para o Azure em escala, confira [Migrar máquinas virtuais no AWS (Amazon Web Services) para o Azure com o Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
-<a id="prepare-the-vm" class="xliff"></a>
-
-## Preparar a VM 
+## <a name="prepare-the-vm"></a>Preparar a VM 
  
 Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo exige a preparação da VM antes de exportar do AWS. 
 
@@ -50,9 +46,7 @@ Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo exig
     * Verifique se a VM está configurada para obter o endereço IP e as configurações de DNS por meio de DHCP. Isso garante que o servidor obtém um endereço IP na VNet quando ele é iniciado.  
 
 
-<a id="export-and-download-the-vhd" class="xliff"></a>
-
-## Exportar e baixar o VHD 
+## <a name="export-and-download-the-vhd"></a>Exportar e baixar o VHD 
 
 Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas descritas no tópico da documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
 
@@ -69,9 +63,7 @@ Após a exportação do VHD, siga as instruções em [Como baixar um objeto de u
 > O AWS cobra encargos por transferência de dados para baixar o VHD. Confira [Preços do Amazon S3](https://aws.amazon.com/s3/pricing/) para saber mais.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora você pode carregar o VHD no Azure e criar uma nova VM. 
 

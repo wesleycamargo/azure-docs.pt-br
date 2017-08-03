@@ -20,6 +20,6 @@
 ## [Guia de design de identidade híbrida](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 

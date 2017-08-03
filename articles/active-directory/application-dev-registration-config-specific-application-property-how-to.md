@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-fill-out-specific-fields-for-a-custom-developed-application" class="xliff"></a>
-
-# Como preencher campos específicos para um aplicativo personalizado
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 
 Este artigo oferece uma breve descrição de todos os campos disponíveis no formulário de registro do aplicativo no [portal do Azure](https://portal.azure.com).
 
-<a id="register-a-new-application" class="xliff"></a>
-
-## Registrar um novo aplicativo
+## <a name="register-a-new-application"></a>Registrar um novo aplicativo
 
 -   Para registrar um novo aplicativo, navegue até o [portal do Azure](https://portal.azure.com).
 
@@ -39,9 +35,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 
 -   Isso abre o formulário de registro do aplicativo.
 
-<a id="fields-in-the-application-registration-form" class="xliff"></a>
-
-## Campos do formulário de registro do aplicativo
+## <a name="fields-in-the-application-registration-form"></a>Campos do formulário de registro do aplicativo
 
 
 | Campo            | Descrição                                                                              |
@@ -65,8 +59,6 @@ Depois de preencher os campos acima, o aplicativo é registrado no portal do Azu
 | URIs de redirecionamento   | Para aplicativos nativos, é para onde o usuário é enviado após autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece no OAuth 2.0 corresponde a um dos valores registrados no portal.                                                            |
 | simétricas            | Você pode criar chaves para acessar APIs Web programaticamente protegido pelo Azure AD e sem qualquer interação do usuário. Na página \*\*Chaves\*\*, insira uma descrição da chave e a data de validade e salve para gerar a chave. Certifique-se de salvá-la em algum lugar seguro, pois você não poderá acessá-la depois.             |
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
 

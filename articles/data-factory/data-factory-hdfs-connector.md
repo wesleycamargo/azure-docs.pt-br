@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 9a8f3156a62a1a7aa49377349e8a85454efeda50
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS local usando o Azure Data Factory
@@ -184,7 +183,7 @@ O exemplo copia dados de um HDFS local para o blob do Azure a cada hora. As prop
 
 Como uma primeira etapa, configure o gateway de gerenciamento de dados. As instruções estão no artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Serviço vinculado ao HDFS:** Esse exemplo usa a autenticação do Windows. Confira a seção [Serviço vinculado ao HDFS](#linked-service) para diferentes tipos de autenticação que você pode usar.
+**Serviço vinculado ao HDFS:** Esse exemplo usa a autenticação do Windows. Confira a seção [Serviço vinculado ao HDFS](#linked-service-properties) para diferentes tipos de autenticação que você pode usar.
 
 ```JSON
 {
@@ -480,7 +479,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 **No Azure Data Factory:**
 
-* Configure o conector HDFS usando a **autenticação do Windows** com a Conta de Domínio ou a Entidade de Segurança Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#linked-service) nos detalhes da configuração.
+* Configure o conector HDFS usando a **autenticação do Windows** com a Conta de Domínio ou a Entidade de Segurança Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#linked-service-properties) nos detalhes da configuração.
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9b92801609dfc8d14352a50edd10f8902c87c661
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -95,6 +95,14 @@ Atualmente, não é possível criar uma solução pré-configurada com uma assin
 
 Veja a postagem do blog de Eric Golpe, [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Passo a passo da exclusão de um locatário do Azure AD).
 
+### <a name="what-is-opc-ua"></a>O que é OPC UA?
+
+OPC Unified Architecture (UA), lançado em 2008, é um padrão de interoperabilidade orientada a serviços e independente de plataforma que é usado por vários sistemas e dispositivos como PCs, PLCs e sensores do setor. O OPC UA integra todas as funcionalidades das especificações de OPC clássico individuais em uma estrutura extensível com segurança interna. É um padrão controlado pela OPC Foundation. A [OPC Foundation][lnk-opc-foundation] é uma organização sem fins lucrativos cujos mais de 440 membros compartilham o objetivo comum de fornecer a infraestrutura, as especificações, a tecnologia e os processos para facilitar a interoperabilidade confiável, segura, de vários fornecedores e várias plataformas usando as especificações do OPC.
+
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Por que a Microsoft escolheu o OPC UA para a solução pré-configurada de fábrica conectada?
+
+A Microsoft escolheu OPC UA porque ele é um padrão aberto, comprovado, não proprietário, independente de plataforma e reconhecido no setor. É um requisito para soluções de arquitetura de referência Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um amplo conjunto de processos de fabricação e equipamento. A Microsoft considera a demanda de nossos clientes para criar soluções do Industrie 4.0. O suporte para OPC UA ajuda a reduzir a barreira para os clientes atingirem suas metas e fornece valor comercial imediato para eles.
+
 ### <a name="next-steps"></a>Próximas etapas
 
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
@@ -102,6 +110,7 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 * [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
 * [Segurança IoT desde o início][lnk-security-groundup]
 
+[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

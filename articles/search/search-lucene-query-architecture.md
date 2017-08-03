@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9e09425b0143c1907d1af167782d1e4b1457d626
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -262,28 +263,28 @@ Para o campo **descrição**, o índice é o seguinte:
 
 | Termo | Lista de documentos |
 |------|---------------|
-| ar |    3
-| e |    4
+| ar | 3
+| e | 4
 | praia | 1
-| condicionado |    3
-| confortável |    3
+| condicionado | 3
+| confortável | 3
 | distância | 1
 | ilha | 2
 | kauaʻi | 2
-| local |    2
+| local | 2
 | norte | 2
 | mar | 1, 2, 3
 | de | 2
 | em |2
 | silencioso | 4
-| quartos     | 1, 3
+| quartos  | 1, 3
 | reservado | 4
-| beira-mar    | 2
+| beira-mar | 2
 | espaçoso | 1
 | o | 1, 2
 | para | 1
 | view | 1, 2, 3
-| a pé |    1
+| a pé | 1
 | por: | 3
 
 
@@ -385,6 +386,8 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. E
 + Saiba como aplicar [analisadores léxicos específico do idioma](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
+
++ [Compare os analisadores padrão e inglês](http://alice.unearth.ai/) lado a lado neste site da Web de demonstração. 
 
 ## <a name="see-also"></a>Consulte também
 

@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -81,7 +82,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 1. Adicione o aplicativo Box a partir dos aplicativos da empresa.
 
-2. Configure o logon único fazendo o seguinte:
+2. Configure o logon único na seguinte ordem:
 
   ![Configurar logon único do Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +95,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
  d. Para começar a configurar seu locatário Box.com para usar o Azure AD como um provedor de identidade, baixe o arquivo de metadados e salve-o em sua unidade local.
 
- e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que irá configurar o logon único para você.
+ e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que configura o logon único para você.
 
 3. Para a configuração automática do usuário do Azure AD, no painel esquerdo, selecione **Provisionamento**, em seguida, selecione **Autorizar**.
 

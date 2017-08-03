@@ -1,5 +1,5 @@
 ---
-title: Usar o .NET core para consultar o Banco de Dados SQL do Azure | Microsoft Docs
+title: Usar o .NET Core para consultar o Banco de Dados SQL do Azure | Microsoft Docs
 description: "Este tópico mostra como usar o .NET Core para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
 services: sql-database
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 4b44064f05a24a25c3ac8157e4aa68a8a8d9856a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 046322624d3b89bb983acee863534256fee94b60
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usar o .NET core (C#) para consultar um banco de dados SQL do Azure
+# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usar o .NET Core (C#) para consultar um banco de dados SQL do Azure
 
-Este tutorial de início rápido demonstra como usar o [.NET core](https://www.microsoft.com/net/) no Windows/Linux/macOS para criar um programa C# para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este tutorial de início rápido demonstra como usar o [.NET Core](https://www.microsoft.com/net/) no Windows/Linux/macOS para criar um programa C# para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -151,7 +151,7 @@ namespace sqltest
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- [Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba como [conectar-se e consultar um banco de dados SQL do Azure usando o .NET framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Saiba como [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md) ou [Projetar seu primeiro banco de dados SQL do Azure usando o .NET](sql-database-design-first-database-csharp.md).
 - Para saber mais sobre o .NET, veja a [documentação do .NET](https://docs.microsoft.com/dotnet/).

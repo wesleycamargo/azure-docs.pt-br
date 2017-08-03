@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -55,33 +56,27 @@ Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serv
 Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
 * Se você desejar implantar um serviço de nuvem que usa protocolo SSL para a criptografia de dados, [configure seu aplicativo](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
-* Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, [configure as funções](cloud-services-role-enable-remote-desktop.md) para Área de Trabalho Remota. Isso só pode ser feito no portal clássico.
+* Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, [configure as funções](cloud-services-role-enable-remote-desktop-new-portal.md) para Área de Trabalho Remota.
 * Se você desejar configurar o monitoramento detalhado para o seu serviço de nuvem, habilite o Diagnóstico do Azure para o serviço de nuvem. *Monitoramento mínimo* (o nível de monitoramento padrão) usa contadores de desempenho coletados dos sistemas operacionais do host para as instâncias de função (máquinas virtuais). *Monitoramento detalhado* coleta métricas adicionais baseadas nos dados de desempenho nas instâncias de função para habilitar uma análise mais próxima dos problemas que ocorrem durante o processamento do aplicativo. Para saber como habilitar o Diagnóstico do Azure, confira [Habilitando o diagnóstico no Azure](cloud-services-dotnet-diagnostics.md).
 
 Para criar um serviço de nuvem com implantações de funções Web ou de Trabalho, você deve [criar o pacote de serviço](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## <a name="before-you-begin"></a>Antes de começar
 * Se você não instalou o SDK do Azure, clique em **Instalar SDK do Azure** para abrir a [página de Downloads do Azure](https://azure.microsoft.com/downloads/)e baixar o SDK para o idioma em que você preferir desenvolver seu código. (Você terá uma oportunidade de fazer isso posteriormente).
-* Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. [Você pode carregar os certificados para o Azure]() enquanto cria e implanta o serviço de nuvem.
-* Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar um grupo de afinidades na área **Redes** do portal clássico do Azure na página **Grupos de Afinidade**.
+* Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. Você pode carregar os certificados para o Azure enquanto cria e implanta o serviço de nuvem.
 
 ## <a name="create-and-deploy"></a>Criar e implantar
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. Na parte inferior da página de informações que é exibida, clique em **Criar**.
-4. Na nova folha **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
-5. Crie um novo **Grupo de Recursos** ou selecione um existente.
-6. Selecione um **Local**.
-7. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote** . Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
-
-    > [!IMPORTANT]
-    > Os Serviços de Nuvem podem ser associados somente às [contas de armazenamento clássicas](../azure-resource-manager/resource-manager-deployment-model.md). Se você vir uma mensagem informando que não foram encontradas contas de armazenamento para sua assinatura e local, verifique se que você criou uma conta de armazenamento clássica para seu serviço de nuvem nesse local.
-
-8. Verifique se a opção **Iniciar implantação** está selecionada.
-9. Clique em **OK** que fechará a folha **Carregar um pacote**.
-10. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
+3. Na nova folha **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
+4. Crie um novo **Grupo de Recursos** ou selecione um existente.
+5. Selecione um **Local**.
+6. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote** . Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
+7. Verifique se a opção **Iniciar implantação** está selecionada.
+8. Clique em **OK** que fechará a folha **Carregar um pacote**.
+9. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 

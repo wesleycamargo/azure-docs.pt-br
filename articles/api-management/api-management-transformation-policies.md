@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
@@ -227,15 +228,28 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     </outbound>  
 </policies>  
 ```  
+Neste exemplo, a política de serviço de back-end do conjunto roteia solicitações com base no valor da versão passado na cadeia de consulta para um serviço de back-end diferente daquele especificado na API.
   
- Neste exemplo, a política de serviço de back-end do conjunto roteia solicitações com base no valor da versão passado na cadeia de consulta para um serviço de back-end diferente daquele especificado na API.  
+Inicialmente, a URL base do serviço de back-end é derivada das configurações de API. Assim, a URL da solicitação `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se torna `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` em que `http://contoso.com/api/10.4/` é a URL do serviço de back-end especificada nas configurações de API.  
   
- Inicialmente, a URL base do serviço de back-end é derivada das configurações de API. Assim, a URL da solicitação `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se torna `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` em que `http://contoso.com/api/10.4/` é a URL do serviço de back-end especificada nas configurações de API.  
+Quando a instrução de política [<choose\>](api-management-advanced-policies.md#choose) é aplicada, a URL base do serviço de back-end pode se alterar novamente para `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, dependendo do valor do parâmetro de consulta de solicitação de versão. Por exemplo, se o valor for `"2013-15"`, a URL da solicitação final se tornará `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Quando a instrução de política [<choose\>](api-management-advanced-policies.md#choose) é aplicada, a URL base do serviço de back-end pode se alterar novamente para `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, dependendo do valor do parâmetro de consulta de solicitação de versão. Por exemplo, se o valor for `"2013-15"`, a URL da solicitação final se tornará `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Se ainda mais transformação da solicitação for desejada, outras [políticas de transformação](api-management-transformation-policies.md#TransformationPolicies) poderão ser usadas. Por exemplo, para remover o parâmetro de consulta de versão agora que a solicitação está sendo roteada para um back-end específico da versão, a política [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.  
   
- Se ainda mais transformação da solicitação for desejada, outras [políticas de transformação](api-management-transformation-policies.md#TransformationPolicies) poderão ser usadas. Por exemplo, para remover o parâmetro de consulta de versão agora que a solicitação está sendo roteada para um back-end específico da versão, a política [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.  
+### <a name="example"></a>Exemplo  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+Neste exemplo, a política encaminha a solicitação para um back-end de Service Fabric usando a cadeia de caracteres de consulta userId como a chave de partição e usando a réplica primária da partição.  
+
 ### <a name="elements"></a>Elementos  
   
 |Nome|Descrição|Obrigatório|  
@@ -246,8 +260,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Nova URL base do serviço de back-end.|Sim|N/D|  
-  
+|base-url|Nova URL base do serviço de back-end.|Não|N/D|  
+|backend-id|Identificador do back-end para o qual encaminhar.|Não|N/D|  
+|sf-partition-key|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nome.|Não|N/D|  
+|sf-replica-type|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Controla se a solicitação deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|    
+|sf-resolve-condition|Aplicável somente quando o back-end é um serviço do Service Fabric. Condição que identifica se a chamada para o back-end do Service Fabric deve ser repetida com a nova resolução.|Não|N/D|    
+|sf-service-instance-name|Aplicável somente quando o back-end é um serviço do Service Fabric. Permite alterar as instâncias de serviço em tempo de execução. |Não|N/D |    
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

@@ -23,8 +23,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/08/2017
 
 ---
-# Implantar redefinição de senha sem exigir registro do usuário final
-<a id="deploy-password-reset-without-requiring-end-user-registration" class="xliff"></a>
+# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
 A implantação do SSPR (Autoatendimento de Redefinição de Senha) exige que os dados de autenticação estejam presentes. Algumas organizações precisam que seus próprios usuários insiram os respectivos dados de autenticação, mas muitas organizações preferem sincronizar com dados existentes no Active Directory. Se você tiver formatado corretamente os dados no diretório local e configurar [Azure AD Connect usando as configurações expressas](./connect/active-directory-aadconnect-get-started-express.md), esses dados serão disponibilizados para o Azure AD e o SSPR sem exigir qualquer interação do usuário.
 
@@ -33,8 +32,7 @@ Todos os números de telefone devem estar no formato +CountryCode PhoneNumber (p
 > [!NOTE]
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
 
-## Campos populados
-<a id="fields-populated" class="xliff"></a>
+## <a name="fields-populated"></a>Campos populados
 
 Se você usar as configurações padrão no Azure AD Connect, serão realizados os seguintes mapeamentos.
 
@@ -44,13 +42,11 @@ Se você usar as configurações padrão no Azure AD Connect, serão realizados 
 | Serviço Móvel | Telefone celular | Telefone |
 
 
-## Perguntas e respostas de segurança
-<a id="security-questions-and-answers" class="xliff"></a>
+## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
 As perguntas e respostas de segurança são armazenadas em seu locatário do Azure AD e podem ser acessadas somente por usuários pelo [Portal de registro do SSPR](https://aka.ms/ssprsetup). Os administradores não podem ver nem modificar o conteúdo das perguntas e respostas dos outros usuários.
 
-### O que acontece quando um usuário se registra
-<a id="what-happens-when-a-user-registers" class="xliff"></a>
+### <a name="what-happens-when-a-user-registers"></a>O que acontece quando um usuário se registra
 
 Quando um usuário se registra, a página de registro define os seguintes campos:
 
@@ -60,8 +56,7 @@ Quando um usuário se registra, a página de registro define os seguintes campos
 
 Se você forneceu um valor para **Celular** ou **Email Alternativo**, os usuários poderão usar esses valores imediatamente para redefinir as senhas, mesmo que não tenham se registrado no serviço. Além disso, os usuários visualizam esses valores ao se registrarem pela primeira vez, e os modificam, se for desejado. Após registro bem-sucedido, esses valores serão persistidos nos campos **Telefone de Autenticação** e **Email de Autenticação**, respectivamente.
 
-## Definir e ler os dados de autenticação usando o PowerShell
-<a id="set-and-read-authentication-data-using-powershell" class="xliff"></a>
+## <a name="set-and-read-authentication-data-using-powershell"></a>Definir e ler os dados de autenticação usando o PowerShell
 
 Os campos a seguir podem ser definidos usando o PowerShell
 
@@ -69,13 +64,11 @@ Os campos a seguir podem ser definidos usando o PowerShell
 * Telefone celular
 * Telefone comercial – só poderá ser definido se não for sincronizar com um diretório local
 
-### Usando o PowerShell V1
-<a id="using-powershell-v1" class="xliff"></a>
+### <a name="using-powershell-v1"></a>Usando o PowerShell V1
 
 Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell do Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois de instalá-lo, você poderá seguir as etapas abaixo para configurar cada campo.
 
-#### Definir dados de autenticação com o PowerShell V1
-<a id="set-authentication-data-with-powershell-v1" class="xliff"></a>
+#### <a name="set-authentication-data-with-powershell-v1"></a>Definir dados de autenticação com o PowerShell V1
 
 ```
 Connect-MsolService
@@ -87,8 +80,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
 ```
 
-#### Ler dados de autenticação com o PowerShell V1
-<a id="read-authentication-data-with-powershellpowershell-v1" class="xliff"></a>
+#### <a name="read-authentication-data-with-powershellpowershell-v1"></a>Ler dados de autenticação com o PowerShell V1
 
 ```
 Connect-MsolService
@@ -100,8 +92,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### O Telefone de Autenticação e o Email de Autenticação só podem ser lidos usando o PowerShell V1 com os comandos abaixo
-<a id="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow" class="xliff"></a>
+#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow"></a>O Telefone de Autenticação e o Email de Autenticação só podem ser lidos usando o PowerShell V1 com os comandos abaixo
 
 ```
 Connect-MsolService
@@ -109,8 +100,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-### Usando o PowerShell V2
-<a id="using-powershell-v2" class="xliff"></a>
+### <a name="using-powershell-v2"></a>Usando o PowerShell V2
 
 Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell V2 do Azure AD](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Depois de instalá-lo, você poderá seguir as etapas abaixo para configurar cada campo.
 
@@ -122,8 +112,7 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
-#### Definir Dados de Autenticação com o PowerShell V2
-<a id="set-authentication-data-with-powershell-v2" class="xliff"></a>
+#### <a name="set-authentication-data-with-powershell-v2"></a>Definir Dados de Autenticação com o PowerShell V2
 
 ```
 Connect-AzureAD
@@ -135,8 +124,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
 ```
 
-### Ler Dados de Autenticação com o PowerShell V2
-<a id="read-authentication-data-with-powershell-v2" class="xliff"></a>
+### <a name="read-authentication-data-with-powershell-v2"></a>Ler Dados de Autenticação com o PowerShell V2
 
 ```
 Connect-AzureAD
@@ -148,8 +136,7 @@ Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
 Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
 ```
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
 

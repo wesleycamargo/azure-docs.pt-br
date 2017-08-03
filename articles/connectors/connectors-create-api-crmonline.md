@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 845dd16c703362e9e64f02832a35c90e7e77e264
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -168,9 +168,9 @@ Para solucionar uma falha de uma etapa em um aplicativo lógico, exiba os detalh
 
 Para obter mais informações sobre como solucionar problemas de aplicativos lógicos, consulte [Diagnosticando falhas do aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Consulte os [detalhes do Swagger](/connectors/crm/). 
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).

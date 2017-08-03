@@ -6,7 +6,7 @@
 
 | Distribuição | Driver |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 7.3 | NVIDIA GRID 4.2, ramificação do driver R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 7.3 | NVIDIA GRID 4.3, ramificação do driver R367|
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Instâncias de NC - drivers NVIDIA Tesla
 | Distribuição | Driver |

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 850bf9ef5300c72a9e7903be5bf991301d4b574f
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -27,7 +27,8 @@ ms.lasthandoff: 05/11/2017
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure](dns-operations-recordsets-cli.md)
+> * [CLI 1.0 do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar registros e conjuntos de registros da zona DNS usando o portal do Azure.
@@ -125,5 +126,5 @@ Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (no
 
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
-* Para obter mais informações sobre registros DNS reversos, veja [Como gerenciar registros DNS reversos para seus serviços usando o PowerShell](dns-reverse-dns-record-operations-ps.md).
+* Para saber mais sobre os registros DNS reversos, veja [Visão geral de DNS reverso e suporte no Azure](dns-reverse-dns-overview.md).
 

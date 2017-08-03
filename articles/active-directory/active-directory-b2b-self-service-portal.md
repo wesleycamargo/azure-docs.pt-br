@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 05/24/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f629eeb6f12c8785cab2585190f70e98b02fa5b4
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
 
 
-# <a name="self-service-sign-up-portal-for-azure-ad-b2b-collaboration"></a>Portal de inscrição para autoatendimento para colaboração do Azure AD B2B
+# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de autoatendimento para inscrição na colaboração B2B do Azure AD
 
-Os clientes podem fazer muito com os recursos de produto internos expostos por meio das nossas experiências de administração de TI no [portal do Azure](https://portal.azure.com) e nosso [Painel de acesso do aplicativo](https://myapps.microsoft.com) para não administradores. Mas nós também estamos cientes de que as empresas precisam personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da organização deles. Eles podem fazer isso com a [nossa API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Os clientes podem fazer muito com os recursos internos expostos por meio de nosso [Portal do Azure](https://portal.azure.com) de administração de TI e de nosso [Painel de acesso do aplicativo](https://myapps.microsoft.com) para usuários finais. Mas nós também estamos cientes de que as empresas precisam personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da organização deles. Eles podem fazer isso com a [nossa API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-Ao discutir isso com muitos de nossos clientes, vimos uma necessidade comum se destacar das outras. Esse foi o caso em que a organização que está convidando pode não saber (ou não querer saber) antes do tempo quem são os colaboradores externos individuais que precisaram acessar seus recursos. Eles queriam uma maneira em que os usuários de empresas parceiras pudessem fazer a própria inscrição com um conjunto de políticas que a organização que está convidando controlava. Isso é possível por meio de nossas APIs – portanto, publicamos um projeto no GitHub que fez exatamente isso: [exemplo de projeto no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+Ao discutir isso com nossos clientes, vimos uma necessidade comum se destacar das outras. A organização que está convidando pode não saber antecipadamente quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Eles queriam uma maneira de os usuários das empresas parceiras fazerem a própria inscrição com um conjunto de políticas controladas pela organização que está convidando. Esse cenário é possível por meio de nossas APIs, portanto, publicamos um projeto no Github que fez exatamente isso: [exemplo de projeto no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-Nosso projeto no GitHub demonstra como as organizações podem usar as nossas APIs e fornecer uma capacidade de inscrição para autoatendimento baseada em política para seus parceiros confiáveis, com regras que determinam a quais aplicativos eles devem ter acesso. Dessa forma, usuários de parceiros poderão obter acesso aos recursos certos quando eles forem necessários, com segurança, mas sem que qualquer pessoa da organização que está convidando precise integrá-los manualmente. É possível implantar facilmente o projeto com o clique de um botão em uma assinatura do Azure de sua escolha. Experimente!
+Nosso projeto no Github demonstra como as organizações podem usar as nossas APIs e fornecer uma capacidade de inscrição para autoatendimento baseada em política para seus parceiros confiáveis, com regras que determinam os aplicativos que eles podem acessar. Os usuários de parceiros poderão obter acesso aos recursos quando precisarem, com segurança, sem exigir que a organização que está convidando integre-os manualmente. É possível implantar facilmente o projeto em uma assinatura do Azure de sua escolha.
 
 ## <a name="as-is-code"></a>Código no estado em que se encontra
 

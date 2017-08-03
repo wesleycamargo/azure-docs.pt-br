@@ -23,15 +23,11 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/02/2017
 
 ---
-<a id="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight" class="xliff"></a>
-
-# Migrar soluções .NET do HDInsight baseado em Windows para o HDInsight baseado em Linux
+# <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET do HDInsight baseado em Windows para o HDInsight baseado em Linux
 
 Clusters do HDInsight baseado em Linux usam [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicativos .NET. Mono permite que você use componentes .NET como aplicativos MapReduce com HDInsight baseado em Linux. Neste documento, saiba como migrar soluções .NET criadas para clusters de HDInsight baseados no Windows para funcionar com Mono no HDInsight baseado em Linux.
 
-<a id="mono-compatibility-with-net" class="xliff"></a>
-
-## Compatibilidade de Mono com .NET
+## <a name="mono-compatibility-with-net"></a>Compatibilidade de Mono com .NET
 
 O Mono versão 4.2.1 está incluído no HDInsight versão 3.5. Para obter mais informações sobre a versão de Mono incluída com o HDInsight, consulte [Versão de componente do HDInsight](hdinsight-component-versioning.md). Para instalar uma versão específica do Mono, consulte o documento [Instalar ou atualizar](hdinsight-hadoop-install-mono.md).
 
@@ -40,9 +36,7 @@ Para obter informações detalhadas sobre a compatibilidade entre Mono e .NET, c
 > [!IMPORTANT]
 > A estrutura SCP.NET é compatível com Mono. Para obter mais informações sobre como usar SCP.NET com Mono, consulte [Usar o Visual Studio para desenvolver topologias C# para Apache Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-<a id="automated-portability-analysis" class="xliff"></a>
-
-## Análise automatizada de portabilidade
+## <a name="automated-portability-analysis"></a>Análise automatizada de portabilidade
 
 O [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) pode ser usado para gerar um relatório de incompatibilidades entre seu aplicativo e Mono. Use as etapas a seguir para configurar o analisador para verificar seu aplicativo para portabilidade Mono:
 
@@ -63,21 +57,15 @@ O [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemNam
 > [!IMPORTANT]
 > O analisador não pode capturar todos os problemas com sua solução. Por exemplo, um caminho de arquivo de `c:\temp\file.txt` é considerado OK porque o Mono é executado no Windows e o caminho é válido nesse contexto. No entanto, o caminho não é válido em uma plataforma Linux.
 
-<a id="manual-portability-analysis" class="xliff"></a>
-
-## Análise de portabilidade manual
+## <a name="manual-portability-analysis"></a>Análise de portabilidade manual
 
 Realizar uma auditoria manual do seu código usando as informações no documento [Portabilidade do aplicativo (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/).
 
-<a id="modify-and-build" class="xliff"></a>
-
-## Modificar e criar
+## <a name="modify-and-build"></a>Modificar e criar
 
 Você pode continuar a usar o Visual Studio para criar soluções .NET para HDInsight. No entanto, você deve garantir que o projeto esteja configurado para usar o .NET Framework 4.5.
 
-<a id="deploy-and-test" class="xliff"></a>
-
-## Implantar e testar
+## <a name="deploy-and-test"></a>Implantar e testar
 
 Depois de modificar a solução usando as recomendações do .NET Portability Analyzer ou de uma análise manual, teste-o com o HDInsight. O teste da solução em um cluster HDInsight baseado em Linux pode revelar problemas sutis que precisam ser corrigidos. Recomendamos que você habilite o registro em log adicional no seu aplicativo ao testá-lo.
 
@@ -86,9 +74,7 @@ Para obter mais informações sobre como acessar logs, veja os documentos a segu
 * [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
 * [Acessar logs do aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * [Usar C# com MapReduce no HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 05/09/2017
 ms.author: barclayn
+ms.custom: azlog
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5e135be1e21173add3236f851609f1df0a5b0dee
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: d4cf9f394f209fe3dfd633f6ca2954e9770d5949
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -51,6 +52,11 @@ Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Audit
 
 * **C:\Users\azlog\AzureActiveDirectoryJson**
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
+
+Veja abaixo um vídeo com as etapas abordadas neste artigo.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
+
 
 Aponte o conector de encaminhamento de arquivos SIEM padrão para a devida pasta para enviar os dados para a instância SIEM. Talvez sejam necessários alguns mapeamentos de campo com base no produto SIEM que você está usando.
 

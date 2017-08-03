@@ -23,9 +23,7 @@ ms.lasthandoff: 04/27/2017
 
 ---
 
-<a id="create-and-deploy-a-virtual-machine-scale-set" class="xliff"></a>
-
-# Criar e implantar um conjunto de dimensionamento de máquinas virtuais
+# <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Criar e implantar um conjunto de dimensionamento de máquinas virtuais
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para obter mais informações sobre conjuntos de dimensionamento, consulte [Conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-overview.md).
 
 Este tutorial mostra como criar um conjunto de dimensionamento de máquinas virtuais **sem** usar o portal do Azure. Para obter informações sobre como usar o portal do Azure, consulte [Como criar um conjunto de dimensionamento de máquinas virtuais com o portal do Azure](virtual-machine-scale-sets-portal-create.md).
@@ -33,9 +31,7 @@ Este tutorial mostra como criar um conjunto de dimensionamento de máquinas virt
 >[!NOTE]
 >Para saber mais sobre os recursos do Azure Resource Manager, confira [Azure Resource Manager vs. Implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
-<a id="sign-in-to-azure" class="xliff"></a>
-
-## Entrar no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Se você estiver usando a CLI 2.0 do Azure ou o Azure PowerShell para criar um conjunto de dimensionamento, primeiro precisará se conectar à sua assinatura.
 
@@ -49,9 +45,7 @@ az login
 Login-AzureRmAccount
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Primeiro, você precisa criar um grupo de recursos ao qual o conjunto de dimensionamento de máquinas virtuais é associado.
 
@@ -63,9 +57,7 @@ az group create --location westus2 --name MyResourceGroup1
 New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 ```
 
-<a id="create-from-azure-cli" class="xliff"></a>
-
-## Criar com a CLI do Azure
+## <a name="create-from-azure-cli"></a>Criar com a CLI do Azure
 
 Com a CLI do Azure, você pode criar um conjunto de dimensionamento de máquinas virtuais com esforço mínimo. Se você omitir valores padrão, eles serão fornecidos para você. Por exemplo, se você não especificar as informações de rede virtual, uma rede virtual será criada para você. Se você omitir as seguintes partes, elas serão criadas para você: 
 - Um balanceador de carga
@@ -112,9 +104,7 @@ Após a conclusão do comando, o conjunto de dimensionamento de máquinas virtua
 az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
 ```
 
-<a id="create-from-powershell" class="xliff"></a>
-
-## Criar com o PowerShell
+## <a name="create-from-powershell"></a>Criar com o PowerShell
 
 O PowerShell é mais complicado de usar do que a CLI do Azure. Enquanto a CLI do Azure fornece padrões para recursos relacionados à rede (balanceadores de carga, endereços IP e redes virtuais), isso não ocorre com o PowerShell. Referenciar uma imagem com o PowerShell também é um pouco mais complicado. Você pode obter imagens com os seguintes cmdlets:
 
@@ -191,9 +181,7 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
-<a id="create-from-a-template" class="xliff"></a>
-
-## Criar usando um modelo
+## <a name="create-from-a-template"></a>Criar usando um modelo
 
 Você pode implantar um conjunto de dimensionamento de máquinas virtuais usando um modelo do Azure Resource Manager. É possível criar seu próprio modelo ou usar um do [repositório de modelos](https://azure.microsoft.com/resources/templates/?term=vmss). Esses modelos podem ser implantados diretamente em sua assinatura do Azure.
 
@@ -202,21 +190,15 @@ Você pode implantar um conjunto de dimensionamento de máquinas virtuais usando
 
 Um modelo de exemplo está disponível [no GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Para obter mais informações sobre como criar e usar essa amostra, consulte [Conjunto de dimensionamento mínimo viável](.\virtual-machine-scale-sets-mvss-start.md).
 
-<a id="create-from-visual-studio" class="xliff"></a>
-
-## Criar com o Visual Studio
+## <a name="create-from-visual-studio"></a>Criar com o Visual Studio
 
 Com o Visual Studio, você pode criar um projeto do grupo de recursos do Azure e adicionar a ele um modelo do conjunto de dimensionamento de máquinas virtuais. Você pode escolher se deseja importá-lo do GitHub ou da Galeria de Aplicativos Web do Azure. Um script de implantação do PowerShell também é gerado para você. Para obter mais informações, consulte [Como criar um conjunto de dimensionamento de máquinas virtuais com o Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-<a id="create-from-the-azure-portal" class="xliff"></a>
-
-## Criar com o portal do Azure
+## <a name="create-from-the-azure-portal"></a>Criar com o portal do Azure
 
 O portal do Azure é uma maneira conveniente de criar rapidamente um conjunto de dimensionamento. Para obter mais informações, consulte [Como criar um conjunto de dimensionamento de máquinas virtuais com o portal do Azure](virtual-machine-scale-sets-portal-create.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [discos de dados](virtual-machine-scale-sets-attached-disks.md).
 

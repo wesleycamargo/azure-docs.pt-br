@@ -59,8 +59,9 @@
 ### [Solução de problemas](azure-diagnostics-troubleshooting.md)
 
 # Referência
-## [Lista de métricas com suporte](monitoring-supported-metrics.md)
 ## [Fontes de dados de monitoramento](monitoring-data-sources.md)
+## [Lista de métricas com suporte](monitoring-supported-metrics.md)
+## [Esquema sobre eventos do log de atividades](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Recursos
 ## [Exemplos de CLI 1.0 do Azure](insights-cli-samples.md)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Exemplos do PowerShell](insights-powershell-samples.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Modelos de início rápido](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

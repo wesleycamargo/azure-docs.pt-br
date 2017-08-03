@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7d8eb5972d35eac6cb55fc393090cfcc21ec341c
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -33,6 +34,12 @@ O Observador de Rede é um serviço regional que permite monitorar e diagnostica
 Navegue até **Mais Serviços** > **Rede** > **Observador de Rede**. Você pode selecionar todas as assinaturas para as quais deseja habilitar o Observador de Rede. Essa ação cria um Observador de Rede em todas as regiões que ele está disponível.
 
 ![criar um observador de rede][1]
+
+Quando você habilita o Observador de Rede usando o Portal, o nome da instância do Observador de Rede é definido automaticamente para NetworkWatcher_nome_da_região, em que nome_da_região corresponde à região do Azure na qual a instância foi habilitada.  Por exemplo, um Observador de Rede habilitado na região Centro-Oeste dos EUA será nomeado NetworkWatcher_westcentralus
+
+Além disso, a instância do Observador de Rede será automaticamente adicionada a um grupo de recursos denominado NetworkWatcherRG.  Esse grupo de recursos será criado, se ele ainda não existir.
+
+Se você deseja personalizar o nome de uma instância do Observador de Rede e o grupo de recursos no qual ela é colocada, você pode usar os métodos do Powershell, API REST ou ARMClient descritos abaixo.  Em cada opção, o grupo de recursos deve existir antes de você colocar o Observador de Rede nele.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Criar um Observador de Rede com o PowerShell
 

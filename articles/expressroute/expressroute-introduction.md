@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: d1e513933ea647a1afe9a4eb214bb9216d3bb20a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="expressroute-overview"></a>Visão geral do ExpressRoute
@@ -113,4 +113,5 @@ Para perguntas frequentes sobre o ExpressRoute, consulte o [Perguntas frequentes
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o emparelhamento para um circuito do ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
   * [Conectar uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
 

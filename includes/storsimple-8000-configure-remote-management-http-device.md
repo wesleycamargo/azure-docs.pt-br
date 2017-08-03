@@ -1,6 +1,5 @@
 
-#### Para configurar o gerenciamento remoto no dispositivo de nuvem
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Para configurar o gerenciamento remoto no dispositivo de nuvem
 
 1. Em seu serviço StorSimple Device Manager, clique em **Dispositivos**. Selecione e clique em seu dispositivo de nuvem na lista de dispositivos conectados ao serviço.
     ![Seleção de dispositivo de nuvem StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

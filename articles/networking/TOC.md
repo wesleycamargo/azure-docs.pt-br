@@ -60,7 +60,7 @@
 
 # Recursos
 ## [Modelos de autor](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Modelos da comunidade](https://azure.microsoft.com/resources/templates/)
 ## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 ## [Preços](https://azure.microsoft.com/pricing)

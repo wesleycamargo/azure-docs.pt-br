@@ -210,7 +210,7 @@ Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta 
 1. No [portal do Azure](https://portal.azure.com), abra **Pool1**.
 1. Inspecione o gráfico **Monitoramento do pool elástico** e procure o aumento do uso de eDTUs do pool. Após um ou dois minutos, a carga maior deverá começar a fazer efeito e rapidamente você verá que o pool atinge 100% de utilização.
 1. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.
-1. **Clique no **gráfico** Monitoramento do banco de dados elástico** e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
+1. **Clique no** **gráfico** Monitoramento do banco de dados elástico e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
 1. Na lista de bancos de dados, clique em **contosoconcerthall**.
 1. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, em que você pode definir um nível de desempenho autônomo para o banco de dados.
 1. Clique na guia **Standard** para abrir as opções de escala na camada Standard.

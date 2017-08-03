@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/30/2017
 ms.author: sethm;clemensv
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -40,7 +41,8 @@ Embora não seja recomendado, é possível equipar os dispositivos com tokens qu
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave; isso impede que outros clientes criem tokens.
 
 ### <a name="create-the-sas-key"></a>Criar a chave SAS
-Ao criar um namespace de Hubs de Eventos do Azure, o serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que concede permissões de envio para o hub de eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave como **EventHubSendKey**.
+
+Ao criar um namespace de Hubs de Eventos, o serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você também pode criar chaves adicionais. É recomendável que você crie uma chave que concede permissões de envio para o hub de eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave como **EventHubSendKey**.
 
 O exemplo a seguir cria uma chave somente de envio ao criar o hub de eventos:
 
@@ -63,6 +65,7 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>Gerar tokens
+
 Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por cliente. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey** . A cada token é atribuído um URI exclusivo.
 
 ```csharp
@@ -88,7 +91,7 @@ Normalmente, os tokens têm um tempo de vida semelhante a superior ao tempo de v
 ### <a name="sending-data"></a>Enviar dados
 Depois que os tokens são criados, cada cliente é configurado com seu próprio token exclusivo.
 
-Quando o cliente envia dados a um hub de eventos, ele marca seu token com a solicitação de envio. Para evitar que um invasor intercepte e roube o token, a comunicação entre o cliente e o hub de eventos deve ocorrer em um canal criptografado.
+Quando o cliente envia dados a um hub de eventos, ele marca a solicitação de envio com o token. Para evitar que um invasor intercepte e roube o token, a comunicação entre o cliente e o hub de eventos deve ocorrer em um canal criptografado.
 
 ### <a name="blacklisting-clients"></a>Colocando clientes na lista de bloqueio
 Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. Colocar um cliente na lista de bloqueio o inutilizará até ele receber um novo token que usa um outro editor.
@@ -96,7 +99,6 @@ Se um token for roubado por um invasor, este poderá representar o cliente cujo 
 ## <a name="authentication-of-back-end-applications"></a>Autenticação de aplicativos back-end
 
 Para autenticar aplicativos back-end que consomem os dados gerados por clientes dos Hubs de Eventos, estes empregam um modelo de segurança semelhante ao modelo usado para os tópicos do Barramento de Serviço. Um grupo de consumidores de Hubs de Eventos é equivalente a uma assinatura de um tópico do Barramento de Serviço. Um cliente pode criar um grupo de consumidores se a solicitação para criar o grupo for acompanhada por um token que concede privilégios de gerenciamento para o hub de eventos ou para o namespace ao qual o hub de eventos pertence. Um cliente pode consumir dados de um grupo de consumidores, se a solicitação de recebimento for acompanhada por um token que concede direitos de recebimento no grupo de consumidores, o hub de eventos ou o namespace ao qual o hub de eventos pertence.
-
 
 A versão atual do Barramento de Serviço não dá suporte a regras SAS para assinaturas individuais. O mesmo se aplica a grupos de consumidores de Hubs de Eventos. O suporte a SAS será adicionado para os dois recursos no futuro.
 

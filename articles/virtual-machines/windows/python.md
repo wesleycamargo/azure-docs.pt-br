@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 3dd84ade3d3ad5f6982f8ab34dd72c2937d21410
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -32,7 +32,7 @@ Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines
 > * Instalar Pacotes
 > * Criar credenciais
 > * Criar recursos
-> * Executar outras tarefas de gerenciamento
+> * Executar tarefas de gerenciamento
 > * Excluir recursos
 > * Executar o aplicativo
 
@@ -365,7 +365,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
 
 ## <a name="perform-management-tasks"></a>Executar outras tarefas de gerenciamento
 
-Durante o ciclo de vida de uma máquina virtual, é possível que você queira executar tarefas de gerenciamento, como inicialização, interrupção ou exclusão de uma máquina virtual. Além disso, é possível que você queira criar um código para automatizar tarefas repetitivas ou complexas.
+Durante o ciclo de vida de uma máquina virtual, é possível que você queira executar tarefas de gerenciamento, como inicialização, interrupção ou exclusão de uma máquina virtual. Além disso, é possível que você queira criar um código para automatizar tarefas complexas ou repetitivas.
 
 ### <a name="get-information-about-the-vm"></a>Obter informações sobre a VM
 
@@ -472,7 +472,7 @@ Você pode parar uma máquina virtual e manter todas as suas configurações, ma
 
 ### <a name="resize-the-vm"></a>Redimensionar a VM
 
-Muitos aspectos de implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).
+Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).
 
 1. Para alterar o tamanho da máquina virtual, adicione essa função após as variáveis no arquivo .py:
 
@@ -533,9 +533,9 @@ Máquinas virtuais podem ter um ou mais [discos de dados](../../storage/storage-
             vm)
 
         return add_result.result()
-        ```
+    ```
 
-2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+2. Para chamar a função que você adicionou anteriormente, adicione este código sob a instrução **if** no final do arquivo .py:
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -567,7 +567,7 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 1. Para executar o aplicativo de console, clique em **Iniciar** no Visual Studio.
 
-2. Pressione **Enter** depois que o status de cada recurso for retornado. Nas informações de status, você deverá ver um estado de provisionamento **Êxito**. Depois que a máquina virtual é criada, você tem a oportunidade de excluir todos os recursos criados. Antes de pressionar **Enter** para iniciar a exclusão de recursos, reserve alguns minutos para verificar sua criação no Portal do Azure. Se você tiver o portal do Azure aberto, talvez precise atualizar a folha para ver os novos recursos.  
+2. Pressione **Enter** depois que o status de cada recurso for retornado. Nas informações de status, você deverá ver um estado de provisionamento **Bem-sucedido**. Após a criação da máquina virtual será possível excluir todos os recursos criados. Antes de pressionar **Enter** para iniciar a exclusão dos recursos, você terá alguns minutos para verificar a criação no portal do Azure. Se o portal do Azure for aberto, talvez seja necessário atualizar a folha para verificar novos recursos.  
 
     Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Pode levar alguns minutos depois que o aplicativo foi concluído antes de todos os recursos e o grupo de recursos serem excluídos.
 

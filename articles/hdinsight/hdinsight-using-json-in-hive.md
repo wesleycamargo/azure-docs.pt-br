@@ -15,16 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 034b61fdeb34c03bb4b58145f04138410e0d6fc6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# Processar e analisar documentos JSON usando Hive no HDInsight
-<a id="process-and-analyze-json-documents-using-hive-in-hdinsight" class="xliff"></a>
+# <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>Processar e analisar documentos JSON usando Hive no HDInsight
 
 Saiba como processar e analisar arquivos JSON usando Hive no HDInsight. O documento JSON a seguir é usado no tutorial:
 
@@ -63,12 +61,11 @@ Saiba como processar e analisar arquivos JSON usando Hive no HDInsight. O docume
         ]
     }
 
-O arquivo pode ser encontrado em wasbs://processjson@hditutorialdata.blob.core.windows.net/. Para obter mais informações sobre como usar o armazenamento de Blobs do Azure com o HDInsight, consulte [Usar o armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md). Você pode copiar o arquivo para o contêiner padrão do seu cluster.
+O arquivo pode ser encontrado em wasb://processjson@hditutorialdata.blob.core.windows.net/. Para obter mais informações sobre como usar o armazenamento de Blobs do Azure com o HDInsight, consulte [Usar o armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md). Você pode copiar o arquivo para o contêiner padrão do seu cluster.
 
 Neste tutorial, você usa o console do Hive.  Para obter instruções sobre como abrir o console do Hive, consulte [Usar o Hive com Hadoop no HDInsight com Área de Trabalho Remota](hdinsight-hadoop-use-hive-remote-desktop.md).
 
-## Nivelar os documentos JSON
-<a id="flatten-json-documents" class="xliff"></a>
+## <a name="flatten-json-documents"></a>Nivelar os documentos JSON
 Os métodos listados na próxima seção exigem que o documento JSON estejam em uma única linha. Portanto, você deve nivelar o documento JSON com uma cadeia de caracteres. Se seu documento JSON já está nivelado, ignore esta etapa e vá diretamente para a próxima seção sobre como analisar dados JSON.
 
     DROP TABLE IF EXISTS StudentsRaw;
@@ -88,7 +85,7 @@ Os métodos listados na próxima seção exigem que o documento JSON estejam em 
 
     SELECT * FROM StudentsOneLine
 
-O arquivo JSON bruto está localizado em **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. A tabela *StudentsRaw* do Hive aponta para o documento JSON bruto não nivelado.
+O arquivo JSON bruto está localizado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. A tabela *StudentsRaw* do Hive aponta para o documento JSON bruto não nivelado.
 
 A tabela *StudentsOneLine* do Hive armazena os dados no sistema de arquivos padrão do HDInsight no caminho */json/students/*.
 
@@ -100,8 +97,7 @@ Veja abaixo a saída da instrução SELECT:
 
 ![Nivelamento do documento JSON.][image-hdi-hivejson-flatten]
 
-## Analisar documentos JSON no Hive
-<a id="analyze-json-documents-in-hive" class="xliff"></a>
+## <a name="analyze-json-documents-in-hive"></a>Analisar documentos JSON no Hive
 O Hive fornece três mecanismos diferentes para executar consultas em documentos JSON:
 
 * usar a UDF (função definida pelo Usuário) GET\_JSON\_OBJECT
@@ -109,8 +105,7 @@ O Hive fornece três mecanismos diferentes para executar consultas em documentos
 * usar SerDe personalizado
 * gravar sua própria UDF usando Python ou outras linguagens. Consulte [este artigo][hdinsight-python] sobre como executar seu próprio código Python com o Hive.
 
-### Usar a UDF GET\_JSON_OBJECT
-<a id="use-the-getjsonobject-udf" class="xliff"></a>
+### <a name="use-the-getjsonobject-udf"></a>Usar a UDF GET\_JSON_OBJECT
 O Hive fornece uma UDF interna chamada [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object), que pode executar consultas JSON durante o tempo de execução. Esse método requer dois argumentos: o nome da tabela e o nome do método que tem o documento JSON nivelado, e o campo JSON que precisa ser analisado. Vejamos um exemplo para ver como essa UDF funciona.
 
 Obter o nome e o sobrenome de cada aluno
@@ -131,8 +126,7 @@ A UDF get-json_object tem algumas limitações.
 
 É por isso que o wiki do Hive recomenda o uso de json_tuple.  
 
-### Usar a UDF JSON_TUPLE
-<a id="use-the-jsontuple-udf" class="xliff"></a>
+### <a name="use-the-jsontuple-udf"></a>Usar a UDF JSON_TUPLE
 Outra UDF fornecida pelo Hive é denominada [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais bem executada do que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. A consulta a seguir retorna a ID e a série do aluno por meio do documento JSON:
 
     SELECT q1.StudentId, q1.Grade
@@ -146,8 +140,7 @@ A saída deste script no console do Hive:
 
 JSON\_TUPLE usa a sintaxe da [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive, que permite que a json\_tupla criar uma tabela virtual aplicando a função UDT em cada linha da tabela original.  JSONs complexos se tornam muito complicados devido ao uso repetido de LATERAL VIEW. Além disso, JSON_TUPLE não pode manipular JSONs aninhados.
 
-### Usar SerDe personalizado
-<a id="use-custom-serde" class="xliff"></a>
+### <a name="use-custom-serde"></a>Usar SerDe personalizado
 SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite definir o esquema JSON e usar o esquema para analisar os documentos. Neste tutorial, usamos um dos SerDe mais populares desenvolvidos por [Roberto Congiu](https://github.com/rcongiu).
 
 **Para usar o SerDe personalizado:**
@@ -168,7 +161,7 @@ SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite 
       ![Definir valores de configuração correto para o JDK][image-hdi-hivejson-jdk]
 2. Instale o [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Adicione a pasta bin ao seu caminho indo para o Painel de Controle --> Editar as Variáveis do Sistema para as Variáveis de ambiente da conta. A captura de tela a seguir mostra como fazer isso.
+    Adicione a pasta bin ao seu caminho indo para Painel de Controle --> Editar as Variáveis do Sistema para as variáveis de Ambiente da sua conta. A captura de tela a seguir mostra como fazer isso.
    
     ![Configurando o Maven][image-hdi-hivejson-maven]
 3. Clone o projeto do site do github [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) . Você pode fazer isso clicando no botão "Baixar Zip" conforme mostrado na captura de tela a seguir.
@@ -248,12 +241,10 @@ Se você quiser realizar skil em JSON malformado, conforme explicado no [página
 
 
 
-## Resumo
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>Resumo
 Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá optar por usar a UDF get\_json\_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 Para outros artigos relacionados, consulte
 

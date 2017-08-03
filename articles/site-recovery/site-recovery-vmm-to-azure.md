@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicar máquinas virtuais Hyper-V em nuvens VMM no Azure usando o Site Recovery no Portal do Azure
@@ -164,6 +164,11 @@ Instale o Provedor do Azure Site Recovery no servidor do VMM e registre o servid
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Aceite ou modifique o local de um certificado SSL automaticamente gerado para criptografia de dados. Esse certificado é usado se você habilitar a criptografia de dados para uma nuvem protegida pelo Azure no portal de Recuperação de Site do Azure. Mantenha esse certificado protegido. Quando você executar um failover para o Azure, precisará dele para descriptografar se a criptografia de dados estiver habilitada.
+
+    > [!NOTE]
+    > É recomendável usar a funcionalidade de criptografia fornecida pelo Azure para criptografar dados em repouso em vez de usar a opção de criptografia de dados fornecida pelo Azure Site Recovery. A funcionalidade de criptografia fornecida pelo Azure pode ser ligada para uma conta de armazenamento e ajuda a melhorar o desempenho, já que a criptografia/descriptografia é tratada pelo armazenamento do Azure.
+    > [Saiba mais sobre a Criptografia do Serviço de Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
 9. Habilite **Sincronizar metadados de nuvem**, se quiser sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM. Clique em **Registrar** para concluir o processo.
 
@@ -425,6 +430,12 @@ Em que:
 * **/Credentials**: parâmetro obrigatório que especifica onde o arquivo da chave de registro está localizado.  
 * **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
 * * **/EncryptionEnabled**: parâmetro opcional quando você está replicando as VMs do Hyper-V nas nuvens do VMM para o Azure. Especifique se deseja criptografar as máquinas virtuais no Azure (com criptografia em repouso). Verifique se o nome do arquivo tem uma extensão **.pfx** . A criptografia está desativado por padrão.
+
+    > [!NOTE]
+    > É recomendável usar a funcionalidade de criptografia fornecida pelo Azure para criptografar dados em repouso em vez de usar a opção de criptografia (opção EncryptionEnabled) fornecida pelo Azure Site Recovery. A funcionalidade de criptografia fornecida pelo Azure pode ser ligada para uma conta de armazenamento e ajuda a melhorar o desempenho, já que a criptografia/descriptografia é feita pelo armazenamento do  
+    > Azure.
+    > [Saiba mais sobre a Criptografia do Serviço de Armazenamento no Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
 * **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
 * **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).

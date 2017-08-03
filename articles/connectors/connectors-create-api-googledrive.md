@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 54066b1e98b611ef961529e6893723de757a7a0a
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,9 +41,9 @@ Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autor
 
 Depois de criar a conexão, insira as propriedades do Google Drive, como o caminho da pasta ou o nome do arquivo. 
 
-## <a name="view-the-swagger"></a>Exibir o swagger
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Consulte os [detalhes do Swagger](/connectors/googledrive/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/googledrive/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

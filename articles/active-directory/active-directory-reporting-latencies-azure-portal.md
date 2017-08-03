@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Latências de relatórios do Azure Active Directory – visualização
+# <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
-Com o relatório na [versão prévia](active-directory-preview-explainer.md) do Azure Active Directory, você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando. A quantidade de tempo que leva para que os dados de relatório sejam exibidos no portal do Azure também é conhecida como latência. 
+Com o [relatório](active-directory-preview-explainer.md) no Azure Active Directory, você obtém todas as informações necessárias para determinar como seu ambiente está se comportando. A quantidade de tempo que leva para que os dados de relatório sejam exibidos no portal do Azure também é conhecida como latência. 
 
 Este tópico lista as informações de latência para todas as categorias de relatórios no portal do Azure. 
 
@@ -91,3 +91,4 @@ Se você quiser saber mais sobre os relatórios de segurança no portal do Azure
 - [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 Se você quiser saber mais sobre eventos de risco, consulte [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+

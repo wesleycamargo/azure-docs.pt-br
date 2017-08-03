@@ -20,7 +20,6 @@ ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/09/2017
 
-
 ---
 
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
@@ -147,6 +146,8 @@ As informações ajudam você a identificar:
 ![folha Solicitações de registro de nome ](./media/log-analytics-dns/name-reg-req-blade.png)
 
 **Consultas de Análise de DDI de Exemplo**. Contém uma lista das consultas de pesquisa mais comuns que buscam dados analíticos brutos diretamente.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 

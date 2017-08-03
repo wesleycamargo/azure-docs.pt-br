@@ -1,10 +1,10 @@
 ---
-title: Usar o Apache Kafka com o Storm no HDInsight | Microsoft Docs
+title: "Usar o Apache Kafka com o Storm no HDInsight – Azure | Microsoft Docs"
 description: "O Apache Kafka é instalado com o Apache Storm no HDInsight. Saiba como gravar no Kafka e depois ler dele, usando os componentes KafkaBolt e KafkaSpout fornecidos com o Storm. Saiba também como usar a estrutura Flux para definir e enviar topologias Storm."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
@@ -13,12 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/20/2017
+ms.date: 06/13/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: dcda5e27cbcadff054c8085b72a1b6fb1c07b889
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: d241dbcdd9dc711769faa69488e3f32acbe5d40c
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Usar o Apache Kafka (visualização) com o Storm no HDInsight
@@ -57,9 +58,12 @@ Enquanto você pode criar uma rede virtual do Azure, clusters Kafka e Storm manu
 
 1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.1.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     O modelo do Gerenciador de Recursos está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
+
+    > [!WARNING]
+    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
 
 2. Use as seguintes diretrizes para preencher as entradas na folha de **implantação personalizada** :
    
@@ -101,11 +105,11 @@ O código de exemplo descrito neste documento está disponível em [https://gith
 Este projeto contém duas topologias:
 
 * **KafkaWriter**: definida pelo arquivo **writer.yaml**, essa topologia grava sentenças aleatórias no Kafka usando o KafkaBolt fornecido com o Apache Storm.
-  
+
     Essa topologia usa um componente **SentenceSpout** personalizado para gerar sentenças aleatórias.
 
 * **KafkaReader**: definida pelo arquivo **reader.yaml**, essa topologia lê dados do Kafka usando o KafkaSpout fornecido com o Apache Storm e registra os dados em stdout.
-  
+
     Essa topologia usa um componente **PrinterBolt** personalizado para registrar em log dados lidos do Kafka.
 
 ### <a name="flux"></a>Flux
@@ -125,11 +129,13 @@ As etapas deste documento demonstram como definir essas variáveis de ambiente.
 ## <a name="create-a-kafka-topic"></a>Criar um tópico Kafka
 
 1. Conecte-se ao cluster Kafka usando SSH. Substitua `USERNAME` pelo nome de usuário do SSH usado ao criar o cluster. Substitua `BASENAME` pelo nome base usado ao criar o cluster.
-   
-        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
+    ```
+
     Quando solicitado, digite a senha usada durante a criação dos clusters.
-   
+
     Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Na conexão SSH ao cluster Kafka, use os comandos a seguir para definir variáveis para o nome de logon HTTP e do cluster. Esses valores são usados por outras etapas nesta seção.
@@ -195,8 +201,6 @@ Mantenha a conexão SSH ao cluster Kafka ativa, pois você poderá usá-la para 
 ## <a name="download-and-compile-the-project"></a>Baixar e compilar o projeto
 
 1. No ambiente de desenvolvimento, baixe o projeto de [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), abra uma linha de comando e altere os diretórios para o local em que você baixou o projeto.
-
-    Reserve alguns minutos para examinar o código e entender como o projeto funciona.
 
 2. No diretório **hdinsight-storm-java-kafka**, use o seguinte comando para compilar o projeto e criar um pacote para implantação:
 
@@ -350,5 +354,3 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 Para obter mais topologias de exemplo que podem ser usadas com o Storm no HDInsight, confira [Topologias Storm de exemplo e componentes](hdinsight-storm-example-topology.md).
 
 Para obter informações sobre como implantar e monitorar topologias no HDInsight baseado em Linux, confira [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-

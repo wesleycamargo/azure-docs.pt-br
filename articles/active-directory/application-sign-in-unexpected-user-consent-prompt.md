@@ -21,17 +21,13 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="unexpected-consent-prompt-when-signing-in-to-an-application" class="xliff"></a>
-
-# Um usuário vê uma solicitação de consentimento inesperada ao entrar em um aplicativo
+# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Um usuário vê uma solicitação de consentimento inesperada ao entrar em um aplicativo
 
 Muitos aplicativos que se integram com o Azure Active Directory exigem permissões a vários recursos para serem executados. Quando esses recursos também são integrados com o Azure Active Directory, as permissões para acessá-los são solicitadas usando a estrutura de consentimento do Azure AD. 
 
 Isso resulta em uma solicitação de consentimento que é exibida na primeira vez em que um aplicativo é usado o que, frequentemente, é uma operação única. 
 
-<a id="scenarios-in-which-users-see-consent-prompts" class="xliff"></a>
-
-## Cenários nos quais os usuários visualizam solicitações de consentimento
+## <a name="scenarios-in-which-users-see-consent-prompts"></a>Cenários nos quais os usuários visualizam solicitações de consentimento
 
 Solicitações adicionais podem ser esperadas em vários cenários:
 
@@ -47,9 +43,7 @@ Solicitações adicionais podem ser esperadas em vários cenários:
 
 * O desenvolvedor configurou o aplicativo para solicitar uma solicitação de consentimento sempre que for usado (observação: essa não é a prática recomendada).
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 -   [Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 

@@ -13,17 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="on-premises-data-gateway"></a>Gateway de dados local
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e o servidor do Azure Analysis Services na nuvem.
+
+A versão mais recente do gateway dá suporte aos modelos tabulares 1400 conectados a fontes de dados locais usando consultas Obter Dados e M de no SSDT. 
+
+Para saber mais sobre fontes de dados com suporte, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
 Um gateway é instalado em um computador em sua rede. É necessário instalar um gateway para cada servidor do Azure Analysis Services existente em sua assinatura do Azure. Por exemplo, se você tiver dois servidores em sua assinatura do Azure que se conectam a fontes de dados locais, será necessário instalar um gateway em dois computadores separados em sua rede.
 
@@ -48,14 +53,6 @@ Um gateway é instalado em um computador em sua rede. É necessário instalar um
 * Para alterar o nome do servidor de um gateway que já foi configurado, você precisa reinstalar e configurar um novo gateway.
 * Em alguns casos, modelos de tabela que se conectam a fontes de dados usando provedores nativos, como o SQL Server Native Client (SQLNCLI11), podem retornar um erro. Para saber mais, confira [Conexões com fonte de dados](analysis-services-datasource.md).
 
-## <a name="supported-on-premises-data-sources"></a>Fontes de dados locais com suporte
-O gateway oferece suporte a conexões entre o servidor do Analysis Services do Azure e fontes de dados do local a seguir:
-
-* SQL Server
-* SQL Data Warehouse
-* APS
-* Oracle
-* Teradata
 
 ## <a name="download"></a>Baixar
  [Baixe o gateway](https://aka.ms/azureasgateway)
@@ -128,7 +125,7 @@ Nos bastidores, o gateway de dados local usado para conectar o Azure Analysis Se
 
 Se você estiver enfrentando problemas para instalar e configurar um gateway, confira [Solução de problemas do Gateway do Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Se você achar que está enfrentando um problema com o seu firewall, consulte as seções de proxy ou firewall.
 
-Se você achar que você está encontrando problemas de proxy, com o gateway, consulte [Definir as configurações de proxy para os Gateways do Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+Se você achar que você está encontrando problemas de proxy, com o gateway, consulte [Definir as configurações de proxy para os Gateways do Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy).
 
 ### <a name="telemetry"></a>Telemetria
 Telemetria pode ser usada para monitorar e solucionar problemas. 

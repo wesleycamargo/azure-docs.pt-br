@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12 - Implantar Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
+    - name: 13 - Configurar CI/CD com o Team Services
+      href: tutorial-build-deploy-jenkins.md
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -62,23 +64,18 @@
     - name: Contêineres
       href: containers.md
     - name: Gerenciador de Recursos
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:
         - name: Modelos de implantação
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Modelos para VMs
-          href: >-
-            ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Agente Linux do Azure
       href: agent-user-guide.md
     - name: Central de Segurança do Azure
-      href: >-
-        ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Recuperação de desastre
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Manutenção planejada
       href: planned-maintenance.md
       items:
@@ -177,8 +174,7 @@
         - name: Redimensionar uma VM
           href: change-vm-size.md
         - name: Usar marcações
-          href: >-
-            ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: Marcar uma VM
               href: tag.md
@@ -187,11 +183,8 @@
         - name: Atualizar o agente Linux do Azure
           href: update-agent.md
         - name: Fazer backup usando Serviços de Recuperação
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: >-
-            Ingresse uma VM RedHat em um Serviço de Domínio do Azure Active
-            Directory
+          href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Ingresse uma VM RedHat em um Serviço de Domínio do Azure Active Directory
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
     - name: Conexão com o SSH
       items:
@@ -235,12 +228,10 @@
     - name: Gerenciar o armazenamento da VM
       items:
         - name: Azure Managed Disks
-          href: >-
-            ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: Perguntas frequentes
-              href: >-
-                ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Copie os arquivos para uma VM do Linux
           href: copy-files-to-linux-vm-using-scp.md
         - name: Converter uma VM em Managed Disks
@@ -266,8 +257,7 @@
     - name: Rede de VM
       items:
         - name: Criar redes virtuais
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Implante uma VM em uma rede virtual existente
           items:
             - name: CLI do Azure
@@ -277,8 +267,7 @@
         - name: Criar uma VM com diversos NICs
           href: multiple-nics.md
         - name: Criar um IP público estático
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 'Configurar portas, pontos de extremidade e segurança'
           href: endpoints-in-resource-manager.md
         - name: Permitir acesso a uma VM
@@ -292,18 +281,15 @@
         - name: Criar um FQDN
           href: portal-create-fqdn.md
         - name: Cria rotas definidas pelo usuário
-          href: >-
-            ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Escala e disponibilidade
       items:
         - name: Disponibilidade da VM
           href: manage-availability.md
         - name: Criar um balanceador de carga
-          href: >-
-            ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Criar várias VMs com Conjuntos de Dimensionamento
-          href: >-
-            ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Escalar verticalmente VMs com a Automação do Azure
           href: vertical-scaling-automation.md
         - name: Monitoramento de VM
@@ -341,8 +327,7 @@
             - name: Implante seu primeiro aplicativo
               href: cloudfoundry-deploy-your-first-app.md
         - name: Visão geral da VM de Ciência de Dados
-          href: >-
-            ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: MongoDB
           href: install-mongodb.md
         - name: MySQL
@@ -356,8 +341,7 @@
         - name: Implantar um cluster Deis de três nós
           href: deis-cluster.md
         - name: Implantar o aplicativo Node.js
-          href: >-
-            ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Aplicativo Web Django
           href: python-django-web-app.md
         - name: Bloco de anotações do Jupyter
@@ -394,15 +378,12 @@
         - name: Erros comuns de migração
           href: migration-classic-resource-manager-errors.md
         - name: Ferramentas da comunidade para a migração
-          href: >-
-            ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Perguntas frequentes
           href: migration-classic-resource-manager-faq.md
     - name: Solucionar problemas
       items:
-        - name: >-
-            Capacidade de adicionar a VM do Azure a um conjunto de
-            disponibilidade existente
+        - name: Capacidade de adicionar a VM do Azure a um conjunto de disponibilidade existente
           href: ../virtual-machines-availability-set-supportability.md
         - name: Redefinir a senha da máquina virtual
           href: virtual-machines-linux-reset-password.md
@@ -454,8 +435,7 @@
 - name: Recursos
   items:
     - name: Modelos de autor
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelos da comunidade
@@ -467,7 +447,6 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vídeos
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Perguntas frequentes
       href: faq.md

@@ -1,6 +1,6 @@
-## <a name="extended-iot-scenarios-use-other-azure-services-and-tools"></a>Cenários de IoT estendidos: usar outros serviços e ferramentas do Azure
+## <a name="extended-iot-scenarios"></a>Cenários de IoT estendidos
 
-Depois de conectar o dispositivo ao Hub IoT, você poderá explorar cenários adicionais que usam outros serviços e ferramentas do Azure:
+Use outras ferramentas e serviços do Azure. Depois de conectar o dispositivo ao Hub IoT, você poderá explorar cenários adicionais que usam outros serviços e ferramentas do Azure:
 
 | Cenário                                                   | Serviço ou ferramenta do Azure              |
 |----------------------------------------------------------- |------------------------------------|

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
@@ -78,7 +77,7 @@ Para os fins deste artigo, vamos mostrar como entrar no Azure interativamente. D
 az login
 ```
 
-O comando `az login` retorna um token que você usará para autenticar, conforme mostrado aqui. Siga as instruções fornecidas para abrir uma página da Web e enviar o token do Azure:
+O comando `az login` retorna um token que você pode usar para autenticar, conforme mostrado aqui. Siga as instruções fornecidas para abrir uma página da Web e enviar o token do Azure:
 
 ![Fazer logon no Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Você tem duas opções para autenticação na sua conta do Lote:
     ```
 
 Os exemplos listados na seção [Scripts de shell de exemplo](#sample-shell-scripts) mostram como entrar na conta do Lote com a CLI do Azure usando o Azure AD e a Chave Compartilhada.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
+
+Você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os arquivos de modelo do Lote dão suporte à criação de pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar a CLI do Azure para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos (Versão prévia)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Scripts de shell de exemplo
 
@@ -187,7 +190,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 
 * Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 * Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).
-* Veja [Implantar aplicativos em nós de computação com os pacotes de aplicativos do Lote](batch-application-packages.md) para descobrir como usar esse recurso para gerenciar e implantar os aplicativos executados em nós de computação do Lote.
+* Para saber mais sobre como usar modelos do Lote para criar pools, trabalhos e tarefas sem escrever código, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos (Versão prévia)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e7dad0f943375f1bf2996564558e313416506506
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: e0adac5193ae412845c8413dfee6b5557096359a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -149,7 +149,7 @@ Uma imagem personalizada é um VHD (disco rígido virtual) e uma fórmula é uma
 Você pode usar a [extensão de tarefas VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) ou [gerar um modelo do Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) durante a criação de uma VM e [implantar o modelo do Azure Resource Manager do Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>Como mover minhas VMs do Azure existentes para meu laboratório do Azure DevTest Labs?
-Estamos criando uma solução para mover VMs diretamente para o Azure DevTest Labs, mas, no momento, você pode copiar suas VMs existentes para o Azure DevTest Labs da seguinte maneira:
+Siga as etapas a seguir para copiar suas VMs existentes em para o Azure DevTest Labs:
 
 1. Copie o arquivo VHD da VM existente usando este [script do Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)
 2. [Crie a imagem personalizada](devtest-lab-create-template.md) em seu laboratório do Azure DevTest Labs.

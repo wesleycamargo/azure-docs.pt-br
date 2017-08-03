@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5f2615b3df14c82147ff8a2cd997458756581d01
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,13 +43,29 @@ As funções do AAD controlam as soluções pré-configuradas de provisão de ca
 
 Saiba mais sobre funções de administrador no AAD em [Atribuir funções de administrador no Azure AD][lnk-aad-admin]. O artigo atual enfoca as funções do diretório **Administrador Global** e **Usuário** conforme utilizadas pelas soluções pré-configuradas.
 
-**Administrador global:** pode haver muitos administradores globais por locatário do AAD. Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário. O administrador global pode provisionar uma solução pré-configurada e recebe uma função de **Administrador** para o aplicativo dentro do seu locatário do AAD. No entanto, se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão concedida ao administrador global será **Somente Leitura**. Os administradores globais podem atribuir usuários a funções para aplicativos usando o [Portal do Azure][lnk-portal].
+### <a name="global-administrator"></a>Administrador global
 
-**Usuário:** pode haver muitos usuários de domínio por locatário do AAD. Um usuário do domínio pode provisionar uma solução pré-configurada por meio do site [azureiotsuite.com][lnk-azureiotsuite]. A função padrão concedida ao usuário para o aplicativo que ele provisiona será **Administrador**. Ele pode criar um aplicativo usando o script build.cmd no repositório [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo]. No entanto, a função padrão concedida ao usuário é **Somente Leitura**, uma vez que ele não tem permissão para atribuir funções. Se outro usuário no locatário do AAD criar um aplicativo, ele receberá a função **Somente Leitura** por padrão para o aplicativo. Ele não terá a capacidade de atribuir funções para aplicativos; portanto, não poderá adicionar usuários ou funções para usuários para um aplicativo, mesmo se o tiver provisionado.
+Pode haver muitos administradores globais por locatário do AAD:
 
-**Usuário Convidado:** pode haver muitos usuários convidados por locatário do AAD. Os usuários convidados têm um conjunto limitado de direitos no locatário do AAD. Como resultado, os usuários convidados não podem provisionar uma solução pré-configurada no locatário do AAD.
+* Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário.
+* O administrador global pode provisionar uma solução pré-configurada e recebe uma função de **Administrador** para o aplicativo dentro do seu locatário do AAD.
+* Se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão concedida ao administrador global será **ReadOnly**.
+* Um administrador global pode atribuir usuários a funções para aplicativos usando o [Portal do Azure][lnk-portal].
 
-Para saber mais, consulte os recursos a seguir:
+### <a name="domain-user"></a>Usuário de domínio
+
+Pode haver muitos usuários de domínio por locatário do AAD:
+
+* Um usuário do domínio pode provisionar uma solução pré-configurada por meio do site [azureiotsuite.com][lnk-azureiotsuite]. Por padrão, a função **Admin** é concedida ao usuário de domínio no aplicativo provisionado.
+* Um usuário de domínio pode criar um aplicativo usando o script build.cmd no repositório [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] ou [azure-iot-connected-factory][lnk-cf-github-repo]. No entanto, a função padrão concedida ao usuário de domínio é **ReadOnly**, porque um usuário de domínio não tem permissão para atribuir funções.
+* Se outro usuário no locatário do AAD criar um aplicativo, o usuário de domínio será atribuído à função **ReadOnly** por padrão para esse aplicativo.
+* O usuário de domínio não terá a capacidade de atribuir funções para aplicativos, portanto, não poderá adicionar usuários ou funções para usuários para um aplicativo, mesmo se o tiver provisionado.
+
+### <a name="guest-user"></a>Usuário Convidado
+
+Pode haver muitos usuários convidados por locatário do AAD. Os usuários convidados têm um conjunto limitado de direitos no locatário do AAD. Como resultado, os usuários convidados não podem provisionar uma solução pré-configurada no locatário do AAD.
+
+Para obter mais informações sobre usuários e funções no AAD, confira os seguintes recursos:
 
 * [Criar usuários no Azure AD][lnk-create-edit-users]
 * [Atribuir usuários a aplicativos][lnk-assign-app-roles]
@@ -58,13 +74,13 @@ Para saber mais, consulte os recursos a seguir:
 
 As funções de administrador do Azure controlam a capacidade de mapear uma assinatura do Azure para um locatário do AD.
 
-Você poderá descobrir mais sobre as funções Coadministrador, Administrador de Serviços e Administrador da Conta do Azure no artigo [Como adicionar ou alterar o Coadministrador, o Administrador de Serviços e o Administrador da Conta do Azure][lnk-admin-roles].
+Descubra mais sobre as funções de administrador do Azure no artigo [Como adicionar ou alterar o Coadministrador, o Administrador de Serviços e o Administrador da Conta do Azure][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Funções de aplicativo
 
 As funções do aplicativo controlam o acesso a dispositivos em sua solução pré-configurada.
 
-Existem duas funções definidas e uma implícita definidas no aplicativo criado quando você provisiona uma solução pré-configurada.
+Há duas funções definidas e uma função implícita definida em um aplicativo provisionado:
 
 * **Administrador:** tem controle total para adicionar, gerenciar, remover dispositivos e modificar configurações.
 * **Somente Leitura:** pode exibir dispositivos, regras, ações, trabalhos e telemetria.
@@ -99,11 +115,11 @@ Você deve ser um administrador global do AAD para alterar funções para um usu
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Sou um usuário/membro do domínio no locatário do AAD e criei uma solução pré-configurada. Como recebo uma função para o meu aplicativo?
 
-Peça ao administrador global para atribuir a você um administrador global do locatário do AAD para obter permissões para atribuir funções a usuários ou peça ao administrador global para atribuir a você uma função. Se desejar alterar o locatário do AAD em que sua solução pré-configurada foi implantada, consulte a próxima pergunta.
+Peça ao administrador global para tornar você um administrador global no locatário AAD e, em seguida, atribua funções aos usuários por conta própria. Como alternativa, peça ao administrador global para atribuir uma função a você diretamente. Se desejar alterar o locatário do AAD em que sua solução pré-configurada foi implantada, consulte a próxima pergunta.
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Como alternar o locatário do AAD ao qual minha solução pré-configurada de monitoramento remoto e o aplicativo estão atribuídos?
 
-É possível executar uma implantação de nuvem do <https://github.com/Azure/azure-iot-remote-monitoring> e reimplantar com um locatário do AAD recém-criado. Como você é, por padrão, um administrador global quando cria um novo locatário do AAD, terá permissões para adicionar usuários e atribuir funções a eles.
+É possível executar uma implantação de nuvem do <https://github.com/Azure/azure-iot-remote-monitoring> e reimplantar com um locatário do AAD recém-criado. Já que você é, por padrão, um administrador global quando cria um novo locatário do AAD, você tem permissões para adicionar usuários e atribuir funções a eles.
 
 1. Crie um diretório do AAD no [Portal do Azure][lnk-portal].
 2. Acesse <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -135,6 +151,7 @@ Para continuar aprendendo sobre o IoT Suite, veja como é possível [personaliza
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

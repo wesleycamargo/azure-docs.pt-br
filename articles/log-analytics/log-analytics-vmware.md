@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
@@ -151,7 +151,10 @@ Se você quiser ver dados adicionais de criação de VMs de host ESXi, clique em
 #### <a name="common-search-queries"></a>Consultas de pesquisa comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerenciar seus hosts ESXi, como espaço de armazenamento de alta latência de armazenamento e falha do caminho.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![consultas](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>Salvar consultas
 Salvar consultas de pesquisa é um recurso padrão do OMS e pode lhe ajudar a manter todas as consultas que você considerar úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](log-analytics-dashboards.md), na qual você pode criar seus próprios painéis personalizados.

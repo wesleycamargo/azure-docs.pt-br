@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lição suplementar – segurança dinâmica
@@ -106,7 +106,7 @@ As tabelas DimSalesTerritory, FactInternetSales e DimGeography contêm uma colun
     Observe que a propriedade ativa desta relação é False, o que significa que ela está inativa. A tabela FactInternetSales já tem outra relação ativa.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Ocultar a tabela EmployeeSecurity de aplicativos cliente  
-Nesta tarefa, você oculta a tabela EmployeeSecurity, impedindo que ela apareça na lista de campos de um aplicativo cliente. Lembre-se que ocultar uma tabela não a protege. Se souberem como, os usuários ainda poderão consultar os dados da tabela EmployeeSecurity. Para proteger os dados da tabela EmployeeSecurity, impedindo que os usuários sejam capazes de consultar qualquer um dos seus dados, você deve aplicar um filtro em uma tarefa posterior.  
+Nesta tarefa, você oculta a tabela EmployeeSecurity, impedindo que ela apareça na lista de campos de um aplicativo cliente. Lembre-se de que a ocultação de uma tabela não a protege. Se souberem como, os usuários ainda poderão consultar os dados da tabela EmployeeSecurity. Para proteger os dados da tabela EmployeeSecurity, impedindo que os usuários sejam capazes de consultar qualquer um dos seus dados, você deve aplicar um filtro em uma tarefa posterior.  
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Para ocultar a tabela EmployeeSecurity de aplicativos cliente  
   

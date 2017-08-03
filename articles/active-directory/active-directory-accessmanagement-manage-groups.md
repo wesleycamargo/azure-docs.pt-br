@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Gerenciamento de grupos no Azure Active Directory
@@ -35,6 +38,9 @@ Um dos recursos de gerenciamento de usuários do Azure AD (Azure Active Director
 * Recursos externos para o diretório, como aplicativos SaaS, serviços do Azure, sites do SharePoint ou recursos locais
 
 Além disso, o proprietário do recurso também pode atribuir acesso a um recurso a um grupo do Azure AD pertencente a outra pessoa. Essa atribuição concede acesso ao recurso aos membros desse grupo. Em seguida, o proprietário do grupo gerencia a associação ao grupo. Efetivamente, o proprietário do recurso delega ao proprietário do grupo a permissão de atribuir usuários aos seus recursos.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. Para saber como gerenciar grupos no Centro de administração do Azure AD, confira [Criar um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
 ## <a name="how-do-i-create-a-group"></a>Como faço para criar um grupo?
 Dependendo dos serviços que sua organização assinou, você pode criar um grupo usando um dos seguintes itens:

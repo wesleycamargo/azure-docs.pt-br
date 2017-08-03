@@ -17,21 +17,20 @@ ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>O que é o licenciamento do Microsoft Azure Active Directory no Portal Clássico do Azure?
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
-> * [Portal clássico do Azure](active-directory-licensing-what-is.md)
+> * [Obter instruções do Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
+> * [Informações sobre o portal clássico do Azure](active-directory-licensing-what-is.md)
 >
 >
-
 
 O Active Directory do Azure (Azure AD) é a identidade da Microsoft como uma solução e plataforma de serviço (IDaaS). O AD do Azure é oferecido em várias versões técnicas e funcionais, desde o AD gratuito do Azure, disponível com qualquer serviço da Microsoft, como o Office 365, Dynamics, Microsoft Intune e Azure (o AD do Azure não gera encargos de consumo nesse modo), até versões pagas do AD do Azure, como o Enterprise Mobility Suite (EMS), AD Premium e Basic do Azure, além de MFA (Multi-Factor Authentication). Como muitos serviços online da Microsoft, a maioria das versões pagas do AD do Azure é fornecida por meio de direitos de usuário, como é no Office 365, Microsoft Intune e AD do Azure. Nesses casos, a compra do serviço é representada com uma ou mais assinaturas e cada assinatura inclui um número de pré-compra de licenças em seu locatário. Direitos de usuário são obtidos por meio da atribuição de licença, criando um vínculo entre o usuário e o produto, habilitando os componentes de serviço para o usuário e consumindo uma das licenças pré-pagas.
 

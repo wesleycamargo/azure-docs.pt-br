@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
@@ -161,7 +160,7 @@ Agora que já vimos como especificar caminhos, vamos examinar as opções que po
 
 * Tipo de dados: **String**, **Number**, **Point**, **Polygon** ou **LineString** (pode conter somente uma entrada por tipo de dados por caminho)
 * Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais) 
-* Precisão: 1 a 8 ou -1 (precisão máxima) para os números de 1 a 100 (precisão máxima) para a cadeia de caracteres
+* Precisão: para índice de hash, isso varia de 1 a 8 para cadeias de caracteres e números, com um padrão de 3. Para o índice de intervalo, esse valor pode ser -1 (precisão máxima) e variar entre 1 e 100 (precisão máxima) para a cadeia de caracteres ou valores numéricos.
 
 #### <a name="index-kind"></a>Tipo de índice
 O Azure Cosmos DB dá suporte a tipos de índice Hash e Intervalo em todos os caminhos (que podem ser configurados para cadeias de caracteres, números ou ambos).
@@ -229,7 +228,7 @@ Você pode escolher se deseja que a coleção indexe automaticamente todos os do
 
 Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Por outro lado, você pode deixar a indexação automática e seletivamente optar por excluir apenas documentos específicos. As configurações de Ativar/desativar a indexação são úteis quando você tem apenas um subconjunto dos documentos que precisa ser consultado.
 
-Por exemplo, a amostra a seguir explica como incluir um documento explicitamente usando o [SDK do .NET na API do DocumentDB](https://github.com/Azure/azure-documentdb-java) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Por exemplo, a amostra a seguir explica como incluir um documento explicitamente usando o [SDK do .NET na API do DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -258,7 +257,7 @@ No entanto, você pode mudar para o modo de indexação Lento ou Nenhum enquanto
 * Quando você muda para Lento, a alteração na política de indexação é efetivada imediatamente e o Azure Cosmos DB inicia a recriação do índice de forma assíncrona. 
 * Quando você muda para Nenhum, então o índice é removido imediatamente. A mudança para Nenhum será útil quando você quiser cancelar uma transformação em andamento e iniciar uma nova com uma política de indexação diferente. 
 
-Se você estiver usando o SDK do .NET, poderá iniciar uma alteração de política de indexação usando o novo método **ReplaceDocumentCollectionAsync** e acompanhar o progresso em porcentagem da transformação do índice transformação usando o a propriedade de resposta **IndexTransformationProgress** de uma chamada **ReadDocumentCollectionAsync**. Outros SDKs e a API REST dão suporte a propriedades e métodos equivalentes para alterações na política de indexação.
+Se você estiver usando o SDK do .NET, poderá iniciar uma alteração de política de indexação usando o novo método **ReplaceDocumentCollectionAsync** e acompanhar o progresso em percentual da transformação do índice transformação usando o a propriedade de resposta **IndexTransformationProgress** de uma chamada **ReadDocumentCollectionAsync**. Outros SDKs e a API REST dão suporte a propriedades e métodos equivalentes para alterações na política de indexação.
 
 Veja um trecho de código que mostra como modificar a política de indexação de uma coleção do modo de indexação Consistente para o Lento.
 
@@ -315,7 +314,7 @@ Quando você fará alterações na política de indexação de suas coleções d
 > 
 
 ## <a name="performance-tuning"></a>Ajuste de desempenho
-As APIs do Banco de Dados de Documentos fornecem informações sobre as métricas de desempenho, como o armazenamento de índice usado e o custo da taxa de transferência (unidades de solicitação) para cada operação. Essas informações podem ser usadas para comparar várias políticas de indexação e para ajuste de desempenho.
+As APIs do DocumentDB fornecem informações sobre as métricas de desempenho, como o armazenamento de índice usado e o custo da taxa de transferência (unidades de solicitação) para cada operação. Essas informações podem ser usadas para comparar várias políticas de indexação e para ajuste de desempenho.
 
 Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma solicitação HEAD ou GET em relação ao recurso de coleção e inspecione os cabeçalhos x-ms-request-quota e x-ms-request-usage. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
 

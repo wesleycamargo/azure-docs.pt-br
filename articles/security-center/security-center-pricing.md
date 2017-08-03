@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
-ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -33,11 +33,6 @@ A Central de Segurança é oferecida em duas camadas:
 
 Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
 
-> [!NOTE]
-> A Central de Segurança usa o armazenamento do Azure para salvar dados de segurança gerados pelos nós protegidos. Os custos associados a esse armazenamento não estão incluídos no preço do serviço e são cobrados separadamente de acordo com as [taxas normais de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Encargos de armazenamento são aplicáveis mesmo durante a avaliação gratuita de 60 dias.
->
->
-
 ## <a name="try-standard-free-for-60-days"></a>Experimentar a versão Standard gratuitamente por 60 dias
 A camada Standard é oferecida gratuitamente nos 60 primeiros dias. Ao fim dos 60 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
 
@@ -49,7 +44,6 @@ Para obter a camada Standard:
 4. Na folha **Escolha seu tipo de preços**, selecione **Padrão**.
 5. Clique em **Selecionar**.
 
-![Camada padrão][1]
 
 ## <a name="why-upgrade-to-standard"></a>Por que atualizar para Padrão?
 A camada Padrão da Central de Segurança fornece todos os recursos da camada Gratuita, mais a detecção avançada de ameaças. A detecção avançada de ameaças ajuda a identificar ameaças ativas que direcionam os recursos do Azure e fornece as percepções necessárias para que você reaja rapidamente.
@@ -79,11 +73,17 @@ Para validar se a coleta de dados está habilitada:
 2. Selecione uma assinatura.
 3. Se a **Coleta de Dados** for desativada, altere-a para ativada e salve a alteração.
 
+> [!NOTE]
+> Se você estiver usando a Central de Segurança do Azure Gratuita, você poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard.
+>
+>
+
 Confira [Habilitar coleta de dados na Central de Segurança do Azure](security-center-enable-data-collection.md) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Neste documento, foram apresentados os preços da Central de Segurança. Para obter mais informações sobre preços, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
 * Para saber mais sobre os recursos de detecção avançada da Central de Segurança, confira [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
+* Para saber mais sobre como os dados são gerenciados e protegidos na Central de Segurança do Azure, veja [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md).
 * Se você tiver dúvidas sobre como usar a Central de Segurança, confira as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
 * Se você ainda tiver dúvidas sobre como usar a Central de Segurança ou o Azure, acesse os [fóruns do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 

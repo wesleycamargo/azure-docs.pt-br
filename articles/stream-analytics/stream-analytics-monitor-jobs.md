@@ -22,15 +22,11 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="programmatically-create-a-stream-analytics-job-monitor" class="xliff"></a>
-
-# Criar programaticamente um monitor de trabalhos do Stream Analytics
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de trabalhos do Stream Analytics
 
 Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do PowerShell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure indo até a página de Monitor do trabalho e clicando no botão Habilitar ou então pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia Métricas no Portal do Azure para o trabalho do Stream Analytics.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este processo, você deve ter o seguinte:
 
@@ -38,9 +34,7 @@ Antes de começar este processo, você deve ter o seguinte:
 * [SDK do Azure .NET](https://azure.microsoft.com/downloads/) baixado e instalado
 * Um trabalho de Stream Analytics existente que precisa ter monitoramento habilitado
 
-<a id="create-a-project" class="xliff"></a>
-
-## Criar um projeto
+## <a name="create-a-project"></a>Criar um projeto
 
 1. Crie um aplicativo de console do Visual Studio C# .NET.
 2. No Console do Gerenciador de pacotes, execute os seguintes comandos para instalar os pacotes do NuGet. O primeiro é o SDK .NET do Azure Stream Analytics Management. O segundo é o SDK do Azure Monitor que será usado para habilitar o monitoramento. O último é o cliente do Active Directory do Azure que será usado para autenticação.
@@ -124,9 +118,7 @@ Antes de começar este processo, você deve ter o seguinte:
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-<a id="create-management-clients" class="xliff"></a>
-
-## Criar clientes de gerenciamento
+## <a name="create-management-clients"></a>Criar clientes de gerenciamento
 
 O código a seguir configurará as variáveis necessárias e os clientes de gerenciamento.
 
@@ -148,9 +140,7 @@ O código a seguir configurará as variáveis necessárias e os clientes de gere
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-<a id="enable-monitoring-for-an-existing-stream-analytics-job" class="xliff"></a>
-
-## Habilitar o monitoramento para um trabalho de Stream Analytics existente
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitar o monitoramento para um trabalho de Stream Analytics existente
 
 O código a seguir habilita o monitoramento para um trabalho de Stream Analytics **existente**. A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa a propriedade *Id* (recuperada da solicitação GET) como um parâmetro para o método Put na segunda metade do código que envia uma solicitação PUT ao serviço Insights para habilitar o monitoramento para o trabalho de Stream Analytics.
 
@@ -184,15 +174,11 @@ O código a seguir habilita o monitoramento para um trabalho de Stream Analytics
 
 
 
-<a id="get-support" class="xliff"></a>
-
-## Obtenha suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

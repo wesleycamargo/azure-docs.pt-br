@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 92090975e8e4e38b3ea99045c226a2777ef86405
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -108,7 +108,11 @@ Depois de [registrar o aplicativo](#register-your-application-with-an-azure-ad-t
 
 3. Abra a folha **Configurações** de seu aplicativo. Na seção **Acesso à API**, selecione **Permissões necessárias**.
 4. No **permissões necessárias** folha, clique o **adicionar** botão.
-5. Na etapa 1, pesquise por **MicrosoftAzureBatch**, selecione **(MicrosoftAzureBatch) do Microsoft Azure Batch**e clique no **selecione** botão.
+5. Na etapa 1, pesquise a API de Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
+    1. **MicrosoftAzureBatch**.
+    2. **Lote do Microsoft Azure**. Os locatários mais recentes do Azure AD podem usar esse nome.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote. 
+6. Depois de encontrar a API de Lote, selecione-a e clique no botão **Selecionar**.
 6. Na etapa 2, selecione a caixa de seleção Avançar ao **acesso serviço do Azure Batch** e clique no **selecione** botão.
 7. Clique no botão **Concluído**.
 

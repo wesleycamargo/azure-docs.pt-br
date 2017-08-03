@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: cb267625cb6ea279b4094b1cc4d456cfd7542cca
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
@@ -117,10 +116,6 @@ Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques m
 3. Examine a cadeia de conexão completa do **ADO.NET**.
 
     ![Cadeia de conexão do ADO.NET](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> Para obter um exemplo de criação de um aplicativo .NET usando o Banco de Dados SQL do Azure, consulte [Compilar um aplicativo ASP.NET no Azure com o Banco de Dados SQL](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
->
 
 ## <a name="creating-database-users"></a>Criar usuários de banco de dados
 

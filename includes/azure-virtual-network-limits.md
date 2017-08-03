@@ -25,7 +25,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Redes virtuais |50 |500 |
 | Sub-redes por rede virtual |1.000 |entrar em contato com o suporte |
 | Servidores DNS por rede virtual |9 |25 |
-| Endereços IP privados por rede virtual |4096 |4.096 |
+| Endereços IP privados por rede virtual |4096 |8192 |
 | Endereços IP privados por interface de rede |50 |entrar em contato com o suporte |
 | Conexões TCP simultâneas para uma máquina virtual ou instância de função |500K |500K |
 | NIC (Interfaces de rede) |300 |10000 |

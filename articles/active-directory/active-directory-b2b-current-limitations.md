@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: f13f4ac6e32f568fb5f56261b542e0e2c49f5b3d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -28,13 +28,10 @@ ms.lasthandoff: 05/12/2017
 A colaboração B2B do Azure Active Directory (Azure AD) está sujeita, atualmente, às limitações descritas neste artigo.
 
 ## <a name="possible-double-multi-factor-authentication"></a>Possível autenticação multifator dupla
-Com B2B do Azure AD é possível impor a autenticação multifator na organização do recurso (a organização emissora do convite). Os motivos para essa abordagem são detalhados em [Acesso condicional para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md). Isso significa que se um parceiro já tiver a autenticação multifator configurada e imposta, os usuários do parceiro talvez tenham que executar a autenticação uma vez em sua organização inicial e, depois, novamente na sua.
-
-Em uma versão futura, pretendemos introduzir uma política em que é possível evitar o problema da autenticação dupla ao optar por confiar na autenticação multifator do parceiro.
-
+Com B2B do Azure AD é possível impor a autenticação multifator na organização do recurso (a organização emissora do convite). Os motivos para essa abordagem são detalhados em [Acesso condicional para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md). Se um parceiro já tiver uma autenticação multifator configurada e aplicada, é possível que os usuários do parceiro tenham que executar a autenticação uma vez na organização inicial e novamente na sua.
 
 ## <a name="instant-on"></a>Instant-on
-Nos fluxos de colaboração B2B, adicionamos usuários ao diretório e os atualizamos dinamicamente durante o resgate do convite, atribuição do aplicativo e assim por diante. As atualizações e as gravações em geral ocorrem em uma instância do diretório e devem ser replicadas em todas as instâncias. A replicação será concluída quando todas as instâncias estiverem atualizadas. Às vezes, quando o objeto é gravado ou atualizado em uma instância do diretório e a chamada para recuperar esse objeto é carregada em outra instância, isso causou problemas de autorização. Temos trabalhado muito para eliminar ou reduzir essas latências de replicação, mas é possível que ainda possam ocorrer em alguns raros casos. Se isso acontecer, atualize ou tente novamente. Se você estiver gravando um aplicativo utilizando nossa API, então, tentativas com algumas retiradas é uma boa prática defensiva para aliviar esse problema.
+Nos fluxos de colaboração B2B, adicionamos usuários ao diretório e os atualizamos dinamicamente durante o resgate do convite, atribuição do aplicativo e assim por diante. As atualizações e as gravações em geral ocorrem em uma instância do diretório e devem ser replicadas em todas as instâncias. A replicação estará concluída quando todas as instâncias estiverem atualizadas. Às vezes, quando o objeto é gravado ou atualizado em uma instância e a chamada para recuperar esse objeto for para outra instância, poderão ocorrer latências de replicação. Se isso acontecer, atualize ou tente novamente. Se você estiver gravando um aplicativo utilizando nossa API, então, tentativas com algumas retiradas é uma boa prática defensiva para aliviar esse problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 
