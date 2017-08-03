@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -46,8 +46,8 @@ Primeiro, leia os seguintes documentos e Notas SAP
 
 * Nota SAP [2205917] Configurações de SO recomendadas para SUSE Linux Enterprise Server for SAP Applications
 * Nota SAP [1944799] Diretrizes SAP HANA para SUSE Linux Enterprise Server for SAP Applications
-* [Cenário otimizado para desempenho da SR SAP HANA][suse-hana-ha-guide]  
-  O guia contém todas as informações necessárias para configurar a Replicação do Sistema SAP HANA no local. Use este guia como uma linha de base.
+* [Cenário otimizado de desempenho de SAP HANA SR][suse-hana-ha-guide] O guia contém todas as informações necessárias para definir a configuração local da Replicação do Sistema SAP HANA. Use este guia como uma linha de base.
+  
 ## <a name="deploying-linux"></a>Implantação do Linux
 
 O agente de recursos para HANA SAP está incluído no SUSE Linux Enterprise Server for SAP Applications.

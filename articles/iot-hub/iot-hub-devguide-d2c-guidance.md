@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 05/25/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: aa3704fe844a41fef22b8cdd35838c68aebc7752
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -32,16 +33,16 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 
 |  | Mensagens do dispositivo para a nuvem | Propriedades reportadas | Carregamentos de arquivos |
 | ---- | ------- | ---------- | ---- |
-| Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, o modo atual de conectividade do dispositivo como celular ou WiFi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
+| Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256 KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, o modo atual de conectividade do dispositivo como celular ou WiFi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
 | Armazenamento e recuperação | Armazenado temporariamente pelo Hub IoT, até sete dias. Somente leitura sequencial. | Armazenados pelo Hub IoT no dispositivo gêmeo. Recuperáveis usando a [linguagem de consulta do Hub IoT][lnk-query]. | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |
-| Tamanho | Até 256 KB de mensagens. | O tamanho máximo relatado das propriedades é de 8 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
+| Tamanho | Mensagens de até 256 KB. | O tamanho máximo relatado das propriedades é de 8 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
 | Frequência | Alta. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Média. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Baixa. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. |
 | Protocolo | Disponível em todos os protocolos. | Disponível atualmente somente ao usar MQTT. | Disponível ao usar qualquer protocolo, mas requer HTTP no dispositivo. |
 
 É possível que um aplicativo exija o envio de informações como uma série de tempo de telemetria ou alerta, e também a disponibilização no dispositivo gêmeo. Nesse cenário, você pode escolher uma das seguintes opções:
 
-* O aplicativo do dispositivo envia uma mensagem de dispositivo para a nuvem e relata uma alteração de propriedade. 
-* Ou, o back-end da solução pode armazenar as informações nas marcações do dispositivo gêmeo quando ele recebe a mensagem. 
+* O aplicativo do dispositivo envia uma mensagem de dispositivo para a nuvem e relata uma alteração de propriedade.
+* O back-end da solução pode armazenar as informações nas marcações do dispositivo gêmeo quando ele recebe a mensagem.
 
 Como as mensagens de dispositivo para a nuvem permitem uma taxa de transferência muito mais alta do que as atualizações do dispositivo gêmeo, às vezes é desejável evitar a atualização do dispositivo gêmeo para cada mensagem de dispositivo para a nuvem.
 
@@ -50,5 +51,5 @@ Como as mensagens de dispositivo para a nuvem permitem uma taxa de transferênci
 [lnk-fileupload]: iot-hub-devguide-file-upload.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 

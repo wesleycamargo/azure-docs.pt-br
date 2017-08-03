@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 02826ffad9838c3e22721cc3c189e8cc13020059
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
@@ -57,7 +58,7 @@ Ler as etapas abaixo para saber mais sobre a lógica por trás da página de red
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Se o SSPR (Autoatendimento de Redefinição de Senha) estiver habilitado, você deverá selecionar pelo menos um das opções abaixo como métodos de autenticação. É altamente recomendável escolher pelo menos dois métodos de autenticação para que os usuários tenham mais flexibilidade.
+Se o SSPR (Autoatendimento de Redefinição de Senha) estiver habilitado, você deverá selecionar pelo menos um das opções a seguir como métodos de autenticação. É altamente recomendável escolher pelo menos dois métodos de autenticação para que os usuários tenham mais flexibilidade.
 
 * Email
 * Telefone celular
@@ -77,7 +78,7 @@ Por padrão, somente os atributos de nuvem Telefone Comercial e Telefone Celular
 
 Os usuários somente poderão redefinir suas senhas se tiverem dados presentes nos métodos de autenticação habilitados e definidos como obrigatórios pelo administrador.
 
-Se os usuários não desejarem que seus números de telefone celular fiquem visíveis no diretório, mas ainda desejarem usá-los para a redefinição de senha, os administradores não deverão populá-los no diretório e, em seguida, o usuário deverá popular seu atributo **Telefone de Autenticação** por meio do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores ainda poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar. Se uma conta do Administrador do Azure registrar o número de telefone de autenticação, ela será populada no campo de telefone celular e ficará visível.
+Se os usuários não desejarem que seus números de telefone celular fiquem visíveis no diretório, mas ainda desejarem usá-los para a redefinição de senha, os administradores não deverão populá-los no diretório e, em seguida, o usuário deverá popular seu atributo **Telefone de Autenticação** por meio do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar. Se uma conta do Administrador do Azure registrar o número de telefone de autenticação, ela será populada no campo de telefone celular e ficará visível.
 
 ### <a name="number-of-authentication-methods-required"></a>Quantidade necessária de métodos de autenticação
 
@@ -242,7 +243,12 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 4. Na guia Permissões, clique em Adicionar
 5. Selecione a conta à qual as permissões estão sendo aplicadas (na instalação do Azure AD Connect)
 6. Na caixa suspensa Aplica-se a, selecione Objetos Descendentes de Usuário
-7. Em Permissões, marque as caixas de seleção de Redefinição de Senha, Alteração de Senha, lockoutTime de Gravação e pwdLastSet de Gravação
+7. Em Permissões, marque as caixas para o seguinte
+    * Unexpire-Password
+    * Redefinir senha
+    * Alterar senha
+    * Gravar lockoutTime
+    * Gravar pwdLastSet
 8. Clique em Aplicar/OK para aplicar e sair das caixas de diálogo abertas.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Como a redefinição de senha funciona para usuários B2B?
@@ -256,17 +262,17 @@ Para testar isso, acesse http://passwordreset.microsoftonline.com com um desses 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md) – configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md) – entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
 * [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
 * [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
 * [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local
 * [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
 * [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O que? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
 
 

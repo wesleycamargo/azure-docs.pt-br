@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Usar o Controle de Acesso Baseado em Funções para gerenciar o acesso aos recursos de sua assinatura do Azure
@@ -41,7 +41,7 @@ Você pode ver quem tem acesso a um recurso, grupo de recursos ou assinatura em 
    
     ![Folha Usuários - acesso herdado versus atribuído - captura de tela](./media/role-based-access-control-configure/view-access.png)
 
-Observe que alguns usuários tiveram o acesso **Atribuído**, ao passo que outros o **Herdaram**. O acesso é atribuído especificamente ao grupo de recursos ou herdado de uma atribuição à assinatura pai.
+Observe que algumas funções são definidas para **Este recurso** enquanto outras são **Herdadas** de outro escopo. O acesso é atribuído especificamente ao grupo de recursos ou herdado de uma atribuição à assinatura pai.
 
 > [!NOTE]
 > Os administradores e coadministradores de assinatura clássicos são, na realidade, os proprietários da assinatura no novo modelo de RBAC.
@@ -60,9 +60,10 @@ Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que �
 Após a adição de uma atribuição de função com êxito, ela será exibida na folha **Usuários** .
 
 ## <a name="remove-access"></a>Remover acesso
-1. Use as caixas de seleção na folha de Controle de acesso para selecionar uma ou mais atribuições de função.
+1. Focalize o cursor sobre o nome da atribuição que você deseja remover. Uma caixa de seleção aparece ao lado do nome.
+2. Use as caixas de seleção para selecionar uma ou mais atribuições de função.
 2. Selecione **Remover**.  
-3. Uma caixa será exibida solicitando que você confirme a ação. Selecione **Sim** para remover as atribuições de função.
+3. Clique em **Sim** para confirmar a remoção.
 
 Atribuições herdadas não podem ser removidas. Se você precisar remover uma atribuição herdada, será necessário fazê-lo no escopo em que a atribuição de função foi criada. Na coluna **Escopo**, ao lado de **Herdado**, há um link que leva aos recursos em que essa função foi atribuída. Vá para o recurso listado ali a fim de remover a atribuição de função.
 

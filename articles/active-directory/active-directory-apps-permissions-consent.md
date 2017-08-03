@@ -13,12 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/31/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
-ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -27,6 +30,8 @@ Dentro do Azure Active Directory, você pode adicionar aplicativos ao seu diret�
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo.
 
 ## <a name="types-of-apps"></a>Tipos de aplicativos
 
@@ -215,10 +220,5 @@ No caso de FabrikamMail, ele tem esta aparência:
 (**ClientId** é a ID de objeto da entidade de serviço do FabrikamMail (aquele recém-criado), **PrincipalId** é a ID de objeto de usuário (do usuário que deu consentimento), **ResourceId** é a ID de objeto da entidade de serviço do Exchange, Scope é a permissão no Exchange para a qual o consentimento foi dado).
 
 Se os usuários não têm permissão para dar consentimento, eles verão uma tela que diz que essa permissão é necessária.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -20,8 +20,3 @@ Os desenvolvedores podem criar aplicativos Web completos e dimensionáveis com o
 
 Como a [figura](#appservice_diagram) acima mostra, você pode publicar código e outros conteúdos da Web no Serviço de Aplicativo do Azure de várias maneiras. Você pode usar tecnologia FTP, FTPS ou WebDeploy da Microsoft. O Serviço de Aplicativo do Azure também oferecem suporte ao código de publicação dos sistemas de controle do código-fonte, incluindo Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server e Team Foundation Service baseado em nuvem.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

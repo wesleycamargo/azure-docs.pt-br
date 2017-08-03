@@ -14,14 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: chrande, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
@@ -137,6 +136,21 @@ context.log.warn("Something has happened.");
 ```
 Você pode definir o limite do nível de rastreamento para registrar em log no arquivo host.json, ou desativá-lo.  Para saber mais sobre como gravar nos logs, veja a próxima seção.
 
+## <a name="binding-data-type"></a>Tipo de dados de associação
+
+Para definir o tipo de dados para uma associação de entrada, use a propriedade `dataType` na definição de associação. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, use o tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Outras opções para `dataType` são `stream` e `string`.
+
 ## <a name="writing-trace-output-to-the-console"></a>Gravar a saída de rastreamento no console 
 
 No Functions, use os métodos `context.log` para gravar a saída de rastreamento no console. Neste ponto, não é possível usar `console.log` para gravar no console.
@@ -183,7 +197,7 @@ O Functions permite a definição do nível de rastreamento de limite para grava
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"      
+        "consoleLevel": "verbose"     
     }
 }  
 ```
@@ -266,7 +280,7 @@ As etapas a seguir permitem que você inclua pacotes em seu aplicativo de funç�
 2. Clique em **Console de Depuração** > **CMD**.
 
 3. Acesse `D:\home\site\wwwroot`e arraste o arquivo package.json para a pasta **wwwroot** na metade superior da página.  
-    Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#fileupdate). 
 
 4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu**.  
     Essa ação baixa os pacotes indicados no arquivo package.json e reinicia o aplicativo de função.

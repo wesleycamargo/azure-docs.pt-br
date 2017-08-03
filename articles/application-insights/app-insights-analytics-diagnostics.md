@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bf5bd20007c186bfd01b82aa06213ef9e7424a05
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnosticar alterações repentinas na telemetria do aplicativo
@@ -62,7 +61,7 @@ Tendo o conhecimento de que uma página específica do seu site tem um problema 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O Diagnóstico Inteligente usa um algoritmo de aprendizado de máquina não supervisionado avançado com base na operação [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns_v2). Ele procura padrões candidatos que podem explicar a alteração de dados. Ele analisa o impacto de cada candidato na métrica e mostra o padrão que melhor se correlaciona com a alteração.
+O Diagnóstico Inteligente usa um algoritmo de aprendizado de máquina não supervisionado avançado com base na operação [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Ele procura padrões candidatos que podem explicar a alteração de dados. Ele analisa o impacto de cada candidato na métrica e mostra o padrão que melhor se correlaciona com a alteração.
 
 ## <a name="no-diagnostic-points"></a>Não há pontos de diagnóstico?
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/27/2017
 ms.author: abnarain
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
 ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.contentlocale: pt-br
 ms.lasthandoff: 11/17/2016
-
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
@@ -220,7 +220,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
             }
         }
     }     
-    ```       
+    ```     
    Observe os seguintes pontos:
 
    * **type** é definido como **SqlServerTable**.

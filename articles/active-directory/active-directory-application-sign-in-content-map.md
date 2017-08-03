@@ -20,29 +20,21 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-when-signing-in-to-applications" class="xliff"></a>
-
-# Problemas ao entrar em aplicativos
+# <a name="problems-when-signing-in-to-applications"></a>Problemas ao entrar em aplicativos
 
 
 
-<a id="i-can-complete-azure-ad-sign-in-but-im-seeing-a-prompt-that-i-dont-expect" class="xliff"></a>
-
-## Consigo completar a entrada no Azure AD, mas estou vendo um prompt inesperado
+## <a name="i-can-complete-azure-ad-sign-in-but-im-seeing-a-prompt-that-i-dont-expect"></a>Consigo completar a entrada no Azure AD, mas estou vendo um prompt inesperado
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Um usuário vê uma solicitação de consentimento inesperada ao entrar em um aplicativo](https://docs.microsoft.com/azure/active-directory/application-sign-in-unexpected-user-consent-prompt/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Um usuário vê um erro inesperado ao realizar o consentimento para um aplicativo](https://docs.microsoft.com/azure/active-directory/application-sign-in-unexpected-user-consent-error/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-other-problems-signing-in" class="xliff"></a>
-
-## Estou tendo outros problemas de logon
+## <a name="im-having-other-problems-signing-in"></a>Estou tendo outros problemas de logon
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Posso entrar diretamente em um aplicativo, mas não consigo entrar nele por meio de um deeplink do meu portal personalizado](https://docs.microsoft.com/azure/active-directory/application-sign-in-other-problem-deeplink/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Posso entrar diretamente em um aplicativo, mas não consigo entrar nele através do painel de acesso](https://docs.microsoft.com/azure/active-directory/application-sign-in-other-problem-access-panel/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-problems-signing-in-to-a-specific-application" class="xliff"></a>
-
-## Estou tendo problemas para entrar um aplicativo específico
+## <a name="im-having-problems-signing-in-to-a-specific-application"></a>Estou tendo problemas para entrar um aplicativo específico
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Concluo a entrada no Azure AD, mas depois disso vejo um erro na página de entrada do aplicativo](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-application-error/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Não consigo entrar em um aplicativo inexistente na galeria configurado para logon único com senha](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-password-sso-non-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

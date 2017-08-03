@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: d1c61ba220b4334f053428a23e620e8004fc60f7
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Rastrear mensagens B2B no portal do Operations Management Suite
+
+![Símbolo do Aplicativo Log B2B](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+
 A comunicação B2B envolve a troca de mensagens entre dois processos de negócios ou aplicativos em execução. Use os seguintes recursos de controle baseado na web no portal do Operations Management Suite para confirmar se as mensagens forem processadas corretamente:
 
 * Status e contagem de mensagens
@@ -56,7 +59,7 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 6. Selecione **Adicionar** para adicionar mensagens de **Aplicativos Lógicos B2B** à home page.  
 ![Selecionar Adicionar](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. **As mensagens B2B dos Aplicativos Lógicos** aparece na home page.   
+7. **As mensagens dos Aplicativos Lógicos B2B** aparecem na home page.   
 ![Selecionar home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 ## <a name="track-data-in-the-operations-management-suite-portal"></a>Rastrear dados no portal do Operations Management Suite
@@ -67,9 +70,10 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 2. Selecione **mensagens B2B dos Aplicativos Lógicos** na home page para exibir as mensagens de status AS2 e X12.  Os dados são baseados em um único dia.
 ![Selecionar Mensagens dos Aplicativos Lógicos B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Selecione um AS2 ou X12 mensagens por status para ir para a lista de mensagens. A próxima captura de tela mostra o status da mensagem AS2. As descrições de propriedade de status de mensagem AS2 e X12 aparecem posteriormente em "Descrições de propriedade de lista de mensagens".  
+3. Selecione uma mensagem AS2, X12 ou EDIFACT por status para ir para a lista de mensagens. A próxima captura de tela mostra o status da mensagem AS2. As descrições de propriedade de status de mensagem AS2 e X12 aparecem posteriormente em "Descrições de propriedade de lista de mensagens".  
 ![Selecionar status de mensagem AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
-4. Selecione uma linha no AS2 ou lista para ir para a pesquisa de log de mensagem de X12.  Lista de pesquisa de log de todas as ações que têm a mesma ID de execução.
+
+4. Selecione uma linha na mensagem AS2, X12 ou EDIFACT para ir para a pesquisa de logs.  Lista de pesquisa de log de todas as ações que têm a mesma ID de execução.
 ![Selecione o status da mensagem](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## <a name="message-list-property-descriptions"></a>Descrições de propriedade da lista de mensagens
@@ -92,8 +96,8 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 
 | Propriedade | Descrição |
 | --- | --- |
-| Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato AS2. |
-| Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato AS2. |
+| Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato X12. |
+| Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato X12. |
 | Aplicativo Lógico | O aplicativo Lógico no qual as ações do AS2 estão configuradas. |
 | Status | Status de mensagem X12 <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, nenhuma confirmação está configurada <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, uma confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada <br>Falha = Recebeu ou enviou uma mensagem X12 incorreta <br>Pendente = Recebeu ou enviou uma mensagem X12 correta, a confirmação funcional é configurada e uma confirmação funcional é esperada. |
 | Ack | Status da Confirmação Funcional (997) <br>Aceito = Recebeu ou enviou uma confirmação funcional positiva <br>Rejeitado = Recebeu ou enviou uma confirmação funcional negativa <br>Pendente = Esperando uma confirmação funcional, mas não a recebeu <br>Pendente = Gerou uma confirmação funcional, mas não foi possível enviá-la ao parceiro <br>Não obrigatório = Confirmação funcional não está configurada |
@@ -103,6 +107,24 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 | ICN | Número de controle de intercâmbio da mensagem X12. |
 | TSCN | Número de controle de conjunto transacional da mensagem X12. |
 | Timestamp | Hora na qual a ação X12 processa a mensagem. |
+
+
+#### <a name="edifact-message-list-property-descriptions"></a>Descrições da lista de propriedade da mensagem EDIFACT
+
+| Propriedade | Descrição |
+| --- | --- |
+| Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato EDIFACT. |
+| Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato EDIFACT. |
+| Aplicativo Lógico | O aplicativo Lógico no qual as ações do AS2 estão configuradas. |
+| Status | Status da mensagem EDIFACT <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, nenhuma confirmação está configurada <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, uma confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada <br>Falha = Recebeu ou enviou uma mensagem X12 incorreta <br>Pendente = Recebeu ou enviou uma mensagem X12 correta, a confirmação funcional é configurada e uma confirmação funcional é esperada. |
+| Ack | Status da Confirmação Funcional (997) <br>Aceito = Recebeu ou enviou uma confirmação funcional positiva <br>Rejeitado = Recebeu ou enviou uma confirmação funcional negativa <br>Pendente = Esperando uma confirmação funcional, mas não a recebeu <br>Pendente = Gerou uma confirmação funcional, mas não foi possível enviá-la ao parceiro <br>Não obrigatório = Confirmação funcional não está configurada |
+| Direção | Direção da mensagem EDIFACT. |
+| ID de Correlação | ID para correlacionar todos os gatilhos e ações em um Aplicativo lógico. |
+| Tipo de mensagem |  Status da mensagem EDIFACT. |
+| ICN | Número de controle de intercâmbio da mensagem EDIFACT. |
+| TSCN | Número de controle de conjunto transacional da mensagem EDIFACT. |
+| Timestamp | Hora na qual a ação EDIFACT processa a mensagem. |
+
 
 ## <a name="queries-in-the-operations-management-suite-portal"></a>Consultas no portal do Operations Management Suite
 

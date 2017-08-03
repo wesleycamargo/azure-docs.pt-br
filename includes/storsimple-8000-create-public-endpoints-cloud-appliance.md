@@ -1,5 +1,4 @@
-#### Para criar pontos de extremidade públicos no dispositivo de nuvem
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Para criar pontos de extremidade públicos no dispositivo de nuvem
 
 1. Entre no Portal do Azure.
 2. Acesse **Máquinas Virtuais** e selecione a máquina virtual que está sendo usada como seu dispositivo de nuvem.

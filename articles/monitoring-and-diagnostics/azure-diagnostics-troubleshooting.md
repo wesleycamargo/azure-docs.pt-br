@@ -15,98 +15,97 @@ ms.topic: article
 ms.date: 03/28/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 81f9a5a8e5ce8389c12a40eb02dd554fc140e009
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Informações sobre solução de problemas relevantes ao uso do Diagnóstico do Azure. Para obter mais informações sobre o Diagnóstico do Azure, confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
 
+## <a name="logical-components"></a>Componentes lógicos
+**Iniciador do plug-in de diagnóstico (DiagnosticsPluginLauncher.exe)**: inicia a extensão de Diagnóstico do Microsoft Azure. Serve como o processo do ponto de entrada.
+
+**Plug-in de diagnóstico (DiagnosticsPlugin.exe)**: processo principal que é iniciado pelo iniciador acima e configura o Agente de monitoramento, inicia ele e gerencia seu tempo de vida. 
+
+**Agente de monitoramento (processos do MonAgent\*.exe)**: esses processos fazem a maior parte do trabalho; ou seja, monitoramento, coleta e transferência de dados de diagnóstico.  
+
+## <a name="logartifact-paths"></a>Caminhos de log/artefato
+Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as referências a eles em todo o restante do documento:
+### <a name="cloud-services"></a>Serviços de Nuvem
+| Artefato | Caminho |
+| --- | --- |
+| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Arquivos de log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Armazenamento local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Arquivo de configuração do Agente de monitoramento** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Pacote de extensão do Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
+| **Caminho do utilitário de coleta de log** | %SystemDrive%\Packages\GuestAgent\ |
+
+### <a name="virtual-machines"></a>Máquinas Virtuais
+| Artefato | Caminho |
+| --- | --- |
+| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Arquivos de log** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Armazenamento local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Arquivo de configuração do Agente de monitoramento** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Pacote de extensão do Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
+| **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Packages |
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics não está iniciando
-O Diagnostics é composto por dois componentes: um plug-in de agente convidado e o agente de monitoramento. Você pode verificar os arquivos de log **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** para obter informações sobre porque o diagnóstico não pode ser iniciado.  
-
-Em uma função do Serviço de Nuvem, os arquivos de log para o plug-in do agente convidado estão localizados em:
-
-```
-C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.7.4.0\
-```
-
-Em uma Máquina Virtual do Azure, os arquivos de log para o plug-in do agente convidado estão localizados em:
-
-```
-C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.7.4.0\Logs\
-```
+Analise os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** do local dos arquivos de log para obter informações sobre porque o diagnóstico não pode ser iniciado.  
 
 A última linha dos arquivos de log contém o código de saída.  
 
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-
-O plug-in retorna os seguintes códigos de saída:
-
-| Código de Saída | Descrição |
-| --- | --- |
-| 0 |Sucesso. |
-| -1 |Erro genérico. |
-| -2 |Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
-| -4 |Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
-| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -10 |O plug-in de Diagnostics saiu com uma exceção sem tratamento. |
-| -11 |O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.<p> |
-| -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -102 |O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -103 |O processo do plug-in não consegue inicializar-se sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -104 |Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -105 |O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Esse erro interno deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM. |
-| -106 |Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Para a máquina virtual do Azure, você pode localizar a configuração que é fornecida para a extensão de Diagnóstico na pasta *%SystemDrive%\WindowsAzure\Config* na VM. Abra o arquivo XML apropriado e pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**. Se o campo WadCfg estiver presente, isso significará que a configuração está em JSON. Se o campo xmlCfg estiver presente, isso significará que a configuração está em XML e é codificada em base64. Você precisa decodificá-la para ver o XML que foi carregado pelo Diagnóstico. Para a função de Serviço de Nuvem, você pode encontrar a configuração que é fornecida para a extensão do Diagnóstico em C:\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.7.4.0\config.txt na VM. Os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.<p> |
-| -107 |O diretório de recursos que passa para o agente de monitoramento é inválido.<p><p>Este erro interno deve acontecer apenas se o agente de monitoramento é invocado manualmente, incorretamente, na VM.</p> |
-| -108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
-| -110 |Erro de configuração de diagnóstico geral.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
-| -111 |Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -112 |Erro geral |
+Se você encontrar um código de saída **negativo**, consulte a [tabela de códigos de saída](#azure-diagnostics-plugin-exit-codes) em [Referências](#references).
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Os dados de diagnósticos não estão registrados no Armazenamento do Azure
-O diagnóstico do Azure armazena todos os dados no Armazenamento do Azure.
+Determine se nenhum dado é exibido ou apenas alguns dos dados não estão sendo exibidos.
 
-A causa mais comum da ausência de dados de evento é uma informação de conta de armazenamento definida incorretamente.
+### <a name="diagnostics-infrastructure-logs"></a>Logs de infraestrutura de diagnósticos
+Logs da Infraestrutura de diagnóstico é onde o diagnóstico do Azure registra quaisquer erros que são encontrados. Verifique se você habilitou ([como?](#how-to-check-diagnostics-extension-configuration)) a captura de logs da Infraestrutura de diagnóstico em sua configuração e procure rapidamente erros relevantes que aparecem na tabela `DiagnosticInfrastructureLogsTable` em sua conta de armazenamento configurada.
 
-Solução: corrija seu arquivo de configuração do Diagnostics e reinstale o Diagnostics.
-Se o problema persistir após a reinstalação da extensão do diagnóstico, talvez você tenha de depurar mais examinando quaisquer erros do agente de monitoramento. Antes dos dados de eventos serem carregados em sua conta de armazenamento, eles são armazenados em LocalResourceDirectory.
-Esse caminho de diretório varia.
+### <a name="no-data-is-showing-up"></a>Nenhum dado está sendo exibido
+A causa mais comum da completa ausência de dados de evento é uma informação de conta de armazenamento definida incorretamente.
 
-Para funções de Serviço de Nuvem:
+Solução: corrija sua configuração do Diagnóstico e o reinstale.
 
-    C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
+Se a conta de armazenamento está configurada corretamente na área de trabalho remota do computador, verifique se DiagnosticsPlugin.exe e MonAgentCore.exe estão em execução. Se eles não estiverem em execução, siga [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting). Se estiver executando os processos, vá para [Os dados estão sendo capturados localmente](#is-data-getting-captured-locally) e siga este guia.
 
-Para máquinas virtuais:
+### <a name="part-of-the-data-is-missing"></a>Parte dos dados está ausente
+Se você estiver obtendo alguns dados, mas não outros. Isso significa que a coleta de dados/transferência de pipeline está definida corretamente. Siga as subseções aqui para restringir qual é o problema:
+#### <a name="is-collection-configured"></a>A coleção foi configurada: 
+A Configuração de diagnóstico contém a parte que instrui para um determinado tipo de dados a ser coletado. [Examine a configuração](#how-to-check-diagnostics-extension-configuration) para certificar-se de que você não está procurando dados que foram configurados para a coleta.
+#### <a name="is-the-host-generating-data"></a>O host está gerando dados:
+- **Contadores de desempenho**: abra o perfmon e verifique o contador.
+- **Logs de rastreamento**: a área de trabalho remota na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Consulte http://msdn.microsoft.com/pt-br/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
+Se você não vir os logs de rastreamento sendo gerados, execute [Mais sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
+ - **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
+- **Logs de evento**: área de trabalho remota na VM. Abra `Event Viewer` e verifique se os eventos existem.
+#### <a name="is-data-getting-captured-locally"></a>Os dados estão sendo capturados localmente:
+Em seguida, certifique-se de que os dados estão sendo capturados localmente.
+Os dados são armazenados localmente em arquivos `*.tsf` no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Diferentes tipos de logs coletados em diferentes arquivos `.tsf`. Os nomes são semelhantes aos nomes de tabela no armazenamento do Azure. Por exemplo `Performance Counters` é coletado no `PerformanceCountersTable.tsf`, Logs de eventos coletados no `WindowsEventLogsTable.tsf`. Use as instruções na seção [Extração de log local](#local-log-extraction) para abrir os arquivos de coleta local e verifique se você os vê sendo coletados no disco.
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+Se não vir logs sendo coletados localmente e já tiver verificado que o host está gerando dados, você provavelmente tem um problema de configuração. Analise a configuração com cuidado para a seção apropriada. Também analise a configuração gerada para MonitoringAgent [MaConfig.xml](#log-artifacts-path) e verifique se há alguma seção que descreve a origem do log relevante e se ele não foi perdido na conversão entre a configuração de diagnóstico do Azure e a configuração do agente de monitoramento.
+#### <a name="is-data-getting-transferred"></a>Os dados estão sendo transferidos:
+Se você verificou se os dados estão sendo capturados localmente, mas ainda não estiver visível na sua conta de armazenamento: 
+- Primeiramente, certifique-se de que você forneceu uma conta de armazenamento correta e se não tiver substituído as chaves etc para a conta de armazenamento determinada. Para serviços de nuvem, às vezes, podemos ver que as pessoas não atualizam seus `useDevelopmentStorage=true`.
+- Se a conta de armazenamento fornecida está correta. Certifique-se de que você não tem algumas restrições de rede que não permitem que os componentes alcancem os pontos de extremidade de armazenamento público. Uma maneira de fazer isso é tornar a área de trabalho remota no computador e tente gravar algo na mesma conta de armazenamento por conta própria.
+- Por fim, você pode tentar e ver quais falhas estão sendo relatadas pelo Agente de monitoramento. O Agente de monitoramento grava logs no `maeventtable.tsf` localizado no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Siga as instruções na seção [Extração de log local](#local-log-extraction) para abrir este arquivo e experimentar e descobrir se há `errors` indicando falhas para ler os arquivos locais ou de gravação para o armazenamento.
 
-Se não existirem arquivos na pasta LocalResourceDirectory, o agente de monitoramento não poderá ser iniciado. Normalmente, isso é causado por um arquivo de configuração inválido, um evento que deve ser relatado em CommandExecution.log.
-
-Se o Agente de Monitoramento estiver coletando dados de eventos com êxito, você verá arquivos .tsf para cada evento definido em seu arquivo de configuração. O Agente de Monitoramento registra os erros no arquivo MaEventTable.tsf. Para inspecionar o conteúdo desse arquivo, é possível usar o aplicativo tabel2csv para converter o arquivo .tsf em um arquivo de valores separados por vírgula (.csv):
-
-Em uma Função do Serviço de Nuvem:
-
-    %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
-
-*%SystemDrive%* em uma Função do Serviço de Nuvem é, geralmente, D:
-
-Em uma Máquina Virtual:
-
-    C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
-
-Os comandos anteriores geram o arquivo de log *maeventtable.csv*, que pode ser aberto e verificado quanto a mensagens de falha.    
+### <a name="capturing--archiving-logs"></a>Capturando/arquivando logs
+Você seguiu as etapas acima, mas não foi possível descobrir o que estava errado e está pensando sobre como entrar em contato com o suporte. A primeira coisa que eles podem solicitar a você é para coletar logs do seu computador. Você pode poupar tempo fazendo isso você mesmo. Execute o utilitário `CollectGuestLogs.exe` no [Caminho do utilitário de coleta de log](#log-artifacts-path) e ele gerará um arquivo zip com todos os logs relevantes do Azure na mesma pasta.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tabelas dos dados de diagnósticos não encontradas
-As tabelas no armazenamento do Azure que contêm dados de diagnóstico do Azure são nomeadas usando o código a seguir:
+As tabelas no armazenamento do Azure que contêm eventos do ETW são nomeadas usando o código a seguir:
 
-```csharp
+```C#
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -120,13 +119,13 @@ As tabelas no armazenamento do Azure que contêm dados de diagnóstico do Azure 
 Aqui está um exemplo:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider="prov1">
-          <Event id="1" />
-          <Event id="2" eventDestination="dest1" />
+        <EtwEventSourceProviderConfiguration provider=”prov1”>
+          <Event id=”1” />
+          <Event id=”2” eventDestination=”dest1” />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider="prov2">
-          <DefaultEvents eventDestination="dest2" />
+        <EtwEventSourceProviderConfiguration provider=”prov2”>
+          <DefaultEvents eventDestination=”dest2” />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -155,7 +154,6 @@ Aqui está um exemplo:
     }
 ]
 ```
-
 Isso gera quatro tabelas:
 
 | Evento | Nome da tabela |
@@ -164,4 +162,83 @@ Isso gera quatro tabelas:
 | provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
 | provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+
+## <a name="references"></a>Referências
+
+### <a name="how-to-check-diagnostics-extension-configuration"></a>Como verificar a Configuração da extensão de diagnóstico
+A maneira mais fácil de verificar sua configuração de extensão é navegar até http://resources.azure.com, vá até a máquina virtual ou serviço de nuvem no qual a extensão do Diagnóstico do Azure (IaaSDiagnostics/PaaDiagnostics) em questão está.
+
+Como alternativa, torne a área de trabalho remota no computador e analise o arquivo de Configuração do diagnóstico do Azure descrito na seção apropriada [aqui](#log-artifacts-path).
+
+Em ambos os casos, pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**. 
+
+No caso de máquinas virtuais, se o campo WadCfg estiver presente, isso significa que a configuração está em JSON. Se o campo xmlCfg estiver presente, isso significará que a configuração está em XML e é codificada em base64. Você precisa [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+
+Para a função do Serviço de nuvem, se você escolher a configuração do disco, os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+
+### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
+O plug-in retorna os seguintes códigos de saída:
+
+| Código de Saída | Descrição |
+| --- | --- |
+| 0 |Sucesso. |
+| -1 |Erro genérico. |
+| -2 |Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
+| -4 |Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
+| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -10 |O plug-in de Diagnostics saiu com uma exceção sem tratamento. |
+| -11 |O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.<p> |
+| -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -102 |O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
+| -103 |O processo do plug-in não consegue inicializar-se sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
+| -104 |Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -105 |O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Esse erro interno deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM. |
+| -106 |Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Consulte [Como verificar a Configuração da extensão de diagnóstico](#how-to-check-diagnostics-extension-configuration). |
+| -107 |O diretório de recursos que passa para o agente de monitoramento é inválido.<p><p>Este erro interno deve acontecer apenas se o agente de monitoramento é invocado manualmente, incorretamente, na VM.</p> |
+| -108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
+| -110 |Erro de configuração de diagnóstico geral.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
+| -111 |Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
+| -112 |Erro geral |
+
+### <a name="local-log-extraction"></a>Extração de log local
+O agente de monitoramento coleta logs e artefatos como arquivos `.tsf`. O arquivo `.tsf` não está legível, mas você pode convertê-lo em um `.csv` da seguinte maneira: 
+
+```
+<Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
+```
+Um novo arquivo chamado `<relevantLogFile>.csv` será criado no mesmo caminho correspondente do arquivo `.tsf`.
+
+**OBSERVAÇÃO**: você só precisa executar este utilitário contra o arquivo tsf principal (por exemplo, PerformanceCountersTable.tsf). Os arquivos complementares (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf, etc.) serão processados automaticamente.
+
+### <a name="more-about-trace-logs-missing"></a>Mais informações sobre Logs de rastreamento ausentes
+
+**Observação:** isso principalmente se aplica aos serviços de nuvem apenas, a menos que você tenha configurado o DiagnosticsMonitorTraceListener em um aplicativo em execução na sua VM IaaS. 
+
+- Certifique-se de que o DiagnosticMonitorTraceListener está configurado no web.config ou app.config.  Ele é configurado por padrão em projetos do serviço de nuvem, mas alguns clientes comentam sobre ele, o que fará com que as instruções de rastreamento não sejam coletadas pelo diagnóstico. 
+- Se os logs não estiverem sendo gravados a partir do OnStart ou do método Executar, certifique-se de que o DiagnosticMonitorTraceListener está no app.config.  Por padrão, ele está no web.config, mas ele se aplica somente a execução de códigos dentro do w3wp.exe; portanto, você precisa dele no app.config para capturar a execução de rastreamentos no WaIISHost.exe.
+- Certifique-se de que você está usando Diagnostics.Trace.TraceXXX em vez de Diagnostics.Debug.WriteXXX.  As instruções de depuração serão removidas a partir de uma compilação de versão.
+- Certifique-se de que o código compilado, na verdade, tem as linhas Diagnostics.Trace (use Reflector, ildasm ou ILSpy para verificar).  Os comandos Diagnostics.Trace são removidos do binário compilado, a menos que você use o símbolo de compilação condicional TRACE.  Se estiver usando msbuild para compilar o projeto, então esse é um problema comum.
+
+## <a name="known-issues-and-mitigations"></a>Problemas e mitigações conhecidos
+Aqui está uma lista dos problemas conhecidos com mitigações conhecidas:
+
+**1. Dependência do .NET 4.5:**
+
+WAD tem uma dependência de tempo de execução no .NET framework 4.5 ou superior. No momento da gravação dele, todos os computadores provisionados para os serviços de nuvem, bem como todas as imagens das máquinas virtuais oficiais do Azure, têm o .NET 4.5 ou superior instalado. No entanto, ainda é possível recair em uma situação na qual você tente executar WAD em um computador que não tem o .NET 4.5 ou superior. Isso acontece quando você cria seu computador fora de uma imagem antiga ou instantâneo; ou traz seu próprio disco personalizado.
+
+Isso geralmente se manifesta como um código de saída **255** ao executar o DiagnosticsPluginLauncher.exe. A falha ocorre devido à exceção sem tratamento: 
+```
+System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
+```
+
+**Mitigação:** instala o .NET 4.5 ou superior no seu computador.
+
+**2. Dados de Contadores de desempenho estão disponíveis no armazenamento, mas não são mostrados no portal**
+
+A experiência do portal de máquinas virtuais mostra determinados contadores de desempenho por padrão. Se você não os vir e souber que os dados estão sendo gerados porque ele está disponível no armazenamento. Verificação:
+- Se os dados no armazenamento possuem nomes do contador em inglês. Se os nomes do contador não estão em inglês, o gráfico de métrica do portal não poderá reconhecê-los.
+- Se você estiver usando caracteres curinga (\*) em seus nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
+
+**Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Painel de Controle -> Região -> Administrativos -> Configurações de Cópia -> desmarque "Bem-vindo às contas de tela e do sistema" para que o idioma personalizado não seja aplicado à conta do sistema. Verifique também se você não usa caracteres curinga, se quiser que o portal seja sua experiência de consumo principal.
 

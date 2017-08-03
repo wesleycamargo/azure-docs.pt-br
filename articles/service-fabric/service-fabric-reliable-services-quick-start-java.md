@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -158,15 +159,29 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
-O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e cancelar a implantação do aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
+
+O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 
 ```bash
 $ gradle
 ```
 
-Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric do Azure. O script install.sh contém os comandos da CLI do Azure necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar:
+Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric do Azure.
+
+### <a name="deploy-with-xplat-cli"></a>Implantar com a CLI XPlat
+
+Se estiver usando a CLI XPlat, o script install.sh conterá os comandos da CLI do Azure necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
 
 ```bash
 $ ./install.sh
 ```
+
+### <a name="deploy-with-azure-cli-20"></a>Implantar com a CLI 2.0 do Azure
+
+Se estiver usando a CLI 2.0 do Azure, confira o documento de referência sobre como gerenciar um [ciclo de vida do aplicativo usando a CLI 2.0 do Azure](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+## <a name="related-articles"></a>Artigos relacionados
+
+* [Introdução ao Service Fabric e à CLI 2.0 do Azure](service-fabric-azure-cli-2-0.md)
+* [Introdução à CLI XPlat do Service Fabric](service-fabric-azure-cli.md)
 

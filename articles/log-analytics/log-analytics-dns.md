@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e15ac73051297665a2880a7818273e304d539624
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
+
+![Símbolo da Análise de DNS](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 Este artigo descreve como configurar e usar a solução Análise de DNS do Azure no Azure Log Analytics para coletar informações relacionadas à segurança, ao desempenho e às operações na infraestrutura DNS.
 
@@ -146,6 +147,8 @@ As informações ajudam você a identificar:
 
 **Consultas de Análise de DDI de Exemplo**. Contém uma lista das consultas de pesquisa mais comuns que buscam dados analíticos brutos diretamente.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 
 Você pode usar essas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. As consultas são vinculadas à página Pesquisa de Logs da Análise de DNS na qual os resultados são exibidos:
@@ -155,7 +158,7 @@ Você pode usar essas consultas como um ponto de partida para criar suas própri
 - **Registros de Recursos não Utilizados**. Mostra uma lista de todos os registros de recursos não utilizados/obsoletos. Essa lista contém o nome do registro de recurso, o tipo de registro de recurso, o servidor DNS associado, o tempo de geração de registro e o nome da zona. Você pode usar essa lista para identificar os registros de recursos DNS que não estão mais em uso. Com base nessas informações, é possível então remover essas entradas dos servidores DNS.
 - **Carga de Consulta de Servidores DNS**. Mostra informações de forma que você possa obter uma perspectiva da carga DNS nos servidores DNS. Essas informações podem ajudá-lo a planejar a capacidade dos servidores. Acesse a guia **Métricas** para alterar a exibição para uma visualização gráfica. Essa exibição ajuda a entender como a carga DNS é distribuída nos servidores DNS. Ela mostra as tendências da taxa de consulta DNS para cada servidor.
 
-    ![Resultados da pesquisa de logs de consulta de servidores DNS](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![Resultados da pesquisa de logs de consulta de servidores DNS](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **Carga de Consulta de Zonas DNS**. Mostra as estatísticas por segundo de consulta de zona DNS de todas as zonas nos servidores DNS que estão sendo gerenciados pela solução. Clique na guia **Métricas** para alterar a exibição de registros detalhados para uma visualização gráfica dos resultados.
 - **Eventos de Configuração**. Mostra todos os eventos de alteração de configuração de DNS e as mensagens associadas. Você pode filtrar esses eventos com base no horário do evento, na ID do evento, no servidor DNS ou na categoria da tarefa. Os dados podem ajudá-lo a auditar as alterações feitas em servidores DNS específicos em horários específicos.

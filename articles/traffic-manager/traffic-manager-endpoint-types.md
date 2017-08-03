@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f0609465edde67a9e11af86c3265ea29a737fc85
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -51,7 +51,7 @@ Ao usar os pontos de extremidade do Azure, o Gerenciador de Tráfego detecta qua
 Pontos de extremidade externos são usados para serviços fora do Azure. Por exemplo, um serviço hospedado localmente ou com um provedor diferente. Pontos de extremidade externos podem ser usados sozinhos ou combinados com os Pontos de Extremidade do Azure no mesmo perfil do Gerenciador de Tráfego. Combinar pontos de extremidade do Azure com pontos de extremidade Externos permite vários cenários:
 
 * Em um modelo ativo-ativo ou ativo-passivo de failover, use o Azure para proporcionar maior redundância para um aplicativo local existente.
-* Para reduzir a latência de aplicativo para os usuários em todo o mundo, estenda um aplicativo local existente para locais geográficos adicionais no Azure. Para obter mais informações, consulte [Roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+* Para reduzir a latência de aplicativo para os usuários em todo o mundo, estenda um aplicativo local existente para locais geográficos adicionais no Azure. Para obter mais informações, consulte [Roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance).
 * Usando o Azure para fornecer capacidade adicional para um aplicativo local existente, seja continuamente ou como uma solução “intermitência para a nuvem” para atender um pico de demanda.
 
 Em alguns casos, pode ser útil usar pontos de extremidade externos para fazer referência aos serviços do Azure (consulte exemplos em [	Perguntas Frequentes](traffic-manager-faqs.md#traffic-manager-endpoints)). Neste caso, as verificações de integridade são cobradas à taxa dos pontos de extremidade do Azure, não à taxa dos pontos de extremidade Externos. No entanto, diferentemente dos pontos de extremidade do Azure, se você parar ou excluir o serviço subjacente, a cobrança da verificação de integridade continuará até você desabilitar ou excluir o ponto de extremidade no Gerenciador de tráfego.

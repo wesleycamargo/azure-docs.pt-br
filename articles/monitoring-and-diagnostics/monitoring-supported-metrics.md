@@ -2,7 +2,7 @@
 title: "Métricas do Azure Monitor – métricas com suporte por tipo de recurso | Microsoft Docs"
 description: "Lista de métricas disponíveis para cada tipo de recurso com o Azure Monitor."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 7/05/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
@@ -27,8 +26,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 > [!NOTE]
 > Outras métricas podem estar disponíveis no portal ou usando as APIs herdadas. Essa lista inclui apenas as métricas de visualização pública disponíveis usando a visualização pública do pipeline de métrica consolidado do Azure Monitor.
-> 
-> 
+>
+>
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
@@ -90,8 +89,10 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
-|CoreCount|Contagem de núcleos|Contagem|Total|Número total de núcleos na conta do lote|
-|TotalNodeCount|Contagem de nós|Contagem|Total|Número total de nós na conta do lote|
+|CoreCount|Contagem de núcleos dedicados|Contagem|Total|Número total de núcleos dedicados na conta do lote|
+|TotalNodeCount|Contagem de nós dedicados|Contagem|Total|Número total de nós dedicados na conta do lote|
+|LowPriorityCoreCount|Contagem de núcleos LowPriority|Contagem|Total|Número total de núcleos de baixa prioridade na conta do lote|
+|TotalLowPriorityNodeCount|Contagem de nós de baixa prioridade|Contagem|Total|Número total de nós de baixa prioridade na conta do lote|
 |CreatingNodeCount|Criação de contagem de nós|Contagem|Total|Número de nós sendo criados|
 |StartingNodeCount|Contagem inicial dos nós|Contagem|Total|Número de nós iniciais|
 |WaitingForStartTaskNodeCount|Contagem de nós para tarefa de inicialização em espera|Contagem|Total|Número de nós aguardando a conclusão da Tarefa de Inicialização|
@@ -103,6 +104,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |RunningNodeCount|Contagem de nós em execução|Contagem|Total|Número de nós em execução|
 |LeavingPoolNodeCount|Contagem de nós saindo do pool|Contagem|Total|Número de nós saindo do pool|
 |UnusableNodeCount|Contagem de nós inutilizáveis|Contagem|Total|Número de nós inutilizáveis|
+|PreemptedNodeCount|Contagem de nós com preempção|Contagem|Total|Número de nós com preempção|
 |TaskStartEvent|Eventos da tarefa de inicialização|Contagem|Total|Número total de tarefas que iniciaram|
 |TaskCompleteEvent|Eventos de conclusão de tarefa|Contagem|Total|Número total de tarefas concluídas|
 |TaskFailEvent|Eventos de falha de tarefa|Contagem|Total|Número total de tarefas que foram concluídas em um estado com falha|
@@ -336,7 +338,41 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
-|CustomerInsightsApiCalls|CustomerInsightsApiCalls|Contagem|Total||
+|DCIApiCalls|Chamadas à API do Customer Insights|Contagem|Total||
+|DCIMappingImportOperationSuccessfulLines|Linhas bem-sucedidas da operação de importação de mapeamento|Contagem|Total||
+|DCIMappingImportOperationFailedLines|Linhas com falha da operação de importação de mapeamento|Contagem|Total||
+|DCIMappingImportOperationTotalLines|Total de linhas da operação de importação de mapeamento|Contagem|Total||
+|DCIMappingImportOperationRuntimeInSeconds|Tempo de execução da operação de importação de mapeamento em segundos|Segundos|Total||
+|DCIOutboundProfileExportSucceeded|Exportação de perfil de saída com êxito|Contagem|Total||
+|DCIOutboundProfileExportFailed|Exportação de perfil de saída com falha|Contagem|Total||
+|DCIOutboundProfileExportDuration|Duração da exportação de perfil de saída|Segundos|Total||
+|DCIOutboundKpiExportSucceeded|Exportação de KPI de saída com êxito|Contagem|Total||
+|DCIOutboundKpiExportFailed|Exportação de KPI de saída com falha|Contagem|Total||
+|DCIOutboundKpiExportDuration|Duração da exportação de KPI de saída|Segundos|Total||
+|DCIOutboundKpiExportStarted|Início da exportação de KPI de saída|Segundos|Total||
+|DCIOutboundKpiRecordCount|Contagem de registros de KPI de saída|Segundos|Total||
+|DCIOutboundProfileExportCount|Contagem de exportações de perfil de saída|Segundos|Total||
+|DCIOutboundInitialProfileExportFailed|Exportação de perfil inicial de saída com falha|Segundos|Total||
+|DCIOutboundInitialProfileExportSucceeded|Exportação de perfil inicial de saída com êxito|Segundos|Total||
+|DCIOutboundInitialKpiExportFailed|Exportação de KPI inicial de saída com falha|Segundos|Total||
+|DCIOutboundInitialKpiExportSucceeded|Exportação de KPI inicial de saída com êxito|Segundos|Total||
+|DCIOutboundInitialProfileExportDurationInSeconds|Duração da exportação de perfil inicial de saída em segundos|Segundos|Total||
+|AdlaJobForStandardKpiFailed|Trabalho do ADLA para KPI padrão com falha em segundos|Segundos|Total||
+|AdlaJobForStandardKpiTimeOut|Trabalho do ADLA para KPI padrão com TimeOut em segundos|Segundos|Total||
+|AdlaJobForStandardKpiCompleted|Trabalho do ADLA para KPI padrão concluído em segundos|Segundos|Total||
+|ImportASAValuesFailed|Contagem de valores do ASA de importação com falha|Contagem|Total||
+|ImportASAValuesSucceeded|Contagem de valores do ASA de importação com êxito|Contagem|Total||
+
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
+
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|JobEndedSuccess|Trabalhos com êxito|Contagem|Total|Contagem de trabalhos com êxito.|
+|JobEndedFailure|Trabalhos com falha|Contagem|Total|Contagem de trabalhos com falha.|
+|JobEndedCancelled|Trabalhos cancelados|Contagem|Total|Contagem de trabalhos cancelados.|
+|JobAUEndedSuccess|Tempo de AU com êxito|Segundos|Total|Tempo total de AU dos trabalhos com êxito.|
+|JobAUEndedFailure|Tempo de AU com falha|Segundos|Total|Tempo total de AU dos trabalhos com falha.|
+|JobAUEndedCancelled|Tempo de AU cancelada|Segundos|Total|Tempo total de AU dos trabalhos cancelados.|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -485,6 +521,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |---|---|---|---|---|
 |Taxa de transferência|Taxa de transferência|BytesPerSecond|Média||
 
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
+
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|BytesIn|BytesIn|Contagem|Total||
+|BytesOut|BytesOut|Contagem|Total||
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
@@ -548,10 +591,55 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |outgoing.mpns.dropped|Notificações descartadas do MPNS|Contagem|Total|A contagem de pushes que foram descartados pelo MPNS (cabeçalho de resposta do MPNS: X-NotificationStatus: QueueFull ou Suppressed).|
 |outgoing.mpns.pnserror|Erros do MPNS|Contagem|Total|A contagem de pushes que falharam devido a erros de comunicação com o MPNS.|
 |outgoing.mpns.authenticationerror|Erros de autenticação do MPNS|Contagem|Total|A contagem de pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|
-|notificationhub.devices|Dispositivos de hub de notificação|Contagem|Média|A contagem de dispositivos do hub de notificação|
-|notificationhub.pushes|Notificações por push do hub de notificação|Contagem|Total|A contagem de notificações por push no hub de notificação|
+|notificationhub.pushes|Todas as notificações de saída|Contagem|Total|Todas as notificações de saída do hub de notificação|
 |incoming.all.requests|Todas as solicitações recebidas|Contagem|Total|Total de solicitações recebidas para um hub de notificação|
 |incoming.all.failedrequests|Todas as solicitações com falha recebidas|Contagem|Total|Total de solicitações com falha recebidas para um hub de notificação|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|qpu_metric|QPU|Contagem|Média|QPU. Intervalo de 0 a 100 para S1, 0 a 200 para S2 e 0 a 400 para S4|
+|memory_metric|Memória|Bytes|Média|Memória. Intervalo de 0 a 25 GB para S1, 0 a 50 GB para S2 e 0 a 100 GB para S4|
+|TotalConnectionRequests|Solicitações de conexão totais|Contagem|Média|Solicitações de conexão totais. Estas são chegadas.|
+|SuccessfullConnectionsPerSec|Conexões bem-sucedidas por segundo|CountPerSecond|Média|Taxa de conclusões de conexão bem-sucedidas.|
+|TotalConnectionFailures|Falhas de conexão totais|Contagem|Média|Total de falhas em tentativas de conexão.|
+|CurrentUserSessions|Sessões de usuário atuais|Contagem|Média|Número atual de sessões de usuário estabelecidas.|
+|QueryPoolBusyThreads|Threads ocupados do pool de consulta|Contagem|Média|Número de threads ocupados no pool de threads de consulta.|
+|CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
+|ProcessingPoolJobQueueLength|Comprimento da fila de trabalho do pool de processamento|Contagem|Média|Número de trabalhos não de E/S na fila do pool de threads de processamento.|
+|CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|
+|CleanerCurrentPrice|Memória: preço atual do limpador|Contagem|Média|Preço atual da memória, $/byte/tempo, normalizado em 1000.|
+|CleanerMemoryShrinkable|Memória: memória do limpador reduzível|Bytes|Média|Quantidade de memória, em bytes, sujeita a eliminação pelo limpador na tela de fundo.|
+|CleanerMemoryNonshrinkable|Memória: memória do limpador não reduzível|Bytes|Média|Quantidade de memória, em bytes, não sujeita a eliminação pelo limpador na tela de fundo.|
+|MemoryUsage|Memória: uso de memória|Bytes|Média|Uso de memória do processo do servidor, como usado no cálculo de preço de memória do limpador. Igual ao contador Processo\PrivateBytes mais o tamanho dos dados mapeados em memória, ignorando qualquer memória mapeada ou alocada pelo mecanismo de análise de memória xVelocity (VertiPaq), além do limite de memória do mecanismo xVelocity.|
+|MemoryLimitHard|Memória: limite de memória física|Bytes|Média|Limite de memória física, do arquivo de configuração.|
+|MemoryLimitHigh|Memória: limite de memória superior|Bytes|Média|Limite de memória superior, do arquivo de configuração.|
+|MemoryLimitLow|Memória: limite de memória inferior|Bytes|Média|Limite de memória inferior, do arquivo de configuração.|
+|MemoryLimitVertiPaq|Memória: VertiPaq do limite de memória|Bytes|Média|Limite na memória, do arquivo de configuração.|
+|Cota|Memória: cota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|
+|QuotaBlocked|Memória: cota bloqueada|Contagem|Média|Número atual de solicitações de cota bloqueadas até que outras cotas de memória sejam liberadas.|
+|VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para uso pelo mecanismo na memória.|
+|VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Média|Bytes de memória paginada em uso para dados na memória.|
+|RowsReadPerSec|Processamento: linhas lidas por segundo|CountPerSecond|Média|Taxa de linhas lidas de todos os bancos de dados relacionais.|
+|RowsConvertedPerSec|Processamento: linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|
+|RowsWrittenPerSec|Processamento: linhas gravadas por segundo|CountPerSecond|Média|Taxa de linhas gravadas durante o processamento.|
+|CommandPoolBusyThreads|Threads: threads ocupados do pool comando|Contagem|Média|Número de threads ocupados no pool de threads de comando.|
+|CommandPoolIdleThreads|Threads: threads ociosos do pool de comandos|Contagem|Média|Número de threads ociosos no pool de threads de comando.|
+|LongParsingBusyThreads|Threads: threads ocupados de análise longa|Contagem|Média|Número de threads ocupados no pool de threads de análise longa.|
+|LongParsingIdleThreads|Threads: threads ociosos de análise longa|Contagem|Média|Número de threads ociosos no pool de threads de análise longa.|
+|LongParsingJobQueueLength|Threads: tamanho da fila de trabalhos de análise longa|Contagem|Média|Número de trabalhos na fila do pool de threads de análise longa.|
+|ProcessingPoolBusyIOJobThreads|Threads: threads de trabalho de E/S ocupados do pool de processamento|Contagem|Média|Número de threads que executam trabalhos de E/S no pool de threads de processamento.|
+|ProcessingPoolBusyNonIOThreads|Threads: threads de trabalho não E/S ocupados do pool de processamento|Contagem|Média|Número de threads que executam trabalhos não E/S no pool de threads de processamento.|
+|ProcessingPoolIOJobQueueLength|Threads: tamanho da fila de trabalhos de E/S do pool de processamento|Contagem|Média|Número de trabalhos de E/S na fila do pool de threads de processamento.|
+|ProcessingPoolIdleIOJobThreads|Threads: threads de trabalho de E/S ociosos do pool de processamento|Contagem|Média|Número de threads ociosos para trabalhos de E/S no pool de threads de processamento.|
+|ProcessingPoolIdleNonIOThreads|Threads: threads de trabalho não E/S ociosos do pool de processamento|Contagem|Média|Número de threads ociosos no pool de threads de processamento dedicado a trabalhos não E/S.|
+|QueryPoolIdleThreads|Threads: threads ociosos do pool de consultas|Contagem|Média|Número de threads ociosos para trabalhos de E/S no pool de threads de processamento.|
+|QueryPoolJobQueueLength|Threads: tamanho da fila de trabalhos do pool consultas|Contagem|Média|Número de trabalhos na fila do pool de threads de consulta.|
+|ShortParsingBusyThreads|Threads: threads ocupados de análise resumida|Contagem|Média|Número de threads ocupados no pool de threads de análise resumida.|
+|ShortParsingIdleThreads|Threads: threads ociosos de análise resumida|Contagem|Média|Número de threads ociosos no pool de threads de análise resumida.|
+|ShortParsingJobQueueLength|Threads: tamanho da fila de trabalhos de análise resumida|Contagem|Média|Número de trabalhos na fila do pool de threads de análise resumida.|
+|memory_thrashing_metric|Sobrecarga de memória|Porcentagem|Média|Sobrecarga de memória média.|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -596,17 +684,33 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
 |cpu_percent|Percentual de CPU|Porcentagem|Média|Percentual de CPU|
+|database_cpu_percent|Percentual de CPU|Porcentagem|Média|Percentual de CPU|
 |physical_data_read_percent|Porcentagem de E/S de dados|Porcentagem|Média|Porcentagem de E/S de dados|
+|database_physical_data_read_percent|Porcentagem de E/S de dados|Porcentagem|Média|Porcentagem de E/S de dados|
 |log_write_percent|Porcentagem de E/S de log|Porcentagem|Média|Porcentagem de E/S de log|
+|database_log_write_percent|Porcentagem de E/S de log|Porcentagem|Média|Porcentagem de E/S de log|
 |dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Média|Porcentagem de DTU|
+|database_dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Média|Porcentagem de DTU|
 |storage_percent|Porcentagem de armazenamento|Porcentagem|Média|Porcentagem de armazenamento|
 |workers_percent|Porcentagem de funcionários|Porcentagem|Média|Porcentagem de funcionários|
+|database_workers_percent|Porcentagem de funcionários|Porcentagem|Média|Porcentagem de funcionários|
 |sessions_percent|Porcentagem de sessões|Porcentagem|Média|Porcentagem de sessões|
+|database_sessions_percent|Porcentagem de sessões|Porcentagem|Média|Porcentagem de sessões|
 |eDTU_limit|Limite de eDTU|Contagem|Média|Limite de eDTU|
 |storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|
 |eDTU_used|eDTU usado|Contagem|Média|eDTU usado|
 |storage_used|Armazenamento usado|Bytes|Média|Armazenamento usado|
+|database_storage_used|Armazenamento usado|Bytes|Média|Armazenamento usado|
 |xtp_storage_percent|Percentual de armazenamento do OLTP na memória|Porcentagem|Média|Percentual de armazenamento do OLTP na memória|
+
+## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
+
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Média|Porcentagem de DTU|
+|database_dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Média|Porcentagem de DTU|
+|storage_used|Armazenamento usado|Bytes|Média|Armazenamento usado|
+|database_storage_used|Armazenamento usado|Bytes|Média|Armazenamento usado|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -635,7 +739,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|
 |BytesSent|Saída de dados|Bytes|Total|Saída de dados|
 
-## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites (incluindo funções)
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (excluindo funções)
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
@@ -655,6 +759,16 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|
 |AverageMemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|
 |AverageResponseTime|Tempo Médio de Resposta|Segundos|Média|Tempo Médio de Resposta|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
+
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|
+|BytesSent|Saída de dados|Bytes|Total|Saída de dados|
+|Http5xx|Erros do Servidor Http|Contagem|Total|Erros do Servidor Http|
+|MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|
+|AverageMemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|
 |FunctionExecutionUnits|Unidades de Execução de Função|Contagem|Média|Unidades de Execução de Função|
 |FunctionExecutionCount|Contagem de Execução de Função|Contagem|Média|Contagem de Execução de Função|
 
@@ -685,5 +799,4 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 * [Leia sobre as métricas no Azure Monitor](monitoring-overview-metrics.md)
 * [Criar alertas para métricas](insights-receive-alert-notifications.md)
 * [Exportar as métricas de armazenamento, Hub de eventos ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-
 

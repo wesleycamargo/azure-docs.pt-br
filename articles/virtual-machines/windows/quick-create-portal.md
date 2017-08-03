@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 
-2. Selecione **Computação**, selecione **Datacenter do Windows Server 2016** e certifique-se de que **Gerenciador de Recursos** é o modelo de implantação selecionado. Selecione o botão **Criar** . 
+2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 
 3. Insira as informações da máquina virtual. O nome do usuário e a senha inseridos aqui são usados para fazer logon na máquina virtual. Ao concluir, clique em **OK**.
 
@@ -48,7 +48,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Na folha de configurações, selecione **Sim** em **Usar discos gerenciados**, mantenha os padrões para o restante das configurações e clique em **OK**.
+5. Na folha de configurações, mantenha os padrões e clique em **OK**.
 
 6. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 

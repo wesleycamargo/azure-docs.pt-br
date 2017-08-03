@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 34fc513b6d4408e341fc5a723ca743daee39b85d
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -58,7 +58,11 @@ Converte o valor em uma matriz.
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sim |int, string, array ou object |O valor a ser convertido em uma matriz. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar a função array com tipos diferentes.
 
@@ -99,9 +103,13 @@ O seguinte exemplo mostra como usar a função array com tipos diferentes.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| intOutput | Matriz | [1] |
+| stringOutput | Matriz | ["a"] |
+| objectOutput | Matriz | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
@@ -117,7 +125,11 @@ Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias
 | arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
 | argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos. 
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra a saída de diferentes usos de coalesce.
 
@@ -128,7 +140,14 @@ O exemplo a seguir mostra a saída de diferentes usos de coalesce.
     "parameters": {
         "objectToTest": {
             "type": "object",
-            "defaultValue": {"first": null, "second": null}
+            "defaultValue": {
+                "null1": null, 
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
         }
     },
     "resources": [
@@ -136,27 +155,37 @@ O exemplo a seguir mostra a saída de diferentes usos de coalesce.
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 'fallback')]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
         },
         "intOutput": {
             "type": "int",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 1)]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
         },
         "objectOutput": {
             "type": "object",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, parameters('objectToTest'))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
         },
         "arrayOutput": {
             "type": "array",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, array(1))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos. 
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringOutput | Cadeia de caracteres | padrão |
+| intOutput | int | 1 |
+| objectOutput | Objeto | {"first": "default"} |
+| arrayOutput | Matriz | [1] |
+| emptyOutput | Bool | True  |
 
 <a id="concat" />
 
@@ -174,7 +203,10 @@ Combina várias matrizes e retorna a matriz concatenada, ou combina vários valo
 
 Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros.
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+Uma cadeia de caracteres ou matriz de valores concatenados.
+
+### <a name="example"></a>Exemplo
 
 O próximo exemplo mostra como combinar duas matrizes.
 
@@ -211,6 +243,12 @@ O próximo exemplo mostra como combinar duas matrizes.
 }
 ```
 
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| retorno | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
 O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
 
 ```json
@@ -226,15 +264,18 @@ O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e r
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
-Uma cadeia de caracteres ou matriz de valores concatenados.
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| concatOutput | Cadeia de caracteres | prefix-5yj4yjf5mbg72 |
 
 <a id="contains" />
 
@@ -250,7 +291,11 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |string ou int |O valor a ser encontrado. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+**True** se o item for encontrado; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar contains com tipos diferentes:
 
@@ -303,9 +348,16 @@ O seguinte exemplo mostra como usar contains com tipos diferentes:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-**True** se o item for encontrado; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringTrue | Bool | True  |
+| stringFalse | Bool | Falso |
+| objectTrue | Bool | True  |
+| objectFalse | Bool | Falso |
+| arrayTrue | Bool | True  |
+| arrayFalse | Bool | Falso |
 
 <a id="createarray" />
 
@@ -321,7 +373,11 @@ Cria uma matriz de parâmetros.
 | arg1 |Sim |String, Inteiro, Matriz ou Objeto |O primeiro valor na matriz. |
 | argumentos adicionais |Não |String, Inteiro, Matriz ou Objeto |Valores adicionais na matriz. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar createArray com tipos diferentes:
 
@@ -362,9 +418,14 @@ O seguinte exemplo mostra como usar createArray com tipos diferentes:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringArray | Matriz | ["a", "b", "c"] |
+| intArray | Matriz | [1, 2, 3] |
+| objectArray | Matriz | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Matriz | [["one", "two", "three"]] |
 
 <a id="empty" />
 
@@ -380,7 +441,11 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se o valor é vazio; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
 
@@ -421,9 +486,13 @@ O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres 
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se o valor é vazio; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | True  |
+| objectEmpty | Bool | True  |
+| stringEmpty | Bool | True  |
 
 <a id="first" />
 
@@ -438,7 +507,11 @@ Retorna o primeiro elemento da matriz ou o primeiro caractere da cadeia de carac
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matriz ou o primeiro caractere de uma cadeia de caracteres.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
 
@@ -467,9 +540,12 @@ O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia 
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matrizou ou primeiro caractere da cadeia de caracteres.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Cadeia de caracteres | one |
+| stringOutput | Cadeia de caracteres | O |
 
 <a id="intersection" />
 
@@ -486,7 +562,11 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
 | argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz ou objeto com os elementos comuns.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
 
@@ -527,9 +607,12 @@ O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz ou objeto com os elementos comuns.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| objectOutput | Objeto | {"one": "a", "three": "c"} |
+| arrayOutput | Matriz | ["two", "three"] |
 
 <a id="last" />
 
@@ -544,7 +627,11 @@ Retorna o último elemento da matriz ou o último caractere da cadeia de caracte
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz ou o último caractere de uma cadeia de caracteres.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
 
@@ -573,9 +660,12 @@ O exemplo a seguir mostra como usar a última função com uma matriz e cadeia d
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz ou uma cadeia de caracteres do último caractere.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Cadeia de caracteres | three |
+| stringOutput | Cadeia de caracteres | e |
 
 <a id="length" />
 
@@ -590,7 +680,11 @@ Retorna o número de elementos em uma matriz ou os caracteres em uma cadeia de c
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |A matriz a ser usada para obter o número de elementos ou a cadeia de caracteres a ser usada para obter o número de caracteres. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro. 
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres:
 
@@ -626,6 +720,13 @@ O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres
 }
 ```
 
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+
 Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
 
 ```json
@@ -636,10 +737,6 @@ Essa função pode ser usada com uma matriz para especificar o número de itera�
 ```
 
 Para saber mais sobre como usar essa função com uma matriz, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-
-### <a name="return-value"></a>Valor de retorno
-
-Um inteiro. 
 
 <a id="min" />
 
@@ -654,7 +751,11 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa o valor mínimo.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
 
@@ -682,9 +783,12 @@ O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa o valor mínimo.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -699,7 +803,11 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Um inteiro que representa o valor máximo.
+
+### <a name="example"></a>Exemplo
 
 O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
 
@@ -727,9 +835,12 @@ O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Um inteiro que representa o valor máximo.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="range" />
 
@@ -745,7 +856,11 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 | startingInteger |Sim |int |O primeiro inteiro na matriz. |
 | numberofElements |Sim |int |O número de inteiros na matriz. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz de inteiros.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar a função range:
 
@@ -773,9 +888,11 @@ O exemplo a seguir mostra como usar a função range:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz de inteiros.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| rangeOutput | Matriz | [5, 6, 7] |
 
 <a id="skip" />
 
@@ -791,7 +908,11 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
 | numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz ou cadeia de caracteres.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
 
@@ -835,9 +956,12 @@ O exemplo a seguir ignora o número especificado de elementos na matriz e o núm
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz ou cadeia de caracteres.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Matriz | ["three"] |
+| stringOutput | Cadeia de caracteres | two three |
 
 <a id="take" />
 
@@ -853,7 +977,11 @@ Retorna uma matriz com o número especificado de elementos desde o início da ma
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
 | numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz ou cadeia de caracteres.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
 
@@ -897,9 +1025,12 @@ O exemplo a seguir extrai o número especificado de elementos da matriz e de car
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz ou cadeia de caracteres.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Matriz | ["one", "two"] |
+| stringOutput | Cadeia de caracteres | em |
 
 <a id="union" />
 
@@ -916,7 +1047,11 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
 | argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Uma matriz ou objeto.
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra como usar a union com matrizes e objetos:
 
@@ -931,7 +1066,7 @@ O exemplo a seguir mostra como usar a union com matrizes e objetos:
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"four": "d", "five": "e", "six": "f"}
+            "defaultValue": {"three": "c", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -939,7 +1074,7 @@ O exemplo a seguir mostra como usar a union com matrizes e objetos:
         },
         "secondArray": {
             "type": "array",
-            "defaultValue": ["four", "five"]
+            "defaultValue": ["three", "four"]
         }
     },
     "resources": [
@@ -957,9 +1092,12 @@ O exemplo a seguir mostra como usar a union com matrizes e objetos:
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Uma matriz ou objeto.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| objectOutput | Objeto | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| arrayOutput | Matriz | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).

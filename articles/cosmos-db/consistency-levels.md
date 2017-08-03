@@ -3,7 +3,7 @@ title: "Níveis de consistência no Azure Cosmos DB | Microsoft Docs"
 description: "O Azure Cosmos DB tem cinco níveis de consistência que ajudam a equilibrar prós e contras de consistência eventual, disponibilidade e latência."
 keywords: "consistência eventual, azure cosmos db, Microsoft azure"
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: syamk
+ms.date: 06/16/2017
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b4f4a32a19c2145a18557a54d5a495ef0c8dec75
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
-O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão e eventual. 
+O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. 
 
 Além dos modelos de consistência **forte** e **eventual** geralmente oferecidos por bancos de dados distribuídos, o Azure Cosmos DB oferece mais três modelos de consistência cuidadosamente codificados e operacionalizados, e validou sua utilidade em casos de uso do mundo real. Estes são os níveis de consistência: **desatualização limitada**, **sessão** e **prefixo consistente**. Coletivamente, esses cinco níveis de consistência permitem obter um equilíbrio bem pensado entre consistência, disponibilidade e latência. 
 
@@ -40,13 +40,13 @@ A tabela a seguir ilustra as garantias específicas que cada nível de consistê
  
 **Níveis de consistência e garantias**
 
-| Nível de Consistência    | Garantias |
+| Nível de Consistência | Garantias |
 | --- | --- |
 | Strong | Transação atômica |
-| Bounded staleness    | Prefixo consistente. Lê latência por trás de gravações por meio de prefixos k ou intervalos t |
-| Session    | Prefixo consistente. Leituras monotônicas, gravações monotônicas, read-your-writes (operações de leitura refletem gravações anteriores), write-follows-reads (gravações são propagadas após as leituras) |
-| Prefixo consistente    | As atualizações retornadas são algum prefixo de todas as atualizações, sem intervalos |
-| Eventual    | Leituras fora de ordem |
+| Bounded staleness | Prefixo consistente. Lê latência por trás de gravações por meio de prefixos k ou intervalos t |
+| Session   | Prefixo consistente. Leituras monotônicas, gravações monotônicas, read-your-writes (operações de leitura refletem gravações anteriores), write-follows-reads (gravações são propagadas após as leituras) |
+| Prefixo consistente | As atualizações retornadas são algum prefixo de todas as atualizações, sem intervalos |
+| Eventual  | Leituras fora de ordem |
 
 Você pode configurar o nível de consistência padrão na sua conta do Cosmos DB (e mais tarde, substituir a consistência em uma solicitação de leitura específica). Internamente, o nível de consistência padrão aplica-se aos dados nos conjuntos de partições que podem ser regiões de extensão. Cerca de 73% dos nossos locatários usam a consistência de sessão e 20% preferem desatualização limitada. Observamos que aproximadamente 3% de nossos clientes experimentam vários níveis de consistência inicialmente antes de escolherem uma opção de consistência específica para seu aplicativo. Também observamos que apenas 2% de nossos locatários substituem os níveis de consistência por solicitação. 
 

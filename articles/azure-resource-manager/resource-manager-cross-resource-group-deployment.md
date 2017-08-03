@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ Se você definir `resourceGroup` como o nome de um grupo de recursos que não ex
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Para implantar o modelo de exemplo, você poderá usar o Azure PowerShell ou a CLI do Azure. Você deve usar uma versão do Azure PowerShell ou da CLI do Azure de maio de 2017 em diante. Os exemplos pressupõem que você salvou o modelo localmente como um arquivo denominado **crossrgdeployment.json**.
+Para implantar o modelo de exemplo, você poderá usar o portal, o Azure PowerShell ou a CLI do Azure. Para o Azure PowerShell ou a CLI do Azure, você pode usar uma versão de maio de 2017 ou posterior. Os exemplos pressupõem que você salvou o modelo localmente como um arquivo denominado **crossrgdeployment.json**.
 
 Para o PowerShell:
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 Após a implantação ser concluída, você verá dois grupos de recursos. Cada grupo de recursos contém uma conta de armazenamento.
+
+## <a name="use-resourcegroup-function"></a>Use a função resourceGroup()
+
+Para a implantações de grupos de recursos cruzados, a [função resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) é resolvida de forma diferente com base em como você especifica o modelo aninhado. 
+
+Se você inserir um modelo dentro de outro modelo, a resouceGroup() no modelo aninhado será resolvida para o grupo de recursos pai. Um modelo incorporado usa o seguinte formato:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+Se você vincular a um modelo separado, a resouceGroup() no modelo vinculado será resolvida para o grupo de recursos aninhados. Um modelo incorporado usa o seguinte formato:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

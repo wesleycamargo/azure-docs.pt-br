@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de erros de gateway de aplicativo inválido (502) do Application Gateway | Microsoft Docs"
+title: "Solucionar problemas de erros de gateway de aplicativo inválido (502) do Application Gateway do Azure | Microsoft Docs"
 description: Saiba como solucionar problemas de erros 502 do Application Gateway
 services: application-gateway
 documentationcenter: na
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/07/2017
 
 
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
 
+Saiba como solucionar problemas de erros de gateway inválido (502) recebidos ao usar o gateway do aplicativo.
+
 ## <a name="overview"></a>Visão geral
 
-Após a configuração de um Application Gateway do Azure, um dos erros que os usuários podem encontrar é "Erro de Servidor: 502 - o servidor Web recebeu uma resposta inválida ao atuar como gateway ou proxy de servidor". Este erro pode ocorrer pelos seguintes motivos principais:
+Após a configuração de um Application Gateway, um dos erros que os usuários podem encontrar é "Erro de Servidor: 502 - o servidor Web recebeu uma resposta inválida ao atuar como gateway ou proxy de servidor". Este erro pode ocorrer pelos seguintes motivos principais:
 
-* O pool de back-end do Gateway de Aplicativo do Azure não está configurado ou está vazio.
-* Nenhuma das VMs ou instâncias no Conjunto de Escala de VM está íntegra.
-* VMs de back-end ou instâncias do Conjunto de Escala de VM não estão respondendo à investigação de integridade padrão.
-* Configuração inválida ou incorreta de investigações de integridade personalizadas.
-* Tempo limite de solicitação ou problemas de conectividade com solicitações de usuário.
+* O [pool de back-end do Gateway de Aplicativo do Azure não está configurado ou está vazio](#empty-backendaddresspool).
+* Nenhuma das VMs ou instâncias no [Conjunto de Escala de VM está íntegra](#unhealthy-instances-in-backendaddresspool).
+* VMs de back-end ou instâncias do Conjunto de Escala de VM [não estão respondendo à investigação de integridade padrão](#problems-with-default-health-probe.md).
+* Configuração inválida ou incorreta [de investigações de integridade personalizadas](#problems-with-custom-health-probe.md).
+* [Tempo limite de solicitação ou problemas de conectividade](#request-time-out) com solicitações de usuário.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vazio
 

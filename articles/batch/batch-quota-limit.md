@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 56e8f5579da2b5bed7975f25f0779c54d70cb886
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,8 +72,10 @@ A cota de núcleos em nível regional ou por família VM deve ser definida de ac
 | [Aplicativos](batch-application-packages.md) por conta do Lote |20 |
 | Pacotes de aplicativos por aplicativo |40 |
 | Tamanho do pacote de aplicativos (cada) |Aproximadamente 195 GB<sup>1</sup> |
+| Tamanho de tarefa inicial máximo | 32768 caracteres<sup>2</sup> |
 
-<sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos
+<sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos<br />
+<sup>2</sup> Inclui arquivos de recurso e variáveis de ambiente
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
 Exibir suas cotas de conta do Lote no [portal do Azure][portal].
@@ -111,14 +113,14 @@ Se sua conta do lote foi criada em modo de **serviço de lote**, siga estas etap
    
     d. **Plano de suporte** > **Suporte da cota - Incluído**
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 4. Na folha **Problema** :
    
     a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 5. Na folha **Informações de contato** :
    
     a. Selecione um **método de contato preferencial**.

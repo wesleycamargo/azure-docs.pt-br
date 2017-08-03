@@ -15,4 +15,4 @@
 # Referência
 ## [CLI 2.0 do Azure](/cli/azure) 
 # Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

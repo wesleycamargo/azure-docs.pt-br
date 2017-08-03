@@ -1,6 +1,6 @@
 ---
 title: "Executar consultas de análise em vários bancos de dados Azure SQL | Microsoft Docs"
-description: "Executar consultas distribuídas entre vários bancos de dados do Azure SQL"
+description: "Extrair dados de bancos de dados de locatário para um banco de dados analítico para análise offline"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Executar consultas distribuídas entre vários bancos de dados do Azure SQL
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extrair dados de bancos de dados de locatário para um banco de dados analítico para análise offline
 
-Neste tutorial, você executará consultas de análise em cada locatário no catálogo. Um trabalho elástico é criado para executar as consultas. O trabalho recupera dados e carrega-os em um banco de dados de análise separado criado no servidor de catálogo. Esse banco de dados pode ser consultado para extrair informações escondidas nos dados operacionais diários de todos os locatários. Como uma saída do trabalho, uma tabela é criada nas consultas que retornam resultados no banco de dados de análise do locatário.
+Nesse tutorial é utilizado um trabalho elástico para executar consultas em cada banco de dados de locatário. O trabalho extrai dados de vendas de tíquete e carrega-o em um banco de dados de análise (ou data warehouse) para análise. O banco de dados de análise é, então, consultado para extrair informações sobre os dados operacionais diários de todos os locatários.
 
 
 Neste tutorial, você aprenderá a:
@@ -47,7 +47,7 @@ Uma das ótimas oportunidades com aplicativos SaaS é usar os dados de locatári
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
-Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implantar um banco de dados de resultados de análise de locatário
 
@@ -121,3 +121,4 @@ Parabéns!
 
 * [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Trabalhos Elásticos](sql-database-elastic-jobs-overview.md)
+

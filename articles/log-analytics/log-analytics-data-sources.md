@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ As fontes de dados são configuradas do menu **Dados** nas **Configurações** d
 
 ![Configurar eventos do Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. No console do OMS, selecione o bloco **Configurações** .
+1. No console do OMS, clique no bloco **Configurações** ou no botão **Configurações** na parte superior da tela.
 2. Selecione **Dados**.
 3. Clique na fonte de dados para configurar.
 4. Siga o link para a documentação para cada fonte de dados na tabela acima para obter detalhes sobre sua configuração.
+
+> [!NOTE]
+> Atualmente, você não pode configurar fontes de dados do Log Analytics no Portal do Azure.
 
 ## <a name="data-collection"></a>Coleta de dados
 As configurações de fonte de dados são entregues aos agentes que estão diretamente conectados ao Log Analytics dentro de alguns minutos.  Os dados especificados são coletados do agente e entregues diretamente para o Log Analytics em intervalos específicos para cada fonte de dados.  Consulte a documentação para cada fonte de dados para encontrar essas especificações.
@@ -63,9 +68,4 @@ Todos os dados coletados pelo Log Analytics são armazenados no repositório do 
 * Saiba mais sobre [soluções](log-analytics-add-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados para o repositório do OMS.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Configure [alertas](log-analytics-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 38bd198958180caece4747b972476475059191df
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: a41df84034dbc2f1ec6c61d027ced77694354d51
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="documentdb-net-sdk-download-and-release-notes"></a>SDK de .NET do DocumentDB: download e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed de alterações do .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Baixe o SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemplos**</td><td>[Exemplos de código .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -53,16 +53,22 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+*   Adicionado suporte para a especificação de JsonSerializerSettings personalizadas ao instanciar [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
+
+### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
+*   Correção de um problema que afetava computadores x64 que não dão suporte à instrução SSE4 e que geram uma SEHException ao executar consultas da API DocumentDB.
+
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*    Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
-*    Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
-*    Adição de suporte a métricas de consulta em partições individuais.
-*    Adição de suporte para limitar o tamanho do token de continuação em consultas.
-*    Adição de suporte para um rastreamento mais detalhado das solicitações com falha.
-*    Melhorias de desempenho no SDK.
+*   Adição de suporte ao recurso Unidade de solicitação por minuto (RU/m).
+*   Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
+*   Adição de suporte a métricas de consulta em partições individuais.
+*   Adição de suporte para limitar o tamanho do token de continuação em consultas.
+*   Adição de suporte para um rastreamento mais detalhado das solicitações com falha.
+*   Melhorias de desempenho no SDK.
 
 ### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
-* Funcionalmente equivalente a 1.13.4. Algumas alterações internas.
+* Funcionalmente equivalente a 1.13.3. Algumas alterações internas.
 
 ### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
 * Funcionalmente equivalente a 1.13.2. Algumas alterações internas.
@@ -157,7 +163,7 @@ ms.lasthandoff: 05/31/2017
 * Adicionada uma sobrecarga ao Uri com base no método ExecuteStoredProcedureAsync que recebe RequestOptions como um parâmetro.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Adicionado suporte a TTL (vida útil) para documentos.
+* Adicionado suporte a TTL (tempo de vida) para documentos.
 
 ### <a name="a-name163163"></a><a name="1.6.3"/>1.6.3
 * Correção de um bug no pacote Nuget do SDK do .NET para empacotamento como parte de uma solução do Serviço de Nuvem do Azure.
@@ -173,7 +179,7 @@ ms.lasthandoff: 05/31/2017
   * Operador Take para habilitar o comportamento de SELECT TOP no LINQ
   * Operador CompareTo para habilitar comparações de intervalo de cadeia de caracteres
   * Operadores condicionais (?) e de união (??)
-* **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta linq.  [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * **[Corrigido]** Se Select não for a última expressão, o Provedor LINQ presumiu que não havia projeção e produziu SELECT * incorretamente.  [Nº 58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -181,7 +187,7 @@ ms.lasthandoff: 05/31/2017
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Implementação de Upsert, adição de métodos UpsertXXXAsync
 * Melhorias de desempenho de todas as solicitações
-* Suporte ao provedor de LINQ para os métodos conditional, coalesce e CompareTo em cadeias de caracteres
+* Suporte ao provedor LINQ para os métodos conditional, coalesce e CompareTo em cadeias de caracteres
 * **[Corrigido]** Provedor LINQ --> Implementa o método Contains em List para gerar o mesmo SQL como em IEnumerable e Array
 * **[Corrigido]** BackoffRetryUtility usa a mesma HttpRequestMessage novamente em vez de criar uma nova em uma nova tentativa
 * **[Obsoleto]** UriFactory.CreateCollection--> agora deve usar UriFactory.CreateDocumentCollection
@@ -190,57 +196,59 @@ ms.lasthandoff: 05/31/2017
 * **[Corrigido]** Problemas de localização ao usar informações de cultura em outro idioma que não o inglês, como nl-NL, etc. 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
-* Roteamento baseado em ID
+* Adicionado roteamento baseado em ID
   * Novo auxiliar UriFactory para ajudá-lo a construir links para recursos baseados em identificação
   * Novas sobrecargas em DocumentClient para receber URI
 * Adicionado IsValid() e IsValidDetailed () em LINQ para geoespaciais
-* Suporte ao provedor de LINQ aprimorado
+* Suporte ao provedor LINQ aprimorado:
   * **Matemática** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate
   * **Cadeia de caracteres** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper
   * **Array** - Concat, Contains, Count
   * **IN** 
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* Suporte adicionado para modificar políticas de indexação
+* Suporte adicionado para modificar políticas de indexação.
   * Novo método ReplaceDocumentCollectionAsync no DocumentClient
   * Nova propriedade IndexTransformationProgress em ResourceResponse<T> para acompanhar o progresso em percentual de alterações na política de índice
   * DocumentCollection.IndexingPolicy agora é mutável
-* Suporte adicionado para consulta e indexação espacial
+* Suporte adicionado para consulta e indexação espacial.
   * Novo namespace Microsoft.Azure.Documents.Spatial para serializar/desserializar tipos espaciais, como Ponto e Polígono
   * Nova classe SpatialIndex para indexação de dados GeoJSON armazenados no Cosmos DB
-* **[Corrigido]** : consulta SQL incorreta gerada usando a expressão LINQ [Nº 38](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[Corrigido]** : consulta SQL incorreta gerada usando a expressão LINQ [Nº 38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Dependência de Newtonsoft.Json v5.0.7 
-* Alterações para dar suporte a Order By
+* Adicionada dependência de Newtonsoft.Json v5.0.7.
+* Alterações feitas para dar suporte a Order By:
   
-  * Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
+  * Suporte ao provedor LINQ para OrderBy() ou OrderByDescending()
   * IndexingPolicy para dar suporte a Order By 
     
-    **NB: possível alteração interruptiva** 
+    **Possível alteração interruptiva** 
     
-    Se você tem o código existente que provisiona as coleções com uma política personalizada de indexação, o seu código existente precisa ser atualizado para dar suporte à nova classe IndexingPolicy.  Se você não tem uma política personalizada de indexação, essa alteração não afeta você.
+    Se você tem o código existente que provisiona as coleções com uma política personalizada de indexação, o seu código existente precisa ser atualizado para dar suporte à nova classe IndexingPolicy. Se você não tem uma política personalizada de indexação, essa alteração não afeta você.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Suporte para dados de particionamento usando as novas classes HashPartitionResolver e RangePartitionResolver e o IPartitionResolver
-* Serialização DataContract
-* Suporte a GUID no provedor de LINQ
-* Suporte a UDF no LINQ
+* Adicionado suporte a dados de particionamento usando as novas classes HashPartitionResolver e RangePartitionResolver e o IPartitionResolver.
+* Adicionada serialização DataContract.
+* Adicionado suporte a GUID no provedor LINQ.
+* Adicionado suporte a UDF no LINQ.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK DO GA
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento e desativação
-A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
+A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente. 
 
-Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será rejeitada pelo serviço.
+Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rejeitada pelo serviço.
 
 <br/>
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |30 de junho de 2017 |--- |
+| [1.14.1](#1.14.1) |23 de maio de 2017 |--- |
 | [1.14.0](#1.14.0) |10 de maio de 2017 |--- |
 | [1.13.4](#1.13.4) |9 de maio de 2017 |--- |
 | [1.13.3](#1.13.3) |6 de maio de 2017 |--- |

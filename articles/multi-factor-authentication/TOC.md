@@ -15,6 +15,7 @@
 ### [Configurar definições](multi-factor-authentication-whats-next.md)
 ### [Relatórios no MFA](multi-factor-authentication-manage-reports.md)
 ### [Usar servidores de diretivas da rede existente](multi-factor-authentication-nps-extension.md)
+#### [Configuração avançada de extensão do NPS](nps-extension-advanced-configuration.md)
 ### [Criar um Provedor de Autenticação](multi-factor-authentication-get-started-auth-provider.md)
 ### MFA do Azure local
 #### [Instalar o portal de usuários](multi-factor-authentication-get-started-portal.md)
@@ -49,4 +50,4 @@
 ### [Fazer uma pergunta](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Erros de extensão do NPS](multi-factor-authentication-nps-errors.md)
 # Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

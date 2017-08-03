@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 06c09658d09bc05d2f5e2a0f17a9047ee8044486
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight (versão prévia)
@@ -68,9 +68,12 @@ Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente,
 
 1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**.
+    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
+
+    > [!WARNING]
+    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
 
 2. Use as seguintes informações para preencher as entradas na folha de **Implantação personalizada** :
     
@@ -104,30 +107,32 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
 ## <a name="create-topics"></a>Criar tópicos
 
 1. Conecte-se ao cluster de **origem** usando o SSH:
-   
-        ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
+    ```
+
     Substitua**sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **BASENAME** pelo nome base usado ao criar o cluster.
-   
+
     Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o seguinte comando para localizar os hosts do Zookeeper, defina a variável `SOURCE_ZKHOSTS` e crie vários tópicos novos chamados `testtopic`:
-   
+
     ```bash
     SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
 3. Use o seguinte comando para verificar se o tópico foi criado:
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
     ```
-   
+
     A resposta contém `testtopic`.
 
 4. Use o seguinte para exibir as informações de host do Zookeeper para esse cluster (a **origem**):
-   
+
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
@@ -141,40 +146,44 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
 ## <a name="configure-mirroring"></a>Configurar o espelhamento
 
 1. Conecte-se ao cluster de **destino** usando uma sessão de SSH diferente:
-   
-        ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
+    ```
+
     Substitua**sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **BASENAME** pelo nome base usado ao criar o cluster.
-   
+
     Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o seguinte comando para criar um arquivo `consumer.properties` que descreve como se comunicar com o cluster de **origem**:
-   
+
     ```bash
     nano consumer.properties
     ```
-   
+
     Use o seguinte texto como o conteúdo do arquivo `consumer.properties`:
-   
-        zookeeper.connect=SOURCE_ZKHOSTS
-        group.id=mirrorgroup
-   
+
+    ```yaml
+    zookeeper.connect=SOURCE_ZKHOSTS
+    group.id=mirrorgroup
+    ```
+
     Substitua **SOURCE_ZKHOSTS** pelas informações de hosts de Zookeeper do cluster de **origem**.
-   
+
     Esse arquivo descreve as informações de consumidor a serem usadas ao ler do cluster Kafka de origem. Para obter mais informações de configuração do consumidor, confira [Configurações de Consumidor](https://kafka.apache.org/documentation#consumerconfigs) em kafka.apache.org.
-   
+
     Para salvar o arquivo, use **Ctrl + X**, **Y** e, em seguida, **Enter**.
 
 3. Antes de configurar o produtor que se comunica com o cluster de destino, você deve localizar os hosts agentes para o cluster de **destino**. Use os seguintes comandos para recuperar essas informações:
-   
+
     ```bash
     sudo apt -y install jq
     DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
     echo $DEST_BROKERHOSTS
     ```
-   
+
     Esses comandos retornarão informações semelhantes ao seguinte:
-   
+
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
 4. Use o seguinte para criar um arquivo `producer.properties` que descreve como se comunicar com o cluster de **destino**:
@@ -184,42 +193,44 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
     ```
 
     Use o seguinte texto como o conteúdo do arquivo `producer.properties`:
-   
-        bootstrap.servers=DEST_BROKERS
-        compression.type=none
-   
-    Substitua **DEST_BROKERS** pelas informações de agente da etapa anterior. 
-   
+
+    ```yaml
+    bootstrap.servers=DEST_BROKERS
+    compression.type=none
+    ```
+
+    Substitua **DEST_BROKERS** pelas informações de agente da etapa anterior.
+
     Para obter mais informações de configuração produtor, confira [Configurações de Produtor](https://kafka.apache.org/documentation#producerconfigs) em kafka.apache.org.
 
 ## <a name="start-mirrormaker"></a>Iniciar MirrorMaker
 
 1. Na conexão SSH ao cluster de **destino**, use o seguinte comando para iniciar o processo MirrorMaker:
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
     ```
-   
+
     Os parâmetros usados neste exemplo são:
-   
+
     * **-consumer.config**: especifica o arquivo que contém as propriedades do consumidor. As propriedades são usadas para criar um consumidor que lê do cluster Kafka de *origem*.
 
     * **-producer.config**: especifica o arquivo que contém as propriedades de produtor. As propriedades são usadas para criar um produtor que grava o cluster Kafka de *destino*.
 
     * **–whitelist**: uma lista de tópicos que o MirrorMaker replica do cluster de origem para o destino.
-    
+
     * **-num.streams**: o número de threads de consumidor a serem criados.
-     
+
     Na inicialização, MirrorMaker retorna informações semelhantes ao seguinte texto:
-        
-    ```
+
+    ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
     ```
 
 2. Na conexão SSH para o cluster **de origem**, use o seguinte comando para iniciar um produtor e enviar mensagens para o tópico:
-    
+
     ```bash
     sudo apt -y install jq
     SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
@@ -229,13 +240,13 @@ Quando os recursos tiverem sido criados, você será redirecionado para uma folh
  Quando você chega a uma linha em branco com um cursor, digite algumas mensagens de texto. Elas são enviadas para o tópico no cluster **fonte**. Depois de concluído, use **Ctrl + C** para finalizar o processo de produtor.
 
 3. Na conexão SSH ao cluster de **destino**, use **Ctrl + C** para encerrar o processo MirrorMaker. Em seguida, use os comandos a seguir para verificar se o tópico `testtopic` foi criado, e esses dados no tópico foram replicados para esse espelho:
-    
+
     ```bash
     DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
-    
+
   A lista de tópicos agora inclui `testtopic`, que é criado quando MirrorMaster espelha o tópico do cluster de origem para o destino. As mensagens recuperadas do tópico são as mesmas inseridas no cluster de origem.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster

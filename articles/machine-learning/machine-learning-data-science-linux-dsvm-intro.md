@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Provisionar a Máquina Virtual de Ciência de Dados Linux
 A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azure baseada em CentOS que acompanha um conjunto de ferramentas pré-instaladas. Essas ferramentas normalmente são usadas para fazer análises de dados e aprendizado de máquina. Os componentes de software principais incluídos são:
 
+* Sistema operacional: Distribuição CentOS Linux.
 * Microsoft R Server Developer Edition
 * Distribuição do Anaconda Python (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados populares
 * JuliaPro - uma distribuição curada da linguagem Julia, com bibliotecas populares de análise de dados e científicas

@@ -9,34 +9,38 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
+ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/07/2017
+ms.date: 06/20/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Criar seu primeiro banco de dados SQL do Azure
 
-O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. Este tutorial aborda tarefas básicas de banco de dados, como a criação de um banco de dados e tabelas, a carga e a consulta de dados e a restauração do banco de dados para um ponto anterior no tempo. Você aprenderá como: 
+O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Microsoft Cloud (“Azure”). Neste tutorial, você aprenderá a usar o Portal do Azure e o SSMS ([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)) para: 
 
 > [!div class="checklist"]
-> * Criar um banco de dados
-> * Configurar uma regra de firewall
-> * Conecte-se ao banco de dados com o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS.exe)
-> * Criar tabelas
-> * Carregar dados em massa
-> * Consultar os dados
-> * Restaurar o banco de dados para um ponto anterior no tempo usando os recursos de [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore) do Banco de Dados SQL
+> * Criar um banco de dados no Portal do Azure
+> * Configurar uma regra de firewall de nível de servidor no Portal do Azure
+> * Conectar-se ao banco de dados com o SSMS
+> * Criar tabelas com SSMS
+> * Carregar dados em massa com o BCP
+> * Consultar dados com o SSMS
+> * Restaurar um banco de dados para uma [restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore) no Portal do Azure
+
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, certifique-se de ter instalado a versão mais recente do SSMS [(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx). 
 
@@ -44,7 +48,7 @@ Para concluir este tutorial, certifique-se de ter instalado a versão mais recen
 
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-azure"></a>Criar um banco de dados SQL em branco no Azure
+## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL em branco no Portal do Azure
 
 Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
 
@@ -54,55 +58,79 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 2. Selecione **Bancos de Dados** na página **Novo** e **Banco de Dados SQL** na página **Bancos de Dados**. 
 
-    ![criar banco de dados vazio](./media/sql-database-design-first-database/create-empty-database.png)
+   ![criar banco de dados vazio](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:     
+3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:   
 
-   - Nome do banco de dados: **mySampleDatabase**
-   - Grupo de recursos: **myResourceGroup**
-   - Origem: **banco de dados em branco**
+   | Configuração       | Valor sugerido | Descrição | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nome do banco de dados** | mySampleDatabase | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
+   | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
+   | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Selecionar fonte** | Banco de dados em branco | Especifica que um banco de dados em branco deve ser criado. |
 
-4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** especificando um nome de servidor exclusivo, forneça um nome para o logon de administrador do servidor e especifique a senha escolhida. 
+4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-    ![criar database-server](./media//sql-database-design-first-database/create-database-server.png)
+   | Configuração       | Valor sugerido | Descrição | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+   | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
+   | **Localidade** | Qualquer local válido | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
+
+   ![criar database-server](./media//sql-database-design-first-database/create-database-server.png)
+
 5. Clique em **Selecionar**.
 
 6. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para este tutorial, selecione **20 DTUs** e **250** GB de armazenamento.
 
-    ![Criar database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![Criar database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Clique em **Aplicar**.  
 
-8. Clique em **Criar** para provisionar o banco de dados. O provisionamento leva cerca de um minuto e meio para concluir. 
+8. Selecione um **agrupamento** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
+9. Clique em **Criar** para provisionar o banco de dados. O provisionamento leva cerca de um minuto e meio para concluir. 
 
-    ![notificação](./media/sql-database-get-started-portal/notification.png)
+10. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
 
+   ![notificação](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
 
-Os Banco de Dados SQL do Azure são protegidos por um firewall. Por padrão, todas as conexões com o servidor e com os bancos de dados dentro do servidor são rejeitadas. Siga estas etapas para criar uma [regra de firewall de nível de servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para que o servidor permita conexões de seu endereço IP de cliente. 
+O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedindo que os aplicativos e ferramentas externos conectem o servidor ou os bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. Execute estas etapas a fim de criar uma [regra de firewall no nível do servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP. 
 
-1. Após a conclusão da implantação, clique em **Bancos de Dados SQL** no menu à esquerda e clique no novo banco de dados, **mySampleDatabase**na página **Bancos de Dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170313.database.windows.net**) e fornece opções para configurações adicionais.
+> [!NOTE]
+> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não poderá se conectar ao servidor de Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+>
 
-      ![regra de firewall do servidor](./media/sql-database-design-first-database/server-firewall-rule.png) 
+1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. Uma página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver20170313.database.windows.net**) e fornece opções para configurações adicionais. Copie esse nome totalmente qualificado do servidor para um uso posterior.
+
+   > [!IMPORTANT]
+   > Você precisará desse nome totalmente qualificado do servidor para conectar o servidor e seus bancos de dados nos inícios rápidos subsequentes.
+   > 
+
+   ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
 
-3. Clique em **Adicionar IP do cliente** na barra de ferramentas e clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para seu endereço IP atual.
+   ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-      ![definir regra de firewall do servidor](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
-4. Clique em **OK** e clique no **X** para fechar a página **Configurações do firewall**.
+3. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-Agora você pode se conectar ao banco de dados e ao seu servidor usando o SQL Server Management Studio ou outra ferramenta de sua escolha.
+4. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
-> [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
->
+   ![definir regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-## <a name="get-connection-information"></a>Obter informações de conexão
+4. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
+
+Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha neste endereço IP usando a conta do administrador do servidor criada anteriormente.
+
+> [!IMPORTANT]
+> Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desabilitar todos os serviços do Azure.
+
+## <a name="get-connection-information-in-the-azure-portal"></a>Obter informações de conexão no Portal do Azure
 
 Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o SQL Server Management Studio.
 
@@ -110,25 +138,27 @@ Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Da
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
 
-    ![informações da conexão](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informações da conexão](./media/sql-database-get-started-portal/server-name.png)
 
-## <a name="connect-to-your-database-using-sql-server-management-studio"></a>Conectar ao banco de dados usando o SQL Server Management Studio
+## <a name="connect-to-the-database-with-ssms"></a>Conectar-se ao banco de dados com o SSMS
 
 Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma conexão com seu servidor do Banco de Dados SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
-   - **Tipo de servidor**: especifique mecanismo de banco de dados
-   - **Nome do servidor**: insira seu nome do servidor totalmente qualificado, como **mynewserver20170313.database.windows.net**
-   - **Autenticação**: especifique a Autenticação do SQL Server
-   - **Logon**: insira a conta do administrador do servidor
-   - **Senha**: insira a senha para sua conta do administrador do servidor
 
+   | Configuração       | Valor sugerido | Descrição | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
+   | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante como: **mynewserver20170313.database.windows.net**. |
+   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
+   | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
+   | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
-   <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+   ![conectar-se ao servidor](./media/sql-database-connect-query-ssms/connect.png)
 
-3. Clique em **Opções** na caixa de diálogo **Conectar ao servidor**. Na seção **Conectar ao banco de dados**, digite **mySampleDatabase** para conectar-se a este banco de dados.
+3. Clique em **Opções** na caixa de diálogo **Conectar servidor**. Na seção **Conectar ao banco de dados**, digite **mySampleDatabase** para conectar-se a este banco de dados.
 
    ![conectar o banco de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -138,7 +168,7 @@ Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    ![objetos de banco de dados](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Criar tabelas no banco de dados 
+## <a name="create-tables-in-the-database-with-ssms"></a>Criar tabelas no banco de dados com SSMS 
 
 Criar um esquema de banco de dados com quatro tabelas que modelam um sistema de gerenciamento de aluno para universidades, usando o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -161,55 +191,55 @@ O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessa
    ```sql 
    -- Create Person table
 
-    CREATE TABLE Person
-    (
-      PersonId      INT IDENTITY PRIMARY KEY,
-      FirstName     NVARCHAR(128) NOT NULL,
-      MiddelInitial NVARCHAR(10),
-      LastName      NVARCHAR(128) NOT NULL,
-      DateOfBirth   DATE NOT NULL
-    )
+   CREATE TABLE Person
+   (
+   PersonId   INT IDENTITY PRIMARY KEY,
+   FirstName   NVARCHAR(128) NOT NULL,
+   MiddelInitial NVARCHAR(10),
+   LastName   NVARCHAR(128) NOT NULL,
+   DateOfBirth   DATE NOT NULL
+   )
    
    -- Create Student table
  
-    CREATE TABLE Student
-    (
-      StudentId INT IDENTITY PRIMARY KEY,
-      PersonId  INT REFERENCES Person (PersonId),
-      Email     NVARCHAR(256)
-    )
-    
+   CREATE TABLE Student
+   (
+   StudentId INT IDENTITY PRIMARY KEY,
+   PersonId  INT REFERENCES Person (PersonId),
+   Email   NVARCHAR(256)
+   )
+   
    -- Create Course table
  
-    CREATE TABLE Course
-    (
-      CourseId  INT IDENTITY PRIMARY KEY,
-      Name      NVARCHAR(50) NOT NULL,
-      Teacher   NVARCHAR(256) NOT NULL
-    ) 
+   CREATE TABLE Course
+   (
+   CourseId  INT IDENTITY PRIMARY KEY,
+   Name   NVARCHAR(50) NOT NULL,
+   Teacher   NVARCHAR(256) NOT NULL
+   ) 
 
    -- Create Credit table
  
-    CREATE TABLE Credit
-    (
-      StudentId   INT REFERENCES Student (StudentId),
-      CourseId    INT REFERENCES Course (CourseId),
-      Grade       DECIMAL(5,2) CHECK (Grade <= 100.00),
-      Attempt     TINYINT,
-      CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-      (
-        StudentId, CourseId, Grade, Attempt
-      )
-    )
+   CREATE TABLE Credit
+   (
+   StudentId   INT REFERENCES Student (StudentId),
+   CourseId   INT REFERENCES Course (CourseId),
+   Grade   DECIMAL(5,2) CHECK (Grade <= 100.00),
+   Attempt   TINYINT,
+   CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
+   (
+   StudentId, CourseId, Grade, Attempt
+   )
+   )
    ```
 
-![Criar tabelas](./media/sql-database-design-first-database/create-tables.png)
+   ![Criar tabelas](./media/sql-database-design-first-database/create-tables.png)
 
 3. Expanda o nó 'tabelas' no Pesquisador de Objetos do SQL Server Management Studio para ver as tabelas que você criou.
 
    ![ssms tabelas criadas](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables"></a>Carregar dados nas tabelas
+## <a name="load-data-into-the-tables-with-ssms"></a>Carregar dados nas tabelas com SSMS
 
 1. Crie uma pasta chamada **SampleTableData** na pasta Downloads para armazenar os dados de exemplo de seu banco de dados. 
 
@@ -233,7 +263,7 @@ O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessa
 
 Agora, você carregou dados de exemplo nas tabelas que criou anteriormente.
 
-## <a name="query-the-tables"></a>Consultar as tabelas
+## <a name="query-the-tables-with-ssms"></a>Consultar as tabelas com SSMS
 
 Execute as seguintes consultas para recuperar as informações das tabelas do banco de dados. Veja [Escrevendo consultas SQL](https://technet.microsoft.com/library/bb264565.aspx) para saber mais sobre como escrever consultas SQL. A primeira consulta une todas as quatro tabelas para localizar todos os alunos ensinados por 'Dominick Pope' e que têm uma nota superior a 75% em sua classe. A segunda consulta une todas as quatro tabelas e localiza todos os cursos em que 'Noe Coleman' já se registrou.
 
@@ -242,16 +272,16 @@ Execute as seguintes consultas para recuperar as informações das tabelas do ba
    ```sql 
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
 
-    SELECT  person.FirstName,
-        person.LastName,
-        course.Name,
-        credit.Grade
-    FROM  Person AS person
-        INNER JOIN Student AS student ON person.PersonId = student.PersonId
-        INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-        INNER JOIN Course AS course ON credit.CourseId = course.courseId
-    WHERE course.Teacher = 'Dominick Pope' 
-        AND Grade > 75
+   SELECT  person.FirstName,
+   person.LastName,
+   course.Name,
+   credit.Grade
+   FROM  Person AS person
+   INNER JOIN Student AS student ON person.PersonId = student.PersonId
+   INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+   INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope' 
+   AND Grade > 75
    ```
 
 2. Em uma janela de consulta do SQL Server Management Studio, execute a seguinte consulta:
@@ -259,18 +289,18 @@ Execute as seguintes consultas para recuperar as informações das tabelas do ba
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
 
-    SELECT  course.Name,
-        course.Teacher,
-        credit.Grade
-    FROM  Course AS course
-        INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-        INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-        INNER JOIN Person AS person ON person.PersonId = student.PersonId
-    WHERE person.FirstName = 'Noe'
-        AND person.LastName = 'Coleman'
+   SELECT  course.Name,
+   course.Teacher,
+   credit.Grade
+   FROM  Course AS course
+   INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+   INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+   INNER JOIN Person AS person ON person.PersonId = student.PersonId
+   WHERE person.FirstName = 'Noe'
+   AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar um banco de dados em um ponto anterior no tempo 
+## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Restaurar um banco de dados para um ponto anterior no tempo usando o Portal do Azure
 
 Imagine que você excluiu acidentalmente uma tabela. Isso é algo que você não pode se recuperar facilmente. O Banco de Dados SQL do Azure lhe permite voltar para qualquer ponto no tempo, até os últimos 35 dias, e restaurar esse ponto no tempo em um novo banco de dados. Você pode usar esse banco de dados para recuperar os dados excluídos. As etapas a seguir restauram o banco de dados de exemplo para um ponto anterior à adição das tabelas.
 
@@ -288,9 +318,7 @@ Imagine que você excluiu acidentalmente uma tabela. Isso é algo que você não
 
    ![ponto de restauração](./media/sql-database-design-first-database/restore-point.png)
 
-3. Clique em **OK** para restaurar o banco de dados [a um ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) anterior à adição das tabelas. A restauração de um banco de dados para um ponto diferente no tempo cria um banco de dados duplicado no mesmo servidor do banco de dados original do ponto no tempo que você especificar, desde que esteja dentro do período de retenção da sua [camada de serviço](sql-database-service-tiers.md).
-
-
+3. Clique em **OK** para restaurar o banco de dados [a um ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) anterior à adição das tabelas. A restauração de um banco de dados para um ponto diferente no tempo cria um banco de dados duplicado no mesmo servidor do banco de dados original do ponto no tempo que você especificar, contanto que esteja dentro do período de retenção da sua [camada de serviço](sql-database-service-tiers.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
 Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar um banco de dados e tabelas, carregar e consultar dados e restaurar o banco de dados para um ponto anterior no tempo. Você aprendeu como:

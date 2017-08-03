@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
@@ -21,17 +22,13 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 12/29/2016
 
 ---
-<a id="azure-active-directory-identity-protection-playbook" class="xliff"></a>
-
-# Guia estratégico do Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 Este guia estratégico vai ajudá-lo a:
 
 * Popular dados no ambiente do Identity Protection, simulando eventos de riscos e vulnerabilidades
 * Configurar políticas de acesso condicional baseadas em risco e testar o impacto dessas políticas
 
-<a id="simulating-risk-events" class="xliff"></a>
-
-## Simulação de Eventos de Risco
+## <a name="simulating-risk-events"></a>Simulação de Eventos de Risco
 Esta seção fornece as etapas para simular os seguintes tipos de evento de risco:
 
 * Entradas de endereços IP anônimos (fácil)
@@ -40,9 +37,7 @@ Esta seção fornece as etapas para simular os seguintes tipos de evento de risc
 
 Outros eventos de risco não podem ser simulados de maneira segura.
 
-<a id="sign-ins-from-anonymous-ip-addresses" class="xliff"></a>
-
-### Entradas de endereços IP anônimos
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
@@ -53,9 +48,7 @@ Esse tipo de evento de risco identifica os usuários que entraram com êxito de 
 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos. 
 
-<a id="sign-ins-from-unfamiliar-locations" class="xliff"></a>
-
-### Entradas de locais desconhecidos
+### <a name="sign-ins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
 O risco de locais desconhecidos é um mecanismo de avaliação de entrada em tempo real que considera locais de entrada anteriores (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena IPs, Latitude/Longitude e ASNs anteriores de um usuário e os considera como locais “conhecidos”. Um local de entrada é considerado desconhecido se não corresponder a nenhum dos locais familiares existentes.
 
 Azure Active Directory Identity Protection:  
@@ -76,9 +69,7 @@ Para simular locais desconhecidos, você precisa entrar de um local e um disposi
 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
 
-<a id="impossible-travel-to-atypical-location" class="xliff"></a>
-
-### Viagem impossível a um local atípico
+### <a name="impossible-travel-to-atypical-location"></a>Viagem impossível a um local atípico
 É difícil simular a condição de viagem impossível porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, tais como viagens impossíveis de dispositivos conhecidos ou entradas de VPNs usadas por outros usuários no diretório. Além disso, o algoritmo exige um histórico de entrada de três a 14 dias para o usuário antes de começar a gerar eventos de risco.
 
 **Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
@@ -92,18 +83,14 @@ A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
 A entrada será exibida no painel do Identity Protection dentro de 2 a 4 horas.<br>
 Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br>  É conveniente replicar essas etapas para várias contas do Azure AD.
 
-<a id="simulating-vulnerabilities" class="xliff"></a>
-
-## Simulação de vulnerabilidades
+## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades
 Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
 
 * Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-<a id="user-compromise-risk" class="xliff"></a>
-
-## Risco de comprometimento do usuário
+## <a name="user-compromise-risk"></a>Risco de comprometimento do usuário
 **Para testar o Risco de comprometimento do usuário, realize as seguintes etapas**:
 
 1. Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
@@ -126,9 +113,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
     ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-<a id="sign-in-risk" class="xliff"></a>
-
-## Risco de entrada
+## <a name="sign-in-risk"></a>Risco de entrada
 **Para testar um risco de entrada, realize as seguintes etapas:**
 
 1. Entre em [https://portal.azure.com ](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
@@ -150,9 +135,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 ![Guia estratégico](./media/active-directory-identityprotection-playbook/200.png "Guia estratégico")
 
 
-<a id="see-also" class="xliff"></a>
-
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 

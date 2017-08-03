@@ -3,7 +3,7 @@ title: Compilar um aplicativo Java do BD Cosmos do Azure usando a API do Graph |
 description: "Apresenta um exemplo de código Java que pode ser usado para, usando o Gremlin, conectar-se aos dados de gráfico no BD Cosmos do Azure e consultá-los."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,27 +13,22 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/27/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d9619bd9a012a347634282788b3a318886967a3f
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 8eac406c6ef96d7ae8dd5f4931c7d16edb723be8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
-<a id="azure-cosmos-db-build-a-java-application-using-the-graph-api" class="xliff"></a>
-
-# BD Cosmos do Azure: compilar um aplicativo Java usando a API do Graph
+# <a name="azure-cosmos-db-build-a-java-application-using-the-graph-api"></a>BD Cosmos do Azure: compilar um aplicativo Java usando a API do Graph
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
 
 Este início rápido demonstra como criar uma conta do BD Cosmos do Azure para a API do Graph (versão prévia), um banco de dados e um gráfico usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) do OSS.  
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
    * JDK 1.7+ (Execute `apt-get install default-jdk` se você não tiver o JDK), e configure variáveis de ambiente como `JAVA_HOME`
@@ -41,21 +36,15 @@ Este início rápido demonstra como criar uma conta do BD Cosmos do Azure para a
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-<a id="add-a-graph" class="xliff"></a>
-
-## Adicionar um gráfico
+## <a name="add-a-graph"></a>Adicionar um gráfico
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Clonar o aplicativo de exemplo
+## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
 Agora, clonaremos um aplicativo da API do Graph (versão prévia) do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
 
@@ -67,9 +56,7 @@ Agora, clonaremos um aplicativo da API do Graph (versão prévia) do GitHub, def
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
-
-## Examine o código
+## <a name="review-the-code"></a>Examine o código
 
 Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo `Program.java` e você descobrirá que essas linhas de código. 
 
@@ -93,32 +80,26 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
         System.out.println(result.toString());
     }
     ```
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-## Atualizar sua cadeia de conexão
+1. Abra o arquivo src/remote.yaml. 
 
-Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
-
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usa os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `Program.java` na próxima etapa.
-
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-graph-java/keys.png)
-
-2. Abra o arquivo `src/remote.yaml` . 
-
-3. Preencha as configurações de *host*, *porta*, *nome de usuário*, *senha*, *connectionPool* e *serializador* no arquivo `src/remote.yaml`:
+3. Preencha as configurações de *host*, *porta*, *nome de usuário*, *senha*, *connectionPool* e *serializador* no arquivo src/remote.yaml:
 
     Configuração|Valor sugerido|Descrição
     ---|---|---
-    Hosts|***.graphs.azure.com|O URI de serviço de gráfico, que você pode recuperar no Portal do Azure
-    Porta|443|Definir para 443
-    Nome de Usuário|*Seu nome de usuário*|O recurso do formulário `/dbs/<db>/colls/<coll>`.
-    Senha|*Sua chave mestra principal*|Sua chave mestra para o BD Cosmos do Azure
-    ConnectionPool|{enableSsl: true}|Sua configuração do pool de conexão para SSL
-    serializador|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Definir para este valor
+    Hosts|[***.graphs.azure.com]|Confira a captura de tela abaixo. Esse é o valor de URI Gremlin na página Visão geral do portal do Azure, entre colchetes, com :443 / à direita removido.<br><br>Esse valor também pode ser recuperado da guia de chaves usando o valor de URI removendo https://, alterando os documentos para gráficos e removendo :443/ à direita.
+    Porta|443|Definir para 443.
+    Nome de Usuário|*Seu nome de usuário*|O recurso do formulário `/dbs/<db>/colls/<coll>` onde `<db>` é o nome do banco de dados e `<coll>` é o nome da coleção.
+    Senha|*Sua chave mestra principal*|Confira a segunda captura de tela abaixo. Esta é sua chave primária, que você pode recuperar da página de chaves do portal do Azure, na caixa de chave Primária. Use o botão de cópia no lado esquerdo da caixa para copiar o valor.
+    ConnectionPool|{enableSsl: true}|Sua configuração do pool de conexão para SSL.
+    serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Defina para esse valor e exclua todas as quebras de linha `\n` ao colar o valor.
 
-<a id="run-the-console-app" class="xliff"></a>
+    Para obter o valor de Hosts, copie o valor do **URI Gremlin** na página **Visão geral**: ![Exibir e copiar o valor do URI Gremlin na página de Visão geral no portal do Azure](./media/create-graph-java/gremlin-uri.png)
 
-## Execute o aplicativo de console
+    Para obter o valor da Senha, copie a **Chave primária** na página **Chaves**: ![Exiba e copie sua chave primária no portal do Azure, página de chaves](./media/create-graph-java/keys.png)
+
+## <a name="run-the-console-app"></a>Execute o aplicativo de console
 
 1. Executar `mvn package` em um terminal para instalar os pacotes Java.
 
@@ -126,9 +107,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
 
-<a id="browse-using-the-data-explorer" class="xliff"></a>
-
-## Navegar usando o Data Explorer
+## <a name="browse-using-the-data-explorer"></a>Navegar usando o Data Explorer
 
 Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consultar seus novos dados de gráfico.
 
@@ -136,24 +115,18 @@ Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consult
 
     Os dados gerados pelo aplicativo de exemplo são exibidos no painel Gráficos.
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Examinar SLAs no Portal do Azure
+## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas: 
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar um gráfico usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de gráfico avançada usando o Gremlin. 
 

@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/25/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e99294069f92f51d212b38b1c5ee12232c6dc77d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f3336d4b0036e1dc181de1f1296da521f68b9464
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade para o Armazenamento de Blobs é `<storage-account-name>.blob.core.windows.net`. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
 
 > [!IMPORTANT]
-> O Armazenamento do Azure ainda não suporta HTTPS com domínios personalizados. Embora ainda não possamos informar uma linha do tempo específica, estamos cientes de que os clientes demonstram interesse nesse recurso.
+> O Armazenamento do Azure ainda não dá suporte nativo a HTTPS com domínios personalizados. No momento, você pode [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](./storage-https-custom-domain-cdn.md).
 >
 
 A tabela a seguir mostra exemplos de URLs para acessar os dados do blob em uma conta de armazenamento denominada **mystorageaccount**. O domínio personalizado registrado para a conta de armazenamento é **www.contoso.com**.
@@ -70,7 +71,7 @@ Normalmente, você pode gerenciar as configurações de DNS do seu domínio no s
 1. Localize a seção de gerenciamento de CNAMEs. Talvez você precise acessar uma página de configurações avançadas e procurar as palavras **CNAME**, **Alias** ou **Subdomínios**.
 1. Crie um novo registro CNAME e forneça um alias de subdomínio, como **www** ou **photos**. Em seguida, forneça um nome do host, que é o ponto de extremidade de serviço Blob, no formato **mystorageaccount.blob.core.windows.net** (em que *mystorageaccount* é o nome da sua conta de armazenamento). O nome de host a ser usado aparece no item nº 1 da folha *Domínio personalizado* no [Portal do Azure](https://portal.azure.com).
 1. Na caixa de texto na folha *Domínio personalizado* no [Portal do Azure](https://portal.azure.com), digite o nome do seu domínio personalizado, incluindo o subdomínio. Por exemplo, se o domínio for **contoso.com** e o alias de subdomínio for **www**, digite **www.contoso.com**. Se o seu subdomínio for **photos**, digite **photos.contoso.com**. O subdomínio é *obrigatório*.
-1. Selecione **Salvar** na folha *Domínio personalizado* para registrar seu domínio personalizado. Se o registro for bem-sucedido, você verá uma mensagem informando que sua conta de armazenamento foi atualizada com êxito.
+1. Selecione **Salvar** na folha *Domínio personalizado* para registrar seu domínio personalizado. Se o registro for bem-sucedido, você verá uma notificação no portal de que sua conta de armazenamento foi atualizada com êxito.
 
 Depois que o novo registro CNAME for propagado pelo DNS, os usuários poderão exibir dados de blobs usando seu domínio personalizado, desde que tenham as permissões apropriadas.
 
@@ -86,7 +87,7 @@ O subdomínio **asverify** é um subdomínio especial reconhecido pelo Azure. Ao
 1. Crie um novo registro CNAME e forneça um alias de subdomínio que inclui o subdomínio *asverify*. Por exemplo, **asverify. www** ou **asverify.photos**. Em seguida, forneça um nome do host, que é o ponto de extremidade de serviço Blob, no formato **asverify.mystorageaccount.blob.core.windows.net** (em que **mystorageaccount** é o nome da sua conta de armazenamento). O nome de host a ser usado aparece no item nº 2 da folha *Domínio personalizado* no [Portal do Azure](https://portal.azure.com).
 1. Na caixa de texto na folha *Domínio personalizado* no [Portal do Azure](https://portal.azure.com), digite o nome do seu domínio personalizado, incluindo o subdomínio. Não inclua *asverify*. Por exemplo, se o domínio for **contoso.com** e o alias de subdomínio for **www**, digite **www.contoso.com**. Se o seu subdomínio for **photos**, digite **photos.contoso.com**. O subdomínio é obrigatório.
 1. Marque a caixa de seleção **Usar validação indireta de CNAME**.
-1. Selecione **Salvar** na folha *Domínio personalizado* para registrar seu domínio personalizado. Se o registro for bem-sucedido, você verá uma mensagem informando que sua conta de armazenamento foi atualizada com êxito. Nesse ponto, seu domínio personalizado foi verificado pelo Azure, mas o tráfego para seu domínio ainda não está sendo roteado para sua conta de armazenamento.
+1. Selecione **Salvar** na folha *Domínio personalizado* para registrar seu domínio personalizado. Se o registro for bem-sucedido, você verá uma notificação no portal informando que sua conta de armazenamento foi atualizada com êxito. Nesse ponto, seu domínio personalizado foi verificado pelo Azure, mas o tráfego para seu domínio ainda não está sendo roteado para sua conta de armazenamento.
 1. Volte ao site do provedor de DNS e crie outro registro CNAME que mapeia seu subdomínio para o ponto de extremidade do serviço Blob. Por exemplo, especifique o subdomínio como **www** ou **photos** (sem o *asverify*) e o nome do host como **mystorageaccount.blob.core.windows.net** (em que **mystorageaccount** é o nome da sua conta de armazenamento). Com essa etapa, o registro do seu domínio personalizado está concluído.
 1. Por fim, você pode excluir o registro CNAME criado contendo o subdomínio **asverify**, já que ele era necessário apenas como uma etapa intermediária.
 
@@ -105,6 +106,17 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 ## <a name="deregister-a-custom-domain"></a>Cancelar o registro de um domínio personalizado
 
 Para cancelar o registro de um domínio personalizado para seu ponto de extremidade do Armazenamento de Blobs, use um dos procedimentos a seguir.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Execute o seguinte no Portal do Azure para remover a configuração de domínio personalizado:
+
+1. Navegue até sua conta de armazenamento no [portal do Azure](https://portal.azure.com).
+1. Em **SERVIÇO BLOB** na folha do menu, selecione **Domínio personalizado** para abrir a folha *Domínio personalizado*.
+1. Limpe o conteúdo da caixa de texto que contém o nome de domínio personalizado.
+1. Selecione o botão **Salvar**.
+
+Após a remoção do domínio personalizado, você verá uma notificação no portal informando que sua conta de armazenamento foi atualizada com êxito.
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
@@ -133,7 +145,7 @@ Use o comando de CLI [az storage account update](https://docs.microsoft.com/cli/
 Use o cmdlet do PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) e especifique uma cadeia de caracteres vazia (`""`) para o valor do argumento `-CustomDomainName` para remover um registro de domínio personalizado.
 
 * Formato do comando:
-  
+
   ```powershell
   Set-AzureRmStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
@@ -150,11 +162,7 @@ Use o cmdlet do PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurer
       -CustomDomainName ""
   ```
 
-### <a name="azure-portal"></a>Portal do Azure
-
-No momento, não é possível remover um registro de domínio personalizado usando o Portal do Azure. Esse é um problema conhecido. Ainda não temos uma data de resolução a informar no momento, porém este artigo será atualizado quando o problema for resolvido. Enquanto isso, use a CLI 2.0 do Azure ou o Azure PowerShell para remover a configuração de domínio personalizado.
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Mapear o domínio personalizado para o ponto de extremidade de uma CDN (Rede de Distribuição de Conteúdo) do Azure](../cdn/cdn-map-content-to-custom-domain.md)
-
+* [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](./storage-https-custom-domain-cdn.md)
 

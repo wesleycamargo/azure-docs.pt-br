@@ -1,5 +1,4 @@
 ---
-
 title: "Relatório de segurança de usuários em risco no portal do Azure Active Directory | Microsoft Docs"
 description: "Saiba mais sobre o relatório de segurança de usuários em risco no portal do Azure Active Directory"
 services: active-directory
@@ -11,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Relatório de segurança de usuários em risco no portal do Azure Active Directory

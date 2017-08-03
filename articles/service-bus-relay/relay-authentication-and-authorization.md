@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 64874564c54dd37108f1075fb54181f2324cb229
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização da Retransmissão do Azure
-Os aplicativos podem autenticar a Retransmissão do Azure usando a autenticação de SAS (Assinatura de Acesso Compartilhado). Similar ao [sistema de mensagens de Barramento de Serviço](../service-bus-messaging/service-bus-authentication-and-authorization.md), a autenticação de Assinatura de Acesso Compartilhado permite que os aplicativos se autentiquem no serviço de Retransmissão do Azure usando uma tecla de acesso configurada no namespace da Retransmissão. Em seguida, você pode usar essa chave para gerar um token de Assinatura de Acesso Compartilhado que os clientes podem usar para se autenticar no serviço de retransmissão.
+Os aplicativos podem autenticar a Retransmissão do Azure usando a autenticação de SAS (Assinatura de Acesso Compartilhado). Similar ao [sistema de mensagens de Barramento de Serviço](../service-bus-messaging/service-bus-authentication-and-authorization.md), a autenticação SAS permite que os aplicativos se autentiquem no serviço de Retransmissão do Azure usando uma chave de acesso configurada no namespace da Retransmissão. Em seguida, você pode usar essa chave para gerar um token de Assinatura de Acesso Compartilhado que os clientes podem usar para se autenticar no serviço de retransmissão.
 
 ## <a name="shared-access-signature-authentication"></a>Autenticação SAS
-A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite que você conceda a um usuário acesso a recursos de retransmissão do Barramento de Serviço com direitos específicos. A autenticação SAS envolve a configuração de uma chave de criptografia com direitos associados em um recurso. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a chave configurada.
+A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite que você conceda a um usuário acesso a recursos de Retransmissão do Azure com direitos específicos. A autenticação SAS envolve a configuração de uma chave de criptografia com direitos associados em um recurso. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a chave configurada.
 
 É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar o acesso anônimo para a entidade quando você a criar, conforme mostrado na seguinte imagem capturada do portal:
 

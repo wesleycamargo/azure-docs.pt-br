@@ -1,6 +1,6 @@
 ---
-title: "Script do Azure PowerShell – Monitorar e dimensionar um pool elástico SQL individual | Microsoft Docs"
-description: "Amostra de script do Azure PowerShell – Monitorar e dimensionar um pool elástico de Banco de Dados SQL usando o PowerShell"
+title: "Exemplo do PowerShell para monitorar e dimensionar um pool elástico do SQL do Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Script de exemplo do Azure PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>Monitorar e dimensionar um pool elástico de Banco de Dados SQL usando o PowerShell
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Use o PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure
 
-Este script do PowerShell de exemplo monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. 
+Este exemplo de script do PowerShell monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

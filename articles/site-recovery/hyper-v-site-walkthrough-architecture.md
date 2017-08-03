@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 044dfe686de36c56703d126db94d0b4382b85886
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 
-<a id="step-1-review-the-architecture-for-hyper-v-replication-to-azure" class="xliff"></a>
-
-# Etapa 1: rever a arquitetura para replicação do Hyper-V no Azure
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Etapa 1: rever a arquitetura para replicação do Hyper-V no Azure
 
 
 Este artigo descreve os componentes e processos envolvidos ao replicar máquinas virtuais do Hyper-V locais (que não são gerenciadas pelo System Center VMM) para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
@@ -34,9 +32,7 @@ Poste comentários na parte inferior deste artigo ou no [Fórum de Serviços de 
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Componentes de arquitetura
+## <a name="architectural-components"></a>Componentes de arquitetura
 
 Há vários componentes envolvidos ao replicar máquinas virtuais do Hyper-V para o Azure sem VMM.
 
@@ -53,26 +49,20 @@ Saiba mais sobre os pré-requisitos de implantação e os requisitos para cada u
 ![Componentes](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Processo de replicação
+## <a name="replication-process"></a>Processo de replicação
 
 **Figura 2: replicação processos de recuperação e replicação do Hyper-V para o Azure**
 
 ![fluxo de trabalho](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Habilitar proteção
+### <a name="enable-protection"></a>Habilitar proteção
 
 1. Depois de habilitar a proteção para uma máquina virtual do Hyper-V, no portal do Azure ou no local, a opção **Habilitar proteção** é iniciada.
 2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para configurar a replicação com as configurações definidas por você.
 3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
 4. Você pode monitorar o trabalho na guia **Trabalhos** .
  
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### Replicar os dados iniciais
+### <a name="replicate-the-initial-data"></a>Replicar os dados iniciais
 
 1. Um [Instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) é tirado quando a replicação inicial é disparada.
 2. Discos rígidos virtuais são replicadas individualmente até que eles sejam copiados para o Azure. Ele pode demorar um pouco, dependendo do tamanho da VM e largura de banda de rede. Para otimizar o uso da rede, veja [Como gerenciar o uso de largura de banda de rede da proteção local do Azure](https://support.microsoft.com/kb/3056159).
@@ -81,35 +71,27 @@ Saiba mais sobre os pré-requisitos de implantação e os requisitos para cada u
 5. Quando a replicação inicial termina, o instantâneo de VM é excluído. As alterações de disco delta no log são sincronizadas e mescladas para o disco pai.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Finalizar proteção
+### <a name="finalize-protection"></a>Finalizar proteção
 
 1. Após a conclusão da replicação inicial, o trabalho **Finalizar proteção na máquina virtual** definirá outras configurações de rede e pós-replicação para que a máquina virtual fique protegida.
 2. Se você estiver replicando no Azure, talvez seja necessário ajustar as configurações para a máquina virtual de modo que ela fique pronta para o failover. Aqui você já pode executar um failover de teste para verificar se tudo está funcionando conforme o esperado.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### Replicar o delta
+### <a name="replicate-the-delta"></a>Replicar o delta
 
 1. Após a replicação inicial, a sincronização delta se inicia, de acordo com as configurações de replicação.
 2. O Controlador de Replicação de Réplica do Hyper-V rastreia as alterações em um disco rígido virtual como arquivos. hrl. Cada disco configurado para a replicação tem um arquivo .hrl associado. Esses logs são enviados para a conta de armazenamento do cliente após a conclusão da replicação inicial. Quando um log está em trânsito para o Azure, as alterações no disco primário são rastreadas em outro arquivo de log no mesmo diretório.
 3. Durante a replicação inicial e delta, você pode monitorar a VM na exibição da VM. [Saiba mais](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Sincronizar a replicação
+### <a name="synchronize-replication"></a>Sincronizar a replicação
 
 1. Se a replicação delta falhar, e uma replicação completa for dispendiosa em termos de largura de banda ou tempo, a VM fica marcada para ressincronização. Por exemplo, se os arquivos .hrl alcançarem 50% do tamanho do disco, a VM será marcada para ressincronização.
 2.  A ressincronização minimiza a quantidade de dados enviados, calculando as somas de verificação das máquinas virtuais de origem e de destino e enviando apenas os dados de delta. A ressincronização usa um algoritmo de agrupamento de bloco fixo em que os arquivos de origem e destino são divididos em partes fixas. As somas de verificação para cada bloco são geradas e comparadas para determinar quais blocos da origem precisam ser aplicados ao destino.
 3. Após a conclusão da ressincronização, a replicação delta normal deverá ser retomada. Por padrão a ressincronização está agendada para execução automática fora do expediente, mas você pode ressincronizar uma máquina virtual manualmente. Por exemplo, se ocorrer uma interrupção da rede ou outra interrupção qualquer, você poderá retomar a ressincronização. Para fazer isso, selecione a máquina virtual no portal > **Ressincronizar**.
 
-    ![Ressincronização manual](media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Ressincronização manual](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Lógica de repetição
+### <a name="retry-logic"></a>Lógica de repetição
 
 Se um erro de replicação ocorrer, haverá uma repetição interna. Ela pode ser classificada em duas categorias:
 
@@ -120,9 +102,7 @@ Se um erro de replicação ocorrer, haverá uma repetição interna. Ela pode se
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Processo de failover e failback
+## <a name="failover-and-failback-process"></a>Processo de failover e failback
 
 1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado de VMs Hyper-V locais para o Azure. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
 2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
@@ -133,9 +113,7 @@ Se um erro de replicação ocorrer, haverá uma repetição interna. Ela pode se
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 2: examinar os pré-requisitos de implantação](hyper-v-site-walkthrough-prerequisites.md)
 

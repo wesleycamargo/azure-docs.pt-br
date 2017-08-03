@@ -21,16 +21,12 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
 ---
-<a id="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots" class="xliff"></a>
-
-# Criar uma cópia de um VHD armazenado como um Disco Gerenciado do Azure usando instantâneos gerenciados
+# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Criar uma cópia de um VHD armazenado como um Disco Gerenciado do Azure usando instantâneos gerenciados
 Crie um instantâneo de um Disco Gerenciado para backup ou crie um Disco Gerenciado usando o instantâneo e anexe-o a uma máquina virtual de teste para solução de problemas. Um Instantâneo Gerenciado é uma cópia pontual completa de um Disco Gerenciado da VM. Ele cria uma cópia somente leitura do seu VHD e, por padrão, a armazena como um Disco Gerenciado Standard. Para saber mais sobre Managed Disks, confira [Visão geral dos Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 Para saber mais sobre preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-<a id="before-you-begin" class="xliff"></a>
-
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 Caso use o PowerShell, verifique se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo.
 
 ```
@@ -38,14 +34,10 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
 
-<a id="copy-the-vhd-with-a-snapshot" class="xliff"></a>
-
-## Copiar o VHD com um instantâneo
+## <a name="copy-the-vhd-with-a-snapshot"></a>Copiar o VHD com um instantâneo
 Use o Portal do Azure ou o PowerShell para criar um instantâneo do Disco Gerenciado.
 
-<a id="use-azure-portal-to-take-a-snapshot" class="xliff"></a>
-
-### Usar o Portal do Azure para criar um instantâneo 
+### <a name="use-azure-portal-to-take-a-snapshot"></a>Usar o Portal do Azure para criar um instantâneo 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Iniciando no canto superior esquerdo, clique em **Novo** e procure **instantâneo**.
@@ -57,9 +49,7 @@ Use o Portal do Azure ou o PowerShell para criar um instantâneo do Disco Gerenc
 8. Escolha o **Tipo de conta** a ser usado para armazenar o instantâneo. É recomendável **Standard_LRS**, a menos que você precise dele armazenado em um disco de alto desempenho.
 9. Clique em **Criar**.
 
-<a id="use-powershell-to-take-a-snapshot" class="xliff"></a>
-
-### Usar o PowerShell para criar um instantâneo
+### <a name="use-powershell-to-take-a-snapshot"></a>Usar o PowerShell para criar um instantâneo
 As etapas a seguir mostram como obter o disco VHD a ser copiado, criar as configurações de instantâneo e criar um instantâneo do disco usando o cmdlet New-AzureRmSnapshot<!--Add link to cmdlet when available-->. 
 
 1. Defina alguns parâmetros. 

@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
-ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,14 +29,16 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 >
 >
 
-Este artigo descreve como monitorar, gerenciar e depurar seus pipelines do Azure Data Factory e criar alertas para ser notificado sobre falhas, usando o aplicativo de Monitoramento e Gerenciamento. Você também pode assistir ao vídeo a seguir para saber mais sobre como usar o aplicativo de Gerenciamento e Monitoramento.
+Este artigo descreve como usar o aplicativo de Monitoramento e Gerenciamento para monitorar, gerenciar e depurar seus pipelines do Data Factory. Ele também fornece informações sobre como criar alertas e ser notificado sobre falhas. Comece a usar o aplicativo assistindo ao seguinte vídeo:
+
+> [!NOTE]
+> A interface do usuário mostrada no vídeo pode não corresponder exatamente ao que você vê no portal. Ela é um pouco mais antiga, mas os conceitos permanecem os mesmos. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## <a name="open-the-monitoring-and-management-app"></a>Abrir o aplicativo de Monitoramento e Gerenciamento
-Para abrir o aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitorar e Gerenciar** na folha **Data Factory** do seu data factory.
+## <a name="launch-the-monitoring-and-management-app"></a>Iniciar o aplicativo de Monitoramento e Gerenciamento
+Para iniciar o aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitorar e Gerenciar** na folha **Data Factory** do data factory.
 
 ![Bloco Monitoramento na home page do Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -45,7 +49,13 @@ Você verá que o aplicativo de Monitoramento e Gerenciamento foi iniciado em um
 > [!NOTE]
 > Se você ver que o navegador da Web está bloqueado em "Autorizando...", desabilite/desmarque a caixa de seleção **Bloquear cookies de terceiros e dados de site** (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o aplicativo novamente.
 
-Se não ver janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.  
+
+Na lista Janelas de Atividades no painel central, você vê uma janela de atividade para cada execução de uma atividade. Por exemplo, se você tiver a atividade agendada para execução a cada hora durante cinco horas, você verá cinco janelas de atividades associadas a cinco fatias de dados. Se as janelas de atividades não forem exibidas na lista na parte inferior, faça o seguinte:
+ 
+- Atualize os filtros **hora de início** e **hora de término** na parte superior para que correspondam às horas de início e término do pipeline e, em seguida, clique no botão **Aplicar**.  
+- A lista Janelas de Atividades não é atualizada automaticamente. Clique no botão **Atualizar** na barra de ferramentas da lista **Janelas de Atividades**.  
+
+Se você não tiver um aplicativo do Data Factory para ser testado com essas etapas, siga o tutorial [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Noções básicas sobre o aplicativo de Monitoramento e Gerenciamento
 Há três guias à esquerda: **Gerenciador de Recursos**, **Exibição de monitoramento** e **Alertas**. A primeira guia (**Gerenciador de Recursos**) é selecionada por padrão.
@@ -54,9 +64,9 @@ Há três guias à esquerda: **Gerenciador de Recursos**, **Exibição de monito
 Você verá o seguinte:
 
 * O **modo de exibição de árvore** do Gerenciador de Recursos no painel esquerdo.
-* A **Exibição de Diagrama** na parte superior.
+* A **Exibição de Diagrama** na parte superior do painel central.
 * A lista **Atividade do Windows** na parte inferior no painel central.
-* As guias **Propriedades** e **Gerenciador de Janelas de Atividades** no painel direito.
+* As guias **Propriedades**, **Gerenciador de Janelas de Atividades** e **Script** no painel direito.
 
 No Gerenciador de Recursos, você encontra todos os recursos (pipelines, conjuntos de dados, serviços vinculados) no data factory em um modo de exibição de árvore. Ao selecionar um objeto no Gerenciador de Recursos, você nota o seguinte:
 
@@ -80,23 +90,31 @@ Quando o pipeline for habilitado (quando não estiver em um estado em pausa), se
 
 ![Execução do pipeline](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Observe que há três botões de comando para o pipeline na Exibição de Diagrama. É possível usar o segundo botão para pausar o pipeline. Pausar não encerrará as atividades atualmente em execução e as deixará continuar até a conclusão. O terceiro botão pausa o pipeline e encerra as atividades de execução existentes. O primeiro botão retoma o pipeline. Quando o pipeline estiver em pausa, sua cor muda para amarelo:
+Você pode pausar, retomar ou terminar um pipeline selecionando-o na exibição de diagrama e usando os botões da barra de comandos.
 
-![Pausar/Retomar no bloco](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
+![Pausar/Retomar na barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+Observe que há três botões de comando para o pipeline na Exibição de Diagrama. É possível usar o segundo botão para pausar o pipeline. Pausar não encerrará as atividades atualmente em execução e as deixará continuar até a conclusão. O terceiro botão pausa o pipeline e encerra as atividades de execução existentes. O primeiro botão retoma o pipeline. Quando o pipeline está em pausa, sua cor muda. Por exemplo, um pipeline em pausa é parecido com o mostrado na seguinte imagem: 
+
+![Pipeline em pausa](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
 Você pode fazer uma seleção múltipla de dois ou mais pipelines usando a tecla Ctrl. Você pode usar os botões da barra de comandos para pausar/retomar vários pipelines de uma vez.
 
-![Pausar/Retomar na barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+Você também pode clicar com o botão direito do mouse em um pipeline e selecionar opções para suspender, retomar ou terminar um pipeline. 
 
-É possível ver todas as atividades no pipeline ao clicar com o botão direito do mouse no bloco do pipeline e clicar em **Abrir pipeline**.
+![Menu de contexto do pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+Clique na opção **Abrir pipeline** para ver todas as atividades no pipeline. 
 
 ![Menu do pipeline aberto](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Na exibição aberta do pipeline, você verá todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: Copiar Atividade. Para voltar para a exibição anterior, clique no nome do data factory, no menu da barra de endereços na parte superior.
+Na exibição aberta do pipeline, você verá todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: Copiar Atividade. 
 
 ![Pipeline aberto](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Na exibição do pipeline, ao clicar em um conjunto de dados de saída ou mover seu mouse sobre o conjunto de dados de saída, você verá a janela pop-up Janelas de Atividades do conjunto de dados em questão.
+Para voltar para a exibição anterior, clique no nome do data factory, no menu da barra de endereços na parte superior.
+
+Na exibição do pipeline, ao selecionar um conjunto de dados de saída ou mover o mouse sobre o conjunto de dados de saída, você verá a janela pop-up Janelas de Atividades do conjunto de dados.
 
 ![Janela pop-up de Atividades do Windows](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -316,9 +334,4 @@ A tabela a seguir fornece a lista de eventos disponíveis e o status (e o substa
 Use os botões a seguir (realçados em vermelho) para editar, excluir ou desabilitar um alerta.
 
 ![Botões Alertas](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

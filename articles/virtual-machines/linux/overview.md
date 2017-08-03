@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.custom: H1Hack27Feb2017, mvc
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -52,7 +52,6 @@ As máquinas virtuais do Azure permitem que você implante uma ampla gama de sol
 Ao implantar uma VM no Azure, você selecionará um tamanho de VM de nossa série de tamanhos que seja adequado à sua carga de trabalho. O tamanho também afeta a capacidade de processamento, a memória e o armazenamento da máquina virtual. Você será cobrado com base na quantidade de tempo pelo qual a máquina virtual estiver em execução e consumindo seus recursos alocados. Uma lista completa de [tamanhos de Máquinas Virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Aqui estão algumas diretrizes básicas para selecionar um tamanho de VM de uma de nossas séries (A, D, DS, G e GS).
-
 * VMs da série A são nossas VMs básicas econômicas para cargas de trabalho leves e cenários de desenvolvimento e teste. Elas estão amplamente disponíveis em todas as regiões e podem se conectar a e usar todos os recursos padrão disponíveis para máquinas virtuais.
 * Os tamanhos da série A (A8 - A11) são configurações especiais com uso intensivo de computação adequadas para aplicativos de cluster com computação de alto desempenho.
 * As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário.
@@ -94,7 +93,7 @@ A Microsoft trabalha em conjunto com nossos parceiros para garantir que as image
 * Docker - [Azure Marketplace – Serviço de Contêiner do Azure com Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Instalação no Azure
+## <a name="getting-started-with-linux-on-azure"></a>Introdução ao Linux no Azure
 Para começar a usar o Azure, você precisa de uma conta do Azure, da CLI do Azure instalada e de um par de chaves públicas e privadas de SSH.
 
 ### <a name="sign-up-for-an-account"></a>Inscrever-se em uma conta
@@ -136,7 +135,7 @@ Agora, a VM está em execução no Azure e você está pronto para fazer logon. 
 ## <a name="containers"></a>Contêineres
 * [Máquinas virtuais e contêineres no Azure](containers.md)
 * [Introdução ao Serviço de Contêiner do Azure](../../container-service/container-service-intro.md)
-* [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/container-service-deployment.md)
+* [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você tem uma visão geral do Linux no Azure.  A próxima etapa é mergulhar de cabeça e criar algumas VMs!

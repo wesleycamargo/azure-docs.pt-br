@@ -3,7 +3,7 @@ title: Compilar um aplicativo .NET do BD Cosmos do Azure usando a API do Graph |
 description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o BD Cosmos do Azure"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>BD Cosmos do Azure: compilar um aplicativo .NET usando a API do Graph
@@ -104,19 +103,23 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `App.config` na próxima etapa.
+1. No Portal do Azure, em sua conta do Azure Cosmos DB, clique em **Visão geral** no painel de navegação esquerdo. Você copiará o valor de **Gremlin URI** no arquivo App.config na próxima etapa. 
 
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-graph-dotnet/keys.png)
+    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-graph-dotnet/gremlin-uri.png)
 
-2. No Visual Studio 2017, abra o arquivo `App.config`. 
+    Se o valor **Gremlin URI** estiver em branco, você pode gerar o valor da página **Chaves** no portal, usando o valor da **URI**, removendo https:// e alterando os documentos para gráficos. 
 
-3. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor da chave do ponto de extremidade em `App.config`. 
+2. No Visual Studio 2017, abra o arquivo App.config. 
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+3. Copie o valor do **URI Gremlin** e transforme-o no valor da chave do Ponto de extremidade em App.config. 
 
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de authKey em `App.config`. 
+    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
+
+4. No portal do Azure, clique em **Chaves** no menu de navegação à esquerda, copie o valor **CHAVE PRIMÁRIA** no portal e faça dele o valor da chave AuthKey em App.config e, em seguida, salve suas alterações. 
 
     `<add key="AuthKey" value="FILLME" />`
+
+    ![Exibir e copiar uma chave primária no portal do Azure, na página de Chaves](./media/create-graph-dotnet/keys.png)
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
 

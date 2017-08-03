@@ -22,8 +22,7 @@ ms.lasthandoff: 01/06/2017
 
 
 ---
-<a id="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics" class="xliff"></a>
-# Dados de transmissão do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure
+# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Dados de transmissão do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure
 Neste artigo, você aprenderá como usar o Repositório Azure Data Lake como uma saída para um trabalho do Stream Analytics do Azure. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Repositório Data Lake (saída).
 
 > [!NOTE]
@@ -31,8 +30,7 @@ Neste artigo, você aprenderá como usar o Repositório Azure Data Lake como uma
 >
 >
 
-<a id="prerequisites" class="xliff"></a>
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,8 +39,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
   
 * **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Store chamada **asadatalakestore**. 
 
-<a id="create-a-stream-analytics-job" class="xliff"></a>
-## Criar um trabalho do Stream Analytics
+## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
 Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, o código-fonte é um contêiner de blob do Azure e o destino é o Repositório Data Lake.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -55,8 +52,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     > Certifique-se de criar o trabalho na mesma região que a conta de armazenamento, ou você estará sujeito a pagar pelos custos adicionais de mover os dados entre regiões.
     >
 
-<a id="create-a-blob-input-for-the-job" class="xliff"></a>
-## Criar uma entrada de blob para o trabalho
+## <a name="create-a-blob-input-for-the-job"></a>Criar uma entrada de blob para o trabalho
 
 1. Abra a página do trabalho do Stream Analytics, clique na guia **Entradas** no painel à esquerda e, em seguida, clique em **Adicionar**.
 
@@ -79,8 +75,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     Clique em **Criar**. O portal agora adiciona a entrada e testa a conexão.
 
 
-<a id="create-a-data-lake-store-output-for-the-job" class="xliff"></a>
-## Criar uma saída do Repositório Data Lake para o trabalho
+## <a name="create-a-data-lake-store-output-for-the-job"></a>Criar uma saída do Repositório Data Lake para o trabalho
 
 1. Abra a página do trabalho do Stream Analytics, clique na guia **Saídas** e, em seguida, clique em **Adicionar**.
 
@@ -108,8 +103,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     
     Clique em **Criar**. O portal agora adiciona a saída e testa a conexão.
     
-<a id="run-the-stream-analytics-job" class="xliff"></a>
-## Executar o trabalho do Stream Analytics
+## <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
 1. Para executar um trabalho do Stream Analytics, você deve executar uma consulta da guia **Consulta**. Para este tutorial, você pode executar a consulta de exemplo, substituindo os espaços reservados pelos aliases de entrada e saída de trabalho, conforme mostrado na captura de tela abaixo.
 
@@ -133,7 +127,6 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     No painel Data Explorer, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-<a id="see-also" class="xliff"></a>
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Criar um cluster do HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 

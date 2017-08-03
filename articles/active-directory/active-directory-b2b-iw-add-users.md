@@ -1,12 +1,12 @@
 ---
 
 title: "Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory? | Microsoft Docs"
-description: "A colaboração B2B do Azure Active Directory permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acessar seus aplicativos corporativos"
+description: "A colaboração B2B permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acesso | Microsoft Docs"
 services: active-directory
 documentationcenter: 
 author: sasubram
 manager: femila
-editor: 
+editor: curtand
 tags: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/25/2017
 
 ---
 

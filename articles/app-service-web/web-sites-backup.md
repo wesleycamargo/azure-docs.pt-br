@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 673ea14ff534f237e06dd1d00586dad5736792d5
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,32 +59,35 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Criar um backup manual
-1. No [Portal do Azure](https://portal.azure.com), navegue até a folha do aplicativo, escolha **Configurações** e **Backups**. A folha **Backups** é exibida.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a folha do aplicativo, selecione **Backups**. A folha **Backups** será exibida.
    
     ![Página Backups][ChooseBackupsPage]
    
    > [!NOTE]
-   > Se você receber esta mensagem, clique nela para atualizar seu plano do Serviço de Aplicativo antes de continuar com os backups.
-   > Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md).  
-   > ![Escolher uma conta de armazenamento](./media/web-sites-backup/01UpgradePlan.png)
+   > Se você receber a mensagem abaixo, clique nela para atualizar seu plano do Serviço de Aplicativo antes de continuar com os backups.
+   > Veja [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md) para obter mais informações.  
+   > ![Escolher uma conta de armazenamento](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. Na folha **Backups**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
+
+2. Na folha de **Backup**, clique em **Configurar**
+![Clique em Configurar](./media/web-sites-backup/ClickConfigure1.png)
+3. Na folha **Configuração de Backup**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
    
     ![Escolher uma conta de armazenamento][ChooseStorageAccount]
-3. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
+4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
    
-    ![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Na folha **Definir Configurações de Backup** que ainda está aberta, clique em **Configurações de Banco de Dados** e escolha os bancos de dados que deseja incluir nos backups (Banco de Dados SQL, MySQL ou PostgreSQL) e clique em **OK**.  
+    ![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. Na folha **Configuração de Backup** que ainda está aberta, você pode configurar o **Banco de Dados de Backup**, selecione os bancos de dados que deseja incluir nos backups (banco de dados SQL ou MySQL) e clique em **OK**.  
    
-    ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
    > 
    > 
-5. Na folha **Definir Configurações de Backup**, clique em **Salvar**.    
-6. Na barra de comando da folha **Backups**, clique em **Fazer Backup Agora**.
+6. Na folha **Configuração de Backup**, clique em **Salvar**.    
+7. Na folha de **Backups**, clique em **Backup**.
    
     ![Botão BackUpNow][BackUpNow]
    
@@ -95,24 +98,12 @@ Após a configuração da conta de armazenamento e do contêiner, você poderá 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configurar backups automáticos
-1. Na folha **Backups**, clique em **Agenda: não configurada**. 
+1. Na folha de **Configuração de Backup**, defina **Backup Agendado** para **Ativado**. 
    
-    ![Escolher uma conta de armazenamento](./media/web-sites-backup/05ScheduleBackup.png)
-2. Na folha **Configurações de Agendamento de Backups**, defina **Backup Agendado** para **Ativado**, configure o agendamento de backup conforme desejado e clique em **OK**.
+    ![Escolher uma conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
+2. Opções de Agendamento de Backups serão exibidas, defina **Backup Agendado** para **Ativado**, configure o agendamento de backup conforme desejado e clique em **OK**.
    
     ![Habilitar backups automatizados][SetAutomatedBackupOn]
-3. Na folha **Definir Configurações de Backup** que ainda está aberta, clique em **Configurações de Armazenamento** e escolha o destino do backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
-   
-    ![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Na folha **Definir Configurações de Backup**, clique em **Configurações de Banco de Dados** e selecione os bancos de dados que deseja incluir nos backups (Banco de Dados SQL, MySQL ou PostgreSQL) e clique em **OK**. 
-   
-    ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
-   >  Se você estiver usando o [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), não verá bancos de dados listados, pois a cadeia de conexão não é exposta no portal em **Configurações de aplicativo**
-   > 
-5. Na folha **Definir Configurações de Backup**, clique em **Salvar**.    
 
 <a name="partialbackups"></a>
 
@@ -173,19 +164,19 @@ Para obter informações sobre como restaurar um aplicativo por um backup, veja 
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
 

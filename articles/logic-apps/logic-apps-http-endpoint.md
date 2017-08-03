@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -32,9 +32,9 @@ Para criar pontos de extremidade HTTP, você pode adicionar esses gatilhos para 
 
 * [Solicitação](../connectors/connectors-native-reqres.md)
 
-* [Webhook de Conexão de API](logic-apps-workflow-actions-triggers.md#api-connection)
+* [Webhook de Conexão de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [Webhook HTTP](../connectors/connectors-native-http.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > Embora nossos exemplos usem o gatilho **Solicitar**, você pode usar qualquer um dos gatilhos HTTP listados e todos os princípios se aplicam de modo idêntico a outros tipos de gatilho.
@@ -211,7 +211,7 @@ Depois de criar o ponto de extremidade HTTP, é possível disparar o aplicativo 
 
 ## <a name="reference-content-from-an-incoming-request"></a>Fazer referência ao conteúdo de uma solicitação de entrada
 
-Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades da solicitação de entrada. Caso contrário, o conteúdo será tratado como uma única unidade binária que você pode passar para outras APIs. Não é possível fazer referência a esse conteúdo dentro do fluxo de trabalho sem converter esse conteúdo. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter XML em JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades da solicitação de entrada. Caso contrário, o conteúdo será tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo no fluxo de trabalho, você deve converter esse conteúdo. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter XML em JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
 Para obter a saída de uma solicitação de entrada, você poderá usar a função `@triggerOutputs()`. A saída pode se parecer com este exemplo:
 
@@ -277,9 +277,11 @@ Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 
 R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
-   > [!NOTE]
-   > Para sistemas seguros/de produção, é altamente não recomendável chamar seu aplicativo lógico diretamente do navegador devido à chave de acesso compartilhada estar incluída na URL e à incapacidade de gerenciar políticas de conteúdo seguras devido aos domínios serem compartilhados entre os clientes do aplicativo lógico.
-
+   > [!IMPORTANT]
+   > Para sistemas seguros e de produção, é altamente recomendável não chamar o aplicativo lógico de chamada diretamente do navegador porque:
+   > 
+   > * A chave de acesso compartilhado é exibida na URL.
+   > * Você não pode gerenciar políticas de conteúdo seguras devido a domínios compartilhados entre clientes de Aplicativos Lógicos.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
 

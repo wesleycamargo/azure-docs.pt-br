@@ -4,7 +4,7 @@ description: "Configure um NUC da Intel para funcionar como um gateway IoT entre
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: gateway iot, intel nuc, computador nuc, DE3815TYKE
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -16,11 +16,10 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 475664845a9922c5225ea1fd8e008bcb5582bd67
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurar um NUC da Intel como um gateway IoT
@@ -105,6 +104,12 @@ Para instalar o pacote, siga estas etapas.
    ```
 
    > Insira “y” quando ele solicitar “Incluir este canal”?
+   
+   Se você receber um erro `import read failed(-1)`, use os comandos a seguir para resolver o problema:
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    O comando `rpm` importa a chave de rpm. O comando `smart channel` adiciona o canal de rpm ao Smart Package Manager. Antes de executar o comando `smart update`, você verá uma saída semelhante à mostrada abaixo.
 

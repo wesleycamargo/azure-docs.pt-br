@@ -13,85 +13,141 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/03/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 34726377836d00d484ca01edb098f6c7cbfa9dbf
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 625baa2df8b137779ed846c584a138cc15e89a3f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Desenvolvido com base no mecanismo analítico comprovado do Microsoft SQL Server Analysis Services, o Azure Analysis Services fornece modelagem de dados de nível corporativo na nuvem. 
+O Azure Analysis Services fornece modelagem de dados de nível empresarial na nuvem. É uma plataforma totalmente gerenciada como um serviço (PaaS), totalmente integrada com os serviços de plataforma de dados do Azure. Com o seu mecanismo de análise de dados OLAP altamente otimizado, o Analysis Services fornece uma camada de modelo semântico avançado entre fontes de dados geralmente diferentes grandes e complexos. Reunindo dados, você pode definir o modelo de dados semântico, criando análises altamente personalizáveis e altamente eficazes que potencializam experiências de análises interativas em ferramentas de cliente modernos.
 
-Confira este vídeo para aprender como o Azure Analysis Services se adapta aos recursos gerais de BI da Microsoft e como você pode se beneficiar ao obter os modelos de dados na nuvem.
+![Fontes de dados](./media/analysis-services-overview/aas-overview-data-sources.png)
 
 
+Assista a [este vídeo](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para aprender como o Azure Analysis Services se adapta aos recursos gerais de BI da Microsoft e como você pode se beneficiar ao obter os modelos de dados na nuvem.
+
+<!--
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
-
+-->
 
 ## <a name="built-on-sql-server-analysis-services"></a>Criado no SQL Server Analysis Services
-O Azure Analysis Services é compatível com o mesmo SQL Server Analysis Services Enterprise Edition que você já conhece. O Azure Analysis Services dá suporte a modelos tabulares no nível de compatibilidade 1200 ou posterior. DirectQuery, partições, segurança em nível de linha, relações bidirecionais e traduções: todos têm suporte.
+O Azure Analysis Services é compatível com o mesmo SQL Server Analysis Services Enterprise Edition que você já conhece. O Azure Analysis Services dá suporte a modelos tabulares no nível de compatibilidade 1200 e 1400. Partições, segurança em nível de linha, relações bidirecionais e traduções: todos têm suporte. Os modos na memória e DirectQuery significam consultas muito rápidas em conjuntos de dados grandes e complexos.
 
-## <a name="use-the-tools-you-already-know"></a>Use as ferramentas que você já conhece
-![Ferramentas de desenvolvedor BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
+Os modelos de tabela oferecem desenvolvimento rápido e são altamente personalizáveis. Para desenvolvedores, os modelos de tabela incluem o TOM (Modelo de Objeto de Tabela) para descrever objetos de modelo. O TOM é exposto em JSON por meio de [TMSL (Linguagem de Scripts de Modelo de Tabela)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) e da linguagem de definição de dados AMO por meio do namespace [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 
-Ao criar modelos de dados para o Azure Analysis Services, você poderá usar as mesmas ferramentas do SQL Server Analysis Services. Criar e implantar modelos usando [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Gerencie seus servidores e bancos de dados modelo usando o [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). E automatizar tarefas com os modelos do [Powershell](analysis-services-powershell.md) e do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
+Os novos recursos nos modelos tabular 1400 oferecem suporte para Linhas de Detalhes, segurança no Nível do Objeto, hierarquias desbalanceadas, uma experiência moderna para Obter Dados em SSDT para conectividade de dados e muitos outros aprimoramentos. E como os metadados do modelo subjacente são o mesmo, as soluções existentes de modelo de tabela local podem ser migradas facilmente para a nuvem.
 
-## <a name="supports-the-latest-features"></a>Dá suporte aos recursos mais recentes
-O Azure Analysis Services dá suporte a modelos tabulares nos níveis de compatibilidade 1200 e 1400 (versão prévia).
 
-**Tabular 1200** - incluído pela primeira vez no SQL Server 2016 Analysis Services, o 1200 introduziu o TOM (modelo de objeto Tabular) para descrever objetos de modelo, como tabelas, colunas e relações. O modelo de objeto Tabular é exposto em JSON por meio de [TMSL (linguagem de script de modelo Tabular)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) e a linguagem de definição de dados AMO por meio do namespace [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
+## <a name="better-with-azure"></a>Melhor com o Azure
+O Azure Analysis Services integra-se com vários serviços de dados do Azure, permitindo que você crie soluções sofisticadas de análise.
 
-**Versão prévia do Tabular 1400** - introduz suporte para linhas de detalhes, segurança no nível do objeto, suporte de hierarquia desbalanceada, uma experiência moderna de obter dados para conectividade de dados e muitos outros aprimoramentos. Para tirar proveito de todos os recursos mais recentes, você precisará usar a versão mais recente das [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx). Como o Tabular 1400 ainda está em versão prévia, as coisas estão mudando rapidamente. Para obter a versão mais recente, confira nossa [postagem de blog](https://azure.microsoft.com/blog/1400-models-in-azure-as/).
+O Azure Analysis Services pode consumir dados do Banco de Dados SQL do Azure, Azure SQL Data Warehouse e armazenamento de Blobs do Azure. Você pode criar soluções corporativas de data warehouse no Azure usando um modelo hub-and-spoke, com o data warehouse do SQL no centro e vários modelos de BI ao redor dele voltado para diferentes grupos de negócios ou áreas de assunto.
+
+Com o Azure Data Factory você pode organizar a movimentação e a transformação de dados, uma funcionalidade principal em qualquer solução empresarial de análise/BI . O Azure Analysis Services pode ser integrado em qualquer pipeline do Azure Data Factory, incluindo uma atividade que carrega dados para o modelo. A Automação do Azure e o Azure Functions também podem ser usados para fazer a coordenação leve de modelos usando código personalizado.
+
+O Azure Analysis Services também se integra com o Azure Active Directory, fornecendo acesso seguro e baseada em função para seus dados críticos.
+
+## <a name="pricing"></a>Preços
+O Azure Analysis Services está disponível nas camadas de Desenvolvedor, Básica e Standard. Em cada nível, os custos do plano variam de acordo com a potência do processamento, QPUs e quantidade de memória. Quando você cria um servidor, é possível selecionar um plano de dentro de uma camada. Você pode alterar planos para cima ou para baixo na mesma camada ou atualizar para uma camada superior; mas você não pode fazer o downgrade de um nível mais alto para um nível inferior.
+
+![Atualizar camada](./media/analysis-services-overview/aas-overview-tier-up.png)
+
+Alterar camadas dinamicamente no portal do Azure ou com o cmdlet do PowerShell Set-AzureRmAnalysisServicesServer. Para saber mais sobre os diferentes planos e camadas e usar a calculadora de preços para determinar o plano certo para você, confira [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+## <a name="scale-resources"></a>Recursos de escala
+Escalar verticalmente, reduzir verticalmente ou pausar o servidor. Use o portal do Azure ou tenha controle total usando o PowerShell. Você paga apenas pelo que usa.
+
+Ao criar novos servidores, use o cmdlet [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) para definir seu plano. Para servidores existentes, use o cmdlet [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) para alterar seu plano. Não usa seu serviço sempre? Você pode pausar usando o portal ou com o cmdlet [Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver). Inicie novamente com o cmdlet [Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver). Você só paga quando o servidor está ativo.
+
+
+## <a name="regions"></a>Regiões
+Servidores do Azure Analysis Services podem ser criados nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/):
+
+| Américas | Europa | Pacífico Asiático |
+|----------|--------|--------------|
+|  Sul do Brasil<br> Canadá Central<br> Leste dos EUA 2<br> Centro-Norte dos EUA<br> Centro-Sul dos Estados Unidos<br> Centro-Oeste dos EUA<br> Oeste dos EUA | Norte da Europa<br> Sul do Reino Unido<br> Europa Ocidental |   Sudeste da Austrália<br> Leste do Japão<br> Sudeste Asiático<br> Índia Ocidental  |
+
+Novas regiões estão sendo adicionadas o tempo todo. Portanto, essa lista pode estar incompleta. Escolha um local ao criar o servidor no portal do Azure ou usando modelos do Azure Resource Manager. Para obter o melhor desempenho, escolha um local mais próximo da sua maior base de usuários. Garanta uma [alta disponibilidade](analysis-services-bcdr.md) ao implantar seus modelos em servidores redundantes em várias regiões.
+
+## <a name="get-up-and-running-quickly"></a>Entre rapidamente em funcionamento
+Com o portal do Azure, você pode [criar um servidor](analysis-services-create-server.md) dentro de minutos. E, com modelos do Azure Resource Manager e o PowerShell, você pode provisionar servidores usando um modelo declarativo. Com um único modelo, você pode implantar vários serviços com outros componentes do Azure, como contas de armazenamento.  Para saber mais, confira [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+
+Depois que você tiver um servidor criado, é possível criar um modelo de tabela diretamente no portal do Azure. Com o novo (versão prévia) recurso de designer da Web você pode se conectar a um Banco de Dados SQL, fonte de dados do Azure SQL Data Warehouse, ou importar um arquivo do Power BI Desktop .pbix. As relações entre tabelas são criadas automaticamente, e você pode criar medidas ou editar o arquivo model.bim no formato json direitamente em seu navegador.
+
+## <a name="migrate-existing-tabular-models"></a>Migrar modelos de tabela existentes
+Se você já tiver as soluções existentes de modelo do SQL Server Analysis Services local, é possível migrar para o Azure Analysis Services sem alterações significativas. Para migrar, você pode usar o SSDT para implantar o modelo para seu servidor. Ou, no SSMS, você pode usar o backup e a restauração ou TMSL.
+
+Se você tiver fontes de dados local, é necessário instalar e configurar um [Gateway de dados no local](analysis-services-gateway.md). Se você tiver funções e membros de função já configurados, suas funções são migradas, mas você precisa adicionar novamente os membros de função usando o SSMS ou o PowerShell.
+
 
 ## <a name="data-sources"></a>Fontes de dados
-Modelos de dados implantados em servidores no suporte do Azure, conectando a fontes de dados locais na sua organização ou na nuvem. Combine dados de fontes de dados locais e na nuvem para uma solução de BI híbrida.
+O Azure Analysis Services oferece suporte à conexão às fontes de dados na nuvem e locais em sua organização. Combine dados de fontes de dados locais e na nuvem para uma solução de híbrida. 
 
-Como o servidor está na nuvem, a conexão com as fontes de dados nela é perfeita. Ao se conectar a fontes de dados locais, o [Gateway de dados local](analysis-services-gateway.md) garante conexões rápidas e seguras com o servidor na nuvem. Para saber mais sobre quais fontes de dados locais têm suporte, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
+Novos modelos de tabela 1400 usam o recurso moderno Obter Dados no SSDT, com base na linguagem da consulta da fórmula M. Com o recurso Obter Dados, você tem mais de transformação de dados e recursos de mashup e a capacidade de criar e editar suas próprias consultas de linguagem de fórmula avançadas M. Por exemplo, com modelos de tabela 1400, você pode modelar arquivos de dados no Armazenamento de Blobs do Azure.
 
+O Azure Analysis Services oferece suporte ao uso de [DirectQuery](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) para se conectar diretamente ao Banco de Dados SQL do Azure, Azure SQL Data Warehouse, SQL Server, SQL Server Data Warehouse, Oracle e bancos de dados relacionais Teradata.
 
-## <a name="explore-your-data-from-anywhere"></a>Explorar seus dados de qualquer lugar
-Conecte-se e obtenha dados de seus servidores em praticamente qualquer lugar. O Azure Analysis Services dá suporte à conexão com o Power BI Desktop, com o Excel, com aplicativos personalizados e com ferramentas baseadas em navegador.
+Para saber mais, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
-![Visualizações de dados](./media/analysis-services-overview/aas-overview-visualization.png)
+## <a name="use-the-tools-you-already-know"></a>Use as ferramentas que você já conhece
+
+![Ferramentas de desenvolvedor BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
+
+#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) para Visual Studio
+Desenvolva e implante modelos com o [SQL Server Data Tools (SSDT) para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) gratuito. O SSDT inclui modelos de projeto do Analysis Services que o deixa pronto rapidamente. O SSDT agora inclui a moderna consulta de fonte de dados Obter Dados e a funcionalidade mashup para modelos de tabela 1400. Se você estiver familiarizado com o Obter Dados no Power BI Desktop e Excel 2016, já sabe como é fácil criar consultas de fonte de dados altamente personalizadas.
+
+Com o novo SSDT e modelos de tabela 1400, não há nenhuma necessidade de instalar uma instância local do Analysis Services para hospedar um banco de dados do espaço de trabalho. Agora, o SSDT inclui seu próprio mecanismo e banco de dados integrado do Analysis Services. Quando estiver pronto, implante seus servidores no Azure direitamente no SSDT. O SSDT é atualizado mensalmente. Assim, você pode começar a usar os recursos mais recentes rapidamente.
+
+#### <a name="sql-server-management-studio"></a>SQL Server Management Studio
+Gerencie seus servidores e bancos de dados modelo usando o [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Conecte-se aos servidores na nuvem. Execute scripts TMSL direitamente na janela de consulta XMLA e automatize as tarefas usando scripts TMSL. Novos recursos e funcionalidades acontecem rapidamente. O SSMS é atualizado mensalmente.
+
+#### <a name="powershell"></a>PowerShell
+As tarefas de gerenciamento de recurso de servidor, como criar servidores, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do AzureRM (Azure Resource Manager). Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou execução de scripts TMSL usam os cmdlets incluídos no módulo SqlServer. Os módulos AzureRM e SQL Server estão disponíveis na [Galeria do PowerShell](https://www.powershellgallery.com/).
 
 
 ## <a name="secure"></a>Segurança
-#### <a name="user-authentication"></a>Autenticação de usuário
-A autenticação de usuário para o Azure Analysis Services é feita pelo [AAD (Azure Active Directory)](../active-directory/active-directory-whatis.md). Quando tentam entrar em um banco de dados do Azure Analysis Services, os usuários usam uma identidade de conta da organização com acesso ao banco de dados que estão tentando acessar. Essas identidades de usuário devem ser membros do Azure Active Directory padrão da assinatura em que reside o servidor do Azure Analysis Services. A [Integração de diretórios](https://technet.microsoft.com/library/jj573653.aspx) entre o AAD e o Active Directory local é uma ótima maneira de dar acesso aos usuários a um banco de dados do Azure Analysis Services, mas não é obrigatório em todos os cenários.
+![Visualizações de dados](./media/analysis-services-overview/aas-overview-secure.png)
 
-Os usuários entram com o nome UPN da conta e a senha. Quando sincronizado com um Active Directory local, o nome UPN do usuário geralmente é seu endereço de email empresarial.
-
-As permissões para gerenciar o recurso do servidor do Azure Analysis Services são tratadas com a atribuição de usuários a funções em sua assinatura do Azure. Por padrão, os administradores de assinatura têm permissões de proprietário para o recurso de servidor no Azure. Outros usuários podem ser adicionados usando o Azure Resource Manager.
+#### <a name="authentication"></a>Autenticação
+A autenticação de usuário para o Azure Analysis Services é feita pelo [AAD (Azure Active Directory)](../active-directory/active-directory-whatis.md). Quando tentam entrar em um banco de dados do Azure Analysis Services, os usuários usam uma identidade de conta da organização com acesso ao banco de dados que estão tentando acessar. Essas identidades de usuário devem ser membros do Azure Active Directory padrão da assinatura em que reside o servidor do Azure Analysis Services. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Segurança de dados
 O Azure Analysis Services utiliza o Armazenamento de Blobs do Azure para persistir o armazenamento e os metadados em bancos de dados do Analysis Services. Os arquivos de dados no blob são criptografados usando Azure SSE (criptografia do servidor de blobs). Ao usar o modo Consulta Direta, apenas os metadados serão armazenados. Os dados reais são acessados na fonte de dados no momento da consulta.
 
 #### <a name="on-premises-data-sources"></a>Fontes de dados locais
-O acesso protegido aos dados que residem localmente na organização pode ser feito com a instalação e a configuração de um [gateway de dados local](analysis-services-gateway.md). Os gateways fornecem acesso a dados nos modos Consulta Direta e de memória interna. Quando um modelo do Azure Analysis Services se conecta a uma fonte de dados local, uma consulta é criada junto com as credenciais criptografadas da fonte de dados local. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para um Barramento de Serviço do Azure. O gateway local sonda o Barramento de Serviço do Azure para verificar solicitações pendentes. O gateway obtém a consulta, descriptografa as credenciais e conecta-se às fontes de dados para a execução. Os resultados são enviados da fonte de dados para o gateway e, em seguida, para o banco de dados do Azure Analysis Services.
+O acesso protegido aos dados que residem localmente na organização é feito com a instalação e a configuração de um [Gateway de dados local](analysis-services-gateway.md). Os gateways fornecem acesso a dados nos modos Consulta Direta e de memória interna. Quando um modelo do Azure Analysis Services se conecta a uma fonte de dados local, uma consulta é criada junto com as credenciais criptografadas da fonte de dados local. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para um Barramento de Serviço do Azure. O gateway local sonda o Barramento de Serviço do Azure para verificar solicitações pendentes. O gateway obtém a consulta, descriptografa as credenciais e conecta-se às fontes de dados para a execução. Os resultados são enviados da fonte de dados para o gateway e, em seguida, para o banco de dados do Azure Analysis Services.
 
 O Azure Analysis Services é regido pelo [Termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e pela [política de privacidade do Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
+## <a name="client-connections"></a>Conexões de cliente
+![Visualizações de dados](./media/analysis-services-overview/aas-overview-clients.png)
+
+Ferramentas modernas de exploração de dados e visualização como o Power BI, Excel e outras ferramentas de terceiros fornecem aos usuários finais ideias altamente interativas e visualmente avançadas sobre seus dados de modelo.
+
+Os clientes usam [bibliotecas de cliente](analysis-services-data-providers.md) MSOLAP, AMO ou ADOMD para se conectar aos servidores do Analysis Services. Os aplicativos cliente da Microsoft, como o Power BI Desktop e o Excel, instalam as três bibliotecas de cliente. Mas tenha em mente que, dependendo da versão ou da frequência de atualizações, as bibliotecas de cliente podem não ser as versões mais recentes exigidas pelo Azure Analysis Services. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos normalmente exigem a instalação manual das bibliotecas como parte de um pacote.
+
+
 ## <a name="get-help"></a>Obter ajuda
 
-### <a name="documentation"></a>Documentação
-O Azure Analysis Services é simples de configurar e gerenciar. Você pode encontrar todas as informações de que precisa para criar e gerenciar um servidor aqui. A criação de um modelo de dados para implantar no seu servidor é muito semelhante à criação de um modelo de dados para implantar em um servidor local. Existe uma ampla biblioteca de artigos conceituais, procedimentais, tutoriais e de referência em [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+#### <a name="documentation"></a>Documentação
+O Azure Analysis Services é simples de configurar e gerenciar. Você pode encontrar todas as informações necessárias para criar e gerenciar seus serviços de servidor aqui. A criação de um modelo de dados para implantar no seu servidor é muito semelhante à criação de um modelo de dados para implantar em um servidor local. Existe uma ampla biblioteca de artigos conceituais, procedimentais, tutoriais e de referência em [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
-### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>Vídeos
 Confira alguns vídeos úteis em [Azure Analysis Services no Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
-### <a name="blogs"></a>Blogs
+#### <a name="blogs"></a>Blogs
 As coisas estão mudando rapidamente. Você sempre pode obter as informações mais recentes no [blog da equipe do Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) e no [blog do Azure](https://azure.microsoft.com/blog/).
 
-### <a name="community"></a>Comunidade
+#### <a name="community"></a>Comunidade
 O Analysis Services tem uma comunidade de usuários vibrante. Participe das conversas no [Fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
 ## <a name="feedback"></a>Comentários
@@ -100,5 +156,5 @@ Quer fazer sugestões ou solicitações de recursos? Deixe seus comentários nos
 Quer fazer sugestões sobre a documentação? Você pode adicionar comentários usando o Livefyre na parte inferior de cada artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. Aprenda a [criar um servidor](analysis-services-create-server.md) no Azure e a [implantar um modelo tabular](analysis-services-deploy.md) nele.
+Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. Saiba como [criar um servidor](analysis-services-create-server.md) no Azure. Quando o servidor estiver pronto, percorra o [Tutorial do Adventure Works](tutorials/aas-adventure-works-tutorial.md) para aprender a criar um modelo de tabela totalmente funcional e implantá-lo em seu servidor.
 

@@ -1,31 +1,31 @@
 ---
 title: Suporte do BD Cosmos do Azure para Gremlin | Microsoft Docs
-description: "Saiba mais sobre a linguagem Gremlin e quais são os recursos e as etapas disponíveis no BD Cosmos do Azure"
-services: cosmosdb
+description: "Saiba mais sobre a linguagem Gremlin do Apache TinkerPop e quais são os recursos e as etapas disponíveis no Azure Cosmos DB"
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 tags: 
-ms.assetid: 
-ms.service: cosmosdb
+ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db2287782df66ecee0795adb483e253021d0c2cf
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do BD Cosmos do Azure para gráfico do Gremlin
-O BD Cosmos do Azure dá suporte a uma API do Graph [Gremlin]([Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) para criar entidades de gráfico e executar operações de consulta e passagem do gráfico. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
+O Azure Cosmos DB dá suporte ao idioma de percurso do gráfico do [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) que é uma API do Graph para criar entidades de gráfico e executar operações de consulta do gráfico. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
 O BD Cosmos do Azure traz recursos prontos para empresas para bancos de dados de gráfico. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs de 99,99%. Como o BD Cosmos do Azure dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de gráfico sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o BD Cosmos do Azure integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -94,7 +94,7 @@ A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD 
 
 O BD Cosmos do Azure usa o [formato GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) ao retornar resultados de operações Gremlin. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON. 
 
-Por exemplo, o trecho a seguir mostra uma representação em GraphSON de um vértice no BD Cosmos do Azure. 
+Por exemplo, o trecho a seguir mostra uma representação em GraphSON de um vértice *retornado ao cliente* no Azure Cosmos DB. 
 
 ```json
   {
@@ -172,6 +172,7 @@ Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obte
 | --- | --- | --- | --- |
 | `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adiciona um vértice ao gráfico | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | Certifique-se de que todas as passagens retornam um valor | [e uma etapa](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Um modulador de etapa para atribuir uma variável à saída de uma etapa | [Etapa as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Um modulador de etapa usado com `group` e `order` | [Etapa by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Retorna a primeira passagem que retorna um resultado | [Etapa coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -209,4 +210,3 @@ O mecanismo otimizado para gravação do BD Cosmos do Azure dá suporte à index
 ## <a name="next-steps"></a>Próximas etapas
 * Comece a compilar um aplicativo de gráfico [usando nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre o [Suporte para gráfico do BD Cosmos do Azure](graph-introduction.md)
-

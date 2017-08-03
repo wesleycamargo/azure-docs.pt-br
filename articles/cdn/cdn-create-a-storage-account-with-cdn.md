@@ -22,14 +22,10 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="integrate-an-azure-storage-account-with-azure-cdn" class="xliff"></a>
-
-# Integrar uma conta de armazenamento do Azure com a CDN do Azure
+# <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrar uma conta de armazenamento do Azure com a CDN do Azure
 CDN pode ser habilitada em cache o conteúdo do armazenamento do Azure. Ela oferece aos desenvolvedores uma solução global para entrega de conteúdo de largura de banda armazenando em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, Europa, Ásia, Austrália e América do Sul.
 
-<a id="step-1-create-a-storage-account" class="xliff"></a>
-
-## Etapa 1: Criar uma conta de armazenamento
+## <a name="step-1-create-a-storage-account"></a>Etapa 1: Criar uma conta de armazenamento
 Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de armazenamento do Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de armazenamento do Azure: serviços Blob, serviços Fila e serviços Tabela. Para obter mais informações, veja [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
 Para criar uma conta de armazenamento, você deve ser o administrador de serviços ou um coadministrador da assinatura associada.
@@ -63,9 +59,7 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 7. Selecione um local para sua conta de armazenamento.
 8. Clique em **Criar**. O processo de criação da conta de armazenamento pode levar vários minutos para ser concluído.
 
-<a id="step-2-enable-cdn-for-the-storage-account" class="xliff"></a>
-
-## Etapa 2: Habilitar a CDN para a conta de armazenamento
+## <a name="step-2-enable-cdn-for-the-storage-account"></a>Etapa 2: Habilitar a CDN para a conta de armazenamento
 
 Com a integração mais recente, agora você pode habilitar a CDN para sua conta de armazenamento sem sair de sua extensão do portal de armazenamento. 
 
@@ -96,17 +90,13 @@ Com a integração mais recente, agora você pode habilitar a CDN para sua conta
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
 
-<a id="step-3-enable-additional-cdn-features" class="xliff"></a>
-
-## Etapa 3: Habilitar recursos adicionais da CDN
+## <a name="step-3-enable-additional-cdn-features"></a>Etapa 3: Habilitar recursos adicionais da CDN
 
 Na folha de "CDN do Azure" da conta de armazenamento, clique no ponto de extremidade da CDN na lista para abrir a folha de configuração da CDN. Você pode habilitar recursos adicionais da CDN para o fornecimento, como compactação, cadeia de caracteres de consulta e filtragem de área geográfica. Você também pode adicionar o mapeamento de domínio personalizado ao seu ponto de extremidade da CDN e habilitar HTTPS do domínio personalizado.
     
 ![configuração da cdn do armazenamento da CDN][cdn-storage-cdn-configuration]
 
-<a id="step-4-access-cdn-content" class="xliff"></a>
-
-## Etapa 4: acessar conteúdo da CDN
+## <a name="step-4-access-cdn-content"></a>Etapa 4: acessar conteúdo da CDN
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache será semelhante ao seguinte:
 
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
@@ -116,9 +106,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 > 
 > 
 
-<a id="step-5-remove-content-from-the-cdn" class="xliff"></a>
-
-## Etapa 5: remover conteúdo da CDN
+## <a name="step-5-remove-content-from-the-cdn"></a>Etapa 5: remover conteúdo da CDN
 Se não desejar mais armazenar em cache um objeto na CDN (Rede de Distribuição de Conteúdo) do Azure, você poderá executar uma das seguintes etapas:
 
 * Você pode tornar o contêiner particular em vez de público. Veja [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/storage-manage-access-to-resources.md) para obter mais informações.
@@ -127,9 +115,7 @@ Se não desejar mais armazenar em cache um objeto na CDN (Rede de Distribuição
 
 Um objeto que já está armazenado em cache na CDN permanecerá em cache até que o período de vida útil do objeto expire ou até que o ponto de extremidade seja limpo. Quando o período de vida expira, a CDN verifica se o ponto de extremidade CDN ainda é válido, e se o objeto ainda pode ser acessado anonimamente. Se não for, o objeto não estará mais armazenado em cache.
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
 * [Habilitar o HTTPS para seu domínio personalizado](cdn-custom-ssl.md)
 

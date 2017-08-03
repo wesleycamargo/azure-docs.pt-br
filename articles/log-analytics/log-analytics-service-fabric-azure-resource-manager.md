@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/05/2017
 ms.author: nini
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avaliar aplicativos do Service Fabric e microsserviços com o Portal do Azure
@@ -29,14 +29,16 @@ ms.lasthandoff: 02/28/2017
 >
 >
 
+![Símbolo do Service Fabric](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
+
 Este artigo descreve como usar a solução de Service Fabric no Log Analytics para ajudar a identificar e solucionar problemas em seu cluster do Service Fabric.
 
 A solução de Service Fabric usa dados de Diagnóstico do Azure das suas VMs do Service Fabric, coletando esses dados de suas tabelas do Azure WAD. O Log Analytics, em seguida, lê eventos da estrutura do Service Fabric, incluindo **Eventos de Serviço Confiável**, **Eventos de Ator**, **Eventos Operacionais** e **Eventos de ETW Personalizados**. Com o painel de solução, é possível exibir problemas importantes e eventos relevantes no seu ambiente do Service Fabric.
 
-Para começar a usar a solução, você precisará conectar seu cluster do Service Fabric para um espaço de trabalho do Log Analytics. Há três cenários a serem considerados:
+Para começar a usar a solução, você precisa conectar seu cluster do Service Fabric a um espaço de trabalho do Log Analytics. Há três cenários a serem considerados:
 
 1. Se você não tiver implantado o cluster do Service Fabric, use as etapas em ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** (Implantar um cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics) para implantar um novo cluster e configurá-lo para relatar para o Log Analytics.
-2. Se você precisar coletar contadores de desempenho de seus hosts ou usar outras soluções do OMS, como Segurança em seu Cluster do Service Fabric, siga as etapas em ***Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed*** (Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do OMS com a extensão de VM instalada).
+2. Se você precisar coletar contadores de desempenho de seus hosts para usar outras soluções do OMS, como Segurança no Cluster do Service Fabric, siga as etapas em ***Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.***
 3. Se você já tiver implantado o cluster do Service Fabric e quiser conectá-lo ao Log Analytics, siga as etapas em ***Adding an existing storage account to Log Analytics*** (Adicionar uma conta de armazenamento existente para Log Analytics).
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics.
@@ -48,7 +50,9 @@ O modelo faz o seguinte:
 
 [![Implantar no Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
-Quando selecionar o botão de implantação acima, você chegará no portal do Azure com parâmetros para edição. Crie um novo grupo de recursos se você digitar um novo nome de espaço de trabalho do Log Analytics: ![Service Fabric](./media/log-analytics-service-fabric/2.png)
+Depois de selecionar o botão de implantação acima, o portal do Azure será aberto com os parâmetros para edição. Lembre-se de criar um novo grupo de recursos se você inserir um novo nome de espaço de trabalho do Log Analytics:
+
+![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
@@ -56,13 +60,13 @@ Aceite os termos legais e pressione "Criar" para iniciar a implantação. Após 
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Implante um Cluster do Service Fabric conectado a um espaço de trabalho do OMS com a extensão de VM instalada.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>Implante um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.
 O modelo faz o seguinte:
 
 1. implanta um cluster do Azure Service Fabric conectado a um espaço de trabalho do Log Analytics. Você pode criar um novo espaço de trabalho ou usar um existente.
 2. adiciona as contas de armazenamento do diagnóstico ao espaço de trabalho do Log Analytics.
 3. habilita a solução do Service Fabric no espaço de trabalho do Log Analytics.
-4. instala a extensão do agente de MMA em cada conjunto de dimensionamento de VM em seu cluster do Service Fabric. Com o agente de MMA instalado, é possível exibir métricas de desempenho sobre os nós.
+4. Instala a extensão do agente de MMA em cada conjunto de dimensionamento de máquinas virtuais no cluster do Service Fabric. Com o agente de MMA instalado, é possível exibir métricas de desempenho sobre os nós.
 
 [![Implantar no Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 
@@ -73,6 +77,8 @@ Seguindo as mesmas etapas acima, insira os parâmetros necessários e inicie uma
 ### <a name="viewing-performance-data"></a>Exibindo dados de desempenho
 Para exibir dados de desempenho de seus nós:
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * inicie o espaço de trabalho de Log Analytics no portal do Azure.
 
@@ -115,7 +121,7 @@ Este modelo simplesmente adiciona suas contas de armazenamento existentes a um e
 [![Implantar no Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 > [!NOTE]
-> Ao selecionar um grupo de recursos, se você estiver trabalhando com um espaço de trabalho já existente do Log Analytics, selecione "Usar Existente" e pesquise o grupo de recursos que contém o espaço de trabalho do OMS. Caso contrário, crie um novo.
+> Ao selecionar um Grupo de Recursos, se você estiver trabalhando com um espaço de trabalho já existente do Log Analytics, selecione “Usar Existente” e pesquise o grupo de recursos que contém o espaço de trabalho do Log Analytics. Caso contrário, crie um novo.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
 >
 >
@@ -124,7 +130,7 @@ Após esse modelo ter sido implantado, você poderá ver a conta de armazenament
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
 
 ## <a name="view-service-fabric-events"></a>Exibir eventos do Service Fabric
-Depois que as implantações estiverem concluídas e a solução do Service Fabric tiver sido habilitada no seu espaço de trabalho, selecione o bloco **Service Fabric** no portal do Log Analytics para iniciar o painel do Service Fabric. O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo especificado. É possível executar uma pesquisa de log que fornece a lista inteira clicando em **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
+Depois que as implantações estiverem concluídas e a solução do Service Fabric tiver sido habilitada no seu espaço de trabalho, selecione o bloco **Service Fabric** no portal do Log Analytics para iniciar o painel do Service Fabric. O painel inclui as colunas na tabela a seguir. Cada coluna lista os 10 principais eventos por contagem que correspondem aos critérios da coluna para o intervalo de tempo especificado. É possível executar uma pesquisa de log que fornece a lista inteira clicando em **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 
 | **Evento do Service Fabric** | **description** |
 | --- | --- |
@@ -140,12 +146,12 @@ Depois que as implantações estiverem concluídas e a solução do Service Fabr
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Service Fabric.
 
-| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente direto | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Sim](./media/log-analytics-malware/oms-bullet-green.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |10 minutos |
 
 > [!NOTE]
-> Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Você também pode mostrar eventos gerados dentro dos últimos sete dias, um dia ou seis horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
+> Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Também mostre os eventos gerados nos últimos sete dias, no último dia ou nas últimas seis horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
 >
 >
 

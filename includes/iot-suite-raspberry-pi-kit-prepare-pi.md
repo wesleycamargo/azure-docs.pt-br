@@ -69,19 +69,21 @@ Para compartilhar uma pasta com o Windows, configure um servidor Samba no Raspbe
 
 Antes de executar o aplicativo de exemplo, você deve habilitar o barramento Serial Peripheral Interface (SPI) no Raspberry Pi. O Raspberry Pi se comunica com o dispositivo do sensor BME280 pelo barramento da SPI. Abra o arquivo de configuração executando o seguinte comando:
 
-`sudo nano /boot/config.txt`
+```sh
+sudo nano /boot/config.txt
+```
 
 Localize a linha:
 
-```
-#dtparam=spi=on
-```
+`#dtparam=spi=on`
 
 - Para remover os comentários da linha, exclua o `#` no início.
 - Salve suas alterações (**Ctrl-O**, **Enter**) e saia do editor (**Ctrl-X**).
 - Para habilitar o SPI, reinicialize o Raspberry Pi. Reinicializar desconecta o terminal, você precisa entrar novamente quando reinicia o Raspberry Pi:
 
-  `sudo reboot`
+  ```sh
+  sudo reboot
+  ```
 
 
 [img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi/rpi2_remote_monitoring.png

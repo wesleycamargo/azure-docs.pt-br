@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -27,13 +26,30 @@ ms.lasthandoff: 05/05/2017
 
 Este tópico compara as funcionalidades de codificação do **Media Encoder Standard** e do **Fluxo de Trabalho do Media Encoder Premium**.
 
-### <a id="billing"></a>Medidor de cobrança usado por cada codificador
+## <a name="video-and-audio-processing-capabilities"></a>Funcionalidades de processamento de vídeo e áudio
+
+A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard) e o MEPW (Media Encoder Premium Workflow). 
+
+|Recurso|Media Encoder Standard|Fluxo de trabalho do Media Encoder Premium|
+|---|---|---|
+|Aplicar a lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, codificar como áudio 5.1)|Não|Sim|
+|Legendagem oculta|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
+|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com Dialogue Intelligence™|Não|Sim|
+|Desentrelaçamento, telecine inverso|Basic|Qualidade de difusão|
+|Detectar e remover bordas pretas <br/>(formatos pillarbox e letterbox)|Não|Sim|
+|Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
+|Distorção/filtragem e costura de vídeos|[Sim](media-services-advanced-encoding-with-mes.md#trim_video)|Sim|
+|Sobreposições de áudio ou vídeo|[Sim](media-services-advanced-encoding-with-mes.md#overlay)|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Sobreposições de elementos gráficos|De fontes de imagem|De fontes de imagem e texto|
+|Várias faixas de idioma de áudio|Limitado|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+
+## <a id="billing"></a>Medidor de cobrança usado por cada codificador
 | Nome do processador de mídia | Preços aplicáveis | Observações |
 | --- | --- | --- |
 | **Media Encoder Standard** |CODIFICADOR |As Tarefas de Codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia gerados como saída, na taxa especificada [aqui][1], na coluna CODIFICADOR. |
 | **Fluxo de trabalho do Media Encoder Premium** |CODIFICADOR PREMIUM |As Tarefas de Codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia gerados como saída, na taxa especificada [aqui][1], na coluna CODIFICADOR PREMIUM. |
 
-### <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
+## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 | Formatos de arquivo/contêiner de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sim |Sim |
@@ -50,7 +66,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | Matroska/WebM |Sim |Não |
 | QuickTime (.mov) |Sim |Não |
 
-### <a name="input-video-codecs"></a>Codecs de vídeo de entrada
+## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |Sim |
@@ -70,7 +86,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | Apple ProRes 4444 |Sim |Não |
 | Apple ProRes 4444 XQ |Sim |Não |
 
-### <a name="input-audio-codecs"></a>Codecs de áudio de entrada
+## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
 | Codecs de áudio de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |
@@ -86,7 +102,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sim |Não |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |Não |
 
-### <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
+## <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
 | Formatos de contêiner/arquivo de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Não |Sim |
@@ -99,7 +115,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | AVI (8 bits/10 bits descompactado) |Não |Sim |
 | Formato de arquivo do Smooth Streaming (PIFF 1.3) |Não |Sim |
 
-### <a name="output-video-codecs"></a>Codecs de vídeo de saída
+## <a name="output-video-codecs"></a>Codecs de vídeo de saída
 | Codecs de vídeo de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AVC (H. 264; 8 bits; até perfil, nível elevado 5.2; 4K Ultra HD; Intra AVC) |Somente 8 bits 4:2:0 |Sim |
@@ -111,7 +127,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 | Criação de miniaturas PNG |Sim |Sim |
 | Criação de miniaturas BMP |Sim |Não |
 
-### <a name="output-audio-codecs"></a>Codecs de áudio de saída
+## <a name="output-audio-codecs"></a>Codecs de áudio de saída
 | Codecs de áudio de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |

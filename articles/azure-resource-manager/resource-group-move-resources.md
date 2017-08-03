@@ -12,27 +12,27 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 Este tópico mostra como mover recursos para uma nova assinatura ou um novo grupo de recursos na mesma assinatura. Você pode usar o portal, PowerShell, CLI do Azure ou a API REST para mover recursos. As operações de movimentação neste tópico estão disponíveis para você sem nenhuma assistência do suporte do Azure.
 
-O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação de recursos. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar nem excluir os recursos nos grupos de recursos, mas isso não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados. 
+O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação de recursos. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar nem excluir os recursos nos grupos de recursos, mas isso não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados.
 
 Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
 
 > [!NOTE]
-> Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você realmente deseja alterar sua oferta de conta do Azure (por exemplo, atualizando do modo pré-pago para pagar antecipadamente), mas quer continuar trabalhando com seus recursos existentes, consulte [Trocar a assinatura do Azure por outra oferta](../billing/billing-how-to-switch-azure-offer.md). 
-> 
-> 
+> Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você realmente deseja alterar sua oferta de conta do Azure (por exemplo, atualizando do modo pré-pago para pagar antecipadamente), mas quer continuar trabalhando com seus recursos existentes, consulte [Trocar a assinatura do Azure por outra oferta](../billing/billing-how-to-switch-azure-offer.md).
+>
+>
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao verificar essas condições, é possível evitar erros.
@@ -51,20 +51,20 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Se as IDs do locatário para as assinaturas de origem e de destino não forem iguais, tente alterar o diretório da assinatura. No entanto, essa opção só está disponível para Administradores de Serviço conectados a uma conta da Microsoft (e não uma conta corporativa). Para tentar alterar o diretório, faça logon no [portal clássico](https://manage.windowsazure.com/) e selecione **Configurações** para selecionar a assinatura. Se o ícone **Editar Diretório** estiver disponível, selecione-o para alterar o Azure Active Directory associado. 
+  Se as IDs do locatário para as assinaturas de origem e de destino não forem iguais, tente alterar o diretório da assinatura. No entanto, essa opção só está disponível para Administradores de Serviço conectados a uma conta da Microsoft (e não uma conta corporativa). Para tentar alterar o diretório, faça logon no [portal clássico](https://manage.windowsazure.com/) e selecione **Configurações** para selecionar a assinatura. Se o ícone **Editar Diretório** estiver disponível, selecione-o para alterar o Azure Active Directory associado.
 
-  ![editar diretório](./media/resource-group-move-resources/edit-directory.png) 
+  ![editar diretório](./media/resource-group-move-resources/edit-directory.png)
 
   Se esse ícone não estiver disponível, será necessário entrar em contato com o suporte para mover os recursos para um novo locatário.
 
 2. O serviço deve permitir a movimentação de recursos. Este tópico lista quais serviços permitem mover os recursos e quais serviços não habilitam a movimentação dos recursos.
-3. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Para saber como verificar o status do registro e registrar provedores de recursos, consulte [Provedores e tipos de recursos](resource-manager-supported-services.md#resource-providers-and-types).
+3. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Para saber como verificar o status do registro e registrar provedores de recursos, consulte [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 ## <a name="when-to-call-support"></a>Quando telefonar para o suporte
 Você pode mover a maioria dos recursos por meio de operações de autoatendimento mostradas neste tópico. Use as operações de autoatendimento para:
 
 * Mova os recursos do Resource Manager.
-* Mover recursos clássicos de acordo com as [Limitações da implantação clássica](#classic-deployment-limitations). 
+* Mover recursos clássicos de acordo com as [Limitações da implantação clássica](#classic-deployment-limitations).
 
 Telefonar para o suporte quando você precisa:
 
@@ -93,7 +93,7 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Hubs de Eventos
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
-* Cofre da Chave 
+* Cofre da Chave
 * Balanceadores de Carga
 * Aplicativos Lógicos
 * Machine Learning
@@ -114,13 +114,14 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * Stream Analytics
 * Servidor do Banco de Dados SQL - O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
 * Gerenciador de Tráfego
-* Máquinas Virtuais – Não oferecem suporte para mudar para uma nova assinatura quando seus certificados estão armazenados em um Key Vault
+* Máquinas Virtuais
+* As Máquinas virtuais com certificado armazenado no Key Vault – Se deslocam para um novo grupo de recursos na mesma assinatura em que foram habilitadas, porém, o deslocamento para uma assinatura cruzada não é habilitada.
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Conjuntos de Escala de Máquina Virtual
-* Redes virtuais — atualmente, uma Rede Virtual emparelhada não pode ser movida até que o emparelhamento da rede virtual tenha sido desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado.
-* Gateway de VPN 
+* Redes virtuais — atualmente, uma Rede Virtual emparelhada não pode ser movida até que o emparelhamento da rede virtual tenha sido desabilitado. Depois de desabilitado, a Rede Virtual pode ser movida com êxito e o emparelhamento VNet pode ser habilitado. Além disso, uma Rede Virtual não pode ser deslocada para uma assinatura diferente caso a Rede Virtual contenha qualquer sub-rede com links de navegação de recurso. Por exemplo, uma sub-rede da Rede Virtual tem um link de navegação de recurso quando um recurso redis do Cache da Microsoft for implantado nesta sub-rede.
+* Gateway de VPN
 
- 
+
 ## <a name="services-that-do-not-enable-move"></a>Serviços que não permitem mover
 Os serviços que atualmente não permitem mover um recurso são:
 
@@ -138,7 +139,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Cofre de Serviços de Recuperação – não mova os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação. Consulte [Limitações dos Serviços de Recuperação](#recovery-services-limitations).
 * Segurança
 * Instantâneos criados no Managed Disks
-* Máquinas Virtuais com certificado armazenado no Cofre de Chaves
+* Gerenciador de Dispositivos StorSimple
 * Máquinas virtuais com o Managed Disks
 * Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Máquinas Virtuais criadas em recursos do Marketplace — não podem ser movidas entre assinaturas. O recurso precisa ser desprovisionado na assinatura atual e implantado novamente na nova assinatura
@@ -146,10 +147,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um plano de Serviço de Aplicativo. Para mover os Aplicativos do Serviço de Aplicativo, as opções são:
 
-* Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Esse requisito significa que você precisa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo. 
+* Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Esse requisito significa que você precisa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo.
 * Mova os aplicativos para um grupo de recursos diferente, mas mantenha todos os planos do Serviço de Aplicativo no grupo de recursos original.
 
-O plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo.
+O Plano do Serviço de Aplicativo não precisa residir no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
 
 Por exemplo, se o grupo de recursos contém:
 
@@ -183,7 +184,7 @@ Você pode mover um Certificado do Serviço de Aplicativo para um novo grupo de 
 3. Carregar o certificado no aplicativo Web
 
 ## <a name="recovery-services-limitations"></a>Limitações dos Serviços de Recuperação
-A movimentação dos recursos de Armazenamento, Rede ou Computação usados para configurar a recuperação de desastres com o Azure Site Recovery não está habilitada. 
+A movimentação dos recursos de Armazenamento, Rede ou Computação usados para configurar a recuperação de desastres com o Azure Site Recovery não está habilitada.
 
 Por exemplo, suponha que você configurou a replicação das máquinas locais para uma conta de armazenamento (Storage1) e queira que a máquina protegida venha, após o failover, para o Azure como uma máquina virtual (VM1) conectada a uma rede virtual (Network1). Você não pode mover nenhum desses recursos do Azure – Storage1, VM1 e Network1 – entre grupos de recursos dentro da mesma assinatura ou em assinaturas diferentes.
 
@@ -194,13 +195,13 @@ Você pode mover os clusters HDInsight para uma nova assinatura ou grupo de recu
 Ao mover um cluster HDInsight para uma nova assinatura, mova primeiro os outros recursos (como a conta de armazenamento). Em seguida, mova apenas o cluster HDInsight.
 
 ## <a name="classic-deployment-limitations"></a>Limitações da implantação clássica
-As opções de movimentação dos recursos implantados por meio do modelo clássico apesentam diferenças, dependendo se você estiver movendo os recursos em uma assinatura ou para uma nova assinatura. 
+As opções de movimentação dos recursos implantados por meio do modelo clássico apesentam diferenças, dependendo se você estiver movendo os recursos em uma assinatura ou para uma nova assinatura.
 
 ### <a name="same-subscription"></a>Mesma assinatura
 Ao mover recursos de um grupo de recursos para outro na mesma assinatura, as seguintes restrições se aplicarão:
 
 * Redes virtuais (clássicas) não podem ser movidas.
-* Máquinas virtuais (clássicas) devem ser movidas com o serviço de nuvem. 
+* Máquinas virtuais (clássicas) devem ser movidas com o serviço de nuvem.
 * Um serviço de nuvem pode ser movido apenas quando a movimentação incluir todas as suas máquinas virtuais.
 * Apenas um serviço de nuvem pode ser movido por vez.
 * Apenas uma conta de armazenamento (clássica) pode ser movida por vez.
@@ -222,18 +223,18 @@ Para mover recursos clássicos para uma nova assinatura, use operações REST es
   ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
-   
+
      No corpo da solicitação, inclua:
 
-  ```json 
+  ```json
   {
     "role": "source"
   }
   ```
-  
+
      A resposta para a operação de validação é no seguinte formato:
 
-  ```json 
+  ```json
   {
     "status": "{status}",
     "reasons": [
@@ -245,34 +246,34 @@ Para mover recursos clássicos para uma nova assinatura, use operações REST es
 
 2. Verifique se a assinatura de destino pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      No corpo da solicitação, inclua:
 
-  ```json 
+  ```json
   {
     "role": "target"
   }
   ```
-   
+
      A resposta está no mesmo formato que a validação de assinatura de origem.
 3. Se ambas as assinaturas forem aprovadas na validação, mova todos os recursos clássicos de uma assinatura para outra, use a seguinte operação:
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     No corpo da solicitação, inclua:
 
-  ```json 
+  ```json
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
   ```
 
-A operação pode executar por vários minutos. 
+A operação pode executar por vários minutos.
 
 ## <a name="use-portal"></a>Usar o portal
 Para mover recursos, selecione o grupo de recursos que os contém e, em seguida, o botão **Mover**.
@@ -378,7 +379,7 @@ Será solicitado que você confirme que deseja mover o recurso especificado.
 Para mover recursos existentes para outro grupo de recursos ou outra assinatura, execute:
 
 ```HTTP
-POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
 No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
@@ -388,5 +389,4 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 * Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Como usar a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Usar o Portal do Azure para gerenciar recursos](resource-group-portal.md).
 * Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
-
 

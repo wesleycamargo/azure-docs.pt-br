@@ -1,6 +1,6 @@
 ---
-title: Copiar ou mover dados para o Armazenamento com o AzCopy | Microsoft Docs
-description: "Use o utilitário AzCopy para mover ou copiar dados para ou de conteúdo de blob, tabela e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure."
+title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Windows | Microsoft Docs
+description: "Use o utilitário AzCopy no Windows para mover ou copiar dados para ou de conteúdo de blob, tabela e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure."
 services: storage
 documentationcenter: 
 author: seguler
@@ -12,30 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/14/2017
 ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 045778822022752295bb634bdf734daaf36ab938
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="transfer-data-with-the-azcopy-command-line-utility"></a>Transferir dados com o Utilitário de Linha de Comando AzCopy
-## <a name="overview"></a>Visão geral
-O AzCopy é um utilitário de linha de comando do Windows projetado para copiar dados entre o Armazenamento de Blobs, de Arquivos e de Tabelas do Microsoft Azure usando comandos simples com o desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.
+# <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
+O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o Armazenamento de Blobs, de Arquivos e de Tabelas do Microsoft Azure usando comandos simples com o desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.
 
-> [!NOTE]
-> Este guia pressupõe que você já esteja familiarizado com o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/). Se não estiver, leia a documentação [Introdução ao Armazenamento do Azure](storage-introduction.md) . Acima de tudo, você precisará [criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account) para começar a usar o AzCopy.
-> 
-> 
+Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Windows se baseia no .NET Framework e oferece opções de linha de comando no estilo Windows. O [AzCopy no Linux](storage-use-azcopy-linux.md) se baseia no .NET Core Framework, que se destina a plataformas Linux que oferecem opções de linha de comando no estilo POSIX. Este artigo aborda o AzCopy no Windows.
 
 ## <a name="download-and-install-azcopy"></a>Baixar e instalar o AzCopy
-### <a name="windows"></a>Windows
-Baixe a [versão mais recente do AzCopy](http://aka.ms/downloadazcopy).
+### <a name="azcopy-on-windows"></a>AzCopy no Windows
+Baixe a [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy).
 
-### <a name="maclinux"></a>Mac/Linux
-O AzCopy não está disponível para os sistemas operacionais Mac/Linux. No entanto, a CLI do Azure é uma alternativa adequada para copiar dados de e para o Armazenamento do Azure. Leia [Como usar a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md) para saber mais.
+#### <a name="installation-on-windows"></a>Instalação no Windows
+Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela de comando e navegue até o diretório de instalação do AzCopy em seu computador, onde o executável `AzCopy.exe` está localizado. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## <a name="writing-your-first-azcopy-command"></a>Como escrever seu primeiro comando do AzCopy
 A sintaxe básica dos comandos do AzCopy é:
@@ -43,8 +40,6 @@ A sintaxe básica dos comandos do AzCopy é:
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
-
-Abra uma janela de comando e navegue até o diretório de instalação do AzCopy no computador, onde está localizado o arquivo executável `AzCopy.exe` . Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 Os exemplos a seguir demonstram vários cenários para cópia de dados entre os Blobs, os Arquivos e as Tabelas do Microsoft Azure. Confira a seção [Parâmetros do AzCopy](#azcopy-parameters) para obter uma explicação detalhada dos parâmetros usados em cada exemplo.
 
@@ -897,6 +892,7 @@ Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos 
 * [Como usar o Armazenamento de Arquivos no .NET](storage-dotnet-how-to-use-files.md)
 * [Como usar o Armazenamento de Tabela do .NET](storage-dotnet-how-to-use-tables.md)
 * [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md)
+* [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Apresentando a versão de visualização da biblioteca de movimentação de dados do armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

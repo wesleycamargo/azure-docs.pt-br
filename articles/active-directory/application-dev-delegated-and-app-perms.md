@@ -21,20 +21,14 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-recognize-differences-between-delegated-and-application-permissions" class="xliff"></a>
+# <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Como reconhecer diferenças entre permissões delegadas e de aplicativos
 
-# Como reconhecer diferenças entre permissões delegadas e de aplicativos
-
-<a id="recommended-documents" class="xliff"></a>
-
-## Documentos recomendados
+## <a name="recommended-documents"></a>Documentos recomendados
 
 - Saiba mais sobre como os aplicativos cliente usam [solicitações de permissão delegada e de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) para acessar recursos.
 - Consulte as instruções passo a passo sobre como [configurar solicitações de permissão de um aplicativo cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-a-client-application-to-access-web-apis)
 - Para mais detalhes, saiba como os aplicativos de recursos expõem [escopos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) e [funções de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [StackOverflow do AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
 

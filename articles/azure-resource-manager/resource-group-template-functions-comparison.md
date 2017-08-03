@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: d993bd5cae5fa2f0a6eda999c95b10bd1c268be2
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos do Azure Resource Manager
@@ -46,7 +45,30 @@ Verifica se dois valores são iguais entre si.
 | arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
 | arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se os valores são iguais; caso contrário, **False**.
+
+### <a name="remarks"></a>Comentários
+
+A função equals é frequentemente usada com o elemento `condition` para testar se um recurso está implantado.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>Exemplo
 
 O modelo de exemplo verifica os diferentes tipos de valores para igualdade. Todos os valores padrão retornam True.
 
@@ -111,9 +133,14 @@ O modelo de exemplo verifica os diferentes tipos de valores para igualdade. Todo
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se os valores são iguais; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Bool | True  |
+| checkStrings | Bool | True  |
+| checkArrays | Bool | True  |
+| checkObjects | Bool | True  |
 
 <a id="less" />
 
@@ -129,7 +156,11 @@ Verifica se o primeiro valor é menor que o segundo valor.
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se o primeiro valor é menor que o segundo valor; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O modelo de exemplo verifica se um valor é menor que o outro.
 
@@ -139,16 +170,20 @@ O modelo de exemplo verifica se um valor é menor que o outro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -166,9 +201,12 @@ O modelo de exemplo verifica se um valor é menor que o outro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se o primeiro valor é menor que o segundo valor; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Bool | True  |
+| checkStrings | Bool | Falso |
 
 <a id="lessorequals" />
 
@@ -184,7 +222,11 @@ Verifica se o primeiro valor é menor que ou igual ao segundo valor.
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se o primeiro valor é menor que ou igual ao segundo valor; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O modelo de exemplo verifica se um valor é menor que ou igual ao outro.
 
@@ -194,16 +236,20 @@ O modelo de exemplo verifica se um valor é menor que ou igual ao outro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -221,9 +267,12 @@ O modelo de exemplo verifica se um valor é menor que ou igual ao outro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se o primeiro valor é menor que ou igual ao segundo valor; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Bool | True  |
+| checkStrings | Bool | Falso |
 
 <a id="greater" />
 
@@ -239,7 +288,11 @@ Verifica se o primeiro valor é maior que o segundo valor.
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se o primeiro valor é maior que o segundo valor; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O modelo de exemplo verifica se um valor é maior que o outro.
 
@@ -249,16 +302,20 @@ O modelo de exemplo verifica se um valor é maior que o outro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,9 +333,12 @@ O modelo de exemplo verifica se um valor é maior que o outro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se o primeiro valor é maior que o segundo valor; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Bool | Falso |
+| checkStrings | Bool | True  |
 
 <a id="greaterorequals" />
 
@@ -294,7 +354,11 @@ Verifica se o primeiro valor é maior que ou igual ao segundo valor.
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+Retorna **True** se o primeiro valor é maior que ou igual ao segundo valor; caso contrário, **False**.
+
+### <a name="example"></a>Exemplo
 
 O modelo de exemplo verifica se um valor é maior que ou igual ao outro.
 
@@ -304,16 +368,20 @@ O modelo de exemplo verifica se um valor é maior que ou igual ao outro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,14 +399,18 @@ O modelo de exemplo verifica se um valor é maior que ou igual ao outro.
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+A saída do exemplo anterior com os valores padrão é:
 
-Retorna **True** se o primeiro valor é maior que ou igual ao segundo valor; caso contrário, **False**.
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Bool | Falso |
+| checkStrings | Bool | True  |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
 

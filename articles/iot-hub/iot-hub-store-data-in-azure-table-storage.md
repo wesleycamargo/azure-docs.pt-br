@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: c1f5d737b9718ead9c59794dae23798ef26aa42a
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -48,7 +48,7 @@ Saiba como criar uma conta de armazenamento do Azure e um Aplicativo de Funçõe
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-1. No Portal do Azure, clique em **Novo** > **Armazenamento** > **Conta de armazenamento**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Novo** > **Armazenamento** > **Conta de armazenamento**.
 1. Insira as informações necessárias para a conta de armazenamento:
 
    ![Criar uma conta de armazenamento no Portal do Azure](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
@@ -115,6 +115,8 @@ O Hub IoT expõe um ponto de extremidade compatível com o Hub de Eventos intern
 1. Crie uma nova função no Aplicativo de Funções.
    1. Clique em **Nova Função**.
    1. Selecione **JavaScript** para **Linguagem** e **Processamento de Dados** para **Cenário**.
+   1. Clique em **Criar esta função**, depois clique em **Nova Função**.
+   1. Selecione **JavaScript** para linguagem e **Processamento de Dados** para o cenário.
    1. Clique no modelo **EventHubTrigger-JavaScript**.
    1. Insira as informações necessárias para o modelo.
 
@@ -134,7 +136,8 @@ O Hub IoT expõe um ponto de extremidade compatível com o Hub de Eventos intern
       
       **Nome da tabela**: use `deviceData` para o nome.
 
-      **Conexão da conta de armazenamento**: clique em **novo** e selecione a conta de armazenamento.
+      **Conexão da conta de armazenamento**: clique em **novo** e selecione a conta de armazenamento. Se você não consegue ver a conta de armazenamento, consulte os [Requisitos da conta de armazenamento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      
    1. Clique em **Salvar**.
 1. Em **Gatilhos**, clique em **Hub de Eventos do Azure (myEventHubTrigger)**.
 1. Em **Grupo de consumidores do Hub de Eventos**, digite o nome do grupo de consumidores que você criou anteriormente e clique em **Salvar**.

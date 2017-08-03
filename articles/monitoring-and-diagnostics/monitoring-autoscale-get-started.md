@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a420adc57a0bcbb3779183324ab7bfafcb5bf1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -39,7 +39,7 @@ Você pode descobrir todos os recursos a que o dimensionamento automático se ap
 
 Você pode usar o painel de filtro na parte superior para reduzir o escopo da lista e selecionar recursos em um grupo de recursos específico, selecionar os tipos de recursos específicos ou selecionar um recurso específico.
 
-Para cada recurso, você deve encontrar a contagem de instâncias atual, bem como seu status de dimensionamento automático. O status de dimensionamento automático pode ser
+Para cada recurso, você encontrará a contagem de instâncias atual, bem como seu status de dimensionamento automático. O status de dimensionamento automático pode ser
 
 - Não configurado: você ainda não habilitou a configuração de dimensionamento automático para este recurso
 - Habilitado: você habilitou a configuração de dimensionamento automático para este recurso
@@ -69,7 +69,7 @@ Além de dimensionar com base na CPU, você também pode definir seu dimensionam
 - Clique em "Adicionar uma condição de dimensionamento"
 - A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão
 - Selecione "Repetir dias específicos" para o agendamento
-- Selecione os dias e a hora de início/término em que a condição de dimensionamento deve ser aplicada nos dias selecionados.
+- Selecione os dias e a hora de início/término em que a condição de dimensionamento deve ser aplicada nos dias selecionados
 
 ![Condição de dimensionamento com base no agendamento][9]
 ## <a name="scale-differently-on-specific-dates"></a>Dimensionar de forma diferente em datas específicas
@@ -78,7 +78,7 @@ Além de dimensionar com base na CPU, você também pode definir seu dimensionam
 - Clique em "Adicionar uma condição de dimensionamento"
 - A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão
 - Selecione "Especificar datas de início/término" para o agendamento
-- Selecione as datas de início/término, bem como a hora de início/término em que a condição de dimensionamento deve ser aplicada nas datas selecionadas.
+- Selecione as datas de início/término, bem como a hora de início/término em que a condição de dimensionamento deve ser aplicada nas datas selecionadas
 
 ![Condição de dimensionamento com base em datas][10]
 
@@ -99,7 +99,7 @@ Você pode fazer alterações no JSON diretamente, se necessário. Essas altera�
 ## <a name="disable-autoscale-and-manually-scale-your-instances"></a>Desabilitar o dimensionamento automático e dimensionar suas instâncias manualmente
 Pode haver momentos em que você queira desabilitar sua configuração de dimensionamento atual e dimensionar manualmente seu recurso.
 
-Clique no botão "Desabilitar dimensionamento automático" na parte superior.
+Clique no botão 'Desabilitar dimensionamento automático' na parte superior.
 ![Desabilitar dimensionamento automático][13]
 
 Observe que esta opção desabilita a configuração e você ainda pode voltar a ela após habilitar o dimensionamento automático novamente. Agora, você pode definir o número de instâncias para o qual deseja dimensionar manualmente.
@@ -123,3 +123,4 @@ Você sempre pode voltar ao dimensionamento automático clicando em "Habilitar d
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

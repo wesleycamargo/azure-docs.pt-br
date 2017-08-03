@@ -11,7 +11,7 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 
 <br>
 
-| Família de SKU | ACU/núcleo |
+| Família de SKU | ACU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A4 A1](../articles/virtual-machines/windows/sizes-general.md) |100 |
@@ -23,6 +23,10 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 | [D1_v2 D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* |
 | [DS14 DS1](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 |
 | [DS1_v2 DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* |
+| [D_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** |
+| [Ds_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** |
+| [E_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
+| [Es_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
 | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [G5 G1](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |

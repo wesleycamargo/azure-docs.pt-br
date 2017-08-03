@@ -60,6 +60,7 @@
 ### [Integração de controle do código-fonte com o GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integração de controle do código-fonte com o VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Chamar Runbook de Automação do Azure a partir do alerta do Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
+### [Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure](automation-deploy-template-runbook.md)
 ## Soluções
 ### [Controle de alterações](../log-analytics/log-analytics-change-tracking.md)
 ### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
@@ -82,7 +83,7 @@
 # Recursos
 ## [Vídeo de introdução à Automação](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 ## [Treinamento em Automação do Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Preços](https://azure.microsoft.com/pricing/details/automation/)  

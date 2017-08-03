@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,6 +62,10 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **R:** Sim.
 
+**P:** Posso usar **implantação da web** implantar meu aplicativo web?
+
+**R:** Sim, você precisa definir um aplicativo de configuração chamado `UseWebDeployScm` para `false`.
+
 ## <a name="language-support"></a>Suporte ao idioma
 
 **P:** Há suporte para aplicativos .NET Core não compilados?
@@ -70,7 +74,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Há suporte para o Criador como um gerenciador de dependências para aplicativos PHP?
 
-**R:** Não. Será necessário implantar os aplicativos PHP com todas as dependências. Estamos planejando uma experiência completa de implantação em uma versão futura.
+**R:** Sim. Durante a implantação de Git, Kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo de composer.json) e disparará uma instalação de criador para você.
 
 ## <a name="custom-containers"></a>Contêineres personalizados
 

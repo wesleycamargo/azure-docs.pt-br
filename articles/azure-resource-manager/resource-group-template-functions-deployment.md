@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: ce888415b6a5f82fb3d49834b055f8afe97442a8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
@@ -38,32 +37,6 @@ Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [F
 `deployment()`
 
 Retorna informações sobre a operação de implantação atual.
-
-### <a name="examples"></a>Exemplos
-
-O exemplo a seguir retorna o objeto de implantação:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
-    }
-}
-```
-
-O exemplo a seguir mostra como usar a implantação() para um modelo aninhado com base no URI do modelo pai.
-
-```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
-}
-```  
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -113,11 +86,61 @@ Quando o objeto é transmitido como um link, como ao usar o parâmetro **- Templ
 }
 ```
 
+### <a name="remarks"></a>Comentários
 
+Você pode usar a implantação() para vincular a outro modelo com base no URI do modelo pai.
+
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir retorna o objeto de implantação:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "subscriptionOutput": {
+            "value": "[deployment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+O exemplo anterior retorna o seguinte objeto:
+
+```json
+{
+  "name": "deployment",
+  "properties": {
+    "template": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [],
+      "outputs": {
+        "subscriptionOutput": {
+          "type": "Object",
+          "value": "[deployment()]"
+        }
+      }
+    },
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Accepted"
+  }
+}
+```
 
 <a id="parameters" />
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
@@ -128,9 +151,13 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a retornar. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
 
-O exemplo a seguir mostra um uso simplificado da função parâmetros.
+O valor do parâmetro especificado.
+
+### <a name="remarks"></a>Comentários
+
+Normalmente, você usa parâmetros para definir valores de recursos. O exemplo a seguir define o nome do site para o valor do parâmetro passado durante a implantação.
 
 ```json
 "parameters": { 
@@ -140,7 +167,7 @@ O exemplo a seguir mostra um uso simplificado da função parâmetros.
 },
 "resources": [
    {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2016-08-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       ...
@@ -148,9 +175,72 @@ O exemplo a seguir mostra um uso simplificado da função parâmetros.
 ]
 ```
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="example"></a>Exemplo
 
-O tipo do parâmetro.
+O exemplo a seguir mostra um uso simplificado da função parâmetros.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringParameter": {
+            "type" : "string",
+            "defaultValue": "option 1"
+        },
+        "intParameter": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "objectParameter": {
+            "type": "object",
+            "defaultValue": {"one": "a", "two": "b"}
+        },
+        "arrayParameter": {
+            "type": "array",
+            "defaultValue": [1, 2, 3]
+        },
+        "crossParameter": {
+            "type": "string",
+            "defaultValue": "[parameters('stringParameter')]"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "value": "[parameters('stringParameter')]",
+            "type" : "string"
+        },
+        "intOutput": {
+            "value": "[parameters('intParameter')]",
+            "type" : "int"
+        },
+        "objectOutput": {
+            "value": "[parameters('objectParameter')]",
+            "type" : "object"
+        },
+        "arrayOutput": {
+            "value": "[parameters('arrayParameter')]",
+            "type" : "array"
+        },
+        "crossOutput": {
+            "value": "[parameters('crossParameter')]",
+            "type" : "string"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringOutput | Cadeia de caracteres | opção 1 |
+| intOutput | int | 1 |
+| objectOutput | Objeto | {"one": "a", "two": "b"} |
+| arrayOutput | Matriz | [1, 2, 3] |
+| crossOutput | Cadeia de caracteres | opção 1 |
 
 <a id="variables" />
 
@@ -165,31 +255,87 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |Cadeia de caracteres |O nome da variável a retornar. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
 
-O exemplo a seguir usa um valor variável.
+O valor da variável especificada.
+
+### <a name="remarks"></a>Comentários
+
+Normalmente, você usa variáveis para simplificar seu modelo criando valores complexos apenas uma vez. O exemplo a seguir constrói um nome exclusivo para uma conta de armazenamento.
 
 ```json
 "variables": {
-  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageName')]",
-    ...
-  }
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines",
+        "dependsOn": [
+            "[variables('storageName')]"
+        ],
+        ...
+    }
 ],
 ```
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="example"></a>Exemplo
 
-O tipo da variável.
+O modelo de exemplo retorna valores de variáveis diferentes.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "var1": "myVariable",
+        "var2": [ 1,2,3,4 ],
+        "var3": "[ variables('var1') ]",
+        "var4": {
+            "property1": "value1",
+            "property2": "value2"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput1": {
+            "value": "[variables('var1')]",
+            "type" : "string"
+        },
+        "exampleOutput2": {
+            "value": "[variables('var2')]",
+            "type" : "array"
+        },
+        "exampleOutput3": {
+            "value": "[variables('var3')]",
+            "type" : "string"
+        },
+        "exampleOutput4": {
+            "value": "[variables('var4')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| exampleOutput1 | Cadeia de caracteres | myVariable |
+| exampleOutput2 | Matriz | [1, 2, 3, 4] |
+| exampleOutput3 | Cadeia de caracteres | myVariable |
+| exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
 

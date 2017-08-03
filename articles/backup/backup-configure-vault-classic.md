@@ -23,9 +23,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal" class="xliff"></a>
-
-# Fazer backup de um servidor ou estação de trabalho do Windows no Azure usando o portal clássico
+# <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Fazer backup de um servidor ou estação de trabalho do Windows no Azure usando o portal clássico
 > [!div class="op_single_selector"]
 > * [Portal clássico](backup-configure-vault-classic.md)
 > * [Portal do Azure](backup-configure-vault.md)
@@ -40,14 +38,10 @@ Este artigo aborda os procedimentos que você precisa realizar para preparar seu
 >
 >
 
-<a id="before-you-start" class="xliff"></a>
-
-## Antes de começar
+## <a name="before-you-start"></a>Antes de começar
 Para fazer backup de um servidor ou cliente no Azure, você precisará de uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
-<a id="create-a-backup-vault" class="xliff"></a>
-
-## Criar um cofre de backup
+## <a name="create-a-backup-vault"></a>Criar um cofre de backup
 Para fazer o backup de arquivos e pastas de um servidor ou cliente, você deverá criar um cofre de backup na região geográfica em que deseja armazenar os dados.
 
 > [!IMPORTANT]
@@ -59,14 +53,10 @@ Para fazer o backup de arquivos e pastas de um servidor ou cliente, você dever�
 >
 
 
-<a id="download-the-vault-credential-file" class="xliff"></a>
-
-## Baixe o arquivo de credencial do cofre
+## <a name="download-the-vault-credential-file"></a>Baixe o arquivo de credencial do cofre
 O computador local precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é obtida por meio das *credenciais do cofre*. O arquivo de credencial do cofre é baixado por meio de um canal seguro no portal clássico. A chave privada do certificado não persiste no portal ou serviço.
 
-<a id="to-download-the-vault-credential-file-to-a-local-machine" class="xliff"></a>
-
-### Para baixar o arquivo de credenciais do cofre para um computador local
+### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Para baixar o arquivo de credenciais do cofre para um computador local
 1. Clique em **Serviços de Recuperação**no painel de navegação à esquerda e selecione o cofre de backup criado.
 
     ![IR completo](./media/backup-configure-vault-classic/rs-left-nav.png)
@@ -82,14 +72,10 @@ O computador local precisa ser autenticado em um cofre de backup antes de poder 
    >
    >
 
-<a id="download-install-and-register-the-backup-agent" class="xliff"></a>
-
-## Baixar, instalar e registrar o agente de Backup
+## <a name="download-install-and-register-the-backup-agent"></a>Baixar, instalar e registrar o agente de Backup
 Depois de criar o cofre de backup e baixar o arquivo de credenciais do cofre, um agente deve ser instalado em cada uma de suas máquinas do Windows.
 
-<a id="to-download-install-and-register-the-agent" class="xliff"></a>
-
-### Para baixar, instalar e registrar o agente
+### <a name="to-download-install-and-register-the-agent"></a>Para baixar, instalar e registrar o agente
 1. Clique em **Serviços de Recuperação**, depois selecione o cofre de backup que você quer registrar com um servidor.
 2. Na página Início Rápido, clique em **Agente para Windows Server ou System Center Data Protection Manager ou cliente Windows**. Em seguida, clique em **Salvar**.
 
@@ -116,9 +102,7 @@ Depois de criar o cofre de backup e baixar o arquivo de credenciais do cofre, um
 
 11. Após definir a chave de criptografia, deixe a caixa de seleção **Iniciar Agente dos Serviços de Recuperação do Microsoft Azure** marcada, em seguida, clique em **Fechar**.
 
-<a id="complete-the-initial-backup" class="xliff"></a>
-
-## Completar o backup inicial
+## <a name="complete-the-initial-backup"></a>Completar o backup inicial
 O backup inicial inclui duas tarefas principais:
 
 * Criar o agendamento de backup
@@ -126,9 +110,7 @@ O backup inicial inclui duas tarefas principais:
 
 Após a política de backup concluir o backup inicial, ela criará pontos de backup que poderão ser usados se você precisar recuperar os dados. A política de backup faz isso com base no agendamento que você definir.
 
-<a id="to-schedule-the-backup" class="xliff"></a>
-
-### Para agendar o backup
+### <a name="to-schedule-the-backup"></a>Para agendar o backup
 1. Abra o Agente de Backup do Microsoft Azure. (Ele será aberto automaticamente se você deixou a caixa de seleção **Iniciar Agente dos Serviços de Recuperação do Microsoft Azure** marcada quando fechou o Assistente para Registrar Servidor.) Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
     ![Iniciar o agente de Backup do Azure](./media/backup-configure-vault-classic/snap-in-search.png)
@@ -159,9 +141,7 @@ Após a política de backup concluir o backup inicial, ela criará pontos de bac
 10. Na página Confirmação, examine as informações e clique em **Concluir**.
 11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
-<a id="enable-network-throttling-optional" class="xliff"></a>
-
-### Habilitar a limitação da rede (opcional)
+### <a name="enable-network-throttling-optional"></a>Habilitar a limitação da rede (opcional)
 O Agente de backup fornece limitação de rede. A limitação controles como a largura de banda de rede é usada durante a transferência de dados. Esse controle poderá ser útil se você precisar fazer backup de dados durante o horário de expediente, mas não quiser que o processo de backup interfira em outro tráfego de Internet. A limitação aplica-se a atividades de backup e restauração.
 
 **Para habilitar a limitação de rede**
@@ -177,9 +157,7 @@ O Agente de backup fornece limitação de rede. A limitação controles como a l
     Os valores de largura de banda começam em 512 quilobits por segundo (Kbps) e podem ir até 1.023 megabytes por segundo (Mbps). Você também pode indicar o início e o término para **Horas úteis**e quais dias da semana são considerados dias úteis. Horas fora das horas úteis designadas são consideradas horas não úteis.
 4. Clique em **OK**.
 
-<a id="to-back-up-now" class="xliff"></a>
-
-### Fazer backup agora
+### <a name="to-back-up-now"></a>Fazer backup agora
 1. No Agente de backup, clique em **Fazer Backup Agora** para concluir a propagação inicial pela rede.
 
     ![Fazer backup do Windows Server agora](./media/backup-configure-vault-classic/backup-now.png)
@@ -190,9 +168,7 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
 ![IR completo](./media/backup-configure-vault-classic/ircomplete.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Inscreva-se para obter uma [conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, confira:

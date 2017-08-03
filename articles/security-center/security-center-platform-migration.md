@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
-# Migração de plataforma da Central de Segurança do Azure
+# <a name="azure-security-center-platform-migration"></a>Migração de plataforma da Central de Segurança do Azure
 
 A partir do início de junho de 2017, a Central de Segurança do Azure vai implantar mudanças importantes na maneira como os dados de segurança são coletados e armazenados.  Essas alterações desbloqueiam novos recursos, como a capacidade de pesquisar dados de segurança facilmente, e se alinha melhor com outros serviços de gerenciamento e monitoramento do Azure.
 
@@ -32,17 +29,13 @@ A partir do início de junho de 2017, a Central de Segurança do Azure vai impla
 > A migração de plataforma não deve afetar os recursos de produção e você não precisa fazer nada.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
-## O que acontece durante a migração de plataforma?
+## <a name="whats-happening-during-this-platform-migration"></a>O que acontece durante a migração de plataforma?
 
 Anteriormente, a Central de Segurança usava o agente de monitoramento do Azure para coletar dados de segurança de suas VMs. Isso inclui informações sobre as configurações de segurança, que são usadas para identificar vulnerabilidades, e eventos de segurança, que são usados para detectar ameaças. Esses dados eram armazenados em suas contas de armazenamento no Azure.
 
 De agora em diante, a Central de Segurança do Azure usa o Microsoft Monitoring Agent; ele é o mesmo agente usado pelos serviços Operations Management Suite e Log Analytics. Os dados coletados desse agente são armazenados no *análise de Log* [espaço de trabalho](../log-analytics/log-analytics-manage-access.md) do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho, levando em conta a localização geográfica da VM.
 
-<a id="agent" class="xliff"></a>
-
-## Agente
+## <a name="agent"></a>Agente
 
 Como parte da transição, o Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VMs do Azure cujos dados estejam sendo coletados no momento.  Se a VM já possui o Microsoft Monitoring Agent instalado, a Central de Segurança otimiza o agente instalado atual.
 
@@ -56,9 +49,7 @@ O Microsoft Monitoring Agent para Windows exige o uso da porta TCP 443. Leia o [
 > [!NOTE] 
 > Como o Microsoft Monitoring Agent pode ser usado por outro serviço de gerenciamento e monitoramento do Azure, o agente não será desinstalado automaticamente quando você desligar a coleta de dados na Central de Segurança. Você poderá desinstalar o agente manualmente, se necessário.
 
-<a id="workspace" class="xliff"></a>
-
-## Espaço de trabalho
+## <a name="workspace"></a>Espaço de trabalho
 
 Conforme descrito anteriormente, os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do) são armazenados em um espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou em um novo espaço, levando em conta a geolocalização da VM.
 
@@ -72,16 +63,12 @@ No caso de espaços de trabalho criados pela Central de Segurança, os dados ser
 > [!NOTE]
 > Os dados coletados anteriormente pela Central de Segurança permanecem nas suas contas de armazenamento. Quando a migração é concluída, você pode excluir essas contas de armazenamento.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### Solução de segurança do OMS 
+### <a name="oms-security-solution"></a>Solução de segurança do OMS 
 
 Para clientes que não têm um solução de segurança do OMS instalada, A Microsoft vai instalá-la em seu espaço de trabalho, mas ela tem como objetivo somente VMs do Azure. Não desinstale essa solução, pois não existe correção automática se isso for feito no console de gerenciamento do OMS.
 
 
-<a id="other-updates" class="xliff"></a>
-
-## Outras atualizações
+## <a name="other-updates"></a>Outras atualizações
 
 Em conjunto com a migração de plataforma, estamos implantando outras pequenas atualizações adicionais:
 
@@ -90,5 +77,6 @@ Em conjunto com a migração de plataforma, estamos implantando outras pequenas 
 - O [preço](https://azure.microsoft.com/pricing/details/security-center/) será proporcional à hora (anteriormente, era diário), o que resulta em economia de custo para alguns clientes.
 - A coleta de dados será obrigatória e habilitada automaticamente para clientes no tipo de preço Standard.
 - A Central de Segurança do Azure começará a descobrir soluções antimalware que não foram implantadas por meio de extensões do Azure. A descoberta do Symantec Endpoint Protection and Defender para Windows 2016 ficará disponível primeiro.
+- As políticas de prevenção e notificações só são configuráveis no nível da *Assinatura*, mas os preços ainda podem ser definidos no nível do *Grupo de Recursos*
 
 

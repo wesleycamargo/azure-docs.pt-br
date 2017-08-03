@@ -4,21 +4,21 @@ description: "Este artigo aborda dúvidas comuns sobre o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: d3351e4a480caa1bf02e82545f130b14bf6f0910
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 4947e4a1bbf6578c2908051c6f1d28430b61cde8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,20 +27,19 @@ Este artigo contém perguntas frequentes sobre o Azure Site Recovery. Se você t
 
 ## <a name="general"></a>Geral
 ### <a name="what-does-site-recovery-do"></a>O que faz o Site Recovery?
-O Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando e automatizando a replicação de máquinas virtuais locais e de servidores físicos no Azure ou em um datacenter secundário. [Saiba mais](site-recovery-overview.md).
+O Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando e automatizando a replicação de VMs do Azure entre regiões, máquinas virtuais locais e servidores físicos no Azure e máquinas locais em um datacenter secundário. [Saiba mais](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>O que o Site Recovery pode proteger?
+* **VMs do Azure**: o Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM do Azure com suporte
 * **Máquinas virtuais do Hyper-V**: o Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM Hyper-V.
 * **Servidores físicos**: o Site Recovery pode proteger servidores físicos com o Windows ou o Linux em execução.
 * **Máquinas virtuais VMware**: o Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM VMware.
 
 ### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>O Recuperação de Site dá suporte ao modelo do Azure Resource Manager?
-Além da Recuperação de Site no Portal Clássico do Azure, a Recuperação de Site está disponível no Portal do Azure com suporte para o Resource Manager. Na maioria dos cenários de implantação, a Recuperação de Site no Portal do Azure fornece uma experiência de implantação simplificada e pode replicar VMs e servidores físicos no armazenamento clássico ou do Resource Manager. Aqui estão as implantações com suporte:
+O Site Recovery está disponível no Portal do Azure com suporte para o Resource Manager. O Site Recovery oferece suporte a implantações herdadas no Portal Clássico do Azure. Você não pode criar novos cofres no Portal Clássico, e não há suporte para os novos recursos.
 
-* [Replicar VMs VMware ou servidores físicos para o Azure no Portal do Azure](site-recovery-vmware-to-azure.md)
-* [Replicar VMs Hyper-V em nuvens VMM para o Azure no Portal do Azure](site-recovery-vmm-to-azure.md)
-* [Replicar VMs Hyper-V ( sem VMM) para o Azure no Portal do Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicar VMs Hyper-V em nuvens VMM para um site secundário no Portal do Azure](site-recovery-vmm-to-vmm.md)
+### <a name="can-i-replicate-azure-vms"></a>Posso replicar VMs do Azure?
+Sim, você pode replicar VMs do Azure com suporte entre regiões do Azure. [Saiba mais](site-recovery-azure-to-azure.md).
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>O que preciso no Hyper-V para orquestrar a replicação com a Recuperação de Site?
 Para o servidor de host do Hyper-V que você precisa depende do cenário de implantação. Verifique os pré-requisitos do Hyper-V em:
@@ -87,6 +86,10 @@ A licença de Site Recovery é por instância protegida, onde uma instância é 
 
 - Se um disco de VM replica para uma conta de armazenamento padrão, o custo de armazenamento do Azure é para o consumo de armazenamento. Por exemplo, se o tamanho do disco de origem é 1 TB e 400 GB é usado, Site Recovery cria um VHD de 1 TB no Azure, mas o armazenamento cobrado é 400 GB (mais a quantidade de espaço de armazenamento usado para logs de replicação).
 - Se um disco de VM replica para uma conta de armazenamento premium, o custo de armazenamento do Azure é para o tamanho de armazenamento provisionado, arredondado para a opção mais próxima de disco de armazenamento premium. Por exemplo, se o tamanho do disco de origem for 50 GB, Site Recovery cria um disco de 50 GB no Azure e o Azure isso mapeia para o disco de armazenamento premium mais próximo (P10).  Os custos são calculados em P10 e não no tamanho do disco de 50 GB.  [Saiba mais](https://aka.ms/premium-storage-pricing).  Se você estiver usando o armazenamento premium, uma conta de armazenamento padrão para o log de replicação também é necessária e a quantidade de espaço de armazenamento padrão usado para esses logs também é cobrada.
+- Nenhum disco é criado até a realização de um failover de teste ou de um failover. No estado de replicação, os encargos de armazenamento na categoria "Blob de páginas e de disco", conforme a [Calculadora de preços de armazenamento](https://azure.microsoft.com/en-in/pricing/calculator/), serão cobrados. Esses encargos se baseiam no tipo de armazenamento premium/standard e no tipo de redundância de dados LRS, GRS, RA-GRS etc.
+- Se a opção para usar discos gerenciados em um failover for selecionada, os [encargos para discos gerenciados](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) serão aplicados após um failover/failover de teste. Os encargos de discos gerenciados não se aplicam durante a replicação.
+- Se a opção para usar discos gerenciados em um failover não for selecionada, os encargos de armazenamento na categoria "Blob de páginas e de disco", de acordo com a [Calculadora de preços de armazenamento](https://azure.microsoft.com/en-in/pricing/calculator/), serão cobrados após o failover. Esses encargos se baseiam no tipo de armazenamento premium/standard e no tipo de redundância de dados LRS, GRS, RA-GRS etc.
+- As transações de armazenamento são cobradas durante a replicação de estado estacionário e para operações regulares de VM após um failover/failover de teste. Mas essas cobranças são insignificantes.
 
 Os custos são incorridos também durante o failover de teste, onde os custos de transações de VM, armazenamento, saída e armazenamento serão aplicados.
 

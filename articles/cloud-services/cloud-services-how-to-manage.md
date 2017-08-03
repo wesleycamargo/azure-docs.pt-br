@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -113,7 +113,7 @@ O procedimento a seguir descreve como vincular uma nova instância de banco de d
     ![Vincular Página1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Clique em **Crie um novo recurso** ou em **Vincular um recurso existente**.
-5. Escolha o tipo de recurso a ser vinculado. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Banco de Dados SQL**. (A visualização do portal clássico do Azure não dá suporte à vinculação de uma conta do armazenamento a um Serviço de Nuvem).
+5. Escolha o tipo de recurso a ser vinculado. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Banco de Dados SQL**. (Somente o Portal Clássico do Azure dá suporte à vinculação de uma conta do armazenamento a um serviço de nuvem).
 6. Para concluir a configuração do banco de dados, siga instruções da ajuda para a área **Bancos de Dados SQL** do portal clássico do Azure.
 
     Então, você pode acompanhar o progresso da operação de vínculo na área de mensagem.

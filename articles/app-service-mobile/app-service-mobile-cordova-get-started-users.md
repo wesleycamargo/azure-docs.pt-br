@@ -3,8 +3,8 @@ title: "Adicionar autenticação no Apache Cordova com os Aplicativos Móveis| M
 description: "Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para autenticar usuários de seu aplicativo Apache Cordova usando vários provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
-ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
-ms.lasthandoff: 02/16/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2073819fe60aa51b88feeaf3b0ff0e8d052b4c7
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Adicionar autenticação ao aplicativo Apache Cordova
@@ -49,7 +49,7 @@ Em seguida, atualize o aplicativo para autenticar os usuários antes de solicita
 
    | Provedor | Nome do provedor do SDK | Host OAuth |
    |:--- |:--- |:--- |
-   | Active Directory do Azure | aad | https://login.windows.net |
+   | Active Directory do Azure | aad | https://login.microsoftonline.com |
    | Facebook | Facebook | https://www.facebook.com |
    | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -58,9 +58,9 @@ Em seguida, atualize o aplicativo para autenticar os usuários antes de solicita
     Veja a seguir um exemplo de Política de segurança de conteúdo (implementada para o Active Directory do Azure):
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+            data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Substitua `https://login.windows.net` pelo host OAuth da tabela anterior.  Para obter mais informações sobre a marcação meta content-security-policy, consulte a [Documentação de Content-Security-Policy].
+    Substitua `https://login.microsoftonline.com` pelo host OAuth da tabela anterior.  Para obter mais informações sobre a marcação meta content-security-policy, consulte a [Documentação de Content-Security-Policy].
 
     Alguns provedores de autenticação não exigem mudanças no Content-Security-Policy quando usado em dispositivos móveis apropriados.  Por exemplo, nenhuma mudança na Política de segurança de conteúdo será necessária ao usar a autenticação do Google em um dispositivo Android.
 

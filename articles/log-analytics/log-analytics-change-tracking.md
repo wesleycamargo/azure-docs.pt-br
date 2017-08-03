@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
+
+![Símbolo do Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
@@ -33,6 +35,17 @@ Use as informações a seguir para instalar e configurar a solução.
 
 * Você deve ter um agente do [Windows](log-analytics-windows-agents.md), do [Operations Manager](log-analytics-om-agents.md) ou do [Linux](log-analytics-linux-agents.md) em cada computador no qual deseja controlar as alterações.
 * Adicione a solução de Controle de Alterações do seu espaço de trabalho do OMS do [marketplace do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+
+### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle
+Use as etapas a seguir para configurar arquivos para controle em computadores Linux.
+
+1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
+2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Controle de Arquivos do Linux**.
+3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/*.conf”
+4. Clique em **Salvar**.  
+  
+> [!NOTE]
+> O controle de arquivos do Linux tem funcionalidades adicionais, incluindo controle de diretórios, recursão por diretórios e controle de curingas.
 
 ### <a name="configure-windows-files-to-track"></a>Configurar os arquivos do Windows para controlar
 Use as etapas a seguir para configurar os arquivos para controle em computadores Windows.
@@ -52,14 +65,30 @@ Use as etapas a seguir para configurar as chaves do Registro para rastrear em co
 4. Clique em **Salvar**.  
    ![Controle de alterações de Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
+### <a name="explanation-of-linux-file-collection-properties"></a>Explicação das propriedades da coleção de arquivos do Linux
+1. **Tipo**
+   * **Arquivo** (relate os metadados do arquivo – tamanho, data de modificação, hash, etc.)
+   * **Diretório** (relate os metadados do diretório – tamanho, data de modificação, etc.)
+2. **Links** (manipulação de referências de symlink do Linux para outros arquivos ou diretórios)
+   * **Ignorar** (ignore os symlinks durante as recursões para não incluir os arquivos/diretórios referenciados)
+   * **Seguir** (siga os symlinks durante a recursão para incluir também os arquivos/diretórios referenciados)
+   * **Gerenciar** (siga os symlinks e altere o tratamento do conteúdo retornado) 
+   
+   > [!NOTE]   
+   > A opção de links “Gerenciar” não é recomendável, porque, no momento, não há suporte para a recuperação de conteúdo do arquivo.
+   
+3. **Realizar recursão** (realize recursão nos níveis de pasta e controle todos os arquivos que atendem à instrução de caminho)
+4. **Sudo** (habilite o acesso a arquivos ou diretórios que exigem privilégios do sudo)
+
 ### <a name="limitations"></a>Limitações
 A solução de Controle de Alterações atualmente não suporta o seguinte:
 
-* pastas (diretórios)
-* recursão
-* caracteres curinga
-* variáveis de caminho
-* sistemas de arquivos de rede
+* Pastas (diretórios) para o Controle de Arquivos do Windows
+* Recursão para o Controle de Arquivos do Windows
+* Curingas para o Controle de Arquivos do Windows
+* Variáveis de caminho
+* Sistemas de arquivos de rede
+* Conteúdo do arquivo
 
 Outras limitações:
 

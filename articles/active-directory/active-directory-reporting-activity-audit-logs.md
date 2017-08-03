@@ -1,5 +1,4 @@
 ---
-
 title: "Auditoria de relatórios de atividade no portal do Azure Active Directory | Microsoft Docs"
 description: "Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
@@ -131,7 +130,7 @@ Ao selecionar **Grupo** como **tipo de recurso de atividade**, você obtém uma 
 
 O filtro **atividade** se baseia na categoria e na seleção do tipo de recurso de atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
 
-Você pode obter a lista de todas as Atividades de Auditoria usando a API do Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, onde $tenantdomain = seu nome de domínio ou consulte o artigo [eventos do relatório de auditoria](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Você pode obter a lista de todas as Atividades de Auditoria usando a API do Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, onde $tenantdomain = seu nome de domínio ou consulte o artigo [eventos do relatório de auditoria](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Atalhos de logs de auditoria
@@ -185,6 +184,7 @@ Você pode filtrar essa exibição para apenas **grupos** ou apenas **usuários*
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
+
+Para obter uma visão geral dos relatórios, confira os [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 

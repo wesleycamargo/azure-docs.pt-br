@@ -12,17 +12,18 @@ ms.devlang: azurecli
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/16/2016
+ms.date: 06/23/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eeb1c6f95a254245d5598f56fb615e1c83de23d5
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 7a8653a82775e718c38f65f246d997ba61f99d58
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Linux em um novo nó do Azure
-Se você tiver tendo dificuldades em solucionar problemas de SSH ou de acesso do aplicativo a uma VM (máquina virtual) Linux no Azure, reimplantar a VM poderá ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
+Se você tiver dificuldades ao solucionar problemas de SSH ou de acesso do aplicativo a uma VM (máquina virtual) Linux no Azure, reimplantar a VM poderá ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente. Todos os recursos associados e opções de configuração são mantidos. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
 
 > [!NOTE]
 > Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual serão atualizados. 
@@ -33,19 +34,19 @@ Reimplante uma VM usando uma das opções a seguir. Escolha uma opção para rei
 - [CLI 1.0 do Azure](#azure-cli-10)
 - [Portal do Azure](#using-azure-portal)
 
-## <a name="azure-cli-20"></a>CLI 2.0 do Azure
+## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
 Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em uma conta do Azure usando [az login](/cli/azure/#login).
 
-Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## <a name="azure-cli-10"></a>CLI 1.0 do Azure
+## <a name="use-the-azure-cli-10"></a>Usar a CLI 1.0 do Azure
 Instale a [CLI 1.0 do Azure mais recente](../../cli-install-nodejs.md), faça logon uma conta do Azure e verifique se você está no modo do Resource Manager (`azure config mode arm`).
 
-O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 

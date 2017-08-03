@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
@@ -90,16 +90,12 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 * [Usando o Barramento de Serviço do .NET com AMQP]
 * [Usando o Barramento de Serviço do Java com AMQP]
-* [Usando o Barramento de Serviço do Python com AMQP]
-* [Usando o Barramento de Serviço do PHP com AMQP]
 * [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
 * [AMQP no Barramento de Serviço para Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
 [Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
-[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
-[Usando o Barramento de Serviço do PHP com AMQP]: service-bus-amqp-php.md
 [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

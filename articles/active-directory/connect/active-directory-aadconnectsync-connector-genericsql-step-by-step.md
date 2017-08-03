@@ -21,22 +21,16 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 01/05/2017
 
 ---
-<a id="generic-sql-connector-step-by-step" class="xliff"></a>
-
-# Passo a passo do Conector do SQL Genérico
+# <a name="generic-sql-connector-step-by-step"></a>Passo a passo do Conector do SQL Genérico
 Este tópico é um guia passo a passo. Ele cria um banco de dados de RH de exemplo simples e o usará para a importação de alguns usuários e sua associação a um grupo.
 
-<a id="prepare-the-sample-database" class="xliff"></a>
-
-## Preparar o banco de dados de exemplo
+## <a name="prepare-the-sample-database"></a>Preparar o banco de dados de exemplo
 Em um servidor que executa o SQL Server, execute o script SQL encontrado no [Apêndice A](#appendix-a). Esse script cria um banco de dados de exemplo com o nome GSQLDEMO. O modelo de objeto para o banco de dados criado é semelhante a esta imagem:   
 ![Modelo de objeto](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
 Também crie um usuário que deseja usar para se conectar ao banco de dados. Neste passo a passo, o usuário é chamado FABRIKAM\SQLUser e está localizado no domínio.
 
-<a id="create-the-odbc-connection-file" class="xliff"></a>
-
-## Criar o arquivo de conexão ODBC
+## <a name="create-the-odbc-connection-file"></a>Criar o arquivo de conexão ODBC
 O Conector do SQL Genérico está usando o ODBC para se conectar ao servidor remoto. Primeiro, precisamos criar um arquivo com as informações de conexão ODBC.
 
 1. Inicie o utilitário de gerenciamento ODBC no servidor:   
@@ -66,9 +60,7 @@ O Conector do SQL Genérico está usando o ODBC para se conectar ao servidor rem
 
 Agora temos o arquivo necessário e podemos começar a criar o Conector.
 
-<a id="create-the-generic-sql-connector" class="xliff"></a>
-
-## Criar o Conector do SQL Genérico
+## <a name="create-the-generic-sql-connector"></a>Criar o Conector do SQL Genérico
 1. Na interface do usuário do Synchronization Service Manager, selecione **Conectores** e **Criar**. Selecione **SQL Genérico (Microsoft)** e dê a ele um nome descritivo.  
    ![Connector1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
 2. Encontre o arquivo DSN criado na seção anterior e o carregue no servidor. Forneça as credenciais para se conectar ao banco de dados.  
@@ -89,9 +81,7 @@ Agora temos o arquivo necessário e podemos começar a criar o Conector.
    ![Connector9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
 10. Em **Selecionar Tipos de Objeto** e **Selecionar Atributos**, selecione os dois tipos de objeto e todos os atributos. Na página **Configurar Âncoras**, clique em **Concluir**.
 
-<a id="create-run-profiles" class="xliff"></a>
-
-## Criar perfis de execução
+## <a name="create-run-profiles"></a>Criar perfis de execução
 1. Na interface do usuário do Synchronization Service Manager, selecione **Conectores** e **Configurar Perfis de Execução**. Clique em **Novo Perfil**. Começamos com **Importação Completa**.  
    ![Runprofile1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
 2. Selecione o tipo **Importação Completa (Somente Estágio)**.  
@@ -107,18 +97,14 @@ Agora temos o arquivo necessário e podemos começar a criar o Conector.
 6. Opcional: se quiser, você poderá configurar perfis de execução adicionais. Para este passo a passo, foi usada apenas a Importação Completa.
 7. Clique em **OK** para concluir a alteração de perfis de execução.
 
-<a id="add-some-test-data-and-test-the-import" class="xliff"></a>
-
-## Adicionar alguns dados de teste e testar a importação
+## <a name="add-some-test-data-and-test-the-import"></a>Adicionar alguns dados de teste e testar a importação
 Preencha alguns dados de teste no banco de dados de exemplo. Quando estiver pronto, selecione **Executar** e **Importação completa**.
 
 Aqui está um usuário com dois números de telefone e um grupo com alguns membros.  
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
 ![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
-<a id="appendix-a" class="xliff"></a>
-
-## Apêndice A
+## <a name="appendix-a"></a>Apêndice A
 **Script SQL para criar o banco de dados de exemplo**
 
 ```SQL

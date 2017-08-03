@@ -3,7 +3,7 @@ title: Etapas detalhadas para criar um par de chaves SSH para VMs Linux no Azure
 description: "Aprenda as etapas adicionais para criar um par de chaves SSH pública e privada para VMs Linux no Azure, junto com certificados específicos para diversos casos de uso."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f452e8b3802bef5dc61bff64a8ac9ec5bb2a5bd9
-ms.lasthandoff: 04/03/2017
-
+ms.date: 6/28/2017
+ms.author: danlep
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Passo a passo detalhado para criar um par de chaves SSH e certificados adicionais para uma VM Linux no Azure
-Com um par de chaves SSH, você pode criar máquinas virtuais no Azure que tenham como padrão o uso de chaves SSH para autenticação, eliminando a necessidade de senhas para fazer logon. As senhas podem ser adivinhadas e podem abrir suas VMs para tentativas de uso contínuo de força bruta para adivinhá-las. As VMs criadas com a CLI do Azure ou com modelos do Resource Manager podem incluir sua chave pública SSH como parte da implantação, removendo uma etapa de configuração pós-implantação que consiste na desabilitação de logons com senha para SSH. Este artigo fornece etapas detalhadas e exemplos adicionais de geração de certificados, por exemplo, para uso com o Portal Clássico. Se você quiser criar e usar rapidamente um par de chaves SSH, confira [Como criar um par de chaves SSH pública e privada para VMs Linux no Azure](mac-create-ssh-keys.md).
+Com um par de chaves SSH, você pode criar máquinas virtuais no Azure que tenham como padrão o uso de chaves SSH para autenticação, eliminando a necessidade de senhas para fazer logon. As senhas podem ser adivinhadas e podem abrir suas VMs para tentativas de uso contínuo de força bruta para adivinhá-las. As VMs criadas com a CLI do Azure ou com modelos do Resource Manager podem incluir sua chave pública SSH como parte da implantação, removendo uma etapa de configuração pós-implantação que consiste na desabilitação de logons com senha para SSH. Este artigo fornece etapas detalhadas e exemplos adicionais de geração de certificados, por exemplo, para uso com máquinas virtuais Linux. Se você quiser criar e usar rapidamente um par de chaves SSH, confira [Como criar um par de chaves SSH pública e privada para VMs Linux no Azure](mac-create-ssh-keys.md).
 
 ## <a name="understanding-ssh-keys"></a>Noções básicas das chaves SSH
 
@@ -36,7 +36,7 @@ Este artigo cria um par de arquivos de chave pública e privada RSA do protocolo
 
 ## <a name="ssh-keys-use-and-benefits"></a>Benefícios e uso das chaves SSH
 
-O Azure exige pelo menos chaves pública e privada no formato RSA de 2048 bits,protocolo SSH versão 2; o arquivo de chave pública tem o formato de contêiner `.pub`. (O portal clássico usa o formato de arquivo `.pem`. Consulte). Para criar as chaves, use `ssh-keygen`, que faz uma série de perguntas e, em seguida, grava uma chave privada e uma chave pública correspondente. Quando uma VM do Azure é criada, o Azure copia a chave pública para a pasta `~/.ssh/authorized_keys` na VM. As chaves SSH no `~/.ssh/authorized_keys` são usadas para desafiar o cliente para coincidir com a chave privada correspondente em uma conexão de logon SSH.  Quando uma VM Linux do Azure é criada usando chaves SSH para autenticação, o Azure configura o servidor SSHD para não permitir logons com senha, apenas com chaves SSH.  Portanto, ao criar VMs Linux do Azure com chaves SSH, você pode ajudar a proteger a implantação de VM e evitar a etapa de configuração pós-implantação típica de desabilitar as senhas no arquivo de **sshd_config**.
+O Azure exige pelo menos chaves pública e privada no formato RSA de 2048 bits,protocolo SSH versão 2; o arquivo de chave pública tem o formato de contêiner `.pub`. Para criar as chaves, use `ssh-keygen`, que faz uma série de perguntas e, em seguida, grava uma chave privada e uma chave pública correspondente. Quando uma VM do Azure é criada, o Azure copia a chave pública para a pasta `~/.ssh/authorized_keys` na VM. As chaves SSH no `~/.ssh/authorized_keys` são usadas para desafiar o cliente para coincidir com a chave privada correspondente em uma conexão de logon SSH.  Quando uma VM Linux do Azure é criada usando chaves SSH para autenticação, o Azure configura o servidor SSHD para não permitir logons com senha, apenas com chaves SSH.  Portanto, ao criar VMs Linux do Azure com chaves SSH, você pode ajudar a proteger a implantação de VM e evitar a etapa de configuração pós-implantação típica de desabilitar as senhas no arquivo de **sshd_config**.
 
 ## <a name="using-ssh-keygen"></a>Usando ssh-keygen
 
@@ -63,21 +63,6 @@ ssh-keygen \
 
 `-C "azureuser@myserver"` = um comentário acrescentado ao fim do arquivo de chave pública para identificá-lo facilmente.  Normalmente, um email é usado como o comentário, mas você pode usar o que funcionar melhor para sua infraestrutura.
 
-## <a name="classic-portal-and-x509-certs"></a>Portal clássico e certificados x.509
-
-Se você estiver usando o [Portal Clássico](https://manage.windowsazure.com/) do Azure, ele exigirá o arquivo .pem do certificado x.509 para as chaves SSH.  Outros tipos de chaves públicas SSH não são permitidos. Elas *devem* ser certificados x.509.
-
-Para criar um certificado x.509 de sua chave privada do SSH-RSA existente:
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
 ## <a name="classic-deploy-using-asm"></a>Implantação clássica usando `asm`
 
 Se estiver usando o modelo de implantação clássica (modo `asm` na CLI), você poderá usar uma chave pública SSH-RSA ou uma chave formatada como RFC4716 em um contêiner pem.  A chave pública SSH-RSA é a que foi criada anteriormente neste artigo usando `ssh-keygen`.
@@ -96,7 +81,7 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.

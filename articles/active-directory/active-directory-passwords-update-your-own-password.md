@@ -1,41 +1,46 @@
 ---
 title: 'Azure AD: redefinir sua senha | Microsoft Docs'
-description: "Usar a redefinição de senha de autoatendimento para recuperar o acesso à conta corporativa ou de estudante"
+description: "Usar a redefinição de senha de autoatendimento para recuperar o acesso à conta de usuário corporativa ou de estudante"
 services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 19a17951b40dcad26c846a45ee786ab5339e59b8
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Ajuda de Esqueci minha senha do Azure AD
+# <a name="help-i-forgot-my-azure-ad-password"></a>Preciso de ajuda, esqueci minha senha do Azure AD
 
-Se você esquecer sua senha, nunca recebeu uma da sua equipe de TI, teve sua conta bloqueada, ou deseja alterar a senha, podemos ajudar.
+Se você esquecer sua senha, nunca recebeu uma da sua equipe de TI, teve sua conta bloqueada, ou deseja alterar a senha, podemos ajudar. Se você souber a senha e somente precisar alterá-la, continue até a seção [Alterar minha senha](#change-my-password) abaixo.
+
+   > [!NOTE]
+   > Se você estiver tentando retornar a sua conta pessoal, como Xbox, hotmail.com ou outlook.com, tente as [sugestões encontradas neste artigo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   >
 
 ## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Redefinir ou desbloquear minha senha para uma conta corporativa ou de estudante
 
-Para entrar na sua conta corporativa ou de estudante, siga as etapas abaixo para acessar a redefinição de senha de autoatendimento do Azure AD ou SSPR como gostamos de chamá-lo.
+Caso não consiga acessar sua conta por causa de um dos seguintes:
+
+* Sua senha não está funcionando e você deseja restaurá-la.
+* Você sabe sua senha, mas a conta está bloqueada e você deseja desbloqueá-la.
+
+Siga as etapas abaixo para acessar a redefinição de senha de autoatendimento do Azure AD ou SSPR como gostamos de chamá-lo e volte para sua conta.
 
 1. Em qualquer página de entrada de conta corporativa ou de estudante, clique no link **Não consegue acessar sua conta?** e, e seguida, clique em **Conta corporativa ou de estudante** ou vá diretamente para a [página de redefinição de senha](https://passwordreset.microsoftonline.com/).
-
-   > [!NOTE]
-   > Se você está tentando retornar a uma conta Pessoal como hotmail.com ou outlook.com tente as [sugestões encontradas neste artigo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
-   >
 
     ![Não é possível acessar sua conta?][Login]
 
@@ -43,7 +48,9 @@ Para entrar na sua conta corporativa ou de estudante, siga as etapas abaixo para
 
    > [!NOTE]
    > Se sua equipe de TI não tiver habilitado essa funcionalidade, um link "entre em contato com seu administrador" será exibido para que sua equipe de TI possa ajudar, por email ou por um portal da Web próprio.
-   >
+   > 
+   > Se você precisar desbloquear sua conta, neste momento escolha a opção "Sei minha senha, mas ainda não consigo entrar".
+   > 
 
 3. Dependendo de como a equipe de TI configurou o SSPR, você poderá ver uma ou mais das seguintes opções. Você ou sua equipe de TI preencheu algumas dessas informações antes de usar o artigo [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
 
@@ -59,11 +66,6 @@ Para entrar na sua conta corporativa ou de estudante, siga as etapas abaixo para
 
 4. A sua equipe de TI pode precisar de outras verificações e pode ser que você tenha que repetir a etapa 3 com uma opção diferente.
 5. Na página **Escolher uma nova senha**, insira uma nova senha, confirme sua senha e clique em **Concluir**. Sugerimos que sua senha tenha de 8 a 16 caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
-
-   > [!NOTE]
-   > Se você precisar desbloquear sua conta, escolha a opção desbloquear apenas, ou alterar sua senha e desbloquear.
-   >
-
 6. Quando você vir **A sua senha foi redefinida.**, você poderá entrar com sua nova senha.
 
     ![A senha do usuário foi redefinida][Complete]
@@ -100,8 +102,8 @@ Use este método se você normalmente acessa seus aplicativos usando o Portal de
 
 | Caso de erro| Que erro você vê?| Solução |
 | --- | --- | --- |
-| Uma página “Contate seu administrador” é exibida após a inserção da minha ID de usuário | Entre em contato com o seu administrador <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Portanto, não podemos redefinir sua senha automaticamente. <br> <br> Você precisa entrar em contato com sua equipe de TI para receber mais assistência. | Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no ambiente local e não permite que você redefina sua senha usando o link Não consegue acessar sua conta? <br> <br> A fim de redefinir sua senha, contate a equipe de TI diretamente para obter ajuda e informe a ela se deseja redefinir sua senha do Office 365 para que ela possa ativar o recurso para você.|
-| Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha usando o link Não consegue acessar sua conta? para sua organização ou não licenciou o uso por você. <br> <br> A fim de redefinir sua senha, clique no link contate um administrador para enviar um email à equipe de TI da empresa e informe a ela se deseja redefinir sua senha do Office 365 para que ela possa ativar o recurso para você. |
+| Uma página “Contate seu administrador” é exibida após a inserção da minha ID de usuário | Entre em contato com o seu administrador <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Portanto, não podemos redefinir sua senha automaticamente. <br> <br> Você precisa entrar em contato com sua equipe de TI para receber mais assistência. | Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no ambiente local e não permite que você redefina sua senha usando o link Não consegue acessar sua conta? <br> <br> Para redefinir sua senha, contate a equipe de TI diretamente para obter ajuda e informe que deseja redefinir sua senha, para que ela possa habilitar o recurso para você.|
+| Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha usando o link Não consegue acessar sua conta? para sua organização ou não licenciou o uso por você. <br> <br> Para redefinir sua senha, clique no link “Contate um administrador” para enviar um email à equipe de TI da empresa e informe que deseja redefinir sua senha para que ela possa habilitar o recurso para você. |
 | Recebo uma mensagem de erro "não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, vá para http://aka.ms/ssprsetup depois que você tiver recuperado o acesso à sua conta. <br> <br> A fim de redefinir sua senha, clique no link contate um administrador para enviar um email à equipe de TI da empresa. |
 
 ## <a name="next-steps"></a>Próximas etapas

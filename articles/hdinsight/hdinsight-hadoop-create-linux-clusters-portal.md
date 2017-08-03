@@ -1,5 +1,5 @@
 ---
-title: Criar Azure HDInsight (Hadoop) usando um navegador da Web | Microsoft Docs
+title: "Criar clusters Hadoop usando um navegador da Web – Azure HDInsight | Microsoft Docs"
 description: "Aprenda a criar clusters Hadoop, HBase, Storm ou Spark em Linux para HDInsight usando um navegador da Web e o portal de visualização do Azure."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 678b2847f9bf39995fa214f181a05c96df9e49f2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
@@ -38,14 +37,17 @@ O portal do Azure é uma ferramenta de gerenciamento baseada na Web para serviç
 ## <a name="create-clusters"></a>Criar clusters
 O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo do Azure Resource Manager, é possível ocultar muitos detalhes. Para obter mais informações, veja [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **+**, em **Inteligência + Análise** e clique em **HDInsight**.
    
-    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Criar um novo cluster no portal do Azure")
+    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Criar um novo cluster no portal do Azure")
 
 3. Na folha **HDInsight**, clique em **Personalizado (tamanho, configurações, aplicativos)**, clique em **Noções básicas** e, em seguida, insira as informações a seguir.
 
-    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Criar um novo cluster no portal do Azure")
+    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "Criar um novo cluster no portal do Azure")
 
     * Insira o **Nome do Cluster**: esse nome deve ser globalmente exclusivo.
 
@@ -55,10 +57,10 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
    
         * **Tipo de Cluster**: se não souber o que escolher, selecione **Hadoop**. É o tipo de cluster mais popular.
      
-             > [!IMPORTANT]
-             > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster. 
-             > 
-             > 
+            > [!IMPORTANT]
+            > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster. 
+            > 
+            > 
         
         * **Sistema Operacional**: selecione **Linux**.
         
@@ -75,11 +77,11 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
     * Especifique um **local** de data center em que o cluster será criado.
 
-    * Clique em **Próximo**.
+    * Clique em **Avançar**.
 
 4. Na folha **Armazenamento**, especifique se deseja o WASB (Armazenamento do Azure) ou Data Lake Store como seu armazenamento padrão. Consulte a tabela abaixo para obter mais informações.
 
-    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Criar um novo cluster no portal do Azure")
+    ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Criar um novo cluster no portal do Azure")
 
     | Armazenamento                                      | Descrição |
     |----------------------------------------------|-------------|
@@ -87,7 +89,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     | **Azure Data Lake Store como armazenamento padrão** | Para **Tipo de armazenamento principal**, selecione **Data Lake Store** e, em seguida, consulte o artigo [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) para obter instruções. |
     | **Metastores externas**                      | Opcionalmente, você pode especificar um Banco de Dados SQL para salvar metadados de Hive e Oozie associados ao cluster. Para **Selecionar um Banco de Dados SQL para Hive**, selecione um Banco de Dados SQL e então forneça o nome de usuário e a senha para ele. Repita essas etapas para metadados do Oozie.<br><br>Há algumas considerações ao usar o Banco de Dados SQL do Azure para metastores. <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.</li><li>Ao criar um metastore, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.</li></ul>                                                                                                                                                                       |
 
-    Clique em **Próximo**. 
+    Clique em **Avançar**. 
 
     > [!WARNING]
     > Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
@@ -97,7 +99,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
 6. Clique em **Tamanho do cluster** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
    
-    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "especificar o número de nós de cluster")
+    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "especificar o número de nós de cluster")
    
    > [!IMPORTANT]
    > Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
@@ -110,18 +112,18 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
 7. Clique em **Configurações avançadas** para definir outras configurações opcionais como usar **Ações de Script** para personalizar um cluster para instalar componentes personalizados ou ingressar em uma **Rede Virtual**. Consulte a tabela abaixo para obter mais informações.
 
-    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "especificar o número de nós de cluster")
+    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "especificar o número de nós de cluster")
 
     | Opção | Descrição |
     |--------|-------------|
     | **Ações de Script** | Use essa opção se você quiser usar um script personalizado para personalizar um cluster enquanto o mesmo estiver sendo criado. Para obter mais informações sobre ações de script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md). |
     | **Rede Virtual** | Selecione uma rede virtual do Azure e a sub-rede se você desejar colocar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). |
 
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 
 8. Na folha **Resumo**, verifique as informações que você inseriu anteriormente e, em seguida, clique em **Criar**.
 
-    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.summary.png "especificar o número de nós de cluster")
+    ![Nó folha de camadas de preços](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "especificar o número de nós de cluster")
     
     > [!NOTE]
     > Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
@@ -129,7 +131,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     > 
 12. Quando o processo de criação for concluído, clique no bloco do cluster no quadro inicial para iniciar a folha de cluster. A folha do cluster fornece as informações a seguir.
     
-    ![Folha de cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.completed.png "propriedades do Cluster")
+    ![Folha de cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "propriedades do Cluster")
     
     Use o descrito a seguir para entender os ícones na parte superior desta folha.
     

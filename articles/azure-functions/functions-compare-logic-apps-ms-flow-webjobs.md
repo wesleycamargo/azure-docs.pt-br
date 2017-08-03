@@ -17,10 +17,10 @@ ms.date: 09/08/2016
 ms.author: chrande; glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -36,7 +36,7 @@ Todos esses serviços são úteis para "unir" sistemas diferentes. Todos eles de
 <a name="flow"></a>
 
 ## <a name="flow-vs-logic-apps"></a>Flow vs. Aplicativos Lógicos
-Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure porque são ambos integrações de *configuração prioritária* , o que facilita a criação de processos e fluxos de trabalho e se integram a diversos aplicativos SaaS e corporativos. 
+Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure juntos porque são ambos integrações de *configuration-first*, o que facilita a criação de processos e fluxos de trabalho e a integração com diversos aplicativos SaaS e corporativos. 
 
 * O Flow é criado em cima de Aplicativos Lógicos
 * Eles têm o mesmo designer de fluxo de trabalho
@@ -50,7 +50,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 | --- | --- | --- |
 | Público-alvo |funcionários do escritório, usuários de negócios |profissionais de TI, desenvolvedores |
 | Cenários |Autoatendimento |Essenciais |
-| Ferramenta de design |No navegador, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
+| Ferramenta de design |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
 | DevOps |Ad-hoc, desenvolver em produção |controle de origem, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
 | Experiência de administrador |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Segurança |Práticas padrão: [soberania de dados](https://wikipedia.org/wiki/Technological_Sovereignty), [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais etc. |Garantia de segurança do Azure: [segurança do Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Central de Segurança](https://azure.microsoft.com/services/security-center/), [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e muito mais. |
@@ -58,7 +58,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 <a name="function"></a>
 
 ## <a name="functions-vs-webjobs"></a>Functions vs. Trabalhos Web
-Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *código prioritário* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças: 
+Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *code-first* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças: 
 
 * Ambos são criados no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e têm recursos como [controle do código-fonte](../app-service-web/app-service-continuous-deployment.md), [autenticação](../app-service/app-service-authentication-overview.md) e [monitoramento](../app-service-web/web-sites-monitor.md).
 * Ambos são serviços voltados para desenvolvedores.

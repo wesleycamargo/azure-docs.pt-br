@@ -2,7 +2,7 @@
 title: "Integrações de parceiros do Azure Monitor | Microsoft Docs"
 description: "Saiba mais sobre os parceiros do Azure Monitor e como você pode acessar a documentação para a integração com eles."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
@@ -67,10 +66,7 @@ O Datadog é líder mundial no monitoramento de serviços para aplicativos de es
 [Vá para a documentação.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-O OneAgent do Dynatrace integra-se com as VMs do Azure e Serviços de Aplicativos por meio dos mecanismos de extensão do Azure.
-Dessa forma, podemos reunir as métricas do desempenho sobre os hosts, rede e serviços.
-Além de exibir apenas as métricas, visualizamos os ambientes de ponta a ponta, mostrando as transações do lado do cliente até a camada do banco de dados.
-A correlação de problemas e a análise da causa-raiz totalmente integrada com base no AI, incluindo as informações no nível do método para o código e o banco de dados, facilitam muito as otimizações do desempenho e a solução de problemas.
+O OneAgent do Dynatrace integra-se com as VMs do Azure e Serviços de Aplicativos por meio dos mecanismos de extensão do Azure. Dessa forma, o Dynatrace OneAgent pode coletar métricas de desempenho sobre os hosts, a rede e os serviços. Além de exibir apenas as métricas, o Dynatrace visualiza os ambientes de ponta a ponta, mostrando as transações do lado do cliente até a camada do banco de dados. A correlação de problemas e a análise da causa-raiz totalmente integrada com base no AI, incluindo as informações no nível do método para o código e o banco de dados, facilitam muito as otimizações do desempenho e a solução de problemas.
 
 [Vá para a documentação.][dynatrace-doc]
 
@@ -148,7 +144,7 @@ O Sumo Logic é um serviço de análise de dados do computador seguro e nativo d
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introdução ao CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introdução ao Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação do Datadog."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentação do Dynatrace."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentação do Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentação do NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação do OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação da PagerDuty"

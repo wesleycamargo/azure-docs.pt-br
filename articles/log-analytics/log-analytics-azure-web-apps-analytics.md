@@ -20,7 +20,6 @@ ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos de métricas entre todos os recursos do aplicativo Web do Azure
@@ -92,6 +91,8 @@ Quando você adiciona a solução Análise de Aplicativos Web do Azure ao espaç
 ### <a name="view-azure-web-apps-analytics-information"></a>Exibir informações do Análise de Aplicativos Web do Azure
 
 Clique no bloco **Análise de Aplicativos Web do Azure** para abrir o painel **Análise de Aplicativos Web do Azure**. O painel inclui as folhas na tabela a seguir. Cada folha lista até dez itens que correspondem aos critérios da folha para o intervalo de tempo e o escopo especificados. É possível executar uma pesquisa de logs que retorna todos os registros clicando em **Ver todos** na parte inferior da folha ou clicando no cabeçalho de folha.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Coluna | Descrição |
 | --- | --- |

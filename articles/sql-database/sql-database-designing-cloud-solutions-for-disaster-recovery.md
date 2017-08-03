@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/18/2017
 
@@ -58,7 +58,7 @@ Após o failover dos pontos de extremidade do aplicativo e do banco de dados ser
 Se ocorrer uma interrupção na região secundária, o link de replicação entre os bancos de dados primário e secundário é suspenso, mas o failover não é disparado pois banco de dados primário não foi afetado. A disponibilidade do aplicativo não é afetada neste caso, mas ele funcionará exposto e, portanto, correrá um risco mais elevado caso ambas as regiões falhem sucessivamente.
 
 > [!NOTE]
-> Só recomendamos configurações de implantação com uma única região de DR. Isso ocorre porque a maioria das regiões geográficas do Azure tem duas regiões. Essas configurações não protegerão seu aplicativo contra uma falha catastrófica de ambas as regiões. Caso ocorra essa falha improvável, você poderá recuperar seus bancos de dados em uma terceira região usando a [operação de restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Para recuperação de desastres, recomendamos a configuração com implantação de aplicativo limitada a duas regiões. Isso ocorre porque a maioria das regiões geográficas do Azure tem somente duas regiões. Essa configuração não protegerá seu aplicativo contra uma falha catastrófica simultânea nas duas regiões.  Caso ocorra essa falha improvável, você poderá recuperar seus bancos de dados em uma terceira região usando a [operação de restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Depois que a interrupção for atenuada, o banco de dados secundário será sincronizado automaticamente com o primário. Durante a sincronização, o desempenho do primário poderá ser ligeiramente afetado, dependendo da quantidade de dados que precisam ser sincronizados. O diagrama a seguir ilustra uma interrupção na região secundária.

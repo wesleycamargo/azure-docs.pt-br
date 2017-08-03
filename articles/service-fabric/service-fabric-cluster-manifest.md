@@ -1,6 +1,6 @@
 ---
-title: "Configurar o cluster autônomo | Microsoft Docs"
-description: "Este artigo descreve como configurar seu cluster autônomo ou particular do Service Fabric."
+title: "Configurar o cluster do Azure Service Fabric autônomo | Microsoft Docs"
+description: "Aprenda a configurar seu cluster autônomo ou particular do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Isso abrange as configurações específicas mais amplas do cluster, conforme mo
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável **name** . O **clusterConfigurationVersion** é o número de versão do cluster; você deve aumentá-lo toda vez que atualizar seu cluster do Service Fabric. No entanto, deixe a **apiVersion** com o valor padrão.
 
@@ -87,6 +88,10 @@ A seção **reliabilityLevel** define o número de cópias de serviços do siste
     "reliabilityLevel": "Bronze",
 
 Observe que, uma vez que um nó principal executa uma única cópia dos serviços do sistema, você precisaria de pelo menos três nós primários para os níveis de confiabilidade *Bronze*, cinco para *Prata*, sete para *Ouro* e nove para *Platina*.
+
+Se você não especificar a propriedade reliabilityLevel em seu clusterConfig.json, nosso sistema calculará a reliabilityLevel mais otimizada com base no número de nós "NodeType primário" existentes. Por exemplo, se você tiver quatro nós primários, o reliabilityLevel será definido como bronze; se você tiver cinco nós, o reliabilityLevel será definido como prata. Em breve, removeremos a opção de configurar o nível de confiabilidade, já que o cluster detectará e usará o nível de confiabilidade ideal automaticamente.
+
+O ReliabilityLevel pode ser atualizado. Você pode criar um clusterConfig.json v2 e aumentar e diminuir com uma [Atualização de configuração de cluster autônomo](service-fabric-cluster-upgrade-windows-server.md). Você também pode atualizar para um clusterConfig.json v2 sem reliabilityLevel especificado, para que o reliabilityLevel seja calculado automaticamente. 
 
 ### <a name="diagnostics"></a>Diagnostics
 A seção **diagnosticsStore** permite configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o trecho a seguir. 
@@ -183,6 +188,21 @@ O exemplo a seguir mostra como alterar o log de transações compartilhado que �
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>Recursos de complemento
+Para configurar recursos de complemento, a apiVersion deve ser configurada como ' 04-2017' ou superior e addonFeatures precisa ser configurado:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>Suporte a contêiner
+Para habilitar o suporte de contêiner para o contêiner do windows server e o contêiner do hyper-v para clusters autônomos, o recurso de complemento 'DnsService' deve ser habilitado.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de configurar um arquivo ClusterConfig.JSON completo de acordo com a configuração do cluster independente, é possível implantar o cluster seguindo o artigo [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) e continuando com [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

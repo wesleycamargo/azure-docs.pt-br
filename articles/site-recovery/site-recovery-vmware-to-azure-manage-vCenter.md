@@ -1,5 +1,5 @@
 ---
-title: " Gerenciar um VMware vCenter Server no Azure Site Recovery | Microsoft Docss"
+title: " Gerenciar um servidor VMware vCenter no Azure Site Recovery | Microsoft Docs"
 description: Este artigo descreve como adicionar e gerenciar o VMware vCenter no Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 5578dea457f3eeda72e3a1e4e61382cdf0de285d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -26,9 +27,9 @@ Este artigo discute as várias operações do Site Recovery que podem ser execut
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-**Suporte a VMware vCenter e o Host ESX do VMware vSphere** | **Detalhes**
---- | ---
-**Servidores VMware locais** | Um ou mais servidores VMware vSphere, executando 6.0, 5.5 e 5.1 com as últimas atualizações. Os servidores devem estar localizados na mesma rede que o servidor de configuração (ou servidor de processo separado).<br/><br/> Recomendamos um servidor vCenter para gerenciar hosts, executando 6.0 ou 5.5 com as atualizações mais recentes. Somente recursos que estão disponíveis no 5.5 têm suporte quando você implanta a versão 6.0.
+**Suporte a VMware vCenter e o Host ESX do VMware vSphere** | **Detalhes** |
+|--- | --- |
+|**Servidores VMware locais** | Um ou mais servidores VMware vSphere, executando 6.0, 5.5, 5.1 com as últimas atualizações. Os servidores devem estar localizados na mesma rede que o servidor de configuração (ou servidor de processo separado).<br/><br/> Recomendamos um servidor vCenter para gerenciar hosts, executando 6.0 ou 5.5 com as atualizações mais recentes. Somente recursos que estão disponíveis no 5.5 têm suporte quando você implanta a versão 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a descoberta automática
 A Site Recovery precisa de acesso ao VMware para que o servidor de processo descubra automaticamente as máquinas virtuais e para failover e failback de máquinas virtuais.

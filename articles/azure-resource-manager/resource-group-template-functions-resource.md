@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 66c71906614e5d0c8e8531271444fc59a5cb779f
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
@@ -52,47 +51,6 @@ Retorna os valores para qualquer tipo de recurso que ofereça suporte à operaç
 | resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
 | apiVersion |Sim |string |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
 
-### <a name="remarks"></a>Comentários
-
-Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. Para determinar quais tipos de recursos têm uma operação de lista, use as seguintes opções:
-
-* Veja as [operações da API REST](/rest/api/) de um provedor de recursos e procure por operações de lista. Por exemplo, as contas de armazenamento têm a [operação listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Use o cmdlet do PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). O exemplo a seguir obtém todas as operações de lista de contas de armazenamento:
-
-  ```powershell
-  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
-  ```
-* Use o seguinte comando da CLI do Azure e o utilitário JSON [jq](http://stedolan.github.io/jq/download/) para filtrar apenas as operações de lista:
-
-  ```azurecli
-  azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
-  ```
-
-Especifique o recurso usando a [função resourceId](#resourceid) ou o formato `{providerNamespace}/{resourceType}/{resourceName}`.
-
-### <a name="examples"></a>Exemplos
-
-O exemplo a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountId": {
-            "type": "string"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "storageKeysOutput": {
-            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
-            "type" : "object"
-        }
-    }
-}
-``` 
-
 ### <a name="return-value"></a>Valor de retorno
 
 O objeto retornado de listKeys tem o seguinte formato:
@@ -116,6 +74,48 @@ O objeto retornado de listKeys tem o seguinte formato:
 
 Outras funções de lista têm formatos diferentes de retorno. Para ver o formato de uma função, inclua-a na seção de saídas, conforme mostra o exemplo de modelo. 
 
+### <a name="remarks"></a>Comentários
+
+Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. Para determinar quais tipos de recursos têm uma operação de lista, use as seguintes opções:
+
+* Veja as [operações da API REST](/rest/api/) de um provedor de recursos e procure por operações de lista. Por exemplo, as contas de armazenamento têm a [operação listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Use o cmdlet do PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). O exemplo a seguir obtém todas as operações de lista de contas de armazenamento:
+
+  ```powershell
+  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+  ```
+* Use o seguinte comando da CLI do Azure para filtrar apenas as operações de lista:
+
+  ```azurecli
+  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
+  ```
+
+Especifique o recurso usando a [função resourceId](#resourceid) ou o formato `{providerNamespace}/{resourceType}/{resourceName}`.
+
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountId": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "storageKeysOutput": {
+            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+``` 
+
 <a id="providers" />
 
 ## <a name="providers"></a>providers
@@ -129,24 +129,6 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sim |string |Namespace do provedor |
 | resourceType |Não |string |O tipo de recurso no namespace especificado. |
-
-### <a name="examples"></a>Exemplos
-
-O exemplo a seguir mostra como usar a função provider:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "providerOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-            "type" : "object"
-        }
-    }
-}
-```
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -162,6 +144,46 @@ Cada tipo com suporte é retornado no seguinte formato:
 
 A ordenação de matriz dos valores retornados não é garantida.
 
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir mostra como usar a função provider:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "providerOutput": {
+            "value": "[providers('Microsoft.Web', 'sites')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+O exemplo anterior retorna um objeto no seguinte formato:
+
+```json
+{
+  "resourceType": "sites",
+  "locations": [
+    "South Central US",
+    "North Europe",
+    "West Europe",
+    "Southeast Asia",
+    ...
+  ],
+  "apiVersions": [
+    "2016-08-01",
+    "2016-03-01",
+    "2015-08-01-preview",
+    "2015-08-01",
+    ...
+  ]
+}
+```
+
 <a id="reference" />
 
 ## <a name="reference"></a>reference
@@ -176,6 +198,10 @@ Retorna um objeto que representa o estado de tempo de execução de um recurso.
 | resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. |
 | apiVersion |Não |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. |
 
+### <a name="return-value"></a>Valor de retorno
+
+Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
+
 ### <a name="remarks"></a>Comentários
 
 A função de referência deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. Ela pode ser usada na seção de saídas de um modelo. 
@@ -184,30 +210,24 @@ Usando a função de referência, você declara implicitamente que um recurso de
 
 Para ver os valores e nomes de propriedade para um tipo de recurso, crie um modelo que retorne o objeto na seção de saídas . Se você tiver um recurso existente desse tipo, o modelo retornará o objeto sem implantar qualquer recurso. 
 
-### <a name="examples"></a>Exemplos
-
-O exemplo a seguir faz referência a uma conta de armazenamento que não foi implantada no modelo, mas existe dentro do mesmo grupo de recursos.
+Normalmente, você usa a função **reference** para retornar um valor específico de um objeto, como o URI do ponto de extremidade de blob ou o nome de domínio totalmente qualificado.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountName": {
-            "type": "string"
-        }
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
+    "FQDN": {
+        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "type" : "string"
     }
 }
 ```
 
-Ou, você pode implantar e fazer referência ao recurso no mesmo modelo.
+### <a name="example"></a>Exemplo
+
+Para implantar e fazer referência ao recurso no mesmo modelo, use:
 
 ```json
 {
@@ -242,24 +262,44 @@ Ou, você pode implantar e fazer referência ao recurso no mesmo modelo.
 }
 ``` 
 
-Normalmente, você usa a função de referência para retornar um valor específico de um objeto, como o URI do ponto de extremidade de blob ou o nome de domínio totalmente qualificado.
+O exemplo anterior retorna um objeto no seguinte formato:
 
 ```json
-"outputs": {
-    "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-        "type" : "string"
-    },
-    "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
-        "type" : "string"
-    }
+{
+   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "primaryEndpoints": {
+     "blob": "https://examplestorage.blob.core.windows.net/",
+     "file": "https://examplestorage.file.core.windows.net/",
+     "queue": "https://examplestorage.queue.core.windows.net/",
+     "table": "https://examplestorage.table.core.windows.net/"
+   },
+   "primaryLocation": "southcentralus",
+   "provisioningState": "Succeeded",
+   "statusOfPrimary": "available",
+   "supportsHttpsTrafficOnly": false
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+O exemplo a seguir faz referência a uma conta de armazenamento que não foi implantada no modelo, mas existe dentro do mesmo grupo de recursos.
 
-Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "ExistingStorage": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+```
 
 <a id="resourcegroup" />
 
@@ -268,7 +308,40 @@ Cada tipo de recurso retorna propriedades diferentes para a função de referên
 
 Retorna um objeto que representa o grupo de recursos atual. 
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+O objeto retornado está no seguinte formato:
+
+```json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}",
+  "tags": {
+  },
+  "properties": {
+    "provisioningState": "{status}"
+  }
+}
+```
+
+### <a name="remarks"></a>Comentários
+
+Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um site Web.
+
+```json
+"resources": [
+   {
+      "apiVersion": "2016-08-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('siteName')]",
+      "location": "[resourceGroup().location]",
+      ...
+   }
+]
+```
+
+### <a name="example"></a>Exemplo
 
 O modelo a seguir retorna as propriedades do grupo de recursos.
 
@@ -286,33 +359,15 @@ O modelo a seguir retorna as propriedades do grupo de recursos.
 }
 ```
 
-Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um site Web.
-
-```json
-"resources": [
-   {
-      "apiVersion": "2014-06-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
-```
-
-### <a name="return-value"></a>Valor de retorno
-
-O objeto retornado está no seguinte formato:
+O exemplo anterior retorna um objeto no seguinte formato:
 
 ```json
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "location": "{resourceGroupLocation}",
-  "tags": {
-  },
+  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
+  "name": "examplegroup",
+  "location": "southcentralus",
   "properties": {
-    "provisioningState": "{status}"
+    "provisioningState": "Succeeded"
   }
 }
 ```
@@ -334,29 +389,40 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 | resourceName1 |Sim |string |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome do recurso se o recurso está aninhado. |
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
 
-O exemplo a seguir retorna a ID de recurso de uma conta de armazenamento no grupo de recursos:
+O identificador é retornado no seguinte formato:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceIdOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        }
-    }
-}
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-O exemplo a seguir mostra como recuperar as IDs de recurso de um site em outro grupo de recursos, e um banco de dados em um grupo de recursos diferente:
+### <a name="remarks"></a>Comentários
+
+Os valores de parâmetro que você especifica dependem se o recurso está na mesma assinatura e grupo de recursos que a implantação atual.
+
+Para obter a ID de recurso de uma conta de armazenamento na mesma assinatura e grupo de recursos, use:
 
 ```json
-[resourceId('otherResourceGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Para obter a ID de recurso de uma conta de armazenamento na mesma assinatura, mas em um grupo de recursos diferente, use:
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Para obter a ID de recurso de uma conta de armazenamento em uma assinatura e grupo de recursos diferentes, use:
+
+```json
+"[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Para obter a ID de recurso para um banco de dados em um grupo de recursos diferente, use:
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
 Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. A conta de armazenamento ou a rede virtual pode ser usada em vários grupos de recursos; portanto, você não deve excluí-los ao excluir um único grupo de recursos. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
@@ -404,13 +470,44 @@ Frequentemente, você precisa usar essa função ao usar uma conta de armazename
 }
 ```
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="example"></a>Exemplo
 
-O identificador é retornado no seguinte formato:
+O exemplo a seguir retorna a ID de recurso de uma conta de armazenamento no grupo de recursos:
 
 ```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "sameRGOutput": {
+            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentRGOutput": {
+            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentSubOutput": {
+            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "nestedResourceOutput": {
+            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
+            "type" : "string"
+        }
+    }
+}
 ```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| sameRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Cadeia de caracteres | /subscriptions/{different-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 <a id="subscription" />
 
@@ -419,7 +516,20 @@ O identificador é retornado no seguinte formato:
 
 Retorna detalhes sobre a assinatura da implantação atual. 
 
-### <a name="examples"></a>Exemplos
+### <a name="return-value"></a>Valor de retorno
+
+A função retorna o seguinte formato:
+
+```json
+{
+    "id": "/subscriptions/{subscription-id}",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}",
+    "displayName": "{name-of-subscription}"
+}
+```
+
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir mostra a função de assinatura chamada na seção de saídas. 
 
@@ -434,19 +544,6 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
             "type" : "object"
         }
     }
-}
-```
-
-### <a name="return-value"></a>Valor de retorno
-
-A função retorna o seguinte formato:
-
-```json
-{
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
 }
 ```
 

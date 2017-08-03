@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -31,8 +33,18 @@ Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
 
 Ela está disponível atualmente no Azure comercial e Azure Governamental e não está disponível na China nem na Alemanha.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Como posso ver as contas de armazenamento das quais a integração de log do Azure está extraindo os logs da VM do Azure?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Como posso ver as contas de armazenamento nas quais a integração de Log do Azure está efetuando pull para extrair os logs da VM do Azure?
 Execute o comando **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como saber de qual assinatura os logs de integração de Log do Azure são provenientes?
+
+No caso de logs de auditoria que são colocados nos diretórios AzureResourcemanagerJson, a ID da assinatura está no nome do arquivo de log. Isso também é verdadeiro para logs na pasta AzureSecurityCenterJson. Por exemplo:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Logs de auditoria do Azure Active Directory incluem a ID do locatário como parte do nome.
+
+Logs de diagnóstico lidos de um Hub de Eventos não incluem a ID da assinatura como parte do nome, mas em vez disso, incluem o nome amigável especificado como parte da criação da origem do Hub de Eventos. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Como atualizo a configuração de proxy?
 Se a configuração de proxy não permitir acesso ao armazenamento do Azure diretamente, abra o arquivo **AZLOG.EXE.CONFIG** em **c:\Arquivos de Programas\Integração de Log do Microsoft Azure**. Atualize o arquivo para incluir a seção **defaultProxy** com o endereço do proxy da sua organização. Depois que a atualização for concluída, pare e inicie o serviço usando os comandos **net stop azlog** e **net start azlog**.
@@ -113,6 +125,9 @@ Depois de fazer alterações, verifique a conta de armazenamento para garantir q
 
 Se você tiver algum problema durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) e selecione **Integração de Log** como o serviço para o qual você está solicitando suporte.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Posso usar a integração de Log do Azure para integrar os logs do Observador de Rede em meu SIEM?
+
+O Observador de Rede gera grandes quantidades de informações de registro e esses logs não devem ser enviados para um SIEM. O único destino com suporte para logs do Observador de Rede é uma conta de armazenamento. O Azlog não dá suporte à leitura desses logs e disponibilização deles para um SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

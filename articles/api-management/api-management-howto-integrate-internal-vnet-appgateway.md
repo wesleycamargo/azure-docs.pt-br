@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2017
 ms.author: sasolank
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 46210c7bc3158c27cda40fb85ffef16820dcbdef
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: f9160be8c0fb3cff9efdd22ff623a4827ce3946f
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -235,7 +236,7 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### <a name="step-7"></a>Etapa 7
 
-Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para SSL.
+Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para SSL. Esse é o mesmo certificado que você forneceu na etapa 4 acima.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
@@ -258,19 +259,46 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 ```
 
 ### <a name="step-10"></a>Etapa 10
-Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. (por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc. deixe somente `Echo API` acessível na Internet). 
+
+Crie configurações para um back-end fictício (inexistente). Solicitações para caminhos de API que não queremos expor do Gerenciamento de API por meio do Gateway de Aplicativo atingirão esse back-end e retornarão 404.
+
+Defina as configurações de HTTP para o back-end fictício.
+
+```powershell
+$dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+```
+
+Configure um back-end fictício **dummyBackendPool** que aponte para um endereço FQDN **dummybackend.com**. Esse endereço FQDN não existe na rede virtual.
+
+```powershell
+$dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
+```
+
+Crie uma configuração de regra que o Gateway de Aplicativo usará por padrão que aponte para o back-end inexistente **dummybackend.com** na Rede Virtual.
+
+```powershell
+$dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
+```
+
+### <a name="step-11"></a>Etapa 11
+
+Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. Por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc., deixe somente `Echo API` acessível na Internet. 
 
 O exemplo a seguir cria uma regra simples para o tráfego de roteamento do caminho "/eco/" para o "apimProxyBackendPool" do back-end.
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+```
 
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule -DefaultBackendAddressPool $apimProxyBackendPool -DefaultBackendHttpSettings $apimPoolSetting
+Se o caminho não corresponder às regras de caminho que você deseja habilitar do gerenciamento de API, a configuração de mapa de caminho de regra também configurará um pool de endereços de back-end padrão chamado **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/* vai para **dummyBackendPool** conforme ele é definido como o pool padrão para tráfego não correspondente.
+
+```powershell
+$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
 A etapa acima garante que apenas solicitações para o caminho "/echo" sejam permitidas pelo gateway de aplicativo. As solicitações para outras APIs configuradas no gerenciamento de API emitirão erros 404 do gateway de aplicativo quando acessadas da Internet. 
 
-### <a name="step-11"></a>Etapa 11
+### <a name="step-12"></a>Etapa 12
 
 Crie uma configuração de regra para o Gateway de Aplicativo para usar o roteamento baseado em caminho de URL.
 
@@ -278,7 +306,7 @@ Crie uma configuração de regra para o Gateway de Aplicativo para usar o roteam
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
 ```
 
-### <a name="step-12"></a>Etapa 12
+### <a name="step-13"></a>Etapa 13
 
 Configure o número de instâncias e o tamanho do gateway de aplicativo. Aqui, estamos usando o [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) para aumentar a segurança do recurso de Gerenciamento de API.
 
@@ -286,7 +314,7 @@ Configure o número de instâncias e o tamanho do gateway de aplicativo. Aqui, e
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### <a name="step-13"></a>Etapa 13
+### <a name="step-14"></a>Etapa 14
 
 Configure WAF para ativar o modo de "Prevenção".
 ```powershell
@@ -298,7 +326,7 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 Crie um gateway de aplicativo com todos os objetos de configuração das etapas anteriores.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name "appgwtest" -ResourceGroupName "apim-appGw-RG" -Location "West US" -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
+$appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Dê um CNAME ao nome do host do proxy do gerenciamento de API para o nome DNS público do recurso de gateway de aplicativo
@@ -318,8 +346,8 @@ O Gerenciamento de API do Azure configurado em uma VNET fornece uma interface de
 * Saiba mais sobre o Gateway de Aplicativo do Azure
   * [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Firewall do Aplicativo Web do Gateway de Aplicativo (visualização)](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
+  * [Gateway de Aplicativo usando Roteamento com base em Caminho](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * Saiba mais sobre o gerenciamento de API nas VNETs
+  * [Usando o Gerenciamento de API disponível somente na VNET](api-management-using-with-internal-vnet.md)
   * [Uso do Gerenciamento de API na rede virtual](api-management-using-with-vnet.md)
-
-
 

@@ -17,10 +17,10 @@ ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,7 +65,11 @@ Em VMs NV do Azure, uma reinicialização é necessária após a instalação de
 
 ![Propriedades do driver GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Para consultar o estado do dispositivo GPU, execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver. 
+Para consultar o estado do dispositivo GPU, execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver.
+
+1. Abra um prompt de comando e altere para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI**.
+
+2. Execute **nvidia-smi**. Se o driver estiver instalado, você verá um resultado semelhante ao mostrado abaixo. Observe que **GPU-Util** mostrará **0%**, a menos que você esteja executando uma carga de trabalho da GPU na VM.
 
 ![Status do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 

@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
@@ -45,23 +44,24 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
 > FATAL: já existem muitos clientes
 
-## <a name="preview-functional-limitations"></a>Limitações funcionais de visualização:
-### <a name="scale-operations"></a>Operações de dimensionamento:
-1.    Não há suporte para o dimensionamento dinâmico de servidores por meio de camadas de serviço. Ou seja, alternando entre as camadas de serviço Básico e Standard.
-2.    Não há suporte para o aumento sob demanda dinâmico de armazenamento no servidor criado previamente.
-3.    Não há suporte para diminuir o tamanho de armazenamento do servidor.
+## <a name="preview-functional-limitations"></a>Limitações funcionais da versão prévia
+### <a name="scale-operations"></a>Operações de dimensionamento
+1.  Não há suporte para o dimensionamento dinâmico de servidores por meio de camadas de serviço. Ou seja, alternando entre as camadas de serviço Básico e Standard.
+2.  Não há suporte para o aumento sob demanda dinâmico de armazenamento no servidor criado previamente.
+3.  Não há suporte para diminuir o tamanho de armazenamento do servidor.
 
-### <a name="server-version-upgrades"></a>Atualizações da versão do servidor:
+### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
 
-### <a name="subscription-management"></a>Gerenciamento de assinaturas:
+### <a name="subscription-management"></a>Gerenciamento de assinaturas
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
-### <a name="point-in-time-restore"></a>Recuperação pontual:
-1.    Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
-2.    Não há suporte para restaurar um servidor eliminado.
+### <a name="point-in-time-restore"></a>Restauração pontual
+1.  Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+2.  Não há suporte para restaurar um servidor eliminado.
 
-## <a name="next-steps"></a>Próximas etapas:
-- Entenda [O que está disponível em cada camada de serviço](concepts-service-tiers.md)
+## <a name="next-steps"></a>Próximas etapas
+- Entenda [O que está disponível em cada tipo de preço](concepts-service-tiers.md)
 - Entenda as [Versões de banco de dados PostgreSQL com suporte](concepts-supported-versions.md)
 - Veja [Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
+

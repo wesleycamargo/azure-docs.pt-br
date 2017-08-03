@@ -1,2 +1,2 @@
 > [!NOTE]
-> Antes de iniciar este tutorial, conclua a [Instalação do dispositivo](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). Em [Instalação do dispositivo](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md), você configura seu dispositivo IoT e Hub IoT, e implanta um aplicativo de exemplo a executar no dispositivo. O aplicativo envia dados de sensor coletados para o hub IoT.
+> Antes de iniciar este tutorial, [configure seu dispositivo](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). No artigo, você configura seu dispositivo IoT do Azure e o hub IoT, além de implantar um aplicativo de exemplo a ser executado no dispositivo. O aplicativo envia dados de sensor coletados para o hub IoT.

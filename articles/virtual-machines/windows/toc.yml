@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Reinicialização da manutenção
           href: impactful-maintenance.md
-        - name: Agenda
-          href: planned-maintenance-schedule.md
     - name: Tamanhos de VM
       href: sizes.md
       items:
@@ -370,6 +368,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Solucionar problemas
       items:
+        - name: >-
+            Capacidade de adicionar a VM do Azure a um conjunto de
+            disponibilidade existente
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Entender a reinicialização do sistema
           href: understand-vm-reboot.md
         - name: Conexões de Área de Trabalho Remota
@@ -407,6 +409,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Portal do Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Use PerfInsights para solucionar problemas de desempenho
+          href: how-to-use-perfInsights.md
 - name: Referência
   items:
     - name: CLI do Azure

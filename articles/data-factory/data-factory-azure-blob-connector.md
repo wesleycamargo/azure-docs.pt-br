@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 90c4cd42aa9dcef2cda4ec66e64393bf474b6a60
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -223,16 +223,16 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     5. Clique em **Avançar**.
     ![Ferramenta de Cópia – Escolher a pasta ou o arquivo de entrada](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
 7. Na página **Configurações de formato de arquivo**, você vê os delimitadores e o esquema é detectado automaticamente pelo assistente na análise do arquivo. 
-    1. Confirme se o **formato de arquivo** está definido como **Formato de texto**. É possível ver todos os formatos com suporte na lista suspensa. Por exemplo: JSON, Avro, ORC, Parquet. 
-    2. Confirme se o **delimitador de coluna** está definido como `Comma (,)`. É possível ver os outros delimitadores de coluna com suporte no Data Factory na lista suspensa. Você também pode especificar um delimitador personalizado. 
-    3. Confirme se o **delimitador de linha** está definido como `Carriage Return + Line feed (\r\n)`. É possível ver os outros delimitadores de linha com suporte no Data Factory na lista suspensa. Você também pode especificar um delimitador personalizado. 
-    4. Confirme se a opção **ignorar contagem de linhas** está definida como **0**. Se você desejar que algumas linhas sejam ignoradas na parte superior do arquivo, insira o número aqui. 
-    5. Confirme se a opção **a primeira linha de dados contém nomes de coluna** não está definida. Se os arquivos de origem contiverem nomes de coluna na primeira linha, selecione essa opção. 
-    6. Confirme se a opção **tratar o valor da coluna vazia como nulo** está definida. 
-    7. Expanda **Configurações avançadas** para ver a opção avançada disponível. 
-    8. Na parte inferior da página, consulte a **visualização** de dados do arquivo emp.txt. 
-    9. Clique na guia **ESQUEMA** na parte inferior para ver o esquema inferido pelo assistente de cópia observando os dados no arquivo de origem. 
-    10. Clique em **Avançar** depois de revisar os delimitadores e visualizar os dados.
+    1. Considere as seguintes opções: a. O **formato de arquivo** está definido como **Formato de texto**. É possível ver todos os formatos com suporte na lista suspensa. Por exemplo: JSON, Avro, ORC, Parquet.
+        b. O **delimitador de coluna** está definido como `Comma (,)`. É possível ver os outros delimitadores de coluna com suporte no Data Factory na lista suspensa. Você também pode especificar um delimitador personalizado.
+        c. O **delimitador de coluna** está definido como `Carriage Return + Line feed (\r\n)`. É possível ver os outros delimitadores de linha com suporte no Data Factory na lista suspensa. Você também pode especificar um delimitador personalizado.
+        d. A opção **ignorar contagem de linhas** está definida como **0**. Se você desejar que algumas linhas sejam ignoradas na parte superior do arquivo, insira o número aqui.
+        e.  A opção **primeira linha de dados contém nomes de coluna** não está definida. Se os arquivos de origem contiverem nomes de coluna na primeira linha, selecione essa opção.
+        f. A opção **tratar o valor da coluna vazia como nulo** está definida.
+    2. Expanda **Configurações avançadas** para ver a opção avançada disponível.
+    3. Na parte inferior da página, consulte a **visualização** de dados do arquivo emp.txt.
+    4. Clique na guia **ESQUEMA** na parte inferior para ver o esquema inferido pelo assistente de cópia observando os dados no arquivo de origem.
+    5. Clique em **Avançar** depois de revisar os delimitadores e visualizar os dados.
     ![Ferramenta de Cópia – Configurações de formato de arquivo](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
 8. Na **página Armazenamento de dados de destino**, selecione **Armazenamento de Blobs do Azure** e clique em **Avançar**. Você está usando o Armazenamento de Blobs do Azure como os armazenamentos de dados de origem e de destino neste passo a passo.    
     ![Ferramenta de Cópia – selecionar o armazenamento de dados de destino](media/data-factory-azure-blob-connector/select-destination-data-store.png)
@@ -243,13 +243,13 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
    4. Selecione sua conta de armazenamento do Azure. 
    5. Clique em **Próximo**.     
 10. Na página **Escolher o arquivo ou a pasta de saída**: 
-    1. especifique **Caminho da pasta** como **adfblobconnector/output/{year}/{month}/{day}**. Insira **GUIA**. 
-    2. No **ano**, selecione **yyyy**. 
-    3. No **mês**, confirme se ele está definido como **MM**. 
-    4. No **dia**, confirme se ele está definido como **dd**. 
-    5. Confirme se o **tipo de compactação** está definido como **Nenhum**. 
-    6. Confirme se o **comportamento de cópia** está definido como **Mesclar arquivos**. Se o arquivo de saída com o mesmo nome já existir, o novo conteúdo será adicionado ao mesmo arquivo no final.  
-    7. Clique em **Próximo**. 
+    6. especifique **Caminho da pasta** como **adfblobconnector/output/{year}/{month}/{day}**. Insira **GUIA**.
+    7. No **ano**, selecione **yyyy**.
+    8. No **mês**, confirme se ele está definido como **MM**.
+    9. No **dia**, confirme se ele está definido como **dd**.
+    10. Confirme se o **tipo de compactação** está definido como **Nenhum**.
+    11. Confirme se o **comportamento de cópia** está definido como **Mesclar arquivos**. Se o arquivo de saída com o mesmo nome já existir, o novo conteúdo será adicionado ao mesmo arquivo no final.
+    12. Clique em **Próximo**.
     ![Ferramenta de Cópia – Escolher o arquivo ou a pasta de saída](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Na página **Configurações de formato de arquivo**, examine as configurações e clique em **Avançar**. Uma das opções adicionais aqui é adicionar um cabeçalho ao arquivo de saída. Se você selecionar essa opção, uma linha de cabeçalho será adicionada com nomes das colunas do esquema da fonte. Você pode renomear os nomes de coluna padrão ao exibir o esquema da fonte. Por exemplo, você poderá alterar a primeira coluna para Nome e a segunda coluna para Sobrenome. Em seguida, o arquivo de saída será gerado com um cabeçalho com esses nomes como nomes de coluna. 
     ![Ferramenta de Cópia – Configurações de formato de arquivo para o destino](media/data-factory-azure-blob-connector/file-format-destination.png)

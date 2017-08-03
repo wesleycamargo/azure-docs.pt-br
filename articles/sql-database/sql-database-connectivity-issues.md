@@ -14,13 +14,13 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -56,7 +56,7 @@ Quando seu programa se comunicar com o Banco de Dados SQL do Azure por meio de u
 * Uma instrução SQL SELECT que falhe com um erro transitório não deverá ser repetida diretamente.
   
   * Em vez disso, estabeleça uma nova conexão e repita a SELECT.
-* Quando uma instrução UPDATE SQL falhar com um erro transitório, uma nova conexão deverá ser estabelecida antes da nova tentativa de UPDATE.
+* Quando uma instrução SQL UPDATE falhar com um erro transitório, uma nova conexão deverá ser estabelecida antes da nova tentativa de UPDATE.
   
   * A lógica de repetição deve garantir que a transação de banco de dados foi concluída ou que a transição inteira foi revertida.
 
@@ -157,7 +157,7 @@ Suponha que seu aplicativo tenha lógica de repetição personalizada robusta. E
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Conexão: cadeia de conexão
-A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados desde o [Portal do Azure](https://portal.azure.com/).
+A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados no [Portal do Azure](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 

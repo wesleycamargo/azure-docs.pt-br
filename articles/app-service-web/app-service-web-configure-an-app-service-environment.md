@@ -22,12 +22,8 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="configuring-an-app-service-environment" class="xliff"></a>
-
-# Configurando um Ambiente do Serviço de Aplicativo
-<a id="overview" class="xliff"></a>
-
-## Visão geral
+# <a name="configuring-an-app-service-environment"></a>Configurando um Ambiente do Serviço de Aplicativo
+## <a name="overview"></a>Visão geral
 Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
 * Recursos de computação que estão em execução no serviço hospedado do Ambiente do Serviço de Aplicativo
@@ -36,9 +32,7 @@ Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em
 * Uma VNet (rede virtual) do Azure Clássica (V1) ou do Resource Manager (V2) 
 * Uma sub-rede na qual está em execução o serviço hospedado do Ambiente do Serviço de Aplicativo
 
-<a id="compute-resources" class="xliff"></a>
-
-### Recursos de computação
+### <a name="compute-resources"></a>Recursos de computação
 Use os recursos de computação para os quatro pools de recursos.  Cada ASE (Ambiente do Serviço de Aplicativo) tem um conjunto de front-ends e três pools de trabalho possíveis. Você não precisa usar todos os três pools de trabalho. Se quiser, poderá usar apenas um ou dois.
 
 Os hosts nos pools de recursos (front-ends e trabalhadores) não podem ser acessados diretamente pelos locatários. Você não pode usar o RDP (protocolo de área de trabalho remota) para se conectar a eles, alterar o provisionamento ou agir como um administrador.
@@ -74,19 +68,13 @@ Se os aplicativos exigirem um recurso de computação maior, você não poderá 
 
 Se você quiser definir regras de dimensionamento automático com relação às métricas de pool de recursos de computação, lembre-se do tempo necessário para o provisionamento. Para obter mais detalhes sobre o dimensionamento automático dos Ambientes do Serviço de Aplicativo, confira [Como configurar o dimensionamento automático em um Ambiente de Serviço de Aplicativo][ASEAutoscale].
 
-<a id="storage" class="xliff"></a>
-
-### Armazenamento
+### <a name="storage"></a>Armazenamento
 Cada ASE é configurado com 500 GB de armazenamento. Esse espaço é usado em todos os aplicativos do ASE. Esse espaço de armazenamento faz parte do ASE e atualmente não pode ser alternado para usar seu espaço de armazenamento. Se você estiver fazendo ajustes no roteamento ou segurança de rede virtual, ainda será necessário permitir o acesso ao Armazenamento do Azure ou o ASE não funcionará.
 
-<a id="database" class="xliff"></a>
-
-### Banco de dados
+### <a name="database"></a>Banco de dados
 O banco de dados armazena as informações que definem o ambiente, bem como detalhes sobre os aplicativos executados nele. Isso também é uma parte da assinatura gerenciada pelo Azure. Não é algo que você tenha a capacidade direta de manipular. Se você estiver fazendo ajustes no roteamento ou segurança de rede virtual, ainda será necessário permitir o acesso ao SQL Azure ou o ASE não funcionará.
 
-<a id="network" class="xliff"></a>
-
-### Rede
+### <a name="network"></a>Rede
 A rede virtual usada com seu ASE pode ser uma daquelas criadas durante a criação do ASE ou uma já existente. Quando você criar a sub-rede durante a criação do ASE, obrigará o ASE a estar no mesmo grupo de recursos que a rede virtual. Se você precisar que o grupo de recursos usado pelo seu ASE seja diferente da sua rede virtual, então precisará criar seu ASE usando um modelo do resource manager.
 
 Há algumas restrições na rede virtual que é usada para um ASE:
@@ -106,18 +94,14 @@ Por exemplo, você pode usar a Integração VNET para integrar-se a uma Rede Vir
 
 Caso você tenha configurado sua rede virtual com uma VPN da Rota Expressa, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com o ExpressRoute, confira [Executando um Ambiente de Serviço de Aplicativo em uma rede virtual com o ExpressRoute][ExpressRoute].
 
-<a id="securing-inbound-traffic" class="xliff"></a>
-
-#### Protegendo o tráfego de entrada
+#### <a name="securing-inbound-traffic"></a>Protegendo o tráfego de entrada
 Há dois métodos principais para controlar o tráfego de entrada para seu ASE.  Você pode usar NSGs (Grupos de Segurança de Rede) para controlar quais endereços IP podem acessar seu ASE conforme descrito aqui [Como controlar o tráfego de entrada em um Ambiente de Serviço de Aplicativo](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar seu ASE com um ILB (Balanceador de Carga Interno).  Esses recursos também podem ser usados juntos para restringir o acesso usando NSGs para seu ASE ILB.
 
 Quando você cria um ASE, ele cria um VIP em sua rede virtual.  Há dois tipos de VIP, internos e externos.  Quando você cria um ASE com um VIP externo, seus aplicativos no ASE poderão ser acessados por meio de um endereço IP que pode ser roteado na Internet. Quando você seleciona seu ASE interno, ele será configurado com um ILB e não poderá ser acessado diretamente pela Internet.  Um ASE ILB ainda requer um VIP externo, mas ele é usado somente para acesso de gerenciamento e manutenção do Azure.  
 
 Durante a criação do ASE ILB, você fornecerá o subdomínio usado pelo ASE ILB e terá que gerenciar seu próprio DNS para o subdomínio que especificar.  Como você define o nome de subdomínio, também precisa gerenciar o certificado usado para acesso HTTPS.  Após a criação do ASE, você precisará fornecer o certificado.  Para saber mais sobre a criação e o uso de um ASE ILB, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. 
 
-<a id="portal" class="xliff"></a>
-
-## Portal
+## <a name="portal"></a>Portal
 Você pode gerenciar e monitorar o ambiente de serviço de aplicativo usando a interface do usuário no portal do Azure. Se você tiver um ASE, provavelmente verá o símbolo do Serviço de Aplicativo em sua barra lateral. Esse símbolo é usado para representar Ambientes do Serviço de Aplicativo no portal do Azure:
 
 ![Símbolo do Ambiente do Serviço de Aplicativo][1]
@@ -128,9 +112,7 @@ Para abrir a interface do usuário que lista todos os seus Ambientes de Serviço
 
 A primeira folha mostra algumas propriedades do seu ASE junto com um gráfico de métricas por pool de recursos. Algumas das propriedades mostradas no bloco **Fundamentos** também são hiperlinks que abrirão a folha associada a ele. Por exemplo, você pode selecionar o Nome da **rede virtual** para abrir a interface do usuário associada à rede virtual em que o ASE está sendo executado. Os **Planos do Serviço de Aplicativo** e os **Aplicativos** abrem folhas que listam esses itens em seu ASE.  
 
-<a id="monitoring" class="xliff"></a>
-
-### Monitoramento
+### <a name="monitoring"></a>Monitoramento
 Os gráficos permitem a você ver uma variedade de métricas de desempenho em cada pool de recursos. Para o pool de front-ends, você pode monitorar a média de memória e de CPU . Para pools de trabalho, você pode monitorar a quantidade usada e a quantidade disponível.
 
 Vários Planos do Serviço de Aplicativo podem usar os trabalhadores em um pool de trabalho. A carga de trabalho não é distribuída da mesma forma que ocorre com servidores front-end. Portanto, o uso de CPU e de memória não oferece muitas informações úteis. É mais importante controlar quantos trabalhadores foram usados e estão disponíveis, especialmente se você estiver gerenciando esse sistema para outros usuários.  
@@ -143,9 +125,7 @@ As métricas que acabamos de discutir são as métricas do Ambiente do Serviço 
 
 Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de aplicativo dedicados. Isso significa que somente aplicativos executados nos hosts alocados para aquele Plano do Serviço de Aplicativo são aplicativos desse Plano do Serviço de Aplicativo. Para ver detalhes sobre o Plano do Serviço de Aplicativo, simplesmente abra o ASP de qualquer uma das listas na interface do usuário do ASE ou de **Procurar Planos do Serviço de Aplicativo** (o que listará todos eles).   
 
-<a id="settings" class="xliff"></a>
-
-### Configurações
+### <a name="settings"></a>Configurações
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
 **Configurações** > **Propriedades**: a folha **Configurações** será aberta automaticamente quando você abrir a folha de seu ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
@@ -160,9 +140,7 @@ A folha base de cada pool de recursos oferece um gráfico com métricas para o p
 
 ![Interface do usuário de configurações do pool de trabalho][5]
 
-<a id="portal-scale-capabilities" class="xliff"></a>
-
-### Recursos de dimensionamento do portal
+### <a name="portal-scale-capabilities"></a>Recursos de dimensionamento do portal
 Existem três operações em escala:
 
 * Alteração do número de endereços IP no ASE que estão disponíveis para uso do IP SSL.
@@ -183,9 +161,7 @@ Para usar os recursos manuais ou de dimensionamento automático em um pool de re
 
 ![Interface do usuário de configurações de escala][7]
 
-<a id="fault-tolerance-considerations" class="xliff"></a>
-
-## Considerações sobre a tolerância a falhas
+## <a name="fault-tolerance-considerations"></a>Considerações sobre a tolerância a falhas
 Você pode configurar um Ambiente do Serviço de Aplicativo para usar até um total de 55 recursos de computação. Desses 55 recursos de computação, apenas 50 podem ser usados para cargas de trabalho do host. A razão para isso é dupla. Há um mínimo de dois recursos de computação front-end.  Com isso, restam até 53 para dar suporte a alocação do pool de trabalho. Para oferecer tolerância a falhas, você precisa ter um recurso de computação adicional alocado de acordo com as seguintes regras:
 
 * Cada pool de trabalho precisa de pelo menos um recurso de computação adicional que não está disponível para atribuição a uma carga de trabalho.
@@ -206,16 +182,12 @@ A superfície mínima tem dois servidores front-end e dois trabalhadores.  Com a
 
 O aspecto de tolerância a falhas é importante, mas você precisará tê-lo em mente quando dimensionar acima de determinados limites. Se quiser adicionar mais capacidade a partir de 20 instâncias, insira 22 ou mais, já que 21 não adicionam mais capacidade. O mesmo será verdadeiro se o número de instâncias for maior do que 40, onde o próximo número que adicionará capacidade será 42.  
 
-<a id="deleting-an-app-service-environment" class="xliff"></a>
-
-## Excluindo um Ambiente do Serviço de Aplicativo
+## <a name="deleting-an-app-service-environment"></a>Excluindo um Ambiente do Serviço de Aplicativo
 Se você deseja excluir um ambiente do serviço de aplicativo, simplesmente use a ação **Excluir** na parte superior da folha Ambiente do Serviço de Aplicativo. Quando você fizer isso, será solicitada a inserção do nome do seu Ambiente do Serviço de Aplicativo para confirmar a operação. Observe que quando você exclui um Ambiente do Serviço de Aplicativo, exclui todo o conteúdo dentro dele também.  
 
 ![Interface do usuário Excluir um Ambiente de Serviço de Aplicativo][9]  
 
-<a id="getting-started" class="xliff"></a>
-
-## Introdução
+## <a name="getting-started"></a>Introdução
 Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).

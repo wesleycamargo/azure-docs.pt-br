@@ -1,6 +1,6 @@
 ---
 title: Conectar computadores Linux ao OMS (Operations Management Suite) | Microsoft Docs
-description: Este artigo descreve como conectar computadores Windows hospedados na infraestrutura local ao OMS usando o MMA (Microsoft Monitoring Agent).
+description: Este artigo descreve como conectar computadores Linux hospedados no Azure, em outra nuvem ou localmente ao OMS usando o Agente do OMS para Linux.
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 06/15/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3c556f3d9e81caae574ec093b6f2ce15651c4485
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 79bbb4dfe03a6c1ae782abc1404e22343bde22a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Conectar computadores Linux ao OMS (Operations Management Suite)
+# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Conectar computadores Linux ao OMS (Operations Management Suite) 
 
-Com o OMS, você pode coletar e agir sobre os dados gerados em computadores Linux e soluções de contêiner como o Docker, residindo em seu data center local como servidores físicos ou máquinas virtuais, máquinas virtuais em um serviço hospedado em nuvem como AWS (Amazon Web Services) ou Microsoft Azure. Você também pode usar soluções de gerenciamento disponíveis no OMS, como Controle de Alterações, para identificar alterações de configuração e Gerenciamento de Atualizações para gerenciar atualizações de software para gerenciar proativamente o ciclo de vida das VMs Linux.
+Com o OMS, você pode coletar e agir sobre os dados gerados em computadores Linux e soluções de contêiner como o Docker, residindo em seu data center local como servidores físicos ou máquinas virtuais, máquinas virtuais em um serviço hospedado em nuvem como AWS (Amazon Web Services) ou Microsoft Azure. Você também pode usar soluções de gerenciamento disponíveis no OMS, como Controle de Alterações, para identificar alterações de configuração e Gerenciamento de Atualizações para gerenciar atualizações de software para gerenciar proativamente o ciclo de vida das VMs Linux. 
 
-O Agente do OMS para Linux se comunica com o serviço OMS pela porta TCP 443 e se o computador se conectar a um firewall ou servidor proxy para se comunicar pela Internet, examine o artigo sobre [Definir as configurações de proxy e firewall](log-analytics-proxy-firewall.md) para entender quais alterações de configuração precisarão ser aplicadas.  Se você estiver monitorando o computador com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, ele poderá ser multihomed com o serviço OMS para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo Operations Manager.  Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao OMS não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento.  
+O Agente do OMS para Linux se comunica na saída com o serviço OMS na porta TCP 443. Caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, examine [Configurando o agente para uso com um servidor proxy HTTP ou Gateway do OMS](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) para entender quais alterações de configuração precisarão ser aplicadas.  Se você estiver monitorando o computador com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, ele poderá ser multihomed com o serviço OMS para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo Operations Manager.  Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao OMS não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento.  
 
 Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, o agente pode ser configurado para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada. Para obter mais informações e etapas sobre como configurar o Agente do OMS para Linux para se comunicar através de um Gateway do OMS ao serviço OMS, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md).  
 
@@ -48,18 +48,28 @@ As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o Age
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
+### <a name="network"></a>Rede
+As informações abaixo listam as informações de configuração de proxy e firewall necessárias para que o agente do Linux se comunique com o OMS. O tráfego é de saída da rede para o serviço OMS. 
+
+|Recurso de agente| Portas |  
+|------|---------|  
+|*.ods.opinsights.azure.com | Porta 443|   
+|*.oms.opinsights.azure.com | Porta 443|   
+|ods.systemcenteradvisor.com | Porta 443|   
+|*.blob.core.windows.net/ | Porta 443|   
+
 ### <a name="package-requirements"></a>Requisitos do pacote
 
- **Pacote necessário**     | **Descrição**     | **Versão mínima**
+ **Pacote necessário**   | **Descrição**   | **Versão mínima**
 --------------------- | --------------------- | -------------------
-Glibc |    Biblioteca GNU C    | 2.5-12
-Openssl    | Bibliotecas OpenSSL | 0.9.8e ou 1.0
+Glibc | Biblioteca GNU C   | 2.5-12 
+Openssl | Bibliotecas OpenSSL | 0.9.8e ou 1.0
 Curl | cliente Web cURL | 7.15.5
-Python-ctypes | |
-PAM | Módulos de autenticação conectáveis     |
+Python-ctypes | | 
+PAM | Módulos de autenticação conectáveis   | 
 
 > [!NOTE]
->  Rsyslog ou syslog-ng são necessários para coletar mensagens de syslog. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão dessas distribuições, o daemon rsyslog deve ser instalado e configurado para substituir sysklog.
+>  Rsyslog ou syslog-ng são necessários para coletar mensagens de syslog. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão dessas distribuições, o daemon rsyslog deve ser instalado e configurado para substituir sysklog. 
 
 O agente é composto por vários pacotes. O arquivo de versão contém os seguintes pacotes, disponíveis por meio da execução do pacote do shell com `--extract`:
 
@@ -74,7 +84,7 @@ mysql-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor MySQ
 docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado se o Docker for detectado.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>Compatibilidade com o System Center Operations Manager
-O Agente do OMS para Linux compartilha arquivos binários de agente com o agente do System Center Operations Manager. A instalação do Agente do OMS para Linux em um sistema atualmente gerenciado pelo Operations Manager, atualiza os pacotes OMI e SCX no computador para uma versão mais recente. Nesta versão, o OMS e o System Center 2016 – agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis.
+O Agente do OMS para Linux compartilha arquivos binários de agente com o agente do System Center Operations Manager. A instalação do Agente do OMS para Linux em um sistema atualmente gerenciado pelo Operations Manager, atualiza os pacotes OMI e SCX no computador para uma versão mais recente. Nesta versão, o OMS e o System Center 2016 – agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis. 
 
 > [!NOTE]
 > O System Center 2012 SP1 e versões anteriores atualmente não são compatíveis com o Agente do OMS para Linux ou não têm suporte.<br>
@@ -91,12 +101,12 @@ Após a instalação dos pacotes do Agente do OMS para Linux, serão aplicadas a
 A atualização de versões anteriores à 1.0.0-47 tem suporte nesta versão. Executar a instalação com o comando `--upgrade` atualizará todos os componentes do agente para a versão mais recente.
 
 ## <a name="install-the-oms-agent-for-linux"></a>Instalar o Agente do OMS para Linux
-O Agente do OMS para Linux é fornecido em um pacote de script de shell de extração automática instalável. Este pacote contém pacotes Debian e RPM para cada um dos componentes do agente e pode ser instalado diretamente ou extraído para recuperar os pacotes individuais. Um pacote é fornecido para arquiteturas x64 e outro para arquiteturas x86.
+O Agente do OMS para Linux é fornecido em um pacote de script de shell de extração automática instalável. Este pacote contém pacotes Debian e RPM para cada um dos componentes do agente e pode ser instalado diretamente ou extraído para recuperar os pacotes individuais. Um pacote é fornecido para arquiteturas x64 e outro para arquiteturas x86. 
 
 ### <a name="installing-the-agent"></a>Instalando o agente
 
 1. Transfira o pacote apropriado (x86 ou x64) para seu computador Linux usando scp/sftp.
-2. Instale o pacote usando o argumento `--install` ou `--upgrade`.
+2. Instale o pacote usando o argumento `--install` ou `--upgrade`. 
 
     > [!NOTE]
     > Use o argumento `--upgrade` se houver qualquer pacote existente instalado, como quando o agente do System Center Operations Manager para Linux já está instalado. Para se conectar ao Operations Management Suite durante a instalação, forneça os parâmetros `-w <WorkspaceID>` e `-s <Shared Key>`.
@@ -115,7 +125,7 @@ Options:
   --version              Version of this shell bundle.
   --version-check        Check versions already installed to see if upgradable.
   --debug                use shell debug mode.
-
+  
   -w id, --id id         Use workspace ID <id> for automatic onboarding.
   -s key, --shared key   Use <key> as the shared key for automatic onboarding.
   -d dmn, --domain dmn   Use <dmn> as the OMS domain for onboarding. Optional.
@@ -171,19 +181,19 @@ Por exemplo: `http://user01:password@proxy01.contoso.com:8080`
 O servidor proxy pode ser especificado durante a instalação ou modificando o arquivo de configuração proxy.conf após a instalação.   
 
 ### <a name="specify-proxy-configuration-during-installation"></a>Especificar a configuração de proxy durante a instalação
-O argumento `-p` ou `--proxy` para o pacote de instalação omsagent especifica a configuração de proxy a ser usada.
+O argumento `-p` ou `--proxy` para o pacote de instalação omsagent especifica a configuração de proxy a ser usada. 
 
 ```
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Definir a configuração de proxy em um arquivo
-A configuração de proxy pode ser definida no arquivo: `/etc/opt/microsoft/omsagent/proxy.conf` esse arquivo pode ser criado ou editado diretamente, mas deve ser legível pelo usuário omsagent. Por exemplo:
+A configuração de proxy pode ser definida no arquivo: `/etc/opt/microsoft/omsagent/proxy.conf` Esse arquivo pode ser criado ou editado diretamente, mas suas permissões devem ser atualizadas para conceder ao grupo omiuser a permissão de leitura no arquivo. Por exemplo:
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
-sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf
+sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
 
@@ -207,19 +217,20 @@ Se uma ID e chave do espaço de trabalho não foram fornecidas durante a instala
 Execute o comando omsadmin.sh fornecendo a ID e a chave do espaço de trabalho. Este comando deve ser executado como raiz (com elevação sudo):
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
 ```
+A opção -v habilitará o log detalhado durante o processo de integração. Todas as informações serão mostradas na tela em que o script do shell é executado.
 
 ### <a name="onboarding-using-a-file"></a>Integração usando um arquivo
-1.    Crie o arquivo `/etc/omsagent-onboard.conf`. O arquivo deve ser legível e gravável para a raiz.
+1.  Crie o arquivo `/etc/omsagent-onboard.conf`. O arquivo deve ser legível e gravável para a raiz.
 `sudo vi /etc/omsagent-onboard.conf`
-2.    Insira as seguintes linhas no arquivo com a ID e a Chave Compartilhada do Espaço de Trabalho:
+2.  Insira as seguintes linhas no arquivo com a ID e a Chave Compartilhada do Espaço de Trabalho:
 
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
-
-3.    Execute o comando a seguir para integrar ao OMS: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.    O arquivo será excluído na integração bem-sucedida
+   
+3.  Execute o comando a seguir para integrar ao OMS: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+4.  O arquivo será excluído na integração bem-sucedida
 
 ## <a name="manage-omsagent-daemon"></a>Gerenciar o daemon omsagent
 Começando com a versão 1.3.0-1, registramos o daemon omsagent para cada espaço de trabalho integrado. O nome do daemon é *omsagent-\<workspace-id>*.  Você pode usar o comando `/opt/microsoft/omsagent/bin/service_control` para operar o daemon.
@@ -237,7 +248,7 @@ Os logs do Agente do OMS para Linux podem ser encontrados em: `/var/opt/microsof
 ### <a name="log-rotation-configuration"></a>Configuração de rotação de log##
 A configuração de rotação de log para omsagent pode ser encontrada em: `/etc/logrotate.d/omsagent-<workspace id>`
 
-As configurações padrão são:
+As configurações padrão são: 
 ```
 /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log {
     rotate 5
@@ -250,7 +261,7 @@ As configurações padrão são:
 ```
 
 ## <a name="uninstalling-the-oms-agent-for-linux"></a>Desinstalar o Agente do OMS para Linux
-Os pacotes de agente podem ser desinstalados usando dpkg ou rpm ou executando o arquivo. sh do pacote com o argumento `--remove`.  Além disso, se desejar remover completamente todos os elementos do Agente do OMS para Linux, você poderá executar o arquivo. sh do pacote com o argumento `--purge`.
+Os pacotes de agente podem ser desinstalados usando dpkg ou rpm ou executando o arquivo. sh do pacote com o argumento `--remove`.  Além disso, se desejar remover completamente todos os elementos do Agente do OMS para Linux, você poderá executar o arquivo. sh do pacote com o argumento `--purge`. 
 
 ### <a name="debian--ubuntu"></a>Debian e Ubuntu
 ```
@@ -271,10 +282,10 @@ Os pacotes de agente podem ser desinstalados usando dpkg ou rpm ou executando o 
 
 #### <a name="probable-causes"></a>Causas prováveis
 * O proxy especificado durante a integração estava incorreto
-* Os Pontos de Extremidade do Serviço OMS não estão na lista de permissões do seu datacenter
+* Os Pontos de Extremidade do Serviço OMS não estão na lista de permissões do seu datacenter 
 
 #### <a name="resolutions"></a>Resoluções
-1. Reintegre ao Serviço OMS com o Agente do OMS para Linux usando o seguinte comando com a opção `-v` habilitada. Isso permite a saída detalhada do agente que está se conectando por meio do proxy ao Serviço OMS.
+1. Reintegre ao Serviço OMS com o Agente do OMS para Linux usando o seguinte comando com a opção `-v` habilitada. Isso permite a saída detalhada do agente que está se conectando por meio do proxy ao Serviço OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Consulte a seção [Configurando o agente para uso com um servidor proxy HTTP (#configuring the-agent-for-use-with-a-http-proxy-server)] para verificar se você configurou adequadamente o agente para se comunicar pelo servidor proxy.    
@@ -290,13 +301,14 @@ Os pacotes de agente podem ser desinstalados usando dpkg ou rpm ou executando o 
 ### <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: você recebe um erro 403 quando tentar integrar
 
 #### <a name="probable-causes"></a>Causas prováveis
-* A data e a hora estão incorretas no servidor Linux
+* A data e a hora estão incorretas no servidor Linux 
 * A ID e a Chave do Espaço de Trabalho usadas estão incorretas
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique a hora no servidor Linux com o comando date. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir esse problema, atualize a data e/ou o fuso horário do servidor Linux.
-Novo! Agora, a versão mais recente do Agente do OMS para Linux notifica se a diferença de horário está causando falhas integração. Reintegre usando as instruções de ID e Chave do Espaço de Trabalho corretas
+1. Verifique a hora no servidor Linux com o comando date. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir esse problema, atualize a data e/ou o fuso horário do servidor Linux. 
+2. Verifique se você instalou a última versão do Agente do OMS para Linux.  A versão mais recente agora notifica se a distorção de horário está causando a falha de integração.
+3. Faça a integração novamente usando a ID do Espaço de Trabalho e a Chave do Espaço de Trabalho corretas seguindo as instruções de instalação descritas anteriormente neste tópico.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você vê um erro 404 e 500 no arquivo de log logo após a integração
 Isso é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do OMS. Isso não afeta os dados sendo enviados ou a experiência do serviço.
@@ -313,7 +325,7 @@ Isso é um problema conhecido que ocorre durante o primeiro upload de dados do L
 1. Verifique se a integração do Serviço OMS foi bem-sucedida verificando se os seguintes arquivos existem: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reintegração usando as instruções de linha de comando `omsadmin.sh`
 3. Se estiver usando um proxy, consulte as etapas de resolução de proxy fornecidas anteriormente.
-4. Em alguns casos, quando o Agente do OMS para Linux não pode se comunicar com o Serviço OMS, os dados no agente são enfileirados até todo o tamanho do buffer, que é 50 MB. O Agente do OMS para Linux deve ser reiniciado executando o seguinte comando `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`.
+4. Em alguns casos, quando o Agente do OMS para Linux não pode se comunicar com o Serviço OMS, os dados no agente são enfileirados até todo o tamanho do buffer, que é 50 MB. O Agente do OMS para Linux deve ser reiniciado executando o seguinte comando `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 > [!NOTE]
 > Esse problema foi corrigido nas versões 1.1.0-28 e posteriores do Agente.
 

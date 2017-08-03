@@ -1,22 +1,20 @@
 ---
 title: Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando a CLI do Azure | Microsoft Docs
-description: Descreve como criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando a CLI do Azure.
+description: Este artigo descreve como criar e gerenciar Banco de Dados do Azure para regras de firewall do MySQL usando a linha de comando CLI do Azure.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/13/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d7ff4ae8dbf9610b843c8b48d83b0f3c23ac72d5
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9a03722e9f71be307bdbf0b846a4cbf7b34cd7ff
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -52,37 +50,39 @@ Esse comando retornará um código para usar na próxima etapa.
 
 3. No prompt, entre utilizando suas credenciais do Azure.
 
-4. Após a autorização do logon, uma lista de assinaturas será impressa no console.
+4. Após a autorização do logon, uma lista de assinaturas será impressa no console. Copie a id da assinatura desejada para definir a assinatura atual a ser usada da pra frente.
+   ```azurecli-interactive
+   az account set --subscription {your subscription id}
+   ```
 
-Copie a id da assinatura desejada para definir a assinatura atual a ser usada da pra frente.
-```azurecli
-az account set --subscription {your subscription id}
-```
 5. Liste os servidores de Bancos de Dados do Azure para MySQL para sua assinatura e grupo de recursos, se você não tiver certeza dos nomes.
-```azurecli
-az mysql server list --resource-group myResourceGroup
-```
-Anote o atributo name na lista, que será usado para especificar em qual servidor MySQL trabalhar. Se for necessário, confirme os detalhes desse servidor usando o atributo name para confirmar se o nome está correto:
-```azurecli
-az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
-```
+
+   ```azurecli-interactive
+   az mysql server list --resource-group myResourceGroup
+   ```
+
+   Anote o atributo name na lista, que será usado para especificar em qual servidor MySQL trabalhar. Se for necessário, confirme os detalhes desse servidor usando o atributo name para confirmar se o nome está correto:
+
+   ```azurecli-interactive
+   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Listar regras de firewall no servidor de Banco de Dados do Azure para MySQL 
 Usando o nome do servidor e o nome do grupo de recursos, liste as regras de firewall do servidor existentes no servidor. Observe que o atributo de nome do servidor é especificado na opção **-server** e não na opção **-name**.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo
 ```
 A saída listará as regras, se houver, por padrão, no formato JSON. Você pode usar a opção **-output table** para obter um formato de tabela mais legível como saída.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo --output table
 ```
 ## <a name="create-firewall-rule-on-azure-database-for-mysql-server"></a>Criar uma regra de firewall no servidor de Banco de Dados do Azure para MySQL
 Usando o nome de servidor MySQL do Azure e o nome do grupo de recursos, crie uma nova regra de firewall no servidor. Forneça um nome para a regra, os IPs inicial e final para a regra abranger um intervalo de endereços IP aos quais permitir o acesso.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 Para permitir o acesso de um endereço IP único, fornece o mesmo endereço como o IP Inicial e IP Final, como neste exemplo.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  
 --server mysql --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
@@ -90,7 +90,7 @@ Após o êxito, a saída do comando listará os detalhes da regra do firewall qu
 
 ## <a name="update-firewall-rule-on-azure-database-for-mysql-server"></a>Atualizar uma regra de firewall no servidor de Banco de Dados do Azure para MySQL 
 Usando o nome de servidor MySQL do Azure e o nome do grupo de recursos, atualize uma regra de firewall existente no servidor. Forneça o nome da regra de firewall existente como entrada, e os atributos IP inicial e IP final para atualizar.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule update --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Após o êxito, a saída do comando listará os detalhes da regra do firewall que você atualizou, em formato JSON por padrão. Se houver uma falha, a saída mostrará o texto da mensagem de erro em vez disso.
@@ -100,14 +100,14 @@ Após o êxito, a saída do comando listará os detalhes da regra do firewall qu
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Mostrar detalhes de uma regra de firewall no servidor de Banco de Dados do Azure para MySQL
 Usando o nome de servidor MySQL do Azure e o nome do grupo de recursos, mostre os detalhes da regra de firewall existente no servidor. Forneça o nome da regra de firewall existente como entrada.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule show --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 Após o êxito, a saída do comando listará os detalhes da regra do firewall que você especificou, em formato JSON por padrão. Se houver uma falha, a saída mostrará o texto da mensagem de erro em vez disso.
 
 ## <a name="delete-firewall-rule-on-azure-database-for-mysql-server"></a>Excluir uma regra de firewall no servidor de Banco de Dados do Azure para MySQL
 Usando o nome de servidor MySQL do Azure e o nome do grupo de recursos, remova uma regra de firewall existente do servidor. Forneça o nome da regra de firewall existente.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule delete --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 Após o êxito, não haverá saída. Em caso de falha, o texto da mensagem de erro retornará.
@@ -115,3 +115,4 @@ Após o êxito, não haverá saída. Em caso de falha, o texto da mensagem de er
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda mais sobre [Regras de firewall do servidor de Banco de Dados do Azure para MySQL](./concepts-firewall-rules.md)
 - [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando o Portal do Azure](./howto-manage-firewall-using-portal.md)
+

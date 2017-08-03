@@ -13,12 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 06/01/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 43175672c81373b5c9cc1bddc8ce27bcaaf5ec14
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -28,14 +29,14 @@ ms.lasthandoff: 04/03/2017
 
 A Extensão de Script Personalizado do Microsoft Azure para Linux é uma maneira de personalizar VMs (máquinas virtuais) executando código arbitrário escrito em qualquer linguagem de script com suporte da VM (por exemplo, Python e Bash). Isso fornece uma maneira muito flexível para automatizar a implantação de aplicativos em várias máquinas.
 
-Você pode implantar a extensão CustomScript usando o portal clássico do Azure, Windows PowerShell ou a Interface de linha de comando do Azure (CLI do Azure).
+Você pode implantar a Extensão CustomScript usando o portal do Azure, Windows PowerShell ou a Interface de linha de comando do Azure (CLI do Azure).
 
 Neste artigo, usaremos a CLI do Azure para implantar um aplicativo simples da LAMP em uma VM do Ubuntu criada com o modelo de implantação clássico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para este exemplo, primeiro crie duas VMs do Azure executando o Ubuntu 14.04 ou posterior. As VMs são chamadas *script-vm* e *lamp-vm*. Use nomes exclusivos ao criar as VMs. Uma é usada para executar os comandos da CLI e a outra para implantar o aplicativo LAMP.
 
-Você também precisa de uma conta de armazenamento do Azure e uma chave para acessá-la (você pode obtê-la no portal clássico do Azure).
+Você também precisa de uma conta de Armazenamento do Azure e uma chave para acessá-la (você pode obtê-la no portal do Azure).
 
 Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](createportal.md).
 

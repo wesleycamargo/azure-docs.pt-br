@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -32,7 +33,7 @@ O Gateway de Aplicativo do Azure é um ADC (Controlador de Entrega de Aplicativo
 
 **P. Quais recursos recebem suporte do Gateway de Aplicativo?**
 
-O Gateway de Aplicativo oferece suporte ao descarregamento de SSL e SSL de ponta a ponta, Firewall de Aplicativo Web (visualização), afinidade de sessão baseada em cookies, roteamento baseado em caminho de url, hospedagem em múltiplos sites e outros. Para conferir uma lista completa dos recursos com suporte, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md)
+O Gateway de Aplicativo oferece suporte ao descarregamento de SSL e SSL de ponta a ponta, Firewall de Aplicativo Web, afinidade de sessão baseada em cookies, roteamento baseado em caminho de url, hospedagem em múltiplos sites e outros. Para conferir uma lista completa dos recursos com suporte, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md)
 
 **P. Qual é a diferença entre o Gateway de Aplicativo e o Azure Load Balancer?**
 
@@ -78,6 +79,10 @@ Há suporte a apenas um endereço IP público em um Gateway de Aplicativo.
 
 Sim, o Gateway de Aplicativo insere cabeçalhos x-forwarded-for, x-forwarded-proto e x-forwarded-port na solicitação encaminhada ao back-end. O formato do cabeçalho x-forwarded-for é uma lista separada por vírgulas de IP:Porta. Os valores válidos para x-forwarded-proto são http ou https. X-forwarded-port especifica a porta na qual a solicitação alcançou o Gateway de Aplicativo.
 
+**P. Quanto tempo demora para implantar um Gateway de Aplicativo? O meu Gateway de Aplicativo ainda funciona quando está sendo atualizado?**
+
+Novas implantações do Gateway de Aplicativo podem levar até 20 minutos para provisionar. Alterações de tamanho/contagem de instâncias não são interrompidas, e o gateway permanece ativo durante esse tempo.
+
 ## <a name="configuration"></a>Configuração
 
 **P. O Gateway de Aplicativo é sempre implantado em uma rede virtual?**
@@ -90,11 +95,17 @@ O Gateway de Aplicativo pode se comunicar com instâncias fora da rede virtual n
 
 **P. Posso implantar qualquer coisa na sub-rede do Gateway de Aplicativo?**
 
-Não, mas você pode implantar outros gateways de aplicativo na sub-rede
+Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 **P. Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicativo?**
 
-Os Grupos de segurança de rede têm suporte na sub-rede do Gateway de Aplicativo, mas é necessário aplicar exceções para as portas 65503-65534 para que a integridade de back-end funcione corretamente. A conectividade de internet de saída não deve ser bloqueada.
+Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicativo com as seguintes restrições:
+
+* Exceções devem ser colocadas para tráfego de entrada nas portas 65503-65534 para integridade de back-end para funcionar corretamente.
+
+* A conectividade de internet de saída não deve ser bloqueada.
+
+* Tráfego de marca AzureLoadBalancer deve ser permitido.
 
 **P. Quais são os limites no Gateway de Aplicativo? Posso aumentar esses limites?**
 
@@ -122,7 +133,21 @@ As investigações personalizadas não têm suporte para curingas/regex nos dado
 
 **P. O que significa o campo Host para investigações personalizadas?**
 
-O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>. 
+O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>.
+
+**P. É possível lista permissões de acesso do Gateway de Aplicativo para alguns IPs de origem?**
+
+Isso pode ser feito usando os NSGs na sub-rede de Gateway de Aplicativo. As seguintes restrições devem ser colocadas na sub-rede na ordem listada de prioridade:
+
+* Permitir tráfego de entrada de intervalo de IP/IP de origem.
+
+* Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md).
+
+* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Bloquear todo o outro tráfego de entrada com um Negar todas as regras.
+
+* Permitir tráfego de saída para a internet para todos os destinos.
 
 ## <a name="performance"></a>Desempenho
 
@@ -283,3 +308,4 @@ O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS person
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Gateway de Aplicativo, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md).
+

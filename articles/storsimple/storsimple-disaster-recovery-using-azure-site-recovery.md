@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
@@ -89,7 +89,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
       > O nome do arquivo poderá mudar dependendo da versão.
       >
       >
-3. Clique em **Próximo**.
+3. Clique em **Avançar**.
 4. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 5. Clique em **Concluir**.
 6. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
@@ -123,7 +123,7 @@ Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    >
    >
-2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) da VM do servidor de arquivos do portal do Azure Site Recovery.
+2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) da VM do servidor de arquivos do portal do Azure Site Recovery.
 3. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 4. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 
@@ -140,9 +140,18 @@ Você pode selecionar a VM na guia **Itens replicados** para definir as configur
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 Você pode criar um plano de recuperação no ASR para automatizar o processo de failover de compartilhamentos de arquivos. Se ocorrer uma interrupção, você poderá exibir os compartilhamentos de arquivos em poucos minutos com apenas um clique simples. Para habilitar essa automação, você precisará de uma conta de Automação do Azure.
 
-#### <a name="to-create-the-account"></a>Para criar a conta
+#### <a name="to-create-an-automation-account"></a>Para criar uma conta de Automação
 1. Vá para o Portal do Azure, &gt; seção **Automação**.
-2. Crie uma nova conta de automação. Mantenha-a na mesma área geográfica onde as Contas de Armazenamento e Dispositivo de Nuvem StorSimple foram criados.
+2. Clique no botão **+ Adicionar** e a folha abaixo é aberta.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * Nome – insira uma nova conta de automação
+   * Assinatura – escolha uma assinatura
+   * Grupo de recursos – crie um novo grupo de recursos ou escolha um grupo de recursos existente
+   * Localização – escolha uma localização e mantenha-a na mesma área geográfica/região em que as Contas de Armazenamento e o Dispositivo de Nuvem StorSimple foram criados.
+   * Criar conta Executar Como do Azure – selecione a opção **Sim**.
+
 3. Vá para a conta Automação, clique em **Runbooks** &gt; **Procurar na Galeria** para importar todos os runbooks necessários para a conta de automação.
 4. Adicione os seguintes runbooks ao localizar a marcação **Recuperação de Desastre** na galeria:
 
@@ -153,13 +162,12 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    * Inicie a solução de virtualização StorSimple
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. Publique todos os scripts, selecionando o runbook na conta de automação e clique em **Editar** &gt; **Publicar** e, em seguida, em **Sim** para a mensagem de verificação. Após essa etapa, a guia **Runbooks** será exibida da seguinte maneira:
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. Na conta de automação, vá para a guia **Ativos** &gt;, clique em **Credenciais** &gt; **+ Adicionar uma credencial** e adicione suas credenciais Azure – nomeie AzureCredential ao ativo.
 
-   Use a credencial do Windows PowerShell. Esta deve ser uma credencial que contém um nome de usuário e senha da ID da Org com acesso a essa assinatura do Azure e com o Multi-Factor Authentication desabilitado. Isso é necessário para autenticar em nome do usuário durante os failovers e para exibir os volumes do servidor de arquivos no site de DR.
-7. Na conta de automação, selecione a guia **Ativos** &gt;, clique em **Variáveis** &gt; **Adicionar Variável** e adicione as seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o nome do seu plano de recuperação (que você criará na próxima etapa) for TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
+6. Na conta de automação, selecione a guia **Ativos** &gt;, clique em **Variáveis** &gt; **Adicionar Variável** e adicione as seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o nome do seu plano de recuperação (que você criará na próxima etapa) for TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
    * *RecoveryPlanName***-StorSimRegKey**: a chave de registro para o serviço StorSimple Manager.
    * *RecoveryPlanName***- AzureSubscriptionName**: o nome da assinatura do Azure.
@@ -178,8 +186,8 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. Acesse a seção **Serviços de Recuperação** e selecione o cofre do Azure Site Recovery que você criou anteriormente.
-9. Selecione a opção **Planos de Recuperação (Recuperação de Site)** do grupo **Gerenciar** e crie um novo plano de recuperação, conforme a seguir:
+7. Acesse a seção **Serviços de Recuperação** e selecione o cofre do Azure Site Recovery que você criou anteriormente.
+8. Selecione a opção **Planos de Recuperação (Recuperação de Site)** do grupo **Gerenciar** e crie um novo plano de recuperação, conforme a seguir:
 
    a.  Clique no botão **+ Plano de recuperação**, abra a folha abaixo.
 
@@ -291,7 +299,7 @@ O planejamento de capacidade é composto de, pelo menos, dois processos importan
 
   > [!IMPORTANT]
   > Execute o backup manualmente no Portal do Azure e, em seguida, execute o plano de recuperação novamente.
-  
+
 * Tempo limite do trabalho de clonagem: o script do StorSimple atingirá o tempo limite se a clonagem de volumes levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
 * Erro de sincronização de tempo: os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
-ms.lasthandoff: 01/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 63f2638cd0d50d1aa9a3b6864daba0b8854768d7
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
@@ -116,7 +116,7 @@ Antes de passar para o próximo tópico, algumas palavras sobre o design do gere
 
 | **ContentKey-para-ativo** | **Cenário** |
 | --- | --- |
-| 1 para&1; |O caso mais simples. Ele fornece o controle mais refinado. Mas isso geralmente resulta no custo de entrega de licença mais alto. Pelo menos uma solicitação de licença é necessária para cada ativo protegido. |
+| 1 para 1 |O caso mais simples. Ele fornece o controle mais refinado. Mas isso geralmente resulta no custo de entrega de licença mais alto. Pelo menos uma solicitação de licença é necessária para cada ativo protegido. |
 | 1-para-muitos |Você pode usar a mesma chave de conteúdo para vários ativos. Por exemplo, para todos os ativos em um grupo lógico, como um gênero ou um subconjunto de gênero (ou Gênero de Filme), você pode usar uma única chave de conteúdo. |
 | Muitos-para-1 |Várias chaves de conteúdo são necessárias para cada ativo. <br/><br/>Por exemplo, se você precisar aplicar proteção CENC dinâmica com vários DRMs para MPEG-DASH e criptografia dinâmica AES-128 para HLS, será preciso duas chaves de conteúdo separadas, cada uma com seu próprio ContentKeyType. (Para a chave de conteúdo usada na proteção CENC dinâmica, é preciso usar ContentKeyType.CommonEncryption; já para a chave de conteúdo usada na criptografia dinâmica AES-128, é preciso usar ContentKeyType.EnvelopeEncryption.)<br/><br/>Outro exemplo: na proteção CENC de conteúdo DASH, teoricamente, uma chave de conteúdo pode ser usada para proteger a transmissão de vídeo e outra chave de conteúdo para proteger a transmissão de áudio. |
 | Muitos-para-muitos |Combinação dos dois cenários acima: um conjunto de chaves de conteúdo é usado para cada um dos vários ativos no mesmo "grupo" de ativos. |
@@ -274,7 +274,7 @@ O AD do Azure usa o padrão da indústria para estabelecer a confiança entre el
 
 Informações detalhadas sobre a substituição de chave do AD do Azure podem ser encontradas no documento: [Informações importantes sobre substituição de chaves de assinatura no AD do Azure](../active-directory/active-directory-signing-key-rollover.md).
 
-Entre o [par de chaves pública/privada](https://login.windows.net/common/discovery/keys/),
+Entre o [par de chaves pública/privada](https://login.microsoftonline.com/common/discovery/keys/),
 
 * A chave privada é usada pelo Active Directory do Azure para gerar um token JWT;
 * A chave pública é usada por um aplicativo, como os Serviços de Entrega de Licença DRM no AMS para verificar o token JWT;

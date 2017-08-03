@@ -5,18 +5,20 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: sakula
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/20/2017
 ms.author: asmalser-msft
-translationtype: Human Translation
+ms.reviewer: asmalser
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
 ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/08/2017
 
 ---
@@ -46,9 +48,9 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Dicas importantes para atribuir usuários ao Slack
 
-*    Recomendamos a atribuição de um único usuário do Azure AD ao Slack para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao Slack para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*    Ao atribuir um usuário ao Slack, selecione a função **Usuário** ou "Grupo" na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um usuário ao Slack, selecione a função **Usuário** ou "Grupo" na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
 
 
 ## <a name="configuring-user-provisioning-to-slack"></a>Como configurar o provisionamento de usuários no Slack 
@@ -61,17 +63,17 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Slack no Azure AD:
 
 
-1)    No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
+1)  No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
 2) Se você já tiver configurado o Slack para logon único, procure sua instância do Slack usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procure **Slack** na galeria de aplicativos. Selecione o Slack nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3)    Selecione sua instância do Slack e selecione a guia **Provisionamento**.
+3)  Selecione sua instância do Slack e selecione a guia **Provisionamento**.
 
-4)    Defina o **Modo de Provisionamento** como **Automático**.
+4)  Defina o **Modo de Provisionamento** como **Automático**.
 
 ![Provisionamento do Slack](./media/active-directory-saas-slack-provisioning-tutorial/Slack1.PNG)
 
-5)    Na seção **Credenciais de Administrador**, clique em **Autorizar**. Isso abre uma caixa de diálogo de autorização do Slack em uma nova janela do navegador. 
+5)  Na seção **Credenciais de Administrador**, clique em **Autorizar**. Isso abre uma caixa de diálogo de autorização do Slack em uma nova janela do navegador. 
 
 6) Na nova janela, entre no Slack usando sua conta de Administrador de Equipe. Na caixa de diálogo de autorização resultante, selecione a equipe do Slack para a qual você deseja habilitar o provisionamento e, em seguida, selecione **Autorizar**. Depois de concluído, retorne ao Portal do Azure para concluir a configuração de provisionamento.
 

@@ -13,14 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 07/10/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e9dfb5a744a7c63ef9805b1341236c4f3c57ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Visão geral do Gateway de Aplicativo
@@ -43,6 +42,7 @@ O Gateway de Aplicativo atualmente fornece as seguintes funcionalidades:
 * **[Roteamento de vários sites](application-gateway-multi-site-overview.md)** - o Gateway de Aplicativo permite que você consolide até 20 sites em um gateway de aplicativo único.
 * **[Suporte ao Websocket](application-gateway-websocket.md)** - outro grande recurso do Gateway de Aplicativo é o suporte nativo para Websocket.
 * **[Monitoramento de integridade](application-gateway-probe-overview.md)** - o gateway de aplicativo fornece investigações de integridade de padrão monitoramento de recursos de back-end, bem como personalizada para monitorar a cenários mais específicos.
+* **[Solicitação de redirecionamento](application-gateway-redirect-overview.md)** - Esse recurso fornece a capacidade de redirecionar as solicitações HTTP para um ouvinte HTTPS.
 * **[Diagnóstico avançado](application-gateway-diagnostics.md)** – o Gateway de Aplicativo fornece logs de diagnóstico e acesso completos. Logs do firewall estão disponíveis para recursos de gateway de aplicativo que têm o WAF habilitado.
 
 ## <a name="benefits"></a>Benefícios
@@ -103,4 +103,6 @@ Para perguntas frequentes sobre o Gateway de Aplicativo, consulte [Perguntas fre
 Depois de aprender mais sobre o Gateway de Aplicativo, você pode [criar um Gateway de Aplicativo](application-gateway-create-gateway-portal.md) ou [criar um descarregamento de SSL do Gateway de Aplicativo](application-gateway-ssl-arm.md) para balancear a carga de conexões HTTPS.
 
 Para saber como criar um Gateway de Aplicativo usando a URL com base em roteamento de conteúdo, acesse [Criar um Gateway de Aplicativo usando roteamento com base em URL](application-gateway-create-url-route-arm-ps.md) para obter mais informações.
+
+Para saber mais sobre alguns dos outros recursos principais de rede do Azure, confira [Rede do Azure]((../networking/networking-overview.md).
 

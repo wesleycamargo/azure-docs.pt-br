@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 858769130eed5c996bca151855bfc09d4832a314
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -88,7 +88,7 @@ As propriedades que podem ser definidas em uma captura de pacotes são:
 - **Caminho do arquivo local** - o caminho local em uma máquina virtual para salvar a captura de pacotes. (Habilitado somente se o **Arquivo** estiver selecionado). Um caminho válido deve ser fornecido
 - **Máximo de bytes por pacote** - o número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco.
 - **Máximo de bytes por sessão** – o número total de bytes capturados; quando o valor é atingido, a captura de pacotes é interrompida.
-- **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. O padrão é 1.800 segundos.
+- **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. O padrão é 18.000 segundos.
 
 > [!NOTE]
 > As contas de armazenamento Premium atualmente não têm suporte para armazenar as capturas de pacotes.

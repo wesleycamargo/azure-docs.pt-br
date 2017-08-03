@@ -20,7 +20,7 @@
 | Políticas | 1,000,000<sup>(6)</sup> |
 | Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>7</sup> |
   
-<sup>1</sup> S3 RUs não estão disponíveis na Índia Ocidental.
+<sup>1</sup> S3 RUs não estão disponíveis na Índia Ocidental. Os limites máximos de RU serão redefinidos se o cliente alterar o tipo (por exemplo, de S2 para S1). 
 
 <sup>2</sup> Esse número inclui trabalhos em fila, concluídos, ativos e cancelados. Ele não inclui trabalhos excluídos. Você pode excluir os trabalhos antigos usando **IJob.Delete** ou a solicitação HTTP **DELETE**.
 
@@ -43,6 +43,6 @@ A partir de 15 de maio de 2017, o tamanho máximo suportado para um único blob 
 
 | Tipo de Unidade Reservada de Mídia | Tamanho máximo de entrada (GB)| 
 | --- | --- | 
-|S1    | 325|
-|S2    | 640|
-|S3    | 260|
+|S1 | 325|
+|S2 | 640|
+|S3 | 260|

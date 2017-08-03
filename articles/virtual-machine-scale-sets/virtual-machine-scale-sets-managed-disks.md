@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Conjuntos de dimensionamento de VMs do Azure e discos gerenciados
 
-Agora os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure oferecem suporte a máquinas virtuais com discos gerenciados. O uso de discos gerenciados com conjuntos de dimensionamento tem vários benefícios, incluindo:
+Os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure oferecem suporte a máquinas virtuais com discos gerenciados. O uso de discos gerenciados com conjuntos de dimensionamento tem vários benefícios, incluindo:
 
 * Você não precisa mais pré-criar e gerenciar contas de armazenamento para armazenar os discos do sistema operacional para as VMs do conjunto de dimensionamento.
 
@@ -44,13 +43,9 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Como alternativa, você pode procurar as pastas no [repositório GitHub de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) que contêm `vmss` para ver exemplos pré-compilados de modelos que implantam os conjuntos de dimensionamento. Para saber quais modelos já estão usando discos gerenciados, consulte [essa lista](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## <a name="api-versions"></a>Versões de API
-
-O dimensionamento de conjuntos com discos gerenciados requer uma versão da API Microsoft.Compute do `2016-04-30-preview` ou posterior. Os conjuntos de dimensionamento com discos não gerenciados continuarão a funcionar como atualmente, mesmo nas novas versões de API que oferecem suporte para disco gerenciado. No entanto, os conjuntos de dimensionamento com discos não gerenciados não terão os benefícios dos discos gerenciados, mesmo nessas novas versões de API.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre discos gerenciados em geral, consulte [este artigo](../storage/storage-managed-disks-overview.md).
+Para obter mais informações sobre discos gerenciados em geral, confira [este artigo](../storage/storage-managed-disks-overview.md).
 
 Para ver como converter um modelo do Resource Manager para provisionar conjuntos de dimensionamento com discos gerenciados, consulte [este artigo](./virtual-machine-scale-sets-convert-template-to-md.md). As mesmas modificações nos modelos do Resource Manager também se aplicam à API REST do Azure.
 

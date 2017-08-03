@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problem-installing-the-application-proxy-agent-connector" class="xliff"></a>
-
-# Problema ao instalar o conector de agente de Application Proxy
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
 Conector do Application Proxy do Microsoft AAD é um componente de domínio interno que usa conexões de saída para estabelecer a conectividade do ponto de extremidade da nuvem disponível para o domínio interno.
 
-<a id="general-problem-areas-with-connector-installation" class="xliff"></a>
-
-## Áreas de problemas gerais com a instalação do conector
+## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com a instalação do conector
 
 Quando a instalação de um conector falhar, a causa raiz é geralmente uma das seguintes áreas:
 
@@ -39,9 +35,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 3.  **Autenticação do administrador** – durante a instalação, o usuário deve fornecer credenciais de administrador para concluir a instalação do conector.
 
-<a id="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page" class="xliff"></a>
-
-## Verifique a conectividade com o serviço de Application Proxy de nuvem e a página de Logon da Microsoft
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço de Application Proxy de nuvem e a página de Logon da Microsoft
 
 **Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do Application Proxy do AAD, bem como página de logon do Microsoft.
 
@@ -51,9 +45,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 3.  Abra um navegador (guia separada) e vá para a seguinte página da Web: <https://login.microsoftonline.com>, certifique-se de que você pode fazer logon nessa página.
 
-<a id="verify-machine-and-backend-components-support-for-application-proxy-trust-cert" class="xliff"></a>
-
-## Verifique se os componentes do computador e de back-end oferecem suporte para certificados de confiança de Application Proxy
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verifique se os componentes do computador e de back-end oferecem suporte para certificados de confiança de Application Proxy
 
 **Objetivo:** Verifique se que o computador do conector, o proxy de back-end e o firewall podem dar suporte ao certificado criado pelo conector para confiança futura.
 
@@ -68,9 +60,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 2.  Entre em contato com seu administrador de rede e peça para verificar se o proxy de back-end e o firewall não bloqueiam SHA512 para tráfego de saída.
 
-<a id="verify-admin-is-used-to-install-the-connector" class="xliff"></a>
-
-## Verifique se o administrador é usado para instalar o conector
+## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 
 **Objetivo:** Verifique se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um administrador global para que a instalação tenha êxito.
 
@@ -80,8 +70,6 @@ Conecte ao <https://login.microsoftonline.com> e use as mesmas credenciais. Veri
 
 Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "Administrador Global". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você não será um administrador global.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)
 

@@ -22,8 +22,7 @@ ms.lasthandoff: 05/17/2017
 
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
-# Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -40,12 +39,10 @@ O **assistente de cópia** permite que você crie rapidamente um pipeline de dad
 
 Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
-<a id="prerequisites" class="xliff"></a>
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua os pré-requisitos listados no artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) antes de executar este tutorial.
 
-<a id="create-data-factory" class="xliff"></a>
-## Criar um data factory
+## <a name="create-data-factory"></a>Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure denominado **ADFTutorialDataFactory**.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com).
@@ -74,8 +71,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    
    ![Página inicial da data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-<a id="launch-copy-wizard" class="xliff"></a>
-## Iniciar o Assistente de cópia
+## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
 1. Na folha Data Factory, clique em **Copiar dados [VERSÃO PRÉVIA]** para iniciar o **Assistente de cópia**. 
    
    > [!NOTE]
@@ -137,8 +133,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
     
     ![Ferramenta de cópia - configurações de desempenho](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-<a id="launch-monitor-and-manage-application" class="xliff"></a>
-## Iniciar o monitor e gerenciar aplicativo
+## <a name="launch-monitor-and-manage-application"></a>Iniciar o monitor e gerenciar aplicativo
 1. Na página **Implantação**, clique no link: `Click here to monitor copy pipeline`.
    
    ![Ferramenta de Cópia - implantação bem-sucedida](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -154,8 +149,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 
     Para saber mais sobre como usar o aplicativo, confira [Monitorar e gerenciar o pipeline usando o aplicativo de monitoramento](data-factory-monitor-manage-app.md) artigo.
 
-<a id="next-steps" class="xliff"></a>
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

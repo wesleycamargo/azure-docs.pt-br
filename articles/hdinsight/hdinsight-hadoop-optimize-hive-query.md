@@ -22,7 +22,6 @@ ms.openlocfilehash: 7d269a5805da405e4e5f7a3caf5a58fa454b9abb
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/28/2017
 
-
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 
@@ -100,7 +99,7 @@ Depois de criar a tabela particionada, você pode criar particionamento estátic
         WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
   
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-        LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+        LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 * **Particionamento dinâmico** significa que você deseja que o Hive crie partições automaticamente para você. Como já criamos a tabela de partição a partir da tabela de preparo, só precisamos inserir dados na tabela particionada:
   
         SET hive.exec.dynamic.partition = true;

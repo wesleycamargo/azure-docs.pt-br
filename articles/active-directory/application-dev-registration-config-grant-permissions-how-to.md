@@ -21,15 +21,11 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-grant-permissions-to-a-custom-developed-application" class="xliff"></a>
-
-# Como conceder permissões a um aplicativo desenvolvido de forma personalizada
+# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Como conceder permissões a um aplicativo desenvolvido de forma personalizada
 
 Para conceder consentimento de forma preventiva em seu aplicativo ou se estiver executando um erro não consentido em um aplicativo, tente as etapas a seguir.
 
-<a id="how-to-perform-admin-consent-for-your-application" class="xliff"></a>
-
-## Como executar consentimento de administrador em seu aplicativo
+## <a name="how-to-perform-admin-consent-for-your-application"></a>Como executar consentimento de administrador em seu aplicativo
 
 Isso tem o efeito de conceder consentimento ao aplicativo a todos os usuários na organização.
 
@@ -39,15 +35,11 @@ Isso tem o efeito de conceder consentimento ao aplicativo a todos os usuários n
 
 Como alternativa, você pode construir uma solicitação para *login.microsoftonline.com* com as configurações do seu aplicativo e anexar um consentimento *&prompt=admin\_*. Após entrar com credenciais de administrador, o aplicativo recebe consentimento para todos os usuários.
 
-<a id="how-to-force-user-consent-for-your-application" class="xliff"></a>
-
-## Como forçar consentimento de usuário em seu aplicativo
+## <a name="how-to-force-user-consent-for-your-application"></a>Como forçar consentimento de usuário em seu aplicativo
 
 * Anexe nas solicitações de autenticação *&prompt=consent* que exige consentimento dos usuários finais cada vez que se autenticam.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Consentir e integrar aplicativos ao AzureAD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 

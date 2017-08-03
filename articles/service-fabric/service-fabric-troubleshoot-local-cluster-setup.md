@@ -3,7 +3,7 @@ title: "Solucionar problemas de sua configuração de cluster do Service Fabric 
 description: "Este artigo aborda um conjunto de sugestões para a solução de problemas do cluster de desenvolvimento local"
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
-ms.lasthandoff: 11/17/2016
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
+ms.contentlocale: pt-br
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -57,7 +58,7 @@ Sempre execute os cmdlets do Service Fabric diretamente do Windows PowerShell.
 Ao conectar-se com o cluster no PowerShell, você vê o erro TypeInitializationException para System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Solução
-A variável do caminho não foi definida corretamente durante a instalação. Saia do Windows e faça logon novamente. Isso atualiza seu caminho.
+A variável do caminho não foi definida corretamente durante a instalação. Saia do Windows e entre novamente. Isso atualiza o caminho.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>Falha de conexão do cluster com “O objeto está fechado”
 #### <a name="problem"></a>Problema
@@ -78,12 +79,12 @@ Feche a janela atual do PowerShell e inicie uma nova janela como um administrado
 Ao depurar no Visual Studio, você obtém um erro FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Solução
-Geralmente, esse erro ocorre quando você tenta iniciar um processo de host de serviço manualmente, em vez de permitir que o tempo de execução da Malha do Serviço inicie-o para você.
+Geralmente, esse erro ocorre quando você tenta iniciar um processo de host de serviço manualmente, em vez de permitir que o tempo de execução do Service Fabric inicie-o para você.
 
 Verifique se você não possui um projeto de serviço definido como projeto de inicialização na sua solução. Somente projetos de aplicativo da Malha do Serviço devem ser definidos como projetos de inicialização.
 
 > [!TIP]
-> Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema de gerenciador de cluster local. Isso removerá o cluster existente e configurará um novo. Observe que todos os aplicativos implantados e os dados associados serão removidos.
+> Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema de gerenciador de cluster local. Isso remove o cluster existente e configura um novo. Observe que todos os aplicativos implantados e os dados associados são removidos.
 > 
 > 
 

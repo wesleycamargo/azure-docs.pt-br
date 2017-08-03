@@ -12,11 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,7 +28,7 @@ Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços 
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Projeto de Serviço de Nuvem para projeto de aplicativo Service Fabric
  Um projeto de Serviço de Nuvem e um projeto de aplicativo Service Fabric têm uma estrutura semelhante, e ambos representam a unidade de implantação de seu aplicativo, ou seja, cada um define o pacote completo que é implantado para executar seu aplicativo. Um projeto de Serviço de Nuvem contém uma ou mais funções de trabalho ou Web. Da mesma forma, um projeto de aplicativo Service Fabric contém um ou mais serviços. 
 
-A diferença é que o projeto de Serviço de Nuvem associa a implantação do aplicativo a uma implantação de VM e, portanto, contém as definições de configuração da VM, enquanto o projeto de aplicativo Service Fabric define apenas um aplicativo que será implantado em um conjunto de máquinas virtuais existentes em um cluster do Service Fabric. O cluster do Service Fabric em si só é implantado uma vez, por meio de um modelo de ARM ou por meio do Portal do Azure, e vários aplicativos do Service Fabric podem ser implantados nele.
+A diferença é que o projeto de Serviço de Nuvem associa a implantação do aplicativo a uma implantação de VM e, portanto, contém as definições de configuração da VM, enquanto o projeto de aplicativo Service Fabric define apenas um aplicativo que será implantado em um conjunto de máquinas virtuais existentes em um cluster do Service Fabric. O cluster do Service Fabric em si só é implantado uma vez, por meio de um modelo do Resource Manager ou por meio do portal do Azure, e vários aplicativos do Service Fabric podem ser implantados nele.
 
 ![Comparação de projeto dos Serviços de Nuvem e do Service Fabric][3]
 
@@ -260,9 +262,4 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

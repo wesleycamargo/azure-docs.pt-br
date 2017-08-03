@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a1ae2ef790455383118bb55c34f6ca10fe0169e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 7122b970c2e4703df9771e8ace4e710399ca3e6c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -76,19 +76,22 @@ Você não pode instalar o gateway em um controlador de domínio.
 
 * Não instale o gateway em um computador que possa ser desligado, entrar em suspensão ou não se conectar à Internet, pois o gateway não poderá ser executado em tais circunstâncias. Além disso, o desempenho do gateway pode ser reduzido em uma rede sem fio.
 
-* Você só pode entrar com uma conta do Azure que tenha um endereço de email profissional ou de estudante gerenciado pelo Azure AD (Azure Active Directory). Você precisa dessa conta para associar o gateway de dados local a uma assinatura do Azure para uma conta baseada no Azure AD.
+* Durante a instalação, você deve entrar com uma [conta corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gerenciada pelo Azure AD (Azure Active Directory), não uma conta da Microsoft. 
 
-  > [!TIP] 
-  > Se você tiver uma Conta da Microsoft (por exemplo, @outlook.com), você poderá usar sua conta do Azure para [criar um endereço de email profissional ou de estudante](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal). Caso você tenha se inscrito para uma oferta do Office 365 e não tenha fornecido seu email de trabalho real, o endereço de entrada pode ser semelhante a jeff@contoso.onmicrosoft.com. 
+  Você precisa usar a mesma conta corporativa ou de estudante posteriormente no portal do Azure, quando criar e associar um recurso de gateway à sua instalação do gateway. Em seguida, você seleciona esse recurso de gateway quando criar a conexão entre seu aplicativo lógico e a fonte de dados local. [Por que eu devo usar uma conta corporativa ou de estudante do Azure AD?](#why-azure-work-school-account)
+
+  > [!TIP]
+  > Se você se inscreveu para uma oferta do Office 365 e não forneceu seu email de trabalho real, o endereço de entrada pode ser semelhante a jeff@contoso.onmicrosoft.com. 
 
 * Se você tiver um gateway existente que deseje configurar com um instalador de uma versão anterior à 14.16.6317.4, não poderá alterar o local do gateway executando o instalador do mais recente. No entanto, você pode usar o instalador do mais recente para configurar um novo gateway com o local desejado, em vez disso.
   
   Se você tiver um instalador do gateway anterior à versão 14.16.6317.4, mas ainda não tiver instalado o gateway, poderá baixar e usar o instalador mais recente.
 
 <a name="install-gateway"></a>
+
 ## <a name="install-the-data-gateway"></a>Instalar o gateway de dados
 
-1.    [Baixe e execute o instalador do gateway em um computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.  [Baixe e execute o instalador do gateway em um computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Examine e aceite os termos de uso e a política de privacidade.
 
@@ -96,29 +99,38 @@ Você não pode instalar o gateway em um controlador de domínio.
 
 4. Quando solicitado, entre com sua conta corporativa ou de estudante do Azure, e não com uma conta da Microsoft.
 
-5. Agora registre sua instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service). 
+   ![Entrar com a conta corporativa ou de estudante do Azure](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-     O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. 
-     O serviço também encaminha consultas e seus resultados entre os usuários na nuvem, como seu aplicativo lógico, o gateway de dados local e sua fonte de dados local.
+5. Agora registre seu gateway instalado com o [serviço de nuvem do gateway](#gateway-cloud-service). Escolha **Registrar um novo gateway neste computador**.
 
-     1. Forneça um nome para sua instalação do gateway e crie uma chave de recuperação. 
-     Confirme sua chave de recuperação.
+   O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. 
+   O serviço também encaminha consultas e seus resultados entre seu aplicativo lógico, o gateway de dados local e sua fonte de dados local.
 
-        > [!IMPORTANT] 
-        > Sua chave de recuperação deve conter pelo menos oito caracteres. Certifique-se de salvar e guardar a chave em um local seguro. Você também precisa dessa chave quando deseja migrar, restaurar ou assumir um gateway existente.
+6. Forneça um nome para sua instalação do gateway. Crie uma chave de recuperação, em seguida, confirme sua chave de recuperação. 
 
-     2. Para alterar a região padrão para o serviço de nuvem do gateway e o Barramento de Serviço do Azure usados pela sua instalação do gateway, escolha **Alterar Região**.
+   > [!IMPORTANT] 
+   > Sua chave de recuperação deve conter pelo menos oito caracteres. Certifique-se de salvar e guardar a chave em um local seguro. Você também precisa dessa chave quando deseja migrar, restaurar ou assumir um gateway existente.
 
-        Por exemplo, você pode selecionar a mesma região que seu aplicativo lógico ou selecionar a região mais próxima de sua fonte de dados local para reduzir a latência. Seu aplicativo lógico e recurso de gateway podem ter locais diferentes.
+   1. Para alterar a região padrão para o serviço de nuvem do gateway e o Barramento de Serviço do Azure usados pela sua instalação do gateway, escolha **Alterar Região**.
 
-        > [!IMPORTANT]
-        > Você não pode alterar essa região após a instalação. Essa região também determina e restringe o local em que você pode criar o recurso do Azure para seu gateway. Assim, quando você cria seu recurso de gateway no Azure, certifique-se de que a localização do recurso corresponda à região selecionada durante a instalação do gateway.
-        > 
-        > Se você quiser usar uma região diferente do seu gateway mais tarde, deverá configurar um novo gateway.
+      ![Alterar região](./media/logic-apps-gateway-install/change-region-gateway-install.png)
 
-     3. Quando terminar, escolha **Configurar**.
+      A região padrão é a região associada ao seu locatário do Azure AD.
 
-6. Agora siga estas etapas no portal do Azure para que você possa [criar um recurso do Azure para seu gateway](../logic-apps/logic-apps-gateway-connection.md). 
+   2. No próximo painel, abra **Selecionar Região** para escolher uma região diferente.
+
+      ![Selecionar outra região](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+
+      Por exemplo, você pode selecionar a mesma região que seu aplicativo lógico ou selecionar a região mais próxima de sua fonte de dados local para reduzir a latência. Seu aplicativo lógico e recurso de gateway podem ter locais diferentes.
+
+      > [!IMPORTANT]
+      > Você não pode alterar essa região após a instalação. Essa região também determina e restringe o local em que você pode criar o recurso do Azure para seu gateway. Assim, quando você cria seu recurso de gateway no Azure, certifique-se de que a localização do recurso corresponda à região selecionada durante a instalação do gateway.
+      > 
+      > Se você quiser usar uma região diferente do seu gateway mais tarde, deverá configurar um novo gateway.
+
+   3. Quando estiver pronto, escolha **Concluído**.
+
+7. Agora siga estas etapas no portal do Azure para que você possa [criar um recurso do Azure para seu gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 Saiba mais sobre [como o gateway de dados funciona](#gateway-cloud-service).
 
@@ -127,7 +139,12 @@ Saiba mais sobre [como o gateway de dados funciona](#gateway-cloud-service).
 Para executar essas tarefas, você deve ter a chave de recuperação que foi especificada quando o gateway foi instalado.
 
 1. No menu Iniciar do computador, escolha **Gateway de dados local**.
-2. Depois que o instalador é aberto, forneça a chave de recuperação para o gateway que você deseja migrar, restaurar ou controlar.
+
+2. Depois que o instalador for aberto, entre com a mesma conta corporativa ou de estudante do Azure usada anteriormente para instalar o gateway.
+
+3. Escolha **Migrar, restaurar ou assumir um gateway existente**.
+
+4. Forneça o nome e a chave de recuperação para o gateway que você deseja migrar, restaurar ou controlar.
 
 <a name="restart-gateway"></a>
 ## <a name="restart-the-gateway"></a>Reinicie o gateway
@@ -199,7 +216,7 @@ Se precisar aprovar endereços IP em vez dos domínios, você poderá baixar e u
 <a name="gateway-cloud-service"></a>
 ## <a name="how-does-the-data-gateway-work"></a>Como funciona o gateway de dados?
 
-O gateway de dados facilita a comunicação rápida e segura entre um usuário na nuvem, como seu aplicativo lógico, o serviço de nuvem do gateway e sua fonte de dados local. 
+O gateway de dados facilita a comunicação rápida e segura entre seu aplicativo lógico, o serviço de nuvem do gateway e sua fonte de dados local. 
 
 ![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -228,8 +245,10 @@ Portanto, quando o usuário na nuvem interage com um elemento que está conectad
 **Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
 **R:** Não. O gateway se conecta à fonte de dados usando as informações de conexão que foram fornecidas. Considere o gateway como um aplicativo de cliente nesse sentido. O gateway precisa apenas da capacidade de se conectar ao nome do servidor que foi fornecido.
 
+<a name="why-azure-work-school-account"></a>
+
 **P**: Por que eu devo usar uma conta corporativa ou de estudante do Azure para entrar? <br/>
-**R**: Você somente pode associar o gateway de dados local a uma conta corporativa ou de estudante do Azure. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o UPN de sua conta do Azure AD corresponde ao endereço de email.
+**R**: Você pode usar uma conta corporativa ou de estudante do Azure apenas ao instalar o gateway de dados local. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
 
 **P**: Em que local minhas credenciais são armazenadas? <br/>
 **R**: As credenciais inseridas para uma fonte de dados são criptografadas e armazenadas no serviço de nuvem do gateway. As credenciais são descriptografadas no gateway de dados local.
