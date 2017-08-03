@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: krnese
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3e9321255b65d46af59d0ee478e214df795664ac
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de Mobilidade com o DSC de Automação do Azure para replicação da VM
@@ -59,7 +59,7 @@ Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de 
 * O WMF (Windows Management Framework) 5.0 instalado nos computadores que você deseja habilitar para proteção (requisito para o DSC de Automação)
 
   > [!NOTE]
-  > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](#Use DSC in disconnected environments).
+  > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](## Use DSC in disconnected environments).
   >
   >
 

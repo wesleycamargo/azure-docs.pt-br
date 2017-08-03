@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 2dacb50ab9b8604e48f5ba08e8f8e94fa4a71bd5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -46,7 +46,7 @@ O diagrama a seguir ilustra esse exemplo:
 
 Nessa configuração, o tráfego direcionado por meio do perfil pai distribui o tráfego entre regiões normalmente. Na Europa Ocidental, o perfil aninhado distribui o tráfego para os pontos de extremidade de produção e de teste de acordo com os pesos atribuídos.
 
-Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”, uma localização deve ser atribuída a cada ponto de extremidade. A localização é atribuída quando você configura o ponto de extremidade. Escolha a região do Azure mais próxima de sua implantação. As regiões do Azure são os valores de localização com suporte na Tabela de Latência da Internet. Para obter mais informações, consulte [Método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”, uma localização deve ser atribuída a cada ponto de extremidade. A localização é atribuída quando você configura o ponto de extremidade. Escolha a região do Azure mais próxima de sua implantação. As regiões do Azure são os valores de localização com suporte na Tabela de Latência da Internet. Para obter mais informações, consulte [Método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
 

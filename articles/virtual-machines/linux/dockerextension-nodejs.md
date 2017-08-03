@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: fb84ca46bdb02df315c078889f49db545fee1d64
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Criar um ambiente de Docker no Azure usando a extensão de VM do Docker com a CLI do Azure 1.0
@@ -29,7 +28,7 @@ Para obter mais informações sobre os diferentes métodos de implantação, inc
 
 * Para fazer rapidamente o protótipo de um aplicativo, você pode criar um único host do Docker usando a [Máquina do Docker](docker-machine.md).
 * Para ambientes maiores, mais estáveis, você pode usar a extensão de VM do Docker do Azure, que também dá suporte ao [Docker Compose](https://docs.docker.com/compose/overview/) para gerar implantações de contêiner consistentes. Este artigo detalha o uso da extensão de VM do Docker do Azure.
-* Você também pode implantar um [cluster do Docker Swarm nos Serviços de Contêiner do Azure](../../container-service/container-service-deployment.md) para criar ambientes escalonáveis, prontos para produção que fornecem ferramentas de gerenciamento e agendamento adicionais.
+* Você também pode implantar um [cluster do Docker Swarm nos Serviços de Contêiner do Azure](../../container-service/dcos-swarm/container-service-deployment.md) para criar ambientes escalonáveis, prontos para produção que fornecem ferramentas de gerenciamento e agendamento adicionais.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
@@ -201,6 +200,6 @@ Leia mais informações sobre as opções de implantação adicionais do Docker 
 
 * [Usar o computador Docker com o driver do Azure](docker-machine.md)  
 * [Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres em uma máquina virtual do Azure](docker-compose-quickstart.md).
-* [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/container-service-deployment.md)
+* [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
 

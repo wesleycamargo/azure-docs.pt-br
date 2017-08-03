@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas na conexão VPN Site a Site do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas quando a conexão VPN Site a Site para repentinamente e não pode mais ser reconectada."
+title: "Solução de problemas de conexão VPN site a site do Azure | Microsoft Docs"
+description: "Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada."
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
@@ -14,95 +14,99 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: a72a46e4c2c93fdb3ab1a26c8854adb8cdc488a5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
-# <a name="troubleshooting-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: a conexão VPN Site a Site do Azure não pode se conectar e para de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
-Você configura a conexão VPN Site a Site entre a rede local e uma rede virtual do Microsoft Azure. A conexão VPN para de funcionar repentinamente e não pode ser reconectada. Este artigo fornece as etapas para a solução de problemas de modo a ajudá-lo a resolver esse problema. 
+Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Para resolver o problema tente, primeiro, [redefinir o Gateway de rede virtual do Azure ](vpn-gateway-resetgw-classic.md) e redefinir o Túnel a partir do dispositivo VPN local. Se o problema persistir, siga essas etapas para identificar a causa do problema.
+Para resolver o problema, primeiro tente [redefinir o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md) e redefinir o túnel do dispositivo VPN local. Se o problema persistir, siga essas etapas para identificar a causa do problema.
 
 ### <a name="prerequisite-step"></a>Etapa de pré-requisito
 
-Verifique o tipo de gateway de rede virtualdo  Azure:
+Verifique o tipo do gateway de VPN do Azure.
 
-1. Vá para o [portal do Azure](https://portal.azure.com).
-2. Verifique a página **Visão Geral** do gateway de rede virtual para os tipos de informações.
+1. Vá para o [Portal do Azure](https://portal.azure.com).
+
+2. Verifique a página **Visão Geral** do gateway de VPN para as informações de tipo.
     
     ![Visão geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Etapa 1 Verifique se o dispositivo VPN local está validado
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Etapa 1. Verifique se o dispositivo VPN local está validado
 
-1. Verifique se você está usando um [dispositivo VPN validado e a versão do SO](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). Se o dispositivo não for um dispositivo VPN validado, talvez seja necessário contatar o fabricante do dispositivo para verificar se há algum problema de compatibilidade.
-2. Certifique-se de que o dispositivo VPN esteja configurado corretamente. Para obter mais informações, consulte [Editar exemplos de configuração de dispositivo](/vpn-gateway-about-vpn-devices.md#editing).
+1. Verifique se você está usando um [dispositivo VPN e uma versão do sistema operacional validados](vpn-gateway-about-vpn-devices.md#devicetable). Se o dispositivo não for um dispositivo VPN validado, talvez seja necessário contatar o fabricante do dispositivo para verificar se há algum problema de compatibilidade.
 
-### <a name="step-2-verify-the-shared-keypsk"></a>Etapa 2 Verifique a PSK (Chave Compartilhada)
+2. Verifique se o dispositivo VPN está configurado corretamente. Para obter mais informações, consulte [Editar exemplos de configuração de dispositivo](/vpn-gateway-about-vpn-devices.md#editing).
 
-Compare a **Chave Compartilhada** do dispositivo VPN local e o VPN de rede virtual para certificar-se de que as chaves correspondem. 
+### <a name="step-2-verify-the-shared-key"></a>Etapa 2. Verifique a chave compartilhada
 
-Para verificar a PSK para a conexão VPN do Azure, utilize um dos seguintes métodos:
+Compare a chave compartilhada do dispositivo VPN local e VPN de Rede Virtual do Azure para assegurar que as chaves correspondem. 
+
+Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos seguintes métodos:
 
 **Portal do Azure**
 
-1. Vá para gateway de rede virtual> Conexão de site a site que você criou.
+1. Vá para a conexão site a site do gateway de VPN que você criou.
+
 2. Na seção **Configurações**, clique em **Chave Compartilhada**.
     
     ![Chave compartilhada](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
 **PowerShell do Azure**
 
-Para modo do Resource Manager
+Para o modelo de implantação do Azure Resource Manager:
 
     Get-AzureRmVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
 
-Para Clássico
+Para o modelo de implantação clássico:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Etapa 3 Verifique os IPs Pares de VPN
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Etapa 3. Verifique os IPs pares de VPN
 
 -   A definição do IP no objeto do **Gateway de Rede Local** no Azure deve corresponder com o IP do dispositivo local.
--   A definição de IP do Gateway do Azure que está configurada no dispositivo local deve corresponder com o IP de Gateway do Azure.
+-   A definição de IP do gateway do Azure que está configurada no dispositivo local deve corresponder ao IP de gateway do Azure.
 
-### <a name="step-4-nsg-and-udr-on-gateway-subnet"></a>Etapa 4 NSG e UDR na Sub-Rede de Gateway
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Etapa 4. Verifique UDR e NSGs na sub-rede do gateway
 
-Verifique e remova o UDR (Rotas Definidas pelo Usuário) ou NSG (Grupos de Segurança de Rede) na Sub-Rede de Gateway e, em seguida, teste o resultado. Se o problema for resolvido, valide as configurações de NSG ou UDR aplicadas.
+Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de segurança de rede) na sub-rede de gateway e, em seguida, teste o resultado. Se o problema for resolvido, valide as configurações aplicadas pelo UDR ou NSG.
 
-### <a name="step-5-check-on-premises-vpn-device-external-interface-address"></a>Etapa 5 Verifique o endereço de interface externa do dispositivo VPN local
+### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Etapa 5. Verifique o endereço da interface externa do dispositivo VPN local
 
-- Se o endereço IP para a Internet do dispositivo VPN estiver incluído na definição de **Rede local** no Azure, você poderá experimentar desconexões esporádicas.
-- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver nenhuma Conversão de Endereços de Rede ou firewall entre a Internet e o dispositivo.
--  Se você configurar o Clustering de Firewall para ter um IP virtual, será necessário interromper o cluster e expor o dispositivo VPN diretamente a uma interface pública com a qual o gateway pode se conectar.
+- Se o endereço IP voltado para a Internet do dispositivo VPN estiver incluído na definição de **Rede local** no Azure, você poderá experimentar desconexões esporádicas.
+- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver nenhuma conversão de endereços de rede ou firewall entre a Internet e o dispositivo.
+- Para configurar o clustering de firewall para ter um IP virtual, será necessário interromper o cluster e expor o dispositivo VPN diretamente a uma interface pública com a qual o gateway pode se conectar.
 
-### <a name="step-6-verify--subnets-match-exactly-azure-policy-based-gateways"></a>Etapa 6 Verifique se as sub-redes coincidem exatamente (gateways baseados em políticas do Azure)
+### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Etapa 6. Verifique se as sub-redes coincidem exatamente (gateways baseados em políticas do Azure)
 
--   Verifique se as sub-redes correspondem exatamente entre a Rede Virtual do Azure e as definições locais para a Rede Virtual do Azure.
--   Verifique se as sub-redes correspondem exatamente entre o **Gateway de Rede Local** e as definições para rede local.
+-   Verifique se as sub-redes correspondem exatamente entre a rede virtual do Azure e as definições locais para a rede virtual do Azure.
+-   Verifique se as sub-redes correspondem exatamente entre o **Gateway de Rede Local** e as definições locais para a rede local.
 
-### <a name="step-5-verify-azure-gateway-health-probe"></a>Etapa 5 Verifique a investigação de integridade do Gateway do Azure
+### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Etapa 7. Verifique a investigação de integridade do gateway do Azure
 
-1. Navegue até https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe
+1. Vá para a [investigação de integridade](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+
 2. Clique no aviso do certificado.
-3. Se você receber uma resposta, o gateway de rede virtual será considerado íntegro. Se você não receber uma resposta, o gateway talvez não esteja íntegro ou existe um NSG na sub-rede de gateway que está causando o problema. O texto a seguir é uma resposta de exemplo:
+3. Se você receber uma resposta, o gateway de VPN será considerado íntegro. Se você não receber uma resposta, o gateway poderá não estar íntegro ou um NSG na sub-rede do gateway estará causando o problema. O texto a seguir é uma resposta de exemplo:
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Instância primária: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
 
-### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-pfs-feature-enabled"></a>Etapa 7 Verifique se o dispositivo VPN local possui o recurso PFS (Perfect Forward Secrecy) ativado
+### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Etapa 8. Verifique se o dispositivo VPN local tem o recurso PFS habilitado
 
-O recurso Perfect Forward Secrecy pode causar os problemas de desconexão. Se o dispositivo VPN estiver com o recurso Perfect Forward Secrecy habilitado, desabilite-o. Em seguida, atualize a política IPsec do gateway de rede virtual.
+O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN estiver com PFS habilitado, desabilite o recurso. Em seguida, atualize a política IPsec do gateway de VPN.
 
 ## <a name="next-steps"></a>Próximas etapas
 
--   [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
--   [Configure a política IPsec/IKE para conexões VPN Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+-   [Configurar uma conexão site a site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 

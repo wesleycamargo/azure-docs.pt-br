@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: b5457f754f6118f936b5aae48de51c76bff128b5
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: beb4f74012359f6a0a837f0194c7f43746977cea
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
@@ -74,7 +73,7 @@ Para criar uma rede virtual:
       >Às vezes, administradores criam sub-redes diferentes para filtrar ou controlar o roteamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como você deseja filtrar e rotear o tráfego entre suas sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, consulte [Grupos de segurança de rede](virtual-networks-nsg.md). O Azure faz o roteamento de tráfego entre as sub-redes automaticamente, mas você pode substituir as rotas padrão do Azure. Para saber como substituir o roteamento de tráfego de sub-rede padrão do Azure, consulte [Rotas definidas pelo usuário](virtual-networks-udr-overview.md).
       >
 
-    - **Intervalo de endereços de sub-rede:** O intervalo deve estar dentro do espaço de endereço inserido para a rede virtual. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços de sub-rede de /29 tem apenas três endereços IP utilizáveis. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namegwsubagateway-subnet). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é criada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet) em [Adicionar, alterar, ou excluir sub-redes](virtual-network-manage-subnet.md).
+    - **Intervalo de endereços de sub-rede:** O intervalo deve estar dentro do espaço de endereço inserido para a rede virtual. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços de sub-rede de /29 tem apenas três endereços IP utilizáveis. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é criada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet) em [Adicionar, alterar, ou excluir sub-redes](virtual-network-manage-subnet.md).
     - **Assinatura:** Selecione uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Você não pode usar a mesma rede virtual em mais de uma assinatura do Azure. No entanto, você pode conectar uma rede virtual em uma assinatura para redes virtuais em outras assinaturas. Para se conectar a redes virtuais em assinaturas diferentes, use o Gateway de VPN do Azure ou o emparelhamento de rede virtual. Qualquer recurso do Azure que você conectar à rede virtual deve ser na mesma assinatura da rede virtual.
     - **Grupo de recursos**: Selecione um [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente ou crie um novo. Um recurso do Azure que você conecta à rede virtual pode ser no mesmo grupo de recursos da rede virtual ou em grupo de recursos diferente.
     - **Local:** Selecione um [local](https://azure.microsoft.com/regions/) do Azure, também conhecido como região. Uma rede virtual pode estar em um só local do Azure. No entanto, você pode conectar uma rede virtual em um local para uma rede virtual em outro local usando um gateway de VPN. Qualquer recurso do Azure que você conectar à rede virtual deve ser no mesmo local da rede virtual.
@@ -151,7 +150,7 @@ Para adicionar ou remover um espaço de endereço:
 
 ## <a name="dns-servers"></a>Adicionar, alterar ou remover um servidor DNS
 
-Todas as VMs que estão conectadas ao registro da rede virtual com os servidores DNS que você especificar para a rede virtual. Eles também usam o servidor DNS especificado para resolução de nome. Cada NIC (interface de rede) em uma VM pode ter suas próprias configurações do servidor DNS. Se uma NIC tiver suas próprias configurações de servidor DNS, elas substituirão as configurações do servidor DNS para a rede virtual. Para saber mais sobre as configurações de DNS da NIC, consulte [Configurações e tarefas da interface de rede](virtual-network-network-interface.md#dns). Para saber mais sobre a resolução de nomes para VMs e instâncias de função de Serviços de Nuvem do Azure, consulte [Resolução de nomes para VMs e instâncias de função](virtual-networks-name-resolution-for-vms-and-role-instances.md). Para adicionar, alterar ou remover um servidor DNS:
+Todas as VMs que estão conectadas ao registro da rede virtual com os servidores DNS que você especificar para a rede virtual. Eles também usam o servidor DNS especificado para resolução de nome. Cada NIC (interface de rede) em uma VM pode ter suas próprias configurações do servidor DNS. Se uma NIC tiver suas próprias configurações de servidor DNS, elas substituirão as configurações do servidor DNS para a rede virtual. Para saber mais sobre as configurações de DNS da NIC, consulte [Configurações e tarefas da interface de rede](virtual-network-network-interface.md#change-dns-servers). Para saber mais sobre a resolução de nomes para VMs e instâncias de função de Serviços de Nuvem do Azure, consulte [Resolução de nomes para VMs e instâncias de função](virtual-networks-name-resolution-for-vms-and-role-instances.md). Para adicionar, alterar ou remover um servidor DNS:
 
 1. Entre no [portal](https://portal.azure.com) com uma conta que é atribuída permissões para a função Colaborador de Rede (no mínimo) para sua assinatura. Para saber mais sobre como atribuir funções e permissões às contas, consulte [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. Na caixa de pesquisa do portal, insira **redes virtuais**. Nos resultados da pesquisa, selecione **Redes virtuais**.
@@ -196,8 +195,8 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para criar uma VM e, depois, conectá-la a uma rede virtual, consulte [Criar uma rede virtual e conectar VMs](virtual-network-get-started-vnet-subnet.md#a-namecreate-vmsacreate-virtual-machines).
+- Para criar uma VM e, depois, conectá-la a uma rede virtual, consulte [Criar uma rede virtual e conectar VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
 - Para filtrar o tráfego de rede entre as sub-redes em uma rede virtual, consulte [Criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
-- Para emparelhar uma rede virtual para outra rede virtual, consulte [Criar um emparelhamento de rede virtual](virtual-network-create-peering.md#a-nameportalacreate-peering---azure-portal).
-- Para saber mais sobre as opções para conectar uma rede virtual a uma rede local, consulte [Sobre o gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
+- Para emparelhar uma rede virtual para outra rede virtual, consulte [Criar um emparelhamento de rede virtual](virtual-network-create-peering.md#portal).
+- Para saber mais sobre as opções para conectar uma rede virtual a uma rede local, consulte [Sobre o gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
 
