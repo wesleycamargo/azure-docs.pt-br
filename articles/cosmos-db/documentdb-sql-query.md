@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Consultas SQL para a API do DocumentDB do Azure Cosmos DB
@@ -921,9 +920,7 @@ Você também pode executar agregações em combinação com filtros. Por exempl
 
 **Resultados**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 As tabelas a seguir mostram a lista de funções de agregação com suporte na API do DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
 
@@ -1206,7 +1203,7 @@ Este exemplo é uma extensão natural do exemplo anterior, e realiza uma junçã
         }
     }
 
-`AndersenFamily` tem um filho que, por sua vez, tem um animal de estimação. Assim, o produto cruzado traz uma linha (1*1*1) desta família. WakefieldFamily, no entanto, tem dois filhos, mas apenas a filha "Jesse" tem animais de estimação. Jesse tem dois animais de estimação. Assim, o produto cruzado traz 1*1*2 = 2 linhas desta família.
+`AndersenFamily` tem um filho que, por sua vez, tem um animal de estimação. Assim, o produto cruzado traz uma linha (1\*1\*1) desta família. WakefieldFamily, no entanto, tem dois filhos, mas apenas a filha "Jesse" tem animais de estimação. Jesse tem dois animais de estimação. Assim, o produto cruzado traz 1\*1\*2 = 2 linhas desta família.
 
 No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tuplas em que o nome do animal não é "Shadow". Observe que podemos criar tuplas por meio de matrizes, filtrar qualquer um dos elementos da tupla e projetas qualquer combinação dos elementos. 
 
@@ -1515,7 +1512,7 @@ As funções escalares a seguir executam uma operação em um valor de cadeia de
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Substitui todas as ocorrências de um valor de cadeia de caracteres especificado por outro valor de cadeia de caracteres. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Repete um valor de cadeia de caracteres por um número de vezes especificado. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Repete um valor de cadeia de caracteres por um número de vezes especificado. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retorna a ordem inversa de um valor de cadeia de caracteres. |
 
 Usando essas funções, agora você pode executar consultas como as descritas a seguir. Por exemplo, você pode retornar o sobrenome em caracteres maiúsculos, da seguinte maneira:
@@ -1764,7 +1761,7 @@ Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSO
      novo int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>Lista de operadores LINQ com suporte
-Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos no SDK do .NET do Banco de Dados de Documentos.
+Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos no SDK do .NET do DocumentDB.
 
 * **Select**: as projeções são convertidas para SQL SELECT, incluindo a construção de objetos
 * **Em que**: os filtros são convertidos para SQL WHERE e dão suporte à conversão entre && , || e ! para os operadores SQL
