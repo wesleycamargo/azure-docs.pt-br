@@ -126,7 +126,7 @@ Para eventos estendidos, há DMVs adicionais que são comuns ao Banco de Dados S
 
 Você pode executar um simples SQL **SELECT** para obter uma lista dos evento, ações e destino disponíveis.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
