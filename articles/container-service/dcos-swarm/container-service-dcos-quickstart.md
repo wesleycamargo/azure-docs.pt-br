@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 08/04/2017
 ms.author: nepeters
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
@@ -32,13 +32,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure 
 
 Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -48,7 +46,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#creat
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -58,7 +56,7 @@ Crie um cluster de DC/SO com o comando [az acs create](/cli/azure/acs#create).
 
 O exemplo a seguir cria um cluster de DC/SO chamado *myDCOSCluster* e cria as chaves de SSH se elas ainda não existirem. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
-```azurecli-interactive
+```azurecli
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -72,13 +70,13 @@ Após alguns minutos, o comando é concluído e retorna informações sobre a im
 
 Quando um cluster de DC/SO tiver sido criado, ele poderá ser acessado por meio de um túnel SSH. Execute o seguinte comando para retornar o endereço IP público do mestre de DC/SO. Esse endereço IP é armazenado em uma variável e usado na próxima etapa.
 
-```azurecli-interactive
+```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
 Para criar o túnel SSH, execute o seguinte comando e siga as instruções na tela. Se a porta 80 já estiver em uso, o comando falhará. Atualize a porta em túnel para uma que não esteja em uso, como `85:localhost:80`. 
 
-```azurecli-interactive
+```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -94,13 +92,13 @@ A interface de linha de comando do DC/SO é usada para gerenciar um cluster de D
 
 Se você estiver executando a CLI do Azure em macOS ou Linux, talvez precise executar o comando com sudo.
 
-```azurecli-interactive
+```azurecli
 az acs dcos install-cli
 ```
 
 Antes de poder usar a CLI com o cluster, ela deve ser configurada para usar o túnel SSH. Para fazer isso, execute o comando a seguir, ajustando a porta, se necessário.
 
-```azurecli-interactive
+```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -140,26 +138,26 @@ O mecanismo de agendamento padrão para um cluster de DC/SO do ACS é o Marathon
 
 Execute o seguinte comando para agendar o aplicativo para ser executado no cluster do DC/SO.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app add marathon-app.json
 ```
 
 Para ver o status da implantação para o aplicativo, execute o comando a seguir.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app list
 ```
 
 Quando o valor da coluna **ESPERANDO** mudar de *True* para *False*, a implantação do aplicativo terá sido concluída.
 
-```azurecli-interactive
+```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 Obtenha o endereço IP público dos agentes de cluster de DC/SO.
 
-```azurecli-interactive
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -171,7 +169,7 @@ Navegar para esse endereço retorna o site NGINX padrão.
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o cluster DC/SO todos os recursos relacionados.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
