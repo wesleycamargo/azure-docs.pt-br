@@ -53,11 +53,7 @@ Crie uma VM com [az vm create](/cli/azure/vm#create).
 O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha. Atualize esses valores para algo apropriado para seu ambiente. Esses valores são necessários durante a criação de uma conexão com a máquina virtual.
 
 ```azurecli-interactive 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir. Anote `publicIpAaddress`. Esse endereço é usado para acessar a VM.
