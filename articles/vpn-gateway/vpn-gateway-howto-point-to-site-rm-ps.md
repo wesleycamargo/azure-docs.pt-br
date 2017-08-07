@@ -1,6 +1,6 @@
 ---
-title: 'Conectar um computador a uma rede virtual do Azure usando o Ponto a Site: PowerShell | Microsoft Docs'
-description: "Conectar com segurança um computador à Rede Virtual do Azure criando uma conexão de gateway de VPN Ponto a Site."
+title: "Conectar um computador a uma rede virtual do Azure usando autenticação Ponto a site e de certificado: PowerShell | Microsoft Docs"
+description: "Conectar com segurança um computador à Rede Virtual do Azure criando uma conexão de gateway de VPN Ponto a Site usando autenticação de certificado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos e usa o PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7abc3f238d08694c9f7359479cdce07bfb3d87bd
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 27484932f13a85bef29b7a19b4f06b75722b4c38
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site com uma autenticação de certificado usando VNet: PowerShell
 
-# Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell
-
-
-Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação do Resource Manager usando o portal o PowerShell. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
+Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação do Resource Manager usando o portal o PowerShell. Essa configuração usa certificados para autenticar o cliente de conexão. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -41,19 +37,18 @@ Uma configuração Ponto a Site (P2S) permite que você crie uma conexão segura
 
 ![Conectar um computador a um diagrama de conexão de ponto para Site da rede virtual do Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
-As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol). No lado do servidor, há suporte para as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide qual versão usar. Por padrão, para Windows 8.1 e posterior, o SSTP usa 1.2. Para saber mais sobre conexões Ponto a site, consulte as [Perguntas frequentes sobre Ponto a site](#faq) no final deste artigo.
-
-Conexões P2S exigem o seguinte:
+Conexões de autenticação de certificado de Ponto a Site exigem o seguinte:
 
 * Gateway de VPN RouteBased.
-* A chave pública (arquivo .cer) para um certificado raiz, carregado no Azure. Isso é considerado um certificado confiável e é usado para autenticação.
+* A chave pública (arquivo .cer) para um certificado raiz, que é carregado no Azure. Isso é considerado um certificado confiável e é usado para autenticação.
 * O certificado de cliente é gerado a partir do certificado raiz e instalado em cada computador cliente que irá se conectar. Esse certificado é usado para autenticação do cliente.
 * Um pacote de configuração de cliente VPN deve ser gerado e instalado em cada computador cliente que se conecta. O pacote de configuração do cliente configura o cliente VPN nativo que já está no sistema operacional com as informações necessárias para se conectar à VNet.
 
+As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público local. A conexão VPN é criada no SSTP (Secure Socket Tunneling Protocol). No lado do servidor, há suporte para as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide qual versão usar. Por padrão, para Windows 8.1 e posterior, o SSTP usa 1.2. 
 
-<a id="before-beginning" class="xliff"></a>
+Para saber mais sobre conexões Ponto a site, consulte as [Perguntas frequentes sobre Ponto a site](#faq) no final deste artigo.
 
-## Antes de começar
+## <a name="before-beginning"></a>Antes de começar
 
 * Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 * Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
@@ -231,11 +226,7 @@ Se você quiser criar uma conexão P2S de um computador cliente diferente daquel
 
   ![Conexão estabelecida](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-Se estiver tendo problemas para se conectar, verifique os seguintes itens:
-
-- Abra **Gerenciar certificados de usuário** e navegue até **Trusted Root Certification Authorities\Certificates**. Verifique se o certificado raiz está listado. O certificado raiz deve estar presente para que a autenticação funcione. Quando você exporta um .pfx de certificado de cliente usando o valor padrão 'Incluir todos os certificados no caminho de certificação, se possível', as informações do certificado raiz também são exportadas. Quando você instala o certificado do cliente, o certificado raiz também é instalado no computador cliente. 
-
-- Se você estiver usando um certificado emitido com uma solução de AC corporativa e estiver com problemas na autenticação, verifique a ordem de autenticação no certificado do cliente. Você pode verificar a ordem da lista de autenticação ao clicar duas vezes no certificado do cliente e acessar **Detalhes > Uso Avançado de Chave**. Verifique se a lista mostra 'Autenticação de cliente' como o primeiro item. Caso contrário, é necessário emitir um certificado de cliente com base no modelo Usuário que tem a Autenticação de cliente como o primeiro item na lista.  
+[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>9 - Verificar a conexão
 
@@ -255,7 +246,6 @@ Se estiver tendo problemas para se conectar, verifique os seguintes itens:
       NetBIOS over Tcpip..............: Enabled
   ```
 
-
 ## <a name="connectVM"></a>Conectar-se a uma máquina virtual
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
@@ -264,9 +254,7 @@ Se estiver tendo problemas para se conectar, verifique os seguintes itens:
 
 Você pode adicionar e remover um certificado raiz do Azure. Quando você remove um certificado raiz, os clientes que possuem um certificado gerado a partir dessa raiz não serão capazes de fazer a autenticação e, portanto, não serão capazes de se conectar. Se você deseja que um clientes faça autenticação e se conecte, você precisa instalar um novo certificado de cliente gerado a partir de um certificado confiável (carregado) no Azure.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Para adicionar um certificado raiz confiável
+### <a name="to-add-a-trusted-root-certificate"></a>Para adicionar um certificado raiz confiável
 
 Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As seguintes etapas o ajudarão a adicionar um certificado raiz:
 
@@ -297,9 +285,7 @@ Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As segu
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-<a id="to-remove-a-root-certificate" class="xliff"></a>
-
-### Adicionar ou remover um certificado raiz
+### <a name="to-remove-a-root-certificate"></a>Adicionar ou remover um certificado raiz
 
 1. Declare as variáveis.
 
@@ -327,9 +313,7 @@ Você pode adicionar até 20 arquivos .cer de certificado raiz ao Azure. As segu
 
 A prática comum é usar o certificado raiz para gerenciar o acesso em níveis de equipe ou organização, enquanto estiver usando certificados de cliente revogados para controle de acesso refinado em usuários individuais.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### Para revogar um certificado de cliente
+### <a name="to-revoke-a-client-certificate"></a>Para revogar um certificado de cliente
 
 1. Recupere a impressão digital do certificado de cliente. Para saber mais, confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie as informações para um editor de texto e remova todos os espaços para que seja uma cadeia de caracteres contínua. Isso é declarado como uma variável na próxima etapa.
@@ -355,9 +339,7 @@ A prática comum é usar o certificado raiz para gerenciar o acesso em níveis d
   ```
 6. Após a adição da impressão digital, o certificado não poderá mais ser usado para se conectar. Os clientes que tentam se conectar usando este certificado recebem uma mensagem informando que o certificado não é mais válido.
 
-<a id="to-reinstate-a-client-certificate" class="xliff"></a>
-
-### Para restabelecer um certificado de cliente
+### <a name="to-reinstate-a-client-certificate"></a>Para restabelecer um certificado de cliente
 
 Você pode restabelecer um certificado de cliente removendo a impressão digital da lista de certificados de cliente revogados.
 
@@ -385,8 +367,5 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
-

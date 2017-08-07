@@ -16,30 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
 No Azure Functions, associações de entrada e saída fornecem uma maneira declarativa para se conectar a dados de serviço externo de sua função. Neste tópico, aprenda como atualizar uma função existente, adicionando uma associação de saída que envia mensagens para o Armazenamento de Filas do Azure.  
 
 ![Exiba a mensagem nos logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * Instale o Experimente usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>Adicionar uma associação de saída
  
@@ -49,7 +43,7 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
     
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Use então as configurações especificadas na tabela e selecione **Salvar**: 
+3. Use as configurações conforme especificado na tabela: 
 
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,11 +53,11 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
     | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
     | **Nome do parâmetro de mensagem** | outQueueItem | O nome do parâmetro de associação de saída. | 
 
+4. Clique em **Salvar** para adicionar a associação.
+ 
 Agora que você tem uma associação de saída definida, você precisa atualizar o código para usar a associação para adicionar mensagens a uma fila.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## Atualizar o código de função
+## <a name="update-the-function-code"></a>Atualizar o código de função
 
 1. Selecione sua função para exibir o código de função no editor. 
 
@@ -92,9 +86,7 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
 
 O valor passado para o gatilho HTTP é incluído em uma mensagem adicionada à fila.
  
-<a id="test-the-function" class="xliff"></a>
-
-## Testar a função 
+## <a name="test-the-function"></a>Testar a função 
 
 1. Depois que as alterações de código forem salvas, selecione **Executar**. 
 
@@ -104,9 +96,7 @@ O valor passado para o gatilho HTTP é incluído em uma mensagem adicionada à f
 
 Em seguida, você pode se conectar à sua conta de armazenamento para verificar a nova fila e a mensagem que você adicionou a ela. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Conectar-se à fila
+## <a name="connect-to-the-queue"></a>Conectar-se à fila
 
 Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de Armazenamento e o conectado à sua conta de armazenamento.    
 
@@ -127,15 +117,11 @@ Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de A
     ![Crie uma fila de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Você adicionou uma associação de saída a uma função existente. 
 

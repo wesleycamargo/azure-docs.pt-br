@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
@@ -80,8 +80,8 @@ Ao criar o alerta para a primeira consulta, quando há mais de 100 GB de dados e
 - A **Consulta de pesquisa** como `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
 - A **Janela de tempo** como *24 Horas*.
 - A **frequência de alerta** como uma hora, pois os dados de uso só são atualizados uma vez por hora.
-- A opção **Gerar alerta com base em** como *número de resultados*
-- O **Número de resultados** como *Maior que 0*
+- **Gerar alerta com base em** como *número de resultados*
+- **Número de resultados** como *Maior que 0*
 
 Use as etapas descritas em [Adicionar ações a regras de alerta](log-analytics-alerts-actions.md) para configurar uma ação de runbook, webhook ou email para a regra de alerta.
 
@@ -91,7 +91,7 @@ Ao criar o alerta para a segunda consulta, quando existe a previsão de que have
 - A **Consulta de pesquisa** como `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
 - A **Janela de tempo** como *3 Horas*.
 - A **frequência de alerta** como uma hora, pois os dados de uso só são atualizados uma vez por hora.
-- A opção **Gerar alerta com base em** como *número de resultados*
+- **Gerar alerta com base em** como *número de resultados*
 - O **Número de resultados** como *Maior que 0*
 
 Ao receber um alerta, use as etapas na seção a seguir para solucionar problemas relativos ao uso acima do esperado.
@@ -141,6 +141,8 @@ Se necessário, execute análises adicionais para identificar os volumes grandes
 + Tipo de dados **Syslog**
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ Tipo de dados **AzureDiagnostics**
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 Use as etapas a seguir para reduzir o volume de logs coletados:
 
@@ -150,6 +152,7 @@ Use as etapas a seguir para reduzir o volume de logs coletados:
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md) para: <br> - Reduzir a frequência de coleta <br> - Reduzir o número de contadores de desempenho |
 | Logs de eventos                 | Altere a [configuração de log de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de logs de eventos coletados <br> - Coletar somente níveis de eventos necessários. Por exemplo, não colete eventos de nível *informações* |
 | syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações coletadas <br> - Coletar somente níveis de eventos necessários. Por exemplo, não coletar eventos de nível *Informações* e *Depurar* |
+| AzureDiagnostics           | Altere a coleção de logs do recurso para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verifique se há mais nós do que o esperado

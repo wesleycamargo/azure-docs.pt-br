@@ -1,6 +1,6 @@
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| VMs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região |10.000 por Região |
+| VMs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |10.000 <sup>1</sup> por Região |10.000 por Região |
 | Total de núcleos da VM por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região | Contate o suporte |
 | Núcleos por série de VM (Dv2, F etc.) por [ssinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região | Contate o suporte |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Ilimitado |Ilimitado |
