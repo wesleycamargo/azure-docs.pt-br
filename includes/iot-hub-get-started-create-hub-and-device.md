@@ -29,6 +29,9 @@
 
 5. No painel **Políticas de acesso compartilhado**, clique na política **iothubowner**, em seguida, copie e anote a **Cadeia de caracteres de conexão** de seu Hub IoT. Para saber mais, veja [Controlar o acesso ao Hub IoT](../articles/iot-hub/iot-hub-devguide-security.md).
 
+> [!NOTE] 
+Você não precisará dessa cadeia de conexão iothubowner para este tutorial de configuração. No entanto, talvez você precise dela para alguns tutoriais em cenários de IoT diferentes após a conclusão desta instalação.
+
    ![Obter sua cadeia de conexão do Hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
 ## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Registrar um dispositivo no hub IoT para o dispositivo

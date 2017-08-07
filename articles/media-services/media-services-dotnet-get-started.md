@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/16/2017
+ms.date: 07/31/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: a8e69933b977f60d09837f0f0360a274ef1b5dcd
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e80fe0970ec130754c2c058789e1d1e2a9492216
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -88,7 +88,7 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 Ao usar os serviços de mídia com o .NET, você deve usar a classe **CloudMediaContext** para a maioria das tarefas de programação dos Serviços de Mídia: conectar-se à conta de Serviços de Mídia; criar, atualizar, acessar e excluir os seguintes objetos: ativos, arquivos de ativos, trabalhos, políticas de acesso, localizadores, etc.
 
-Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais sobre como conectar-se aos Serviços de Mídia, veja [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-connect-programmatically.md).
+Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais, consulte [Conectar-se à API dos Serviços de Mídia](media-services-use-aad-auth-to-access-ams-api.md).
 
 Atualize o nome do arquivo e o caminho onde está o arquivo de mídia.
 

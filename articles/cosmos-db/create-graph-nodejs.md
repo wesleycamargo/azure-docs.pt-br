@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Compilar um aplicativo Node.js usando a API do Graph
@@ -141,9 +141,11 @@ module.exports = config;
 
 Agora você pode voltar ao Data Explorer no Portal do Azure e exibir, consultar, modificar e trabalhar com seus novos dados gráficos.
 
-No Data Explorer, o novo banco de dados aparece no painel **Coleções**. Expanda **graphdb**, **graphcoll** e, em seguida, clique em **Gráfico**.
+No Data Explorer, o novo banco de dados aparece no painel **Gráficos**. Expanda o banco de dados, seguido pela coleção e clique em **Gráfico**.
 
-Os dados gerados pelo aplicativo de exemplo são exibidos no painel **Gráficos**.
+Os dados gerados pelo aplicativo de exemplo são exibidos no próximo painel dentro da guia **Gráfico** quando você clica em **Aplicar Filtro**.
+
+Tente preencher `g.V()` com `.has('firstName', 'Thomas')` para testar o filtro. Observe que o valor diferencia maiúsculas de minúsculas.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

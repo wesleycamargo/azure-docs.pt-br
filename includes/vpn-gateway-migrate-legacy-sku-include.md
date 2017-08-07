@@ -1,8 +1,9 @@
 > [!NOTE]
-> O endereço IP público do Gateway de VPN será alterado com a migração de uma SKU antiga para uma nova.
+> * O endereço IP público do gateway de VPN será alterado com a migração de uma SKU antiga para uma nova.
+> * Você não pode migrar gateways de VPN clássicos para novos SKUs. Gateways de VPN clássicos só podem usar os SKUs (antigos) herdados.
 > 
 
-Você não pode redimensionar seus gateways de VPN do Azure diretamente entre as SKUs antigas e as novas famílias de SKU. Se você tiver gateways VPN no modelo de implantação do Gerenciador de Recursos que estão usando a versão mais antiga de SKUs, poderá migrar para as novas SKUs. Para migrar, exclua o gateway de VPN existente para sua rede virtual e crie um novo.
+Você não pode redimensionar seus gateways de VPN do Azure entre as SKUs antigas e as novas famílias de SKU. Se você tiver gateways VPN no modelo de implantação do Gerenciador de Recursos que estão usando a versão mais antiga de SKUs, poderá migrar para as novas SKUs. Para migrar, exclua o gateway de VPN existente para sua rede virtual e crie um novo.
 
 Fluxo de trabalho de migração:
 
