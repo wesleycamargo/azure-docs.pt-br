@@ -22,7 +22,6 @@ ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
 
@@ -67,7 +66,7 @@ Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir p
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -324,7 +323,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 Quando concluir o Buffer de Anéis, é possível removê-lo e liberar seus próprios recursos emitindo um comando **ALTER** semelhante ao seguinte:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -334,7 +333,7 @@ GO
 
 A definição de sua sessão de evento é atualizada, mas não descartada. Mais tarde, é possível adicionar outra instância do Buffer de Anéis à sessão de evento:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

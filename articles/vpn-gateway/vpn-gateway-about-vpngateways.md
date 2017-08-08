@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Sobre o Gateway de VPN
@@ -44,11 +44,11 @@ Uma conexão de gateway VPN conta com vários recursos que são configurados com
 
 ### <a name="settings"></a>Configurações
 
-As configurações que você escolheu para cada recurso são essenciais para a criação de uma conexão bem-sucedida. Para obter informações sobre os recursos individuais e as configurações do Gateway de VPN, consulte [Sobre as configurações do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md). Você encontrará informações para ajudá-lo a entender os tipos de gateway, tipos de VPN, tipos de conexão, as sub-redes de gateway, gateways de rede local e várias outras configurações de recursos que você possa considerar.
+As configurações que você escolheu para cada recurso são essenciais para a criação de uma conexão bem-sucedida. Para obter informações sobre os recursos individuais e as configurações do Gateway de VPN, consulte [Sobre as configurações do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md). Este artigo contém informações para ajudar você a entender os tipos de gateway, tipos de VPN, tipos de conexão, as sub-redes de gateway, gateways de rede local e várias outras configurações de recursos que você possa considerar.
 
 ### <a name="deployment-tools"></a>Ferramentas de implantação
 
-Você pode começar criando e configurando os recursos usando uma ferramenta de configuração, como o portal do Azure. Você pode, posteriormente, decidir trocar para outra ferramenta, como o PowerShell, para configurar recursos adicionais ou modificar os recursos existentes, quando aplicável. Atualmente, não é possível configurar cada recurso e definição de recursos no portal do Azure. As instruções nos artigos para cada topologia de conexão especificam quando uma ferramenta de configuração específica é necessária. 
+Você pode começar criando e configurando os recursos usando uma ferramenta de configuração, como o portal do Azure. Você pode decidir trocar para outra ferramenta, como o PowerShell, para configurar recursos adicionais ou modificar os recursos existentes, quando aplicável. Atualmente, não é possível configurar cada recurso e definição de recursos no portal do Azure. As instruções nos artigos para cada topologia de conexão especificam quando uma ferramenta de configuração específica é necessária. 
 
 ### <a name="deployment-model"></a>Modelo de implantação
 
@@ -68,7 +68,7 @@ Use os diagramas e as descrições para ajudar a selecionar a topologia de conex
 
 ### <a name="S2S"></a>Site a site
 
-Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). Esse tipo de conexão exige um dispositivo VPN local com um endereço IP público atribuído a ele e não por uma NAT. As conexões S2S podem ser usadas para configurações entre instalações e híbridas.   
+Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). Uma conexão S2S exige um dispositivo VPN local com um endereço IP público atribuído a ele e não por uma NAT. As conexões S2S podem ser usadas para configurações entre instalações e híbridas.   
 
 ![Exemplo de conexão Site a Site do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

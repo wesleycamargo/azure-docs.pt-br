@@ -35,6 +35,7 @@
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

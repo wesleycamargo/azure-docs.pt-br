@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorar o desempenho do aplicativo Web do Azure
@@ -31,7 +30,7 @@ Você pode configurar o monitoramento por meio da instrumentação do aplicativo
 * **Tempo de compilação** - você pode instalar um pacote em seu aplicativo em desenvolvimento. Essa opção é mais versátil. Além dos mesmos pacotes padrão, você pode escrever código para personalizar a telemetria ou para enviar sua própria telemetria. Você pode registrar eventos de registro de acordo com a semântica do seu domínio de aplicativo ou de atividades específicas. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Execute a instrumentação de tempo com o Application Insights
-Se você já estiver executando um aplicativo Web no Azure, então já está sendo monitorado: taxas de erro e de solicitação. Adicione o Application Insights para obter mais, como tempos de resposta, monitoramento de chamadas para dependências, detecção inteligente e a linguagem avançada de consulta do Analytics. 
+Se você já estiver executando um aplicativo Web no Azure, então já está sendo monitorado: taxas de erro e de solicitação. Adicione o Application Insights para obter mais, como tempos de resposta, monitoramento de chamadas para dependências, detecção inteligente e a linguagem avançada de consulta do Log Analytics. 
 
 1. **Selecione o Application Insights** no painel de controle do Azure para seu aplicativo Web.
    
@@ -102,7 +101,7 @@ O Application Insights pode fornecer dados de telemetria mais detalhados instala
    
     Você pode [personalizar pesquisas](app-insights-diagnostic-search.md).
 
-Para ter pesquisas mais eficientes em sua telemetria, use o [linguagem de consulta de análise](app-insights-analytics-tour.md).
+Para ter pesquisas mais eficientes em sua telemetria, use a [linguagem de consulta do Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Mais telemetria
 

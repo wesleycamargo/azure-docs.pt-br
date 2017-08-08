@@ -8,7 +8,7 @@ Um novo back-end da API Web ASP.NET será criado nas seções a seguir e terá t
 As etapas a seguir mostram como criar o novo back-end da API Web ASP.NET: 
 
 > [!NOTE]
-> **Importante**: antes de iniciar este tutorial, certifique-se de ter instalado a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise **Gerenciador de Pacotes NuGet para Visual Studio 2013**, certificando-se de ter instalada a versão 2.8.50313.46 ou posterior. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
+> **Importante**: se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, instale a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** para sua versão do Visual Studio, e verifique se versão mais recente está instalada. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
 > 
 > ![][B4]
 > 
@@ -38,7 +38,9 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
+        using System.Text;
+        using System.Threading.Tasks;
+
 3. Em AuthenticationTestHandler.cs, substitua a definição da classe `AuthenticationTestHandler` pelo código a seguir. 
    
     Esse manipulador autorizará a solicitação quando as três seguintes condições forem verdadeiras:
@@ -51,12 +53,7 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
      
      Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, em seguida, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) à solicitação de registro de notificação.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -313,15 +310,16 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 
 ## <a name="publish-the-new-webapi-backend"></a>Publicar o novo back-end da API Web
 1. Agora, implantaremos esse aplicativo em um Site do Azure para torná-lo acessível de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione **Aplicativos Web do Microsoft Azure** como o destino de publicação.
-   
+2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e clique em **Publicar**. Isso abre a caixa de diálogo Criar Serviço de Aplicativo, o que ajuda a criar todos os recursos do Azure necessários para executar seu aplicativo Web ASP.NET no Azure.
+
     ![][B15]
-3. Faça logon com sua conta do Azure e selecione um Aplicativo Web novo ou existente.
-   
-    ![][B16]
-4. Anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
-   
-    ![][B18]
+3. Na caixa de diálogo **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Clique em **Alterar Tipo** e selecione **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** fornecido e selecione a **Assinatura**, **Grupo de Recursos** e **Plano do Serviço de Aplicativo**.  Clique em **Criar**.
+
+4. Anote a propriedade **URL do Site** na seção **Resumo**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
+
+5. Depois que o assistente é concluído, ele publica o aplicativo Web ASP.NET no Azure e, em seguida, inicia o aplicativo no navegador padrão.  Seu aplicativo poderá ser exibido nos Serviços de Aplicativo do Azure.
+
+A URL usa o nome do aplicativo Web especificado anteriormente, com o formato http://<app_name>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

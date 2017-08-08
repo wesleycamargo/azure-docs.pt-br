@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Passo a passo de solução pré-configurada de fábrica conectada
@@ -47,6 +46,13 @@ Este artigo explica alguns dos principais elementos da solução de fábrica con
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
 
 ![Arquitetura lógica de fábrica conectada][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Padrões de comunicação
+
+A solução usa a [especificação OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) para enviar dados de telemetria do OPC UA ao Hub IoT no formato JSON. A solução usa o módulo [Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) do IoT Edge para essa finalidade.
+
+A solução também tem um cliente de OPC UA integrado a um aplicativo Web que pode estabelecer conexões com servidores OPC UA locais. O cliente usa um [proxy reverso](https://wikipedia.org/wiki/Reverse_proxy) e recebe ajuda do Hub IoT para fazer a conexão sem a necessidade de abrir portas no firewall local. Esse padrão de comunicação é chamado de [comunicação auxiliada por serviço](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). A solução usa o módulo [Proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) do IoT Edge para essa finalidade.
+
 
 ## <a name="simulation"></a>Simulação
 

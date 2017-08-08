@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ab664eb8803037b0bf09399bf9d28059fec2e204
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
@@ -59,7 +58,7 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
    > Você deve selecionar o banco de dados de exemplo neste formulário porque ele é usado no restante deste início rápido.
    > 
 
-4. Preencha o formulário do SQL Server (servidor lógico) com as informações abaixo, conforme mostrado na imagem anterior:   
+4. Em **Servidor**, clique em **Definir configurações obrigatórias** e preencha o formulário do SQL Server (servidor lógico) com as informações abaixo, conforme mostrado na imagem a seguir:   
 
    | Configuração       | Valor sugerido | Descrição | 
    | ------------ | ------------------ | ------------------------------------------------- | 

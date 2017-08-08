@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ O Proxy de Aplicativo do Azure AD o ajuda a dar suporte a funcionários remotos 
 6. Para concluir o assistente, clique na marca de seleção na parte inferior da tela. O aplicativo agora está definido no AD do Azure.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Atribuir usuários e grupos ao aplicativo
-Para que os usuários acessem o aplicativo publicado, você precisa atribuí-los individualmente ou em grupos. (Lembre-se também de atribuir acesso a si mesmo.) Isso requer que cada usuário tenha uma licença para o Azure Basic ou superior. Você pode atribuir licenças individualmente ou em grupos. Veja [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) para obter mais detalhes. 
+Para que os usuários acessem o aplicativo publicado, você precisa atribuí-los individualmente ou em grupos. (Lembre-se também de atribuir acesso a si mesmo.) Cada usuário que você atribui precisa de uma licença para o Azure Básico ou superior. Você pode atribuir licenças individualmente ou em grupos. Para saber mais, confira [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Para aplicativos que exigem pré-autenticação, isso concede permissões para usar o aplicativo. Para aplicativos que não exigem pré-autenticação, os usuários ainda podem ser atribuídos ao aplicativo para que ele apareça na lista de aplicativos, como MyApps.
+Para aplicativos que exigem pré-autenticação, a atribuição de um usuário concede permissões para usar o aplicativo. Para aplicativos que não exigem pré-autenticação, a atribuição de um usuário significa que o usuário pode acessar o aplicativo por meio do painel de acesso.
 
 1. Após concluir o assistente Adicionar Aplicativo, você verá a página de Início Rápido para o aplicativo. Para gerenciar quem tem acesso ao aplicativo, selecione **Usuários e grupos**.
    
@@ -90,7 +90,7 @@ Na página Configurar você pode modificar aplicativos publicados ou configurar 
 
 Depois de publicar aplicativos usando o Proxy de Aplicativo do Active Directory do Azure, eles aparecerão na lista de aplicativos do AD do Azure e será possível gerenciá-los de lá.
 
-Se você desabilitar os serviços do Proxy de Aplicativo depois de publicar aplicativos, eles não poderão mais ser acessados de fora da rede privada. Isso não exclui os aplicativos.
+Se você desabilitar os serviços de Proxy do Aplicativo depois de publicar aplicativos, eles não poderão mais ser acessados de fora da rede privada. Os usuários ainda podem acessar normalmente os aplicativos no local.
 
 Para exibir um aplicativo e verificar se ele está acessível, clique duas vezes no nome do aplicativo. Se o serviço do Proxy de Aplicativo estiver desabilitado e o aplicativo não estiver disponível, uma mensagem de aviso será exibida na parte superior da tela.
 
