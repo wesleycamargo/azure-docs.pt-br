@@ -43,9 +43,9 @@ Execute as seguintes etapas:
 
    Se você quiser, é possível instalar o aplicativo agora. No entanto, saiba que ao instalar o aplicativo agora, a atualização do seu aplicativo poderá ficar mais complicada porque talvez seja necessário removê-lo primeiro. Em vez disso, é possível utilizar esta etapa para instalar quaisquer pré-requisitos que possam ser necessários ao aplicativo, como um tempo de execução específico ou recurso do sistema operacional.
 
-3. Siga o tutorial "capturar uma máquina" tanto para  [Linux] [ linux-vm-capture] como para [Windows][windows-vm-capture].
+3. Siga o tutorial "capturar uma máquina" tanto para [Linux][linux-vm-capture] como para [Windows][windows-vm-capture].
 
-4. Crie um [Conjunto de Dimensionamento de Máquinas Virtuais] [ vmss-create] com o URI de imagem capturado na etapa anterior.
+4. Crie um [Conjunto de Dimensionamento de Máquinas Virtuais][vmss-create] com o URI de imagem capturado na etapa anterior.
 
 Para obter mais informações, consulte [Visão geral do Managed Disks](../storage/storage-managed-disks-overview.md) e [Utilizar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md).
 
