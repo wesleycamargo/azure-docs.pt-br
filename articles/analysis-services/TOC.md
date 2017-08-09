@@ -1,10 +1,10 @@
 # Visão geral
 ## [O que é o Azure Analysis Services?](analysis-services-overview.md)
-## [Fontes de dados com suporte](analysis-services-datasource.md)
 
 # Guia de início rápido
 ## [Criar um servidor - portal](analysis-services-create-server.md)
-## [Implantar um modelo - SSDT](analysis-services-deploy.md)
+## [Criar um servidor - PowerShell](analysis-services-create-powershell.md)
+## [Implantar um modelo - Visual Studio](analysis-services-deploy.md)
 
 # Tutoriais
 ## Criar e implantar um modelo
@@ -27,6 +27,7 @@
 ### [Lição suplementar - hierarquias desbalanceadas](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Conceitos
+## [Fontes de dados com suporte](analysis-services-datasource.md)
 ## [Autenticação e permissões de usuário](analysis-services-manage-users.md)
 ## [Alta disponibilidade](analysis-services-bcdr.md)
 
