@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: xpouyat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: bb14f94ee2b51c8b1c8eb4754ead670d7f82689f
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 78240c34056a0910fa02e28358c6a98851689fad
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
@@ -106,6 +105,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -151,6 +151,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.

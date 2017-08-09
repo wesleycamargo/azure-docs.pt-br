@@ -1,6 +1,6 @@
 ---
 title: "Passar um objeto JSON para um runbook de Automação do Azure | Microsoft Docs"
-description: "Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos"
+description: "Como passar parâmetros para um runbook como um objeto JSON"
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: c8f1423e3764e476068681ed725db831543690f5
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -84,9 +84,9 @@ Agora você pode chamar o runbook de seu computador local usando o Azure PowerSh
 Execute os seguintes comandos do PowerShell:
 
 1. Faça logon no Azure:
-    ```powershell
-    Login-AzureRmAccount
-    ```
+   ```powershell
+   Login-AzureRmAccount
+   ```
     Você recebe uma solicitação para inserir suas credenciais do Azure.
 1. Obtenha o conteúdo do arquivo JSON e converta-o em uma cadeia de caracteres:
     ```powershell
@@ -94,23 +94,23 @@ Execute os seguintes comandos do PowerShell:
     ```
     `JsonPath` é o caminho em que você salvou o arquivo JSON.
 1. Converta o conteúdo da cadeia de caracteres do `$json` em um objeto do PowerShell:
-    ```powershell
-    $JsonParams = @{"json"=$json}
-    ```
+   ```powershell
+   $JsonParams = @{"json"=$json}
+   ```
 1. Crie uma tabela de hash para os parâmetros para `Start-AzureRmAutomstionRunbook`:
-    ```powershell
-    $RBParams = @{
+   ```powershell
+   $RBParams = @{
         AutomationAccountName = 'AATest'
         ResourceGroupName = 'RGTest'
         Name = 'Test-Json'
         Parameters = $JsonParams
-    }
-    ```
-    Observe que você está definindo o valor de `Parameters` para o objeto do PowerShell que contém os valores do arquivo JSON. 
+   }
+   ```
+   Observe que você está definindo o valor de `Parameters` para o objeto do PowerShell que contém os valores do arquivo JSON. 
 1. Iniciar o runbook
-    ```powershell
-    $job = Start-AzureRmAutomationRunbook @RBParams
-    ```
+   ```powershell
+   $job = Start-AzureRmAutomationRunbook @RBParams
+   ```
 
 O runbook usa os valores do arquivo JSON para iniciar uma VM.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c7daedd68992402ad2b165a95c263d3659a3ea1a
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b54775ec0bd3497e9700db0e3d1428dcc75cc119
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -46,5 +46,9 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 | [Restaurar um banco de dados](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell restaura um Banco de Dados SQL do Azure de um backup com redundância geográfica e restaura um Banco de Dados SQL do Azure excluído para o backup mais recente. |
 | [Copiar um banco de dados para o novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell cria uma cópia do Banco de Dados SQL do Azure existente em um novo Azure SQL Server. |
 | [Importar um banco de dados de um arquivo bacpac](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell importa um banco de dados para um SQL Server do Azure de um arquivo bacpac. |
+| **Sincronizar dados entre bancos de dados**||
+| [Sincronizar dados entre Bancos de Dados SQL](scripts/sql-database-sync-data-between-sql-databases.md) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre vários Bancos de Dados SQL do Azure. |
+| [Sincronizar dados entre o Banco de Dados SQL e o SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. |
+|||
 |||
 

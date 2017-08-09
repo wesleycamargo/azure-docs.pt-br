@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c97ac8f6df1e0fd669b3789d402e1e60f2154205
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Fazer backup de máquinas virtuais do Windows no Azure
@@ -81,7 +81,7 @@ Neste exemplo, mostraremos como recuperar o arquivo de imagem que é usado na p�
 5. No computador local, abra uma nova guia e vá para o [Portal do Azure](https://portal.azure.com).
 6. No menu à esquerda, selecione **Máquinas virtuais** e selecione a VM da lista.
 8. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Backup** é aberta. 
-9. No menu na parte superior da folha, selecione **Recuperação de Arquivo (Versão Prévia)**. A folha **Recuperação de Arquivo (Versão Prévia) será aberta.
+9. No menu na parte superior da folha, selecione **Recuperação de Arquivo**. A folha **Recuperação de arquivo** será aberta.
 10. Em **Etapa 1: selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
 11. Em **Etapa 2: baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo para a pasta **Downloads**.
 12. No computador local, abra o **Explorador de Arquivos** e navegue até a pasta **Downloads** e copie o arquivo .exe baixado. O nome do arquivo será prefixado pelo nome da VM. 

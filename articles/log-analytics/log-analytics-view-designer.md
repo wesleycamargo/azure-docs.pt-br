@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Use o Designer de modos de exibição para criar exibições personalizadas no Log Analytics
@@ -26,8 +26,11 @@ O Designer de modos de exibição do [Log Analytics](log-analytics-overview.md) 
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
-* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas. 
-* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
+* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas.
+* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas.
+
+>[!NOTE]
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
 ## <a name="concepts"></a>Conceitos
 Exibições criadas com o Designer de modo de exibição contêm os elementos na tabela a seguir.
@@ -96,5 +99,4 @@ Os modos de exibição têm apenas uma linha de partes da visualização.  Reorg
 ## <a name="next-steps"></a>Próximas etapas
 * Adicione [Blocos](log-analytics-view-designer-tiles.md) ao modo de exibição personalizado.
 * Adicione [Partes da visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
-
 

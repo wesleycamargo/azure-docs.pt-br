@@ -11,23 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Noções básicas sobre o acesso aos recursos do Azure
-> [!NOTE]
-> Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo. Como alternativa, o portal de visualização do Azure fornece [O controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. O portal do Azure fornece o [controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
 > 
 > 
 
-Em outubro de 2013, o Portal clássico do Azure e as APIs de Gerenciamento de Serviço foram integrados ao Active Directory do Azure para definir as bases visando melhorar a experiência do usuário no gerenciamento do acesso aos recursos do Azure. O Active Directory do Azure já fornece ótimos recursos como o gerenciamento de usuários, sincronização de diretórios local, multi-factor authentication e controle de acesso do aplicativo. Naturalmente, eles também devem ser disponibilizados para gerenciar os recursos do Azure globalmente.
+Em outubro de 2013, o Portal clássico do Azure e as APIs de Gerenciamento de Serviço foram integrados ao Active Directory do Azure para definir as bases visando melhorar a experiência do usuário no gerenciamento do acesso aos recursos do Azure. O Active Directory do Azure já fornece ótimos recursos como o gerenciamento de usuários, sincronização de diretórios local, autenticação multifator e controle de acesso do aplicativo. Naturalmente, eles também devem ser disponibilizados para gerenciar os recursos do Azure globalmente.
 
 O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada pela visitação ao [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o Administrador da Conta (AA). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o [Portal clássico do Azure](https://manage.windowsazure.com/). O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de contas do Azure.
 

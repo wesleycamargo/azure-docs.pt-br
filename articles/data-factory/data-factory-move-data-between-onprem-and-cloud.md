@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
-ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
 ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
@@ -36,6 +36,14 @@ Você deve instalar o Gateway de Gerenciamento de Dados em seu computador local 
 O passo a passo a seguir mostra como você pode criar uma Data Factory com um pipeline que move dados de um banco de dados local do **SQL Server** para um armazenamento de blobs do Azure. Como parte do passo a passo, você instala e configura o Gateway de Gerenciamento de Dados em seu computador.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Passo a passo: copiar os dados locais para a nuvem
+
+## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
+Antes de iniciar este passo a passo, é necessário ter os seguintes pré-requisitos:
+
+* **Assinatura do Azure**.  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
+* **Conta de Armazenamento do Azure**. Você utiliza o armazenamento de Blobs como um armazenamento de dados **destino/coletor** neste tutorial. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
+* **SQL Server**. Neste tutorial, você utiliza um Banco de Dados do SQL Server local como um armazenamento de dados de **origem**. 
+
 ## <a name="create-data-factory"></a>Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data Factory chamada **ADFTutorialOnPremDF**.
 
@@ -101,7 +109,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 5. Aguarde alguns minutos ou até ver a seguinte mensagem de notificação:
 
     ![Instalação do gateway bem-sucedida](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Inicie o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados** no computador. Na janela de **Pesquisa**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+6. Inicie o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados** no computador. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
     ![Gerenciador de configuração de gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Confirme que você vê a mensagem `adftutorialgateway is connected to the cloud service`. A barra de status inferior exibe a mensagem **Conectado ao serviço de nuvem** junto com uma **marca de seleção verde**.
@@ -263,7 +271,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
    * **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Crie o contêiner **adftutorial** se ele ainda não existir.
    * A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
-   Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+   Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
    Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade partitionedBy. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv.
 
@@ -342,7 +350,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
    * Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
    * A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-   * Na seção **typeProperties**, **SqlSource** é especificado como o **tipo de origem** e **BlobSink** é especificado como o **tipo de coletor**.
+   * na seção **typeProperties**, **SqlSource** é especificado como o **tipo de origem** e **BlobSink **é especificado como o **tipo de coletor**.
    * A consulta SQL `select * from emp` é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
    Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial.

@@ -1,5 +1,5 @@
 ---
-title: " Excluir um cofre de Backup no Azure | Microsoft Docs "
+title: " Exclua um cofre de Serviços de Recuperação no Azure | Microsoft Docs "
 description: "Como excluir um cofre do Backup e Serviços de Recuperação do Azure. Um cofre de backup pode ser chamado de cofre de nuvem do Azure ou cofre de recuperação do Azure. Solução de problemas quando não é possível excluir um cofre de backup no portal clássico ou no portal do Azure."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="delete-an-azure-backup-vault"></a>Excluir um Cofre de Backup do Azure
+# <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o cofre de Serviços de Recuperação. O Cofre de Backup veio primeiro. Em seguida, o Cofre dos Serviços de Recuperação surgiu no mercado para oferecer suporte às implantações expandidas do Gerenciador de Recursos. Devido às funcionalidades expandidas e às dependências de informações que devem ser armazenadas no cofre, a exclusão de um cofre do Backup ou dos Serviços de Recuperação pode ser confusa. Este artigo explica como excluir os cofres no portal clássico e no portal do Azure.  
 
 | **Tipo de implantação** | **Portal** | **Nome do cofre** |

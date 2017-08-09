@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 43acd0e8e6b106013fc4491e3785f6efefc51493
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -131,7 +130,7 @@ Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita]
 > 
 > 
 
-Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$ 200.
+Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Provisionar os recursos do Azure necessários para o tutorial
 Este tutorial requer dois hubs de eventos para receber transmissões de dados de *entrada* e de *saída*. O Banco de Dados SQL do Azure gera os resultados dos trabalhos do Stream Analytics. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.

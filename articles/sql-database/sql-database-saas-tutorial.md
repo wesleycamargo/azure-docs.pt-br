@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
@@ -54,7 +53,9 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 Implantar o aplicativo SaaS do Wingtip:
 
-1. Clicar no botão **Implantar no Azure** abre o portal do Azure para o modelo de implantação SaaS do Wingtip. O modelo requer dois valores de parâmetros; um nome para um novo grupo de recursos e um nome de usuário que distingue esta implantação de outras implantações do aplicativo SaaS do Wingtip. A próxima etapa fornece detalhes para definir esses valores. Certifique-se de observar os valores exatos que usa, pois você precisará inseri-los em um arquivo de configuração.
+1. Clicar no botão **Implantar no Azure** abre o portal do Azure para o modelo de implantação SaaS do Wingtip. O modelo requer dois valores de parâmetros; um nome para um novo grupo de recursos e um nome de usuário que distingue esta implantação de outras implantações do aplicativo SaaS do Wingtip. A próxima etapa fornece detalhes para definir esses valores.
+
+   Certifique-se de observar os valores exatos que usa, pois você precisará inseri-los em um arquivo de configuração.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,7 +64,7 @@ Implantar o aplicativo SaaS do Wingtip:
     > [!IMPORTANT]
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. **Criar um novo grupo de recursos** e não usar grupos de recursos, servidores ou pools existentes. Não use este aplicativo ou todos os recursos que cria, para a produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
 
-    * **Grupo de recursos** – Selecione **Criar novo** e forneça um **Nome** e **Local**.
+    * **Grupo de recursos** – selecione **Criar novo** e forneça um **Nome** para o grupo de recursos. Selecione uma **Localização** na lista suspensa.
     * **Usuário** - Alguns recursos exigem nomes que são globalmente exclusivos. Para garantir a exclusividade, toda vez que você implanta, o aplicativo fornece um valor para diferenciar os recursos que você cria dos recursos criados por outros usuários que estão implantando o aplicativo Wingtip. Recomenda-se usar um nome de **Usuário** curto, como suas iniciais com algum número (por exemplo, *bg1*) e, em seguida, usá-lo no nome do grupo de recursos (por exemplo, *wingtip-bg1*). O parâmetro **Usuário** só pode conter letras, números e hifens (sem espaços). O primeiro e último caracteres devem ser uma letra ou um número (recomenda-se todas em minúsculas).
 
 
@@ -109,7 +110,7 @@ O aplicativo demonstra locais, como teatros, clubes de jazz, clubes esportivos, 
 
 Um **Hub de Eventos** central fornece uma lista de URLs de locatários específica da sua implantação.
 
-1. Abra o _Hub de Eventos_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (substitua pelo seu nome de usuário de implantação):
+1. Abra o _Hub de Eventos_ em seu navegador da Web: http://events.wtp.&lt;USER&gt;.trafficmanager.net (substitua pelo seu nome de usuário de implantação):
 
     ![hub de eventos](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -130,7 +131,7 @@ Agora que o aplicativo está implantado, vamos colocá-lo em funcionamento! O sc
 1. Pressione **F5** para executar o script e iniciar o gerador de carga (deixe os valores de parâmetro padrão por enquanto).
 
 > [!IMPORTANT]
-> O gerador de carga está sendo executado como uma série de trabalhos em sua sessão local do PowerShell. O script *Demo-LoadGenerator.ps1* inicia o script do gerador de carga real, que é executado como uma tarefa em primeiro plano além de uma série de trabalhos de geração de cargas em segundo plano. Um trabalho do gerador de carga é chamado para cada banco de dados registrado no catálogo. Os trabalhos estão em execução na sua sessão local do PowerShell, então fechar a sessão do PowerShell interrompe todos os trabalhos. Se você suspender seu computador, a geração de carga será pausada e continuará quando você ativá-lo novamente.
+> Para executar outros scripts, abra uma nova janela do ISE do PowerShell. O gerador de carga está sendo executado como uma série de trabalhos em sua sessão local do PowerShell. O script *Demo-LoadGenerator.ps1* inicia o script do gerador de carga real, que é executado como uma tarefa em primeiro plano além de uma série de trabalhos de geração de cargas em segundo plano. Um trabalho do gerador de carga é chamado para cada banco de dados registrado no catálogo. Os trabalhos estão em execução na sua sessão local do PowerShell, então fechar a sessão do PowerShell interrompe todos os trabalhos. Se você suspender seu computador, a geração de carga será pausada e continuará quando você ativá-lo novamente.
 
 Depois que o gerador de carga invoca os trabalhos de geração de carga para cada locatário, a tarefa em primeiro plano permanece em um estado de invocação de trabalho, onde ela inicia trabalhos de plano de fundo adicionais para quaisquer novos locatários que forem provisionados subsequentemente. Você pode usar *Ctrl-C* ou pressionar o botão *Parar* para interromper a tarefa em primeiro plano, mas trabalhos em segundo plano existentes continuarão gerando carga em cada banco de dados. Se você precisar monitorar e controlar os trabalhos em segundo plano, use *Get-Job*, *Receive-Job* e *Stop-Job*. Enquanto a tarefa em primeiro plano está em execução, não é possível usar a mesma sessão do PowerShell para executar outros scripts. Para executar outros scripts, abra uma nova janela do ISE do PowerShell.
 
@@ -160,11 +161,11 @@ Atualize o *Hub de Eventos* e o novo locatário agora está na lista.
 
 Agora que você começou a executar uma carga na coleção de locatários, vamos analisar alguns dos recursos que foram implantados:
 
-1. No [Portal do Azure](http://portal.azure.com), abra o servidor **catalog-&lt;USER&gt;**. O servidor de catálogo contém dois bancos de dados. O **tenantcatalog** e o **basetenantdb** (um banco de dados de modelo ou *ouro* vazio que foi copiado para criar novos locatários).
+1. No [Portal do Azure](http://portal.azure.com), navegue até sua lista de servidores SQL e abra o servidor **catálogo-&lt;USER&gt;**. O servidor de catálogo contém dois bancos de dados. O **tenantcatalog** e o **basetenantdb** (um banco de dados de modelo ou *ouro* vazio que foi copiado para criar novos locatários).
 
    ![databases](./media/sql-database-saas-tutorial/databases.png)
 
-1. Abra o servidor **tenants1-&lt;USER&gt;** que contém os bancos de dados de locatário. Cada banco de dados de locatário é um banco de dados _elástico padrão_ em um pool padrão de 50 eDTU. Observe também que há um banco de dados _Red Maple Racing_, o banco de dados de locatário que você provisionou anteriormente.
+1. Volte para sua lista de servidores SQL e abra o servidor **tenants1-&lt;USER&gt;** que contém os bancos de dados de locatário. Cada banco de dados de locatário é um banco de dados _elástico padrão_ em um pool padrão de 50 eDTU. Observe também que há um banco de dados _Red Maple Racing_, o banco de dados de locatário que você provisionou anteriormente.
 
    ![Servidor](./media/sql-database-saas-tutorial/server.png)
 

@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Gerenciamento do esquema para vários locatários no aplicativo de SaaS do Wingtip
 
-O [primeiro tutorial de SaaS do Wingtip](sql-database-saas-tutorial.md) mostra como o aplicativo pode provisionar um banco de dados do locatário e registrá-lo no catálogo. Como qualquer aplicativo, o aplicativo de SaaS do Wingtip evoluirá ao longo do tempo e, às vezes, exigirá alterações no banco de dados. As alterações podem incluir um esquema novo ou alterado, dados de referência novos ou alterados e tarefas de manutenção de rotina do banco de dados para garantir o desempenho ideal do aplicativo. Com um aplicativo SaaS, essas alterações precisam ser implantadas de maneira coordenada em uma frota potencialmente grande de bancos de dados de locatário. As alterações também precisam ser incorporadas ao processo de provisionamento para futuros bancos de dados de locatário.
+O [primeiro tutorial de SaaS do Wingtip](sql-database-saas-tutorial.md) mostra como o aplicativo pode provisionar um banco de dados do locatário e registrá-lo no catálogo. Como qualquer aplicativo, o aplicativo de SaaS do Wingtip evoluirá ao longo do tempo e, às vezes, exigirá alterações no banco de dados. As alterações podem incluir um esquema novo ou alterado, dados de referência novos ou alterados e tarefas de manutenção de rotina do banco de dados para garantir o desempenho ideal do aplicativo. Com um aplicativo SaaS, essas alterações precisam ser implantadas de maneira coordenada em uma frota potencialmente grande de bancos de dados de locatário. Para que essas alterações estejam em bancos de dados de locatário futuros, elas precisam ser incorporadas ao processo de provisionamento.
 
 Este tutorial explora dois cenários: implantação de atualizações de dados de referência para todos os locatários e reajuste de um índice na tabela que contém os dados de referência. Para executar essas operações em todos os locatários é usado o recurso [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) e também um banco de dados de locatário *golden*, que é usado como um modelo para novos bancos de dados.
 
@@ -34,7 +33,8 @@ Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 
-> * Criar uma conta de trabalho para consultar em vários locatários
+> * Criar uma conta de trabalho
+> * Consultar vários locatários
 > * Atualizar dados em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Como esta é uma versão prévia limitada, você deverá contatar SaaSFeedback@microsoft.com para perguntas relacionadas ou para obter suporte.*
+*Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Esta é uma versão prévia limitada, então contate SaaSFeedback@microsoft.com para conferir perguntas relacionadas ou para obter suporte.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema de SaaS
@@ -60,7 +60,7 @@ O padrão de SaaS de único locatário por banco de dados se beneficia, de muita
 Há uma nova versão dos Trabalhos Elásticos, que agora é um recurso integrado do Banco de Dados SQL do Azure (que não requer serviços ou componentes adicionais). Essa nova versão dos Trabalhos Elásticos está em versão prévia limitada atualmente. Essa versão prévia limitada atualmente dá suporte ao PowerShell para criar contas de trabalho e ao T-SQL para criar e gerenciar trabalhos.
 
 > [!NOTE]
-> *Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Como esta é uma versão prévia limitada, você deverá contatar SaaSFeedback@microsoft.com para perguntas relacionadas ou para obter suporte.*
+> *Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Esta é uma versão prévia limitada, então contate SaaSFeedback@microsoft.com para conferir perguntas relacionadas ou para obter suporte.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
@@ -89,14 +89,14 @@ Para criar um novo trabalho, usamos um conjunto de trabalhos que os procedimento
 1. Conecte-se também ao servidor de locatário: tenants1-\<usuário\>.database.windows.net
 1. Navegue até o banco de dados *contosoconcerthall* do servidor *tenants1* e consulte a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados.
 1. Abra o arquivo ...\\Módulos de aprendizado\\Gerenciamento de esquema\\DeployReferenceData.sql
-1. Modifique o \<User\>, fornecendo o nome de usuário que você usou quando implantou o aplicativo Wingtip, em todos os 3 locais no script
+1. Modifique a instrução: SET @wtpUser = &lt;user&gt; e substitua o valor User usado na implantação do aplicativo Wingtip
 1. Verifique se está conectado ao banco de dados jobaccount e pressione **F5** para executar o script
 
 * **sp\_add\_target\_group** cria o nome do grupo de destino DemoServerGroup, agora é preciso adicionar os membros de destino.
-* **sp\_add\_target\_group\_member** adiciona um tipo de membro de destino do *servidor*, o que considera todos os bancos de dados neste servidor (observe que esse é o servidor customer1-&lt;User&gt; que contém os bancos de dados do locatário) na hora em que a execução de trabalho deve ser incluída no trabalho. O segundo está adicionando um tipo de membro de destino de *banco de dados*, especificamente banco de dados "golden", baseTenantDB, que reside no servidor catalog-&lt;User&gt; e, por fim, outro tipo de membro de grupo de destino de *banco de dados* para incluir o banco de dados adhocanalytics que será usado em um tutorial posterior.
+* **sp\_add\_target\_group\_member** adiciona um tipo de membro de destino do *servidor*, o que considera todos os bancos de dados neste servidor (observe que esse é o servidor tenants1-&lt;User&gt; que contém os bancos de dados do locatário) na hora em que a execução de trabalho deve ser incluída no trabalho. O segundo está adicionando um tipo de membro de destino de *banco de dados*, especificamente banco de dados "golden", basetenantdb, que reside no servidor catalog-&lt;User&gt; e, por fim, outro tipo de membro de grupo de destino de *banco de dados* para incluir o banco de dados adhocanalytics que será usado em um tutorial posterior.
 * **sp\_add\_job** cria um trabalho chamado “Reference Data Deployment”
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes
-* As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Examine o valor de status da coluna **ciclo de vida**. O trabalho foi concluído com êxito em todos os bancos de dados de locatário e nos dois bancos de dados adicionais que contêm a tabela de referência.
+* As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Use essas consultas para examinar o valor de status na coluna **lifecycle** para determinar quando o trabalho foi concluído com êxito em todos os bancos de dados de locatário, e os dois bancos de dados adicionais que contêm a tabela de referência.
 
 1. No SSMS, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1* e consulte a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* **estão** na lista de resultados.
 

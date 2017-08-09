@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: dbcec586fe5ee06da38c37cf1ead2469386cc5c3
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Usando bibliotecas de classes .NET com o Azure Functions
@@ -58,7 +57,7 @@ A tabela a seguir lista os gatilhos e as associações que estão disponíveis e
 | Associação | Atributo | Pacote NuGet |
 |------   | ------    | ------        |
 | [Gatilho de armazenamento de blobs, entrada, saída](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [O armazenamento de blobs] |
-| [Associação de entrada e saída do Banco de Dados Cosmos](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Associação de entrada e saída do Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
 | [Gatilho de Hubs de Eventos e saída](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [Entrada e saída do arquivo externo](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [Gatilho HTTP e webhook](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -122,11 +121,11 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Associações de entrada e saída do Banco de Dados Cosmos
+### <a name="cosmos-db-input-and-output-bindings"></a>Associações de entrada e saída do Cosmos DB
 
-O Azure Functions dá suporte a associações de entrada e saída para o Banco de Dados Cosmos. Para saber mais sobre os recursos da associação do Banco de Dados Cosmos, consulte [Associações do Banco de Dados Cosmos do Azure Functions](functions-bindings-documentdb.md).
+O Azure Functions dá suporte a associações de entrada e saída para o Cosmos DB. Para saber mais sobre os recursos da associação do Cosmos DB, consulte [Associações do Cosmos DB do Azure Functions](functions-bindings-documentdb.md).
 
-Para associar a um documento do Banco de Dados Cosmos, use o atributo `[DocumentDB]` no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. O exemplo a seguir tem um gatilho de fila e uma associação de saída da API DocumentDB:
+Para associar a um documento do Cosmos DB, use o atributo `[DocumentDB]` no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. O exemplo a seguir tem um gatilho de fila e uma associação de saída da API DocumentDB:
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
@@ -266,6 +265,30 @@ public static class QueueFunctions
 O Azure Functions oferece suporte a uma associação de saída do SendGrid para enviar email programaticamente. Para saber mais, consulte [Associações do SendGrid do Azure Functions](functions-bindings-sendgrid.md).
 
 O atributo `[SendGrid]` é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+
+A seguir está um exemplo de usar um gatilho de fila do Barramento de Serviço e uma associação de saída SendGrid usando `SendGridMessage`:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
 
 <a name="service-bus"></a>
 
@@ -418,3 +441,4 @@ Para obter mais informações sobre como usar funções do Azure no script de C#
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+

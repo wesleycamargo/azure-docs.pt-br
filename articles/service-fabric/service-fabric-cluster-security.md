@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
-ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5afbe575a8affc37b8f902c0988585a83921e3d2
 ms.contentlocale: pt-br
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
@@ -57,7 +57,7 @@ Autentica clientes e protege a comunicação entre um cliente e nós individuais
 Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Segurança de certificado de cliente para nó
- A segurança de certificado de cliente para nó é configurada durante a criação do cluster por meio do portal do Azure, dos modelos do Resource Manager ou de um modelo JSON autônomo, especificando um certificado de cliente do administrador e/ou um certificado de cliente do usuário.  Os certificados de cliente administrador e certificados de cliente de usuário que você especificar devem ser diferentes dos certificados primários e secundários que você especifica para a [Segurança de nó para nó](#node-to-node-security).
+ A segurança de certificado de cliente para nó é configurada durante a criação do cluster por meio do portal do Azure, dos modelos do Resource Manager ou de um modelo JSON autônomo, especificando um certificado de cliente do administrador e/ou um certificado de cliente do usuário.  Os certificados de cliente administrador e certificados de cliente de usuário que você especificar devem ser diferentes dos certificados primários e secundários que você especifica para a [Segurança de nó para nó](#node-to-node-security) como prática recomendada. Por padrão, os certificados de cluster para segurança de nó para nó são adicionados à lista de certificados permitida Admin do cliente.
 
 Clientes que se conectam ao cluster usando o certificado de administrador têm acesso completo aos recursos de gerenciamento.  Clientes que se conectam ao cluster usando o certificado de cliente de usuário somente leitura somente acesso de leitura aos recursos de gerenciamento. Em outras palavras, esses certificados são usados para o RBAC (controle de acesso baseado em função) descrito adiante neste artigo.
 

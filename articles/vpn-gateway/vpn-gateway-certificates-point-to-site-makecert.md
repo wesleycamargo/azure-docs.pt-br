@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bb61222ae01d1613ec27bb016ff1f94bcdaf8935
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 858ce2c748c3383afb6d66ed7b66a5f019902594
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
@@ -55,7 +54,7 @@ As etapas a seguir mostram como criar um certificado autoassinado usando o MakeC
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
   ```
-3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Substitua “P2SRootCert” e “P2SRootCert.cer” pelo nome que você deseja usar para o certificado. O certificado estará localizado em seus 'Certificados – Usuário Atual\Pessoal\Certificados'.
+3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Substitua “P2SRootCert” e “P2SRootCert.cer” pelo nome que você deseja usar para o certificado. O certificado está localizado em seus 'Certificados – Current User\Personal\Certificates'.
 
   ```cmd
   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My

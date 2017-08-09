@@ -1,5 +1,5 @@
 ---
-title: "Como criar um processador de mídia | Microsoft Docs"
+title: "Como criar um processador de mídia usando o SDK de Serviços de Mídia do Azure para .NET | Microsoft Docs"
 description: "Saiba como criar um componente de processador de mídia para codificar, converter o formato, criptografar ou descriptografar conteúdo de mídia dos Serviços de Mídia do Azure. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do processador de mídia
@@ -31,21 +31,16 @@ ms.lasthandoff: 04/12/2017
 ## <a name="overview"></a>Visão geral
 Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Normalmente, você cria um processador de mídia quando está criando uma tarefa para codificar, criptografar ou converter o formato do conteúdo de mídia.
 
-A tabela a seguir fornece o nome e a descrição de cada processador de mídia disponível.
+## <a name="azure-media-processors"></a>Processadores de mídia do Azure 
 
-| Nome do processador de mídia | Descrição | Mais informações |
-| --- | --- | --- |
-| Media Encoder Standard |Fornece funcionalidades padrão para codificação sob demanda. |[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md) |
-| Fluxo de trabalho do Media Encoder Premium |Permite que você execute tarefas de codificação usando o fluxo de trabalho do Media Encoder Premium. |[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md) |
-| Indexador de Mídia do Azure |Permite tornar arquivos e conteúdo de mídia pesquisáveis, bem como gerar faixas de legenda e palavras-chave. |[Indexador de Mídia do Azure](media-services-index-content.md) |
-| Azure Media Hyperlapse (visualização) |Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Codificador de Mídia do Azure |Preteridos | |
-| Descriptografia do armazenamento |Preteridos | |
-| Gerenciador de mídia do Azure |Preteridos | |
-| Criptografador de Mídia do Azure |Preteridos | |
+O tópico a seguir fornece listas de processadores de mídia:
+
+* [Codificação de processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
+* [Processadores de mídia do Analytics](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Obter processador de mídia
-O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-dotnet-connect-programmatically.md).
+
+O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

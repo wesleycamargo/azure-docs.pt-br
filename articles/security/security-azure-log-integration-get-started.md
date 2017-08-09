@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/20/2017
+ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 02b3095bb77a122fddd74e636395628333a13936
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração do log do Azure com o log de diagnóstico do Azure e encaminhamento de eventos do Windows
@@ -136,7 +135,7 @@ Execute as seguintes etapas para obter a chave de armazenamento:
  ![Mais serviços](./media/security-azure-log-integration-get-started/more-services.png)
  3. Digite **Armazenamento** na caixa de texto **Filtro**. Clique em **Contas de armazenamento** (isso será exibido depois que você inserir **Armazenamento**)
 
-  ![caixa de filtro](./media/security-azure-log-integration-get-started/filter.png)
+   ![caixa de filtro](./media/security-azure-log-integration-get-started/filter.png)
  4. Será exibida uma lista de contas de armazenamento, clique duas vezes na conta que você atribuiu ao armazenamento de Log.
 
    ![lista de contas de armazenamento](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -182,8 +181,8 @@ Para saber mais sobre a Integração do Log do Azure, consulte os seguintes docu
 
 * [Integração de log do Microsoft Azure para os logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324) – visite o Centro de Download para obter os detalhes, os requisitos de sistema e as instruções de instalação da integração de log do Azure.
 * [Introdução à integração de log do Azure](security-azure-log-integration-overview.md) – este documento apresenta a integração do registro do Azure, seus principais recursos e como ele funciona.
-* [Etapas de configuração de parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – esta postagem de blog mostra a você como configurar a integração de log do Azure para trabalhar com as soluções de parceiros Splunk, HP ArcSight e IBM QRadar.
+* [Etapas de configuração de parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – esta postagem de blog mostra a você como configurar a integração de log do Azure para trabalhar com as soluções de parceiros Splunk, HP ArcSight e IBM QRadar. Esta é a nossa orientação atual sobre como configurar os componentes do SIEM. Primeiro, entre em contato com seu fornecedor do SIEM para obter detalhes adicionais.
 * [Perguntas frequentes sobre o log de integração do Azure](security-azure-log-integration-faq.md) – encontre as respostas para as perguntas frequentes sobre a integração de log do Azure.
-* [Integração dos alertas da Central de Segurança com a Integração de Log do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) – este documento mostra como sincronizar os alertas da Central de Segurança, juntamente com os eventos de segurança de máquina virtual coletados pelo Diagnóstico do Azure e pelos Logs de Auditoria do Azure, com o Log Analytics ou com a solução SIEM.
+* [Integração dos alertas da Central de Segurança com a Integração de Log do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) – este documento mostra como sincronizar os alertas da Central de Segurança, juntamente com os eventos de segurança de máquina virtual coletados pelo Diagnóstico do Azure e pelos Logs de Atividade do Azure, com o Log Analytics ou com a solução SIEM.
 * [Novos recursos para o Diagnóstico do Azure e para os Logs de Auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – esta postagem de blog apresenta os Logs de Auditoria do Azure e outros recursos que ajudam você a obter ideias sobre as operações de seus recursos do Azure.
 

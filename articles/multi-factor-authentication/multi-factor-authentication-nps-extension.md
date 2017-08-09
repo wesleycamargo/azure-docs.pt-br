@@ -5,24 +5,24 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017,it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 46f5761caf2883d6083245a9a1fe689ea0529212
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017; it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f9058ca12cb52c1a9d4a3d05f4ccb3e2c030873e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure - Visualização pública
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
 A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar verificação por chamada telefônica, SMS ou aplicativo ao fluxo de autenticação existente sem a necessidade de instalar, configurar e manter novos servidores. 
 
@@ -107,9 +107,8 @@ Se você precisar disparar uma nova rodada de sincronização, use as instruçõ
 Há dois fatores que afetam quais métodos de autenticação estão disponíveis com uma implantação de extensão do NPS:
 
 1. O algoritmo de criptografia de senha usado entre o cliente RADIUS (VPN, servidor Netscaler ou outros) e os servidores NPS.
-   - **PAP** dá suporte a todos os métodos de autenticação do Azure MFA na nuvem: chamada telefônica, mensagem de texto, notificação de aplicativo móvel e código de verificação de aplicativo móvel.
-   - **CHAPv2** dá suporte a chamada telefônica e notificação de aplicativo móvel.
-   - Não há suporte para **EAP**.
+   - O **PAP** dá suporte a todos os métodos de autenticação do Azure MFA na nuvem: chamada telefônica, mensagem de texto unidirecional, notificação de aplicativo móvel e código de verificação de aplicativo móvel.
+   - **CHAPV2** e **EAP** dão suporte a chamada telefônica e notificação de aplicativo móvel.
 2. Os métodos de entrada que o aplicativo cliente (VPN, servidor Netscaler ou outros) pode manipular. Por exemplo, o cliente VPN tem algum meio de permitir que o usuário digite um código de verificação de um texto ou aplicativo móvel?
 
 Quando você implanta a extensão do NPS, use esses fatores para avaliar quais métodos estão disponíveis para os usuários. Se o cliente RADIUS dá suporte a PAP, mas a experiência do cliente não tem campos de entrada para um código de verificação, chamada telefônica e notificação do aplicativo móvel são as duas opções com suporte.
@@ -121,9 +120,9 @@ Você pode [desabilitar métodos de autenticação sem suporte](multi-factor-aut
 Antes de implantar a extensão NPS completa, você precisa habilitar a MFA para os usuários que você deseja que executem a verificação em duas etapas. Mas antes disso, a fim de testar a extensão ao implantá-la, você precisa de pelo menos uma conta de teste que seja totalmente registrada para a Autenticação Multifator.
 
 Use estas etapas para iniciar uma conta de teste:
-1. [Habilitar uma conta para a MFA](multi-factor-authentication-get-started-user-states.md).
-2. Acesse qualquer site que inicie uma autenticação do Azure AD, como o https://portal.azure.com.
-3. [Registre-se para a verificação em duas etapas](./end-user/multi-factor-authentication-end-user-first-time.md).
+1. Entre em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) com uma conta de teste. 
+2. Siga os prompts para configurar um método de verificação.
+3. Crie uma política de acesso condicional ou [altere o estado do usuário](multi-factor-authentication-get-started-user-states.md) para exigir verificação em duas etapas para a conta de teste. 
 
 Os usuários também precisam seguir estas etapas para se autenticar com a extensão NPS.
 
@@ -169,14 +168,13 @@ Repita essas etapas em quaisquer servidores NPS adicionais em que você deseja c
 
 Esta seção inclui considerações sobre o design e sugestões para implantações bem-sucedidas da extensão do NPS.
 
-### <a name="configurations-limitations"></a>Limitações de configurações
+### <a name="configuration-limitations"></a>Limitações de configuração
 
 - A extensão NPS para a MFA do Azure não inclui ferramentas para migrar usuários e configurações do Servidor MFA para a nuvem. Por esse motivo, é aconselhável usar a extensão para novas implantações, em vez da implantação existente. Se você usar a extensão em uma implantação existente, os usuários terão que executar a verificação novamente para preencher os detalhes de MFA na nuvem.  
 - A extensão do NPS usa o UPN do Active Directory local para identificar o usuário no Azure MFA para realizar a autenticação secundária. A extensão não pode ser configurada para usar um identificador diferente, como a ID de logon alternativa ou campo personalizado do AD que não seja o UPN.  
 - Nem todos os protocolos de criptografia dão suporte a todos os métodos de verificação.
-   - **PAP** dá suporte a chamada telefônica, mensagem de texto, notificação de aplicativo móvel e código de verificação de aplicativo móvel
-   - **CHAPv2** dá suporte a chamada telefônica e notificação de aplicativo móvel
-   - Não há suporte para **EAP**
+   - O **PAP** dá suporte a chamadas telefônicas, mensagens de texto unidirecionais, notificações de aplicativo móvel e códigos de verificação de aplicativo móvel
+   - **CHAPV2** e **EAP** dão suporte a chamada telefônica e notificação do aplicativo móvel
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Clientes RADIUS de controle que exigem MFA
 
@@ -225,7 +223,7 @@ Esse erro pode ser causado por vários motivos. Use estas etapas para solucionar
 1. Reinicie o servidor NPS.
 2. Verifique se o certificado do cliente está instalado conforme o esperado.
 3. Verifique se o certificado está associado ao seu locatário no Azure AD.
-4. Verifique se o link https://login.windows.net/ pode ser acessado no servidor que está executando a extensão.
+4. Verifique se que https://login.microsoftonline.com/ está acessível do servidor que executa a extensão.
 
 -------------------------------------------------------------
 
@@ -242,5 +240,7 @@ Verifique se o link https://adnotifications.windowsazure.com pode ser acessado p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte como integrar o Azure MFA com o [Active Directory](multi-factor-authentication-get-started-server-dirint.md), a [autenticação RADIUS](multi-factor-authentication-get-started-server-radius.md) e a [autenticação LDAP](multi-factor-authentication-get-started-server-ldap.md).
+- Configurar IDs alternativos para logon ou configurar uma lista de exceções para IPs que não devem executar a verificação em duas etapas nas [Opções de configuração avançadas para a extensão do NPS para autenticação multifator](nps-extension-advanced-configuration.md)
+
+- [Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure](multi-factor-authentication-nps-errors.md)
 

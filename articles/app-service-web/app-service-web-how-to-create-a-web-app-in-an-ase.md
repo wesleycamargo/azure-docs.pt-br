@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo"
-description: "Saiba como criar aplicativos Web e planos de serviço de aplicativo em um Ambiente do Serviço de Aplicativo."
+title: "Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1"
+description: "Saiba como criar aplicativos Web e planos de serviço de aplicativo em um Ambiente do Serviço de Aplicativo v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
+
+> [!NOTE]
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicativo em um [Ambiente do Serviço de Aplicativo](app-service-app-service-environment-intro.md) (ASE). 
+Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicativo em um [Ambiente do Serviço de Aplicativo v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
 > Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](app-service-web-get-started-dotnet.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -184,7 +183,7 @@ Para dimensionar de forma eficiente com o BD Cosmos do Azure, você precisa esco
 Vejamos alguns cenários do mundo real e boas chaves de partição para cada um deles:
 * Se você estiver implementando um perfil do usuário de back-end, a ID de usuário será uma boa opção para a chave de partição.
 * Se você estiver armazenando dados de IoT, por exemplo, o estado do dispositivo, uma ID do dispositivo será uma boa opção para a chave de partição.
-* Se você estiver usando o Banco de Dados de Documentos para registrar em log dados de série temporal, a ID do processo ou o nome do host será uma boa opção para a chave de partição.
+* Se você estiver usando o Banco de dados Cosmos do Azure para registrar em log dados de série temporal, a ID do processo ou o nome do host será uma boa opção para a chave de partição.
 * Se você tiver uma arquitetura de multilocatário, a ID do locatário será uma boa opção para a chave de partição.
 
 Em alguns casos de uso, como perfis de usuário e IoT, a chave de partição pode ser igual à sua ID (chave de documento). Em outros, como os dados de série temporal, você pode ter uma chave de partição que é diferente da ID.

@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
 O [Application Insights](app-insights-overview.md) analisa automaticamente o desempenho do seu aplicativo Web e pode alertá-lo sobre problemas potenciais. Talvez você esteja lendo este artigo porque recebeu uma de nossas notificações de detecção inteligente.
 
-Esse recurso não exige nenhuma configuração especial além de configurar seu aplicativo para o Application Insights (no [ASP.NET](app-insights-asp-net.md), Java (app-insights-java-get-started.md) ou [Node.js](app-insights-nodejs.md) e no [código da página da Web](app-insights-javascript.md)). Ele fica ativo quando seu aplicativo gera telemetria suficiente.
+Esse recurso não exige nenhuma configuração especial além de configurar seu aplicativo para o Application Insights (no [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) ou [Node.js](app-insights-nodejs.md) e no [código da página da Web](app-insights-javascript.md)). Ele fica ativo quando seu aplicativo gera telemetria suficiente.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Quando eu receberia uma notificação de detecção inteligente?
 
@@ -165,7 +164,7 @@ Anomalias como essas são muito difíceis de detectar apenas inspecionando os da
 
 Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tempos de resposta de solicitação no servidor e os tempos de resposta de dependência.  
 
-Você não precisa definir nenhum limite nem configurar regras. Aprendizado de máquina e algoritmos de mineração de dados são usados para detectar padrões anormais.
+Você não precisa definir nenhum limite nem configurar regras. Machine learning e algoritmos de mineração de dados são usados para detectar padrões anormais.
 
 ![No alerta de email, clique no link para abrir o relatório de diagnóstico no Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
 
@@ -192,3 +191,4 @@ As detecções inteligentes são totalmente automáticas. Mas talvez você queir
 
 * [Alertas de métrica configurados manualmente](app-insights-alerts.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
+

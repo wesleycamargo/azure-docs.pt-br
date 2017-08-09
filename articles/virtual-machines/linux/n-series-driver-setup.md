@@ -13,45 +13,192 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/08/2017
+ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: b12505e21a97949c7df6ae1568f2244b5dbcd0fa
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Linux, é necessário instalar os drivers gráficos NVIDIA em cada VM. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam Linux, é necessário instalar os drivers gráficos NVIDIA com suporte. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 Para obter as especificações de VMs da série N, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos de VM Linux para GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 
 
-## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-grid-drivers-for-nv-vms"></a>Instalar drivers GRID para VMs NV
+
+Para instalar drivers NVIDIA GRID em VMs NV, faça uma conexão SSH com cada VM e siga as etapas para sua distribuição do Linux. 
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Execute o comando `lspci`. Verifique se a placa ou placas NVIDIA M60 estão visíveis como dispositivos PCI.
+
+2. Instale as atualizações.
+
+  ```bash
+  sudo apt-get update
+
+  sudo apt-get upgrade -y
+
+  sudo apt-get dist-upgrade -y
+
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use somente o driver NVIDIA em VMs NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
 
 
-As VMs do Linux da série N dão suporte às seguintes distribuições do Azure Marketplace e aos drivers da NVIDIA listados.
+4. Reinicie a VM e reconecte. Saia do servidor X:
+
+  ```bash
+  sudo systemctl stop lightdm.service
+  ```
+
+5. Baixe e instale o driver GRID:
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  ``` 
+
+6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
+
+7. Após a conclusão da instalação, copie /etc/nvidia/gridd.conf.template para um novo arquivo gridd.conf no local /etc/hosts nvidia/
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. Adicione o seguinte a `/etc/nvidia/gridd.conf`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+9. Reinicie a VM e prossiga para verificar a instalação.
 
 
-| Série da VM | Distribuições com suporte | Drivers com suporte |
-| --- | --- | --- |
-| **NC** (placa Tesla K80) | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS 7.3 | NVIDIA CUDA 8.0, branch do driver R375<br/>[Etapas de instalação](#install-cuda-drivers-for-nc-vms) |
-| **NV** (placa Tesla M60)| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 7.3 | NVIDIA GRID 4.2, branch do driver R367<br/>[Etapas de instalação](#install-grid-drivers-for-nv-vms) |
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Baseado em CentOS 7.3 ou Red Hat Enterprise Linux 7.3
 
 
+1. Atualize o kernel e o DKMS.
+ 
+  ```bash  
+  sudo yum update
+ 
+  sudo yum install kernel-devel
+ 
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ 
+  sudo yum install dkms
+  ```
 
-> [!WARNING] 
-> A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).
->
+2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use somente o driver NVIDIA em VMs NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
+ 
+3. Reinicie a VM, reconecte-se e instale os Integration Services do Linux para Hyper-V mais recentes:
+ 
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.2-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+4. Reconecte-se à VM e execute o comando `lspci`. Verifique se a placa ou placas NVIDIA M60 estão visíveis como dispositivos PCI.
+ 
+5. Baixe e instale o driver GRID:
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  ``` 
+6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
+
+7. Após a conclusão da instalação, copie /etc/nvidia/gridd.conf.template para um novo arquivo gridd.conf no local /etc/hosts nvidia/
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. Adicione o seguinte a `/etc/nvidia/gridd.conf`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+9. Reinicie a VM e prossiga para verificar a instalação.
+
+### <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
 
+Para consultar o estado do dispositivo GPU, conecte-se à VM por SSH e execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver. 
+
+Saída semelhante à seguinte exibida:
+
+![Status do dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+ 
+
+### <a name="x11-server"></a>Servidor X11
+Se você precisar de um servidor X11 para conexões remotas com uma VM NV, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque ele permite a aceleração de hardware do elemento gráfico. A BusID do dispositivo M60 deve ser adicionada manualmente ao arquivo xconfig (`etc/X11/xorg.conf` no Ubuntu 16.04 LTS, `/etc/X11/XF86config` no CentOS 7.3 ou Red Hat Enterprise Server 7.3). Adicione uma seção `"Device"` semelhante à seguinte:
+ 
+```
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "Tesla M60"
+    BusID          "your-BusID:0:0:0"
+EndSection
+```
+ 
+Além disso, atualize sua seção `"Screen"` para usar este dispositivo.
+ 
+A BusID pode ser encontrada executando
+
+```bash
+/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+```
+ 
+A BusID pode mudar quando uma VM é realocada ou reinicializada. Portanto, convém usar um script para atualizar a BusID na configuração do X11 quando uma VM é reiniciada. Por exemplo:
+
+```bash 
+#!/bin/bash
+BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+
+if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+```
+
+Esse arquivo pode ser invocado como raiz na inicialização criando uma entrada para ele em `/etc/rc.d/rc3.d`.
 
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Instalar drivers CUDA Tesla para VMs NC
@@ -74,7 +221,7 @@ Você verá uma saída semelhante ao seguinte exemplo (mostrando uma placa NVIDI
 
 ![Saída do comando lspci](./media/n-series-driver-setup/lspci.png)
 
-Em seguida, execute comandos específicos para a sua distribuição.
+Em seguida, execute os comandos de instalação específicos para a sua distribuição.
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -106,7 +253,6 @@ Em seguida, execute comandos específicos para a sua distribuição.
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Baseado em CentOS 7.3 ou Red Hat Enterprise Linux 7.3
 
-
 1. Obtenha atualizações. 
 
   ```bash
@@ -114,8 +260,12 @@ Em seguida, execute comandos específicos para a sua distribuição.
 
   sudo reboot
   ```
-2. Reconecte-se à VM e instale os Integration Services do Linux para Hyper-V mais recentes:
- 
+2. Reconecte-se à VM e instale os Integration Services do Linux para Hyper-V mais recentes.
+
+  > [!IMPORTANT]
+  > Se você tiver instalado uma imagem HPC com base em CentOS em uma VM NC24r, pule para a Etapa 3. Uma vez que drivers de RDMA do Azure e Integration Services do Linux estão pré-instalados na imagem, o LIS não deve ser atualizado e atualizações de kernel estão desabilitadas por padrão.
+  >
+
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
  
@@ -196,163 +346,11 @@ sudo yum update
 sudo reboot
 ```
 
-## <a name="install-grid-drivers-for-nv-vms"></a>Instalar drivers GRID para VMs NV
-
-Para instalar drivers NVIDIA GRID em VMs NV, faça uma conexão SSH com cada VM e siga as etapas para sua distribuição do Linux. 
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Execute o comando `lspci`. Verifique se a placa ou placas NVIDIA M60 estão visíveis como dispositivos PCI.
-
-2. Instale as atualizações.
-
-  ```bash
-  sudo apt-get update
-
-  sudo apt-get upgrade -y
-
-  sudo apt-get dist-upgrade -y
-
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
-3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use somente o driver NVIDIA em VMs NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
-
-  ```
-  blacklist nouveau
-
-  blacklist lbm-nouveau
-  ```
-
-
-4. Reinicie a VM e reconecte. Saia do servidor X:
-
-  ```bash
-  sudo systemctl stop lightdm.service
-  ```
-
-5. Baixe e instale o driver GRID:
-
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
-
-  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
-
-  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
-  ``` 
-
-6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
-
-7. Após a conclusão da instalação, adicione o seguinte a `/etc/nvidia/gridd.conf.template`:
- 
-  ```
-  IgnoreSP=TRUE
-  ```
-8. Reinicie a VM e prossiga para verificar a instalação.
-
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Baseado em CentOS 7.3 ou Red Hat Enterprise Linux 7.3
-
-
-1. Atualize o kernel e o DKMS.
- 
-  ```bash  
-  sudo yum update
- 
-  sudo yum install kernel-devel
- 
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
- 
-  sudo yum install dkms
-  ```
-
-2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use somente o driver NVIDIA em VMs NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
-
-  ```
-  blacklist nouveau
-
-  blacklist lbm-nouveau
-  ```
- 
-3. Reinicie a VM, reconecte-se e instale os Integration Services do Linux para Hyper-V mais recentes:
- 
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-4. Reconecte-se à VM e execute o comando `lspci`. Verifique se a placa ou placas NVIDIA M60 estão visíveis como dispositivos PCI.
- 
-5. Baixe e instale o driver GRID:
-
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
-
-  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
-
-  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
-  ``` 
-6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
-
-7. Após a conclusão da instalação, adicione o seguinte a `/etc/nvidia/gridd.conf.template`:
- 
-  ```
-  IgnoreSP=TRUE
-  ```
-8. Reinicie a VM e prossiga para verificar a instalação.
-
-### <a name="verify-driver-installation"></a>Verificar a instalação de drivers
-
-
-Para consultar o estado do dispositivo GPU, conecte-se à VM por SSH e execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver. 
-
-Saída semelhante à seguinte exibida:
-
-![Status do dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
- 
-
-### <a name="x11-server"></a>Servidor X11
-Se você precisar de um servidor X11 para conexões remotas com uma VM NV, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque ele permite a aceleração de hardware do elemento gráfico. A BusID do dispositivo M60 deve ser adicionada manualmente ao arquivo xconfig (`etc/X11/xorg.conf` no Ubuntu 16.04 LTS, `/etc/X11/XF86config` no CentOS 7.3 ou Red Hat Enterprise Server 7.3). Adicione uma seção `"Device"` semelhante à seguinte:
- 
-```
-Section "Device"
-    Identifier     "Device0"
-    Driver         "nvidia"
-    VendorName     "NVIDIA Corporation"
-    BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
-EndSection
-```
- 
-Além disso, atualize sua seção `"Screen"` para usar este dispositivo.
- 
-A BusID pode ser encontrada executando
-
-```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
-```
- 
-A BusID pode mudar quando uma VM é realocada ou reinicializada. Portanto, convém usar um script para atualizar a BusID na configuração do X11 quando uma VM é reiniciada. Por exemplo:
-
-```bash 
-#!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
-
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
-```
-
-Esse arquivo pode ser invocado como raiz na inicialização criando uma entrada para ele em `/etc/rc.d/rc3.d`.
 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-* Há um problema conhecido com drivers CUDA em VMs do Azure série N executando o kernel do Linux 4.4.0-75 no Ubuntu 16.04 LTS. Para manter a função do driver quando você atualiza o kernel, atualize para pelo meno a versão do kernel 4.4.0-77. 
+* Há um problema conhecido com drivers CUDA em VMs do Azure série N executando o kernel do Linux 4.4.0-75 no Ubuntu 16.04 LTS. Se você estiver atualizando de uma versão anterior do kernel, atualize para pelo menos a versão 4.4.0-77 do kernel. 
 
 
 
@@ -363,3 +361,4 @@ Esse arquivo pode ser invocado como raiz na inicialização criando uma entrada 
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (para VMs NV do Azure)
 
 * Para capturar uma imagem de VM do Linux na qual você tenha instalado drivers NVIDIA, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+

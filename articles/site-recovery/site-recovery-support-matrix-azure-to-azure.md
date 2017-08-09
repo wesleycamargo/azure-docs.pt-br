@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7c30f5164b9fe7ff6044bbf23767a5db9a0f7c30
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
@@ -63,16 +62,35 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2012 R2 de 64 bits
+- Windows Server 2016 (Server Core e Servidor com Experiência Desktop)*
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 com, no mínimo, SP1
 
+>[!NOTE]
+>
+> \* Não há suporte para o Windows Server 2016 Nano Server.
+
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2 e 7.3
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Ubuntu 14.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Ubuntu 16.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
 - SUSE Linux Enterprise Server 11 SP3
+
+>[!NOTE]
+>
+> A autenticação baseada em senha e logon pode ser desabilitada no failover em servidores Ubuntu que a utilizam junto com o pacote cloud-init para configurar máquinas virtuais de nuvem, pode ter o logon baseado em senha desabilitado no failover (dependendo da configuração de cloudinit). O logon baseado em senha pode ser reabilitado na máquina virtual redefinindo a senha no menu configurações (na seção SUPORTE + SOLUÇÃO DE PROBLEMAS) da máquina virtual de failover no Portal do Azure.
+
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Ubuntu para máquinas virtuais do Azure
+
+**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-Generic para 3.13.0-117-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de arquivos com suporte e configurações de armazenamento de convidado em máquinas virtuais do Azure que executam o sistema operacional Linux
 
@@ -88,7 +106,7 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
 Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental
-Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão
+Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália
 
 >[!NOTE]
@@ -113,16 +131,16 @@ VMs migradas com o Site Recovery | Suportado | Se ela for um computador Físico/
 
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-Tamanho máximo do disco do sistema operacional | Tamanho máximo do disco do sistema operacional com suporte no Azure| Consulte [Discos usados pelas VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Tamanho máximo do disco de dados | Tamanho máximo do disco de dados com suporte no Azure| Consulte [Discos usados pelas VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Tamanho máximo do disco do sistema operacional | 1023 GB | Consulte [Discos usados pelas VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Tamanho máximo do disco de dados | 1023 GB | Consulte [Discos usados pelas VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
 Número de discos de dados | Até 64, com suporte em um tamanho específico de VM do Azure | Consulte [Tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
 Disco temporário | Sempre excluído da replicação | O disco temporário sempre é excluído da replicação. Você não deve colocar nenhum dado persistente no disco temporário, de acordo com as diretrizes do Azure. Consulte [Disco temporário em VMs do Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) para obter mais detalhes.
-Taxa de alteração de dados no disco | Máximo de 6 Mbps por disco | Se a taxa média de alteração de dados no disco estiver acima de 6 Mbps de forma contínua, a replicação não será atualizada. No entanto, se essa for uma intermitência de dados ocasional e a taxa de alteração de dados for maior que 6 Mbps por algum tempo e cair, a replicação será atualizada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
+Taxa de alteração de dados no disco | Máximo de 6 MBps por disco | Se a taxa média de alteração de dados no disco estiver acima de 6 MBps de forma contínua, a replicação não será atualizada. No entanto, se essa for uma intermitência de dados ocasional e a taxa de alteração de dados for maior que 6 MBps por algum tempo e ficar inoperante, a replicação será atualizada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
 Discos em contas de armazenamento Standard | Suportado |
 Discos em contas de armazenamento Premium | Suportado | Se uma VM tiver discos distribuídos em contas de armazenamento Standard e Premium, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, a fim de garantir que você tem a mesma configuração de armazenamento na região de destino
 Managed Disks Standard | Sem suporte |  
 Managed Disks Premium | Sem suporte |
-Espaços de armazenamento | Sem suporte |         
+Espaços de armazenamento | Suportado |         
 Criptografia em repouso (SSE) | Suportado | Para contas de armazenamento de cache e de destino, você pode selecionar uma conta de armazenamento habilitada para SSE.     
 ADE (Azure Disk Encryption) | Sem suporte |
 Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
@@ -130,7 +148,7 @@ Exclusão de disco | Sem suporte|   O disco temporário é excluído por padrão
 LRS | Suportado |
 GRS | Suportado |
 RA-GRS | Suportado |
-ZRS | Suportado |  
+ZRS | Sem suporte |  
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
 
 >[!IMPORTANT]

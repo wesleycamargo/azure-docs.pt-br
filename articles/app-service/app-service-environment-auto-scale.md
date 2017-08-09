@@ -1,5 +1,5 @@
 ---
-title: "Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Docs"
+title: "Dimensionamento automático e Ambiente de Serviço de Aplicativo v1"
 description: "Dimensionamento automático e Ambiente de Serviço de Aplicativo"
 services: app-service
 documentationcenter: 
@@ -12,16 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 41ad9eb4d248b1f3e6c888c3037b121511799193
-ms.lasthandoff: 02/16/2017
-
+ms.date: 7/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: f32affd285f3918feb0e893543f2a28f678b7b10
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="autoscaling-and-app-service-environment"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo
+# <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo v1
+
+> [!NOTE]
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada na infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> 
+
 Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
 
 ![Opções de dimensionamento automático para um pool de trabalho.][intro]

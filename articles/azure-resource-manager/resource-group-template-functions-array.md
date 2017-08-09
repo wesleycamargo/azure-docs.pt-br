@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos do Azure Resource Manager 
@@ -34,6 +33,7 @@ O Resource Manager fornece diversas funções para trabalhar com matrizes e obje
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
+* [json](#json)
 * [last](#last)
 * [length](#length)
 * [min](#min)
@@ -47,7 +47,7 @@ Para obter uma matriz de valores de cadeia de caracteres delimitada por um valor
 
 <a id="array" />
 
-## <a name="array"></a>array
+## <a name="array"></a>matriz
 `array(convertToArray)`
 
 Converte o valor em uma matriz.
@@ -614,6 +614,53 @@ A saída do exemplo anterior com os valores padrão é:
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Matriz | ["two", "three"] |
 
+
+## <a name="json"></a>json
+`json(arg1)`
+
+Retorna um objeto JSON.
+
+### <a name="parameters"></a>parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sim |cadeia de caracteres |O valor a ser convertido para JSON. |
+
+
+### <a name="return-value"></a>Valor de retorno
+
+O objeto JSON de cadeia de caracteres especificada, ou um objeto vazio quando **nulo** for especificado.
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "jsonOutput": {
+            "type": "object",
+            "value": "[json('{\"a\": \"b\"}')]"
+        },
+        "nullOutput": {
+            "type": "bool",
+            "value": "[empty(json('null'))]"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| jsonOutput | Objeto | {"a": "b"} |
+| nullOutput | Booliano | True |
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -664,7 +711,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia de caracteres | three |
+| arrayOutput | Cadeia de caracteres | três |
 | stringOutput | Cadeia de caracteres | e |
 
 <a id="length" />
