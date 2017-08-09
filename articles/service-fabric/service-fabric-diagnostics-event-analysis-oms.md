@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d7857821524de3d1dbdac9e8c8d0da89678670db
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 78778e2601ca91c1921a5d987ec7845332c8e27a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -37,7 +36,7 @@ Depois que dados são recebidos pelo Log Analytics, o OMS tem várias *Soluçõe
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Configuração de um espaço de trabalho de OMS com a solução do Service Fabric
 
-É recomendável que você inclua a Solução do Service Fabric no espaço de trabalho de OMS, pois ela fornece um painel útil que mostra os vários canais de log entrada da infraestrutura e o nível de aplicativo e a capacidade de consultar logs específicos do Service Fabric. Aqui está a aparência de uma solução do Service Fabric relativamente simples, com um único aplicativo implantado no cluster:
+É recomendável que você inclua a Solução Service Fabric no espaço de trabalho do OMS, pois ela fornece um painel útil que mostra os vários canais de log de entrada no nível de plataforma e de aplicativo e a capacidade de consultar logs específicos do Service Fabric. Aqui está a aparência de uma solução do Service Fabric relativamente simples, com um único aplicativo implantado no cluster:
 
 ![Solução de OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -104,6 +103,6 @@ Na etapa de criação, é solicitado um espaço de trabalho do OMS. Selecione o 
 
 Explore as seguintes ferramentas de OMS e opções para personalizar um espaço de trabalho conforme suas necessidades:
 
-* Para clusters locais, o OMS oferece um Gateway (HTTP Forward Proxy) que pode ser usado para enviar dados ao OMS. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
+* Para clusters locais, o OMS oferece um Gateway (Proxy de Encaminhamento HTTP) que pode ser usado para enviar dados ao OMS. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
 * Configure o OMS para configurar [alertas automatizados](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e diagnóstico
 * Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte do Log Analytics

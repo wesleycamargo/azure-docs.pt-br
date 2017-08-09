@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: b8cac63967bf837183095cbb235c4a84f2dabcb9
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: dccd7df6a5f85df4179c7ea7cfc476cfb57f48c0
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory
@@ -121,7 +121,7 @@ A saída **$scp.Keywords** mostra as informações de locatário do Azure AD, po
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Se o ponto de conexão do serviço não existir, você poderá criá-lo executando o cmdlet `Initialize-ADSyncDomainJoinedComputerSync` no seu servidor do Azure AD Connect.  
+Se o ponto de conexão do serviço não existir, você poderá criá-lo executando o cmdlet `Initialize-ADSyncDomainJoinedComputerSync` no seu servidor do Azure AD Connect. As credenciais do admin corporativo são necessárias para executar este cmdlet.  
 O cmdlet:
 
 - Cria o ponto de conexão de serviço na floresta do Active Directory à qual o Azure AD Connect está conectado. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0151e188fde38c7a617cf2070939c6498142dd71
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Armazenamento de VM do Linux e do Azure
@@ -48,71 +48,37 @@ Ao criar uma VM da `azure-cli` você pode escolher entre standard e premium ao e
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Criação de uma máquina virtual com um Managed Disk
 
-O exemplo a seguir exige a CLI 2.0 do Azure, que você pode [instalar aqui].
+O exemplo a seguir exige a CLI 2.0 do Azure, que pode ser [instalada aqui](/cli/azure/install-azure-cli).
 
-Primeiro, crie um grupo de recursos para gerenciar os recursos:
+Primeiro, crie um grupo de recursos para gerenciar os recursos com [az group create](/cli/azure/group#create):
 
 ```azurecli
 az group create --location westus --name myResourceGroup
 ```
 
-Em seguida, crie a VM com o comando `az vm create`, como no exemplo a seguir; lembre-se de especificar um único argumento `--public-ip-address-dns-name`, já que `manageddisks` provavelmente está ocupado.
+Agora, crie a VM com [az vm create](/cli/azure/vm#create). Especifique um argumento `--public-ip-address-dns-name` exclusivo, pois `mypublicdns` provavelmente já está sendo usado.
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 O exemplo anterior cria uma VM com um disco gerenciado em uma conta de armazenamento Standard. Para usar uma conta de armazenamento Premium, adicione o argumento `--storage-sku Premium_LRS`, como no exemplo a seguir:
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
-```
-
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Criar uma máquina virtual com um disco padrão e não gerenciado usando a CLI do Azure 1.0
-
-Você também certamente pode usar a CLI do Azure 1.0 para criar VMs de disco standard e premium; neste momento, você não pode usar a CLI do Azure 1.0 para criar VMs com o apoio de Managed Disks.
-
-A opção `-z` escolhe Standard_A1, que é uma VM do armazenamento standard baseada em Linux.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Criar uma máquina virtual com armazenamento premium usando a CLI do Azure 1.0
-A opção `-z` escolhe Standard_DS1, que é uma VM do armazenamento Premium baseada em Linux.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>Armazenamento Standard
@@ -144,12 +110,12 @@ A seguir estão as distribuições do Linux que são validadas com o Armazenamen
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>Armazenamento de arquivos
+## <a name="azure-file-storage"></a>Armazenamento de arquivos do Azure
 O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Com os Arquivos do Azure, você pode migrar para o Azure os aplicativos empresariais que dependam de servidores de arquivos. Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure executando o Linux. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos por meio de um aplicativo local que dá suporte ao SMB 3.0.  Como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs standard do sistema de arquivos.
 
 O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Filas e, portanto, o Armazenamento de arquivos oferece a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure. Para obter detalhes os destinos e os limites do desempenho do Armazenamento de arquivos, veja Escalabilidade e metas de desempenho do Armazenamento do Azure.
 
-* [Como utilizar o armazenamento de arquivos do Azure com Linux](../../storage/storage-how-to-use-files-linux.md)
+* [Como utilizar o Armazenamento de Arquivos do Azure com Linux](../../storage/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>Armazenamento Dinâmico
 A camada de armazenamento dinâmica do Azure é otimizada para armazenar dados acessados com frequência.  O armazenamento dinâmico é o tipo de armazenamento padrão para repositórios de blob.
@@ -226,7 +192,7 @@ O plano de gerenciamento consiste em recursos usados para gerenciar a conta de a
 Nesta seção, vamos examinar a permissão de acesso aos objetos de dados reais na sua conta de armazenamento, como blobs, arquivos, filas e tabelas, usando as Assinaturas de Acesso Compartilhado e as Políticas de Acesso Armazenado. Vamos abordar a SAS de nível de serviço e de nível de conta. Também veremos como limitar o acesso a um endereço IP específico (ou a um intervalo de endereços IP), como limitar o protocolo usado para HTTPS e como revogar uma Assinatura de Acesso Compartilhado sem esperar que ela expire.
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
-Esta seção ensina a proteger os dados quando você os transfere para dentro ou para fora do Armazenamento do Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3.0 para Compartilhamentos de Arquivos do Azure. Também examinaremos a Criptografia do Cliente, que permite criptografar os dados antes que eles sejam transferidos para o Armazenamento em um aplicativo cliente e a descriptografá-los depois que eles são transferidos para fora do Armazenamento.
+Esta seção ensina a proteger os dados quando você os transfere para dentro ou para fora do Armazenamento do Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3.0 para compartilhamentos de Arquivos do Azure. Também examinaremos a Criptografia do Cliente, que permite criptografar os dados antes que eles sejam transferidos para o Armazenamento em um aplicativo cliente e a descriptografá-los depois que eles são transferidos para fora do Armazenamento.
 
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é possível habilitá-la em uma conta de armazenamento, resultando na criptografia automática dos blobs de blocos, dos blobs de páginas e dos blobs de acréscimo quando gravados no Armazenamento do Azure. Também veremos como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption em relação ao SSE e à Criptografia do cliente. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
@@ -234,7 +200,7 @@ Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é poss
 * [Guia de segurança do Armazenamento do Azure](../../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disco temporário
-Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou durante a [reimplantação de uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária deverão permanecer.
+Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária deverão permanecer.
 
 Em máquinas virtuais Linux, normalmente, o disco é **/dev/sdb** e é formatado e montado em **/mnt** pelo Agente Linux do Azure. O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para saber mais, confira [Tamanhos de máquinas virtuais do Linux](sizes.md).
 

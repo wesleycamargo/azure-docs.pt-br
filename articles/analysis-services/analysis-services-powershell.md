@@ -12,14 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: dd511422723a0ae1ef941353c9ea5eb725fad7df
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 5d50ee78da27149278edbd9521ddae8fcfe42c3b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -39,6 +38,7 @@ Os cmdlets do Azure Analysis Services são incluídos no módulo de componente [
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporta o log para um arquivo.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtém detalhes de uma instância do servidor.|  
 |[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Cria uma instância de servidor.|
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Remove uma instância do servidor.|  

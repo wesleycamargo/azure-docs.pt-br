@@ -1,6 +1,6 @@
 ---
-title: "Otimização de download de arquivo grande por meio do Azure CDN"
-description: Otimizar downloads de arquivos grandes mergulho profundo
+title: "Otimização de download de arquivos grandes por meio da Rede de Distribuição de Conteúdo do Azure"
+description: "Otimização de downloads de arquivos grandes explicada em detalhes"
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,67 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27e202b05f86eeee7071f3fae145caeba3d66827
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="large-file-download-optimization-via-azure-cdn"></a>Otimização de download de arquivo grande por meio do Azure CDN
+# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Otimização de download de arquivos grandes por meio da Rede de Distribuição de Conteúdo do Azure
 
-Os tamanhos de arquivos de conteúdo da internet estão crescendo progressivamente devido a funcionalidades avançadas, gráficos aprimorados e conteúdos de rich media. Isso é causado por vários fatores, inclusive a introdução de banda larga, dispositivos de armazenamento de baixo custo maiores, proliferação de vídeos de alta definição, dispositivos conectados à internet (IoT) etc.  Fornecer um mecanismo de entrega mais rápido e eficiente para esses arquivos grandes é essencial para garantir uma experiência do consumidor agradável e suave. 
+Os tamanhos de arquivos de conteúdo entregue pela Internet continuam crescendo devido a funcionalidades avançadas, elementos gráficos aprimorados e conteúdo de rich media. Esse crescimento é causado por vários fatores: penetração de banda larga, dispositivos de armazenamento maiores de baixo custo, aumento generalizado de vídeos de alta definição, dispositivos conectados à Internet (IoT), etc. Um mecanismo de distribuição rápido e eficiente para arquivos grandes é crítico para garantir uma experiência do consumidor agradável e sem problemas.
 
-Há vários desafios inerentes ao fornecimento de arquivos grandes. Primeiro, o tempo médio para baixar um arquivo grande pode ser significativo e muitos aplicativos não podem baixar todos os dados em sequência. Em alguns casos, os aplicativos podem baixar a última parte de um arquivo antes da primeira. Portanto, quando uma pequena quantidade de um arquivo for solicitada, ou o usuário pausar o download, isso pode resultar em falha ou atraso do download até que todo o arquivo seja recuperado da origem pela CDN. 
+A distribuição de arquivos grandes apresenta vários desafios. Primeiro, o tempo médio para baixar um arquivo grande pode ser significativo, pois muitos aplicativos podem não baixar todos os dados em sequência. Em alguns casos, os aplicativos podem baixar a última parte de um arquivo antes da primeira. Quando for solicitada apenas uma pequena quantidade de um arquivo ou um usuário pausar um download, o download poderá falhar. O download também poderá ser atrasado até que a CDN (rede de distribuição de conteúdo) recupere o arquivo inteiro do servidor de origem. 
 
-Em segundo lugar, com a proliferação de arquivos grandes na Internet, os usuários geralmente observam que a latência entre o usuário e o arquivo, por fim, determina a velocidade na qual os usuários podem exibir o conteúdo ou taxa de transferência. Além disso, os problemas de capacidade e o congestionamento de rede têm um impacto maior na taxa de transferência, e esses problemas, juntamente à distância maior entre o servidor e o usuário final, criam mais chances de ocorrência de perda de pacotes, reduzindo ainda mais a qualidade. A redução na qualidade causada pela taxa de transferência limitada e o aumento de perda de pacote pode se manifestar em um tempo de espera significativamente maior para o download de um arquivo ser concluído. 
+Em seguida, a latência entre o computador de um usuário e o arquivo determina a velocidade na qual ele pode exibir o conteúdo. Além disso, problemas de capacidade e congestionamento de rede também afetam a taxa de transferência. Maiores distâncias entre servidores e usuários criam mais oportunidades de perda de pacotes, o que reduz a qualidade. A redução na qualidade causada por uma taxa de transferência limitada e uma maior perda de pacotes pode aumentar o tempo de espera até a conclusão do download de um arquivo. 
 
-Por fim, muitos arquivos grandes não são entregues em sua totalidade. Os usuários podem cancelar um download no meio ou assistir a somente os primeiros minutos de um vídeo MP4 longo. Portanto, é útil para muitas empresas de entrega de software e mídia entregar somente a parte de um arquivo que é solicitada pelo usuário final. Dessa forma, somente as partes solicitadas serão distribuídas com eficiência para os alcances mais distante da Internet, reduzindo o tráfego de saída da origem e, portanto, a memória e pressão I/O no servidor de origem. 
+Em terceiro lugar, muitos arquivos grandes não são entregues em sua totalidade. Os usuários podem cancelar um download no meio ou assistir somente aos primeiros minutos de um vídeo MP4 longo. Portanto, as empresas de distribuição de software e mídia desejam distribuir somente a parte de um arquivo que é solicitada. A distribuição eficiente das partes solicitadas reduz o tráfego de saída do servidor de origem. A distribuição eficiente também reduz a demanda de memória e E/S no servidor de origem. 
 
-O Azure CDN do Akamai agora oferece um recurso fornecido para entregar arquivos grandes com eficiência para os usuários finais em todo o mundo em grande escala e latências reduzidas enquanto reduz a carga nos servidores de origem. Este recurso está disponível por meio do recurso "Otimizado para" no Ponto de Extremidade do Azure CDN criado em um Perfil do Azure CDN com o tipo de preço “Akamai Standard”.
+A Rede de Distribuição de Conteúdo do Azure da Akamai agora oferece um recurso que distribui arquivos grandes com eficiência aos usuários no mundo todo em escala. O recurso reduz as latências porque reduz a carga nos servidores de origem. Esse recurso está disponível no tipo de preço Standard da Akamai.
 
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurar o ponto de extremidade CDN para otimizar a entrega de arquivos grandes
+## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurar um ponto de extremidade CDN para otimizar a distribuição de arquivos grandes
 
-Você pode configurar o ponto de extremidade CDN para otimizar a entrega de arquivos grandes por meio do Portal do Azure simplesmente selecionando a opção “Download de Arquivo Grande” na seleção de propriedade “Otimizado por” durante a criação do ponto de extremidade. Você também pode usar nossas APIs REST ou qualquer um dos SDKs de cliente para fazer isso. As capturas de tela a seguir ilustram o processo por meio do Portal do Azure.
+Configure o ponto de extremidade CDN para otimizar a distribuição de arquivos grandes pelo portal do Azure. Você também pode usar nossas APIs REST ou qualquer um dos SDKs de cliente para fazer isso. As seguintes etapas mostram o processo por meio do portal do Azure.
 
-![Novo ponto de extremidade CDN](./media/cdn-large-file-optimization/01_Adding.png)  
+1. Para adicionar um novo ponto de extremidade, na página **Perfil CDN**, selecione **Ponto de extremidade**.
+
+    ![Novo ponto de extremidade](./media/cdn-large-file-optimization/01_Adding.png)  
  
-*Figura 1: Adicionando um novo ponto de extremidade CDN do Perfil CDN*
- 
-![LFO selecionado](./media/cdn-large-file-optimization/02_Creating.png)
+2. Na lista suspensa **Otimizado para**, selecione **Download de arquivos grandes**.
 
-*Figura 2: Criar um ponto de extremidade CDN com Otimização de Download de Arquivo Grande selecionado*
+    ![Otimização de arquivos grandes selecionada](./media/cdn-large-file-optimization/02_Creating.png)
 
-Depois de criar o ponto de extremidade CDN, ele aplicará a otimização de arquivo grande para todos os arquivos que correspondem a certos critérios. A seção a seguir descreve isso em detalhes.
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-akamai"></a>Otimizando para entrega de arquivos grandes com o Azure CDN do Akamai
+Depois de criar o ponto de extremidade CDN, ele aplica as otimizações de arquivo grande a todos os arquivos que correspondem a determinados critérios. A seção a seguir descreve esse processo.
 
-Para o Azure CDN do Akamai, você pode usar o recurso de tipo de otimização de arquivo grande para ativar otimizações de rede e configurações que tornam a entrega de arquivos grandes mais rápida e mais ágil na resposta. Entrega geral web com Akamai é capaz de armazenar em cache somente arquivos abaixo 1,8 GB e pode transmitir (não armazenar em cache) arquivos de até 150 GB, enquanto a otimização de grandes arquivos permite que os arquivos sejam armazenados em cache até 150 GB.
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-akamai"></a>Otimizar a distribuição de arquivos grandes com a Rede de Distribuição de Conteúdo do Azure da Akamai
 
-A Otimização de Arquivo Grande é eficaz quando determinadas condições forem atendidas em relação a como funciona o servidor de origem, tipos de arquivos solicitados e o tamanho dos arquivos solicitados. Antes de entrarmos em detalhes sobre cada um deles, é importante entender uma visão geral de alto nível sobre como funciona a otimização. 
+O recurso do tipo de otimização de arquivos grandes ativa as otimizações e as configurações de rede para distribuir arquivos grandes, de forma mais rápida e com maior capacidade de resposta. A distribuição na Web geral com a Akamai armazena em cache somente arquivos abaixo de 1,8 GB e pode fornecer túnel para arquivos (sem cache) de até 150 GB. A otimização de arquivos grandes armazena em cache arquivos de até 150 GB.
+
+A otimização de arquivos grandes é eficaz quando determinadas condições são atendidas. As condições incluem o funcionamento do servidor de origem e os tamanhos e tipos de arquivos solicitados. Antes de entrarmos em detalhes sobre essas questões, você deve entender como funciona a otimização. 
 
 ### <a name="object-chunking"></a>Agrupamento de objeto 
 
-Azure CDN do Akamai emprega uma técnica chamada agrupamento de objeto onde o CDN recupera partes menores do arquivo da origem quando um arquivo grande é solicitado. Quando o servidor de borda/POP CDN recebe uma solicitação de arquivo completa ou intervalos de byte de um usuário final, ele primeiro verifica se o tipo de arquivo pertence à lista de tipos de arquivo com suporte para esta otimização, e se ela atende aos requisitos de tamanho do arquivo. Se o tamanho do arquivo é maior que 10 MB, o servidor de borda da CDN inicia solicitando o arquivo do servidor de origem em partes de 2MB. Quando a parte chega na borda da CDN, ela é armazenado em cache e imediatamente é fornecida para o usuário final, enquanto o CDN 'pré-busca' a próxima parte em paralelo essa "pré-busca" garante que o conteúdo esteja disponível antes por manter uma parte à frente do usuário e reduzindo a latência para o usuário final. Esse processo continua até que todo o arquivo é baixado (se o usuário final solicitou o arquivo inteiro), até que todos os intervalos de bytes solicitados estejam disponíveis (se o usuário final solicitado intervalos de bytes), ou até o cliente encerrar a conexão. 
+A Rede de Distribuição de Conteúdo do Azure da Akamai usa uma técnica chamada agrupamento de objeto. Quando um arquivo grande é solicitado, a CDN recupera partes menores do arquivo da origem. Depois que o servidor de borda da CDN/POP recebe uma solicitação de arquivo completa ou de intervalo de bytes, ele verifica se há suporte para o tipo de arquivo nessa otimização. Ele também verifica se o tipo de arquivo atende aos requisitos de tamanho do arquivo. Se o tamanho do arquivo for maior que 10 MB, o servidor de borda CDN solicitará o arquivo da origem em partes de 2 MB. 
 
-Os detalhes da solicitação de intervalo de bytes podem ser encontrados no [7233 RFC](https://tools.ietf.org/html/rfc7233).
+Depois que a parte chega na borda da CDN, ela é armazenada em cache e imediatamente disponibilizada para o usuário. Em seguida, a CDN faz uma pré-busca na próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo é baixado (se solicitado), todos os intervalos de bytes estão disponíveis (se solicitado) ou o cliente encerra a conexão. 
 
-A CDN armazenará em cache todas as partes na forma como elas são recebidas e não requer que o arquivo inteiro seja armazenados em cache no cache da CDN. Solicitações subsequentes para os intervalos de bytes ou o arquivo serão fornecidas do cache da CDN e usarão o 'pré-busca' para solicitar as partes da origem se nem todas as partes são armazenadas em cache na CDN. Como pode ser visto, essa otimização se baseia em solicitações de intervalo de bytes com suporte ao servidor de origem. _Se o servidor de origem não oferece suporte a solicitações de intervalo de bytes, essa otimização não será eficaz._ 
+Para obter mais informações sobre a solicitação de intervalo de bytes, consulte [RFC 7233](https://tools.ietf.org/html/rfc7233).
+
+A CDN armazena em cache todas as partes, conforme são recebidas. O arquivo inteiro não precisa ser armazenado em cache no cache da CDN. As solicitações posteriores para os intervalos de bytes ou de arquivo são atendidas no cache da CDN. Se nem todas as partes forem armazenadas em cache na CDN, uma pré-busca será usada para solicitar as partes da origem. Essa otimização se baseia na capacidade do servidor de origem de dar suporte a solicitações de intervalo de bytes. _Se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não é eficaz._ 
 
 ### <a name="caching"></a>Cache
-Arquivos grandes usam tempos de expiração de cache padrão diferentes que a entrega geral. Ele faz distinção entre cache positivo e negativo cache com base em códigos de resposta HTTP. Se a origem especifica uma hora usando um tempo de expiração por meio de Cache-Control ou cabeçalho Expires na resposta, a CDN sempre honrará esse valor. Quando não especifica a origem e o arquivo corresponda ao tipo de arquivo e a lista de condições de tamanho do arquivo para este tipo de otimização, a CDN usará os valores padrão para a otimização de arquivo grande. Caso contrário, a CDN usará padrões para a entrega da web geral.
+A otimização de arquivos grandes usa tempos de expiração de cache padrão diferentes da distribuição na Web geral. Ele faz distinção entre cache positivo e negativo cache com base em códigos de resposta HTTP. Se o servidor de origem especificar um tempo de expiração por meio de um controle de cache ou um cabeçalho de expirações na resposta, a CDN respeitará esse valor. Quando a origem não especifica e o arquivo corresponde às condições de tipo e tamanho para esse tipo de otimização, a CDN usa os valores padrão para a otimização de arquivo grande. Caso contrário, a CDN usará padrões para a distribuição na Web geral.
 
- 
+
 |    | Web geral | Otimização de arquivos grandes 
 --- | --- | --- 
-Cache – Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
-Cache – Negativo <br> HTTP 204, 305, 404, <br> e 405 | nenhum | 1 segundo 
+Cache: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
+Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 
 
-### <a name="dealing-with-origin-failure"></a>Lidando com falhas de origem
+### <a name="deal-with-origin-failure"></a>Lidar com falhas de origem
 
-No tipo de otimização de arquivos grandes, o comprimento de leitura-tempo limite de origem é aumentado de 2 segundos em entrega de web geral para 2 minutos para contabilizar tamanhos maiores de arquivos para não atingir prematuramente o tempo limite de uma conexão.
+O tamanho do tempo limite de leitura da origem aumenta de dois segundos na distribuição na Web geral para dois minutos no tipo de otimização de arquivos grandes. Esse aumento é responsável pelos tamanhos maiores de arquivo para evitar uma conexão de tempo limite prematura.
 
-Como com a entrega de web geral, quando uma conexão atingir o tempo limite, tentaremos novamente um determinado número de vezes antes de enviar o erro 504 Tempo Limite do Gateway para o cliente. 
+Quando uma conexão atinge o tempo limite, a CDN repete a operação várias vezes antes de enviar um erro “504 – Tempo Limite do Gateway” para o cliente. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condições para a otimização de arquivo grande
 
@@ -85,40 +88,43 @@ Condição | Valores
 Tipos de arquivo com suporte | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Tamanho mínimo do arquivo | 10 MB 
 Tamanho máximo do arquivo | 150 GB 
-Características do servidor de origem | Deve oferecer suporte a solicitações de intervalo de bytes 
+Características do servidor de origem | Deve dar suporte a solicitações de intervalo de bytes 
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Otimizando para entrega de arquivos grandes com o Azure CDN da Verizon
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-verizon"></a>Otimizar a distribuição de arquivos grandes com a Rede de Distribuição de Conteúdo do Azure da Verizon
 
-CDN do Azure da Verizon é capaz de entregar arquivos grandes sem um limite de tamanho do arquivo e tem vários recursos que tornam a entrega de arquivos grandes mais rápida ativados por padrão.
+A Rede de Distribuição de Conteúdo do Azure da Verizon distribui arquivos grandes sem um limite de tamanho do arquivo. Recursos adicionais são ativados por padrão para agilizar a distribuição de arquivos grandes.
 
-### <a name="complete-cache-fill"></a>Concluir o Preenchimento do Cache
+### <a name="complete-cache-fill"></a>Concluir o preenchimento do cache
 
-A CDN do Azure da Verizon tem um recurso padrão chamado Preenchimento Completo de Cache no qual a CDN extrairá um arquivo em cache quando a solicitação inicial é abandonada ou perdida. 
+O recurso padrão de preenchimento de cache completo permite que a CDN efetue pull de um arquivo para o cache quando uma solicitação inicial é abandonada ou perdida. 
 
-Esse recurso é mais útil para ativos grandes em que os usuários normalmente não os baixarão do início ao fim (por exemplo, download progressivo de vídeos). Como resultado, esse recurso é habilitado por padrão com CDN do Azure da Verizon. Esse comportamento padrão é forçar o servidor de borda a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do servidor de borda. Depois que o objeto completo está no cache, a borda pode atender as solicitações de intervalo de bytes para a CDN para o objeto armazenado em cache.
+O preenchimento de cache completo é mais útil para ativos grandes. Normalmente, os usuários não os baixam do início ao fim. Eles usam o download progressivo. O comportamento padrão força o servidor de borda a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do servidor de borda. Depois que o objeto completo está no cache, o servidor de borda pode atender as solicitações de intervalo de bytes para a CDN, para o objeto armazenado em cache.
 
-O comportamento de Preenchimento Completo de Cache padrão pode ser desabilitado por meio do mecanismo de regras na camada Verizon Premium.
+O comportamento padrão de pode ser desabilitado por meio do Mecanismo de Regras na camada Premium da Verizon.
 
-### <a name="peer-cache-fill-hotfiling"></a>Hotfiling de Preenchimento do Cache de mesmo nível
+### <a name="peer-cache-fill-hot-filing"></a>Transmissão automática do preenchimento de cache par
 
-Este é um recurso padrão da CDN do Azure da Verizon, em que um algoritmo sofisticado de proprietário pode aproveitar servidores de armazenamento em cache de borda adicional com base nas métricas, como largura de banda e solicitações de agregação para atender às solicitações de cliente para objetos grandes bastante populares. Isso impede uma situação em que grandes números de solicitações extras seriam enviados ao servidor de origem do cliente. 
+O recurso de transmissão automática do preenchimento de cache par usa um algoritmo sofisticado exclusivo. Ele usa servidores de cache de borda adicionais baseados na largura de banda e métricas de solicitações agregadas para atender às solicitações de cliente por objetos grandes e altamente populares. Esse recurso impede uma situação em que grandes números de solicitações extras são enviados ao servidor de origem de um usuário. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condições para a otimização de arquivo grande
 
-Os recursos de otimização para Verizon estão ativados por padrão, e não há nenhum limite no tamanho máximo do arquivo. 
+Os recursos de otimização da Verizon estão ativados por padrão. Não há nenhum limite no tamanho máximo do arquivo. 
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 
-Há alguns aspectos adicionais a serem considerados ao usar esse tipo de otimização.
+Considere os aspectos adicionais a seguir para esse tipo de otimização.
  
-### <a name="azure-cdn-from-akamai"></a>CDN do Azure do Akamai
+### <a name="azure-content-delivery-network-from-akamai"></a>Rede de Distribuição de Conteúdo do Azure da Akamai
 
-- Os resultados do processo de agrupamento em solicitações adicionais para o servidor de origem, mas o volume total de dados distribuídos da origem serão significativamente menores já que o agrupamento resulta em melhor características de cache na CDN.
-- Também haverá um benefício adicional de pressão I/O e de memória reduzida na origem devido a entrega de partes menores do arquivo. 
-- Para as partes que são armazenados em cache na CDN, não haverá solicitações adicionais para a origem até o conteúdo expirar do cache ou ser removido do cache devido a outros motivos. 
-- O usuário pode fazer solicitações de intervalo para a CDN e eles serão tratados simplesmente como qualquer arquivo normal. A otimização será aplicada somente se for um tipo de arquivo válido e o intervalo de bytes estiver entre 10MB e 150GB. Se o tamanho médio do arquivo solicitado é menor do que 10MB, convém usar a entrega da web geral em vez disso.
+- O processo de agrupamento gera solicitações adicionais para o servidor de origem. No entanto, o volume total de dados entregues da origem é muito menor. O agrupamento resulta em melhores características de cache na CDN.
 
-### <a name="azure-cdn-from-verizon"></a>CDN do Azure da Verizon
+- A demanda de memória e E/S é reduzida na origem, porque partes menores do arquivo são entregues.
 
-A otimização de entrega da web geral é capaz de entregar arquivos grandes.
+- Para partes armazenadas em cache na CDN, não há nenhuma solicitação adicional para a origem, até que o conteúdo expire ou seja removido do cache.
+
+- Os usuários podem fazer solicitações de intervalo para a CDN e eles são tratados como qualquer arquivo normal. A otimização se aplica somente se ele for um tipo de arquivo válido e o intervalo de bytes estiver entre 10 MB e 150 GB. Se o tamanho médio do arquivo solicitado for menor que 10 MB, talvez você deseje usar a distribuição na Web geral.
+
+### <a name="azure-content-delivery-network-from-verizon"></a>Rede de Distribuição de Conteúdo do Azure da Verizon
+
+O tipo de otimização de distribuição na Web geral pode fornecer arquivos grandes.
 

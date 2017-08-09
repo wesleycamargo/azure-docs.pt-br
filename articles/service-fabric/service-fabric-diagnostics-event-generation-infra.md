@@ -1,6 +1,6 @@
 ---
-title: "Monitoramento de nível de infraestrutura do Azure Service Fabric | Microsoft Docs"
-description: "Saiba mais sobre eventos e logs de nível de infraestrutura usados para monitorar e diagnosticar clusters do Azure Service Fabric."
+title: "Monitoramento no nível de plataforma do Azure Service Fabric | Microsoft Docs"
+description: "Saiba mais sobre eventos e logs no nível de plataforma usados para monitorar e diagnosticar clusters do Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bae1917e7c0f0b247be473f78fedd7753aef6d23
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
-# <a name="infrastructure-level-event-and-log-generation"></a>Geração de eventos e log de nível de infraestrutura
+# <a name="platform-level-event-and-log-generation"></a>Geração de eventos e logs no nível de plataforma
 
 ## <a name="monitoring-the-cluster"></a>Monitoramento de cluster
 
-É importante monitorar o nível de infraestrutura para determinar se o hardware e o cluster estão funcionando conforme o esperado. O Service Fabric pode ajudar a manter os aplicativos em execução durante falhas de hardware, mas você ainda precisa diagnosticar se um erro está ocorrendo em um aplicativo ou na infraestrutura subjacente. Você também deve monitorar os clusters para melhor planejamento da capacidade, ajudando nas decisões sobre a adição ou remoção da infraestrutura.
+É importante monitorar o nível de plataforma para determinar se o hardware e o cluster estão funcionando conforme esperado. O Service Fabric pode ajudar a manter os aplicativos em execução durante falhas de hardware, mas você ainda precisa diagnosticar se um erro está ocorrendo em um aplicativo ou na infraestrutura subjacente. Você também deve monitorar os clusters para planejar melhor a capacidade, ajudando nas decisões sobre a adição ou remoção de hardware.
 
 O Service Fabric fornece cinco canais de log diferentes prontos que geram os eventos a seguir:
 
@@ -37,7 +36,7 @@ O Service Fabric fornece cinco canais de log diferentes prontos que geram os eve
 * [Eventos do Reliable Actors](service-fabric-reliable-actors-diagnostics.md): contadores de desempenho e eventos específicos do modelo de programação
 * Logs de suporte: logs do sistema gerados pelo Service Fabric apenas para serem usados por nós ao fornecer suporte
 
-Esses canais abrangem a maior parte dos logs de nível de estrutura que são recomendados. Para melhorar o log de nível de estrutura, considere investir na melhor compreensão do modelo de integridade e adicionando relatórios de integridade personalizados, e adicionar **contadores de desempenho** personalizados para criar uma compreensão em tempo real do impacto de seus serviços e aplicativos no cluster.
+Esses vários canais abrangem a maior parte dos logs no nível de plataforma que são recomendados. Para melhorar o log no nível de plataforma, considere a possibilidade de investir em uma melhor compreensão do modelo de integridade e adicionar relatórios de integridade personalizados, além de adicionar **Contadores de Desempenho** personalizados para desenvolver uma compreensão em tempo real do impacto dos serviços e aplicativos no cluster.
 
 ### <a name="azure-service-fabric-health-and-load-reporting"></a>Relatórios de carga e integridade do Azure Service Fabric
 
@@ -99,7 +98,7 @@ Se você pretende implantar contêineres para seu cluster, habilite o WAD para a
 
 ## <a name="measuring-performance"></a>Medir o desempenho
 
-Medir o desempenho do cluster ajuda você a entender como ele é capaz de lidar com a carga e tomar decisões relacionadas ao dimensionamento do cluster (veja mais informações sobre dimensionamento de cluster [no Azure](service-fabric-cluster-scale-up-down.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Os dados de desempenho também são úteis quando comparados às ações que você ou seus aplicativos e serviços podem obter ao analisar logs no futuro. 
+A medição do desempenho do cluster ajudará você a entender como ele pode manipular a carga e tomar decisões relacionadas ao dimensionamento do cluster (veja mais sobre como dimensionar um cluster [no Azure](service-fabric-cluster-scale-up-down.md) ou [localmente](service-fabric-cluster-windows-server-add-remove-nodes.md)). Os dados de desempenho também são úteis quando comparados às ações que você ou seus aplicativos e serviços podem obter ao analisar logs no futuro. 
 
 Para obter uma lista de contadores de desempenho para coleta ao usar o Service Fabric, consulte [Contadores de desempenho no Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

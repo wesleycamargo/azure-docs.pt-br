@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
@@ -161,43 +160,17 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 ## <a name="log-in-as-the-application"></a>Faça logon como o aplicativo
 
-Seu aplicativo agora está configurado no Azure Active Directory. Você tem uma ID e a chave a ser usada para fazer logon como o aplicativo. O aplicativo está atribuído a uma função que oferece determinadas ações que ele pode executar. 
+Seu aplicativo agora está configurado no Azure Active Directory. Você tem uma ID e a chave a ser usada para fazer logon como o aplicativo. O aplicativo está atribuído a uma função que oferece determinadas ações que ele pode executar. Para obter informações sobre como fazer logon no aplicativo por meio de diferentes plataformas, consulte:
 
-Para fazer logon por meio do PowerShell, confira [Fornecer credenciais por meio do PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [CLI do Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST](/rest/api/#create-the-request)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Para fazer logon por meio da CLI do Azure, confira [Fornecer credenciais por meio da CLI do Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
-
-Para obter o token de acesso para operações REST, confira [Criar a solicitação](/rest/api/#create-the-request).
-
-Examine os seguintes aplicativos de exemplo para saber mais sobre como fazer logon por meio do código do aplicativo.
-
-### <a name="sample-applications"></a>Aplicativos de exemplo
-Os aplicativos de exemplo a seguir mostram como fazer logon como o aplicativo do AD.
-
-**.NET**
-
-* [Implantar uma VM Habilitada para SSH com um Modelo com .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [Gerenciar recursos e grupos de recursos do Azure com .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [Introdução aos Recursos - Implantar Usando o Modelo do Azure Resource Manager - em Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [Introdução aos Recursos - Gerenciar o Grupo de Recursos - em Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Implantar uma VM Habilitada para SSH com um Modelo no Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Gerenciando o Recurso e Grupos de Recursos do Azure com o Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.js**
-
-* [Implantar uma VM Habilitada para SSH com um Modelo no Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Gerenciar recursos e grupos de recursos do Azure com Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Implantar uma VM Habilitada para SSH com um Modelo no Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Gerenciando o Recurso e Grupos de Recursos do Azure com Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um aplicativo multilocatário, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
