@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 07/11/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,30 +48,14 @@ O Observador de Rede tem atualmente os seguintes recursos:
 * **[Solução de problemas do Gateway de Rede Virtual e da Conexão](network-watcher-troubleshoot-manage-rest.md)** - fornece a capacidade de solucionar problemas dos Gateways de Rede Virtual e das Conexões.
 * **[Limites de assinatura da rede](#network-subscription-limits)** - permite exibir o uso de recursos da rede em relação aos limites.
 * **[Configurar o Log de Diagnóstico](#diagnostic-logs)** – fornece um painel único para habilitar ou desabilitar os logs de Diagnóstico para os recursos de rede em um grupo de recursos.
+* **[Conectividade (Versão Prévia)](network-watcher-connectivity-overview.md)** – confirma a possibilidade de estabelecer uma conexão TCP direta de uma máquina virtual com determinado ponto de extremidade.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 
 O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
 
-|Recurso| Permissão|
-|---|---|
-|Microsoft.Storage/ |Ler|
-|Microsoft.Authorization/| Ler|
-|Microsoft.Resources/subscriptions/resourceGroups/| Ler|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Ação|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Ação|
-|Microsoft.Storage/storageAccounts/listKeys/ | Ação|
-|Microsoft.Compute/virtualMachines/ |Ler|
-|Microsoft.Compute/virtualMachines/ |Gravar|
-|Microsoft.Compute/virtualMachineScaleSets/ |Ler|
-|Microsoft.Compute/virtualMachineScaleSets/ |Gravar|
-|Microsoft.Network/networkWatchers/packetCaptures/| Ler|
-|Microsoft.Network/networkWatchers/packetCaptures/| Gravar|
-|Microsoft.Network/networkWatchers/packetCaptures/| Excluir|
-|Microsoft.Network/networkWatchers/ |Gravar|
-|Microsoft.Network/networkWatchers/| Ler|
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Resource| Permission| | |---|---| | |Microsoft.
+|Microsoft.Storage/ |Read| | |Microsoft.Authorization/| Read| | |Microsoft.Resources/subscriptions/resourceGroups/| Read| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Action| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Action| | |Microsoft.Storage/storageAccounts/listKeys/ | Action| | |Microsoft.Compute/virtualMachines/ |Read| | |Microsoft.Compute/virtualMachines/ |Write| | |Microsoft.Compute/virtualMachineScaleSets/ |Read| | |Microsoft.Compute/virtualMachineScaleSets/ |Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Read| | |Microsoft.Network/networkWatchers/packetCaptures/| Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Delete| | |Microsoft.Network/networkWatchers/ |Write| | |Microsoft.Network/networkWatchers/| Read| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
 
 ### <a name="network-subscription-limits"></a>Limites de assinatura da rede
 
@@ -123,6 +108,8 @@ fazer uma captura de pacotes em sua VM visitando [Captura de pacotes variável n
 executar o monitoramento proativo e diagnóstico usando a [captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
 detectar as vulnerabilidades da segurança com [Analisar a captura de pacotes com o Wireshark](network-watcher-deep-packet-inspection.md), usando ferramentas de código-fonte aberto.
+
+Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

@@ -1,6 +1,6 @@
 ---
 title: "Provisionar a Máquina Virtual de Ciência de Dados Linux | Microsoft Docs"
-description: "Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o aprendizado de máquina."
+description: "Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o machine learning."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,18 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Provisionar a Máquina Virtual de Ciência de Dados Linux
-A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azure baseada em CentOS que acompanha um conjunto de ferramentas pré-instaladas. Essas ferramentas normalmente são usadas para fazer análises de dados e aprendizado de máquina. Os componentes de software principais incluídos são:
+A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azure baseada em CentOS que acompanha um conjunto de ferramentas pré-instaladas. Essas ferramentas normalmente são usadas para fazer análises de dados e machine learning. Os componentes de software principais incluídos são:
 
 * Sistema operacional: Distribuição CentOS Linux.
 * Microsoft R Server Developer Edition
@@ -34,11 +33,11 @@ A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azur
 * Gerenciador de Armazenamento do Azure
 * CLI (interface de linha de comando) do Azure para gerenciar recursos do Azure
 * Banco de dados PostgresSQL
-* Ferramentas de Aprendizado de Máquina
+* Ferramentas de Machine Learning
   * [CNTK (Kit de Ferramentas de Rede Computacional)](https://github.com/Microsoft/CNTK): um software de aprendizado aprofundado da Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de machine learning rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
-  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao aprendizado de máquina em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
+  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
 * SDK do Azure em Java, Python, node.js, Ruby, PHP
 * Bibliotecas em R e Python para uso no Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -126,7 +125,7 @@ Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE po
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Ferramentas Instaladas na Máquina Virtual de Ciência de Dados Linux
 ### <a name="microsoft-r-server"></a>Servidor R da Microsoft
-R é uma das linguagens mais populares para análise de dados e aprendizado de máquina. Se você quiser usar o R para sua análise, a VM terá o MRS (Microsoft R Server) com o MRO (Microsoft R Open) e a MKL (Math Kernel Library). A MKL otimiza as operações matemáticas frequentes em algoritmos analíticos. O MRO é 100% compatível com CRAN-R e qualquer uma das bibliotecas R publicadas em CRAN pode ser instalada no MRO. O MRS fornece dimensionamento e operacionalização de modelos R em serviços Web. Edite seus programas R em um dos editores padrão como RStudio, vi, Emacs ou gedit. Se você estiver usando o editor Emacs, observe que o ESS (Emacs Speaks Statistics) do pacote Emacs, que simplifica o trabalho com arquivos em R no editor Emacs, foi pré-instalado.
+R é uma das linguagens mais populares para análise de dados e machine learning. Se você quiser usar o R para sua análise, a VM terá o MRS (Microsoft R Server) com o MRO (Microsoft R Open) e a MKL (Math Kernel Library). A MKL otimiza as operações matemáticas frequentes em algoritmos analíticos. O MRO é 100% compatível com CRAN-R e qualquer uma das bibliotecas R publicadas em CRAN pode ser instalada no MRO. O MRS fornece dimensionamento e operacionalização de modelos R em serviços Web. Edite seus programas R em um dos editores padrão como RStudio, vi, Emacs ou gedit. Se você estiver usando o editor Emacs, observe que o ESS (Emacs Speaks Statistics) do pacote Emacs, que simplifica o trabalho com arquivos em R no editor Emacs, foi pré-instalado.
 
 Para iniciar o console R, basta digitar **R** no shell. Isso leva você para um ambiente interativo. Para desenvolver seu programa R, você normalmente usa um editor como gedit, vi ou Emacs e, em seguida, executa os scripts no R. Com o RStudio, você tem um ambiente IDE gráfico completo para desenvolver o seu programa R.
 
@@ -178,7 +177,7 @@ Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qua
 Empacotamos exemplos de notebooks, um em Python em outro em R. Você pode ver o link para os exemplos na página inicial do bloco de anotações após a autenticação no notebook Jupyter usando a senha e o nome de usuário Linux locais. Você pode criar um novo notebook selecionando **Novo** e o kernel de linguagem apropriado. Caso não visualize o botão **Novo**, clique no ícone do **Jupyter** na parte esquerda superior para ir para a home page do servidor de notebook.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark autônomo 
-Há uma instância autônoma do Apache Spark pré-instalada no DSVM Linux para ajudar você a desenvolver aplicativos Spark localmente, antes de testar e implantar em clusters maiores. Execute programas PySpark através do kernel de Jupyter. Ao abrir o Jupyter e clicar no botão "Novo", você verá uma lista de kernels disponíveis. O "Spark – Python" é o kernel PySpark que permitirá a criação de aplicativos Spark usando a linguagem Python. Também é possível usar um IDE Python como PyCharm ou Spyder para compilar seu programa em Spark. Como essa é uma instância autônoma, a pilha de Spark será executada dentro do programa de chamada cliente. Isso facilita e agiliza a solução de problemas em comparação com o desenvolvimento em um cluster Spark. 
+Há uma instância autônoma do Apache Spark pré-instalada no DSVM Linux para ajudar você a desenvolver aplicativos Spark localmente, antes de testar e implantar em clusters maiores. Execute programas PySpark através do kernel de Jupyter. Ao abrir o Jupyter e clicar no botão “Novo”, você deverá ver uma lista de kernels disponíveis. O “Spark – Python” é o kernel PySpark que permite a criação de aplicativos Spark usando a linguagem Python. Também é possível usar um IDE Python como PyCharm ou Spyder para compilar seu programa em Spark. Como essa é uma instância autônoma, a pilha de Spark será executada dentro do programa de chamada cliente. Isso facilita e agiliza a solução de problemas em comparação com o desenvolvimento em um cluster Spark. 
 
 Um exemplo de notebook PySpark é fornecido no Jupyter, e você pode encontrá-lo no diretório "SparkML" no diretório inicial do Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
@@ -263,7 +262,7 @@ Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Fi
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O Azure Machine Learning é um serviço de nuvem totalmente gerenciado que habilita você a compilar, implantar e compartilhar soluções de análise preditiva. Você compila seus modelos e experimentos do Azure Machine Learning Studio. Ele pode ser acessado de um navegador da Web na máquina virtual de ciência de dados visitando [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Depois de fazer logon no Azure Machine Learning Studio, você tem acesso a uma tela de experimentação em que você pode compilar um fluxo lógico para os algoritmos de aprendizado de máquina. Você também tem acesso a um Notebook do Jupyter hospedado no Azure Machine Learning e pode trabalhar perfeitamente com o Machine Learning Studio. Coloque em operação os modelos de aprendizado de máquina compilados encapsulando-os em uma interface de serviço Web. Isso habilita clientes escritos em qualquer linguagem a invocar as previsões dos modelos de aprendizado de máquina. Para saber mais, confira a [Documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Depois de fazer logon no Azure Machine Learning Studio, você tem acesso a uma tela de experimentação em que você pode compilar um fluxo lógico para os algoritmos de machine learning. Você também tem acesso a um Notebook do Jupyter hospedado no Azure Machine Learning e pode trabalhar perfeitamente com o Machine Learning Studio. Coloque em operação os modelos de machine learning compilados encapsulando-os em uma interface de serviço Web. Isso habilita clientes escritos em qualquer linguagem a invocar as previsões dos modelos de machine learning. Para saber mais, confira a [Documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Você pode também criar seus modelos em R ou Python na VM e, em seguida, implantá-los em produção no Azure Machine Learning. Instalamos bibliotecas em R (**AzureML**) e Python (**azureml**) para habilitar essa funcionalidade.
 
@@ -274,18 +273,18 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 > 
 > 
 
-### <a name="machine-learning-tools"></a>Ferramentas de Aprendizado de Máquina
-A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
+### <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
+A VM vem com algumas ferramentas e algoritmos de machine learning que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
 
 * **CNTK** (Kit de Ferramentas de Rede Computacional da Microsoft Research): um software de aprendizado aprofundado.
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
-* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
-* **R**: uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
+* **Python**: o Anaconda Python é fornecido com os algoritmos de amachine learning com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **R**: uma vasta biblioteca de funções de machine learning está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
   
         install.packages(<lib name>)
 
-Veja algumas informações adicionais sobre as três primeiras ferramentas de aprendizado de máquina na lista.
+Veja algumas informações adicionais sobre as três primeiras ferramentas de machine learning na lista.
 
 #### <a name="cntk"></a>CNTK
 Este é um kit de ferramentas de aprendizado aprofundado de software livre. Ele é uma ferramenta de linha de comando (cntk), e já está em PATH.
@@ -298,7 +297,7 @@ Para executar um exemplo básico, execute os seguintes comandos no shell:
 Para saber mais, confira a seção sobre CNTK do [GitHub](https://github.com/Microsoft/CNTK) e o [wiki de CNTK](https://github.com/Microsoft/CNTK/wiki).
 
 #### <a name="vowpal-wabbit"></a>Vowpal Wabbit
-Vowpal Wabbit é um sistema de aprendizado de máquina rápido que usa técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
+Vowpal Wabbit é um sistema de machine learning rápido que usa técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
 
 Para executar a ferramenta em um exemplo bastante básico, faça o seguinte:
 
@@ -365,7 +364,7 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as
    (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
 10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
 
-Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerado ou usá-la como ele é para executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira fácil, especialmente para iniciantes em R, de fazer análise e aprendizado de máquina rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar e/ou aprender.
+Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerado ou usá-la como ele é para executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira fácil, especialmente para iniciantes em R, de fazer análise e machine learning rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar e/ou aprender.
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja como você pode continuar seu aprendizado e exploração:
@@ -373,6 +372,6 @@ Veja como você pode continuar seu aprendizado e exploração:
 * O passo a passo [Ciência de dados na Máquina Virtual da Ciência de Dados do Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) mostra como executar várias tarefas comuns de ciência de dados com a VM de Ciência de Dados Linux provisionada aqui. 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
+* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de machine learning que usam o Cortana Analytics Suite.
 
 

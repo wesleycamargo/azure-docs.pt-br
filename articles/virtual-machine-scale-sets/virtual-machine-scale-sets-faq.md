@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Sim. Um Grupo de Segurança de Rede pode ser aplicado diretamente a um conjunto 
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Como faço uma troca de VIP para os conjuntos de dimensionamento de máquinas virtuais na mesma assinatura e mesma região?
 
-Se você tiver dois conjuntos de dimensionamento de máquina virtual com front-ends do Azure Load Balancer e eles estiverem na mesma assinatura e região, poderá desalocar os endereços IP públicos de cada um deles e atribuir ao outro. Consulte [Permuta de VIP: implantação azul-verde no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) para ver um exemplo. Isso significa um atraso, já que os recursos são desalocados/alocados no nível da rede. Outra opção é hospedar seu aplicativo o [Serviço de Aplicativo do Azure](https://azure.microsoft.com/en-us/services/app-service/), que dá suporte para a troca rápida entre os slots de preparo e produção.
+Se você tiver dois conjuntos de dimensionamento de máquina virtual com front-ends do Azure Load Balancer e eles estiverem na mesma assinatura e região, poderá desalocar os endereços IP públicos de cada um deles e atribuir ao outro. Consulte [Permuta de VIP: implantação azul-verde no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) para ver um exemplo. Isso significa um atraso, já que os recursos são desalocados/alocados no nível da rede. Uma opção mais rápida é usar o Gateway de Aplicativo do Azure com dois pools de back-end e uma regra de roteamento. Como alternativa, você pode hospedar o aplicativo no [serviço de Aplicativo do Azure](https://azure.microsoft.com/en-us/services/app-service/), que fornece suporte para a alternância rápida entre slots de preparo e de produção.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Como especifico um intervalo de endereços IP privados para usar na alocação estática do endereço IP privado?
 
@@ -570,6 +569,10 @@ Para criar um conjunto de dimensionamento de VM que atribui um endereço IP púb
         }
     }
 ```
+
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Posso configurar um conjunto de dimensionamento para funcionar com vários Gateways de Aplicativo?
+
+Sim. Você pode adicionar a ID de recurso de vários pools de endereços de back-end do Gateway de Aplicativo à lista _applicationGatewayBackendAddressPools_ na seção _ipConfigurations_ do perfil de rede do conjunto de dimensionamento.
 
 ## <a name="scale"></a>Escala
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
@@ -44,6 +44,13 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 ## <a id="rest_version_history"></a>Histórico de versão da API REST
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte [Referência da API REST dos Serviços de Mídia do Azure].
+
+## <a name="june-2017-release"></a>Versão de junho de 2017
+
+Os Serviços de Mídia agora dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Atualmente, os Serviços de Mídia dão suporte ao modelo de autenticação do serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. É recomendável que você migre para o modelo de autenticação do Azure AD assim que possível.
 
 ## <a name="march-2017-release"></a>Versão de março de 2017
 
@@ -159,7 +166,7 @@ O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguint
   
   * [Postagem no blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Repositório de amostras de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-* Atualização do Azure Media Player com suporte de fluxo de vários áudios. Para obter mais informações, confira:
+* Atualização do Player de Mídia do Azure com suporte de fluxo de vários áudios. Para obter mais informações, confira:
   * [Postagem no blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
 ## <a id="july_changes_15"></a>Versão de julho de 2015
@@ -197,7 +204,7 @@ Anunciando os seguintes novos recursos:
 
 ## <a id="april_changes_15"></a>Versão de abril de 2015
 ### <a name="general-media-services-updates"></a>Atualizações gerais dos Serviços de Mídia
-* [Anunciando o Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+* [Anunciando o Player de Mídia do Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 * Começando com a REST 2.10 dos Serviços de Mídia, canais configurados para incluir um protocolo RTMP são criados com URLs de inclusão primária e secundária. Para saber mais, confira [Configurações de inclusão de canal](media-services-live-streaming-with-onprem-encoders.md#channel_input)
 * Atualizações do Indexador de Mídia do Azure
 * Suporte ao idioma espanhol

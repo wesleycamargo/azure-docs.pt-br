@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual com Rede Acelerada
@@ -36,7 +35,8 @@ Com Rede Acelerada, o tráfego de rede chega à NIC (interface de rede) da VM e 
 
 Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habilitada. Para obter melhores resultados, é ideal habilitar esse recurso em pelo menos duas VMs conectadas à mesma VNet (rede virtual) do Azure. Ao se comunicar entre VNets ou fazer conexão local, esse recurso tem impacto mínimo sobre a latência geral.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> A Visualização Pública do Linux pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para obter as notificações mais atualizadas sobre a disponibilidade e o status desse recurso, confira a página de atualizações da Rede Virtual do Azure.
 
 ## <a name="benefits"></a>Benefícios
 * **Latência menor/mais pps (pacotes por segundo):** remover o comutador virtual do caminho de dados elimina o tempo que os pacotes gastam no host para processamento da política e aumenta o número de pacotes que podem ser processados dentro da VM.
@@ -51,6 +51,7 @@ Existem as seguintes limitações ao usar essa funcionalidade:
 * **Regiões:** VMs do Windows com rede acelerada são oferecidas na maioria das regiões do Azure. VMs do Linux com rede acelerada são oferecidas em várias regiões. As regiões em que essa capacidade está disponível estão em expansão. Consulte o blog de Atualizações de Rede Virtual do Azure abaixo para encontrar as informações mais recentes.   
 * **Sistemas operacionais com suporte:** Windows: Microsoft Windows Server 2012 R2 Datacenter e Windows Server 2016. Linux: Ubuntu Server 16.04 LTS com kernel 4.4.0-77 ou superior, SLES 12 SP2, RHEL 7.3 e CentOS 7.3 (publicado por "Rogue Wave Software").
 * **Tamanho da VM:** tamanhos de instância com computação otimizada e de finalidade geral com oito ou mais núcleos. Para obter mais informações, consulte os artigos de tamanhos de VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
+* **Implantação somente por meio do ARM (Azure Resource Manager):** a Rede Acelerada não está disponível para implantação por meio do ASM/RDFE.
 
 Alterações a essas limitações serão anunciadas na página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -324,11 +325,11 @@ Criar uma VM Red Hat Enterprise Linux ou CentOS 7.3 requer algumas etapas adicio
 
 1.  Provisione uma VM CentOS 7.3 não SRIOV no Azure
 
-2.  Instale o LIS 4.2.1:
+2.  Instale o LIS 4.2.2:
     
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+    tar -xvf lis-rpms-4.2.2-2.tar.gz
     cd LISISO && sudo ./install.sh
     ```
 
@@ -402,8 +403,8 @@ Criar uma VM Red Hat Enterprise Linux ou CentOS 7.3 requer algumas etapas adicio
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
     # Must end with ".vhd" extension
-    $destOsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    $OsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
@@ -417,7 +418,7 @@ Criar uma VM Red Hat Enterprise Linux ou CentOS 7.3 requer algumas etapas adicio
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk `
-     -Name $OSDiskName `
+     -Name $OsDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
      -CreateOption FromImage `

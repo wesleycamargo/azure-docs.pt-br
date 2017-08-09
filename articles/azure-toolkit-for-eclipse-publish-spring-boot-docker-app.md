@@ -14,34 +14,33 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 36d8233b64144d87501cd4d4a9cac539ab143d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: a4d596367506d2ea983f24ab1f53e58fa180cf52
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
-# <a name="publish-a-spring-boot-app-as-a-docker-container-using-the-azure-toolkit-for-eclipse"></a>Publicar um aplicativo Spring Boot como um contêiner do Docker usando o Kit de Ferramentas do Azure para Eclipse
+# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-the-azure-toolkit-for-eclipse"></a>Publicar um aplicativo Spring Boot como um contêiner do Docker usando o Kit de Ferramentas do Azure para Eclipse
 
-O **[Spring Framework]** é uma solução de software livre que ajuda os desenvolvedores Java criar aplicativos de nível empresarial. Um dos projetos mais populares que é criado com base nessa plataforma é o [Spring Boot], que oferece um método simplificado para criar aplicativos Java autônomos.
+O [Spring Framework] é uma solução de software livre que ajuda os desenvolvedores do Java a criar aplicativos de nível empresarial. Um dos projetos mais populares que é criado com base nessa plataforma é o [Spring Boot], que fornece uma abordagem simplificada para a criação de aplicativos Java autônomos.
 
-**[Docker]**  é uma solução de software livre que ajuda os desenvolvedores a automatizar a implantação, a colocação em escala e o gerenciamento de seus aplicativos que estão sendo executados em contêineres.
+O [Docker] é uma solução de software livre que ajuda os desenvolvedores a automatizar a implantação, o dimensionamento e o gerenciamento de seus aplicativos executados em contêineres.
 
-Este tutorial orienta você pelas etapas para implantar um aplicativo Spring Boot como um contêiner de Docker para o Microsoft Azure usando o Kit de Ferramentas do Azure para Eclipse.
+Este tutorial explica as etapas para implantação de um aplicativo Spring Boot como um contêiner do Docker no Microsoft Azure usando o Kit de Ferramentas do Azure para Eclipse.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## <a name="cloning-the-default-spring-boot-docker-app-repository"></a>Clonagem do repositório padrão do aplicativo Spring Boot Docker
+## <a name="clone-the-default-spring-boot-docker-repository"></a>Clonar o repositório padrão do Spring Boot Docker
 
-### <a name="importing-the-public-repository"></a>Como importar o repositório público
+### <a name="import-the-public-repository"></a>Importar o repositório público
 
-As etapas a seguir orientam você durante a clonagem do repositório do Spring Boot Docker para seu computador local usando IntelliJ. Se você quiser usar uma linha de comando, consulte [Implantar um aplicativo Spring Boot em Linux no Serviço de Contêiner do Azure][Deploy Spring Boot on Linux in ACS].
+As etapas a seguir explicam a clonagem do repositório do Spring Boot Docker para o computador local usando o IntelliJ. Se desejar usar uma linha de comando, consulte [Implantar um aplicativo Spring Boot no Linux no Serviço de Contêiner do Azure][Deploy Spring Boot on Linux in ACS].
 
 1. Abra o Eclipse.
 
-1. Clique em **Arquivo** e, em seguida, em **Importação**.
+1. Clique em **Arquivo** > **Importar**.
 
    ![Menu de Importação de Arquivo][CL01]
 
@@ -49,7 +48,7 @@ As etapas a seguir orientam você durante a clonagem do repositório do Spring B
 
    a. Expanda **Git**.
 
-   b. Destaque **Projetos do Git**.
+   b. Selecione **Projetos do Git**.
    
    c. Clique em **Avançar**.
 
@@ -57,25 +56,25 @@ As etapas a seguir orientam você durante a clonagem do repositório do Spring B
 
 1. Na página **Selecionar a Origem do Repositório**:
 
-   a. Destaque **Clonar URI**.
+   a. Selecione **Clonar URI**.
    
    b. Clique em **Avançar**.
 
-   ![Selecionar a Origem do Repositório][CL03]
+   ![Página Selecionar Origem do Repositório][CL03]
 
 1. Na página **Repositório Git de Origem**:
 
-   a. Digite `https://github.com/spring-guides/gs-spring-boot-docker.git` para o **URI** do repositório; isso deve preencher automaticamente os campos **Host** e **Caminho do repositório** com os valores corretos.
+   a. Em **URI**, insira `https://github.com/spring-guides/gs-spring-boot-docker.git`. Essa etapa deve popular automaticamente os campos **Host** e **Caminho do repositório** com os valores corretos.
    
    b. O repositório Spring Boot é público, assim, você não precisa inserir seu nome de usuário e senha do Git.
    
    c. Clique em **Avançar**.
 
-   ![Repositório Git de Origem][CL04]
+   ![Página Repositório Git de Origem][CL04]
 
-1. Na página **Branch**, clique em **Próximo**.
+1. Na página **Seleção de Branch**, clique em **Avançar**.
 
-   ![Branch][CL05]
+   ![Página Seleção de Branch][CL05]
 
 1. Na página **Destino Local**:
 
@@ -83,7 +82,7 @@ As etapas a seguir orientam você durante a clonagem do repositório do Spring B
    
    b. Clique em **Avançar**.
 
-   ![Destino local][CL06]
+   ![Página Destino Local][CL06]
 
 1. Na página **Selecionar um assistente a usar para importar projetos**:
 
@@ -91,33 +90,33 @@ As etapas a seguir orientam você durante a clonagem do repositório do Spring B
    
    b. Clique em **Avançar**.
 
-   ![Destino local][CL07]
+   ![Página “Selecionar um assistente a ser usado para a importação de projetos”][CL07]
 
 1. Na página **Importar Projetos**:
 
-   a. Especifique o **Nome do projeto**.
+   a. Especifique o nome do projeto.
    
    b. Clique em **Concluir**.
 
-   ![Importar projetos][CL08]
+   ![Página Importar Projetos][CL08]
 
-1. Quando o repositório tiver sido clonado com êxito, você verá todos os arquivos listados no Eclipse.
+1. Quando o repositório for clonado com êxito, você verá todos os arquivos listados no Eclipse.
 
    ![Repositório local][CL09]
 
-### <a name="creating-a-maven-project-from-your-local-repository"></a>Criando um projeto Maven do seu repositório local
+### <a name="create-a-maven-project-from-your-local-repository"></a>Criar um projeto do Maven por meio do repositório local
 
-O repositório do Spring Boot Docker contém um projeto Maven completo que você usará para este tutorial. 
+O repositório do Spring Boot Docker contém um projeto completo do Maven, que será usado neste tutorial. 
 
-1. Clique em **Arquivo** e, em seguida, em **Importação**.
+1. Clique em **Arquivo** > **Importar**.
 
-   ![Menu de Importação de Arquivo][CL01]
+   ![Comando Importar no menu Arquivo][CL01]
 
 1. Quando a caixa de diálogo **Importação** se abrir:
 
    a. Expanda **Maven**.
    
-   b. Destaque **Projetos Maven Existentes**.
+   b. Selecione **Projetos Existentes do Maven**.
    
    c. Clique em **Avançar**.
 
@@ -125,55 +124,57 @@ O repositório do Spring Boot Docker contém um projeto Maven completo que você
 
 1. Na página **Projetos Maven**:
 
-   a. Especifique a pasta `complete` dentro de seu repositório local para o **Diretório Raiz**.
+   a. Em **Diretório Raiz**, especifique a pasta **complete** no repositório local.
    
    b. Expanda a seção **Avançado** e insira um nome personalizado para o **Modelo de nome**.
    
-   c. Marque a caixa para o arquivo `pom.xml` no projeto.
+   c. Marque a caixa do arquivo **pom.xml** no projeto.
    
    d. Clique em **Concluir**.
 
-   ![Projetos Maven][MV02]
+   ![Página Projetos do Maven][MV02]
 
-1. Quando o projeto Maven tiver sido aberto com êxito, você verá um segundo projeto listado no Eclipse.
+1. Quando o projeto do Maven for aberto com êxito, você verá um segundo projeto listado no Eclipse.
 
    ![Projeto do Maven local][MV03]
 
-## <a name="building-your-spring-boot-app-with-maven"></a>Como criar seu aplicativo Spring Boot com Maven
+## <a name="build-your-spring-boot-app-by-using-maven"></a>Criar o aplicativo Spring Boot usando o Maven
 
-1. No Eclipse Project Explorer, destaque o projeto Maven.
+1. No Eclipse Project Explorer, selecione o projeto do Maven.
 
-1. Clique em **Executar**, em seguida, em **Executar como** e então em **Build do Maven**.
+1. Clique em **Executar** > **Executar Como** > **Build do Maven**.
 
-   ![Executar como build do Maven][BU01]
+   ![Comandos a serem executados como build do Maven][BU01]
 
-1. Quando seu aplicativo tiver sido criado com êxito, a janela do console listará o status.
+1. Quando o aplicativo é criado com êxito, a janela do console mostra o status.
 
    ![Build bem-sucedido do Maven][BU02]
 
-## <a name="publishing-your-web-app-to-azure-using-a-docker-container"></a>Publicando seu aplicativo Web no Azure usando um contêiner do Docker
+## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Publicar seu aplicativo Web no Azure usando um contêiner do Docker
 
-1. No Eclipse Project Explorer, destaque o projeto Maven.
+1. No Eclipse Project Explorer, selecione o projeto do Maven.
 
-1. Clique no menu **Publicar** do Azure e, em seguida, clique em **Publicar como contêiner do Docker**.
+1. Clique no menu **Publicar** do Azure e, em seguida, clique em **Publicar como Contêiner do Docker**.
 
-   ![Publicar como contêiner do Docker][PU01]
+   ![Comando Publicar como Contêiner do Docker][PU01]
 
-1. Quando a caixa de diálogo **Implantar Contêiner do Docker no Azure** for exibida:
+1. Quando a caixa de diálogo **Implantando Contêiner do Docker no Azure** for exibida:
 
-   a. Insira um **nome de imagem do Docker** personalizado.
+   a. Insira um nome de imagem do Docker personalizado.
    
-   b. Para o **Artefato a implantar**, especifique o caminho para o arquivo `gs-spring-boot-docker-0.1.0.jar` que você acabou de criar.
+   b. Para **Artefato a ser implantado**, especifique o caminho para o arquivo **gs-spring-boot-docker-0.1.0.jar** que você acabou de criar.
 
    ![Especificar opções do Docker][PU02]
 
-   Quaisquer hosts do Docker existentes serão exibidos. Se você optar por implantar em um host existente, poderá pular para a etapa 4. Caso contrário, você precisará executar as etapas a seguir para criar um novo host:
+   Os hosts existentes do Docker são exibidos. 
+
+1. Se você optar por implantar em um host existente, vá para a etapa 5. Caso contrário, use as seguintes etapas para criar um host:
 
    a. Clique em **Adicionar**.
 
-      ![Adicionar novo host do Docker][PU03]
+      ![Adicionar um novo host do Docker][PU03]
 
-   b. Quando a caixa de diálogo **Criar Host do Docker** for exibida, você poderá optar por aceitar os padrões ou especificar quaisquer configurações personalizadas para o novo host do Docker. (Descrições detalhadas das diversas configurações estão disponíveis no artigo [Publicar um aplicativo Web como um contêiner do Docker usando o Kit de Ferramentas do Azure para IntelliJ][Publish Container with Azure Toolkit].) Clique em **Próximo** quando tiver especificado as configurações a serem usadas.
+   b. Quando a caixa de diálogo **Criar Host do Docker** for exibida, você poderá optar por aceitar os padrões ou especificar configurações personalizadas para o novo host do Docker. (Para obter descrições detalhadas das várias configurações, consulte [Publicar um aplicativo Web como um contêiner do Docker usando o Kit de Ferramentas do Azure para IntelliJ][Publish Container with Azure Toolkit].) Clique em **Próximo** quando tiver especificado as configurações a serem usadas.
 
       ![Especificar opções de host do Docker][PU04]
 
@@ -181,23 +182,23 @@ O repositório do Spring Boot Docker contém um projeto Maven completo que você
 
       ![Especificar as credenciais de host do Docker][PU05]
 
-1. Realce o host do Docker e, em seguida, clique em **Próximo**.
+1. Selecione o host do Docker e, em seguida, clique em **Avançar**.
 
    ![Selecione o host do Docker a usar][PU06]
 
-1. Na última página da caixa de diálogo **Implantar Contêiner do Docker no Azure**, você precisará especificar as seguintes opções:
+1. Na última página da caixa de diálogo **Implantando o Contêiner do Docker no Azure**, especifique as seguintes opções:
 
    a. Você pode optar por especificar um nome personalizado para o contêiner que hospedará o contêiner do Docker ou aceitar o padrão.
 
-   b. Você precisa inserir as portas TCP para o host do docker usando a seguinte sintaxe: "*[porta externa]*:*[porta interna]*. Por exemplo, "80:8080" especifica uma porta externa de "80" e a porta do Spring Boot interna padrão de "8080".
+   b. Insira as portas TCP do host do Docker usando a seguinte sintaxe: *[external port]*:*[internal port]*. Por exemplo, **80:8080** especifica uma porta externa 80 e a porta interna padrão 8080 do Spring Boot.
    
-      Se você tiver personalizado sua porta interna (por exemplo, editando o arquivo *application.yml*), precisará especificar o número da porta para o roteamento correto ocorrer no Azure.
+      Se você tiver personalizado a porta interna (por exemplo, editando o arquivo application.yml), precisará especificar o número da porta para o roteamento correto ocorrer no Azure.
 
    c. Depois de configurar essas opções, clique em **Concluir**.
 
-   ![Implantar o Contêiner do Docker no Azure][PU07]
+   ![Implantar um contêiner do Docker no Azure][PU07]
 
-1. Quando o Kit de Ferramentas do Azure terminar a publicação, o Log de Atividades do Azure exibirá **Publicado** como o status.
+1. Quando o Kit de Ferramentas do Azure concluir a publicação, o Log de Atividades do Azure exibirá **Publicado** como o status.
 
    ![Host do Docker implantado com êxito][PU08]
 
@@ -208,7 +209,7 @@ O repositório do Spring Boot Docker contém um projeto Maven completo que você
 <!-- URL List -->
 
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Deploy Spring Boot on Linux in ACS]: ./container-service/container-service-deploy-spring-boot-app-on-linux.md
+[Deploy Spring Boot on Linux in ACS]:container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [Spring Boot]: http://projects.spring.io/spring-boot/

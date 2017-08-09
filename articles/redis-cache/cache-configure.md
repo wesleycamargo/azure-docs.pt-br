@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: f78735afd8aa8f560455c3fd47e6833c37644583
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar o Cache Redis do Azure
@@ -97,8 +96,6 @@ Clique em **Diagnosticar e solucionar problemas** para ver problemas comuns e es
 ## <a name="settings"></a>Configurações
 A seção **Configurações** permite acessar e definir as seguintes configurações para seu cache.
 
-![Configurações](./media/cache-configure/redis-cache-general-settings.png)
-
 * [Chaves de acesso](#access-keys)
 * [Configurações avançadas](#advanced-settings)
 * [Supervisor do Cache Redis](#redis-cache-advisor)
@@ -106,6 +103,7 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Tamanho do cluster Redis](#cluster-size)
 * [Persistência de dados do Redis](#redis-data-persistence)
 * [Agendar atualizações](#schedule-updates)
+* [Replicação geográfica](#geo-replication)
 * [Rede Virtual](#virtual-network)
 * [Firewall](#firewall)
 * [Propriedades](#properties)
@@ -123,7 +121,7 @@ Clique em **Teclas de acesso** para exibir ou regenerar as teclas de acesso para
 As configurações a seguir são definidas na folha **Configurações avançadas**.
 
 * [Portas de acesso](#access-ports)
-* [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+* [Políticas de memória](#memory-policies)
 * [Notificações de Keyspace (configurações avançadas)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Portas de acesso
@@ -131,12 +129,13 @@ Por padrão, o acesso não SSL está desabilitado para novos caches. Para habili
 
 ![Portas de acesso de Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
-#### <a name="maxmemory-policy-and-maxmemory-reserved"></a>Maxmemory-policy e maxmemory-reserved
-As configurações **Maxmemory-policy** e **maxmemory-reserved** na folha **Configurações avançadas** definem as políticas de memória para o cache. A configuração **maxmemory-policy** define a política de remoção para o cache e **maxmemory-reserved** define a memória reservada para processos não cache.
+<a name="maxmemory-policy-and-maxmemory-reserved"></a>
+#### <a name="memory-policies"></a>Políticas de memória
+As configurações **Política de Maxmemory**, **maxmemory-reserved** e **maxfragmentationmemory-reserved** na folha **Configurações avançadas** definem as políticas de memória do cache.
 
 ![Política Maxmemory de Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-A **política Maxmemory** permite que você escolha uma das políticas de remoção a seguir:
+A **política Maxmemory** configura a política de remoção do cache e permite escolher uma das seguintes políticas de remoção:
 
 * `volatile-lru` – esse é o padrão.
 * `allkeys-lru`
@@ -149,8 +148,12 @@ Para saber mais sobre políticas `maxmemory`, consulte [Políticas de remoção]
 
 A configuração **maxmemory-reserved** configura a quantidade de memória em MB reservada para operações de não cache, como replicação, durante o failover. Definir esse valor permite que você tenha uma experiência mais consistente do servidor Redis quando sua carga varia. Esse valor deve ser definido como maior para cargas de trabalho que executam muitas operações de gravação. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
 
+A configuração **maxfragmentationmemory-reserved** define a quantidade de memória em MB reservada para acomodar a fragmentação de memória. A configuração desse valor permite ter uma experiência do servidor Redis mais consistente quando o cache está cheio ou quase cheio e a taxa de fragmentação também é alta. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
+
+Uma coisa a ser considerada ao escolher um novo valor de reserva de memória (**maxmemory-reserved** ou **maxfragmentationmemory-reserved**) é como essa alteração pode afetar um cache que já está em execução com grandes quantidades de dados. Por exemplo, se você tiver um cache de 53 GB com 49 GB de dados, altere o valor de reserva para 8 GB; isso reduzirá a memória máxima disponível para o sistema para 45 GB. Se os valores `used_memory` ou `used_memory_rss` atuais forem maiores que o novo limite de 45 GB, o sistema precisará remover os dados até que `used_memory` e `used_memory_rss` fiquem abaixo de 45 GB. A remoção pode aumentar a fragmentação de memória e carregamento do servidor. Para obter mais informações sobre métricas do cache, como `used_memory` e `used_memory_rss`, consulte [Métricas disponíveis e intervalos de relatórios](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
 > [!IMPORTANT]
-> A configuração **maxmemory-reserved** está disponível apenas para os caches Standard e Premium.
+> As configurações **maxmemory-reserved** e **maxfragmentationmemory-reserved** estão disponíveis somente para caches Standard e Premium.
 > 
 > 
 
@@ -412,7 +415,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 | --- | --- | --- |
 | `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |
-| `maxmemory-policy` |`volatile-lru` |A política Maxmemory é a configuração de como o Redis seleciona o que remover quando `maxmemory` (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é `volatile-lru`, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para saber mais, confira [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
+| `maxmemory-policy` |`volatile-lru` |A política Maxmemory é a configuração de como o Redis seleciona o que remover quando `maxmemory` (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é `volatile-lru`, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para obter mais informações, consulte [Políticas de memória](#memory-policies). |
 | `maxmemory-samples` |3 |Para economizar memória, LRU e algoritmos TTL mínimos são algoritmos aproximados, em vez de algoritmos precisos. Por padrão, o Redis verificará três chaves e escolherá aquela que foi usada há mais tempo. |
 | `lua-time-limit` |5.000 |Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |O tamanho máximo da fila de eventos de script. |

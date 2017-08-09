@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: eb6a7069da36a462f8dd27454bc1834d2e3844f0
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
@@ -57,10 +56,10 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 Antes de preparar seu ambiente, compreenda as limitações.
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
-* Não há suporte para o backup de máquinas virtuais com discos de mais de 4 TB. 
+* Não há suporte para o backup de máquinas virtuais com tamanhos de discos de dados maiores que 1.023 GB.
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * Não há suporte para backup de VMs criptografadas usando apenas BEK. Não há suporte para backup de VMs Linux criptografadas usando criptografia LUKS.
-* Não há suporte para o backup de máquinas virtuais de Linux com extensão Docker.
+* O backup de VMs na configuração do Servidor de Arquivos de Escalabilidade Horizontal não é recomendado.
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
