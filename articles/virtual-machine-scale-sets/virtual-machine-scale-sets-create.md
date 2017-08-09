@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -179,6 +179,12 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 
 # Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
+```
+
+### <a name="using-a-custom-virtual-machine-image"></a>Usar uma imagem de máquina virtual personalizada
+Se você estiver criando um conjunto de dimensionamento por meio de sua própria imagem personalizada, em vez de fazer referência a uma imagem de máquina virtual da galeria, o comando _Set-AzureRmVmssStorageProfile_ terá esta aparência:
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
 
 ## <a name="create-from-a-template"></a>Criar usando um modelo

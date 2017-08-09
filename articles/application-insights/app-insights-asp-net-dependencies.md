@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependências
@@ -32,7 +31,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
   * Bancos de dados SQL
   * Serviços Web ASP.NET e WCF que usam associações baseadas em HTTP
   * Chamadas HTTP locais ou remotas
-  * BD Cosmos, tabela, Armazenamento de Blobs e fila do Azure
+  * Azure Cosmos DB, tabela, Armazenamento de Blobs e fila
 * Páginas da Web
   * Chamadas AJAX
 
@@ -134,7 +133,7 @@ Clique para uma ocorrência de uma solicitação com falha e examine os eventos 
 ![Clique em um tipo de solicitação e na instância para obter uma exibição diferente da mesma instância, clique nele para obter detalhes da exceção.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análise
-Você pode rastrear dependências na [linguagem de consulta do Analytics](app-insights-analytics.md). Veja alguns exemplos.
+Você pode rastrear dependências na [linguagem de consulta do Log Analytics](https://docs.loganalytics.io/). Veja alguns exemplos.
 
 * Localize todas as chamadas com falha de dependência:
 

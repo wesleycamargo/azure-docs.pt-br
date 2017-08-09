@@ -1,6 +1,6 @@
 ---
-title: "Desenvolvimento de ação de script com o HDInsight baseado em Linux | Microsoft Docs"
-description: "Como personalizar os clusters HDInsight baseados em Linux com a Ação de script. As ações de script são um modo de personalizar clusters HDInsight do Azure por meio da especificação de configurações de cluster, ou por meio da instalação de serviços, ferramentas ou software adicionais no cluster. "
+title: "Desenvolvimento de ação de script com o HDInsight baseado em Linux – Azure | Microsoft Docs"
+description: "Saiba como usar scripts Bash para personalizar os clusters HDInsight baseados em Linux. O recurso de ação de script do HDInsight permite executar scripts durante ou após a criação do cluster. Scripts podem ser usados para alterar as configurações do cluster ou instalar software adicional."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 Saiba como personalizar o cluster HDInsight usando scripts Bash. Ações de script são uma maneira de personalizar o HDInsight durante ou após a criação do cluster.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>O que são ações de script
 
@@ -62,7 +61,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 * [Usar a lógica de repetição para recuperar-se de erros transitórios](#bps9)
 
 > [!IMPORTANT]
-> Ações de script devem ser concluídas em até 60 minutos. Caso contrário, o script falhará. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
+> Ações de script devem ser concluídas em 60 minutos ou o processo falha. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
 
 ### <a name="bPS1"></a>Direcionar para a versão do Hadoop
 
@@ -120,11 +119,11 @@ A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azu
 > [!IMPORTANT]
 > A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) , que é um contêiner público somente leitura mantido pela equipe do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). É um contêiner público somente leitura mantido pela equipe do HDInsight.
 
 ### <a name="bPS4"></a>Usar os recursos pré-compilados
 
-Para reduzir o tempo necessário de execução do script, evite operações que compilem recursos do código-fonte. Pré-compile os recursos e armazene-os no Armazenamento de Blobs do Azure para que eles possam ser baixados rapidamente.
+Para reduzir o tempo necessário de execução do script, evite operações que compilem recursos do código-fonte. Por exemplo, pré-compile recursos e armazene-os em um blob da conta de Armazenamento do Azure no mesmo data center que o HDInsight.
 
 ### <a name="bPS3"></a>Certifique-se de que o script de personalização do cluster seja idempotente
 
@@ -134,7 +133,7 @@ Por exemplo, um script que modifica os arquivos de configuração não deve adic
 
 ### <a name="bPS5"></a>Garantir alta disponibilidade da arquitetura de cluster
 
-Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; as ações de script são executadas para ambos esses nós. Se os componentes de que instalação esperam apenas um nó principal, não instale os componentes em ambos os nós de cabeçalho.
+Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; as ações de script são executadas em ambos esses nós. Se os componentes de que instalação esperam apenas um nó principal, não instale os componentes em ambos os nós de cabeçalho.
 
 > [!IMPORTANT]
 > Os serviços fornecidos como parte do HDInsight são projetados para failover entre os dois nós de cabeçalho, conforme necessário. Essa funcionalidade não se estende a componentes personalizados instalados por meio de ações de script. Se você precisar de alta disponibilidade para componentes personalizados, você deverá implementar seu próprio mecanismo de failover.

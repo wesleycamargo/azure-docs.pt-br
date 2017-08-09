@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e363ade43ab9e2b2432c9efdc3ce1b661e278b2a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: bd50e622773c091b3dc4dbd683a6441128c95144
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
-Neste artigo abordamos perguntas frequentes sobre o SSO Contínuo do Azure AD. Continue verificando para ver novo conteúdo.
+Neste artigo abordamos perguntas frequentes sobre o Logon Único Contínuo do Azure Active Directory (SSO contínuo). Continue verificando para ver novo conteúdo.
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Com quais métodos de entrada o SSO Contínuo funcionam?
 
-O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md), mas não com os Serviços de Federação do Active Directory (ADFS).
+O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md). No entanto esse recurso não pode ser usado com os Serviços de Federação do Active Directory (ADFS).
 
 ## <a name="is-seamless-sso-a-free-feature"></a>O SSO Contínuo é um recurso gratuito?
 
@@ -46,6 +46,33 @@ Sim. O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário quand
 
 Sim, esse cenário precisa da versão 2.1 ou posterior do [cliente de ingresso no local de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
 
+## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account"></a>Como posso sobrepor a chave de descriptografia de Kerberos a `AZUREADSSOACCT` conta de computador?
+
+É importante sobrepor frequentemente a chave de descriptografia de Kerberos a `AZUREADSSOACCT` conta de computador (que representa o AD do Azure) criada na floresta do AD do seu local.
+
+>[!IMPORTANT]
+>É altamente recomendável sobrepor a chave de descriptografia do Kerberos pelo menos a cada 30 dias.
+
+Siga estas etapas no servidor local em que você está executando o Azure AD Connect:
+
+### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
+
+1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
+6. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
+
+### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Etapa 2. Atualizar a chave de descriptografia de Kerberos em cada floresta do AD que foi configurado
+
+1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de Administrador de Domínio da floresta do AD pretendida.
+2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSOACCT` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
+3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
+
+>[!IMPORTANT]
+>Certifique-se de _não_ executar o `Update-AzureADSSOForest` comando mais de uma vez. Caso contrário, o recurso deixará de funcionar até o momento em que os tíquetes Kerberos dos usuários expirarem e forem reemitidos pelo Active Directory local.
+
 ## <a name="how-can-i-disable-seamless-sso"></a>Como faço para desabilitar o SSO Contínuo?
 
 O SSO Contínuo pode ser desabilitado usando o Azure AD Connect.
@@ -56,16 +83,18 @@ No entanto, você verá uma mensagem na tela que informa o seguinte:
 
 “O logon único agora está desabilitado, mas há etapas manuais adicionais a serem realizadas para concluir a limpeza. Saiba mais”
 
-As etapas manuais necessárias são as seguintes:
+Para concluir o processo, siga estas etapas manuais no servidor local em que você está executando o Azure AD Connect:
 
-1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
-- Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-- Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-- Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-- Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
-  - No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de administrador de locatário do Azure AD.
-  - Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
-2. Exclua manualmente a conta do computador `AZUREADSSOACCT` de cada floresta do AD que você vir listada.
+### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
+
+1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
+6. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
+
+### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Etapa 2. Exclua manualmente a conta do computador `AZUREADSSOACCT` de cada floresta do AD que você vir listada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

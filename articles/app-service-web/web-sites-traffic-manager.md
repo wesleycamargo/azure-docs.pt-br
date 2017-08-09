@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: fb7d391e3118a9dccde5501c3f30c6f580932a30
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
@@ -50,7 +49,7 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 * Os pontos de extremidade de aplicativo Web que você especificar em um perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo Web no perfil, mas não serão configuráveis nessa página.
 * Depois que você adicionar um aplicativo Web a um perfil, a **URL do Site** no painel da página de portal do aplicativo Web exibirá a URL do domínio personalizado do aplicativo Web, se você tiver definido uma. Do contrário, ele exibirá a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmgr.com`). O nome de domínio direto do aplicativo Web e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo Web na seção **Nomes de Domínio** .
 * Os nomes de domínio personalizados funcionarão conforme esperado, mas além de adicioná-los a seus aplicativos Web, você deve configurar o mapa DNS a fim de apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um aplicativo Web do Azure, veja [Mapear um nome de domínio personalizado para um aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
-* Você só pode adicionar a um perfil do Gerenciador de Tráfego do Azure aplicativos Web que estejam no modo Padrão.
+* Você só pode adicionar a um perfil do Gerenciador de Tráfego do Azure aplicativos Web que estejam no modo padrão ou premium.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).

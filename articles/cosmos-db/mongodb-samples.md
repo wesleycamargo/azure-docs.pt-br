@@ -1,6 +1,6 @@
 ---
 title: Usar APIs do MongoDB para criar um aplicativo do Azure Cosmos DB | Microsoft Docs
-description: Um tutorial que cria um banco de dados online usando as APIs do DocumentDB para MongoDB.
+description: Um tutorial que cria um banco de dados online usando as APIs do Azure Cosmos DB para MongoDB.
 keywords: exemplos do mongodb
 services: cosmos-db
 author: AndrewHoh
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5afe7e716bc33e2d6d07edf15ab1686466c05bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 433d2e585c884a10e7e923a0b27c179a95410d01
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Criar um aplicativo do Azure Cosmos DB: API para MongoDB usando o Node.js
@@ -49,7 +48,7 @@ Para usar este exemplo, você deve:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -127,7 +126,7 @@ Para usar este exemplo, você deve:
 2. Modifique as variáveis a seguir no arquivo *app.js* de acordo com as configurações da sua conta (Saiba como encontrar sua [cadeia de conexão](connect-mongodb-account.md)):
    
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
 3. Abra seu terminal favorito, execute **npm install mongodb --save** e, em seguida, o aplicativo com **node app.js**

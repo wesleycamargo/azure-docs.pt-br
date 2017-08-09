@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ff6900cf4516a173e212728a069587d908f9fe11
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover regional automático para a continuidade dos negócios no Azure Cosmos DB
@@ -122,7 +121,7 @@ Neste artigo, examinamos como os failovers manuais e automáticos funcionam no C
 ## <a id="NextSteps"></a>Próximas etapas
 * Saiba mais sobre como o Cosmos DB dá suporte à [distribuição global](distribute-data-globally.md)
 * Saiba mais sobre [consistência global com o Azure Cosmos DB](consistency-levels.md)
-* Desenvolver com várias regiões usando o [SDK do DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) do Azure Cosmos DB
+* Desenvolver com várias regiões usando o [API do DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) do Azure Cosmos DB
 * Aprenda a criar [arquiteturas de gravador de várias regiões](multi-region-writers.md) com o Azure DocumentDB
 
 

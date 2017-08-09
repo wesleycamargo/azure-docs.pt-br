@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f2c0355068bc6dfd9a4e1aab52e4f4f9f23a9512
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 4c502784a57850d6f11200e95f7432d2206e920a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -75,7 +75,7 @@ Dentro do objeto de máquina virtual, é preciso uma dependência na conta de ar
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -92,15 +92,20 @@ Dentro do objeto de máquina virtual, é preciso uma dependência na conta de ar
 
 ## <a name="managed-disks-template-formatting"></a>Formatação de modelo de discos gerenciados
 
-Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não exige mais uma conta de armazenamento a ser criada pelo usuário. Os discos gerenciados são expostos na versão de API `2016-04-30-preview` e agora são o tipo de disco padrão. As seções a seguir percorrem as configurações padrão e detalham como personalizar ainda mais seus discos.
+Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não exige mais uma conta de armazenamento a ser criada pelo usuário. Os discos gerenciados foram expostos pela primeira vez na versão da API `2016-04-30-preview`. Eles estão disponíveis em todas as versões de API subsequentes e agora são o tipo de disco padrão. As seções a seguir percorrem as configurações padrão e detalham como personalizar ainda mais seus discos.
+
+> [!NOTE]
+> Recomendamos usar uma versão da API posterior a `2016-04-30-preview`, pois houve alterações consideráveis entre `2016-04-30-preview` e `2017-03-30`.
+>
+>
 
 ### <a name="default-managed-disk-settings"></a>Configurações de disco gerenciados padrão
 
-Para criar uma VM com discos gerenciados, não é mais necessário criar o recurso da conta de armazenamento e atualizar o recurso da máquina virtual, conforme a seguir. Observe especificamente que `apiVersion` reflete `2016-04-30-preview` e `osDisk` e `dataDisks` não referem-se mais a um URI específico para VHD. Ao implantar sem especificar propriedades adicionais, o disco usará o [LRS padrão]((storage-redundancy.md). Se nenhum nome for especificado, será necessário o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do SO e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia do disco do Azure está desabilitada; o caching é Leitura/Gravação para o disco do OS e Nenhum para os discos de dados. É possível notar no exemplo abaixo que ainda há uma dependência de conta de armazenamento, porém, isso é apenas para armazenamento de diagnósticos e não é necessário para armazenamento em disco.
+Para criar uma VM com discos gerenciados, não é mais necessário criar o recurso da conta de armazenamento e atualizar o recurso da máquina virtual, conforme a seguir. Observe especificamente que `apiVersion` reflete `2017-03-30` e `osDisk` e `dataDisks` não referem-se mais a um URI específico para VHD. Ao implantar sem especificar propriedades adicionais, o disco usará o [Armazenamento LRS Standard](storage-redundancy.md). Se nenhum nome for especificado, será necessário o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do SO e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia do disco do Azure está desabilitada; o caching é Leitura/Gravação para o disco do OS e Nenhum para os discos de dados. É possível notar no exemplo abaixo que ainda há uma dependência de conta de armazenamento, porém, isso é apenas para armazenamento de diagnósticos e não é necessário para armazenamento em disco.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -123,7 +128,7 @@ Para criar uma VM com discos gerenciados, não é mais necessário criar o recur
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -143,23 +148,25 @@ Como alternativa para especificar a configuração do disco no objeto da máquin
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "Standard_LRS"
+    },
     "properties": {
         "creationData": {
             "createOption": "Empty"
         },
-        "accountType": "Standard_LRS",
         "diskSizeGB": 1023
     }
 }
 ```
 
-Dentro do objeto da VM é possível fazer referência a este objeto de disco para ser anexado. Especificar o ID do recurso do disco gerenciado criado na propriedade `managedDisk` permite a conexão do disco à medida que a VM é criada. O `apiVersion` para o recurso da VM deve ser `2016-04-30-preview` para usar essa funcionalidade. Observe também que uma dependência foi criada no recurso de disco para garantir que tenha sido criado com êxito antes da criação da VM. 
+Dentro do objeto da VM é possível fazer referência a este objeto de disco para ser anexado. Especificar o ID do recurso do disco gerenciado criado na propriedade `managedDisk` permite a conexão do disco à medida que a VM é criada. Observe que o `apiVersion` para o recurso da VM está definido como `2017-03-30`. Observe também que uma dependência foi criada no recurso de disco para garantir que tenha sido criado com êxito antes da criação da VM. 
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -200,17 +207,17 @@ Dentro do objeto da VM é possível fazer referência a este objeto de disco par
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Criar conjuntos de disponibilidade gerenciados com VMs utilizando discos gerenciados
 
-Para criar conjuntos de disponibilidade gerenciados com VMs utilizando discos gerenciados, adicione o objeto `sku` ao recurso do conjunto de disponibilidade e defina a propriedade `name` para `Aligned`. Isso garante que os discos para cada VM estejam suficientemente isolados uns dos outros para evitar pontos únicos de falha. O `apiVersion` para o recurso do conjunto de disponibilidade também deve ser `2016-04-30-preview` para utilizar essa funcionalidade.
+Para criar conjuntos de disponibilidade gerenciados com VMs utilizando discos gerenciados, adicione o objeto `sku` ao recurso do conjunto de disponibilidade e defina a propriedade `name` para `Aligned`. Isso garante que os discos para cada VM estejam suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para o recurso do conjunto de disponibilidade está definido como `2017-03-30`.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

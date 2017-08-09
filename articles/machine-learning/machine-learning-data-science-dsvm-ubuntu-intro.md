@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 148603618a7da05d250a6c4f789a212e98791e53
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
@@ -151,6 +150,13 @@ Para saber mais, confira a seção sobre CNTK do [GitHub](https://github.com/Mic
 
 #### <a name="caffe"></a>Caffe
 Caffe é uma estrutura de aprendizado aprofundado da Berkeley Vision and Learning Center. Ele está disponível em /opt/caffe. Exemplos podem ser encontrados em /opt/caffe/examples.
+
+#### <a name="caffe2"></a>Caffe2
+Caffe2 é uma estrutura de aprendizado do Facebook que se baseia no Caffe. Ele está disponível no Python 2.7 no ambiente raiz do Conda. Para ativá-lo, execute o seguinte no shell:
+
+    source /anaconda/bin/activate root
+
+Alguns blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="h2o"></a>H2O
 H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. Para iniciar o H2O na linha de comandon execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; Existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode configurar. A interface de usuário da Web do Flow pode ser acessada navegando para http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
@@ -319,7 +325,7 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 > 
 > 
 
-### <a name="machine-learning-tools"></a>Ferramentas de Aprendizado de Máquina
+### <a name="machine-learning-tools"></a>Ferramentas do Machine Learning
 A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
 
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.

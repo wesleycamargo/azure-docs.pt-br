@@ -5,7 +5,7 @@ keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f6beb62246aaf59bfd81467f07d347913a20677b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Provisionar novos locatários e registrá-los no catálogo
@@ -70,7 +69,7 @@ Execute o script *Demo-ProvisionAndCatalog* para criar um locatário rapidamente
 1. Abra o **Demo-ProvisionAndCatalog.ps1** no ISE do PowerShell e defina os seguintes valores:
    * **$TenantName** = o nome do novo local do evento (por exemplo, *Bushwillow Blues*).
    * **$VenueType** = um dos tipos predefinidos de local: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = 1, deixe isso definido como _1_ para **Provisionar um único locatário**.
+   * **$DemoScenario** = 1, deixe isso definido como _1_ para *Provisionar um único locatário*.
 
 1. Pressione **F5** e execute o script.
 
@@ -83,15 +82,15 @@ Depois que o script for concluído, o novo locatário será provisionado e seu a
 
 Este exercício provisiona um lote de locatários adicionais. É recomendável provisionar um lote de locatários antes de concluir os outros tutoriais de SaaS do Wingtip, de forma que haja mais do que apenas alguns bancos de dados com os quais trabalhar.
 
-1. Abra ...\\Módulos de aprendizado\\Utilitários\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e defina os seguintes valores:
-   * **$DemoScenario** = **3**, Definir como **3** para **Provisionar um lote de locatários**.
+1. Abra ...\\Módulos de Aprendizado\\Utilitários\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e altere o parâmetro *$DemoScenario* para 3:
+   * **$DemoScenario** = **3**, altere para **3** para *Provisionar um lote de locatários*.
 1. Pressione **F5** e execute o script.
 
 O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote e, em seguida, delega o provisionamento de cada banco de dados a um modelo vinculado. O uso de modelos dessa maneira permite que Azure Resource Manager seja o agente do processo de provisionamento do seu script. Os modelos provisionam bancos de dados em paralelo nos locais em que isso for possível e lidam com repetições, se necessário, otimizando o processo geral. O script é idempotente; portanto, se ele falhar ou parar por qualquer motivo, execute-o novamente.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Verificar se o lote de locatários foi implantado com êxito
 
-* Abra o servidor *tenants1* no [Portal do Azure](https://portal.azure.com) e clique em **bancos de dados SQL**:
+* Abra o servidor *tenants1* navegando até sua lista de servidores no [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL** e verifique se o lote de 17 bancos de dados adicionais está na lista:
 
    ![lista de banco de dados](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -103,13 +102,13 @@ Para compreender melhor como o aplicativo Wingtip implementa o provisionamento d
 1. Abra ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ e defina os seguintes parâmetros:
    * **$TenantName** = os nomes de locatário devem ser exclusivos; portanto, defina-os com um nome diferente dos locatários existentes (por exemplo, *Humberto Gomes*).
    * **$VenueType** = usar um dos tipos predefinidos de local (por exemplo, *judo*).
-   * **$DemoScenario** = 1, definir como **1** para **Provisionar um único locatário**.
+   * **$DemoScenario** = **1**, defina como **1** para *Provisionar um único locatário*.
 
 1. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha a seguir: *New-Tenant `* e pressione **F9**.
 
    ![ponto de interrupção](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Para executar o script, pressione **F5**. Quando o ponto de interrupção for alcançado, pressione **F11** para intervir. Rastreie a execução do script usando **F10** e **F11** para passar por cima ou intervir nas funções chamadas. [Dicas sobre o trabalho com scripts e a depuração de scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Para executar o script, pressione **F5**. Quando o ponto de interrupção for alcançado, pressione **F11** para intervir. Rastreie a execução do script usando as opções de menu Depurar – **F10** e **F11** para passar por cima ou intervir nas funções chamadas. Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Examinar a implementação do catálogo e o provisionamento em detalhes ao percorrer o script
 

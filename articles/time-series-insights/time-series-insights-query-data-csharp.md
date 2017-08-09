@@ -1,37 +1,37 @@
 ---
-title: "Consulte dados do ambiente de Análise de Séries Temporais do Azure usando C# | Microsoft Docs"
-description: "Este tutorial aborda como consultar dados do seu ambiente de Análise de Séries Temporais usando C#"
+title: "Confira dados do ambiente de Análise de Séries Temporais do Azure usando C# | Microsoft Docs"
+description: "Este tutorial aborda como consultar dados do ambiente Time Series Insights usando C#, com o código de exemplo."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 99507a7bf9ca332f0b7adc56c2d8df0240f29b06
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Consulte dados do ambiente de Análise de Séries Temporais do Azure usando C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Confira dados do ambiente de Análise de Séries Temporais do Azure usando C#
 
-Este exemplo em C# demonstra como consultar dados do ambiente do ambiente de Análise de Séries Temporais do Azure.
+Este exemplo em C# demonstra como consultar dados do ambiente de Análise de Séries Temporais do Azure.
 O exemplo mostra vários exemplos básicos do uso da API de consulta:
-1. Como uma etapa de preparação, o token de acesso é obtido usando a API do Azure Active Directory. Esse token deve ser passado no cabeçalho `Authorization` de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte o artigo [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
+1. Como uma etapa de preparação, obtenha o token de acesso usando a API do Azure Active Directory. Passe esse token no cabeçalho `Authorization` de cada solicitação de API de Consulta. Para configurar aplicativos não interativos, veja [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 2. A lista de ambientes aos quais o usuário tem acesso é obtida. Um dos ambientes é escolhido como o ambiente de interesse e outros dados são consultados para esse ambiente.
 3. Como um exemplo de solicitação HTTPS, os dados de disponibilidade são solicitados para o ambiente de interesse.
 4. Como um exemplo de solicitação do soquete Web, os dados de eventos agregados são solicitados para o ambiente de interesse. Os dados são solicitados para todo o intervalo de tempo de disponibilidade.
 
-## <a name="c-sample"></a>Exemplo de C#
+## <a name="c-example"></a>Exemplo de C#
 
 ```csharp
 using System;

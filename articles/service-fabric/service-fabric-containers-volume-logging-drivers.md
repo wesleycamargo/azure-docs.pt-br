@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 868c3051f60c27f15bfd99f66e50b65595951a00
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -58,7 +58,17 @@ Service Fabric suporta especificação de [Plugins de volume Docker ](https://do
 </ApplicationManifest>
 ```
 
-No exemplo anterior, a `Source` marca para `Volume` refere-se à pasta de origem. A pasta de origem pode ser uma pasta na VM que hospeda os contêineres ou um armazenamento remoto persistente. A marca `Destination` é o local onde `Source` está mapeado no contêiner em execução. Ao utilizar um plugin de volume, o nome do plugin (marca `Driver`) será especificado conforme mostrado no exemplo anterior.  Se um driver de log docker for especificado, será necessário implantar agentes (ou contêineres) para tratar os logs no cluster. 
+No exemplo anterior, a `Source` marca para `Volume` refere-se à pasta de origem. A pasta de origem pode ser uma pasta na VM que hospeda os contêineres ou um armazenamento remoto persistente. A marca `Destination` é o local onde `Source` está mapeado no contêiner em execução. 
+
+Ao especificar um plug-in do volume, o Service Fabric cria automaticamente o volume usando os parâmetros especificados. A marca `Source` é o nome do volume e a marca `Driver` especifica o plug-in do driver do volume. As opções podem ser especificadas usando a marca `DriverOption` conforme mostrado no trecho a seguir:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Se um driver de log docker for especificado, será necessário implantar agentes (ou contêineres) para tratar os logs no cluster.  A marca `DriverOption` também pode ser usada para especificar opções de driver de log.
 
 Consulte os seguintes artigos para implantar contêineres em um cluster do Service Fabric:
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8504be28baf202c0b04ee89b18122b29a93588ab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f472bf6669bcf0c1cab048a3a5969fc71aadd8e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
@@ -31,7 +30,7 @@ Você pode importar arquivos JSON ou DSV (valores separados por delimitador - v�
 
 Há três situações em que a importação para o Analytics é útil:
 
-* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as 10 páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
+* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as dez páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
 * **Correlacione a telemetria de aplicativo** com outras fontes, como tráfego de rede, dados de servidor ou arquivos de log da CDN.
 * **Aplique o Analytics a um fluxo de dados separado.** O Analytics do Application Insights é uma ferramenta poderosa, que funciona bem com fluxos esparsos com carimbo de data e hora, muito melhor do que com o SQL em muitos casos. Se você tiver tal fluxo de outra origem, pode analisá-lo com o Analytics.
 
@@ -373,6 +372,6 @@ Use este código para cada blob.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tour sobre a linguagem de consulta do Analytics](app-insights-analytics-tour.md)
+* [Tour sobre a linguagem de consulta do Log Analytics](app-insights-analytics-tour.md)
 * [Usar *Logstash* para enviar dados ao Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
 

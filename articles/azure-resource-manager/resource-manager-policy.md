@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ce19c24905c9ea93a7a35134fe6035b788d8af22
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="resource-policy-overview"></a>Visão geral de políticas de recursos
@@ -68,9 +67,9 @@ Você pode atribuir qualquer uma dessas políticas por meio do [portal](resource
 ## <a name="policy-definition-structure"></a>Estrutura da definição de política
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
-* parameters
+* parâmetros
 * nome de exibição
-* description
+* descrição
 * regra de política
   * avaliação de lógica
   * efeito
@@ -195,7 +194,7 @@ Uma condição avalia se um **campo** atende a determinados critérios. As condi
 
 Ao usar a condição **like**, você pode fornecer um curinga (*) no valor.
 
-Ao usar a condição **match**, forneça `#` para representar um dígito, `?` para uma letra e outro caractere para representar o caractere real. Para obter exemplos, consulte [Definir convenção de nomenclatura](#set-naming-convention).
+Ao usar a condição **match**, forneça `#` para representar um dígito, `?` para uma letra e outro caractere para representar o caractere real. Para obter exemplos, consulte [Aplicar políticas de recursos para nomes e texto](resource-manager-policy-naming-convention.md).
 
 ### <a name="fields"></a>Campos
 As condições são formadas usando campos. Um campo representa as propriedades na carga de solicitação de recurso que é usada para descrever o estado do recurso.  

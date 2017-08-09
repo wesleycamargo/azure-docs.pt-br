@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5085f98d01c91ecabb690ad2aaf5992b707f302
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
@@ -48,7 +48,7 @@ As funções do modelo e seus parâmetros não diferenciam maiúsculas de minús
 <a id="union" />
 
 ## <a name="array-and-object-functions"></a>Funções de objeto e matriz
-O Gerenciador de Recursos fornece diversas funções para trabalhar com matrizes e objetos.
+O Resource Manager fornece diversas funções para trabalhar com matrizes e objetos.
 
 * [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
@@ -58,6 +58,7 @@ O Gerenciador de Recursos fornece diversas funções para trabalhar com matrizes
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -74,7 +75,7 @@ O Gerenciador de Recursos fornece diversas funções para trabalhar com matrizes
 <a id="greaterorequals" />
 
 ## <a name="comparison-functions"></a>Funções de comparação
-O Gerenciador de Recursos fornece várias funções para fazer comparações em seus modelos.
+O Resource Manager fornece várias funções para fazer comparações em seus modelos.
 
 * [equals](resource-group-template-functions-comparison.md#equals)
 * [less](resource-group-template-functions-comparison.md#less)
@@ -103,6 +104,15 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
+
+## <a name="logical-functions"></a>Funções lógicas
+O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
+
+* [e](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [se](resource-group-template-functions-logical.md#if)
+* [não](resource-group-template-functions-logical.md#not)
+* [ou](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funções numéricas
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
@@ -139,7 +149,6 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 <a id="base64" />
 <a id="base64tojson" />
 <a id="base64tostring" />
-<a id="bool" />
 <a id="concat" />
 <a id="containsstring" />
 <a id="datauri" />
@@ -173,7 +182,6 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
-* [bool](resource-group-template-functions-string.md#bool)
 * [concat](resource-group-template-functions-string.md#concat)
 * [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)

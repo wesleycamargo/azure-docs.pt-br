@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a6f74374582d551e2540d1ebd5e9677c92330e09
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5075f7e7f082a31be3ed30cdce57e89da070dfdb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Atualize seu cluster autônomo do Azure Service Fabric no Windows Server
@@ -188,6 +187,23 @@ Depois de corrigir os problemas que resultaram na reversão, você precisará in
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
+Antes de iniciar a atualização de configuração, você pode testar seu novo json de configuração de cluster executando o script do powershell no pacote autônomo.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+ou
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, nó IP, etc. Isso testará o json de configuração do cluster novo contra antigo e gerar erros na janela do Powershell, se houver qualquer problema.
+
 Para atualizar a configuração do cluster, execute o comando **Start-ServiceFabricClusterConfigurationUpgrade**. A atualização de configuração é processada domínio de atualização por domínio de atualização.
 
 ```powershell

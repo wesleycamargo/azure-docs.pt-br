@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 7d3aed71d9b5867a87954a60b1e470def0563f71
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 65dac529df15d2dd43eec17673d82a2832f7692e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
@@ -27,7 +27,7 @@ ms.lasthandoff: 06/13/2017
 A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Neste documento, você aprenderá a excluir um cluster usando o Portal do Azure, o Azure PowerShell e a CLI do Azure 1.0.
 
 > [!IMPORTANT]
-> A exclusão de um cluster HDInsight não exclui as contas do Armazenamento do Azure associadas ao cluster. Isso permite que você reutilize seus dados no futuro.
+> A exclusão de um cluster HDInsight não exclui as contas do Armazenamento do Azure ou Data Laka Store associadas ao cluster. Você pode reutilizar os dados armazenados nesses serviços no futuro.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -47,7 +47,7 @@ Em um prompt do PowerShell, use o seguinte comando para excluir o cluster:
 
 Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli-10"></a>CLI 1.0 do Azure
 
 Em um prompt, use o seguinte para excluir o cluster:
 
@@ -55,4 +55,5 @@ Em um prompt, use o seguinte para excluir o cluster:
 
 Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
-
+> [!NOTE]
+> CLI 2.0 do Azure não oferece suporte a clusters de HDInsight excluindo no momento (31 de julho de 2017).

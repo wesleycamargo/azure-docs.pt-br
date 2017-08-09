@@ -15,17 +15,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Criar, compilar e implantar Aplicativo Lógico do Azure no Visual Studio
 
-Embora o [portal do Azure](https://portal.azure.com/) ofereça uma excelente maneira para criar e gerenciar Aplicativo Lógico do Azure, talvez você deseje usar o Visual Studio para criar, compilar e implantar os aplicativos lógicos. O Visual Studio fornece ferramentas avançadas como o Designer de Aplicativos Lógicos para criar aplicativos lógicos, configurar modelos de implantação e automação e implantar em qualquer ambiente. 
+Embora o [portal do Azure](https://portal.azure.com/) ofereça uma excelente maneira para criar e gerenciar Aplicativos Lógicos do Azure, é possível utilizar o Visual Studio para criar, compilar e implantar os aplicativos lógicos. O Visual Studio fornece ferramentas avançadas como o Designer de Aplicativos Lógicos para criar aplicativos lógicos, configurar modelos de implantação e automação e implantar em qualquer ambiente. 
 
 Para começar a usar os Aplicativo Lógico do Azure, saiba [como criar seu primeiro aplicativo lógico no portal do Azure](logic-apps-create-a-logic-app.md).
 
@@ -106,7 +106,7 @@ Para voltar ao JSON de recursos completos, clique com o botão direito do mouse 
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Adicione referências de recursos dependentes para modelos de implantação do Visual Studio
 
-Quando desejar que seu aplicativo lógico faça referência a recursos dependentes, use [Funções de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), como parâmetros, em seu modelo de implantação de aplicativo lógico. Por exemplo, talvez você queira seu aplicativo lógico para fazer referência a uma conta de integração ou da Função do Azure que você deseja implantar junto com seu aplicativo lógico. Siga estas diretrizes sobre como usar parâmetros em seu modelo de implantação para que o Designer de Aplicativo Lógico seja renderizado corretamente. 
+Quando desejar que seu aplicativo lógico faça referência a recursos dependentes, use [Funções de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) em seu modelo de implantação de aplicativo lógico. Por exemplo, talvez você queira seu aplicativo lógico para fazer referência a uma conta de integração ou da Função do Azure que você deseja implantar junto com seu aplicativo lógico. Siga estas diretrizes sobre como usar parâmetros em seu modelo de implantação para que o Designer de Aplicativo Lógico seja renderizado corretamente. 
 
 Você pode usar parâmetros do aplicativo lógico nesses tipos de gatilhos e ações:
 
@@ -114,33 +114,61 @@ Você pode usar parâmetros do aplicativo lógico nesses tipos de gatilhos e aç
 *   Aplicativo de funções
 *   Chamada APIM
 *   URL do tempo de execução da conexão de API
+*   Caminho de conexão da API
 
-E você pode usar essas funções de modelo: lista abaixo, que inclui parâmetros, variáveis, resourceId, concat e assim por diante. Por exemplo, eis como você pode substituir a ID de recurso da Função do Azure:
+E você pode utilizar funções de modelo, como parâmetros, variáveis, resourceId, concat, etc. Por exemplo, eis como você pode substituir a ID de recurso da Função do Azure:
 
 ```
 "parameters":{
     "functionName": {
-    "type":"string",
-    "minLength":1,
-    "defaultValue":"<FunctionName>"
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
     }
 },
 ```
 
-E onde você usa os parâmetros:
+E onde os parâmetros seriam utilizados:
 
 ```
 "MyFunction": {
-        "type": "Function",
-        "inputs": {
+    "type": "Function",
+    "inputs": {
         "body":{},
         "function":{
-        "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
         }
     },
     "runAfter":{}
 }
 ```
+Como outro exemplo, é possível parametrizar a operação de mensagem de envio do Barramento de Serviço:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl é opcional e pode ser removido do seu modelo, se houver.
+> 
+
 
 > [!NOTE] 
 > Para o Designer de Aplicativo Lógico funcionar quando ao usar parâmetros, você deve fornecer valores padrão, por exemplo:
