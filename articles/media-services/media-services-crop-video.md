@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Cortar vídeos com o Codificador de Mídia Padrão
@@ -142,9 +143,4 @@ As restrições a seguir se aplicam ao recurso de corte. Se elas não forem aten
 Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo a saber mais sobre os excelentes recursos oferecidos pelo AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
