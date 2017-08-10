@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
-ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: deec642a240cb6f088210748b0ef3a3636a88405
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Redefinir uma senha para um usuário no Portal Clássico do Azure
@@ -31,6 +30,9 @@ ms.lasthandoff: 03/01/2017
 >
 
 O Azure Active Directory (Azure AD) simplifica o processo de redefinição de senha do um usuário, caso ele se esqueça e fique bloqueado, ou enquanto realiza a manutenção da segurança de rotina. 
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. Para como redefinir uma senha de usuário no centro de administração do Azure AD, consulte [Redefinir a senha para um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
 
 1. Abra seu diretório.
 2. Selecione a guia **Usuários** e o nome de exibição do usuário que deseja alterar.

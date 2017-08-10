@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitore aplicativos de vários componentes com o Application Insights (visualização)
@@ -30,7 +29,9 @@ Usamos 'componente' aqui para indicar qualquer parte funcional de um aplicativo 
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Compartilhamento um único recurso do Application Insights 
 
-A principal técnica aqui é enviar telemetria de cada componente em seu aplicativo para o mesmo recurso do Application Insights, mas usar a propriedade `cloud_RoleName` para distinguir os componentes quando necessário. 
+A principal técnica aqui é enviar telemetria de cada componente em seu aplicativo para o mesmo recurso do Application Insights, mas usar a propriedade `cloud_RoleName` para distinguir os componentes quando necessário. O SDK do Application Insights adiciona a propriedade `cloud_RoleName` para a emissão dos componentes de telemetria. Por exemplo, o SDK adicionará um nome do site ou nome de função de serviço para a propriedade `cloud_RoleName`. Você pode substituir esse valor com um telemetryinitializer. O mapa de aplicativo usa a propriedade `cloud_RoleName` para identificar os componentes no mapa.
+
+Para obter mais informações sobre como substituir a propriedade `cloud_RoleName` consulte [Adicionar propriedades: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
 Em alguns casos, isso pode não ser apropriado e talvez você prefira usar recursos separados para diferentes grupos de componentes. Por exemplo, talvez seja necessário usar recursos diferentes para fins de cobranças ou gerenciamento. O uso de recursos separados significa que você não vê todos os componentes exibidos em um mapa de aplicativo único e não pode consultar componentes na [Análise](app-insights-analytics.md). Você também precisa configurar os recursos separados.
 
@@ -50,7 +51,7 @@ Configurar cada componente do aplicativo usando o método apropriado para seu ti
 
 Como atualizar ou instalar os pacotes do Application Insights no projeto para cada componente de servidor. Se você estiver usando o Visual Studio:
 
-1. Clique o botão direito do mouse no projeto e selecione **Gerenciar Pacotes Nuget**. 
+1. Clique o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**. 
 2. Selecione **Incluir pré-lançamento**.
 3. Se pacotes do Application Insights aparecerem nas atualizações, selecione-os. 
 

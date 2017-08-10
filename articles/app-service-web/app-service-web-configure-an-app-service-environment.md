@@ -1,6 +1,6 @@
 ---
-title: "Como configurar um Ambiente do Serviço de Aplicativo | Microsoft Docs"
-description: "Configuração, gerenciamento e monitoramento de Ambientes do Serviço de Aplicativo"
+title: "Como configurar um Ambiente do Serviço de Aplicativo v1"
+description: "Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="configuring-an-app-service-environment"></a>Configurando um Ambiente do Serviço de Aplicativo
+# <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
+
+> [!NOTE]
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada na infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Visão geral
 Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
@@ -44,25 +48,25 @@ A alteração da quantidade ou do tamanho é chamada de uma operação de escala
 
 * Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
 * Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
-* Você não pode adicionar instantaneamente uma nova instância de front-end. Pode demorar de duas a três horas para provisionar um.
+* Os front-ends podem demorar até uma hora para serem provisionados. 
 * Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.  
 
 **Trabalhos**Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
-* Não é possível adicionar trabalhadores instantaneamente. O provisionamento pode demorar de duas a três horas, independentemente de quantos estão sendo adicionados.
-* O dimensionamento de um recurso de computação para qualquer pool demorará de duas a três horas por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore de 20 a 30 horas para a conclusão.
+* Não é possível adicionar trabalhadores instantaneamente. Eles podem levar até uma hora para provisionar.
+* O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
 * se você alterar o tamanho dos recursos de computação usados em um pool de trabalho, causará inicializações a frio dos aplicativos em execução nesse pool de trabalho.
 
 Veja a seguir a maneira mais rápida de alterar o tamanho do recurso de computação de um pool de trabalho que não esteja executando aplicativos:
 
-* Reduzir verticalmente a contagem de instâncias até 0. Levará cerca de 30 minutos para desalocar suas instâncias.
-* Selecionar o novo tamanho de computação e o número de instâncias. A partir daqui, a conclusão demorará de duas a três horas.
+* Reduza a quantidade de trabalhadores para 2.  A escala mínima de redução de tamanho no portal é 2. A desalocação de suas instâncias vai levar alguns minutos. 
+* Selecionar o novo tamanho de computação e o número de instâncias. A partir daqui, a conclusão demorará até duas horas.
 
 Se os aplicativos exigirem um recurso de computação maior, você não poderá aproveitar a orientação anterior. Em vez de alterar o tamanho do pool de trabalho que hospeda esses aplicativos, você pode preencher outro pool de trabalho com trabalhos do tamanho desejado e mover seus aplicativos para esse pool.
 
-* Criar instâncias adicionais com o tamanho de computação necessário em outro pool de trabalho. Isso levará de duas a três horas para ser concluído.
+* Criar instâncias adicionais com o tamanho de computação necessário em outro pool de trabalho. Isso levará uma hora para ser concluído.
 * Reatribuir os Planos de Serviço de Aplicativo que hospedam os aplicativos que precisam de um tamanho maior para o pool de trabalho recém-configurado. Essa é uma operação rápida que deve demorar menos de um minuto para ser concluída.  
-* Reduzir verticalmente o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Essa operação demora cerca de 30 minutos para ser concluída.
+* Reduzir verticalmente o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Essa operação leva alguns minutos para ser concluída.
 
 **Dimensionamento automático**: uma das ferramentas que podem ajudá-lo a gerenciar o consumo de recursos de computação é o dimensionamento automático. Você pode usar o dimensionamento automático para o front-end ou para os pools de trabalho. Você pode aumentar suas instâncias de algum tipo de pool de manhã e reduzi-las durante a noite. Ou você pode adicionar instâncias quando o número de trabalhador disponíveis em um pool de trabalho cair abaixo de um certo limite.
 
@@ -88,11 +92,11 @@ Ao contrário do serviço hospedado que contém o ASE, a [rede virtual][virtualn
 
 A rede virtual que é usada para hospedar um ASE pode usar endereços IP RFC1918 privados ou endereços IP públicos.  Se você deseja usar um intervalo de IP que não é coberto pelo RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), precisa criar sua rede virtual e sub-rede a ser usada pelo seu ASE antes de criá-lo.
 
-Já que esse recurso coloca o serviço de aplicativo do Azure em sua rede virtual, isso significa que seus aplicativos hospedados em seu ASE agora podem acessar diretamente recursos disponibilizados por meio de VPNs (redes virtuais) site a site ou Rota Expressa. Os aplicativos em seus ambientes do serviço de aplicativo não exigem recursos de rede adicionais para acessar os recursos disponíveis para a rede virtual hospedando seu Ambiente do Serviço de Aplicativo. Isso significa que você não precisa usar a Integração VNET ou as Conexões Híbridas para acessar recursos na sua rede virtual ou conectados a ela. Entretanto, você ainda pode usar ambos os recursos para acessar recursos em redes que não estejam conectadas à sua rede virtual.
+Já que esse recurso coloca o serviço de aplicativo do Azure em sua rede virtual, isso significa que seus aplicativos hospedados em seu ASE agora podem acessar diretamente recursos disponibilizados por meio de VPNs (redes virtuais) site a site ou o ExpressRoute. Os aplicativos em seus ambientes do serviço de aplicativo não exigem recursos de rede adicionais para acessar os recursos disponíveis para a rede virtual hospedando seu Ambiente do Serviço de Aplicativo. Isso significa que você não precisa usar a Integração VNET ou as Conexões Híbridas para acessar recursos na sua rede virtual ou conectados a ela. Entretanto, você ainda pode usar ambos os recursos para acessar recursos em redes que não estejam conectadas à sua rede virtual.
 
 Por exemplo, você pode usar a Integração VNET para integrar-se a uma Rede Virtual que esteja em sua assinatura mas que não esteja conectada à rede virtual em que seu ASE está. Você também ainda pode usar as Conexões Híbridas para acessar recursos em outras redes, como faria normalmente.  
 
-Caso você tenha configurado sua rede virtual com uma VPN da Rota Expressa, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com o ExpressRoute, confira [Executando um Ambiente de Serviço de Aplicativo em uma rede virtual com o ExpressRoute][ExpressRoute].
+Caso você tenha configurado sua rede virtual com uma VPN do ExpressRoute, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com o ExpressRoute, confira [Executando um Ambiente de Serviço de Aplicativo em uma rede virtual com o ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Protegendo o tráfego de entrada
 Há dois métodos principais para controlar o tráfego de entrada para seu ASE.  Você pode usar NSGs (Grupos de Segurança de Rede) para controlar quais endereços IP podem acessar seu ASE conforme descrito aqui [Como controlar o tráfego de entrada em um Ambiente de Serviço de Aplicativo](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar seu ASE com um ILB (Balanceador de Carga Interno).  Esses recursos também podem ser usados juntos para restringir o acesso usando NSGs para seu ASE ILB.

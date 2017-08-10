@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/26/2017
 ms.author: byvinyal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
@@ -60,6 +59,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviços do BizTalk](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Serviços de Nuvem](#cloud-services-limits)
+* [Instâncias de Contêiner](#container-instances-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Análises Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -116,6 +116,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limites de conjuntos de escala de máquina virtual
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+### <a name="container-instances-limits"></a>Limites de Instâncias de Contêiner
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="networking-limits"></a>Limites de rede
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -182,7 +185,7 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 ### <a name="documentdb-limits"></a>Limites do DocumentDB
 O DocumentDB é um banco de dados de escala global no qual armazenamento e taxa de transferência podem ser dimensionados para manipular qualquer solicitação de seu aplicativo. Se você tiver alguma dúvida sobre a escala fornecida pelo DocumentDB, envie um email para askdocdb@microsoft.com.
 
-### <a name="mobile-engagement-limits"></a>Limites do Engajamento Móvel
+### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement 
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Limites do Search

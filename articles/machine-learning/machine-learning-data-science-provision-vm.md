@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Provisionar uma Máquina Virtual de Ciência de Dados da Microsoft
-A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
+A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máquina virtual) do Microsoft Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
 
 * Microsoft R Server Developer Edition
 * Distribuição do Anaconda Python
@@ -32,9 +31,9 @@ A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de máquina v
 * SQL Server 2016 Developer Edition
 * Ferramentas Machine learning e Data Analytics
   * [CNTK (Kit de Ferramentas de Rede Computacional)](https://github.com/Microsoft/CNTK): um software de aprendizado aprofundado da Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de machine learning rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
-  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao aprendizado de máquina em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
+  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
   * [mxnet](https://github.com/dmlc/mxnet): uma estrutura de aprendizado profunda criada para eficiência e flexibilidade
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): um software de mineração de dados visual e machine learning em Java.
   * [Apache Drill](https://drill.apache.org/): um Mecanismo de consulta SQL, livre de esquema, para Hadoop, NoSQL e Armazenamento em Nuvem.  Oferece suporte a interfaces ODBC e JDBC para habilitar consultas NoSQL e arquivos de ferramentas de BI padrão, como Power BI, Excel, Tableau.
@@ -42,7 +41,13 @@ A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de máquina v
 * Git, incluindo Git Bash para trabalhar com repositórios de código-fonte, incluindo GitHub e Visual Studio Team Services
 * Portas do Windows de vários utilitários de linha de comando populares do Linux (incluindo awk, sed, perl, grep, find, wget, curl, etc.) acessíveis pelo prompt de comando. 
 
-A ciência de dados envolve a iteração em uma sequência de tarefas: encontrar, carregar e pré-processar dados, compilar e testar modelos, bem como implantar os modelos para o consumo em aplicativos inteligentes. Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e baixar e instalá-las. A Máquina Virtual de Ciência de Dados da Microsoft pode facilitar essa carga fornecendo uma imagem pronta para uso que pode ser provisionada no Azure com todas as diversas ferramentas populares pré-instaladas e configuradas. 
+Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
+
+1. Localizar, carregar e pré-processar dados
+2. Compilar e testar modelos
+3. Implantar os modelos para consumo em aplicativos inteligentes
+
+Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e baixar e instalá-las. A Máquina Virtual de Ciência de Dados da Microsoft pode facilitar essa carga fornecendo uma imagem pronta para uso que pode ser provisionada no Azure com todas as diversas ferramentas populares pré-instaladas e configuradas. 
 
 A Máquina Virtual de Ciência de Dados da Microsoft impulsiona seu projeto de análise. Ela permite que você trabalhe nas tarefas em várias linguagens, incluindo R, Python, SQL e C#. O Visual Studio fornece um IDE para desenvolver e testar seu código que é fácil de usar. O SDK do Azure incluído na VM permite que você compile seus aplicativos usando vários serviços na plataforma de nuvem da Microsoft. 
 
@@ -92,20 +97,21 @@ Depois de criar a máquina virtual, você poderá entrar na área de trabalho re
 Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas. 
 
 ## <a name="how-to-create-a-strong-password-for-jupyter-and-start-the-notebook-server"></a>Como criar uma senha forte para Jupyter e iniciar o servidor de notebook
-Por padrão, o servidor de notebook Jupyter é pré-configurado, mas desabilitado na VM até que você defina uma senha do Jupyter. Para criar uma senha forte para o servidor de notebook Jupyter instalado no computador, execute o seguinte comando em um prompt de comando na Máquina Virtual de Ciência de Dados OU clique no atalho da área de trabalho que fornecemos chamado **Definir Senha e Iniciar o Jupyter** de uma conta de administrador de VM local.
+Por padrão, o servidor de notebook Jupyter é pré-configurado, mas desabilitado na VM até que você defina uma senha do Jupyter. Para criar uma senha forte para o servidor de bloco de anotações do Jupyter instalado no computador, execute o comando a seguir em um prompt de comando na Máquina Virtual de Ciência de Dados OU clique duas vezes no atalho da área de trabalho que fornecemos chamado **Definir Senha e Iniciar o Jupyter** em uma conta Administrador de VM local.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
 Siga as mensagens e escolha uma senha forte quando receber a solicitação.
 
-O script acima criará um hash de senha e o armazenará no arquivo de configuração do Jupyter localizado em: **C:\ProgramData\jupyter\jupyter_notebook_config.py** sob o nome do parâmetro ***c.NotebookApp.password***.
+O script anterior cria um hash de senha e o armazena no arquivo de configuração do Jupyter localizado em: **C:\ProgramData\jupyter\jupyter_notebook_config.py** com o nome de parâmetro ***c.NotebookApp.password***.
 
-O script também habilitará e executará o servidor Jupyter em segundo plano. O servidor de Jupyter é criado como uma tarefa do windows no Agendador de Tarefas do Windows chamado **Start_IPython_Notebook**.  Você terá que aguardar alguns segundos depois de configurar a senha e antes de abrir o notebook em seu navegador. Consulte a seção abaixo intitulada **Notebook do Jupyter** sobre como acessar o servidor de notebook do Jupyter. 
+O script também habilita e executa o servidor Jupyter em segundo plano. O servidor de Jupyter é criado como uma tarefa do windows no Agendador de Tarefas do Windows chamado **Start_IPython_Notebook**.  Você terá que aguardar alguns segundos depois de configurar a senha e antes de abrir o notebook em seu navegador. Consulte a seção abaixo intitulada **Notebook do Jupyter** sobre como acessar o servidor de notebook do Jupyter. 
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Ferramentas Instaladas na Máquina Virtual de Ciência de Dados da Microsoft
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
-Se você quiser usar o R para sua análise, a VM tem a edição Microsoft R Server Developer instalada. O Microsoft R Server é uma plataforma de análise empresarial amplamente implementável com base em R e com suporte, escalonável e segura. Com suporte a diversas estatísticas de Big Data, modelos de previsão e recursos de aprendizado de máquina, o R Server dá suporte a uma gama completa de análises: exploração, análise, visualização e modelagem. Usando e estendendo o software livre R, o Microsoft R Server é totalmente compatível com scripts e funções R e pacotes CRAN, a fim de analisar os dados em escala empresarial. Ele também aborda as limitações de memória interna do R de software livre, adicionando o processamento paralelo e em partes dos dados. Isso permite que você execute análises nos dados muito maiores do que o que cabe na memória principal.  O Visual Studio Community Edition incluído na VM contém a extensão Ferramentas do R para Visual Studio que fornece um IDE completo para trabalhar com o R. Você também pode baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com). 
+Se você quiser usar o R para sua análise, a VM tem a edição Microsoft R Server Developer instalada. O Microsoft R Server é uma plataforma de análise empresarial amplamente implementável com base em R e com suporte, escalonável e segura. Com suporte a diversas estatísticas de Big Data, modelos de previsão e recursos de machine learning, o R Server dá suporte a uma gama completa de análises: exploração, análise, visualização e modelagem. Usando e estendendo o software livre R, o Microsoft R Server é totalmente compatível com scripts e funções R e pacotes CRAN, a fim de analisar os dados em escala empresarial. Ele também aborda as limitações de memória interna do R de software livre, adicionando o processamento paralelo e em partes dos dados. Isso permite que você execute análises nos dados muito maiores do que o que cabe na memória principal.  O Visual Studio Community Edition incluído na VM contém a extensão Ferramentas do R para Visual Studio que fornece um IDE completo para trabalhar com o R. Você também pode baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com). 
 
 ### <a name="python"></a>Python
 Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**).
@@ -199,6 +205,6 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Navegue até **C:\Arquivos de Programas\Microsoft SQL Server\130\R_SERVER\library\RevoScaleR\demoScripts** para obter amostras de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.  
 * Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visite a [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com) para obter amostras de aprendizado de máquina e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu **Iniciar** e na área de trabalho na máquina virtual para essa galeria.
+* Visite a [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com) para obter amostras de machine learning e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu **Iniciar** e na área de trabalho na máquina virtual para essa galeria.
 
 

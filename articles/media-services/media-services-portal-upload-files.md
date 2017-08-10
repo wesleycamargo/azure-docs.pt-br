@@ -1,5 +1,5 @@
 ---
-title: " Carregar arquivos em uma conta dos Serviços de Mídia usando o portal do Azure | Microsoft Docss"
+title: " Carregar arquivos em uma conta dos Serviços de Mídia usando o Portal do Azure | Microsoft Docs"
 description: "Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta do Serviços de Mídia do Azure usando o portal do Azure"
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
-ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8b9a7a266259077d49a38d51d7f801f420cc6315
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Carregar arquivos em uma conta do Serviços de Mídia usando o portal do Azure
@@ -68,10 +69,5 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

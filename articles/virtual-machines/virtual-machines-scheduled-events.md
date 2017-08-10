@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 062ab97d00622419e2bca1fcd0a17f6b6b4f6f81
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 793803bfc12059a68ec881da9de37116f7a0eb8c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-metadata-service---scheduled-events-preview"></a>Serviço de Metadados do Azure – Eventos Agendados (Visualização)
@@ -42,8 +41,8 @@ Em muitos outros casos, a disponibilidade geral do serviço pode ser melhorada a
 Há casos em que a notificação de um administrador sobre um evento futuro ou o registro desse evento ajudam a melhorar a capacidade de manutenção de aplicativos hospedados na nuvem.
 
 O Serviço de Metadados do Azure revela Eventos Agendados nos seguintes casos de uso:
--    Manutenção iniciada na plataforma (por exemplo, distribuição do sistema operacional do Host)
--    Chamadas iniciadas pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
+-   Manutenção iniciada na plataforma (por exemplo, distribuição do sistema operacional do Host)
+-   Chamadas iniciadas pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
 
 
 ## <a name="scheduled-events---the-basics"></a>Eventos Agendados – Noções básicas  
@@ -69,9 +68,16 @@ Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metada
 ### <a name="enabling-scheduled-events"></a>Habilitar Eventos Agendados
 Na primeira vez em que fizer uma solicitação de eventos programados, o Azure habilitará implicitamente o recurso em sua Máquina Virtual. Como resultado, você deve esperar um atraso na resposta em sua primeira chamada de até dois minutos.
 
-### <a name="testing-your-logic-with-user-initiated-operations"></a>Testar a lógica com as operações iniciadas pelo usuário
-Para testar a lógica, é possível utilizar Portal do Azure, API, CLI ou o PowerShell para iniciar operações que resultam em eventos agendados. Reiniciar uma máquina virtual resulta em um evento agendado com um tipo de evento igual para `Reboot`. Reimplantar de uma máquina virtual resulta em um evento agendado com um tipo de evento igual a `Redeploy`.
-Em ambos os casos, a operação iniciada pelo usuário levará mais tempo para ser concluída, já que os eventos agendados permitem que um aplicativo tenha mais tempo para desligar normalmente. 
+### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo usuário
+A manutenção de máquinas virtuais iniciada pelo usuário pelo Portal do Azure, API, CLI ou PowerShell resultará em Eventos Agendados. Isso permite que você teste a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo se prepare para manutenção iniciada pelo usuário.
+
+Reiniciar uma máquina virtual agendará um evento com tipo `Reboot`. Reimplantar uma máquina virtual agendará um evento com tipo `Redeploy`.
+
+> [!NOTE] 
+> No momento, no máximo 10 operações de manutenção iniciadas pelo usuário podem ser agendadas simultaneamente. Esse limite será aliviado antes da Disponibilidade Geral de Eventos Agendados.
+
+> [!NOTE] 
+> A manutenção iniciada pelo usuário que resulta em Eventos Agendados no momento não é configurável. A capacidade de configuração está prevista para uma versão futura.
 
 ## <a name="using-the-api"></a>Usando a API
 
@@ -373,3 +379,4 @@ if __name__ == '__main__':
 - Leia mais sobre as API disponíveis no [serviço de metadados da instância](virtual-machines-instancemetadataservice-overview.md).
 - Saiba mais sobre a [manutenção planejada para máquinas virtuais do Windows no Azure](windows/planned-maintenance.md).
 - Saiba mais sobre a [manutenção planejada para máquinas virtuais do Linux no Azure ](linux/planned-maintenance.md).
+

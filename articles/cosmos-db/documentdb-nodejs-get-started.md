@@ -15,12 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: fef21c512aa8a6af32cec20e2e44cf4e20ac24ae
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Tutorial do Node.js: aplicativo de console Node.js do DocumentDB
@@ -84,19 +83,19 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tiver uma conta que desej
 ## <a id="Config"></a>Etapa 3: definir as configurações do aplicativo
 Abra ```config.js``` em seu editor de texto favorito.
 
-Então, copie e cole o trecho de código a seguir e defina as propriedades ```config.endpoint``` e ```config.primaryKey``` para o uri do ponto de extremidade do Banco de Dados de Documentos e a chave primária. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
+Então, copie e cole o trecho de código a seguir e defina as propriedades ```config.endpoint``` e ```config.primaryKey``` para o uri do ponto de extremidade do Azure Cosmos DB e a chave primária. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
 
 ![Tutorial do Node.js ‒ captura de tela do Portal do Azure mostrando uma conta do Azure Cosmos DB com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Azure Cosmos DB e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves ‒ banco de dados do Nó][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
 Copie e cole ```database id```, ```collection id``` e ```JSON documents``` de seu objeto ```config``` abaixo de onde você configura suas propriedades ```config.endpoint``` e ```config.authKey```. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a [ferramenta de Migração de Dados](import-data.md) do Azure Cosmos DB em vez de adicionar as definições do documento.
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
     // ADD THIS PART TO YOUR CODE
@@ -166,7 +165,7 @@ Copie e cole ```database id```, ```collection id``` e ```JSON documents``` de se
     };
 
 
-As definições do banco de dados, coleção e documento agirão como ```database id```, ```collection id``` de seu Banco de Dados de Documentos e dados dos documentos.
+As definições do banco de dados, coleção e documento agirão como ```database id```, ```collection id``` de seu Azure Cosmos DB e dados dos documentos.
 
 Por fim, exporte o objeto ```config```, para que você possa fazer referência a ele no arquivo ```app.js```.
 
@@ -196,10 +195,10 @@ Copie e cole o código para usar ```config.endpoint``` e ```config.primaryKey```
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
-Agora que você tem o código para inicializar o cliente do banco de dados de documentos, veremos como trabalhar com os recursos do Banco de Dados de Documentos.
+Agora que você tem o código para inicializar o cliente do Azure Cosmos DB, veremos como trabalhar com os recursos do Azure Cosmos DB.
 
 ## <a name="step-5-create-a-node-database"></a>Etapa 5: criar um banco de dados do Nó
-Copie e cole o código a seguir para configurar o status HTTP para Não Encontrado, a url do banco de dados e a url da coleção. Essas urls são como o cliente do Banco de Dados de Documentos encontrará o banco de dados correto e a coleção.
+Copie e cole o código a seguir para configurar o status HTTP para Não Encontrado, a url do banco de dados e a url da coleção. Essas urls são como o cliente do Azure Cosmos DB encontrará o banco de dados correto e a coleção.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
@@ -314,10 +313,10 @@ Copie e cole o código abaixo da chamada para **getDatabase** para executar a fu
 
 No terminal, localize o arquivo ```app.js``` e execute o comando: ```node app.js```
 
-Parabéns! Você criou uma coleção de Bancos de Dados de Documentos com êxito.
+Parabéns! Você criou uma coleção do Azure Cosmos DB com êxito.
 
 ## <a id="CreateDoc"></a>Etapa 7: Criar um documento
-Um [documento](documentdb-resources.md#documents) pode ser criado usando a função [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora você pode inserir um documento no Banco de Dados de Documentos.
+Um [documento](documentdb-resources.md#documents) pode ser criado usando a função [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora você pode inserir um documento no Azure Cosmos DB.
 
 Copie e cole a função **getFamilyDocument** embaixo da função **getCollection** para criar documentos que contêm os dados JSON salvos no objeto ```config```. Novamente, vamos verificar se um documento com a mesma ID ainda não existe.
 
@@ -366,14 +365,14 @@ Copie e cole o código abaixo da chamada para **getCollection** para executar a 
 
 No terminal, localize o arquivo ```app.js``` e execute o comando: ```node app.js```
 
-Parabéns! Você criou os documentos do Banco de Dados de Documentos com êxito.
+Parabéns! Você criou um documento do Azure Cosmos DB com êxito.
 
 ![Tutorial do Node.js ‒ diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ## <a id="Query"></a>Etapa 8: Consultar recursos do Azure Cosmos DB
 O Azure Cosmos DB tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em sua coleção.
 
-Copie e cole a função **queryCollection** embaixo da função **getFamilyDocument** no arquivo app.js. O Banco de Dados de Documentos dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](documentdb-sql-query.md).
+Copie e cole a função **queryCollection** embaixo da função **getFamilyDocument** no arquivo app.js. O Azure Cosmos DB dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -405,11 +404,11 @@ Copie e cole a função **queryCollection** embaixo da função **getFamilyDocum
     };
 
 
-O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados de Documentos é chamada em relação à coleção que você criou.
+O diagrama a seguir ilustra como a sintaxe de consulta SQL do Azure Cosmos DB é chamada em relação à coleção que você criou.
 
 ![Tutorial do Node.js ‒ Diagrama que ilustra o escopo e o significado da consulta ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-A palavra-chave [FROM](documentdb-sql-query.md#FromClause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
+A palavra-chave [FROM](documentdb-sql-query.md#FromClause) é opcional na consulta, pois as consultas do Azure Cosmos DB já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Azure Cosmos DB fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
 Copie e cole o código abaixo da chamada para **getFamilyDocument** para executar a função **queryCollection**.
 

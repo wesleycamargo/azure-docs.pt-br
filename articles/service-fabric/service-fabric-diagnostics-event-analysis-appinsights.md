@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -75,7 +74,7 @@ No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as d
 
 Nos dois trechos de código acima, o nome "applicationInsights" foi utilizado para descrever o coletor. Isso não é um requisito e, enquanto o nome do coletor estiver incluído em "coletores", você poderá definir o nome para qualquer cadeia de caracteres.
 
-Atualmente, os logs do cluster aparecerão como rastreamentos no visualizador de logs do AI. Como a maioria dos rastreamentos provenientes do nível de infraestrutura são do tipo "Informações", você também poderá considerar alterar a configuração do coletor para enviar somente logs do tipo "Crítico" ou "Erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Atualmente, os logs do cluster aparecerão como rastreamentos no visualizador de logs do AI. Como a maioria dos rastreamentos provenientes da plataforma é do nível “Informativo”, considere também a alteração da configuração do coletor para enviar somente logs do tipo “Crítico” ou “Erro”. Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >Se você utilizar IKey do AI incorretamente no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizar o cluster/reimplementá-la. 

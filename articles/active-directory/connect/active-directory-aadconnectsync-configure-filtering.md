@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -246,7 +246,7 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 
 Se for necessário, você pode criar mais regras do primeiro tipo, para incluir outros objetos para sincronização.
 
-### <a name="outbound-filtering"></a>Filtragem de entrada
+### <a name="outbound-filtering"></a>Filtragem de saída
 Em alguns casos, é necessário fazer a filtragem somente depois que os objetos já estiverem no metaverso. Por exemplo, pode ser necessário examinar o atributo de email na floresta de recursos e o atributo userPrincipalName na floresta de contas para determinar se um objeto deve ser sincronizado. Nesses casos, você cria a filtragem na regra de saída.
 
 Neste exemplo, você altera a filtragem para que somente usuários com emails e o userPrincipalName terminados em @contoso.com sejam sincronizados:
@@ -297,6 +297,8 @@ Agora é hora de habilitar o agendador novamente.
 
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
 Você pode configurar a filtragem baseada em grupo quando instalar o Azure AD Connect pela primeira vez usando a [instalação personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico. Ao usar a filtragem baseada em UO em conjunto com a filtragem baseada em grupos, as UOs em que o grupo e seus membros estão localizados devem ser incluídas.
+
+Durante a sincronização de várias florestas do AD, você pode configurar a filtragem baseada em grupo com a especificação de um grupo diferente para cada conector do AD. Se você deseja sincronizar um usuário em um AD floresta e o mesmo usuário tem um ou mais objetos FSP (entidade de segurança externa) correspondentes em outras florestas do AD, você deve garantir que o objeto de usuário e todos os seus objetos FSP correspondentes estão no escopo da filtragem baseada em grupo. Se um ou mais dos objetos FSP são excluídos por filtragem baseada em grupo, o objeto de usuário não será sincronizado para o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre a configuração da [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3337e3ad36792c1dcd0eaf183a2b695503b8f02c
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: e1eff2abf8512870661cbe539bd34aa5c33ded14
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -45,7 +44,7 @@ Essas ferramentas são usadas para executar algumas das operações neste docume
 
 ## <a name="log-and-event-sources"></a>Origem do evento e log
 
-### <a name="service-fabric-infrastructure-events"></a>Eventos de infraestrutura do Service Fabric
+### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
 Conforme discutido [neste artigo](service-fabric-diagnostics-event-generation-infra.md), o Service Fabric estabelece alguns canais de registro prontos, dos quais os seguintes canais facilmente são configurados com o WAD para enviar dados de monitoramento e diagnóstico para uma tabela de armazenamento ou outro lugar:
   * Eventos operacionais: operações de nível superior que a plataforma do Service Fabric executa. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização. Eles são emitidos como eventos de Rastreamento de Eventos para Windows (ETW)
   * [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)

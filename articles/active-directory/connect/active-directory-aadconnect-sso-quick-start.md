@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 451d4fd24dc506fb4a659edb710ab67a66cbbde7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -33,6 +33,7 @@ Para implantar o SSO Contínuo, você precisa seguir estas etapas:
 2. *Habilitar o recurso*: ativar o SSO Contínuo em seu locatário usando o Azure AD Connect.
 3. *Distribuir o recurso*: usar a Política de Grupo para distribuir o recurso para alguns ou todos os seus usuários.
 4. *Testar o recurso*: testar a entrada do usuário usando o SSO Contínuo.
+5. *Sobrepor chaves*: Frequentemente sobrepor chaves de descriptografia do Kerberos de contas de computador.
 
 ## <a name="step-1-check-prerequisites"></a>Etapa 1: verificar pré-requisitos
 
@@ -104,14 +105,19 @@ O Mozilla Firefox não faz a autenticação Kerberos automaticamente. Cada usuá
 4. Insira "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" no campo.
 5. Clique em "OK" e reabra o navegador.
 
->[!NOTE]
->O SSO Contínuo não funciona no modo de navegação particular no Firefox.
+#### <a name="safari-on-mac-os"></a>Safari no Mac OS
 
-#### <a name="google-chrome-on-mac"></a>Google Chrome no Mac
+Certifique-se de que o computador executando o Mac OS é associado ao AD. Para obter instruções sobre como fazer isso [aqui](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-Para o Google Chrome no Mac e outras plataformas que não sejam Windows, consulte [este artigo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar as URLs do Azure AD à lista de permissões para uma autenticação integrada.
+#### <a name="google-chrome-on-mac-os"></a>Google Chrome no Mac OS
+
+Para o Google Chrome no Mac OS e outras plataformas que não sejam Windows, consulte [este artigo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar as URLs do Azure AD à lista de permissões para uma autenticação integrada.
 
 O uso de extensões de Política de Grupo do Active Directory de terceiros para distribuir as URLs do Azure AD para o Firefox e o Google Chrome em usuários do Mac está fora do escopo deste artigo.
+
+#### <a name="known-limitations"></a>Limitações conhecidas
+
+O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
 
 ## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 
@@ -127,6 +133,13 @@ Para testar o cenário em que o usuário insere somente o nome de usuário, mas 
 Para testar o cenário em que o usuário não tenha que inserir o nome de usuário ou a senha: 
 - Entre no *https://myapps.microsoft.com/contoso.onmicrosoft.com* em uma nova sessão privativa do navegador. Substitua "*contoso*" pelo nome do seu locatário.
 - Ou entre no *https://myapps.microsoft.com/contoso.com* em uma nova sessão privativa do navegador. Substitua "*contoso.com*" por um domínio verificado (não um domínio federado) em seu locatário.
+
+## <a name="step-5-roll-over-keys"></a>Etapa 5: Sobrepor chaves
+
+Na etapa 2, o Azure AD Connect cria contas de computador (representando o AD do Azure) em todas as florestas do AD no qual você habilitou o SSO contínuo. Saiba mais detalhes [aqui](active-directory-aadconnect-sso-how-it-works.md). Para maior segurança, é recomendável que você sobreponha frequentemente chaves de descriptografia Kerberos dessas contas de computador.
+
+>[!IMPORTANT]
+>Você não precisa executar essa etapa _imediatamente_ depois de habilitar o recurso. Sobrepor as chaves de descriptografia Kerberos pelo menos a cada 30 dias.
 
 ## <a name="next-steps"></a>Próximas etapas
 

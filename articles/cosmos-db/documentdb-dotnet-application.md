@@ -4,7 +4,7 @@ description: "Tutorial do ASP.NET MVC para criar um aplicativo Web MVC usando o 
 keywords: tutorial do asp.net mvc, desenvolvimento de aplicativos web, aplicativo web mvc, passo a passo do tutorial do asp net mvc
 services: cosmos-db
 documentationcenter: .net
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/25/2016
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6623265ea98370db74fd9e2061d1128c44e9cd0e
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cc8d26864f455572ad4e2652afbff7447f87f726
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB
@@ -101,7 +100,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 ## <a name="_Toc395637767"></a>Etapa 3: Adicionar o Azure Cosmos DB ao seu projeto de aplicativo Web MVC
 Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários para esta solução, vamos para o verdadeiro propósito deste tutorial, que é adicionar o Azure Cosmos DB ao nosso aplicativo Web MVC.
 
-1. O SDK .NET do Banco de Dados de Documentos é distribuído como um pacote NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio clicando com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicando em **Gerenciar Pacotes NuGet**.
+1. O SDK .NET do Azure Cosmos DB é empacotado e distribuído como um pacote do NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio clicando com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicando em **Gerenciar Pacotes NuGet**.
    
       ![Captura de tela das opções do botão direito do mouse para o projeto de aplicativo Web no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/documentdb-dotnet-application/image21.png)
    
@@ -110,7 +109,7 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
    
     Com base nos resultados, instale o pacote da **Biblioteca de Clientes do BD Cosmos do Microsoft Azure** . Essa ação baixará e instalará o pacote do Azure Cosmos DB, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Visualização** e em **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
    
-      ![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure realçada](./media/documentdb-dotnet-application/nuget.png)
+      ![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Microsoft Azure Cosmos DB realçada](./media/documentdb-dotnet-application/nuget.png)
    
       Como alternativa, você pode usar o Console do Gerenciador de Pacotes para instalar o pacote. Para fazer isso, no menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**. No prompt, digite o seguinte.
    
@@ -329,7 +328,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
         <add key="collection" value="Items"/>
 4. Agora atualize os valores de *endpoint* e *authKey* usando a folha Chaves do Portal do Azure. Use o **URI** da folha Chaves como o valor da configuração endpoint e use a **CHAVE PRIMÁRIA** ou a **CHAVE SECUNDÁRIA** da folha Chaves como o valor da configuração authKey.
 
-    Isso trata de conectar o repositório do Banco de Dados de Documentos. Agora, vamos adicionar nossa lógica do aplicativo.
+    Isso trata de conectar o repositório do Azure Cosmos DB. Agora, vamos adicionar nossa lógica do aplicativo.
 
 1. A primeira coisa que desejamos fazer com um aplicativo de lista de tarefas é exibir os itens incompletos.  Copie e cole o seguinte trecho de código em qualquer lugar na classe **DocumentDBRepository** .
    
@@ -404,7 +403,7 @@ Vamos adicionar um código a DBRepository e ItemController do Cosmos do Azure pa
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Este método simplesmente pega algum objeto passado para ele e persiste-o no Banco de Dados de Documentos.
+   Este método simplesmente pega algum objeto passado para ele e persiste-o no Azure Cosmos DB.
 2. Abra o arquivo ItemController.cs e adicione o seguinte trecho de código à classe. É assim que o ASP.NET MVC passa a saber o que fazer para a ação **Criar** . Nesse caso, basta renderizar a exibição de Create.cshtml associada criada anteriormente.
    
         [ActionName("Create")]
@@ -567,7 +566,7 @@ Se receber a mensagem "Erro ao processar a solicitação" ao tentar implantar o 
 ## <a name="_Toc395637775"></a>Próximas etapas
 Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP.NET MVC usando o Azure Cosmos DB e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][GitHub]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
 
-Para adicionar outras funcionalidades a seu aplicativo, examine as APIs disponíveis na [Biblioteca .NET do DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
+Para adicionar outras funcionalidades a seu aplicativo, examine as APIs disponíveis na [Biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

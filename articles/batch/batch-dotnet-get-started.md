@@ -364,7 +364,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 
 Ao criar um pool com [CreatePool][net_pool_create], você especificará diversos parâmetros, como o número de nós de computação, o [tamanho dos nós](../cloud-services/cloud-services-sizes-specs.md) e o sistema operacional dos nós. Em *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar o Windows Server 2012 R2 do [Serviços de Nuvem](../cloud-services/cloud-services-guestos-update-matrix.md). 
 
-Você também pode criar pools de nós de computação que são VMs (máquinas virtuais) do Azure especificando a [VirtualMachineConfiguration] [ net_virtualmachineconfiguration] para o pool. Você pode criar um conjunto de nós de computação de VM de [imagens Linux](batch-linux-nodes.md) ou Windows. A fonte para as imagens de VM pode ser:
+Você também pode criar pools de nós de computação que são VMs (máquinas virtuais) do Azure especificando a [VirtualMachineConfiguration][net_virtualmachineconfiguration] para o pool. Você pode criar um conjunto de nós de computação de VM de [imagens Linux](batch-linux-nodes.md) ou Windows. A fonte para as imagens de VM pode ser:
 
 - O [Marketplace de Máquinas Virtuais do Azure][vm_marketplace], que fornece imagens de Windows e Linux prontas para uso. 
 - Uma imagem personalizada preparada e fornecida por você. Para obter mais detalhes sobre imagens personalizadas, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md#pool).

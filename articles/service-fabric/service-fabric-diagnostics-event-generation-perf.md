@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -32,12 +32,6 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 
 | Categoria do Contador | Nome do contador |
 | --- | --- |
-| DiscoFísico(Total) | Média Tamanho de Fila de Leitura de Disco |
-| DiscoFísico(Total) | Média Tamanho de Fila de Gravação de Disco |
-| DiscoFísico(Total) | Leituras de Disco/s  |
-| DiscoFísico(Total) | Bytes Lidos no Disco/s  |
-| DiscoFísico(Total) | Gravações de Disco/s |
-| DiscoFísico(Total) | Bytes Gravados no Disco/s |
 | PhysicalDisk(per Disco) | Média Tamanho de Fila de Leitura de Disco |
 | PhysicalDisk(per Disco) | Média Tamanho de Fila de Gravação de Disco |
 | PhysicalDisk(per Disco) | Média de segundos/Leitura do Disco |
@@ -85,6 +79,6 @@ Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [geração de eventos no nível da infraestrutura](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
+* Saiba mais sobre a [geração de eventos no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
 * Coletar métricas de desempenho por meio dos [Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md)
 

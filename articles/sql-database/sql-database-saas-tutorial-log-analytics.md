@@ -1,11 +1,11 @@
 ---
 title: "Usar o Log Analytics com um aplicativo multilocatário de Banco de Dados SQL | Microsoft Docs"
-description: Configurar e usar o Log Analytics (OMS) com o aplicativo WTP (Wingtip Tickets) de exemplo de Banco de Dados SQL
+description: Configurar e usar o Log Analytics (OMS) com o aplicativo Wingtip SaaS de exemplo do Banco de Dados SQL do Azure
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: 813a947ce4deb0755b44f4d287e00ae5218abfc4
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wtp-sample-saas-app"></a>Configurar e usar o Log Analytics (OMS) com o aplicativo SaaS WTP de exemplo
+# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Configurar e usar o Log Analytics (OMS) com o aplicativo Wingtip SaaS
 
-Neste tutorial, você configura e usa o *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* com o aplicativo WTP para monitorar pools elásticos e bancos de dados. Ele se baseia no [Tutorial de monitoramento e gerenciamento de desempenho](sql-database-saas-tutorial-performance-monitoring.md) e mostra como usar o *Log Analytics* para ampliar o monitoramento e alerta fornecidos no Portal do Azure. O Log Analytics é especialmente adequado para monitoramento e alertas em grande escala, porque ele dá suporte a centenas de pools e centenas de milhares de bancos de dados. Ele também fornece uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure, entre várias assinaturas do Azure.
+Neste tutorial, você configura e usa o *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para monitorar pools elásticos e bancos de dados. Ele se baseia no [Tutorial de monitoramento e gerenciamento de desempenho](sql-database-saas-tutorial-performance-monitoring.md) e mostra como usar o *Log Analytics* para ampliar o monitoramento e alerta fornecidos no Portal do Azure. O Log Analytics é especialmente adequado para monitoramento e alertas em grande escala, porque ele dá suporte a centenas de pools e centenas de milhares de bancos de dados. Ele também fornece uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure, entre várias assinaturas do Azure.
 
 Neste tutorial, você aprenderá a:
 
@@ -36,7 +35,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo WTP foi implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo WTP SaaS](sql-database-saas-tutorial.md)
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 Consulte o [Tutorial de monitoramento e gerenciamento de desempenho](sql-database-saas-tutorial-performance-monitoring.md) para uma discussão sobre padrões e cenários de SaaS, e como eles afetam os requisitos de uma solução de monitoramento.
@@ -65,7 +64,7 @@ Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponívei
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalando e configurando o Log Analytics e a solução Análise de SQL do Azure
 
-O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log e telemetria e métrica em um espaço de trabalho de Log Analytics. Um espaço de trabalho é um recurso, assim como outros recursos no Azure e deve ser criado. Embora o espaço de trabalho não precise ser criado no mesmo grupo de recursos que o(s) aplicativo(s) que ele está monitorando, isso geralmente faz mais sentido. No caso do aplicativo WTP, isso permite que o espaço de trabalho seja excluído facilmente com o aplicativo ao simplesmente excluir o grupo de recursos.
+O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log e telemetria e métrica em um espaço de trabalho de Log Analytics. Um espaço de trabalho é um recurso, assim como outros recursos no Azure e deve ser criado. Embora o espaço de trabalho não precise ser criado no mesmo grupo de recursos que o(s) aplicativo(s) que ele está monitorando, isso geralmente faz mais sentido. No caso do aplicativo Wingtip SaaS, isso permite que o espaço de trabalho seja excluído facilmente com o aplicativo ao simplesmente excluir o grupo de recursos.
 
 1. Abra ...\\Módulos de aprendizado\\Monitoramento e gerenciamento de desempenho\\Log Analytics\\*Demo-LogAnalytics.ps1* no **ISE do PowerShell**.
 1. Pressione **F5** para executar o script.
@@ -76,7 +75,7 @@ Nesse ponto, você deve ser capaz de abrir o Log Analytics no Portal do Azure (o
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Usar o Log Analytics e a solução de Análise de SQL para monitorar pools e bancos de dados
 
 
-Neste exercício, abra o Log Analytics e o portal do OMS para examinar a telemetria que está sendo coletada para os bancos de dados e pools do WTP.
+Neste exercício, abra o Log Analytics e o portal do OMS para examinar a telemetria que está sendo coletada para os bancos de dados e pools.
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com) e abra o Log Analytics clicando em Mais serviços e, em seguida, pesquise o Log Analytics:
 
@@ -134,7 +133,7 @@ Neste tutorial, você aprendeu a:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que aproveitam a implantação de aplicativo SaaS Wingtip inicial](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
 

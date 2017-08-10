@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço na Pesquisa do Azure
@@ -49,13 +48,15 @@ Há uma correspondência entre os limites em índices e aqueles em indexadores. 
 | Índice: máximo de perfis de pontuação por índice |100 |100 |100 |100 |100 |100 |
 | Índice: funções máximas por perfil |8 |8 |8 |8 |8 |8 |
 | Indexadores: carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D <sup>2</sup> |
-| Indexadores: tempo de execução máximo |3 minutos |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
+| Indexadores: tempo de execução máximo | 1 a 3 minutos <sup>3</sup> |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
 | Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4 milhões |4 milhões |4 milhões |N/D <sup>2</sup> |
 
 <sup>1</sup> A camada do tipo Básico é a única SKU que tem limite inferior de 100 campos por índice.
 
 <sup>2</sup> O S3 HD atualmente não dá suporte a indexadores. Contate o suporte do Azure se você tiver uma necessidade urgente para essa funcionalidade.
+
+<sup>3</sup> O tempo máximo de execução do indexador para a Camada gratuita é de três minutos para fontes de blob e um minuto para todas as outras fontes de dados.
 
 ## <a name="document-size-limits"></a>Limites de tamanho do documento
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |

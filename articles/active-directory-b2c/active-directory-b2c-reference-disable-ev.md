@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: cedc7d3c16dd8acac2700f461305d28a8ba6c802
-ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Desabilitar a verificação de email durante a inscrição do consumidor
@@ -27,7 +28,7 @@ Alguns desenvolvedores de aplicativo preferem ignorar a verificação de email d
 
 Por padrão, as políticas de inscrição têm a verificação de email ativada. Use as etapas a seguir para desativá-la:
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. Siga estas etapas para [navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Clique em **Políticas de inscrição** ou em **Políticas de inscrição ou entrada** dependendo do que você configurou para inscrição.
 3. Clique em sua política (por exemplo, "B2C_1_SiUp") para abri-la. Clique em **Editar** na parte superior da folha.
 4. Clique em **Personalização da interface do usuário da página**.
@@ -43,8 +44,3 @@ Por padrão, as políticas de inscrição têm a verificação de email ativada.
 > 
 
 Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este tópico ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

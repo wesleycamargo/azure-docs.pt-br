@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
@@ -187,6 +186,12 @@ Você pode especificar mais de um conjunto de dados de entrada para a Atividade 
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
 Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md)que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
+
+## <a name="fault-tolerance"></a>Tolerância a falhas
+Por padrão, a atividade de cópia interromperá a cópia de dados e retornará uma falha ao encontrar dados incompatíveis entre a origem e o coletor, embora seja possível configurar explicitamente para ignorar e registrar as linhas incompatíveis e copiar apenas esses dados compatíveis para tornar a cópia bem-sucedida. Consulte a [Tolerância a falhas da Atividade de Cópia](data-factory-copy-activity-fault-tolerance.md) para obter mais detalhes.
+
+## <a name="security-considerations"></a>Considerações de segurança
+Consulte as [Considerações sobre segurança](data-factory-data-movement-security-considerations.md), que descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para proteger os dados.
 
 ## <a name="scheduling-and-sequential-copy"></a>Agendamento e cópia sequencial
 Confira [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações detalhadas sobre como funcionam o agendamento e a execução no Data Factory. É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Veja a seção [Copiar sequencialmente](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).

@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
@@ -40,6 +39,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 > [!NOTE]
 > 1. Durante o processo de backup, o Backup do Azure não inclui o disco temporário conectado à máquina virtual. Para obter mais informações, consulte o blog sobre [armazenamento temporário](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Como o Backup do Azure gera um instantâneo de nível de armazenamento e o transfere para o cofre, não altere as chaves da conta de armazenamento até que o trabalho de backup seja concluído.
+> 3. Para VMs premium, copiamos o instantâneo para a conta de armazenamento. Isso serve para garantir que o serviço de Backup do Azure obtém IOPS suficientes para transferir dados para o cofre. Essa cópia adicional de armazenamento é cobrada de acordo com o tamanho alocado de VM. 
 >
 
 ### <a name="data-consistency"></a>Consistência de dados

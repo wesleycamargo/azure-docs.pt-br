@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c90079542a91720cb60010dfd5be2cf76802cc70
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
@@ -46,7 +45,7 @@ Há benefícios em tal abordagem de design monolítico. Ela geralmente é mais s
 
 Os microsserviços tratam dessas desvantagens e alinham-se melhor aos requisitos de negócios anteriores, mas também têm vantagens e desvantagens. Os benefícios dos microsserviços são que cada um normalmente encapsula uma funcionalidade de negócios mais simples, que você dimensiona, testa, implanta e gerencia de forma independente. Uma vantagem importante de uma abordagem de microsserviço é que as equipes são mais orientadas por cenários de negócios do que por tecnologia, o que era encorajado pela abordagem em camadas. Na prática, equipes menores desenvolvem um microsserviço baseado em um cenário de cliente e usam qualquer tecnologia escolhida. 
 
-Em outras palavras, a organização não precisa padronizar a tecnologia para manter aplicativos monolíticos. As equipes individuais que detêm serviços podem escolher o que fizer sentido para elas com base em suas competências ou no que é mais apropriado para resolver o problema. Na prática, é preferível ter um conjunto de tecnologias recomendadas, como determinado repositório NoSQL ou uma estrutura de aplicativo Web.
+Em outras palavras, a organização não precisa padronizar a tecnologia para manter aplicativos de microsserviço. As equipes individuais que detêm serviços podem escolher o que fizer sentido para elas com base em suas competências ou no que é mais apropriado para resolver o problema. Na prática, é preferível ter um conjunto de tecnologias recomendadas, como determinado repositório NoSQL ou uma estrutura de aplicativo Web.
 
 A desvantagem dos microsserviços é gerenciar o crescente número de entidades separadas e lidar com implantações mais complexas e controle da versão. O tráfego da rede entre os microsserviços aumenta, bem como as latências de rede correspondentes. Ter muitos serviços informais e granulares é uma receita desastrosa para o desempenho. Sem ferramentas para ajudar a exibir essas dependências, é difícil "ver" todo o sistema. 
 
@@ -147,7 +146,7 @@ O Service Fabric fornece três áreas amplas para ajudar no build de aplicativos
 ***O Service Fabric não se importa com o modo de criação de seu serviço, e você pode usar qualquer tecnologia. No entanto, fornece APIs de programação internas que facilitam a criação de microsserviços.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrando aplicativos existentes para o Service Fabric
-Uma abordagem chave para o Service Fabric é reutilizar o código existente, o que, em seguida, pode ser modernizado com novos microsserviços. Há cinco estágios para modernização do aplicativo, e você pode iniciar e parar em qualquer um dos estágios. Estes são;
+Uma abordagem chave para o Service Fabric é reutilizar o código existente, o que, em seguida, pode ser modernizado com novos microsserviços. Há cinco estágios para modernização do aplicativo, e você pode iniciar e interromper em qualquer um dos estágios. Estes são;
 
 1) Colocar um aplicativo monolítico tradicional
 2) Lift and Shift - Usar contêineres ou executáveis de convidado para hospedar o código existente no Service Fabric.
@@ -157,7 +156,7 @@ Uma abordagem chave para o Service Fabric é reutilizar o código existente, o q
 
 ![Migração para Microsserviços][Image3]
 
-É importante enfatizar novamente, que você pode **iniciar e parar e qualquer um desses estágios**, você não é obrigado a ir para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
+É importante enfatizar novamente, que você pode **iniciar e interromper em qualquer um desses estágios**, você não é obrigado a ir para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
 
 **Lift and Shift** - um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões;
 

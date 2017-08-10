@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: uso da personalização de idiomas
@@ -40,7 +39,7 @@ A personalização de idiomas permite que você selecione em quais idiomas o seu
 
 ## <a name="support-uilocales-requested-languages"></a>Suporte aos idiomas ui_locales solicitados 
 Ao habilitar a "Personalização de idiomas" em uma política, agora você pode controlar o idioma do percurso do usuário adicionando o parâmetro ui_locales.
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no portal do Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [Siga estas etapas para navegar até a folha de recursos do B2C no portal do Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Navegue até uma política que você deseja habilitar para traduções.
 3. Clique em **Personalização de idiomas**.
 4. Leia o aviso atentamente.  Uma vez habilitada, você não pode desativar a "personalização de idiomas".

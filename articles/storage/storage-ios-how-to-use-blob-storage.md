@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d5c004f3123c203a665fb421f81f4a14cfbeb26c
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: cb2810636c8c23dbd476dc2adf58b17d1887d575
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
@@ -224,7 +223,8 @@ O exemplo a seguir mostra como listar todos os blobs em um contêiner. Ao execut
 
 * **continuationToken** - O token de continuação representa onde a operação de listagem deve começar. Se nenhum token for fornecido, ele listará os blobs desde o início. Qualquer número de blobs pode ser listado, desde zero até um máximo definido. Mesmo que esse método retorne zero resultado, se `results.continuationToken` não for nulo, poderá haver mais blobs no serviço que não foram listados.
 * **prefixo** -Você pode especificar o prefixo a ser usado para a listagem de blobs. Somente os blobs que começarem com esse prefixo serão listados.
-* **useFlatBlobListing** – conforme mencionado na seção [Nomeando e referenciando contêineres e blobs](#naming-and-referencing-containers-and-blobs), embora o serviço Blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual nomeando blobs com informações de caminho. No entanto, atualmente não há suporte para listagem não plana. Este recurso estará disponível em breve. Por enquanto, esse valor deve ser **YES**.
+* **useFlatBlobListing** – conforme mencionado na seção [Nomeando e referenciando contêineres e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), embora o serviço Blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual nomeando blobs com informações de caminho. No entanto, atualmente não há suporte para listagem não plana. Este recurso estará disponível em breve. Por enquanto, esse valor deve ser **YES**.
+
 * **blobListingDetails** - Você pode especificar os itens a serem incluídos ao listar blobs
   * _AZSBlobListingDetailsNone_: lista apenas os blobs confirmados e não retorna os metadados dos blobs.
   * _AZSBlobListingDetailsSnapshots_: lista os blobs confirmados e os instantâneos dos blobs.

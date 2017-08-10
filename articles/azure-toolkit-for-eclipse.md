@@ -14,65 +14,60 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm;asirveda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 6de5a3632aee3ddb401fd39d252c6afb43260acb
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ae0aca6a739b443e57724424d6a4a5e8c6eef89a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="azure-toolkit-for-eclipse"></a>Kit de ferramentas do Azure para Eclipse
-O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidade que permitem criar, desenvolver, testar e implantar com facilidade aplicativos Azure usando o ambiente de desenvolvimento do Eclipse. Ele é um projeto de código-fonte aberto, cujo código-fonte está disponível de acordo com a licença do MIT no site do projeto em:
-
-* <https://github.com/microsoft/azure-tools-for-java>
+O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidades que podem ser usadas para criar, desenvolver, testar e implantar aplicativos do Azure com facilidade usando o IDE (ambiente de desenvolvimento integrado) do Eclipse. Ele é um projeto de software livre, cujo código-fonte está disponível de acordo com a [licença do MIT no site do projeto](https://github.com/microsoft/azure-tools-for-java).
 
 > [!NOTE]
 > Há também um kit de ferramentas do Azure para o IDE do IntelliJ. Para obter mais informações, confira [Kit de Ferramentas do Azure para IntelliJ](azure-toolkit-for-intellij.md).
 > 
 > 
 
-## <a name="getting-started-with-the-azure-toolkit-for-eclipse"></a>Introdução ao Kit de Ferramentas do Azure para Eclipse
-Os artigos a seguir o ajudarão a começar a usar o Kit de Ferramentas do Azure para Eclipse:
+## <a name="get-started-with-the-azure-toolkit-for-eclipse"></a>Introdução ao Kit de Ferramentas do Azure para Eclipse
+Os seguintes artigos ajudarão você a começar a usar o Kit de Ferramentas do Azure para Eclipse:
 
-* [Novidades no Kit de Ferramentas do Azure para o Eclipse](azure-toolkit-for-eclipse-whats-new.md)
+* [Novidades no Kit de Ferramentas do Azure para Eclipse](azure-toolkit-for-eclipse-whats-new.md)
 * [Instalação do Kit de Ferramentas do Azure para o Eclipse](azure-toolkit-for-eclipse-installation.md)
 * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse](azure-toolkit-for-eclipse-sign-in-instructions.md)
-* [Criar um Serviço de Nuvem Hello World para o Azure no Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
-* [Criar um aplicativo Web Hello World para o Azure no Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
+* [Criar um serviço de nuvem Olá, Mundo para o Azure no Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
+* [Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
-## <a name="configuring-azure-project-settings"></a>Definindo as configurações do projeto do Azure
+## <a name="configure-azure-project-settings"></a>Definir as configurações de projeto do Azure
 Os artigos a seguir mostram como usar o Kit de ferramentas do Azure para Eclipse a fim de definir configurações para seus projetos do Azure:
 
-* [Propriedades do Projeto do Azure](azure-toolkit-for-eclipse-azure-project-properties.md)
-* [Propriedades da função do Azure](azure-toolkit-for-eclipse-azure-role-properties.md)
-* [Pontos de extremidade do Azure](azure-toolkit-for-eclipse-azure-service-endpoints.md)
-* [Lista de contas do Armazenamento do Azure](azure-toolkit-for-eclipse-azure-storage-account-list.md)
+* [Propriedades de projeto do Azure](azure-toolkit-for-eclipse-azure-project-properties.md)
+* [Propriedades de função do Azure](azure-toolkit-for-eclipse-azure-role-properties.md)
+* [Pontos de extremidade de serviço do Azure](azure-toolkit-for-eclipse-azure-service-endpoints.md)
+* [Lista de contas de armazenamento do Azure](azure-toolkit-for-eclipse-azure-storage-account-list.md)
 * [Habilitar a afinidade de sessão](azure-toolkit-for-eclipse-enable-session-affinity.md)
-* [Habilitando o Acesso Remoto para implantações do Azure no Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
+* [Habilitando o acesso remoto em implantações do Azure no Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
 
-## <a name="using-the-azure-toolkit-for-eclipse"></a>Usando o Kit de Ferramentas do Azure para Eclipse
+## <a name="use-the-azure-toolkit-for-eclipse"></a>Usar o Kit de Ferramentas do Azure para Eclipse
 Os artigos a seguir demonstram o uso do  Kit de ferramentas do Azure para Eclipse para adicionar a funcionalidade do Azure a seus projetos Java:
 
-* [Exibindo o Conteúdo do Javadoc no Eclipse para o Pacote de Bibliotecas do Azure para Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
-* [Implantações de grande porte](azure-toolkit-for-eclipse-deploying-large-deployments.md)
+* [Exibindo o conteúdo do Javadoc no Eclipse para o Pacote de Bibliotecas do Azure para Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
+* [Implantando implantações de grande porte](azure-toolkit-for-eclipse-deploying-large-deployments.md)
 * [Gerenciar contas de armazenamento usando o Azure Explorer para Eclipse](azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md)
 * [Gerenciar máquinas virtuais usando o Azure Explorer para Eclipse](azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md)
 * [Publicar um aplicativo Spring Boot como um contêiner do Docker usando o Kit de Ferramentas do Azure para Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md)
 * [Publicar um aplicativo Web como um contêiner do Docker usando o Kit de Ferramentas do Azure para Eclipse](azure-toolkit-for-eclipse-publish-as-docker-container.md)
-* [Usar o Plug-in de Ferramentas do HDInsight para Eclipse para criar aplicativos Spark para um cluster HDInsight Spark Linux](hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Usar o plug-in Ferramentas do HDInsight para Eclipse para criar aplicativos Spark em um cluster HDInsight Spark Linux](hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
-
 <!-- URL List -->
 
-[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
-[Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- Temporarily Deprecated URLs -->
 

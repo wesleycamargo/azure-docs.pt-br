@@ -15,26 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9f084dce3f01466aaa0e4c32d339c925d9faccd3
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---marketplace-charges-preview"></a>APIs de Relatórios para clientes Enterprise – Marketplace (Preview)
+# <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>APIs de Relatórios para clientes Enterprise – Custos de Armazenamento do Marketplace
 
 A API Encargo de Repositório do Marketplace retorna o detalhamento dos encargos do marketplace com base no uso por dia para o Período de Cobrança especificado ou as datas de início e término (taxas avulsas não estão incluídas).
 
 ##<a name="request"></a>Solicitação 
-As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md). Se um período de cobrança não for especificado, os dados do período de cobrança atual serão retornados. Intervalos de tempo personalizados podem ser especificados com os parâmetros das datas de início e término no formato aaaa-MM-dd, o intervalo de tempo compatível máximo é de 36 meses.  
+As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md). Se um período de cobrança não for especificado, os dados do período de cobrança atual serão retornados. Os intervalos de tempo personalizados podem ser especificados com os parâmetros das datas de início e término no formato aaaa-MM-dd, o intervalo de tempo compatível máximo é de 36 meses.  
 
 |Método | URI da solicitação|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{númerodaInscrição}/billingPeriods/{períododeCobrança}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{númerodaInscrição}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+> [!Note]
+> Para usar a versão de visualização da API, substitua a v2 pela v1 na URL anterior.
+>
 
 ## <a name="response"></a>Resposta
  
@@ -100,6 +103,7 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 |extendedCost|decimal|Cobrança estimada com base na quantidade consumida e no custo estendido|
 <br/>
 ## <a name="see-also"></a>Consulte também
+
 * [API dos períodos de cobrança](billing-enterprise-api-billing-periods.md)
 
 * [API de detalhes do uso](billing-enterprise-api-usage-detail.md) 

@@ -14,28 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 069656b495929d66f6a47b38141f56b6bf0ac92f
+ms.date: 07/31/2017
+ms.author: genemi;carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Criar um banco de dados SQL do Azure e conectar-se com C&#x23 e o ADO.NET
 
-O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) relacional no Microsoft Cloud (“Azure”). Neste tutorial, você aprenderá a usar o portal do Azure e o ADO.NET para: 
+O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Microsoft Cloud (“Azure”). Neste tutorial, você aprenderá a usar o portal do Azure e o ADO.NET com o Visual Studio para: 
 
 > [!div class="checklist"]
-> * Criar um banco de dados no portal do Azure
+> * Criar um banco de dados no Portal do Azure
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
-> * Conectar-se ao banco de dados com o ADO.NET
+> * Conecte-se ao banco de dados com o ADO.NET e o Visual Studio
 > * Criar tabelas com o ADO.NET
-> * Inserir dados com o ADO.NET 
-> * Consultar dados ADO.NET
+> * Inserir, atualizar e excluir dados com o ADO.NET 
+> * Consultar ADO.NET de dados
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -53,8 +57,18 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-As próximas etapas abaixo estão disponíveis:
+Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar um banco de dados e tabelas, carregar e consultar dados e restaurar o banco de dados para um ponto anterior no tempo. Você aprendeu como:
+> [!div class="checklist"]
+> * Criar um banco de dados
+> * Configurar uma regra de firewall
+> * Conectar-se ao banco de dados com o [Visual Studio e C#](sql-database-connect-query-dotnet-visual-studio.md)
+> * Criar tabelas
+> * Inserir, atualizar e excluir dados
+> * Consultar dados
 
-- [Usar o LINQ para consultas SQL em seu programa em C#](https://msdn.microsoft.com/library/bb425822.aspx)
-- [Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure](sql-database-migrate-your-sql-server-database.md)
+Avance para o próximo tutorial para saber mais sobre como migrar seus dados.
+
+> [!div class="nextstepaction"]
+>[Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure](sql-database-migrate-your-sql-server-database.md)
+
 
