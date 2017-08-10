@@ -157,7 +157,7 @@ Usando esta configuração, a função é agora endereçável com a seguinte rot
 Isso permite que o código de função dê suporte a dois parâmetros no endereço, "category" e "id". Você pode usar qualquer [Restrição de rota de API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com seus parâmetros. O seguinte código de função em C# faz uso de ambos os parâmetros.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
