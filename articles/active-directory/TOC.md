@@ -9,6 +9,7 @@
 ## [Obter um locatário do AD do Azure](active-directory-howto-tenant.md)
 ## [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md)
 ## [Gerenciar assinaturas do Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Início rápido: redefinição de senha por autoatendimento](active-directory-passwords-getting-started.md)
 ## Gerenciar o licenciamento do Azure AD
 ### [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portal clássico](active-directory-licensing-what-is.md)
@@ -18,7 +19,7 @@
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
-## [Como obter suporte para o Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Obter suporte para o Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 # Como
@@ -78,6 +79,7 @@
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
+### [Configurar a expiração de grupos do Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Exibir todos os grupos](active-directory-groups-view-azure-portal.md)
 ### [Habilitar grupos dedicados](active-directory-accessmanagement-dedicated-groups.md)
 ### [Adicionar grupo de acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
 #### [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md)
-### [Início rápido: redefinição de senha por autoatendimento](active-directory-passwords-getting-started.md)
 ### [Licença SSPR](active-directory-passwords-licensing.md)
 ### [Implantar SSPR](active-directory-passwords-best-practices.md)
 ### Administradores de TI: redefinir senhas

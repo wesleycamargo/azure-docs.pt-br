@@ -23,6 +23,8 @@
   items:
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
+    - name: Grupos de contêineres
+      href: container-instances-container-groups.md
 - name: Guias de instruções
   items:
     - name: Implantar grupos com vários contêineres

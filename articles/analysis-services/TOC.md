@@ -1,13 +1,27 @@
 # Visão geral
 ## [O que é o Azure Analysis Services?](analysis-services-overview.md)
+## [Fontes de dados com suporte](analysis-services-datasource.md)
+## [Autenticação e permissões de usuário](analysis-services-manage-users.md)
+## [Nível de compatibilidade](analysis-services-compat-level.md)
+## [Alta disponibilidade](analysis-services-bcdr.md)
 
-# Guia de início rápido
-## [Criar um servidor - portal](analysis-services-create-server.md)
-## [Criar um servidor - PowerShell](analysis-services-create-powershell.md)
-## [Implantar um modelo - Visual Studio](analysis-services-deploy.md)
+# Introdução
+## [Criar um servidor no portal do Azure](analysis-services-create-server.md)
+## [Criar um servidor com o PowerShell](analysis-services-create-powershell.md)
+## [Implantar um modelo no Visual Studio](analysis-services-deploy.md)
+## [Criar um modelo no portal do Azure (versão prévia)](analysis-services-create-model-portal.md)
 
-# Tutoriais
-## Criar e implantar um modelo
+# Instruções 
+## [Gerenciar um servidor](analysis-services-manage.md)
+## [Gerenciar usuários de banco de dados](analysis-services-database-users.md)
+## [Gerenciar administradores de servidor](analysis-services-server-admins.md)
+## [Instalar o gateway de dados local](analysis-services-gateway.md)
+## [Obter bibliotecas de cliente](analysis-services-data-providers.md)
+## [Backup e restauração](analysis-services-backup.md)
+## [Conectar com o Excel](analysis-services-connect-excel.md)
+## [Conectar com o Power BI](analysis-services-connect-pbi.md)
+## [Criar um arquivo .odc](analysis-services-odc.md)
+## Tutoriais
 ### [Tutorial da Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lição 1: criar um novo projeto de modelo de tabela](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Lição 2: obter dados](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [Lição 13: implantar](tutorials/aas-lesson-13-deploy.md)
 ### [Lição suplementar - linhas de detalhes](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Lição suplementar - segurança dinâmica](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Lição suplementar - hierarquias desbalanceadas](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Conceitos
-## [Fontes de dados com suporte](analysis-services-datasource.md)
-## [Autenticação e permissões de usuário](analysis-services-manage-users.md)
-## [Alta disponibilidade](analysis-services-bcdr.md)
-
-# Instruções 
-## [Criar um modelo no portal do Azure (versão prévia)](analysis-services-create-model-portal.md)
-## [Gerenciar um servidor](analysis-services-manage.md)
-## [Gerenciar usuários de banco de dados](analysis-services-database-users.md)
-## [Gerenciar administradores de servidor](analysis-services-server-admins.md)
-## [Instalar o gateway de dados local](analysis-services-gateway.md)
-## [Conectar com o Excel](analysis-services-connect-excel.md)
-## [Conectar com o Power BI](analysis-services-connect-pbi.md)
-## [Obter bibliotecas de cliente](analysis-services-data-providers.md)
-## [Backup e restauração](analysis-services-backup.md)
-## [Criar um arquivo .odc](analysis-services-odc.md)
+### [Lição suplementar - hierarquias desbalanceadas](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referência
 ## [PowerShell](analysis-services-powershell.md)
