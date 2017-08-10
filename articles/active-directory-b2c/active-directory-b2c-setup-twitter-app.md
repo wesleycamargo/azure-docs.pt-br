@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f9e35ef2f0c3d6352e9dc7ea716a79fd61f1b949
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 82a001dd53cdddcf3b360090f3250af593c96fbb
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -40,7 +40,7 @@ Para usar o Twitter como um provedor de identidade no Azure AD (Azure Active Dir
 7. Copie o valor de **Chave do consumidor** e **Segredo do consumidor**. Você precisará de ambos para configurar o Twitter como um provedor de identidade no seu locatário.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configurar o Twitter como um provedor de identidade em seu locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "Twitter".

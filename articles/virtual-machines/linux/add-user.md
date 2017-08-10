@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a95157f57c0cbd1f2a9ed68a0fe83140d7c9ec40
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: ddc5446fa6a43bfff05ec251b30175ddd24052c9
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="add-a-user-to-an-azure-vm"></a>Adicionar um usuário a uma VM do Azure
@@ -78,7 +78,7 @@ Uma das primeiras tarefas, e uma das mais comuns, com um novo servidor é adicio
 Usando o comando `useradd` , adicionamos contas de usuário à VM do Linux.  Executar `useradd` modifica `/etc/passwd`, `/etc/shadow`, `/etc/group` e `/etc/gshadow`.  Nós adicionamos um sinalizador de linha de comando ao comando `useradd` para também adicionar o novo usuário ao grupo sudo adequado no Linux.  Embora o `useradd` crie uma entrada em `/etc/passwd`, ele não fornece ao novo usuário uma conta e uma senha.  Estamos criando uma senha inicial para o novo usuário usando `passwd` , um comando simples.  A última etapa é modificar as regras do sudo para permitir que o usuário execute comandos com privilégios sudo sem ter que inserir uma senha para cada comando.  Fazendo logon usando a chave privada, vamos supor que essa conta de usuário esteja protegida contra atores nocivos e permitiremos acesso ao sudo sem uma senha.  
 
 ### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>Adição de um único usuário do sudo a uma VM do Azure
-Faça logon na VM do Azure usando chaves SSH.  Se você não tiver configurado o acesso de chave pública SSH, leia este artigo primeiro [Using Public Key Authentication with Azure](http://link.to/article)(Usando Autenticação de Chave Pública com o Azure).  
+Faça logon na VM do Azure usando chaves SSH.  Se você não tiver configurado o acesso de chave pública SSH, leia este artigo primeiro [Using Public Key Authentication with Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Usando Autenticação de Chave Pública com o Azure).  
 
 O comando `useradd` conclui as seguintes tarefas:
 

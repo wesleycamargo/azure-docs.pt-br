@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 485dfa067bd64312f6ae68a533117db1556318ed
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: b701172c2345313e236a037f5aa16939cfaac440
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro de redefinição de senha de autoatendimento
+
+> [!IMPORTANT]
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 
 Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar com uma pessoa usando a SSPR (redefinição de senha de autoatendimento). Antes de usar essa funcionalidade, você precisa registrar métodos de autenticação ou confirmar os métodos de autenticação predefinidos que administrador preencheu.
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6683b116e5e42c0ba6f1d0f381143bf846bd9810
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C: perguntas frequentes
@@ -52,7 +51,7 @@ Não, mas esse recurso está em nosso roteiro. Os escopos de padrão usados para
 Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou localmente). Tudo o que ele precisa para interagir com o Azure AD B2C é a capacidade de enviar e de receber solicitações HTTP em pontos de extremidade acessíveis publicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Tenho vários locatários do Azure AD B2C. Como posso gerenciá-los no portal do Azure?
-Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal do Azure. Confira [Azure AD B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) para saber como é possível navegar até a folha de recursos do B2C de um locatário específico no portal do Azure. Alternar entre os diretórios do Azure AD B2C no portal do Azure não mantém a folha de recursos B2C aberta na maioria dos navegadores.
+Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal do Azure. Confira [Azure AD B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) para saber como é possível navegar até a folha de recursos do B2C de um locatário específico no portal do Azure. Alternar entre os diretórios do Azure AD B2C no portal do Azure não mantém a folha de recursos B2C aberta na maioria dos navegadores.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Como personalizar os emails de verificação (o conteúdo e o campo "De:") enviados pelo AD B2C do Azure?
 Você pode usar o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
@@ -109,7 +108,7 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 1. Navegue até as folhas **Aplicativos**, **Provedores de identidade** e **Todas as políticas** e exclua todas as entradas em cada uma delas.
 1. Agora entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Use a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
 1. Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C.

@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 62221d7d174de128bf0089fb79a143d73fbe550a
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -130,7 +130,7 @@ Este é um padrão simples. Você otimiza o salto 3 colocando o conector perto d
 
 **Cenário:** o aplicativo está na rede da organização nos EUA, com usuários distribuídos globalmente. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
 
-**Recomendação:** siga padrão 2, explicado na seção anterior. 
+**Recomendação:** siga o padrão 1, explicado na seção anterior. 
 
 Novamente, o padrão mais comum é otimizar o salto 3, onde você coloca o conector perto do aplicativo. O salto 3 não costuma ser caro, se tudo estiver dentro da mesma região. No entanto, o salto 1 poderá ser mais caro dependendo de onde o usuário estiver, pois os usuários pelo mundo precisarão acessar a instância do Proxy de Aplicativo nos EUA. Vale a pena observar que qualquer solução de proxy tem características semelhantes sobre os usuários que estão sendo distribuídos globalmente.
 

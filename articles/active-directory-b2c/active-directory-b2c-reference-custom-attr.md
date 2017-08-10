@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: usar atributos personalizados para coletar informações sobre seus consumidores
@@ -31,7 +30,7 @@ O diretório do Azure AD (Azure Active Directory) B2C é fornecido com um conjun
 > 
 
 ## <a name="create-a-custom-attribute"></a>Como criar um atributo personalizado
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Clique em **Atributos de usuário**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** para o atributo personalizado (por exemplo, "ShoeSize") e, opcionalmente, uma **Descrição**. Clique em **Criar**.
@@ -44,7 +43,7 @@ O diretório do Azure AD (Azure Active Directory) B2C é fornecido com um conjun
 O atributo personalizado agora está disponível na lista de **Atributos do usuário**e para uso em suas políticas de inscrição.
 
 ## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Usar um atributo personalizado na sua política de inscrição
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Clique em **Políticas de inscrição**.
 3. Clique na sua política de inscrição (por exemplo, "B2C_1_SiUp") para abri-la. Clique em **Editar** na parte superior da folha.
 4. Clique em **Atributos de inscrição** e selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **OK**.

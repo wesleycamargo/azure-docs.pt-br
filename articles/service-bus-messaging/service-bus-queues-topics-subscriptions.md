@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 0c727a47d6b947484f9a5cd678fef14d6fe2b4ab
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
@@ -165,7 +164,7 @@ Consulte os tópicos avançados a seguir para saber mais e obter exemplos de com
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md)
 * [Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-rest.md)
-* [Exemplo de filtros do tópico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+* [Exemplo de filtros do tópico](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Sistema de mensagens agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
 

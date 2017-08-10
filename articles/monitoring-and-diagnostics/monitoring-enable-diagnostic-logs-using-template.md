@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
@@ -26,7 +26,7 @@ Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manage
 
 O método para habilitar os Logs de Diagnóstico usando um modelo do Resource Manager depende do tipo de recurso.
 
-* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
 * **De Computação** (baseados no WAD/LAD) usam o [Arquivo de configuração do WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Neste artigo, descrevemos como configurar o diagnóstico usando um método.

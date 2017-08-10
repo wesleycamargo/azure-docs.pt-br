@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: da885141a18e9a862c6db1005805fca247b75f25
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -194,7 +194,7 @@ A tarefa **Implantação do Grupo de Recursos do Azure** é usada para criar o g
 
 * **Habilitar os pré-requisitos**: `Configure with Deployment Group agent`
 
-* **Ponto de extremidade TFS/VSTS**: escolha **Adicionar** e, na caixa de diálogo "Adicionar nova Conexão do Team Foundation Server/Team Services", selecione **Autenticação com Base em Token**. Insira um nome da conexão e a URL do projeto de sua equipe. Em seguida, gere e insira um [PAT (Token de Acesso Pessoal)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) para autenticar a conexão com o projeto de sua equipe.
+* **Ponto de extremidade TFS/VSTS**: escolha **Adicionar** e, na caixa de diálogo "Adicionar nova Conexão do Team Foundation Server/Team Services", selecione **Autenticação com Base em Token**. Insira um nome da conexão e a URL do projeto de sua equipe. Em seguida, gere e insira um [PAT (Token de Acesso Pessoal)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) para autenticar a conexão com o projeto de sua equipe.
 
   ![Criar um token de acesso pessoal](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -258,4 +258,4 @@ Neste tutorial, você automatizou a implantação de um aplicativo no Azure usan
 Siga este link para ver exemplos de script de máquina virtual predefinido.
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de máquina virtual do Linux](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Exemplos de script de máquina virtual do Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)

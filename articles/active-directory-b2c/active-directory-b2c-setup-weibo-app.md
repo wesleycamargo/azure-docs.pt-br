@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: b6fdb9311ca2be3752c4ef74c91fe7abe9a91210
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: fornecer inscrição e conexão para consumidores com contas do Weibo
@@ -55,7 +55,7 @@ Para usar o Weibo como um provedor de identidade no Azure AD (Active Directory) 
 10. Clique em **提交** (enviar).  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Configurar o Weibo como um provedor de identidade em seu locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "Weibo".

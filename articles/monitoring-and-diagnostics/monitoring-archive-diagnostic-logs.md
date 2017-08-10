@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
-ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 6ceb95dac5a4037c8f2ff93f8245b36f0842a427
 ms.contentlocale: pt-br
-ms.lasthandoff: 12/10/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
@@ -28,7 +28,7 @@ Neste artigo, mostraremos como você pode usar o Portal do Azure, os cmdlets do 
 Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Logs de Diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Diagnósticos, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
-Para arquivar os Logs de Diagnóstico usando qualquer um dos métodos abaixo, defina uma **Configuração de Diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs que são transmitidas ou armazenadas e as saídas—hub de eventos e/ou contas de armazenamento. Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos
+Para arquivar os Logs de Diagnóstico usando qualquer um dos métodos abaixo, defina uma **Configuração de Diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs que são transmitidas ou armazenadas e as saídas—hub de eventos e/ou contas de armazenamento. Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivar logs de diagnóstico usando o portal
 1. No portal, clique na folha de recursos do recurso no qual você gostaria de habilitar o arquivamento de Logs de Diagnóstico.
