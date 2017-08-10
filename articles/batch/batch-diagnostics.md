@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de log para avaliação de diagnóstico e monitoramento de soluções do Lote
@@ -46,7 +45,7 @@ Assim como acontece com muitos serviços do Azure, o serviço de Lote emite even
 ## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 O registro em log de diagnóstico não está habilitado por padrão para sua conta do Lote. Você deve habilitar explicitamente o registro em log de diagnóstico para cada conta do Lote que você deseja monitorar:
 
-[Como habilitar a coleção de Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Como habilitar a coleção de Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Recomendamos que você leia todo o artigo [Visão geral dos Logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para entender não apenas como habilitar o registro em log, mas também as categorias de log com suporte dos vários serviços do Azure. Por exemplo, atualmente o Lote do Azure oferece suporte a uma categoria de log: **Logs de Serviço**.
 

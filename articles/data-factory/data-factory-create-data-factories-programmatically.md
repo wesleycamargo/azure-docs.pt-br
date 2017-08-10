@@ -14,34 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-<a id="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk" class="xliff"></a>
-
-# Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
-<a id="overview" class="xliff"></a>
-
-## Visão geral
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
+## <a name="overview"></a>Visão geral
 Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamente usando o SDK do .NET da Data Factory. Este artigo contém uma explicação passo a passo que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora uma Data Factory. 
 
 > [!NOTE]
 > Este artigo não abrange toda a API .NET de Data Factory. Consulte [Referência da API do .NET do Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .NET do de Data Factory. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012 ou 2013 ou 2015.
 * Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 * PowerShell do Azure. Siga as instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador. Você pode usar o Azure PowerShell para criar um aplicativo do Azure Active Directory.
 
-<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
-
-### Criar um aplicativo no Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
 Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para o aplicativo e atribua-a à função **Colaborador de Data Factory** .
 
 1. Inicie o **PowerShell**.
@@ -108,9 +100,7 @@ Você deve ter quatro valores após estas etapas:
 * ID do aplicativo
 * Senha (especificada no primeiro comando)
 
-<a id="walkthrough" class="xliff"></a>
-
-## Passo a passo
+## <a name="walkthrough"></a>Passo a passo
 No passo a passo, você cria um data factory com um pipeline que contém uma atividade de cópia. A atividade de cópia copia dados de uma pasta no seu armazenamento de blobs do Azure para outra pasta no mesmo armazenamento de blobs. 
 
 A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
@@ -183,7 +173,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     ```
 
    > [!IMPORTANT]
-   > Substitua o valor de **resourceGroupName** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   > Substitua o valor de **resourceGroupName** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) .
    >
    > O nome de atualização do data factory (NomedataFactory) deve ser exclusivo. O nome de data factory deve ser exclusivo. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 7. Adicione o seguinte código que cria um **data factory** no método **Main**.
@@ -467,9 +457,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     * Pipeline: **PipelineBlobSample**
 19. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial**.
 
-<a id="get-a-list-of-failed-data-slices" class="xliff"></a>
-
-## Obter uma lista de fatias de dados com falha 
+## <a name="get-a-list-of-failed-data-slices"></a>Obter uma lista de fatias de dados com falha 
 
 ```csharp
 // Parse the resource path
@@ -508,9 +496,7 @@ do
 while (response != null);
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Consulte o exemplo a seguir para criar um pipeline usando o SDK do .NET que copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure: 
 
 - [Criar um pipeline para copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)
