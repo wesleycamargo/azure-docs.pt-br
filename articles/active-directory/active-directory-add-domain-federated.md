@@ -3,7 +3,7 @@ title: "Adicionar seu nome de domínio personalizado e configurar o logon federa
 description: "Como adicionar nomes de domínio de sua empresa ao Azure Active Directory e configurar o logon federado entre o Azure Active Directory e sua solução de federação local"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
