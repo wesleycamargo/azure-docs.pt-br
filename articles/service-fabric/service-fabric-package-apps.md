@@ -56,7 +56,8 @@ Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar u
 
 Para obter mais informações sobre como configurar o **SetupEntryPoint**, consulte [Configurar a política para um ponto de entrada de instalação do serviço](service-fabric-application-runas-security.md)
 
-## <a name="configure"></a>Configurar 
+<a id="Package-App"></a>
+## <a name="configure"></a>Configurar
 ### <a name="build-a-package-by-using-visual-studio"></a>Compilar um pacote usando o Visual Studio
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
@@ -115,18 +116,19 @@ Se seu aplicativo tiver [parâmetros do aplicativo](service-fabric-manage-multip
 
 Se você souber o cluster em que o aplicativo será implantado, é recomendado passar o parâmetro `ImageStoreConnectionString`. Nesse caso, o pacote também é validado para as versões anteriores do aplicativo que já estão em execução no cluster. Por exemplo, a validação pode detectar se um pacote com a mesma versão mas conteúdo diferente já foi implantado.  
 
-Depois que o aplicativo for empacotado corretamente for validado com êxito, avalie com base no tamanho e no número de arquivos se há necessidade de compactação. 
+Depois que o aplicativo for empacotado corretamente for validado com êxito, avalie com base no tamanho e no número de arquivos se há necessidade de compactação.
 
 ## <a name="compress-a-package"></a>Compactar um pacote
 Quando um pacote é grande ou tem vários arquivos, você pode compactá-lo para uma implantação mais rápida. A compactação reduz o número de arquivos e o tamanho do pacote.
 Para um pacote de aplicativos compactado, [carregar o pacote de aplicativos](service-fabric-deploy-remove-applications.md#upload-the-application-package) pode levar mais tempo comparado a carregar o pacote não compactado (especialmente se o tempo de compactação for levado em conta), mas [registrar](service-fabric-deploy-remove-applications.md#register-the-application-package) e [cancelar o registro do tipo de aplicativo](service-fabric-deploy-remove-applications.md#unregister-an-application-type) é mais rápido para um pacote de aplicativos compactado.
 
 O mecanismo de implantação é o mesmo para pacotes compactados e não compactados. Se o pacote for compactado ele será armazenado como tal no repositório de imagens do cluster e será descompactado no nó antes que o aplicativo seja executado.
-A compactação substitui o pacote do Service Fabric válido pela versão compactada. A pasta deve aceitar permissões de gravação. A execução da compactação em um pacote já compactado não produz nenhuma alteração. 
+A compactação substitui o pacote do Service Fabric válido pela versão compactada. A pasta deve aceitar permissões de gravação. A execução da compactação em um pacote já compactado não produz nenhuma alteração.
 
 Você pode compactar um pacote executando o comando do PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com a opção `CompressPackage`. Você pode descompactar o pacote com o mesmo comando, usando a opção `UncompressPackage`.
 
-O comando a seguir compacta o pacote sem copiá-lo para o repositório de imagens. Você pode copiar um pacote compactado para um ou mais clusters do Service Fabric, conforme necessário, usando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o sinalizador `SkipCopy`. O pacote agora inclui arquivos compactados para os pacotes `code`, `config` e `data`. O manifesto do aplicativo e os manifestos do serviço não são compactados porque eles são necessários para várias operações internas (como compartilhamento do pacote, extração da versão e nome do tipo de aplicativo para determinadas validações).
+O comando a seguir compacta o pacote sem copiá-lo para o repositório de imagens. Você pode copiar um pacote compactado para um ou mais clusters do Service Fabric, conforme necessário, usando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o sinalizador `SkipCopy`.
+O pacote agora inclui arquivos compactados para os pacotes `code`, `config` e `data`. O manifesto do aplicativo e os manifestos do serviço não são compactados porque eles são necessários para várias operações internas (como compartilhamento do pacote, extração da versão e nome do tipo de aplicativo para determinadas validações).
 Compactar os manifestos tornaria essas operações ineficientes.
 
 ```
