@@ -1,6 +1,6 @@
 ---
-title: 'BD Cosmos do Azure: compilar um aplicativo com Java e com a API do DocumentDB | Microsoft Docs'
-description: "Apresenta um exemplo de código Java que pode ser usado para se conectar à API do DocumentDB do BD Cosmos do Azure e consultá-la"
+title: Criar um banco de dados de documentos do Azure Cosmos DB com Java | Microsoft Docs | Microsoft Docs
+description: "Apresenta um exemplo de código Java que pode ser usado para se conectar à API do DocumentDB do Azure Cosmos DB e consultá-la"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -13,51 +13,77 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 06/27/2017
+ms.date: 08/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
+# <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de documentos usando o Java e o portal do Azure
 
-# BD Cosmos do Azure: compilar um aplicativo de API do DocumentDB com Java e com o Portal do Azure
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+Este início rápido cria um banco de dados de documentos usando as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando a [API Java do DocumentDB](documentdb-sdk-java.md). As instruções neste guia rápido podem ser seguidas em qualquer sistema operacional capaz de executar o Java. Ao concluir este início rápido, você estará familiarizado com a criação e a modificação dos recursos do banco de dados de documentos na IU ou programaticamente, o que for sua preferência.
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compilará e executará um aplicativo de console compilado na [API do Java do DocumentDB](documentdb-sdk-java.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-<a id="prerequisites" class="xliff"></a>
-
-## Pré-requisitos
-
-* Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
-   * JDK 1.7 + (execute `apt-get install default-jdk` se você não tiver o JDK)
-   * Maven (execute `apt-get install maven` se você não tiver o Maven)
+* [Java Development Kit (JDK) 1.7 +](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
+    * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
+* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
+    * No Ubuntu, você pode executar `apt-get install maven` instalar o Maven.
+* [Git](https://www.git-scm.com/)
+    * No Ubuntu, você pode executar `sudo apt-get install git` instalar o Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
-## Crie uma conta de banco de dados
+Antes de criar um banco de dados do gráfico, você precisa criar uma conta do banco de dados SQL (DocumentDB) com o Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Adicionar uma coleção
+## <a name="add-a-collection"></a>Adicionar uma coleção
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
+<a id="add-sample-data"></a>
+## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
-## Clonar o aplicativo de exemplo
+Agora você pode adicionar dados à sua nova coleção usando o Data Explorer.
 
-Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, defina a cadeia de conexão e execute-o. Você verá como é fácil trabalhar usando dados de forma programática. 
+1. No Data Explorer, o novo banco de dados aparece no painel Coleções. Expanda o banco de dados **Tarefas**, expanda a coleção **Itens**, clique em **Documentos** e clique em **Novos Documentos**. 
+
+   ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+  
+2. Agora, adicione um documento à coleção com a seguinte estrutura.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. Depois de ter adicionado o json à guia **Documentos**, clique em **Salvar**.
+
+    ![Copie nos dados json e clique em Salvar no Data Explorer no portal do Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+
+4.  Crie e salve mais um documento onde você insere um valor exclusivo para a propriedade `id` e altere as outras propriedades quando achar adequado. Os novos documentos podem ter qualquer estrutura que você deseje, pois o Azure Cosmos DB não impõe nenhum esquema para seus dados.
+
+     Agora, você pode usar as consultas no Data Explorer para recuperar os dados clicando nos botões **Editar Filtro** e **Aplicar Filtro**. Por padrão, o Data Explorer usa `SELECT * FROM c` para recuperar todos os documentos na coleção, mas você pode alterar isso para uma [consulta SQL ](documentdb-sql-query.md) diferente, como `SELECT * FROM c ORDER BY c._ts DESC`, para retornar todos os documentos em ordem descendente com base no carimbo de data/hora. 
+ 
+     Você também pode usar o Data Explorer para criar procedimentos armazenados, UDFs e gatilhos para executar a lógica de negócios do servidor, além de dimensionar a taxa de transferência. O Data Explorer expõe todo o acesso a dados interno via programação disponível nas APIs, mas oferece acesso fácil aos dados no Portal do Azure.
+
+## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
+
+Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do DocumentDB do GitHub, definir a cadeia de conexão e executá-la. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra uma janela de terminal do Git, como git bash, e `CD` para um diretório de trabalho.  
 
@@ -67,11 +93,9 @@ Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, defina a cadei
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>Examine o código
 
-## Examine o código
-
-Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arquivo `Program.java` e encontre essas linhas de código que criam os recursos do BD Cosmos do Azure. 
+Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arquivo `Program.java` na pasta \src\GetStarted e encontre estas linhas de código que criam os recursos do Azure Cosmos DB. 
 
 * O `DocumentClient` é inicializado.
 
@@ -97,12 +121,7 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId(collectionName);
 
-    // DocumentDB collections can be reserved with throughput
-    // specified in request units/second. 1 RU is a normalized
-    // request equivalent to the read of a 1KB document. Here we
-    // create a collection with 400 RU/s.
-    RequestOptions requestOptions = new RequestOptions();
-    requestOptions.setOfferThroughput(400);
+    ...
 
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
@@ -138,57 +157,50 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-## Atualizar sua cadeia de conexão
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permitirá que seu aplicativo comunique-se com o banco de dados hospedado.
 
-Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
-
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `Program.java` na próxima etapa.
+1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a CHAVE PRIMÁRIA para o arquivo `Program.java` na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet/keys.png)
 
-2. Abra o arquivo `Program.java`. 
-
-3. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor do ponto de extremidade para o construtor DocumentClient em `Program.java`. 
+2. No arquivo `Program.java`aberto, copie o valor do URI no portal (usando o botão de cópia) e transforme-o no valor do ponto de extremidade para o construtor DocumentClient em `Program.java`. 
 
     `"https://FILLME.documents.azure.com"`
 
-4. Em seguida, copie o valor de CHAVE PRIMÁRIA no portal e substitua o segundo parâmetro "FILL ME" com a chave no construtor do DocumentClient em 'Program.java'. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
+4. Em seguida, copie o valor da CHAVE PRIMÁRIA no portal e cole-o em "FILLME", tornando-o o segundo parâmetro no construtor DocumentClient. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
     
-<a id="run-the-app" class="xliff"></a>
+## <a name="run-the-app"></a>Execute o aplicativo
 
-## Execute o aplicativo
+1. Na janela do terminal git, `cd` para a pasta azure-cosmos-db-documentdb-java-getting-started.
 
-1. Execute `mvn package` em um terminal para instalar os pacotes necessários do Java.
+2. Na janela do terminal git, digite `mvn package` para instalar os pacotes necessários do Java.
 
-2. Execute `mvn exec:java -D exec.mainClass=GetStarted.Program` em um terminal para iniciar o aplicativo Java.
+3. Na janela do terminal de git, execute `mvn exec:java -D exec.mainClass=GetStarted.Program` na janela de terminal para iniciar o aplicativo Java.
 
-Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
+    Na janela de terminal, você receberá uma notificação de que o banco de dados FamilyDB foi criado e deve pressionar uma tecla para continuar. Pressione uma tecla para criar o banco de dados, em seguida, alterne para o Data Explorer e verá que agora ele contém um banco de dados FamilyDB. Continue a pressionar teclas para criar a coleção e os documentos, em seguida, faça uma consulta. Quando o projeto concluir, os recursos serão excluídos de sua conta. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-java/console-output.png)
 
-## Examinar SLAs no Portal do Azure
+
+## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
-## Próximas etapas
-
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, uma coleção usando o Data Explorer e executar um aplicativo para fazer a mesma coisa programaticamente. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure](import-data.md)
+> [Importar dados no Azure Cosmos DB](import-data.md)
 
 
 
