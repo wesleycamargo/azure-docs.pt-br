@@ -81,8 +81,6 @@
 ### [Criar uma conta de armazenamento](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Usando o PowerShell do Azure com o Armazenamento do Azure](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Usando a CLI do Azure com o Armazenamento do Azure.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Diretrizes de infraestrutura de armazenamento do Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Diretrizes de infraestrutura de armazenamento do Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Ferramentas de cliente do Armazenamento do Azure](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Referência de API REST do Serviço de armazenamento do Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Uso de assinaturas de acesso compartilhado](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

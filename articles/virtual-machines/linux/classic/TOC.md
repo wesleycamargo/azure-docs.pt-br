@@ -4,13 +4,13 @@
 ## [Disponibilidade](configure-availability.md)
 ## [Perguntas frequentes](faq.md)
 
-# [Introdução](../opensource-links.md)
+# Introdução
 ## [Criar uma VM do Linux com o portal](createportal.md)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
 ## [Criar chaves SSH](../mac-create-ssh-keys.md)
 
 # Como
-## [Computação](../intro-on-azure.md)
+## Computação
 ### [Criar uma VM personalizada](create-custom.md)
 ### [Capturar uma VM](capture-image.md)
 ### [Usar a Área de Trabalho Remota com uma VM Linux](remote-desktop.md)
