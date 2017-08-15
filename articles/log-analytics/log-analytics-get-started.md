@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Introdução a um espaço de trabalho de Log Analytics
@@ -59,7 +58,12 @@ A próxima etapa é criar um espaço de trabalho.
 4. Selecione um espaço de trabalho para ver seus detalhes no portal do Azure.       
     ![detalhes do espaço de trabalho](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Adicionar soluções e ofertas de soluções
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Atualizar o espaço de trabalho para nova pesquisa de log
+Uma nova linguagem de consulta do Log Analytics foi lançada e, para aproveitá-la, você precisa converter seu espaço de trabalho.  Se a região na qual seu espaço de trabalho está hospedado tiver sido atualizada, você verá uma faixa roxa na parte superior de seu espaço de trabalho convidando você para a conversão. A atualização é totalmente voluntária e não afeta a sua experiência com o Log Analytics e as soluções que você adicionar.  
+
+Para entender mais os benefícios, considerações e o processo de atualização, consulte [Atualizar o Azure Log Analytics para nova pesquisa de log](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Adicionar soluções e ofertas de soluções
 
 Em seguida, adicione soluções de gerenciamento e ofertas de soluções. As soluções de gerenciamento são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem as métricas que giram em torno de uma área de problema específica. Uma oferta de solução é um pacote de soluções de gerenciamento.
 
@@ -95,11 +99,11 @@ Em seguida, crie uma máquina virtual simples no Azure. Após criar uma VM, inte
 
 - Siga as instruções em [Conectar máquinas virtuais do Azure à Log Analytics](log-analytics-azure-vm-extension.md) para conectar a VM à Log Analytics usando o portal do Azure.
 
-## <a name="5-view-and-act-on-data"></a>5 Exibir e agir sobre os dados
+## <a name="6-view-and-act-on-data"></a>6 Exibir e agir sobre os dados
 
 Anteriormente, você habilitou a solução de Log Analytics de Atividade e as ofertas de serviço de Segurança e Conformidade e Automação e Controle. Em seguida, vamos começar a examinar os dados coletados pelas soluções e os resultados em pesquisas de log.
 
-Para começar, examine os dados exibidos de dentro das soluções. Em seguida, examine algumas pesquisas de log que são acessadas por meio de pesquisas de log. As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente. Para obter mais informações, confira [Registrar pesquisas na Log Analytics](log-analytics-log-searches.md). Por fim, tome medidas em relação aos dados que encontramos usando o portal do OMS, que está fora do portal do Azure.
+Para começar, examine os dados exibidos de dentro das soluções. Em seguida, examine algumas pesquisas de log que são acessadas por meio de pesquisas de log. As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente. Para saber mais, consulte [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) ou, se você tiver convertido seu espaço de trabalho para a nova linguagem de consulta, consulte [Noções básicas das pesquisas de log no Log Analytics](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Para exibir dados Antimalware
 

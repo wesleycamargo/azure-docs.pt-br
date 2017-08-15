@@ -1,7 +1,7 @@
-Agora você pode usar o Data Explorer para criar um contêiner de gráfico e adicionar dados ao banco de dados. 
+Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de gráfico. 
 
-1. No Portal do Azure, no menu de navegação, clique em **Data Explorer**. 
-2. Na folha Data Explorer, clique em **Novo Gráfico** e, em seguida, preencha a página usando as informações a seguir.
+1. No Portal do Azure, no menu de navegação à esquerda, clique em **Data Explorer (Versão prévia)**. 
+2. Na folha **Data Explorer (Versão prévia)**, clique em **Novo Gráfico**, então, preencha a página usando as seguintes informações.
 
     ![Data Explorer no Portal do Azure](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 

@@ -14,30 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# Quais cargas de trabalho posso proteger com o Azure Site Recovery?
-<a id="what-workloads-can-you-protect-with-azure-site-recovery" class="xliff"></a>
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 Este artigo descreve quais aplicativos e cargas de trabalho você pode replicar com o Azure Site Recovery.
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Visão geral
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Visão geral
 Você precisa de uma estratégia de BCDR (continuidade dos negócios e recuperação de desastre) que mantém as cargas de trabalho e os dados em execução e disponíveis durante o tempo de inatividade planejado e não planejado, e para recuperar as condições normais de trabalho assim que possível.
 
 O Site Recovery é um serviço do Azure que contribui para sua estratégia de BCDR. Usando o Site Recovery, você pode implantar a replicação com reconhecimento de aplicativo na nuvem, ou para um site secundário. Se seus aplicativos são baseados no Windows ou no Linux, sendo executado em servidores físicos, VMware ou VMs do Hyper-V, você pode usar o Site Recovery para coordenar a replicação, realizar testes de recuperação de desastres e executar failovers e failback.
 
 O Site Recovery se integra aos aplicativos da Microsoft, incluindo o SharePoint, o Exchange, o Dynamics, o SQL Server e o Active Directory. Microsoft também trabalha em conjunto com os principais fornecedores, inclusive Oracle, SAP, IBM e Red Hat. Você pode personalizar soluções de replicação em uma base por aplicativo.
 
-## Por que usar o Site Recovery para a replicação do aplicativo?
-<a id="why-use-site-recovery-for-application-replication" class="xliff"></a>
+## <a name="why-use-site-recovery-for-application-replication"></a>Por que usar o Site Recovery para a replicação do aplicativo?
 O Site Recovery contribui para a recuperação e a proteção no nível do aplicativo da seguinte maneira:
 
 * Independente do aplicativo, fornecer replicação para quaisquer cargas de trabalho em execução em um computador com suporte.
@@ -48,8 +44,7 @@ O Site Recovery contribui para a recuperação e a proteção no nível do aplic
 * O gerenciamento avançado de rede no Site Recovery e no Azure simplifica os requisitos de rede do aplicativo, incluindo a reserva de endereços IP, a configuração de balanceadores de carga e a integração com o Gerenciador de Tráfego do Azure para os switchovers de rede de baixo RTO.
 * Uma biblioteca de automação avançada que fornece scripts específicos do aplicativo, prontos para a produção, que pode ser baixada e integrada nos planos de recuperação.
 
-## Resumo de carga de trabalho
-<a id="workload-summary" class="xliff"></a>
+## <a name="workload-summary"></a>Resumo de carga de trabalho
 O Site Recovery pode replicar qualquer aplicativo em execução em um computador com suporte. Além disso, uma parceria com as equipes de produto para executar testes adicionais específicos do aplicativo.
 
 | **Carga de trabalho** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** |
@@ -68,16 +63,14 @@ O Site Recovery pode replicar qualquer aplicativo em execução em um computador
 | Servidor de arquivos do Windows |S |S |S |S |
 | Citrix XenApp e XenDesktop |N/D |S |N/D |S |
 
-## Replicar o Active Directory e o DNS
-<a id="replicate-active-directory-and-dns" class="xliff"></a>
+## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 As infraestruturas do DNS e do Active Directory são essenciais para a maioria dos aplicativos corporativos. Durante a recuperação de desastre, você precisará proteger e recuperar esses componentes de infraestrutura antes de recuperar suas cargas de trabalho e aplicativos.
 
 Você usar o Site Recovery para criar um plano totalmente automatizado de recuperação de desastre para o Active Directory e o DNS. Por exemplo, se você quiser fazer o failover do SharePoint e do SAP de um site primário para um secundário, poderá configurar um plano de recuperação que executa o failover do Active Directory primeiro e, em seguida, um plano de recuperação adicional específico do aplicativo para o failover em outros aplicativos que dependem do Active Directory.
 
 [Saiba mais](site-recovery-active-directory.md) sobre como proteger o Active Directory e o DNS.
 
-## Proteger o SQL Server
-<a id="protect-sql-server" class="xliff"></a>
+## <a name="protect-sql-server"></a>Proteger o SQL Server
 O SQL Server fornece uma base de serviços de dados para muitos aplicativos de negócios em um datacenter local.  O Site Recovery pode ser usado junto com as tecnologias HA/DR do SQL Server para proteger os aplicativos corporativos de vários níveis que usam o SQL Server. A Recuperação de Site fornece:
 
 * Uma solução de recuperação de desastre simples e econômica para o SQL Server. Replique diversas versões e edições dos clusters e servidores autônomos do SQL Server para o Azure ou um site secundário.  
@@ -88,8 +81,7 @@ O SQL Server fornece uma base de serviços de dados para muitos aplicativos de n
 
 [Saiba mais](site-recovery-sql.md) sobre como proteger o SQL Server.
 
-## Proteger o SharePoint
-<a id="protect-sharepoint" class="xliff"></a>
+## <a name="protect-sharepoint"></a>Proteger o SharePoint
 O Azure Site Recovery ajuda a proteger as implantações do SharePoint, da seguinte forma:
 
 * Elimina a necessidade e os custos associados à infraestrutura de um farm autônomo para a recuperação de desastres. Usa o Site Recovery para replicar um farm inteiro (camadas da Web, do aplicativo e do banco de dados) para o Azure ou um site secundário.
@@ -99,8 +91,7 @@ O Azure Site Recovery ajuda a proteger as implantações do SharePoint, da segui
 
 [Saiba mais](site-recovery-sharepoint.md) sobre como proteger o SharePoint.
 
-## Proteger o Dynamics AX
-<a id="protect-dynamics-ax" class="xliff"></a>
+## <a name="protect-dynamics-ax"></a>Proteger o Dynamics AX
 O Azure Site Recovery ajuda a proteger sua solução ERP do Dynamics AX:
 
 * Coordenando a replicação de todo o ambiente Dynamics AX (camadas da Web e AOS, camadas do banco de dados, SharePoint) para o Azure ou para um site secundário.
@@ -109,8 +100,7 @@ O Azure Site Recovery ajuda a proteger sua solução ERP do Dynamics AX:
 
 [Saiba mais](site-recovery-dynamicsax.md) sobre como proteger o Dynamic AX.
 
-## Proteger o RDS
-<a id="protect-rds" class="xliff"></a>
+## <a name="protect-rds"></a>Proteger o RDS
 O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área de trabalho virtual (VDI), áreas de trabalho baseadas em sessão e aplicativos, permitindo que os usuários trabalhem de qualquer lugar. Com o Azure Site Recovery, você pode:
 
 * Replicar as áreas de trabalho virtuais em pool gerenciadas ou não para um site secundário e aplicativos e sessões remotos para um site secundário ou Azure.
@@ -124,8 +114,7 @@ O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área
 
 [Saiba mais](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre como proteger o RDS.
 
-## Proteger o Exchange
-<a id="protect-exchange" class="xliff"></a>
+## <a name="protect-exchange"></a>Proteger o Exchange
 O Site Recovery ajuda a proteger o Exchange da seguinte maneira:
 
 * Para as implantações pequenas do Exchange, como um único servidor ou servidores sem cluster, o Site Recovery pode replicar e fazer failover no Azure ou em um site secundário.
@@ -134,18 +123,17 @@ O Site Recovery ajuda a proteger o Exchange da seguinte maneira:
 
 [Saiba mais](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) sobre como proteger o Exchange.
 
-## Proteger o SAP
-<a id="protect-sap" class="xliff"></a>
+## <a name="protect-sap"></a>Proteger o SAP
 Use o Site Recovery para proteger sua implantação do SAP como a seguir:
 
-* Habilite a proteção de toda a implantação do SAP replicando camadas diferentes de implantação para o Azure ou um site secundário.
+* Habilite a proteção de aplicativos SAP NetWeaver e não NetWeaver Production em execução no local, por meio da replicação de componentes no Azure.
+* Habilite a proteção de aplicativos SAP NetWeaver e não NetWeaver Production em execução no Azure, por meio da replicação de componentes em outro datacenter do Azure.
 * Simplifique a migração na nuvem usando o Site Recovery para migrar sua implantação do SAP para o Azure.
-* Simplifique o desenvolvimento e o teste do SAP criando uma cópia de produção sob demanda para o teste e a depuração dos aplicativos.
+* Simplifique as atualizações, teste e criação de protótipos de projeto SAP criando um clone de produção sob demanda para testar aplicativos SAP.
 
-[Saiba mais](http://aka.ms/asr-sap) sobre como proteger o SAP.
+[Saiba mais](site-recovery-sap.md) sobre como proteger o SAP.
 
-## Proteger o IIS
-<a id="protect-iis" class="xliff"></a>
+## <a name="protect-iis"></a>Proteger o IIS
 Use o Site Recovery para proteger sua implantação do IIS como mostrado abaixo:
 
 O Azure Site Recovery oferece recuperação de desastre replicando os componentes essenciais de seu ambiente em um site remoto frio ou em uma nuvem pública, como o Microsoft Azure. Já que a máquina virtual com o servidor Web e o banco de dados estão sendo replicados no local de recuperação, não há nenhum requisito para fazer backup de arquivos de configuração ou certificados separadamente. As associações e mapeamentos de aplicativo dependentes de variáveis de ambiente que são alterados após o failover podem ser atualizados por meio de scripts integrados aos planos de recuperação de desastre. As máquinas virtuais somente aparecem no site de recuperação no caso de um failover. Além disso, o Azure Site Recovery também ajuda a organizar o failover de ponta a ponta oferecendo os seguintes recursos:
@@ -158,19 +146,17 @@ O Azure Site Recovery oferece recuperação de desastre replicando os componente
 
 [Saiba mais](https://aka.ms/asr-iis) sobre como proteger o web farm do IIS.
 
-## Proteger o Citrix XenApp e o XenDesktop
-<a id="protect-citrix-xenapp-and-xendesktop" class="xliff"></a>
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Proteger o Citrix XenApp e o XenDesktop
 Use o Site Recovery para proteger suas implantações Citrix XenApp e XenDesktop, da seguinte maneira:
 
 * Habilite a proteção da implantação do Citrix XenApp e XenDesktop, replicando diferentes camadas de implantação incluindo (servidor AD DNS, servidor de banco de dados SQL, Citrix Delivery Controller, servidor StoreFront, XenApp Master (VDA), Citrix XenApp License Server) no Azure.
 * Simplifique a migração na nuvem usando o Site Recovery para migrar sua implantação do Citrix XenApp e XenDesktop para o Azure.
 * Simplifique o teste do Citrix XenApp/XenDesktop criando uma cópia de produção sob demanda para teste e depuração.
-* Esta solução só é aplicável para áreas de trabalho virtuais do sistema operacional Windows Server e não para áreas de trabalho virtuais de cliente como áreas de trabalho virtuais do cliente ainda não são suportadas para o licenciamento no Azure. 
+* Esta solução só é aplicável para áreas de trabalho virtuais do sistema operacional Windows Server e não para áreas de trabalho virtuais de cliente como áreas de trabalho virtuais do cliente ainda não são suportadas para o licenciamento no Azure.
 [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
 
-[Saiba mais](site-recovery-citrix-xenapp-and-xendesktop.md) sobre como proteger as implantações Citrix XenApp e XenDesktop. Como alternativa, você pode consultar o [whitepaper da Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detalhando o mesmo. 
+[Saiba mais](site-recovery-citrix-xenapp-and-xendesktop.md) sobre como proteger as implantações Citrix XenApp e XenDesktop. Como alternativa, você pode consultar o [whitepaper da Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detalhando o mesmo.
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
-[Verificar pré-requisitos](site-recovery-prereq.md) 
+## <a name="next-steps"></a>Próximas etapas
+[Verificar pré-requisitos](site-recovery-prereq.md)
 
