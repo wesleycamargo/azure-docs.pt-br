@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
+ms.author: sewhee
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET no Application Insights
@@ -197,7 +196,7 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 Às vezes, pode levar algum tempo para que todos os eventos e solicitações percorram o pipeline.
 
 ### <a name="limits"></a>Que quantidade de dados é mantida?
-Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
+Vários fatores afetam a quantidade de dados retidos. Veja a seção de [limites](app-insights-api-custom-events-metrics.md#limits) da página de métricas de eventos do cliente para obter mais informações. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Não estou vendo algumas das entradas de log que eu esperava
 Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)

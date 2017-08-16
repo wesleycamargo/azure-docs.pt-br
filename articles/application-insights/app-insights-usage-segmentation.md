@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 912e3e25680034828aee93d23c6a725c2cec0d45
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -67,9 +67,11 @@ A barra lateral Insights mostra grandes clusters de usuários que compartilham p
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-* [Visão geral do uso](app-insights-usage-overview.md)
-* [Retenção](app-insights-usage-retention.md)
-* [Codificação de eventos personalizados](app-insights-api-custom-events-metrics.md)
+- Para habilitar experiências de uso, comece a enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
+    - [Funis](usage-funnels.md)
+    - [Retenção](app-insights-usage-retention.md)
+    - [Pastas de trabalho](app-insights-usage-workbooks.md)
+    - [Adicionar o contexto de usuário](app-insights-usage-send-user-context.md)
 
 

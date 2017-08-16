@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral da segurança do armazenamento do Azure
@@ -40,7 +41,7 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 * Acesso delegado aos objetos de armazenamento
 * Criptografia em trânsito
 * Criptografia em repouso/criptografia do serviço de armazenamento
-* Criptografia de Disco do Azure
+* Azure Disk Encryption
 * Cofre da Chave do Azure
 
 ## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
@@ -51,7 +52,7 @@ Saiba mais:
 * [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Acesso delegado aos objetos de armazenamento
-Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
+Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa fornecer a SAS ao construtor apropriado ou ao método apropriado.
 
 Saiba mais:
 
@@ -62,7 +63,7 @@ Saiba mais:
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o Armazenamento do Azure, você pode proteger dados usando:
 
 * [Criptografia de nível de transporte](../storage/storage-security-guide.md#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
-* [Criptografia na transmissão](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de arquivos do Azure.
+* [Criptografia na transmissão](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
 * [Criptografia do cliente](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
 Saiba mais sobre a criptografia do cliente:
@@ -75,14 +76,14 @@ Para muitas organizações, a [criptografia de dados em repouso](https://blogs.m
 
 * [Criptografia do Serviço de Armazenamento](../storage/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 * [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
-* [Criptografia de Disco do Azure](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+* [Azure Disk Encryption](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
 Saiba mais sobre a Criptografia do Serviço de Armazenamento:
 
 * A [Criptografia do Serviço Azure Storage](https://azure.microsoft.com/services/storage/) está disponível para [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Para obter detalhes sobre outros tipos de armazenamento do Azure, confira [Arquivo](https://azure.microsoft.com/services/storage/files/), [Disco (Armazenamento Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [Tabela](https://azure.microsoft.com/services/storage/tables/) e [Fila](https://azure.microsoft.com/services/storage/queues/).
 * [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/storage-service-encryption.md)
 
-## <a name="azure-disk-encryption"></a>Criptografia de Disco do Azure
+## <a name="azure-disk-encryption"></a>Azure Disk Encryption
 O Azure Disk Encryption para VMs (Máquinas Virtuais) o ajuda a atender aos requisitos de conformidade e segurança organizacionais criptografando os discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas no [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/).
 
 A criptografia de disco para VMs funciona para sistemas operacionais Windows e Linux. Ela também usa o Cofre de Chaves para ajudá-lo a proteger, gerenciar e auditar o uso de suas chaves de criptografia de disco. Todos os dados nos discos de VM são criptografados em repouso usando a tecnologia de criptografia padrão do setor em suas contas de Armazenamento do Azure. A solução de Criptografia de Disco para Windows é baseada na [Criptografia de Unidade de Disco BitLocker da Microsoft](https://technet.microsoft.com/library/cc732774.aspx) e a solução para Linux é baseada no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
@@ -98,9 +99,4 @@ Saiba mais:
 
 * [O que é o Cofre da Chave do Azure?](../key-vault/key-vault-whatis.md)
 * [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

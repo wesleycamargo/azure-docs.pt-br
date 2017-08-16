@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/24/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f9058ca12cb52c1a9d4a3d05f4ccb3e2c030873e
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
@@ -163,6 +163,9 @@ A menos que você deseje usar seus próprios certificados (em vez dos certificad
 6. O PowerShell mostra uma mensagem de êxito quando o script é concluído.  
 
 Repita essas etapas em quaisquer servidores NPS adicionais em que você deseja configurar o balanceamento de carga.
+
+>[!NOTE]
+>Se você usar seus próprios certificados em vez de gerar certificados com o script do PowerShell, certifique-se de que eles estejam alinhados com a convenção de nomenclatura do NPS. O nome da entidade deve ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
 ## <a name="configure-your-nps-extension"></a>Configurar sua extensão do NPS
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Como o Proxy de Aplicativo do Azure AD é um proxy reverso, todo o tráfego para
 
 Não é necessário abrir as conexões de entrada para a rede corporativa.
 
-Conectores de Azure AD utilizam apenas conexões de saída para o serviço de Proxy de Aplicativo do Azure AD, o que significa que não há necessidade de abrir portas de firewall para conexões de entrada. As abordagens tradicionais exigiam uma rede de perímetro (também conhecida como *DMZ*, *zona desmilitarizada*, ou *sub-rede filtrada*) e permitiam acesso a conexões não autenticadas na borda da rede. Esse cenário exigiu muitos investimentos adicionais em produtos de firewall de aplicativo Web para analisar o tráfego e oferecer proteções extras ao ambiente. Com o Proxy de Aplicativo, você não precisa de uma rede de perímetro porque todas as conexões são de saída e ocorrem por um canal seguro.
+Os Conectores do Proxy de Aplicativo utilizam apenas conexões de saída para o serviço de Proxy de Aplicativo do Azure AD, o que significa que não há necessidade de abrir portas de firewall para conexões de entrada. As abordagens tradicionais exigiam uma rede de perímetro (também conhecida como *DMZ*, *zona desmilitarizada*, ou *sub-rede filtrada*) e permitiam acesso a conexões não autenticadas na borda da rede. Esse cenário exigiu muitos investimentos adicionais em produtos de firewall de aplicativo Web para analisar o tráfego e oferecer proteções extras ao ambiente. Com o Proxy de Aplicativo, você não precisa de uma rede de perímetro porque todas as conexões são de saída e ocorrem por um canal seguro.
+
+Para saber mais sobre conectores, veja [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-understand-connectors.md).
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>Machine learning e análise em escala de nuvem 
 
 Obtenha proteção de segurança de ponta.
 
-O [Azure AD Identity Protection](active-directory-identityprotection.md) com inteligência baseada em machine learning com os dados é alimentado de nossa Unidade de Crimes Digitais e do Microsoft Security Response Center. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
+Porque ele é parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar o [Azure AD Identity Protection](active-directory-identityprotection.md) com inteligência com base em aprendizado de máquina e dados do Microsoft Security Response Center e da Digital Crimes Unit. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
 
 Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração com as informações de segurança e sistemas de gerenciamento (SIEM) do evento.
 
@@ -119,7 +121,7 @@ Sempre que o serviço de Proxy de Aplicativo atualiza as definições de configu
 
 Quando os usuários acessam um aplicativo publicado, os seguintes eventos ocorrem entre o serviço de Proxy de Aplicativo e o conector de Proxy de Aplicativo:
 
-1. [O serviço verifica as definições de configuração para o aplicativo](#the-service-checks-the-configuration-settings-for-the-app)
+1. [O serviço autentica o usuário para o aplicativo](#the-service-checks-the-configuration-settings-for-the-app)
 2. [O serviço faz uma solicitação na fila do conector](#The-service-places-a-request-in-the-connector-queue)
 3. [Um conector processa a solicitação da fila](#the-connector-receives-the-request-from-the-queue)
 4. [O conector aguarda uma resposta](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Quando os usuários acessam um aplicativo publicado, os seguintes eventos ocorre
 Para saber mais sobre o que acontece em cada uma dessas etapas, continue lendo.
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. O serviço verifica as definições de configuração do aplicativo
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. O serviço autentica o usuário para o aplicativo
 
 Se você configurou o aplicativo para usar Passagem como seu método de pré-autenticação, as etapas nesta seção são ignoradas.
 

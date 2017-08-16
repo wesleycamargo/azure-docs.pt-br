@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2082e4e9b23271be93f3e3ab43997c3243238da8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Associações de arquivo externo do Azure Functions (versão prévia)
@@ -35,12 +34,10 @@ Essa associação cria conexões de API com provedores SaaS, ou usa conexões de
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[Sistema de Arquivos](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
@@ -72,13 +69,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>Padrões de nome
-É possível especificar um padrão de nome de arquivo na propriedade `path`. Por exemplo:
+É possível especificar um padrão de nome de arquivo na propriedade `path`. A pasta referenciada deve existir no provedor de SaaS.
+Exemplos:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Esse caminho deve encontrar um arquivo chamado *original-File1.txt* na *entrada* pasta e o valor da variável `name` no código de função seria `File1`.
+Esse caminho deve encontrar um arquivo chamado *original-File1.txt* na *entrada* pasta e o valor da variável `name` no código de função seria `File1.txt`.
 
 Outro exemplo:
 
@@ -149,17 +147,11 @@ O arquivo pode ser desserializado em qualquer um destes tipos:
 
 Em funções do C#, você também pode associar a qualquer um dos seguintes tipos e o tempo de execução do Functions tentará desserializar os dados da tabela usando esse tipo:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Outros tipos desserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
 Suponha que você tem o seguinte function.json, que define um gatilho de arquivo externo:
@@ -186,7 +178,7 @@ Veja a amostra específica a um idioma que registra o conteúdo de cada arquivo 
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>Uso de gatilho em C# #
+### <a name="trigger-usage-in-c"></a>Uso de gatilhos em C# #
 
 ```cs
 public static void Run(string myFile, TraceWriter log)
@@ -249,11 +241,11 @@ O arquivo pode ser desserializado em qualquer um destes tipos:
 
 Em funções do C#, você também pode associar a qualquer um dos seguintes tipos e o tempo de execução do Functions tentará desserializar os dados da tabela usando esse tipo:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
 
 <a name="output"></a>

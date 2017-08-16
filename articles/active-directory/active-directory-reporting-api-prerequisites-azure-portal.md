@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a84f3825d3f019c60f8d875d250fe4cf79f4b04c
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure AD
@@ -74,7 +74,7 @@ Para configurar seu diretório para acessar a API de relatório do Azure AD, ent
 
     a. Na caixa de texto **Nome**, digite `Reporting API application`.
 
-    b. Como **Tipo de aplicativo**, selecione `Web app / API`.
+    b. Como **Tipo de aplicativo**, selecione **Aplicativo/API Web**.
 
     c. Na caixa de texto **URL de Entrada**, digite `https://localhost`.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4b38f1f90301c971cb6000f46d831047acb220e
-ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
@@ -121,26 +121,54 @@ Selecionando aplicativos na nuvem, você define o escopo de aplicativos de nuvem
 
 Na implementação atual do Azure Active Directory, você pode definir condições para as seguintes áreas:
 
-- **Risco de conexão** – um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais detalhes, veja [Entradas arriscadas](active-directory-identityprotection.md#risky-sign-ins).  
+- Risco de entrada
+- Plataformas de dispositivo
+- Locais
+- Aplicativos cliente
+
+![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
+
+### <a name="sign-in-risk"></a>Risco de entrada
+
+Um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais detalhes, veja [Entradas arriscadas](active-directory-identityprotection.md#risky-sign-ins).  
 Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional. 
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/22.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/22.png)
 
-- **Plataformas de dispositivo** – a plataforma do dispositivo é caracterizada pelo sistema operacional em execução no seu dispositivo (Android, iOS, Windows Phone, Windows). Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
+### <a name="device-platforms"></a>Plataformas de dispositivo
+
+A plataforma do dispositivo é caracterizada pelo sistema operacional em execução no seu dispositivo (Android, iOS, Windows Phone, Windows). Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
 Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/02.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **Locais** - o local é identificado pelo endereço IP do cliente que você usou para se conectar ao Azure Active Directory. Essa condição exigirá que você esteja familiarizado com IPs Confiáveis. IPs Confiáveis é um recurso de autenticação multifator que permite que você defina intervalos de endereços IP confiáveis que representam a intranet local da sua organização. Quando você configura as condições de um local, IPs Confiáveis permite distinguir entre conexões feitas desde a rede da sua organização e de todos os outros locais. Para obter mais detalhes, veja [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+### <a name="locations"></a>Locais
+
+O local é identificado pelo endereço IP do cliente que você usou para se conectar ao Azure Active Directory. Essa condição exige que você esteja familiarizado com **locais nomeados** e **IPs confiáveis de MFA**.  
+
+**Locais nomeados** é um recurso do Azure Active Directory que permite rotular os intervalos de endereços IP confiáveis em suas organizações. Em seu ambiente, você pode usar localizações nomeadas no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md), bem como o acesso condicional. Para obter mais detalhes sobre a configuração dos locais nomeados no Azure Active Directory, veja [locais nomeados no Azure Active Directory](active-directory-named-locations.md).
+
+O número de locais que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
+ 
+ - Um local nomeado com até 500 intervalos de IP
+ - Um máximo de 60 locais nomeados (visualização) com um intervalo IP atribuído a cada um deles 
+
+
+**IPs confiáveis do MFA** é um recurso de autenticação multifator que permite que você defina intervalos de endereços IP confiáveis que representam a intranet local da sua organização. Quando você configura as condições de um local, IPs Confiáveis permite distinguir entre conexões feitas desde a rede da sua organização e de todos os outros locais. Para obter mais detalhes, veja [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+
+
+
 Você pode incluir todos os locais ou todos os IPs confiáveis e pode excluir todos os IPs confiáveis.
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/03.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-- **Aplicativo cliente** - o aplicativo cliente pode estar em um nível genérico do aplicativo (navegador da Wb, aplicativos móveis, cliente da área de trabalho) que você usou para se conectar ao Azure Active Directory ou pode selecionar especificamente o Exchange Active Sync.  
+### <a name="client-app"></a>Aplicativo cliente
+
+O aplicativo cliente pode estar em um nível genérico do aplicativo (navegador da Wb, aplicativos móveis, cliente da área de trabalho) que você usou para se conectar ao Azure Active Directory ou pode selecionar especificamente o Exchange Active Sync.  
 A autenticação herdada refere-se aos clientes usando a autenticação básica, como clientes do Office mais antigos que não usam a autenticação moderna. No momento, o acesso condicional não tem suporte na autenticação herdada.
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
 ## <a name="common-scenarios"></a>Cenários comuns

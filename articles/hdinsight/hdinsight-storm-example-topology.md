@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 30e851272dcaa3bc0ec588f66930234ae39c60c7
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: daf03179c3a9383c6ff3ca11215cc760164f96d5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight"></a>Exemplo de topologias Storm e componentes para o Apache Storm no HDInsight
 
-Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apache Storm no HDInsight. Esses exemplos abrangem uma variedade de tópicos, desde a criação de topologias básicas do C# e Java até o trabalho com serviços do Azure como Hubs de Eventos, Cosmos DB, Power BI, Banco de Dados SQL, HBase no HDInsight e Armazenamento do Azure. Alguns exemplos também demonstram como trabalhar com tecnologias não Azure ou até mesmo com tecnologias não Microsoft, como o SignalR e Socket.IO
+Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apache Storm no HDInsight. Esses exemplos abrangem uma variedade de tópicos, desde a criação de topologias básicas do C# e Java até o trabalho com serviços do Azure como Hubs de Eventos, Cosmos DB, Power BI, Banco de Dados SQL, HBase no HDInsight e Armazenamento do Azure. Alguns exemplos também demonstram como trabalhar com tecnologias não Azure ou até mesmo com tecnologias não Microsoft, como o SignalR e Socket.IO.
 
 | Descrição | Demonstra | Estrutura/linguagem |
 |:--- |:--- |:--- |
@@ -35,7 +34,6 @@ Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apa
 | [Desenvolver topologias baseadas em Java para o Apache Storm no HDInsight][5797064f] |Maven |Java |
 | [Desenvolver topologias do C# para o Apache Storm no HDInsight usando o Visual Studio][16fce2d1] |Ferramentas do HDInsight para Visual Studio |C#, Java |
 | [Criar vários fluxos de dados em uma topologia Storm do C#][ec5a4064] |Vários fluxos |C# |
-| [Determinar tópicos de tendências do Twitter com o Storm no HDInsight][3c86c7c8] |Trident |Java, Trident |
 | [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)][844d1d81] |Hubs de Eventos |C# e Java |
 | [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |Hubs de Eventos |Java |
 | [Usar o Power BI para visualizar dados de uma topologia Storm][94d15238] |Power BI |C# |
@@ -46,6 +44,7 @@ Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apa
 | [Parâmetros de comparação de escalabilidade para leitura nos Hubs de Eventos do Azure usando o Storm no HDInsight][d6c540e3] |Taxa de transferência de mensagem, Hubs de Evento, Banco de Dados SQL |C#, Java |
 | [Correlacionar eventos usando Storm e HBase no HDInsight](hdinsight-storm-correlation-topology.md) |HBase |C# |
 | [Use o Python com o Storm em HDInsight](hdinsight-storm-develop-python-topology.md) |Componentes do Python com uma topologia Flux |Python |
+| [Usar o Kafka com o Storm no HDInsight](hdinsight-apache-storm-with-kafka.md) | Leitura e gravação em Apache Storm para o Apache Kafka | Java |
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -60,8 +59,7 @@ Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apa
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Demonstra uma topologia Storm básica que executa uma contagem de palavras, implementada em C#. Isso também demonstra como criar vários fluxos de dados em uma topologia C#."
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Saiba como ler e gravar dados dos Hubs de Eventos do Azure com o Storm no HDInsight."
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "Saiba como usar o Apache Storm no HDInsight para processar dados de sensor nos Hubs de Eventos do Azure, visualizá-los usando o D3.js e (opcionalmente) armazená-los no HBase."
-[3c86c7c8]: hdinsight-storm-twitter-trending.md "Saiba como usar o Trident para criar uma topologia Storm que determina os tópicos de tendências (baseados em hashtags) no Twitter."
-[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "Saiba como usar uma topologia Storm para ler mensagens dos Hubs de Eventos do Azure, ler documentos do Azure Cosmos DB para referência a dados e salvar os dados no Armazenamento do Azure."
+[246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Saiba como usar uma topologia Storm para ler mensagens dos Hubs de Eventos do Azure, ler documentos do Azure Cosmos DB para referência a dados e salvar os dados no Armazenamento do Azure."
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Várias topologias para demonstrar a produtividade ao ler com base nos Hubs de Eventos do Azure e armazenar no Banco de Dados SQL usando o Apache Storm no HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Saiba como ler dados dos Hubs de Eventos do Azure, agregar e transformar os dados e armazená-los no HBase no HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este projeto contém modelos de spouts, bolts e topologias para interagir com vários serviços do Azure como Hubs de Eventos, Cosmos DB e Banco de Dados SQL."

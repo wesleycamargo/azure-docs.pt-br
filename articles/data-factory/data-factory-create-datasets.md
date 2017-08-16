@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
@@ -202,7 +201,7 @@ As diretrizes a seguir ajudam você a determinar quando incluir informações de
     Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, não inclua informações de tipo quando incluir a seção de estrutura.
 * **Para o esquema em fontes de dados de leitura (especificamente o armazenamento de Blobs)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou de esquema juntamente com os dados. Para esses tipos de fontes de dados, inclua a estrutura quando desejar mapear as colunas de origem para as colunas do coletor. Também inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisarem ser convertidos em tipos nativos para o coletor. 
     
-    O Data Factory dá suporte aos seguintes valores para fornecer informações de tipo na estrutura: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset e Timespan. Esses valores são valores de tipo baseados em NET e em conformidade com CLS (Common Language Specification).
+    O Data Factory dá suporte aos seguintes valores para fornecer informações de tipo na estrutura: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan**. Esses valores são valores de tipo baseados em NET e em conformidade com CLS (Common Language Specification).
 
 O Data Factory executa conversões de tipo automaticamente ao mover dados de um armazenamento de dados de origem para um armazenamento de dados do coletor. 
   
@@ -269,7 +268,7 @@ O seguinte conjunto de dados é mensal e é gerado no terceiro de cada mês às 
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```

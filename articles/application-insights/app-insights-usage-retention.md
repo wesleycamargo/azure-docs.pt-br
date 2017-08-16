@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 17f6062537714fbef7c8509261ac4875f8a44b6e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,19 +32,12 @@ Caso ainda não veja dados na folha de retenção do portal do Application Insig
 
 ![Ferramenta de retenção](./media/app-insights-usage-retention/retention.png)
 
-a. A página de Visão Geral sempre está disponível. Além disso, você pode salvar relatórios nomeados com parâmetros diferentes. Salve em Compartilhado para tornar o relatório visível para outros usuários que têm acesso ao recurso.
-
-b. Por padrão, o gráfico conta todos os usuários que usaram qualquer um dos eventos ou modos de exibição de página personalizados recebidos do seu aplicativo. Selecione um ou um subconjunto deles para se concentrar em uma atividade específica do usuário. 
-
-c. Adicione um ou mais filtros para as propriedades. Por exemplo, você pode se concentrar em usuários de um determinado país ou região. Clique em **Atualizar** depois de configurar os filtros.
-
-d. **Restaurar padrões** sempre limpa o filtro personalizado e os filtros de eventos.
-
-e. O gráfico de resumo mostra os valores totais para o período selecionado.
-
-f. A grade mostra o número de usuários que retornaram para repetir as ações selecionadas durante um período específico. Cada linha representa um coorte de usuários que executaram uma das ações selecionadas no período mostrado. Cada célula na linha mostra quantas pessoas desse coorte retornaram pelo menos uma vez em um período posterior. Alguns usuários podem retornar em mais de um período.
-
-Qualquer pessoa que usou o aplicativo durante o intervalo de tempo do gráfico é representada em exatamente uma linha do gráfico. Cada usuário é contabilizado no período em que executou a ação selecionada pela primeira vez no intervalo de tempo do gráfico. Portanto, há uma tendência de haver um número maior na primeira linha.
+1. A barra de ferramentas permite aos usuários criar novos relatórios de retenção, abrir os relatórios de retenção existentes, salvar o relatório de retenção atual ou salvar como, reverter as alterações feitas nos relatórios salvos, atualizar dados no relatório, compartilhar relatórios por email ou link direto e acessar a página de documentação. 
+2. Por padrão, a retenção mostra todos os usuários que fizeram algo e então voltaram e fizeram outra coisa em um período. Você pode selecionar diferentes combinações de eventos para estreitar o foco em atividades de usuário específico.
+3. Adicione um ou mais filtros para as propriedades. Por exemplo, você pode se concentrar em usuários de um determinado país ou região. Clique em **Atualizar** depois de configurar os filtros. 
+4. O gráfico de retenção geral mostra um resumo de retenção de usuário entre o período selecionado. 
+5. A grade mostra o número de usuários retidos de acordo com o construtor de consultas no nº 2. Cada linha representa um coorte de usuários que realizaram qualquer evento no período mostrado. Cada célula na linha mostra quantas pessoas desse coorte retornaram pelo menos uma vez em um período posterior. Alguns usuários podem retornar em mais de um período. 
+6. Os cartões de informações mostram os cinco principais eventos de início e os cinco eventos principais retornados para dar aos usuários uma ideia melhor sobre seus relatórios de retenção. 
 
 
 ## <a name="use-business-events-to-track-retention"></a>Usar eventos de negócios para monitorar a retenção
@@ -69,9 +62,10 @@ Ou no código de servidor do ASP.NET:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-* [Visão geral do uso](app-insights-usage-overview.md)
-* [Usuários e sessões](app-insights-usage-segmentation.md)
-* [Codificação de eventos personalizados](app-insights-api-custom-events-metrics.md)
-
+- Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
+    - [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md)
+    - [Funis](usage-funnels.md)
+    - [Pastas de trabalho](app-insights-usage-workbooks.md)
+    - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
 

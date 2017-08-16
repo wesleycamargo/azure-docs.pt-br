@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -82,15 +82,15 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
 | Preços |Pagamento por uso ou parte de Plano do Serviço de Aplicativo |Parte do Plano do Serviço de Aplicativo |
 | Executar-tipo |disparado, agendado (pelo gatilho de temporizador) |acionado, contínuo, agendado |
 | Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage.md) |[Armazenamento do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| Desenvolvimento no navegador |x | |
-| Script de janela |experimental |x |
-| PowerShell |experimental |x |
-| C# |x |x |
-| F# |x | |
-| Bash |experimental |x |
-| PHP |experimental |x |
-| Python |experimental |x |
-| JavaScript |x |x |
+| Desenvolvimento no navegador |com suporte | sem suporte |
+| Script de janela |experimental |com suporte |
+| PowerShell |experimental |com suporte |
+| C# |com suporte |com suporte |
+| F# |com suporte |sem suporte |
+| Bash |experimental |com suporte |
+| PHP |experimental |com suporte |
+| Python |experimental |com suporte |
+| JavaScript |com suporte |com suporte |
 
 O uso do Functions ou do WebJobs depende do que você já está fazendo com o Serviço de Aplicativo. Se você tiver um aplicativo do Serviço de Aplicativo para o qual deseja executar trechos de código e quiser gerenciá-los juntos no mesmo ambiente DevOps, deverá usar o WebJobs. Se você desejar executar trechos de código para outros serviços ou aplicativos de terceiros, ou se quiser gerenciar trechos de código de integração separadamente dos aplicativos do Serviço de Aplicativo, ou se desejar chamar trechos de código em um Aplicativo lógico, aproveite todas as melhorias do Functions.  
 

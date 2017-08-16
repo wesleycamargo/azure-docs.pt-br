@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -34,13 +34,14 @@ Os cenários a seguir têm suporte total durante a visualização:
 - Entradas de usuário em todos os aplicativos baseados em navegador da Web.
 - Entradas de usuário em aplicativos cliente Office 365 com suporte para [autenticação moderna](https://aka.ms/modernauthga).
 - Ingresso do Azure AD para dispositivos Windows 10.
+- Suporte ao Exchange ActiveSync.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
 Os cenários a seguir _não_ têm suporte durante a versão prévia:
 
-- Entradas de usuário em aplicativos cliente Office e Exchange ActiveSync herdados (ou seja, aplicativos de email nativos em dispositivos móveis). As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna permite o suporte à autenticação de passagem, mas também ajuda a proteger suas identidades usando recursos de [acesso condicional](../active-directory-conditional-access.md) como a MFA (Autenticação Multifator).
-- Logons de usuário no aplicativo cliente Skype for Business.
+- Entradas do usuário em aplicativos de cliente herdados do Office (Office 2013 ou anterior). As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna permite o suporte à Autenticação de Passagem, mas também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access.md) como a MFA (Autenticação Multifator).
+- O usuário entra em aplicativos cliente do Skype for Business, incluindo o Skype for Business 2016.
 - Logons de usuário no PowerShell v1.0. É recomendável usar o PowerShell v2.0.
 
 >[!IMPORTANT]

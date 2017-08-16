@@ -12,30 +12,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 6a69dc900eee2f539a2b1740c4e89132e2bd6db7
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="understand-identity-registry-in-your-iot-hub"></a>Entender o Registro de identidade no hub IoT
-
-## <a name="overview"></a>Visão geral
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
 Cada Hub IoT tem um registro de identidade que armazena informações sobre os dispositivos com permissão para se conectar ao Hub IoT. Antes de um dispositivo poder se conectar a um Hub IoT, deve existir uma entrada para esse dispositivo no registro de identidade do Hub IoT. O dispositivo também deve realizar a autenticação no Hub IoT com base em credenciais armazenadas no registro de identidade.
 
-A ID do dispositivo armazenada no Registro de identidade diferencia maiúsculas de minúsculas.
+A ID do dispositivo armazenada no registro de identidade diferencia maiúsculas de minúsculas.
 
-Em um alto nível, o registro de identidade é uma coleção compatível com REST de recursos de identidade do dispositivo. Quando você adiciona uma entrada ao Registro de identidade, o Hub IoT cria um conjunto de recursos por dispositivo no serviço, tal como a fila que contém mensagens em andamento da nuvem para o dispositivo.
+Em um alto nível, o registro de identidade é uma coleção compatível com REST de recursos de identidade do dispositivo. Quando você adiciona uma entrada ao registro de identidade, o Hub IoT cria um conjunto de recursos por dispositivo, tal como a fila que contém mensagens em andamento da nuvem para o dispositivo.
 
 ### <a name="when-to-use"></a>Quando usar
 
-Use o registro de identidade quando você precisar provisionar dispositivos que se conectam ao Hub IoT e quando precisar controlar o acesso de cada dispositivo aos pontos de extremidade voltados ao dispositivo em seu hub.
+Use o registro de identidade quando você precisa:
+
+* Provisionar dispositivos que se conectam ao Hub IoT.
+* Controlar o acesso por dispositivo aos pontos de extremidade do hub voltados para o dispositivo.
 
 > [!NOTE]
 > O registro de identidade não contém os metadados específicos do aplicativo.
@@ -86,30 +86,28 @@ Você pode desabilitar dispositivos atualizando a propriedade **status** de uma 
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
-Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure como armazenamento de tabelas do Azure, armazenamento de blobs do Azure ou Azure Cosmos DB para armazenar outros dados de dispositivo.
+Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure como armazenamento de tabelas, armazenamento de blobs ou Cosmos DB para armazenar outros dados de dispositivo.
 
 *Provisionamento de dispositivos* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao registro de identidade do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
 
 ## <a name="device-heartbeat"></a>Pulsação do dispositivo
 
-O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se uma mensagem da nuvem para o dispositivo ou um SMS deve ser enviado).
+O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. Soluções de IoT não devem consultar o campo em tempo de execução. Por exemplo, não consulte o campo **connectionState** para verificar se um dispositivo está conectado antes de enviar uma mensagem de nuvem para dispositivo ou um SMS.
 
-Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
+Se sua solução de IoT precisa saber se um dispositivo está conectado, você deve implementar o *padrão de pulsação*.
 
-No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo. A solução supõe que haja um problema com um dispositivo se não receber uma mensagem de pulsação no tempo esperado.
+No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo. Se a solução não recebe uma mensagem de pulsação de um dispositivo no tempo esperado, ela supõe que há um problema com ele.
 
 Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e limitações do Hub IoT][lnk-quotas].
 
 > [!NOTE]
-> Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão mais simples a ser considerado é usar um tempo de validade mais curto. Esse padrão é o mesmo que manter um registro do estado da conexão do dispositivo usando o padrão de pulsação, embora seja mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha.
+> Se uma solução IoT usa o estado de conexão apenas para determinar se deve enviar mensagens da nuvem para o dispositivo e as mensagens não forem difundidas para conjuntos grandes de dispositivos, considere usar o padrão mais simples de *tempo de expiração mais curto*. Esse padrão é o mesmo que manter um registro do estado da conexão do dispositivo usando o padrão de pulsação, embora seja mais eficiente. Se você solicita confirmações de mensagem, o Hub IoT pode notificar você sobre quais dispositivos têm capacidade de receber mensagens e quais não têm.
 
 ## <a name="device-lifecycle-notifications"></a>Notificações do ciclo de vida do dispositivo
 
 O Hub IoT pode notificar sua solução de IoT quando uma identidade de dispositivo é criada ou excluída, enviando notificações do ciclo de vida do dispositivo. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *DeviceLifecycleEvents*. Por padrão, nenhuma notificação de ciclo de vida é enviada, ou seja, nenhuma dessas rotas existe previamente. A mensagem de notificação inclui propriedades e o corpo.
 
-- Propriedades
-
-As propriedades do sistema de mensagens são fixadas previamente com o símbolo `'$'`.
+Propriedades: as propriedades do sistema de mensagens são prefixadas com o símbolo `'$'`.
 
 | Nome | Valor |
 | --- | --- |
@@ -117,16 +115,15 @@ $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
 $iothub-message-source | deviceLifecycleEvents |
 $content-encoding | utf-8 |
-opType | “createDeviceIdentity” ou “deleteDeviceIdentity” |
+opType | **createDeviceIdentity** ou **deleteDeviceIdentity** |
 hubName | Nome do Hub IoT |
 deviceId | ID do dispositivo |
 operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 iothub-message-schema | deviceLifecycleNotification |
 
-- Corpo
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
 
-Esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
-``` 
+```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
     "etag":"AAAAAAAAAAE=",
@@ -177,9 +174,9 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
-* [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
+* [Limitação e cotas][lnk-quotas] descreve as cotas e os comportamentos de limitação que se aplicam ao serviço Hub IoT.
 * [SDKs de dispositivo e serviço IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
-* [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
+* A [linguagem de consulta do Hub IoT][lnk-query] descreve a linguagem de consulta que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/04/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 91620e993ae0413080dad03344290e971bf74949
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão dos componentes do Hadoop no Azure HDInsight
@@ -29,6 +29,22 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, confira o [artigo sobre controle de versão do HDInsight](hdinsight-component-versioning.md).
+
+
+## <a name="notes-for-08012017-release-of-hdinsight"></a>Notas da versão de 01/08/2017 do HDInsight
+
+| Title | Descrição | Área Afetada  | Tipo de cluster  | 
+| --- | --- | --- | --- | --- |
+| Lançamento do Microsoft R Server 9.1 no HDInsight |O HDInsight agora dá suporte ao provisionamento de clusters do R Server 9.1 no HDInsight. Para obter mais informações sobre a versão do Microsoft R Server 9.1, consulte [este blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |O Barramento de |Servidor R |
+| O HDInsight 3.6 agora inclui versões mais recentes da pilha do Hadoop|<ul><li>Para obter uma lista detalhada de versões atualizadas, consulte [Versões dos componentes do Hadoop disponíveis no HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Para obter uma lista de bugs corrigidos nas versões mais recentes da pilha do Hadoop, consulte [Informações de Patch do Apache](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Para obter uma lista das últimas alterações entre HDP 2.6.1 (que agora está disponível no HDInsight 3.6), consulte [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Para obter uma lista dos problemas conhecidos no HDP 2.6.1, consulte [Problemas conhecidos](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |O Barramento de |Todos |N/D |
+| Atualizações para os clusters de Hive Interativo (versão prévia) |<ul><li><b>Aperfeiçoamento de recurso.</b> Implementação de metastore em cache que reduz a carga no SQL de back-end armazenando em cache os metadados e que melhora o desempenho de todas as operações de metadados.  Essa melhoria agora é um padrão em todos os clusters do Hive Interativo. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Aperfeiçoamento de recurso.</b> O carregamento dinâmico de partição é otimizado. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Aperfeiçoamento de recurso.</b> Otimizações de configuração para HDInsight no Linux.</li><li><b>Correção de bug.</b> `CredentialProviderFactory$getProviders` não é thread-safe. Esse problema está corrigido. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Correção de bug.</b> Alto uso da CPU com API `liststatus` de driver WASB resultando em um desempenho de ATS ruim. Esse problema está corrigido. Para obter mais informações, consulte [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |O Barramento de |Hive Interativo (versão prévia) |
+| Atualiza para clusters Hadoop |A confiabilidade da operação de trabalho do Templeton foi aprimorada. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |O Barramento de |O Hadoop |
+| Atualizações do YARN | Agora, o HDInsight cria um banco de dados do Ambari de 250 GB (sem aumentar os custos), o que resulta em uma melhor experiência para os clientes. Essa alteração deverá impedir que ATS seja preenchido e provavelmente terá um desempenho melhor. |O Barramento de |Todos |
+| Atualizações do Spark | Versão do Spark 2.1.1. Para obter mais informações, confira [Spark Versão 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | O Barramento de | Spark |
+
+  
+
+
 
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>06/04/2017 – Disponibilidade geral do HDInsight 3.6
 
@@ -42,9 +58,9 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 
 * **Suporte à Exibição do Hive 2.0**. Isso deve melhorar a experiência do usuário para o Hive Interativo. Para obter mais informações, consulte a [documentação da Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
-* **Aprimoramentos de desempenho com o Hive LLAP**. Para obter mais informações, consulte a [documentação da Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) para mais detalhes.
+* **Aprimoramentos de desempenho com o Hive LLAP**. Para obter mais informações, consulte a [documentação da Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
 
-* **Novos recursos no Hive**. Consulte a [documentação da Hortonworks](https://hortonworks.com/apache/hive/#section_4) para obter mais detalhes.
+* **Novos recursos no Hive**. Consulte a [documentação da Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 
 * **Substituição da CLI do hive**: a CLI do Hive está sendo preterida e os clientes são incentivados a usar o Beeline em seu lugar. Para obter mais informações, veja a [documentação do Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Para obter instruções sobre como usar o Beeline com o HDInsight, consulte [Usar clusters Beeline com o Hadoop HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 
@@ -88,24 +104,6 @@ O Spark 2.0.1 agora está disponível em clusters do Spark (HDInsight versão 3.
 * O Servidor R no HDInsight agora está disponível como um tipo de cluster regular “Servidor R” do HDInsight e não é mais instalado como um aplicativo HDInsight separado. O nó de borda e os binários do Servidor R agora são provisionados como parte da implantação de cluster do Servidor R. Isso melhora a velocidade e a confiabilidade do provisionamento. O modelo de preço para o Servidor R é atualizado adequadamente.
 * O preço do tipo de cluster Servidor R agora se baseia na camada de preço Standard mais o preço da sobretaxa do Servidor R. A camada Premium é reservada para recursos Premium disponíveis em diferentes tipos de cluster e não será usada para o tipo de cluster do Servidor R. Essa alteração não afeta o preço efetivo do Servidor R; ela altera apenas como as cobranças são apresentadas na fatura. Todos os clusters do Servidor R existentes continuarão funcionando e os modelos do Resource Manager continuarão funcionando até o aviso de substituição. **De qualquer forma, é recomendável atualizar as implantações com script para usar o novo modelo do Resource Manager.**
 
-## <a name="08302016---release-of-r-server-on-hdinsight"></a>30/08/2016 – Versão do R Server no HDInsight
-Os números completos da versão para clusters HDInsight baseados em Linux implantados com essa versão:
-
-| HDI | Versão de cluster do HDI | HDP | Compilação HDP | Build do Ambari |
-| --- | --- | --- | --- | --- |
-| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
-| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
-| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
-
-Os números completos da versão para clusters HDInsight baseados em Windows implantados com essa versão:
-
-| HDI | Versão de cluster do HDI | HDP | Compilação HDP |
-| --- | --- | --- | --- |
-| 2,1 |2.1.10.1033.2559206 |1,3 |1.3.12.0-01795 |
-| 3.0 |3.0.6.1033.2559206 |2,0 |2.0.13.0-2117 |
-| 3.1 |3.1.4.1033.2559206 |2,1 |2.1.16.0-2374 |
-| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
-| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
 
 
 

@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b54775ec0bd3497e9700db0e3d1428dcc75cc119
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 5a5f77b9adafe32e8559d0b3396febca4b191de3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -47,8 +47,8 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 | [Copiar um banco de dados para o novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell cria uma cópia do Banco de Dados SQL do Azure existente em um novo Azure SQL Server. |
 | [Importar um banco de dados de um arquivo bacpac](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell importa um banco de dados para um SQL Server do Azure de um arquivo bacpac. |
 | **Sincronizar dados entre bancos de dados**||
-| [Sincronizar dados entre Bancos de Dados SQL](scripts/sql-database-sync-data-between-sql-databases.md) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre vários Bancos de Dados SQL do Azure. |
-| [Sincronizar dados entre o Banco de Dados SQL e o SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. |
+| [Sincronizar dados entre bancos de dados SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre vários bancos de dados SQL do Azure. |
+| [Sincronizar dados entre o Banco de Dados SQL e o SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a Sincronização de Dados para sincronização entre um banco de dados SQL do Azure e um banco de dados do SQL Server local. |
 |||
 |||
 

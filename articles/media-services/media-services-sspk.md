@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 08/09/2017
 ms.author: xpouyat
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 78240c34056a0910fa02e28358c6a98851689fad
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 12c6bdf6986d57f20df9ce84a8b12a5e4c93b6ed
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
@@ -36,7 +36,7 @@ O SSPK é licenciado em termos que oferecem excelente valor comercial. A licenç
   * implementa a funcionalidade de Cliente do Smooth Streaming
   * adiciona a análise de formato, heurística, lógica de buffer etc.
 * APIs do aplicativo Player 
-  * interfaces de programação para interação com um aplicativo de media player
+  * interfaces de programação para interação com um aplicativo de player de mídia
 * Interface da Camada de Abstração de Plataforma (PAL) 
   * interfaces de programação para interação com o sistema operacional (threads, sockets)
 * Interface da Camada de Abstração de Hardware (HAL) 
@@ -130,6 +130,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH

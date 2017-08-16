@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -100,7 +100,7 @@ Para começar a usar o Azure, você precisa de uma conta do Azure, da CLI do Azu
 Inscrever-se em uma conta do Azure é a primeira etapa para usar a Nuvem do Azure.  Acesse a página de [Inscrição em conta do Azure](https://azure.microsoft.com/pricing/free-trial/) para começar.
 
 ### <a name="install-the-cli"></a>Instalar a CLI
-Com sua nova conta do Azure, você pode começar a usar imediatamente o Portal do Azure, que é um painel de administração baseado na Web.  Para gerenciar a Nuvem do Azure por meio da linha de comando, instale a `azure-cli`.  Instale a [CLI 2.0 do Azure](/cli/azure/install) em sua estação de trabalho Mac ou Linux.
+Com sua nova conta do Azure, você pode começar a usar imediatamente o Portal do Azure, que é um painel de administração baseado na Web.  Para gerenciar a Nuvem do Azure por meio da linha de comando, instale a `azure-cli`.  Instale a [CLI do Azure 2.0](/cli/azure/install-azure-cli) em sua estação de trabalho Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Agora você tem uma conta do Azure, o Portal da Web do Azure e a CLI do Azure.  A próxima etapa é criar um par de chaves SSH que será usado para SSH no Linux sem usar uma senha.  [Crie chaves SSH no Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para habilitar logons sem senha e obter mais segurança.

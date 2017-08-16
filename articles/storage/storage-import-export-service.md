@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0e3998f806aae71002e65ad79079a1bef448cfe6
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de blobs
@@ -460,6 +460,7 @@ Você pode exibir o status dos trabalhos concluídos por até 90 dias. Os trabal
 **Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?**
 
 Um trabalho de importação ou de exportação pode fazer referência a apenas 10 unidades em um único trabalho para o serviço de Importação/Exportação. Se quiser enviar mais de 10 unidades, você poderá criar vários trabalhos. Unidades que estão associadas com o mesmo trabalho devem ser enviadas juntas no mesmo pacote.
+A Microsoft oferece orientações e assistência quando a capacidade dos dados se estender por vários trabalhos de importação de disco. Entre em contato com bulkimport@microsoft.com para saber mais
 
 **O serviço formata as unidades antes de retorná-las?**
 

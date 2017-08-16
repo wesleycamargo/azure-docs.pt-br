@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -31,12 +31,12 @@ Este artigo explica como você pode usar o recurso de transformação de dados d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você tem:
-*    Um sistema com o Visual Studio 2012, 2013 ou 2015 instalado.
-*    Azure Powershell instalado. [Baixar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*    Definições de configuração para inicializar o trabalho de Transformação de Dados (as instruções para obter essas configurações estão incluídas aqui).
-*    Uma definição de trabalho que foi configurada corretamente em um recurso de dados híbrido dentro de um grupo de recursos.
-*    Todas as dlls necessárias. Baixe essas dlls do [repositório GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*    Um `Get-ConfigurationParams.ps1`[script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) do repositório GitHub.
+*   Um sistema com o Visual Studio 2012, 2013, 2015 ou 2017 instalado.
+*   Azure Powershell instalado. [Baixar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Definições de configuração para inicializar o trabalho de Transformação de Dados (as instruções para obter essas configurações estão incluídas aqui).
+*   Uma definição de trabalho que foi configurada corretamente em um recurso de dados híbrido dentro de um grupo de recursos.
+*   Todas as dlls necessárias. Baixe essas dlls do [repositório GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   Um `Get-ConfigurationParams.ps1`[script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) do repositório GitHub.
 
 ## <a name="step-by-step"></a>Passo a passo
 
@@ -68,7 +68,7 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
     5. Selecione **C:\DataTransformation** como **Local**.
     6. Clique em **OK** para criar o projeto.
 
-4.    Agora, adicione todas as DLLs que estão na pasta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **Referências** no projeto que você criou. Para baixar os arquivos dll, faça o seguinte:
+4.  Agora, adicione todas as DLLs que estão na pasta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **Referências** no projeto que você criou. Para baixar os arquivos dll, faça o seguinte:
 
     1. No Visual Studio, vá para **Modo de Exibição > Gerenciador de Soluções**.
     1. Clique na seta à esquerda do projeto do Aplicativo de Transformação de Dados. Clique em **Referências** e clique com o botão direito do mouse em **Adicionar Referência**.

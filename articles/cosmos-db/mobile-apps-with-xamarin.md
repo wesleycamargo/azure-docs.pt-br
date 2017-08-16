@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/03/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 50c47061eaacbe7f7463c4d0bcc82869e31d26e6
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicativos móveis com o Xamarin e o Azure Cosmos DB
@@ -45,7 +45,7 @@ O tutorial a seguir mostra como criar um aplicativo móvel usando o Xamarin e o 
 ### <a name="get-started"></a>Introdução
 É fácil começar a usar o Azure Cosmos DB. Acesse o portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique na guia **Início rápido**. Baixe a amostra de lista de tarefas pendentes do Xamarin Forms que já está conectada à sua conta do Azure Cosmos DB. 
 
-![Início rápido do Azure Cosmos DB para aplicativos móveis](media/mobile-apps-with-xamarin/documentdb-quickstart.png)
+![Início rápido do Azure Cosmos DB para aplicativos móveis](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
 Ou se você tiver um aplicativo do Xamarin existente, adicione o [pacote NuGet do Azure Cosmos DB](documentdb-sdk-dotnet-core.md). O Azure Cosmos DB dá suporte às bibliotecas compartilhadas do Xamarin.IOS, Xamarin.Android e Xamarin Forms.
 
@@ -90,18 +90,18 @@ Se você desejar que dois usuários tenham acesso à mesma lista de tarefas pend
 ### <a name="scale-on-demand"></a>Dimensionar sob demanda
 O Azure Cosmos DB é um banco de dados como serviço gerenciado. Conforme cresce a sua base de usuários, você não precisa se preocupar sobre o provisionamento de máquinas virtuais ou aumentando núcleos. Basta informar ao Azure Cosmos DB de quantas operações por segundo (produtividade) seu aplicativo precisa. Você pode especificar a taxa de transferência por meio da guia **Escala** usando uma medida de taxa de transferência chamada RUs (unidades de solicitação) por segundo. Por exemplo, uma operação de leitura em um documento de 1 KB exige 1 RU. Você pode também adicionar alertas à métrica **Taxa de transferência** para monitorar o aumento do tráfego e alterar a taxa de transferência programaticamente conforme os alertas são disparados.
 
-![Produtividade de escala do Azure Cosmos DB sob demanda](media/mobile-apps-with-xamarin/documentdb-scale.png)
+![Produtividade de escala do Azure Cosmos DB sob demanda](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### <a name="go-planet-scale"></a>Escala mundial
 À medida que o aplicativo ganhar popularidade, talvez você ganhe usuários em todo o mundo. Ou talvez você queira estar preparado para eventos inesperados. Acesse o portal do Azure e abra sua conta do Azure Cosmos DB. Clique no mapa para fazer com que seus dados sejam replicados continuamente para qualquer número de regiões em todo o mundo. Essa funcionalidade torna os dados disponíveis, onde quer que os usuários estejam. Você também pode adicionar políticas de failover para estar preparado para contingências.
 
-![Escala do Azure Cosmos DB entre regiões geográficas](media/mobile-apps-with-xamarin/documentdb-replicate-globally.png)
+![Escala do Azure Cosmos DB entre regiões geográficas](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
 
 Parabéns. Você concluiu a solução e tem um aplicativo móvel com o Xamarin e o Azure Cosmos DB. Siga etapas semelhantes para criar aplicativos Cordova usando o SDK do JavaScript do Azure Cosmos DB e aplicativos iOS/Android nativos usando APIs REST do Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Exiba o código-fonte do [Xamarin e do Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Baixe o [SDK do .NET Core do DocumentDB](documentdb-sdk-dotnet-core.md).
+* Baixe o [SDK do Azure Cosmos DB .NET Core](documentdb-sdk-dotnet-core.md).
 * Encontre mais exemplos de código para [aplicativos .NET](documentdb-dotnet-samples.md).
 * Saiba mais sobre as [funcionalidades de consulta avançadas do Azure Cosmos DB](documentdb-sql-query.md).
 * Saiba mais sobre o [suporte geoespacial no Azure Cosmos DB](geospatial.md).

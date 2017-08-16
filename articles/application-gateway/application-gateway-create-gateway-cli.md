@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 052410db8c7619c7990dc319951a55663f2c2ba1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Criar um gateway de aplicativo usando a CLI do Azure 2.0
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/01/2017
 > * [CLI 1.0 do Azure](application-gateway-create-gateway-cli.md)
 > * [CLI 2.0 do Azure](application-gateway-create-gateway-cli.md)
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Gateway de Aplicativo é uma solução de virtualização dedicada que fornece o ADC (controlador de entrega de aplicativos) como serviço, oferecendo várias funcionalidades de balanceamento de carga de camada 7 para o aplicativo.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 
@@ -50,31 +50,31 @@ Para executar as etapas deste artigo, será necessário [instalar a Interface de
 
 ## <a name="scenario"></a>Cenário
 
-Nesse cenário, você aprenderá como criar um Application Gateway usando o portal do Azure.
+Nesse cenário, você aprenderá como criar um Gateway de Aplicativo usando o portal do Azure.
 
 Este cenário:
 
-* Criará um Application Gateway com duas instâncias.
+* Criará um Gateway de Aplicativo com duas instâncias.
 * Criará uma rede virtual chamada AdatumAppGatewayVNET, com um bloco CIDR 10.0.0.0/16 reservado.
 * Criará uma sub-rede chamada Appgatewaysubnet que usa 10.0.0.0/28 como seu bloco CIDR.
 
 > [!NOTE]
-> A configuração adicional do Application Gateway, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Application Gateway ser configurado e não durante a implantação inicial.
+> A configuração adicional do Gateway de Aplicativo, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Gateway de Aplicativo ser configurado e não durante a implantação inicial.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um Gateway de Aplicativo a uma sub-rede, apenas Gateways de Aplicativo adicionais podem ser adicionados à sub-rede.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Abra o **Prompt de comando do Microsoft Azure**e faça logon. 
 
-```azurecli
+```azurecli-interactive
 az login -u "username"
 ```
 
 > [!NOTE]
-> Você também pode usar `az login` sem a opção de logon de dispositivo que exija a inserção de um código em aka.ms/devicelogin.
+> Você também pode usar `az login` sem a opção de logon de dispositivo que exige a inserção de um código em aka.ms/devicelogin.
 
 Depois de digitar o exemplo anterior, um código será fornecido. Navegue até https://aka.ms/devicelogin em um navegador para continuar o processo de logon.
 
@@ -92,60 +92,107 @@ Depois que o código foi inserido, você estará conectado. Feche o navegador pa
 
 Antes de criar o gateway de aplicativo, um grupo de recursos é criado para conter o gateway de aplicativo. O código a seguir mostra o comando.
 
-```azurecli
-az resource group create --name myresourcegroup --location "West US"
-```
-
-## <a name="create-a-virtual-network-and-subnet"></a>Criar a rede virtual e a sub-rede
-
-Após a criação do grupo de recursos, uma rede virtual é criada para o Gateway de Aplicativo.  No exemplo a seguir, o espaço de endereço foi 10.0.0.0/16 é definida para a rede virtual e 10.0.0.0/28 é usado para a sub-rede conforme mostrado nas notas para o cenário anterior.
-
-```azurecli
-az network vnet create \
---name AdatumAppGatewayVNET \
---address-prefix 10.0.0.0/16 \
---subnet-name Appgatewaysubnet \
---subnet-prefix 10.0.0.0/28 \
---resource-group AdatumAppGateway \
---location eastus
+```azurecli-interactive
+az group create --name myresourcegroup --location "eastus"
 ```
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Depois que a rede virtual e a sub-rede forem criadas, os pré-requisitos para o gateway de aplicativo estarão completos. Além disso, um certificado .pfx exportado anteriormente e a senha do certificado são necessários para a etapa seguinte: os endereços IP usados para o back-end são os endereços IP para seu servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end.
+Os endereços IP usados para o back-end são os endereços IP para o servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end. O exemplo a seguir cria um Gateway de Aplicativo com definições de configuração adicionais para as configurações HTTP, de portas e de regras.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway create \
---name AdatumAppGateway \
---location eastus \
---resource-group AdatumAppGatewayRG \
---vnet-name AdatumAppGatewayVNET \
----vnet-address-prefix 10.0.0.0/16 \
---subnet Appgatewaysubnet \
----subnet-address-prefix 10.0.0.0/28 \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
 --servers 10.0.0.4 10.0.0.5 \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
---public-ip-address AdatumAppGatewayPIP \
 --frontend-port 80 \
 --routing-rule-type Basic \
---http-settings-port 80
+--http-settings-port 80 \
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
 
 ```
 
-> [!NOTE]
-> Para obter uma lista de parâmetros que podem ser fornecidos durante a criação, execute o seguinte comando: **az network application-gateway create --help**.
+O exemplo anterior mostra várias propriedades que não são necessárias durante a criação de um Gateway de Aplicativo. O exemplo de código a seguir cria um Gateway de Aplicativo com as informações necessárias.
 
-Este exemplo cria um Application Gateway básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido.
+```azurecli-interactive
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
+> [!NOTE]
+> Para obter uma lista de parâmetros que podem ser fornecidos durante a criação, execute o seguinte comando: `az network application-gateway create --help`.
+
+Este exemplo cria um Gateway de Aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido.
 Se você já tiver seu aplicativo Web definido com o pool de back-end nas etapas anteriores, o balanceamento de carga começará depois que ele for criado.
+
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
+
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../dns/dns-custom-domain.md). Para configurar um alias, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+
+
+```azurecli-interactive
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "eastus",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 ## <a name="delete-all-resources"></a>Excluir todos os recursos
 
 Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas:
 
-```azurecli
+```azurecli-interactive
 az group delete --name AdatumAppGatewayRG
 ```
  

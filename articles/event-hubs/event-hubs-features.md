@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -52,6 +51,10 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 ```
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
+
+## <a name="capture"></a>Captura
+
+A [Captura dos hubs de evento](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de eventos e arquive-os em uma conta de armazenamento de blobs de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. Ao usar a Captura de Hubs de Eventos, você especifica sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
 ## <a name="partitions"></a>Partições
 
@@ -91,7 +94,7 @@ Qualquer entidade que lê dados de evento de um hub de eventos é um *consumidor
 
 O mecanismo de publicação/assinatura dos Hubs de Evento é habilitado por meio de *grupos de consumidores*. Um grupo de consumidores é uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores habilitam vários aplicativos de consumo para ter um modo de exibição separado do fluxo de eventos e para ler o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
 
-Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode então ser executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Cada partição só pode ter um leitor ativo **de um determinado grupo de consumidores** por vez. Sempre há um grupo de consumidores padrão em um hub de eventos, e você pode criar até 20 grupos de consumidores para um hub de eventos de camada padrão.
+Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode então ser executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Pode haver no máximo cinco leitores simultâneos em uma partição por grupo de consumidores. No entanto **recomenda-se que haja apenas um receptor ativo em uma partição por grupo de consumidores**. Sempre há um grupo de consumidores padrão em um hub de eventos, e você pode criar até 20 grupos de consumidores para um hub de eventos de camada padrão.
 
 Veja estes exemplos de convenção de URI de grupo de consumidores:
 
@@ -118,7 +121,7 @@ Se um leitor se desconecta de uma partição, ao se reconectar, ele começa a le
 
 ### <a name="common-consumer-tasks"></a>Tarefas comuns do consumidor
 
-Todos os consumidores de Hubs de Eventos se conectam por meio de uma sessão do AMQP 1.0 e do canal de comunicação bidirecional com reconhecimento de estado. Cada partição tem uma sessão de AMQP 1.0 que facilita o transporte de eventos separados por partição.
+Todos os consumidores de Hubs de Eventos se conectam por meio de uma sessão do AMQP 1.0, um canal de comunicação bidirecional com reconhecimento de estado. Cada partição tem uma sessão de AMQP 1.0 que facilita o transporte de eventos separados por partição.
 
 #### <a name="connect-to-a-partition"></a>Conectar-se a uma partição
 
@@ -170,3 +173,4 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Aplicativos de exemplo que usam Hub de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+
