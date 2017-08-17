@@ -25,7 +25,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="overview"></a>Visão geral
 Ambientes do Serviço de Aplicativo do Azure (ASEs) podem ser criados com um ponto de extremidade acessível pela Internet ou um ponto de extremidade em um endereço interno na rede virtual (VNet) do Azure. Quando criado com um ponto de extremidade interno, esse ponto de extremidade é fornecido por um componente do Azure chamado ILB (balanceador de carga interno). O ASE em um endereço IP interno é chamado de um ASE ILB. O ASE com um ponto de extremidade público é chamado de um ASE externo. 
 
-Um ASE pode ser criado usando o portal do Azure ou um modelo do Azure Resource Manager. Este artigo explica as etapas e a sintaxe que você precisa para criar um ASE Externo ou um ASE ILB com modelos do Resource Manager. Para saber como criar uma ASE no portal do Azure, consulte [Fazer um ASE externo] [ MakeExternalASE] ou [Fazer um ASE ILB][MakeILBASE].
+Um ASE pode ser criado usando o portal do Azure ou um modelo do Azure Resource Manager. Este artigo explica as etapas e a sintaxe que você precisa para criar um ASE Externo ou um ASE ILB com modelos do Resource Manager. Para saber como criar uma ASE no portal do Azure, consulte [Fazer um ASE externo][MakeExternalASE] ou [Fazer um ASE ILB][MakeILBASE].
 
 Ao criar um ASE no portal do Azure, você pode criar sua VNet ao mesmo tempo ou escolher uma VNet pré-existente na qual implantar. Ao criar um ASE com base em um modelo, você deve começar com: 
 
