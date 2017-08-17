@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -27,7 +27,8 @@ ms.lasthandoff: 07/28/2017
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
 Aprenda como criar um gateway de aplicativo habilitado para firewall de aplicativo Web.
 
@@ -48,7 +49,7 @@ No segundo cenário, você aprende a [adicionar o firewall do aplicativo Web a u
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Azure Gateway de Aplicativo requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
 
 ##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
 
@@ -65,7 +66,7 @@ Este exemplo atualiza um gateway de aplicativo existente para dar suporte ao fir
    | **Configuração** | **Valor** | **Detalhes**
    |---|---|---|
    |**Atualizar para a camada WAF**| Verificado | Isso define a camada do gateway de aplicativo para a camada WAF.|
-   |**Status do firewall**| habilitado | habilitado | Essa configuração habilita o firewall no WAF.|
+   |**Status do firewall**| Habilitado | Essa configuração habilita o firewall no WAF.|
    |**Modo de firewall** | Prevenção | Essa configuração é como o firewall do aplicativo Web lida com o tráfego mal-intencionado. O modo **Detecção** só registra em log os eventos, onde o modo **Prevenção** registra os eventos e interrompe o tráfego mal-intencionado.|
    |**Conjunto de regras**|3.0|Essa configuração determina o [conjunto principal de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) usado para proteger os membros do pool de back-end.|
    |**Configurar regras desabilitadas**|varia|Para evitar possíveis falsos positivos, essa configuração permite que você desabilite certas [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).|
@@ -108,28 +109,28 @@ Este cenário:
 
    ![folha mostrando configurações básicas][2-2]
 
-1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. Isso abre a folha **Escolher rede virtual**.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
+1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. Essa etapa abre a folha **Escolher rede virtual**.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
 
    ![escolher uma rede virtual][2]
 
-1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. Isso fecha as folhas **Criar rede virtual** e **Escolher rede virtual**. Isso também populará o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
+1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. Essa etapa fecha as folhas **Criar rede virtual** e **Escolher rede virtual**. Isso popula o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo|
-   |**Espaço de Endereço**|10.0.0.0/16| Esse é o espaço de endereço da rede virtual|
+   |**Espaço de Endereço**|10.0.0.0/16| Esse valor é o espaço de endereço da rede virtual|
    |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede do gateway de aplicativo|
-   |**Intervalo de endereços da sub-rede**|10.0.0.0/28| Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
+   |**Intervalo de endereços da sub-rede**|10.0.0.0/28 | Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
 
 1. Na folha **Configurações** em **Configuração de IP de front-end**, escolha **Público** como o **Tipo de endereço IP**
 
-1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**. Isso abrirá a folha **Escolher o endereço IP público**. Em seguida, clique em **Criar novo**.
+1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**. Essa etapa abrirá a folha **Escolher o endereço IP público**. Em seguida, clique em **Criar novo**.
 
    ![escolher o IP público][3]
 
-1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. Isso fecha as folhas **Escolher endereço IP público** e **Criar endereço IP público** e populará **Endereço IP público** com o endereço IP público escolhido.
+1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. Essa etapa fechará as folhas **Escolher endereço IP público** e **Criar endereço IP público** e populará **Endereço IP público** com o endereço IP público escolhido.
 
-1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** em **Protocolo**. Um certificado é necessário para usar **https**. A chave privada do certificado é necessária, portanto uma exportação .pfx do certificado é necessária para ser fornecida, além da senha do arquivo.
+1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** sob **Protocolo**. Um certificado é necessário para usar **https**. A chave privada do certificado é necessária, portanto uma exportação .pfx do certificado é necessária para ser fornecida, além da senha do arquivo.
 
 1. Definir as configurações específicas do **WAF** .
 

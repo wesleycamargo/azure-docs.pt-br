@@ -1,9 +1,9 @@
 ---
-title: "Exemplo de PowerShell – Sincronização entre vários Bancos de Dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para sincronização entre vários Banco de Dados SQL do Azure"
+title: "Exemplo do PowerShell – Sincronização entre vários bancos de dados SQL do Azure | Microsoft Docs"
+description: "Script de exemplo do Azure PowerShell para sincronização entre vários banco de dados SQL do Azure"
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: 
 tags: 
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b61c7bb9f1991912ebfd1176a07c3dc889d3e089
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ac4dde8c175b1632de8c309f01f8dac7fde6426b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usar o PowerShell para sincronização entre vários Banco de Dados SQL do Azure
+# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL do Azure
  
-Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre vários Bancos de Dados SQL do Azure.
+Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre vários bancos de dados SQL do Azure.
 
 Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
@@ -139,7 +139,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName $MemberServerName `
+                            -MemberServerName ($MemberServerName + ".database.windows.net" `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -160,8 +160,8 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
     $timer=$timer+1
@@ -220,8 +220,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             if ((-not $addAllColumns) -and $tableSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
+                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
             elseif ((-not $addAllColumns) -and $columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
@@ -261,7 +260,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyngStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
+ms.date: 07/19/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad779784a6a8092ad44f5b564db2d3b207989d86
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
@@ -29,7 +29,7 @@ Há três maneiras de relatar a integridade no serviço:
 * Usar os objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
   Você pode usar os objetos `Partition` e `CodePackageActivationContext` para relatar a integridade de elementos que fazem parte do contexto atual. Por exemplo, o código que é executado como parte de uma réplica pode relatar a integridade apenas dessa réplica, da partição a qual pertence e do aplicativo do qual faz parte.
 * Usar o `FabricClient`.   
-  Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. Isso não acontecerá na maioria dos cenários reais. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.
+  Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. A maioria dos cenários do mundo real não usa clusters inseguros ou fornece privilégios de administrador. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.
 * Use as APIs REST no cluster, no aplicativo, no aplicativo implantado, no serviço, no pacote de serviço, na partição, na réplica ou nos níveis de nó. Isso pode ser usado para relatar a integridade no interior de um contêiner.
 
 Este artigo apresenta um exemplo que relata a integridade do código de serviço. O exemplo também mostra como as ferramentas fornecidas pelo Service Fabric podem ser usadas para verificar o status de integridade. Este artigo é uma rápida introdução aos recursos de monitoramento de integridade do Service Fabric. Para obter informações mais detalhadas, você pode ler a série de artigos explicativos sobre integridade, começando com o link no fim deste artigo.
@@ -41,7 +41,7 @@ Você deve ter o seguinte instalado:
 * SDK da Malha do Serviço
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Para criar um cluster de desenvolvimento local seguro
-* Abra o PowerShell com privilégios de administrador e execute os comandos a seguir.
+* Abra o PowerShell com privilégios de administrador e execute os comandos a seguir:
 
 ![Comandos que mostram como criar um cluster de desenvolvimento seguro](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
@@ -50,7 +50,7 @@ Você deve ter o seguinte instalado:
 2. Crie um projeto usando o modelo **Serviço com Estado** .
    
     ![Criar um aplicativo do Service Fabric com serviço com estado](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. Pressione **F5** para executar o aplicativo no modo de depuração. O aplicativo será implantado no cluster local.
+3. Pressione **F5** para executar o aplicativo no modo de depuração. O aplicativo é implantado no cluster local.
 4. Depois que o aplicativo estiver em execução, clique com o botão direito do mouse no ícone do Gerenciador de Cluster Local na área de notificação e selecione **Gerenciar Cluster Local** no menu de atalho para abrir o Service Fabric Explorer.
    
     ![Abra o Service Fabric Explorer na área de notificação](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
@@ -123,15 +123,15 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   Esse código passará a acionar esse relatório de integridade sempre que `RunAsync` for executado. Depois de fazer a alteração, pressione **F5** para executar o aplicativo.
-6. Depois que o aplicativo estiver em execução, abra o Service Fabric Explorer para verificar a integridade do aplicativo. Desta vez, o Service Fabric Explorer mostrará que o aplicativo não está íntegro. Isso ocorre devido ao erro relatado no código que adicionamos anteriormente.
+   Esse código aciona o relatório de integridade sempre que o `RunAsync` é executado. Depois de fazer a alteração, pressione **F5** para executar o aplicativo.
+6. Depois que o aplicativo estiver em execução, abra o Service Fabric Explorer para verificar a integridade do aplicativo. Desta vez, o Service Fabric Explorer mostra que o aplicativo não está íntegro. Isso ocorre devido ao erro relatado no código que adicionamos anteriormente.
    
     ![Aplicativo não íntegro no Gerenciador do Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 7. Se você selecionar a réplica primária na exibição de árvore do Service Fabric Explorer, verá que **Estado de Integridade** indica um erro também. O Service Fabric Explorer também exibe os detalhes do relatório de integridade que foram adicionados ao parâmetro `HealthInformation` no código. Você pode ver os mesmos relatórios de integridade no PowerShell e no Portal do Azure.
    
     ![Integridade da réplica no Gerenciador do Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-Esse relatório permanecerá no gerenciador de integridade até que seja substituído por outro relatório ou até que essa réplica seja excluída. Como nós não definimos `TimeToLive` para este relatório de integridade no objeto `HealthInformation`, o relatório nunca expirará.
+Esse relatório permanece no gerenciador de integridade até que seja substituído por outro relatório ou até que essa réplica seja excluída. Como nós não definimos `TimeToLive` para este relatório de integridade no objeto `HealthInformation`, o relatório nunca expira.
 
 Recomendamos que a integridade seja relatada no nível mais granular. Neste caso, é a réplica. Você também pode relatar a integridade em `Partition`.
 

@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Avaliação do Active Directory no Log Analytics
 
 ![Símbolo da Avaliação do AD](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-É possível usar a solução Avaliação do Active Directory para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo o ajudará a instalar e usar a solução para que você possa tomar ações corretivas para problemas potenciais.
+É possível usar a solução Avaliação do Active Directory para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo ajuda você a instalar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
 
 Esta solução fornece uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. As recomendações são categorizadas em quatro áreas de foco que vão ajudá-lo a entender o risco e tomar uma ação.
 
@@ -54,7 +53,21 @@ Use as informações a seguir para instalar e configurar as soluções.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Detalhes de coleta de dados da Avaliação do Active Directory
-A Avaliação do Active Directory coletará dados WMI, dados de registro e dados de desempenho usando os agentes que você tiver habilitado.
+
+A Avaliação do Active Directory coleta dados das seguintes fontes usando os agentes que você tiver habilitado:
+
+- Coletores de registro
+- Coletores de LDAP
+- .NET Framework
+- Coletores de log de eventos
+- ADSI (Interfaces de Serviço do Active Directory)
+- Windows PowerShell
+- Coletores de dados de arquivo
+- WMI (Instrumentação de Gerenciamento do Windows)
+- API de ferramentas DCDIAG
+- API do NTFRS (Serviço de Replicação de Arquivos)
+- Código em C# personalizado
+
 
 A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (Operations Manager) é necessário e com que frequência os dados são coletados por um agente.
 
@@ -63,7 +76,7 @@ A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (
 | Windows |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Não](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Não](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 dias |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Compreendendo como as recomendações são priorizadas
-Cada recomendação feita recebe um valor de ponderação que identifica a importância relativa da recomendação. Somente as dez recomendações mais importantes são mostradas.
+Cada recomendação feita recebe um valor de ponderação que identifica a importância relativa da recomendação. Somente as 10 recomendações mais importantes são mostradas.
 
 ### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
 Os pesos são valores agregados com base em três fatores principais:
@@ -109,6 +122,10 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: ![recomendações com falha](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
@@ -128,6 +145,11 @@ Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations.txt ou remova as RecommendationIDs deles.
 
 ## <a name="ad-assessment-solutions-faq"></a>Perguntas frequentes sobre soluções da Avaliação do AD

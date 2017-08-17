@@ -1,5 +1,4 @@
 ---
-
 title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Docs
 description: "Este tópico mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ Para adicionar\excluir um ponto de extremidade de streaming usando o portal do A
     ![Ponto de Extremidade de Streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
+## <a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
 O Ponto de Extremidade de Streaming permite que você configure as seguintes propriedades:
 
 * Controle de acesso
@@ -88,7 +88,7 @@ A seguir há uma breve descrição dos campos.
 
 Para obter mais informações, consulte [este](media-services-portal-scale-streaming-endpoints.md) tópico.
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
+## <a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
 
 Quando você cria uma nova conta, a integração padrão da CDN do Azure para Ponto de Extremidade de Streaming é habilitada por padrão.
 
@@ -121,10 +121,5 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

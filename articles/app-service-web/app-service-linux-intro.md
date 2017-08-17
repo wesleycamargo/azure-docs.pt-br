@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5d1dc8caab804914ac7e94be7f080b713674bc0a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introdução ao Aplicativo Web do Azure no Linux
@@ -58,20 +57,20 @@ Os clientes podem implantar seus aplicativos usando:
 
 Para o dimensionamento de aplicativos:
 
-* Os clientes podem escalar ou reduzir verticalmente seus aplicativos Web, alterando a camada em seu plano do Serviço de Aplicativo
+* Os clientes podem escalar ou reduzir verticalmente aplicativos Web, alterando a camada dos respectivos planos do Serviço de Aplicativo
 * Os clientes podem escalar horizontalmente seus aplicativos e executar várias instâncias do aplicativo dentro dos limites de seu SKU
 
 Para o Kudu, algumas das funcionalidades básicas:
 
 * Ambientes
 * Implantações
-* Consoles básicos
+* Console básico
 * SSH
 
 Para DevOps:
 
 * Ambientes de preparo
-* DockerHub CI/CD
+* ACR e CI/CD do DockerHub
 
 ## <a name="limitations"></a>Limitações
 O portal do Azure mostra somente os recursos que funcionam atualmente para o Aplicativo Web no Linux e oculta os demais. Conforme habilitarmos mais recursos, eles ficarão visíveis no portal.
@@ -81,9 +80,13 @@ Alguns recursos, como a integração de rede virtual, a autenticação do Azure 
 Esta visualização pública está disponível atualmente nas seguintes regiões:
 
 * Oeste dos EUA
-* Europa Ocidental 
+* Leste dos EUA
+* Europa Ocidental
+* Norte da Europa
 * Sudeste Asiático
 * Leste da Austrália
+* Leste do Japão
+* Sul do Brasil
 
 No Linux, os aplicativos Web só têm suporte nos planos de serviço de aplicativo Dedicados e não têm uma camada Gratuita ou Compartilhada. Além disso, planos de Serviço de Aplicativo para aplicativos Web Linux e regulares são mutuamente exclusivos e, portanto, você não pode criar um aplicativo Linux em um plano do serviço de aplicativo não Linux.
 

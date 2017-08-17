@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4466a5aa1d55b178a584832d03f68d307767d167
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,14 +29,23 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - Se você estiver sincronizando 30 ou mais florestas do AD, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
-- Adicionar URLs do serviço Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à zona "Sites confiáveis" em vez da zona "Intranet local" bloqueia a entrada dos usuários.
-- O SSO Contínuo não funciona no modo de navegação particular no Firefox.
+- Adicionar URLs do serviço Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à zona "Sites confiáveis" em vez da zona "Intranet Local" **bloqueia a entrada dos usuários**.
+- O SSO Contínuo não funciona no modo de navegação particular no Firefox e no Edge. E também no Internet Explorer quando o modo de Proteção Avançada está ativado.
+
+>[!IMPORTANT]
+>Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
+
+## <a name="check-status-of-the-feature"></a>Verificar o status do recurso
+
+Verifique se o recurso SSO ainda está **Habilitado** em seu locatário. Você pode verificar o status indo até a folha **Azure AD Connect** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+
+![Centro de administração do Azure Active Directory - folha Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory
 
 Um bom local para iniciar a solução de problemas de conexão de usuário com o SSO Contínuo é observar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-![Relatório de entradas](./media/active-directory-aadconnect-sso/sso9.png)
+![Centro de administração do Azure Active Directory - relatório Entradas](./media/active-directory-aadconnect-sso/sso9.png)
 
 Navegue até **Azure Active Directory** -> **Entradas** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique na atividade de entrada de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
@@ -81,9 +90,9 @@ Se a auditoria de êxito está habilitada no seu Controlador de Domínio, sempre
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Redefinição manual do SSO contínuo do Azure AD
+## <a name="manual-reset-of-the-feature"></a>Redefinição manual do recurso
 
-Se a solução de problemas não ajudou, use as seguintes etapas para redefinir manualmente o recurso em seu locatário:
+Se a solução de problemas não ajudar, você poderá redefinir manualmente o recurso em seu locatário. Siga estas etapas no servidor local em que você está executando o Azure AD Connect:
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: importar o módulo do PowerShell de SSO Contínuo
 
@@ -94,7 +103,7 @@ Se a solução de problemas não ajudou, use as seguintes etapas para redefinir 
 
 ### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Etapa 2: obter a lista de florestas do AD em que o SSO Contínuo foi habilitado
 
-1. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Quando solicitado, insira as suas credenciais de administrador de locatário do Azure AD.
+1. Execute o PowerShell como Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Quando solicitado, insira as suas credenciais de Administrador global do locatário.
 2. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
 
 ### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Etapa 3: desabilitar o SSO Contínuo para cada floresta do AD em que ele foi configurado

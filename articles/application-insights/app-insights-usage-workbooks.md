@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05e3246de51e1c092a7d8a15dddea3c99b6e5b15
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -118,9 +118,11 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do uso](app-insights-usage-overview.md)
-* [Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)
-* [Retenção](app-insights-usage-retention.md)
-* [Adicionando eventos personalizados ao aplicativo](app-insights-api-custom-events-metrics.md)
-
+## <a name="next-steps"></a>Próximas etapas
+- Para habilitar experiências de uso, comece a enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
+    - [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md)
+    - [Funis](usage-funnels.md)
+    - [Retenção](app-insights-usage-retention.md)
+    - [Adicionar o contexto de usuário](app-insights-usage-send-user-context.md)
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f86d37e32b77dc8411138542de573ee840bf9a64
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,7 +41,8 @@ Para saber mais sobre os requisitos de rede para o servidor de conector, confira
 Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. Eles podem ser adicionados ou removidos dinamicamente. Sempre que uma nova solicitação chega, ela é roteada para um dos conectores que está disponível no momento. Se um conector estiver temporariamente indisponível, ele não responderá a esse tráfego.
 
 Os conectores são sem estado e não têm nenhum dado de configuração no computador. Os únicos dados que eles armazenam são as configurações para conectar o serviço e seu certificado de autenticação. Quando se conectam ao serviço, eles extraem todos os dados de configuração necessários e os atualizam a cada dois minutos.
-Eles também sondam o servidor para descobrir se há uma versão mais recente do conector. Se for encontrada, os próprios conectores se atualizam.
+
+Os conectores também sondam o servidor para descobrir se há uma versão mais recente do conector. Se for encontrada, os próprios conectores se atualizam.
 
 É possível monitorar os conectores no computador em que eles estão em execução, usando o log de eventos e os contadores de desempenho. Ou você pode exibir o status da página do Proxy de Aplicativo do portal do Azure:
 
@@ -63,13 +64,11 @@ Poderá ocorrer tempo de inatividade quando o conector for atualizado se:
 
 ## <a name="creating-connector-groups"></a>Criando grupos de conector
 
-Há muitas razões para criar grupos de conector, incluindo:
+Os grupos de conectores permitem atribuir conectores específicos para atender a aplicativos específicos. Você pode agrupar um número de conectores e, em seguida, atribuir cada aplicativo a um grupo. 
 
-* Alta disponibilidade
-* Latência melhor para locatários com aplicativos em várias regiões
-* Recursos organizados que são mais fáceis de gerenciar
+Os grupos de conectores facilitam o gerenciamento de grandes implantações. Eles também melhoram a latência para locatários que têm aplicativos hospedados em regiões diferentes, pois você pode criar grupos com base no local de conector para servir apenas aos aplicativos locais. 
 
-Para saber mais sobre as vantagens dos grupos de conector, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](active-directory-application-proxy-connectors-azure-portal.md).
+Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](active-directory-application-proxy-connectors-azure-portal.md).
 
 ## <a name="security-and-networking"></a>Rede e segurança
 
@@ -141,7 +140,7 @@ Os conectores têm logs de administrador e sessão. Os logs de administrador inc
 
 Para ver os logs, acesse o Visualizador de Eventos, abra o menu **Exibir** e habilite **Mostrar logs analíticos e de depuração**. Em seguida, habilite-os para iniciar a coleta de eventos. Esses logs não aparecem no Proxy de Aplicativo Web no Windows Server 2012 R2, pois os conectores são baseados em uma versão mais recente.
 
-Você pode examinar o estado do serviço na janela Serviços. O conector é composto por dois Serviços do Windows: o conector real e o atualizador. Ambos precisam ser executados o tempo todo.
+Você pode examinar o estado do serviço na janela Serviços. O conector é composto por dois Serviços do Windows: o conector real e o atualizador. Ambos devem ser executados o tempo todo.
 
  ![Local dos Serviços do Azure AD](./media/application-proxy-understand-connectors/aad-connector-services.png)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
@@ -50,7 +49,7 @@ As regras NSG contêm as propriedades a seguir:
 | --- | --- | --- | --- |
 | **Nome** |Nome para a regra. |Deve ser exclusivo na região.<br/>Pode conter letras, números, sublinhados, pontos e hifens.<br/>Deve começar com uma letra ou número.<br/>Deve terminar com uma letra, número ou sublinhado.<br/>Não pode exceder 80 caracteres. |Você pode ter várias regras em um NSG, portanto, siga uma convenção de nomenclatura que permita a identificação da função da sua regra. |
 | **Protocolo** |Protocolo para fazer a correspondência da regra. |TCP, UDP ou * |O uso de * como um protocolo inclui ICMP (somente tráfego Leste-Oeste), bem como TCP e UDP, e pode reduzir o número de regras necessárias.<br/>Ao mesmo tempo, o uso de * pode ser uma abordagem muito ampla. Portanto, é recomendável que você use * somente quando necessário. |
-| **Intervalo de portas de origem** |Intervalo de portas de origem para fazer a correspondência da regra. |Número de porta única de 1 a 65535, intervalo de portas (exemplo: 1 a 65635) ou * (para todas as portas). |As portas de origem pode ser efêmeras. A menos que seu programa cliente esteja usando uma porta específica, use * na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras.<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula. |
+| **Intervalo de portas de origem** |Intervalo de portas de origem para fazer a correspondência da regra. |Número de porta única de 1 a 65535, intervalo de portas (exemplo: 1 a 65535) ou * (para todas as portas). |As portas de origem pode ser efêmeras. A menos que seu programa cliente esteja usando uma porta específica, use * na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras.<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula. |
 | **Intervalo de portas de destino** |Intervalo de portas de destino para fazer a correspondência da regra. |Número de porta única de 1 a 65535, intervalo de portas (exemplo: 1 a 65535) ou \* (para todas as portas). |Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras.<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula. |
 | **Prefixo de endereço de origem** |Prefixo ou marca de endereço de origem para fazer a correspondência da regra. |Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras. |
 | **Prefixo de endereço de destino** |Prefixo ou marca de endereço de destino para fazer a correspondência da regra. | Um único endereço IP (exemplo: 10.10.10.10), sub-rede de IP (exemplo: 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços). |Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras. |

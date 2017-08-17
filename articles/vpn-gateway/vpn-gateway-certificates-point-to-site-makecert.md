@@ -13,20 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 858ce2c748c3383afb6d66ed7b66a5f019902594
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 4c51edac3b1cdafae8f9543bd0e3133b6a050f73
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
-
-> [!NOTE]
-> Use as instruções neste artigo para gerar certificados somente quando você não tem acesso a um computador executando o Windows 10. Caso contrário, é recomendável que você use o [Gerar certificados autoassinados usando o Windows PowerShell de 10](vpn-gateway-certificates-point-to-site.md) artigo em vez disso.
->
 
 Conexões ponto a site usam certificados para se autenticar. Este artigo mostra como criar um certificado raiz autoassinado e gerar certificados do cliente usando o MakeCert. Se você estiver procurando por etapas de configuração de Ponto a Site, tais como fazer o upload de certificados raiz, selecione um dos artigos 'Configurar Ponto a Site' na lista a seguir:
 
@@ -39,10 +35,9 @@ Conexões ponto a site usam certificados para se autenticar. Este artigo mostra 
 > 
 > 
 
-Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) para criar seus certificados, fornecemos essas instruções MakeCert como um método opcional. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em [qualquer sistema operacional cliente com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). No entanto, o MakeCert tem as seguintes limitações:
+Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) para criar seus certificados, fornecemos essas instruções MakeCert como um método opcional. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em [qualquer sistema operacional cliente com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). No entanto, o MakeCert tem a seguinte limitação:
 
-* O MakeCert não pode gerar certificados SHA-2, apenas SHA-1. Os certificados SHA-1 ainda são válidos para conexões de Ponto a Site, mas SHA-1 utiliza um hash de criptografia que não é tão forte quanto SHA-2.
-* O MakeCert foi preterido. Isso significa que essa ferramenta pode ser removida a qualquer momento. Todos os certificados que você já tiver gerado usando MakeCert não serão afetados se MakeCert não está mais disponível. MakeCert só é usado para gerar os certificados, não como um mecanismo de validação.
+* O MakeCert foi preterido. Isso significa que essa ferramenta pode ser removida a qualquer momento. Todos os certificados que você já tiver gerado usando MakeCert não serão afetados quando o MakeCert não estiver mais disponível. MakeCert só é usado para gerar os certificados, não como um mecanismo de validação.
 
 ## <a name="rootcert"></a>Criar um certificado raiz autoassinado
 
@@ -57,7 +52,7 @@ As etapas a seguir mostram como criar um certificado autoassinado usando o MakeC
 3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Substitua “P2SRootCert” e “P2SRootCert.cer” pelo nome que você deseja usar para o certificado. O certificado está localizado em seus 'Certificados – Current User\Personal\Certificates'.
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>Exportar a chave pública (.cer)
@@ -88,7 +83,7 @@ As etapas abaixo lhe guiarão pela geração de um certificado do cliente por me
   Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado P2SChildcert em seu repositório de certificados Personal que foi gerado com base no certificado raiz P2SRootCert.
 
   ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha1
+  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
   ```
 
 ### <a name="clientexport"></a>Exportar um certificado do cliente

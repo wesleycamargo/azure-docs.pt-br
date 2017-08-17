@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9bc70ec9e271a8e0b34ed415e27cd350390b21d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -43,17 +42,20 @@ O Managed Disks permitirá que você crie até 10.000 **discos** de VM em uma as
 
 O Managed Disks fornece melhor confiabilidade para os Conjuntos de disponibilidade, garantindo que os discos das [VMs em um Conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos de falha. Ele faz isso colocando automaticamente os discos em unidades de escala (carimbos) de armazenamentos diferentes. Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
+### <a name="highly-durable-and-available"></a>Altamente durável e disponível
+
+Os Discos do Azure foram projetados para oferecer uma disponibilidade de 99,999%. Fique tranquilo sabendo que você tem três réplicas dos seus dados, o que proporciona alta durabilidade. Se uma ou duas réplicas apresentarem problemas, as réplicas restantes ajudarão a garantir a persistência dos seus dados e a alta tolerância contra falhas. Esta arquitetura ajudou o Azure a proporcionar durabilidade de nível empresarial de modo consistente para os discos de IaaS, com uma taxa de falha anualizada líder do setor de ZERO POR CENTO. 
+
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
 Use o [RBAC (Controle de acesso baseado em função do Azure)](../active-directory/role-based-access-control-what-is.md) para atribuir permissões específicas a um disco gerenciado a um ou mais usuários. O Managed Disks expõe uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de assinatura de acesso compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
 
 ### <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure
-Use o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. O Managed Disks dá suporte apenas ao LRS (Armazenamento com Redundância Local) como a opção de replicação; isso significa que ele mantém três cópias dos dados em uma única região. Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup. Leia mais sobre isso em [Usando o serviço de Backup do Azure para VMs com o Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Use o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. O Managed Disks dá suporte apenas ao LRS (Armazenamento com Redundância Local) como a opção de replicação; isso significa que ele mantém três cópias dos dados em uma única região. Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup. No momento, o Backup do Azure dá suporte a tamanhos de discos de dados de até 1 TB para backup. Leia mais sobre isso em [Usando o serviço de Backup do Azure para VMs com o Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
 Ao usar o Managed Disks, as seguintes considerações de cobrança se aplicam:
-
 * Tipo de armazenamento
 
 * Tamanho do disco
@@ -89,7 +91,12 @@ Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:
 
 **Transferências de dados de saída**: as [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) (dados saindo dos datacenters do Azure) incorrem em cobrança por uso de largura de banda.
 
-**Instantâneos de discos gerenciados (cópia completa de disco)**: um Instantâneo gerenciado é uma cópia somente leitura de um disco gerenciado que é armazenado como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos Managed Disks. O custo de um instantâneo gerenciado é o mesmo de um disco gerenciado padrão. Por exemplo, se você tirar um instantâneo de um disco gerenciado premium de 128 GB, o custo de um instantâneo gerenciado será equivalente ao de um disco gerenciado padrão de 128 GB.
+Para obter informações detalhadas sobre os preços para Managed Disks, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+
+
+## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerenciado
+
+Um Instantâneo Gerenciado é uma cópia completa somente leitura de um disco gerenciado que, por padrão, é armazenado como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos Managed Disks. Eles são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GB e tamanho real de dados usados de 10 GB, o instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GB.  
 
 [Instantâneos incrementais](storage-incremental-snapshots.md) não têm suporte no momento para o Managed Disks, mas terão suporte no futuro.
 
@@ -98,8 +105,6 @@ Para saber mais sobre como criar instantâneos com o Managed Disks, consulte est
 * [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
-Para obter informações detalhadas sobre os preços para Managed Disks, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## <a name="images"></a>Imagens
 

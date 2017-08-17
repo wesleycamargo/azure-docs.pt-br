@@ -1,5 +1,5 @@
 ---
-title: "O que é o Apache Hive e HiveQL - Azure HDInsight | Microsoft Docs"
+title: "O que é o Apache Hive e HiveQL – Azure HDInsight | Microsoft Docs"
 description: "O Apache Hive é um sistema de data warehouse para Hadoop. Você pode consultar dados armazenados no Hive usando o HiveQL, que é semelhante ao Transact-SQL. Neste documento, você aprenderá a usar o Hive e HiveQL com o Azure HDInsight."
 keywords: "hiveql,o que é o hive,hadoop hiveql,como usar o hive,aprender hive,o que é o hive"
 services: hdinsight
@@ -10,22 +10,21 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight
+# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
 O [Apache Hive](http://hive.apache.org/) é um sistema de data warehouse para Hadoop. O Hive permite o resumo de dados, consultas e análise de dados. Consultas de hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
 
@@ -54,7 +53,7 @@ Use a tabela a seguir para aprender a usar o Hive com HDInsight:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows* |Windows |
 
 > [!IMPORTANT]
-> \*O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> \*O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Se você estiver usando um cluster do HDInsight baseado em Windows, você pode usar o [console de consulta](hdinsight-hadoop-use-hive-query-console.md) do seu navegador ou a [área de trabalho remota](hdinsight-hadoop-use-hive-remote-desktop.md) para executar consultas de Hive.
 

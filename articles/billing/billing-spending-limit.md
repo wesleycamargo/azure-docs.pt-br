@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 39ae134d8927f5123667b64bbd0c659cd5f62ffc
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a2743ef34bde0faabb3afd2ace27acddd59d3d70
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
 
-O limite de gastos do Azure representa o quanto sua assinatura do Azure pode gastar. Todos os novos clientes que se inscreverem para a oferta de avaliação, ou para ofertas que incluem créditos durante vários meses, terão um limite de gastos ativado por padrão. O limite de gastos é de $0. Isso não pode ser alterado. O limite de gastos não está disponível para tipos de assinatura como assinaturas pré-pagas e planos de comprometimento. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+O limite de gastos do Azure representa o quanto sua assinatura do Azure pode gastar. Todos os novos clientes que se inscreverem para a oferta de avaliação ou para ofertas que incluem créditos durante vários meses, terão um limite de gastos ativado por padrão. O limite de gastos é de $0. Isso não pode ser alterado. O limite de gastos não está disponível para tipos de assinatura como assinaturas pré-pagas e planos de comprometimento. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>O que acontece quando eu alcanço o limite de gastos?
 
@@ -71,3 +70,4 @@ Para remover seu limite de gastos, execute estas etapas:
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+

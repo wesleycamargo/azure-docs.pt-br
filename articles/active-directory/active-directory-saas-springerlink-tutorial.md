@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 3c59f777b8b42d67f85fb078c883f0b36a972ddb
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Azure Active Directory ao Springer Link
@@ -87,9 +87,8 @@ Para configurar e testar o logon único do Azure AD com o Springer Link, você p
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Springer Link](#create-a-springer-link-test-user)** – para ter um equivalente de Brenda Fernandes no Springer Link que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+3. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -105,22 +104,25 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. Na seção **Domínio e URLs do Springer Link**, realize as seguintes etapas:
+3. Na seção **Domínio e URLs do Springer**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+
+    ![Informações de logon único em Domínio e URLs do Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
+
+    a. Na caixa de texto **Identificador**, digite a URL: `https://fsso.springer.com`
+
+    b. Na caixa de texto **URL de Resposta**, digite a URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+
+4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
     ![Informações de logon único em Domínio e URLs do Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.live.cf.public.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Fcore-qa.live.cf.public.springer.com%2F`
+    Na caixa de texto **URL de Logon**, digite a URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.springer.com`
-
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Springer Link](https://www.springer.com/gp/help/contact) para obter esses valores. 
-
-4. Clique no botão **Salvar** .
+5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-5. Para gerar a URL de **Metadados**, execute as seguintes etapas:
+6. Para gerar a URL de **Metadados**, execute as seguintes etapas:
 
     a. Clique em **Registros do aplicativo**.
     
@@ -140,11 +142,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Para configurar o logon único no lado do **Springer Link**, é necessário enviar a **URL de Metadados** gerada para a [equipe de suporte do Springer Link](http://www.springer.com/gp/help/contact).
+7. Para configurar o logon único no lado do **Springer Link**, é necessário enviar a **URL de Metadados** gerada para a [equipe de suporte do Springer Link](mailto:identity@springernature.com).
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -178,10 +180,6 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-### <a name="create-a-springer-link-test-user"></a>Criar um usuário de teste do Springer Link
-
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Springer Link. Trabalhe com a [equipe de suporte do Springer Link](http://www.springer.com/gp/help/contact) para adicionar os usuários à plataforma Springer Link. Os usuários devem ser criados e ativados antes de usar o logon único. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Springer Link.

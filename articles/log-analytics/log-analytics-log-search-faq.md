@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b4031e5ec5ab38863e1e74f5b6ebb117f23a327e
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2de9a87390da11a034c6cebaa37d4cc89edf3cad
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,6 @@ Sem problema.  Criamos um instantâneo do seu espaço de trabalho antes da atual
 Você pode usar a ferramenta de conversão de linguagem na página de pesquisa de logs para converter cada uma delas.  Não há nenhum método para converter automaticamente várias pesquisas sem atualizar o espaço de trabalho.
 
 
-
 ## <a name="alerts"></a>Alertas
 
 ### <a name="i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Tenho várias regras de alerta. É necessário criá-las novamente na nova linguagem depois de atualizar?  
@@ -61,9 +60,12 @@ Não, as regras de alerta são convertidas automaticamente para a nova linguagem
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="does-anything-change-with-powerbi-integration"></a>Alguma coisa é alterada com a integração do PowerBI?
-Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados do Log Analytics para o Power BI deixará de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  Após o upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados do Log Analytics para o Power BI deixará de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  Após fazer upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
+## <a name="dashboards"></a>Painéis
 
+### <a name="can-i-still-use-dashboards"></a>Ainda é possível usar painéis?
+Você pode continuar a usar os painéis que você criou antes de seu espaço de trabalho ser atualizado, mas você não pode editar esses painéis ou criar novos.  Você pode continuar a criar e editar modos de exibição com [Designer de Exibição](log-analytics-view-designer.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

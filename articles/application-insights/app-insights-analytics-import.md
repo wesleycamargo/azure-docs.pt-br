@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 7f472bf6669bcf0c1cab048a3a5969fc71aadd8e
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
@@ -59,19 +59,13 @@ Você precisa de:
 
  * Recomendamos que você crie uma conta de armazenamento dedicada para seus blobs. Se seus blobs estiverem compartilhados com outros processos, pode demorar mais para que nossos processos leiam seus blobs.
 
-2. Enquanto esse recurso estiver no modo de prévia, você deve solicitar acesso.
-
- * Abra o Analytics do recurso do Application Insights no [Portal do Azure](https://portal.azure.com). 
- * Na parte inferior do painel de esquemas, clique no link ‘Fale conosco’ em **Outras Fontes de Dados.** 
- * Se você vir “Adicionar fonte de dados”, então já tem acesso.
-
 
 ## <a name="define-your-schema"></a>Definir seu esquema
 
 Antes de importar dados, você deve definir uma *fonte de dados*, que especifica o esquema de seus dados.
 É possível ter até 50 fontes de dados em um único recurso do Application Insights
 
-1. Inicie o assistente de fonte de dados.
+1. Inicie o assistente de fonte de dados. Use o botão "Adicionar nova fonte de dados". Como alternativa - clique no botão de configurações no canto superior direito e escolha "Fontes de Dados" no menu suspenso.
 
     ![Adicionar uma nova fonte de dados](./media/app-insights-analytics-import/add-new-data-source.png)
 

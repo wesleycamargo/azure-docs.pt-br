@@ -3,7 +3,7 @@ title: "Análise de logs da CDN do Azure | Microsoft Docs"
 description: "O cliente pode habilitar a análise de log para a CDN do Azure."
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 95e18b3c-b987-46c2-baa8-a27a029e3076
@@ -12,87 +12,161 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: e3be8aced50a2ce330523d8633f524803af8c8a7
+ms.date: 08/03/2017
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 03ff74ae4e40d3f2279caaf4f73e9b4aac6a2ebb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 
 # <a name="diagnostics-logs-for-azure-cdn"></a>Logs de Diagnóstico para a CDN do Azure
 
-Depois de habilitar a CDN para seu aplicativo, provavelmente você desejará monitorar o uso da CDN, verificar a integridade da entrega e solucionar possíveis problemas. A CDN do Azure fornece esses recursos com a [análise principal](cdn-analyze-usage-patterns.md).
+Depois de habilitar a CDN para seu aplicativo, provavelmente você desejará monitorar o uso da CDN, verificar a integridade da entrega e solucionar possíveis problemas. A CDN do Azure fornece esses recursos com a [Análise de Núcleo de CDN](cdn-analyze-usage-patterns.md) e os [Logs de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
-Como um usuário atual da CDN do Azure com o perfil Verizon Standard ou Premium, você já pode exibir a análise principal no portal suplementar acessível por meio da opção “Gerenciar” do Portal do Azure. Com esse novo recurso de [Logs de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), agora você pode exibir a análise principal e salvá-la em um ou mais destinos, incluindo a Conta de Armazenamento do Azure, hub de eventos do Azure e/ou [espaço de trabalho do Log Analytics (OMS)](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started). Esse recurso está disponível para todos os pontos de extremidade da CDN que pertencem a perfis da CDN Verizon (Standard e Premium) e Akamai (Standard).
+## <a name="cdn-core-analytics"></a>Análise de Núcleo de CDN
+Como um usuário atual da CDN do Azure com o perfil Verizon Standard ou Premium, você já pode exibir a análise principal no portal suplementar acessível por meio da opção “Gerenciar” do Portal do Azure. 
 
-Os logs de diagnóstico permitem que você exporte métricas de uso básicas do seu ponto de extremidade da CDN para uma variedade de fontes para que possa consumi-las de forma personalizada. Por exemplo, você pode fazer o seguinte:
+## <a name="azure-diagnostic-logs"></a>Logs de Diagnóstico do Azure
+
+Azure Com esse novo recurso, você pode exibir a análise de núcleo e salvá-la em um ou mais destinos, incluindo:
+
+ - Conta de Armazenamento do Azure
+ - Hubs de eventos do Azure
+ - [Repositório do OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ 
+ Esse recurso está disponível para todos os pontos de extremidade da CDN que pertencem a perfis da CDN Verizon (Standard e Premium) e Akamai (Standard).
+
+Os logs de diagnóstico permitem que você exporte métricas de uso básicas do seu ponto de extremidade da CDN para uma variedade de origens para que possa consumi-las de forma personalizada. Por exemplo, você pode realizar os seguintes tipos de exportação de dados:
 
 - Exportar dados para o Armazenamento de Blobs, exportar para CSV e gerar gráficos no Excel.
 - Exportar dados para hubs de eventos e correlacionar com os dados de outros serviços do Azure.
 - Exportar dados para o Log Analytics e exibir dados no seu próprio espaço de trabalho do OMS
 
+A figura a seguir mostra uma exibição de Análise de Núcleo de CDN típica nos dados.
 
-![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/OMS-workspace.png)
+![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
-O passo a passo abaixo revisará o esquema dos dados da análise principal, as etapas envolvidas na habilitação do recurso e entrega deles a vários destinos e consumo desses destinos.
+*Figura 1 – exibição de Análise de Núcleo de CDN*
+
+O passo a passo a seguir revisa o esquema dos dados de análise de núcleo, as etapas envolvidas na habilitação do recurso e entrega deles a vários destinos e consumo desses destinos.
 
 ## <a name="enable-logging-with-azure-portal"></a>Habilitar registro em log com o Portal do Azure
 
-Os logs de diagnóstico estão **desligados** por padrão. Siga as etapas abaixo para habilitá-los:
+> [!NOTE]
+> Os logs de diagnóstico estão **desligados** por padrão. 
 
+Siga as etapas abaixo para habilitar o registro em log da Análise de Núcleo de CDN:
 
 Entre no [Portal do Azure](http://portal.azure.com). Se você ainda não tiver a CDN habilitada para o fluxo de trabalho, [Habilite a CDN do Azure](cdn-create-new-endpoint.md) antes de continuar.
 
 1. No portal, navegue até **Perfil CDN**.
 2. Selecione um perfil CDN e selecione o ponto de extremidade da CDN do qual você deseja habilitar os **Logs de Diagnóstico**.
-    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/Browse-to-Diagnostics-logs.png)
-3. Acesse a folha **Logs de Diagnóstico** na seção **Monitoramento** e altere o status para **Ativo**.
-    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/Diagnostics-logs-options.png)
-4. Selecione e configure o destino de arquivamento desejado (Conta de Armazenamento, Hub de Eventos, Log Analytics). 
-    
-    Neste exemplo, o Armazenamento do Azure é usado para armazenar os logs, selecione **Arquivar em uma conta de armazenamento**, selecione os dias de retenção e clique em **CoreAnalytics** em **Log**. No momento, oferecemos somente **CoreAnalytics**, mas mais tipos de log chegarão no futuro. Veja abaixo informações de atraso, agregação e esquema no CoreAnalytics. 
 
-    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/Diagnostics-logs-storage.png)
-5.  Salve a nova configuração de diagnóstico.
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+
+3. Acesse a folha **Logs de Diagnóstico** na seção **Monitoramento** e altere o status para **Ativo**.
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+
+### <a name="enable-logging-with-azure-storage"></a>Habilitar registro em log com o Armazenamento do Azure
     
-    Os dados de log de Verizon estão 1 hora atrasados e demoram até 2 horas para começar a aparecer após a conclusão da propagação do ponto de extremidade.
-    Os dados de log de Akamai estão 24 horas atrasados e demoram até 2 horas para começar a aparecer se tiverem sido criados há mais de 24 horas. Se eles tiverem acabado de ser criados, poderá demorar até 25 horas para os logs começarem a aparecer.
+Para usar o Armazenamento do Azure é usado para armazenar os logs, selecione **Arquivar em uma conta de armazenamento**, selecione os dias de retenção e clique em **CoreAnalytics** em **Log**.
+
+![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png)
+
+*Figura 2 – Registro em log com o Armazenamento do Azure*
+
+### <a name="logging-with-oms-log-analytics"></a>Registro em log com o OMS Log Analytics
+
+Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
+
+1. Da folha **Logs de Diagnóstico** sob **Monitoramento**, selecione **Enviar para o Log Analytics** de 
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
+
+2. Configure o registro em log do Log Analytics clicando em configurar. Isso leva você até uma caixa de diálogo em que você pode selecionar um espaço de trabalho anterior ou criar um novo.
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
+
+3. Clique em **Criar Novo Espaço de Trabalho**.
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
+
+4. Em seguida, você deve selecionar um novo nome de espaço de trabalho, uma assinatura existente, um grupo de recursos (novo ou existente), um local e um tipo de preço. Você tem a opção de fixar essa configuração em seu painel. Clique em OK para concluir a configuração.
+
+    Em seguida, você verá seu espaço de trabalho com os nomes do grupo de recursos e do Espaço de Trabalho do OMS. Os nomes devem ser exclusivos e podem usar apenas letras, números e hifens. Espaços e sublinhados não são permitidos. 
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/08_Workspace-resource.png)
+
+5. Em seguida, você recebe uma mensagem curta informando que seu espaço de trabalho foi criado e você retorna à tela de configuração de registro em log. Você pode confirmar o nome do espaço de trabalho do Log Analytics.
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
+
+    Depois que você fizer a configuração do Log Analytics, verifique se você também marcou a caixa CoreAnalytics para o registro em log da CDN.
+
+6. Se tudo estiver de acordo com sua preferência, clique no botão **Salvar** na parte superior da caixa de diálogo de configuração.
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/10_Save-me.png)
+
+    O botão **Salvar** não está mais ativo e o botão LIGADO/DESLIGADO está agora LIGADO, mas azul em vez de roxo.
+
+7. Se você quiser ver seu novo espaço de trabalho do OMS, vá para o painel do Portal do Azure e clique no nome do seu espaço de trabalho do Log Analytics. Em seguida, você verá seu espaço de trabalho (verifique se o espaço de trabalho do OMS está realçado à esquerda). Clique no bloco do Portal do OMS para ver seu espaço de trabalho no repositório do OMS. 
+
+    ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+
+    O repositório do OMS está pronto para registrar dados em log. Para consumir esses dados, você deve usar uma [solução do OMS](#consuming-oms-log-analytics-data), abordada posteriormente neste artigo.
+
+Para obter mais informações sobre os atrasos em dados de log, consulte [aqui](#log-data-delays).
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
 
-Abaixo estão dois exemplos de como habilitar e obter Logs de Diagnóstico por meio de cmdlets do Azure PowerShell.
+Abaixo está um exemplo de como habilitar e obter Logs de Diagnóstico por meio de cmdlets do Azure PowerShell.
 
 ###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
+
+Primeiro, faça logon e selecione uma assinatura:
+
+    Login-AzureRmAccount 
+
+    Select-AzureSubscription -SubscriptionId 
+
 
 Para habilitar os Logs de Diagnóstico em uma Conta de Armazenamento, use este comando:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
+Para habilitar os logs de diagnóstico em um espaço de trabalho do OMS, use este comando:
 
-## <a name="consuming-logs-from-storage"></a>Consumindo logs do armazenamento
-Esta seção descreve o esquema da análise principal da CDN, como eles são organizados dentro de uma Conta de Armazenamento do Azure e fornece código de exemplo para baixar os logs em um arquivo CSV.
+```powershell
+    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
+    .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
+```
+
+
+
+## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Consumir logs de diagnóstico do Armazenamento do Azure
+Esta seção descreve o esquema da análise de núcleo da CDN, como eles são organizados dentro de uma Conta de Armazenamento do Azure e fornece código de exemplo para baixar os logs em um arquivo CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Usando o Gerenciador de Armazenamento do Microsoft Azure
-Antes de poder acessar os dados da análise principal da Conta de Armazenamento do Azure, primeiro você precisa de uma ferramenta para acessar o conteúdo em uma conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, a que recomendamos é o Gerenciador de Armazenamento do Microsoft Azure. Você pode baixar a ferramenta [aqui](http://storageexplorer.com/). Depois de baixar e instalar o software, configure para usar a mesma Conta de Armazenamento do Azure que foi configurada como um destino para os Logs de Diagnóstico da CDN.
+Antes de poder acessar os dados da análise principal da Conta de Armazenamento do Azure, primeiro você precisa de uma ferramenta para acessar o conteúdo em uma conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, a que recomendamos é o Gerenciador de Armazenamento do Microsoft Azure. Você pode baixar a ferramenta [aqui](http://storageexplorer.com/). Depois de baixar e instalar o software, configure-o para usar a mesma Conta de Armazenamento do Azure que foi configurada como um destino para os Logs de Diagnóstico da CDN.
 
-1.    Abra o **Gerenciador de Armazenamento do Microsoft Azure**
-2.    Localize a conta de armazenamento
-3.    Vá para o nó **"Contêineres de Blob"** nessa conta de armazenamento e expanda o nó
-4.    Selecione o contêiner chamado **“insights-logs-coreanalytics”** e clique duas vezes nele
-5.    Os resultados são mostrados no painel da direita começando com o primeiro nível que se parece com **“resourceId=”**. Continue clicando em todo o caminho até encontrar o arquivo **PT1H.json**. Consulte a observação abaixo para obter a explicação do caminho.
-6.    Cada blob **PT1H.json** representa os logs de análise de uma hora para um ponto de extremidade da CDN específico ou seu domínio personalizado.
-7.    O esquema do conteúdo desse arquivo JSON é descrito na seção Esquema dos logs de análise principal
+1.  Abra o **Gerenciador de Armazenamento do Microsoft Azure**
+2.  Localize a conta de armazenamento
+3.  Vá para o nó **"Contêineres de Blob"** nessa conta de armazenamento e expanda o nó
+4.  Selecione o contêiner chamado **“insights-logs-coreanalytics”** e clique duas vezes nele
+5.  Os resultados são mostrados no painel da direita começando com o primeiro nível, que se parece com **“resourceId=”**. Continue clicando em todo o caminho até encontrar o arquivo **PT1H.json**. Consulte a observação a seguir para obter a explicação do caminho.
+6.  Cada blob **PT1H.json** representa os logs de análise de uma hora para um ponto de extremidade da CDN específico ou seu domínio personalizado.
+7.  O esquema do conteúdo desse arquivo JSON é descrito na seção Esquema dos logs de análise principal
 
 
 > [!NOTE]
 > **Formato de caminho de blob**
 > 
-> Os logs de análise principal são gerados a cada hora. Todos os dados de uma hora são coletados e armazenados em um único Blob do Azure como um conteúdo JSON. O caminho para esse Blob do Azure aparece como se houvesse uma estrutura hierárquica. Isso é porque a ferramenta de Gerenciador de Armazenamento interpreta '/' como um separador de diretório e mostra a hierarquia para sua conveniência. Na verdade, o caminho inteiro representa apenas o nome do blob. Esse nome do blob segue a convenção de nomenclatura abaixo    
+> Os logs de análise principal são gerados a cada hora. Todos os dados de uma hora são coletados e armazenados em um único Blob do Azure como um conteúdo JSON. O caminho para esse Blob do Azure aparece como se houvesse uma estrutura hierárquica. Isso é porque a ferramenta de Gerenciador de Armazenamento interpreta '/' como um separador de diretório e mostra a hierarquia para sua conveniência. Na verdade, o caminho inteiro representa apenas o nome do blob. Esse nome do blob segue a convenção de nomenclatura abaixo   
     
     resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
 
@@ -101,32 +175,133 @@ Antes de poder acessar os dados da análise principal da Conta de Armazenamento 
 |value|Descrição|
 |-------|---------|
 |ID da assinatura    |ID da assinatura do Azure. Esse é o formato de Guid.|
-|Recurso |Nome do Grupo. Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
+|Recurso |Nome do Grupo   Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
 |Nome do Perfil |Nome do perfil CDN|
 |Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
-|Ano|    Representação de 4 dígitos do ano, por exemplo, 2017|
-|Mês|    Representação de 2 dígitos do número do mês. 01 = janeiro 12 = dezembro|
-|Dia|    Representação de 2 dígitos do dia do mês|
-|PT1H.json|    Arquivo JSON real em que os dados da análise são armazenados|
+|Ano|  Representação de 4 dígitos do ano, por exemplo, 2017|
+|Mês| Representação de 2 dígitos do número do mês. 01 = janeiro... 12 = dezembro|
+|Dia|   Representação de 2 dígitos do dia do mês|
+|PT1H.json| Arquivo JSON real em que os dados da análise são armazenados|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportando os dados da análise principal para um arquivo CSV
 
-Para facilitar o acesso à análise principal, fornecemos um código de exemplo para uma ferramenta, que permite baixar os arquivos JSON em um formato de arquivo simples separado por vírgula que pode ser usado para criar facilmente gráficos ou outras agregações.
+Para facilitar o acesso à Análise de Núcleo, fornecemos um código de exemplo para uma ferramenta, que permite baixar os arquivos JSON em um formato de arquivo simples separado por vírgula que pode ser usado para criar facilmente gráficos ou outras agregações.
 
 Aqui está como você pode usar a ferramenta:
 
-1.    Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
-2.    Baixar o código
-3.    Siga as instruções para compilar e configurar
-4.    Execute a ferramenta
-5.    O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
+1.  Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+2.  Baixar o código
+3.  Siga as instruções para compilar e configurar
+4.  Execute a ferramenta
+5.  O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
 
-## <a name="diagnostic-logs-types"></a>Tipos de Logs de Diagnóstico
+## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Consumir logs de diagnóstico de um repositório do OMS Log Analytics
+O Log Analytics é um serviço no Operations Management Suite (OMS) que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
 
-Atualmente, oferecemos somente os logs de análise principal que contêm as métricas mostrando estatísticas de resposta HTTP e estatísticas de saída como visto nos POPs/bordas da CDN. Ao longo do tempo, adicionaremos outros tipos de logs.
+Para usar o Log Analytics, você deve [habilitar o registro em log](#enable-logging-with-azure-storage) para o repositório do OMS Log Analytics do Azure, que é discutido anteriormente neste artigo.
+
+### <a name="using-the-oms-repository"></a>Usando o repositório do OMS
+
+ O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
+
+![Repositório do OMS Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+
+*Figura 3 – Repositório do Log Analytics*
+
+Você pode exibir os dados de várias maneiras usando soluções de gerenciamento. Você pode obter as soluções de gerenciamento do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+Você pode instalar as soluções de gerenciamento do Azure marketplace clicando no link **Obtenha agora** na parte inferior de cada solução.
+
+### <a name="adding-an-oms-cdn-management-solution"></a>Adicionar uma solução de gerenciamento de CDN do OMS
+
+Siga estas etapas para adicionar uma solução de gerenciamento:
+
+1.   Se ainda não tiver feito isso, entre no Portal do Azure usando a sua assinatura do Azure e vá para o seu painel.
+    ![Painel do Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
+
+2. Na folha **Novo** em **Marketplace**, selecione **Monitoramento + gerenciamento**.
+
+    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
+
+3. Na folha **Monitoramento + gerenciamento**, clique em **Ver todos**.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/15_See-all.png)
+
+4.  Pesquise pela CDN na caixa de pesquisa.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/16_Search-for.png)
+
+5.  Selecione **Análise de Núcleo de CDN do Azure**. 
+
+    ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
+
+6.  Depois de clicar em **Criar**, você deverá criar um novo espaço de trabalho do OMS ou usar um existente. 
+
+    ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
+
+7.  Selecione o espaço de trabalho que você criou antes. Em seguida, você precisa adicionar uma conta de automação.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/19_Add-automation.png)
+
+8. A tela a seguir mostra o formulário de conta de automação que você deve preencher. 
+
+    ![Ver tudo](./media/cdn-diagnostics-log/20_Automation.png)
+
+9. Depois que você criar a conta de automação, você estará pronto para adicionar sua solução. Selecione o botão **Criar** .
+
+    ![Ver tudo](./media/cdn-diagnostics-log/21_Ready.png)
+
+10. A solução foi agora adicionada ao espaço de trabalho. Volte para seu painel do Portal do Azure.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
+
+    Clique no espaço de trabalho do Log Analytics que você criou para ir para o seu espaço de trabalho. 
+
+11. Clique no bloco **Portal do OMS** para ver a nova solução no portal do OMS.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
+
+12. O portal do OMS deve agora ser semelhante à tela a seguir:
+
+    ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
+
+    Clique em um dos blocos para ver várias exibições nos dados.
+
+    ![Ver tudo](./media/cdn-diagnostics-log/25_Interior-view.png)
+
+    Você pode rolar à esquerda ou direita para ver mais blocos representando exibições individuais nos dados. 
+
+    Clicar em um dos blocos lhe fornece mais detalhes sobre seus dados.
+
+     ![Ver tudo](./media/cdn-diagnostics-log/26_Further-detail.png)
+
+### <a name="offers-and-pricing-tiers"></a>Ofertas e tipos de preços
+
+Você pode ver ofertas e camadas de preços para soluções de gerenciamento do OMS e ofertas [aqui](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+
+### <a name="customizing-views"></a>Personalizando exibições
+
+Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Acesse seu espaço de trabalho do OMS e comece a criação clicando no bloco **Designer de Exibição**.
+
+![Criador de Modos de Exibição](./media/cdn-diagnostics-log/27_Designer.png)
+
+Você pode arrastar e soltar os tipos de gráficos da esquerda e preencher os detalhes de dados que você deseja analisar à esquerda.
+
+![Criador de Modos de Exibição](./media/cdn-diagnostics-log/28_Designer.png)
+
+    
+## <a name="log-data-delays"></a>Atrasos em dados de log
+
+Atrasos em dados de log da Verizon | Atrasos em dados de log da Akamai
+--- | ---
+Os dados de log de Verizon estão 1 hora atrasados e demoram até 2 horas para começar a aparecer após a conclusão da propagação do ponto de extremidade. | Os dados de log de Akamai estão 24 horas atrasados e demoram até 2 horas para começar a aparecer se tiverem sido criados há mais de 24 horas. Se eles tiverem sido criados recentemente, poderá demorar até 25 horas para os logs começarem a aparecer.
+
+## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Tipos de log de diagnóstico para análise de núcleo de CDN
+
+Atualmente, oferecemos somente logs de Análise de Núcleo, que contêm as métricas mostrando estatísticas de resposta HTTP e estatísticas de saída como visto nos POPs/bordas da CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Detalhes das métricas da análise principal
-Abaixo está uma lista de métricas disponíveis nos logs de análise principal. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
+A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análise de núcleo. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
 
 
 |Métrica                     | Descrição   | Verizon  | Akamai 
@@ -153,7 +328,7 @@ Abaixo está uma lista de métricas disponíveis nos logs de análise principal.
 | EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB               |Sim   | Não  |
 | EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB               |Sim   |  Não |
 | EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB                |Sim   |Não   |
-| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN    |Sim   |  Não |
+| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN  |Sim   |  Não |
 | EgressCacheMiss | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem              |Sim   |  Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda.                |Sim   |Não   |
 | EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                    |Sim   | Não  |
@@ -209,7 +384,7 @@ Todos os logs são armazenados no formato JSON e cada entrada tem campos de cade
 }
 ```
 
-Em que ‘time’ representa a hora de início do limite da hora pela qual as estatísticas são relatadas. Observe que quando uma métrica não tem suporte por um provedor de CDN, em vez de um valor double ou integer, haverá um valor null. Esse valor null indica a ausência de uma métrica e isso é diferente de um valor 0. Observe também que haverá um conjunto dessas métricas por domínio configurado no ponto de extremidade.
+Em que ‘time’ representa a hora de início do limite da hora pela qual as estatísticas são relatadas. Quando uma métrica não tem suporte por um provedor de CDN, em vez de um valor double ou integer, haverá um valor null. Esse valor null indica a ausência de uma métrica e isso é diferente de um valor 0. Observe também que haverá um conjunto dessas métricas por domínio configurado no ponto de extremidade.
 
 Propriedades de exemplo abaixo:
 
@@ -246,9 +421,18 @@ Propriedades de exemplo abaixo:
 }
 
 ```
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Logs de Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise principal por meio do portal suplementar da CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
+* [Log Analytics do OMS do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
+* [API REST do Log Analytics do Azure](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+
+
+
+
+
+
 
 

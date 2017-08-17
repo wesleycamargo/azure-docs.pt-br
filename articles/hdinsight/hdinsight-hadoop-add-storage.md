@@ -12,20 +12,20 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
-Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure a um cluster existente do HDInsight que usa o Linux como sistema operacional.
+Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure para o HDInsight. As etapas neste documento adicionam uma conta de armazenamento a um cluster HDInsight baseado em Linux existente.
 
 > [!IMPORTANT]
 > As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
@@ -50,7 +50,7 @@ Durante o processamento, o script executa as ações a seguir:
 
 * Adiciona a conta de armazenamento ao arquivo core-site.xml.
 
-* Para e reinicia os serviços Oozie, YARN, MapReduce2 e HDFS, para que eles obtenham as novas informações da conta de armazenamento.
+* Interrompe e reinicia os serviços do Oozie, YARN, MapReduce2 e HDFS. Interromper e iniciar esses serviços permite que eles usem a nova conta de armazenamento.
 
 > [!WARNING]
 > Não há suporte para o uso de uma conta de armazenamento em um local diferente do cluster HDInsight.
@@ -65,12 +65,14 @@ __Requisitos__:
 
 ## <a name="to-use-the-script"></a>Para usar o script
 
-Consulte Aplicar uma ação de script em uma seção de cluster em execução do documento [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) para obter informações sobre como usar ações de script por meio do Portal do Azure, do Azure PowerShell e da CLI do Azure.
+Você pode usar o script por meio do Portal do Azure, do Azure PowerShell ou da CLI do Azure 1.0. Para obter informações, veja o documento [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-Ao usar as informações fornecidas no documento de personalização, substitua qualquer exemplo de URI de ação de script pelo URI desse script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Substitua quaisquer parâmetros de exemplo pelo nome da conta de armazenamento do Azure e pela chave da conta de armazenamento a ser adicionada ao cluster.
-
-> [!NOTE]
-> Não é necessário marcar esse script como __Persistido__, pois ele atualiza diretamente a configuração do Ambari para o cluster.
+> [!IMPORTANT]
+> Ao usar as etapas fornecidas no documento de personalização, use as informações a seguir para aplicar esse script:
+>
+> * Substitua qualquer exemplo de URI de ação de script pelo URI desse script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Substitua quaisquer parâmetros de exemplo pelo nome da conta de armazenamento do Azure e pela chave da conta de armazenamento a ser adicionada ao cluster. Se você usar o Portal do Azure, esses parâmetros deverão ser separados por um espaço.
+> * Não é necessário marcar esse script como __Persistido__, pois ele atualiza diretamente a configuração do Ambari para o cluster.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -142,7 +144,7 @@ Se a conta de armazenamento estiver em uma região diferente do cluster do HDIns
 
 ### <a name="additional-charges"></a>Custos adicionais
 
-Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá observar encargos adicionais em sua cobrança do Azure. Um encargo de saída é aplicado quando os dados saem de um data center regional, mesmo se o tráfego for destinado a outro data center do Azure em uma região diferente.
+Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá observar encargos adicionais em sua cobrança do Azure. Um encargo de saída é aplicado quando os dados saem de um data center regional. Esse encargo se aplica mesmo se o tráfego for destinado a outro data center do Azure em uma região diferente.
 
 > [!WARNING]
 > Não há suporte para o uso de uma conta de armazenamento em uma região diferente do cluster do HDInsight.

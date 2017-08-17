@@ -3,27 +3,26 @@ title: 'Azure Active Directory B2C: usar a API do Graph | Microsoft Docs'
 description: "Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
 services: active-directory-b2c
 documentationcenter: .net
-author: gsacavdm
+author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
-ms.author: gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 27a331562d659212dcd1b775ac06e1e1e4686517
+ms.date: 08/07/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usar a API do Graph
-Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no Azure AD nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
+Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no seu diretório do Azure AD B2C nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
 
 Para locatários B2C, existem basicamente dois modos de se comunicar com a API do Graph.
 

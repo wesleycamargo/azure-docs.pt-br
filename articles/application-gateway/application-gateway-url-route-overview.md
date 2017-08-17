@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do roteamento de conteúdo baseado em URL | Microsoft Docs"
-description: "Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Application Gateway, da configuração de UrlPathMap e da regra de PathBasedRouting."
+description: "Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Gateway de Aplicativo, da configuração de UrlPathMap e da regra de PathBasedRouting."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
@@ -28,12 +27,15 @@ O Roteamento Baseado em Caminho de URL permite rotear o tráfego para pools do s
 
 Um dos cenários possíveis é rotear as solicitações de tipos de conteúdo diferentes para pools de servidores de back-end diferentes.
 
-No exemplo a seguir, o Application Gateway está fornecendo tráfego para contoso.com de três pools de servidor de back-end, como por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
+No exemplo a seguir, o Gateway de Aplicativo está fornecendo tráfego para contoso.com de três pools de servidor de back-end, como por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 As solicitações de http://contoso.com/video* são roteadas para VideoServerPool e as de http://contoso.com/images* são roteadas para ImageServerPool. O DefaultServerPool será selecionado se nenhum dos padrões de caminho forem compatíveis.
-    
+
+> [!IMPORTANT]
+> As regras são processadas na ordem em que elas são listadas no portal. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso garante que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
+
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 
 O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o trecho do elemento urlPathMap do arquivo de modelo.
@@ -68,7 +70,7 @@ O elemento urlPathMap é usado para especificar padrões de Caminho para mapeame
 ```
 
 > [!NOTE]
-> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um “*” é permitido é no final após um “/”. A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
+> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
 
 Você pode conferir um [modelo do Resource Manager usando o roteamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Requeridos para Identidade Híbrida
@@ -35,6 +35,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | Kerberos |88 (TCP/UDP) |Autenticação Kerberos na floresta do AD. |
 | MS-RPC |135 (TCP/UDP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula à floresta do AD e também durante a sincronização de senha. |
 | LDAP |389 (TCP/UDP) |Usado para importar dados do AD. Dados são criptografados com Sinal e Selo do Kerberos. |
+| RPC | 445 (TCP/UDP) |Usado pelo SSO Contínuo para criar uma conta de computador na floresta do AD. |
 | LDAP/SSL |636 (TCP/UDP) |Usado para importar dados do AD. A transferência de dados é assinada e criptografada. Usado somente se você estiver usando SSL. |
 | RPC |49152- 65535 (Porta RPC alta aleatória)(TCP/UDP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula às florestas do AD e durante a sincronização de senha. Confira os artigos [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196) para saber mais. |
 

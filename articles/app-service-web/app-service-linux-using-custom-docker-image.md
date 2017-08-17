@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,7 +32,7 @@ O Serviço de Aplicativo fornece pilhas de aplicativos predefinidas no Linux com
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Como definir uma imagem personalizada do Docker para um aplicativo Web
-Você pode definir a imagem personalizada do Docker para aplicativos Web novos e existentes. Quando você cria um aplicativo Web no Linux no [Portal do Azure](https://portal.azure.com), clique em **Configurar contêiner** para definir uma imagem personalizada do Docker:
+Você pode definir a imagem personalizada do Docker para aplicativos Web novos e existentes. Quando você cria um aplicativo Web no Linux no [Portal do Azure](https://portal.azure.com/#create/Microsoft.AppSvcLinux), clique em **Configurar contêiner** para definir uma imagem personalizada do Docker:
 
 ![Imagem personalizada do Docker para um novo aplicativo Web no Linux][1]
 
@@ -65,18 +64,20 @@ Para usar uma imagem personalizada do Docker a partir de um registro da imagem p
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>Como configurar a porta usada pela sua imagem do Docker ##
 
-Quando você usa uma imagem personalizada do Docker para seu aplicativo Web, você pode usar a variável de ambiente `PORT` em seu Dockerfile, que é adicionado ao contêiner gerado. Considere o exemplo a seguir de um arquivo do docker para um aplicativo Ruby:
+Quando você usa uma imagem personalizada do Docker para seu aplicativo Web, você pode usar a variável de ambiente `WEBSITES_PORT` em seu Dockerfile, que é adicionado ao contêiner gerado. Considere o exemplo a seguir de um arquivo do docker para um aplicativo Ruby:
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-Na última linha do comando, você pode ver que a variável de ambiente PORT é transmitida em tempo de execução. Lembre-se de que as diferenças entre maiúsculas e minúsculas importam nos comandos.
+Na última linha do comando, você pode ver que a variável de ambiente WEBSITES_PORT é transmitida em tempo de execução. Lembre-se de que as diferenças entre maiúsculas e minúsculas importam nos comandos.
 
-Ao usar uma imagem existente do Docker criada por outra pessoa, talvez seja necessário especificar uma porta diferente da porta 80 para o aplicativo. Para configurar a porta, adicione um configuração de aplicativo chamada `PORT` com o valor mostrado abaixo:
+A plataforma estava usando a configuração de aplicativo `PORT` anteriormente, estamos planejando substituir o uso dessa configuração de aplicativo e passar a usar exclusivamente `WEBSITES_PORT`.
+
+Ao usar uma imagem existente do Docker criada por outra pessoa, talvez seja necessário especificar uma porta diferente da porta 80 para o aplicativo. Para configurar a porta, adicione um configuração de aplicativo chamada `WEBSITES_PORT` com o valor mostrado abaixo:
 
 ![Definir a configuração de aplicativo PORT para a imagem personalizada do Docker][6]
 
@@ -94,8 +95,8 @@ Para trocar uma imagem personalizada para uma imagem interna:
 
 ## <a name="troubleshooting"></a>Solucionar problemas ##
 
-Quando o aplicativo falha ao iniciar com sua imagem personalizada do Docker, verifique os log do Docker no diretório LogFiles/docker. Acesse esse diretório por meio de seu site SCM ou via FTP.
-Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilitar **Log de servidor Web** em **Logs de Diagnóstico**.
+Quando o aplicativo falha ao iniciar com sua imagem personalizada do Docker, verifique os log do Docker no diretório LogFiles. Acesse esse diretório por meio de seu site SCM ou via FTP.
+Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilitar o **Registro em log do Contêiner do Docker** em **Logs de Diagnóstico**.
 
 ![Habilitando o log][8]
 

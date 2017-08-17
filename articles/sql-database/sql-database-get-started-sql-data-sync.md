@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introdução à Sincronização de Dados do SQL do Azure (visualização)
@@ -29,8 +29,12 @@ Este tutorial presume que você tem pelo menos alguma experiência anterior com 
 
 Para obter uma visão geral da Sincronização de Dados SQL, confira [Sincronizar dados](sql-database-sync-data.md).
 
+Para obter exemplos completos do PowerShell que mostrem como configurar a Sincronização de Dados SQL, veja os seguintes artigos:
+-   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> A documentação técnica completa para Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, está disponível como .pdf. Baixe [aqui](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
+> A documentação técnica completa para Sincronização de Dados SQL do Azure, localizada anteriormente no MSDN, está disponível como documento .PDF. Baixe [aqui](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## <a name="step-1---create-sync-group"></a>Etapa 1: Criar grupo de sincronização
 

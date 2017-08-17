@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 08/09/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 5ed7558cfff9991734e909e06e8bac9181131381
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Barramento de Serviço
 
-Os aplicativos podem se autenticar no Barramento de Serviço do Azure usando a autenticação SAS (assinatura de acesso compartilhado) ou por meio do Controle de Acesso do Active Directory do Azure (também conhecido como Serviço de Controle de Acesso ou ACS). A autenticação SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma tecla de acesso configurada no namespace ou em uma entidade com a qual tenha direitos específicos associados. Em seguida, você pode usar essa tecla para gerar um token SAS que os clientes podem usar para se autenticar no Barramento de Serviço.
+Os aplicativos podem se autenticar no Barramento de Serviço do Azure usando a autenticação SAS (Assinatura de Acesso Compartilhado). A autenticação SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma tecla de acesso configurada no namespace ou em uma entidade com a qual tenha direitos específicos associados. Em seguida, você pode usar essa tecla para gerar um token SAS que os clientes podem usar para se autenticar no Barramento de Serviço.
 
 > [!IMPORTANT]
-> É recomendável o SAS em vez do ACS, pois ele fornece um esquema de autenticação simples, flexível e fácil de usar no Barramento de Serviço. Os aplicativos podem usar SAS em cenários em que eles não precisam gerenciar a noção de um "usuário" autorizado. 
+> Você deve usar a SAS em vez do Controle de Acesso do Azure Active Directory c(também conhecido como Serviço de Controle de Acesso ou ACS), já que o ACS está sendo preterido. A SAS fornece um esquema de autenticação simples, flexível e fácil de usar para o Barramento de Serviço. Os aplicativos podem usar SAS em cenários em que eles não precisam gerenciar a noção de um "usuário" autorizado. Para saber mais, confira [esta postagem no blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 
 ## <a name="shared-access-signature-authentication"></a>Autenticação SAS
+
 [autenticação SAS](service-bus-sas.md) permite que você conceda a um usuário acesso a recursos de Barramento de Serviço com direitos específicos. A autenticação SAS no Barramento de Serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do Barramento de Serviço. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a tecla configurada.
 
 É possível configurar chaves para SAS em um namespace do Barramento de Serviço. A chave se aplica a todas as entidades de mensagens nesse namespace. Também é possível configurar chaves em tópicos e filas do Barramento de Serviço. Também há suporte para SAS na [Retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md).
@@ -47,31 +47,10 @@ Para acessar uma entidade, o cliente requer um token SAS gerado usando uma deter
 
 O suporte à autenticação SAS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. A SAS dá suporte a uma [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão SAS.
 
-## <a name="acs-authentication"></a>Autenticação ACS
-A autenticação do Barramento de Serviço por meio do ACS é gerenciada através de um namespace de complemento "-sb" do ACS. Se quiser que um namespace do ACS complementar seja criado para um namespace do Barramento de Serviço, você não pode criar o seu namespace do Barramento de Serviço usando o portal clássico do Azure. Você deve criar o namespace usando o cmdlet do PowerShell [New-AzureSBNamespace](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0). Por exemplo:
-
-```powershell
-New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
-```
-
-Para evitar a criação de um namespace do ACS, emita o seguinte comando:
-
-```powershell
-New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
-```
-
-Por exemplo, se você criar um namespace de Barramento de Serviço chamado **contoso.servicebus.windows.net**, um namespace complementar ACS chamado **contoso-sb.accesscontrol.windows.net** será provisionado automaticamente. Para todos os namespaces que foram criados antes de agosto de 2014, um namespace do ACS de acompanhamento também foi criado.
-
-Um "proprietário" de identidade de serviço padrão, com todos os direitos, é provisionado por padrão neste namespace de complemento do ACS. Você pode obter controle refinado de qualquer entidade de Barramento de Serviço por meio do ACS configurando as relações de confiança apropriadas. Você pode configurar identidades de serviço adicionais para gerenciar o acesso a entidades do Barramento de Serviço.
-
-Para acessar uma entidade, o cliente solicita um token SWT do ACS com as declarações adequadas apresentando suas credenciais. O token SWT deve ser enviado como parte da solicitação ao Barramento de Serviço para habilitar a autorização do cliente para o acesso à entidade.
-
-O suporte à autenticação ACS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. Essa autenticação inclui suporte para um [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão do ACS.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue lendo [Autenticação de Barramento de Serviço com Assinaturas de Acesso Compartilhado](service-bus-sas.md) para obter mais detalhes sobre SAS.
-
-Para informações correspondentes sobre a autenticação e autorização da Retransmissão do Azure, confira [Autenticação e autorização da Retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md). 
+- Continue lendo [Autenticação de Barramento de Serviço com Assinaturas de Acesso Compartilhado](service-bus-sas.md) para obter mais detalhes sobre SAS.
+- [Alterações em namespaces habilitados para ACS.](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
+- Para informações correspondentes sobre a autenticação e autorização da Retransmissão do Azure, confira [Autenticação e autorização da Retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md). 
 
 

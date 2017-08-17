@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5d395da0779d84e414341d6d73151fd7e77e3e8e
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -168,6 +168,6 @@ Se fosse possível desligar o SAP HANA antes dos instantâneos de blob, o proced
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Guia de backup do SAP HANA nas Máquinas Virtuais do Azure](sap-hana-backup-guide.md) fornece uma visão geral e informações sobre como começar.
-* [O backup do SAP HANA com base no nível de arquivo](sap-hana-backup-file-level.md) descreve a opção de backup baseados em instantâneo armazenamento.
-* Para saber como estabelecer o plano de recuperação de desastre do SAP HANA no Azure (instâncias grandes) e de alta disponibilidade, veja [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
+* [Backup do SAP HANA com base no nível de arquivo](sap-hana-backup-file-level.md) aborda a opção de backup do arquivo.
+* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
 

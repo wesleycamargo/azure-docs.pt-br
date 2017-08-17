@@ -14,13 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Provisionar novos locatários e registrá-los no catálogo
@@ -82,7 +82,7 @@ Depois que o script for concluído, o novo locatário será provisionado e seu a
 
 Este exercício provisiona um lote de locatários adicionais. É recomendável provisionar um lote de locatários antes de concluir os outros tutoriais de SaaS do Wingtip, de forma que haja mais do que apenas alguns bancos de dados com os quais trabalhar.
 
-1. Abra ...\\Módulos de Aprendizado\\Utilitários\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e altere o parâmetro *$DemoScenario* para 3:
+1. Abra ...\\Módulos de Aprendizado\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e altere o parâmetro *$DemoScenario* para 3:
    * **$DemoScenario** = **3**, altere para **3** para *Provisionar um lote de locatários*.
 1. Pressione **F5** e execute o script.
 
@@ -95,24 +95,31 @@ O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure
    ![lista de banco de dados](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>Detalhes do provisionamento e do catálogo
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>Como percorrer os detalhes de provisão e de implementação de catálogo
 
 Para compreender melhor como o aplicativo Wingtip implementa o provisionamento do novo locatário, execute o script *Demo-ProvisionAndCatalog* novamente e provisione mais um locatário. Desta vez, adicione um ponto de interrupção e percorra o fluxo de trabalho:
 
-1. Abra ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ e defina os seguintes parâmetros:
+1. Abra ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e defina estes parâmetros:
    * **$TenantName** = os nomes de locatário devem ser exclusivos; portanto, defina-os com um nome diferente dos locatários existentes (por exemplo, *Humberto Gomes*).
    * **$VenueType** = usar um dos tipos predefinidos de local (por exemplo, *judo*).
    * **$DemoScenario** = **1**, defina como **1** para *Provisionar um único locatário*.
 
-1. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha a seguir: *New-Tenant `* e pressione **F9**.
+1. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 48, que diz: *New-Tenant `* e pressione **F9**.
 
    ![ponto de interrupção](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Para executar o script, pressione **F5**. Quando o ponto de interrupção for alcançado, pressione **F11** para intervir. Rastreie a execução do script usando as opções de menu Depurar – **F10** e **F11** para passar por cima ou intervir nas funções chamadas. Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. Para executar o script, pressione **F5**.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Examinar a implementação do catálogo e o provisionamento em detalhes ao percorrer o script
+1. Depois que a execução do script for interrompida no ponto de interrupção, pressione **F11** para entrar no código.
 
-Os script provisiona e cataloga novos locatários seguindo as etapas a seguir:
+   ![ponto de interrupção](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Rastreie a execução do script usando as opções de menu **Depurar** – **F10** e **F11** para passar por cima ou intervir nas funções chamadas. Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+As etapas a seguir não devem ser explicitamente seguidas porque são uma explicação do fluxo de trabalho pelo qual você passará ao depurar o script:
 
 1. **Importar o módulo SubscriptionManagement.psm1** que contém funções para entrar no Azure e selecionar a assinatura do Azure com a qual você está trabalhando.
 1. **Importar o módulo CatalogAndDatabaseManagement.psm1** que fornece um catálogo e uma abstração em nível de locatário em relação às funções de [Gerenciamento de Fragmentos](sql-database-elastic-scale-shard-map-management.md). Este é um módulo importante que encapsula a maior parte do padrão do catálogo e vale a pena explorar.

@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
@@ -134,7 +133,34 @@ Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá 
 
 Para obter mais informações, confira [Configurar o HDInsight associado ao domínio](hdinsight-domain-joined-configure.md).
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>Conectar-se ao trabalho e aos nós Zookeeper
+## <a name="connect-to-nodes"></a>Conectar os nós
+
+Os nós principais e o nó de borda (se houver) podem ser acessados pela Internet nas portas 22 e 23.
+
+* Ao conetar os __nós principais__, use a porta __22__ para conectar o nó principal primário e a porta __23__ para conectar o nó principal secundário. O nome de domínio totalmente qualificado a usar é `clustername-ssh.azurehdinsight.net`, no qual `clustername` é o nome do cluster.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* Ao conectar o __nó de borda__, use a porta 22. O nome de domínio totalmente qualificado é `edgenodename.clustername-ssh.azurehdinsight.net`, no qual `edgenodename` é o nome fornecido ao criar o nó de borda. `clustername` é o nome do cluster.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> Os exemplos anteriores supõem que você está usando a autenticação de senha ou que a autenticação do certificado está ocorrendo automaticamente. Se você usar um par de chaves SSH para a autenticação e o certificado não for usado automaticamente, use o parâmetro `-i` para especificar a chave privada. Por exemplo: `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Uma vez conectado, o prompt muda para indicar o nome de usuário SSH e o nó ao qual você está conectado. Por exemplo, quando conectado ao nó principal primário como `sshuser`, o prompt é `sshuser@hn0-clustername:~$`.
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>Conectar-se ao trabalho e aos nós Zookeeper
 
 Os nós de trabalho e de Zookeeper não podem ser acessados pela Internet diretamente. Eles podem ser acessados dos nós principais do cluster ou do nós de borda. A seguir estão as etapas gerais para se conectar-se a outros nós:
 
@@ -188,6 +214,33 @@ Se a conta SSH é protegida usando __chaves SSH__, verifique se o encaminhamento
     Se a chave privada estiver armazenada em um arquivo diferente, substitua `~/.ssh/id_rsa` pelo caminho para o arquivo.
 
 5. Conecte-se ao nó de borda de cluster ou aos nós de cabeçalho usando o SSH. Em seguida, use o comando SSH para se conectar a um nó de trabalho ou zookeeper. A conexão é estabelecida usando a chave encaminhada.
+
+## <a name="copy-files"></a>Copiar arquivos
+
+O utilitário `scp` pode ser usado para copiar arquivos de e para os nós individuais no cluster. Por exemplo, o comando a seguir copia o diretório `test.txt` do sistema local para o nó principal primário:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Como nenhum caminho é especificado após `:`, o arquivo é colocado no diretório base `sshuser`.
+
+O exemplo a seguir copia o arquivo `test.txt` do diretório base `sshuser` no nó principal primário para o sistema local:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> `scp` só pode acessar o sistema de arquivos de nós individuais dentro do cluster. Ele não pode ser usado para acessar os dados no armazenamento compatível com o HDFS para o cluster.
+>
+> Use `scp` quando precisar carregar um recurso para usar em uma sessão SSH. Por exemplo, carregue um script Python, em seguida, execute o script em uma sessão SSH.
+>
+> Para obter informações sobre como carregar diretamente os dados no armazenamento compatível com o HDFS, consulte os seguintes documentos:
+>
+> * [HDInsight usando o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
+>
+> * [HDInsight usando o Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

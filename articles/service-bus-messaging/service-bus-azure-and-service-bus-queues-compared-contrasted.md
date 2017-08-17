@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
@@ -28,7 +27,7 @@ Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila of
 ## <a name="introduction"></a>Introdução
 O Azure dá suporte a dois tipos de mecanismo de fila: **filas do Armazenamento** e **filas do Barramento de Serviço**.
 
-As **filas do Armazenamento**, que fazem parte da infraestrutura do [armazenamento do Azure](https://azure.microsoft.com/services/storage/), apresentam uma interface Get/Put/Peek baseada em REST, oferecendo um sistema de mensagens confiável e persistente em e entre serviços.
+As **filas do Armazenamento**, que fazem parte da infraestrutura do [armazenamento do Azure](https://azure.microsoft.com/services/storage/), apresentam uma interface GET/PUT/PEEK baseada em REST, oferecendo um sistema de mensagens confiável e persistente em e entre serviços.
 
 **As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla do [sistema de mensagens do Azure](https://azure.microsoft.com/services/service-bus/), que dá suporte ao enfileiramento, bem como a publicação/assinatura e outros padrões de integração avançados. Para obter mais informações sobre filas, tópicos/assinaturas do Barramento de Serviço, confira o artigo sobre a [visão geral do Barramento de Serviço](service-bus-messaging-overview.md).
 
@@ -192,13 +191,12 @@ Como as filas do Barramento de Serviço fornecem vários recursos avançados, co
 ## <a name="next-steps"></a>Próximas etapas
 Os artigos a seguir fornecem mais orientação e informações sobre como usar as filas do Armazenamento ou as filas do Barramento de Serviço.
 
-* [Como usar as filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar o serviço de armazenamento de filas](../storage/storage-dotnet-how-to-use-queues.md)
 * [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](service-bus-performance-improvements.md)
-* [Introdução a filas e tópicos no Barramento de Serviço do Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Introdução a filas e tópicos no Barramento de Serviço do Azure (postagem de blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guia do desenvolvedor do Barramento de Serviço](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Usando o serviço de enfileiramento do Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-* [Noções básicas sobre cobrança de armazenamento no Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
 

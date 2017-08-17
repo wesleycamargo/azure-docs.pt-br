@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.contentlocale: pt-br
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Criptografia dinâmica: configurar a política de autorização de chave de conteúdo
@@ -102,7 +102,7 @@ Esta seção descreve como criar uma política de autorização de chave de cont
 
 Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. O XML de configuração de restrição de token deve estar de acordo com o esquema XML a seguir.
 
-#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>Esquema de restrição de token
+#### <a id="schema"></a>Esquema de restrição de token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -209,7 +209,7 @@ O exemplo a seguir cria uma política de autorização com uma restrição de to
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a name="a-idtestatest-token"></a><a id="test"></a>Token de teste
+#### <a id="test"></a>Token de teste
 Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, faça o seguinte:
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -390,8 +390,8 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 
 Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, consulte [esta](#test) seção. 
 
-## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
-### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
+### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -399,7 +399,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
         IPRestricted = 2,
     }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -408,7 +408,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
       Widevine = 3
     }
 
-### <a name="a-idtokentypeatokentype"></a><a id="TokenType"></a>TokenType
+### <a id="TokenType"></a>TokenType
     public enum TokenType
     {
         Undefined = 0,

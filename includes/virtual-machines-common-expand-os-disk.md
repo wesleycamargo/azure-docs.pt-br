@@ -80,5 +80,5 @@ Da mesma forma, você pode fazer referência a outros discos de dados conectados
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Se quiser saber como conectar discos a uma VM do Azure Resource Manager, leia este [artigo](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se quiser saber como conectar discos a uma VM do Azure Resource Manager, leia este [artigo](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
