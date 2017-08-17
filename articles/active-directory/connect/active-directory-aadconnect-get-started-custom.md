@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
@@ -279,6 +279,9 @@ O serviço AD FS requer uma conta de serviço de domínio para autenticar usuár
 
 Se você tiver selecionado a Conta de Serviço Gerenciado de Grupo e se esse recurso nunca tiver sido usado no Active Directory, suas credenciais de Administrador Corporativo serão solicitadas. Essas credenciais são usadas para iniciar o repositório de chaves e para habilitar o recurso no Active Directory.
 
+> [!NOTE]
+> O Azure AD Connect executa uma verificação para detectar se o serviço AD FS já está registrado como um SPN no domínio.  O AD DS não permitirá o registro de SPN duplicado de uma vez.  Se um SPN duplicado for encontrado, você não poderá continuar até que o SPN seja removido.
+
 ![Conta de serviço do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Selecione o domínio do AD do Azure que você deseja federar
@@ -317,6 +320,15 @@ Para saber mais, confira [Modo de preparo](active-directory-aadconnectsync-opera
 
 ### <a name="verify-your-federation-configuration"></a>Verificar a configuração de federação
 O Azure AD Connect verificará as configurações de DNS para você quando você clicar no botão Verificar.
+
+**Verificações de conectividade da intranet**
+
+* Resolver o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade. Se o Azure AD Connect não puder resolver o FQDN, a verificação falhará. Certifique-se de que um exista um registro DNS para o FQDN do serviço de federação para concluir com êxito a verificação.
+* Registro DNS A: o Azure AD Connect verifica se há um registro A para seu serviço de Federação. Na ausência de um registro A, a verificação falhará. Crie um registro A, e não um registro CNAME, para o FQDN da federação a fim de concluir com êxito a verificação.
+
+**Verificações de conectividade da extranet**
+
+* Resolver o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade.
 
 ![Concluído](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

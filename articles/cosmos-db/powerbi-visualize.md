@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2016
+ms.date: 07/25/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 68b4e317c51e18d61c8bde80d9fce2d63910847c
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial do Power BI para o Azure Cosmos DB: Visualizar dados usando o conector do Power BI
@@ -37,7 +36,7 @@ Depois de concluir este tutorial do Power BI, você estará apto a responder às
 * Como posso publicar e compartilhar meus relatórios no PowerBI.com?
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter o seguinte:
+Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter acesso aos recursos seguintes:
 
 * [A versão mais recente do Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Acesse nossa conta ou dados de demonstração em sua conta do Cosmos DB.
@@ -49,7 +48,7 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter
 Para compartilhar seus relatórios no PowerBI.com, você deve ter uma conta no PowerBI.com.  Para saber mais sobre o Power BI Gratuito e o Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Vamos começar
-Neste tutorial, vamos imaginar que você é um geólogo que estuda os vulcões em todo o mundo.  Os dados de vulcão são armazenados em uma conta do Cosmos DB e os documentos JSON são semelhantes ao exemplo mostrado abaixo.
+Neste tutorial, vamos imaginar que você é um geólogo que estuda os vulcões em todo o mundo.  Os dados de vulcão são armazenados em uma conta do Cosmos DB e os documentos JSON são semelhantes ao exemplo mostrado no documento de exemplo a seguir.
 
     {
         "Volcano Name": "Rainier",
@@ -68,7 +67,7 @@ Neste tutorial, vamos imaginar que você é um geólogo que estuda os vulcões e
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Você deseja recuperar os dados de vulcão da conta do Cosmos DB e visualizar os dados em um relatório interativo do Power BI como o mostrado abaixo.
+Você deseja recuperar os dados de vulcão da conta do Cosmos DB e visualizar os dados em um relatório interativo do Power BI como o mostrado no relatório a seguir.
 
 ![Ao concluir este tutorial do Power BI com o conector do Power BI, você poderá visualizar dados com o relatório sobre vulcões do Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -82,30 +81,35 @@ Pronto para experimentar? Vamos começar.
    
     ![Exibição de relatório do Power BI Desktop — conector do Power BI](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Selecione a faixa de opções **Página Inicial** e clique em **Obter Dados**.  A janela **Obter Dados** deve ser exibida.
-5. Clique em **Azure**, selecione **Microsoft Azure Cosmos DB (Beta)** e clique em **Conectar**.  A janela **Conexão do Microsoft Azure Cosmos DB** deve ser exibida.
-   
-    ![Obtenção de dados do Power BI Desktop — conector do Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)
-6. Especifique a URL do ponto de extremidade da conta do Cosmos DB da qual você deseja recuperar os dados, conforme mostrado abaixo e clique em **OK**. Você pode recuperar a URL na caixa de URI na folha **[Chaves](manage-account.md#keys)** do portal do Azure ou usar a conta de demonstração; nesse caso, a URL é `https://analytics.documents.azure.com`. 
+5. Clique em **Azure**, selecione **Microsoft Azure DocumentDB (Beta)** e clique em **Conectar**. 
+
+    ![Obtenção de dados do Power BI Desktop — conector do Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
+6. Na página de **Visualizar Conector**, clique em **Continuar**. A janela **Conexão do Microsoft Azure DocumentDB** é exibida.
+7. Especifique a URL do ponto de extremidade da conta do Cosmos DB da qual você deseja recuperar os dados, conforme mostrado abaixo e clique em **OK**. Para usar sua própria conta, você pode recuperar a URL na caixa de URI na folha **[Chaves](manage-account.md#keys)** do portal do Azure. Para usar a conta de demonstração, digite `https://analytics.documents.azure.com` para a URL. 
    
     Deixe o nome do banco de dados, o nome da coleção e a instrução SQL em branco, já que esses campos são opcionais.  Em vez disso, usaremos o Navegador para selecionar o Banco de Dados e a Coleção para identificar a origem dos dados.
    
     ![Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Janela Conexão da Área de Trabalho](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta.  Você pode recuperar a chave na caixa **Chave Primária** na folha **[Chaves Somente Leitura](manage-account.md#keys)** do portal do Azure ou usar a conta de demonstração; nesse caso, a chave é `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Insira a chave de conta e clique em **Conectar**.
+8. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Para sua própria conta, recupere a chave na caixa **Chave Primária** na folha **[Chaves Somente Leitura](manage-account.md#keys)** do portal do Azure. Para a conta de demonstração, a chave é `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Insira a chave apropriada e, em seguida, clique em **Conectar**.
    
     Recomendamos que você use a chave somente leitura ao criar relatórios.  Isso impedirá a exposição desnecessária da chave mestra a possíveis riscos de segurança. A chave somente leitura está disponível na folha [Chaves](manage-account.md#keys) do portal do Azure, ou você pode usar as informações da conta de demonstração fornecidas acima.
    
     ![Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Chave de Conta](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
-8. Quando a conta for conectada com êxito, o **Navegador** será exibido.  O **Navegador** mostrará uma lista de bancos de dados na conta.
-9. Clique e expanda o banco de dados de onde os dados para o relatório virão. Se você estiver usando a conta de demonstração, selecione **volcanodb**.   
-10. Agora, selecione uma coleção da qual você recuperará os dados. Se você estiver usando a conta de demonstração, selecione **volcano1**.
+    
+    > [!NOTE] 
+    > Se você receber um erro dizendo "O banco de dados especificado não foi encontrado." consulte as etapas da solução alternativa neste [Problema do Power BI](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
+    
+9. Quando a conta for conectada com êxito, o **Navegador** será exibido.  O **Navegador** mostrará uma lista de bancos de dados na conta.
+10. Clique e expanda o banco de dados de onde os dados para o relatório virão. Se você estiver usando a conta de demonstração, selecione **volcanodb**.   
+11. Agora, selecione uma coleção da qual você recuperará os dados. Se você estiver usando a conta de demonstração, selecione **volcano1**.
     
     O painel Visualização mostra uma lista dos itens de **Registro** .  Um Documento é representado como um tipo **Registro** no Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento é também um **Registro**.
     
     ![Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Janela Navegador](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
-11. Clique em **Editar** para iniciar o Editor de Consultas para que possamos transformar os dados.
+12. Clique em **Editar** para iniciar o Editor de Consultas em uma nova janela para transformar os dados.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Nivelando e transformando documentos JSON
-1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central.
+1. Altere para a janela do Editor de Consultas do Power BI, onde a coluna **Documento** no painel central.
    ![Editor de Consultas do Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 2. Clique no expansor no lado direito do cabeçalho da coluna **Documento** .  O menu de contexto com uma lista de campos será exibido.  Selecione os campos necessários para o relatório, por exemplo, Nome do Vulcão, País, Região, Local, Elevação, Tipo, Status e Última Erupção Conhecida e clique em **OK**.
    
@@ -123,7 +127,7 @@ Pronto para experimentar? Vamos começar.
     ![Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Lista de coordenadas](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Para nivelar a matriz de coordenadas, criaremos uma **Coluna Personalizada** chamada LatLong.  Selecione a faixa de opções **Adicionar Coluna** e clique em **Adicionar Coluna Personalizada**.  A janela **Adicionar Coluna Personalizada** deve ser exibida.
 8. Forneça um nome para a nova coluna, por exemplo, LatLong.
-9. Em seguida, especifique a fórmula personalizada para a nova coluna.  Para nosso exemplo, os valores de Latitude e Longitude, separados por uma vírgula, serão concatenados com a seguinte fórmula, como mostrado abaixo: `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Clique em **OK**.
+9. Em seguida, especifique a fórmula personalizada para a nova coluna.  Para nosso exemplo, os valores de Latitude e Longitude, separados por uma vírgula, serão concatenados com a seguinte fórmula, como mostrado abaixo: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Clique em **OK**.
    
     Para obter mais informações sobre o DAX (Data Analysis Expressions), incluindo as funções DAX, visite [Noções básicas do DAX no Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
@@ -181,7 +185,7 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 ## <a name="create-a-dashboard-in-powerbicom"></a>Criar um painel no PowerBI.com
 Agora que você tem um relatório, vamos compartilhá-lo no PowerBI.com
 
-Quando você publica o relatório do Power BI Desktop no PowerBI.com, ele gera um **Relatório** e um **Conjunto de Dados** em seu locatário PowerBI.com. Por exemplo, após publicar um relatório chamado **PowerBITutorial** no PoweBIi.com, você verá PowerBITutorial nas seções **Relatórios** e **Conjuntos de Dados** no PowerBI.com.
+Quando você publica o relatório do Power BI Desktop no PowerBI.com, ele gera um **Relatório** e um **Conjunto de Dados** em seu locatário PowerBI.com. Por exemplo, após publicar um relatório chamado **PowerBITutorial** no PoweBI.com, você verá PowerBITutorial nas seções **Relatórios** e **Conjuntos de Dados** no PowerBI.com.
 
    ![Captura de tela dos novos Relatório e Conjunto de Dados no PowerBI.com](./media/powerbi-visualize/powerbi-reports-datasets.png)
 
@@ -193,7 +197,7 @@ Siga as instruções em [Fixar um bloco de um relatório](https://powerbi.micros
 
 Você também pode fazer modificações ad hoc ao relatório antes de criar um painel. No entanto, é recomendável que você use o Power BI Desktop para executar as modificações e republicar o relatório no PowerBI.com.
 
-## <a name="refresh-data-in-powerbicom"></a>Atualizar dados no Power BI.com
+## <a name="refresh-data-in-powerbicom"></a>Atualizar dados no PowerBI.com
 Há duas maneiras de atualizar os dados: agendamento e ad hoc.
 
 Para uma atualização ad hoc, basta clicar nas reticências (...) ao lado do **Conjunto de Dados**, por exemplo, PowerBITutorial. Você deve ver uma lista de ações, incluindo **Atualizar Agora**. Clique em **Atualizar Agora** para atualizar os dados.

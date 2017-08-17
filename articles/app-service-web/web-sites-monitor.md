@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Como monitorar aplicativos Web no Serviço de Aplicativo do Azure
@@ -38,7 +38,7 @@ Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Pre
 **Cotas** para aplicativos **Gratuitos** ou **Compartilhados** são:
 
 * **CPU(Curto)**
-  * Quantidade de CPU permitida para esse aplicativo em um intervalo de três minutos. Essa cota é definida novamente a cada três minutos.
+  * Quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos.
 * **CPU(dia)**
   * Quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC.
 * **Memória**

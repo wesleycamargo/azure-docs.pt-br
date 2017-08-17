@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 4cacf3ca47b215bc23545d8a0b5c9b6fbd66a8df
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -35,17 +34,14 @@ Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviço
 Ao planejar sua estratégia de replicação e failover, uma das principais questões é como se conectar à VM do Azure após o failover. Há algumas opções ao criar sua estratégia de rede para VMs de réplica do Azure:
 
 - **Endereço IP diferente**: você pode optar por usar outro intervalo de endereços IP para a rede VM replicada do Azure. Nesse cenário, a VM obtém um novo endereço IP após o failover e uma atualização de DNS é necessária. [Saiba mais](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
-- **Mesmo endereço IP**: talvez você queira usar o mesmo intervalo de endereços IP no Azure após o failover usado em seu site local primário. Em um cenário normal, você teria que atualizar as rotas com o novo local dos endereços IP. No entanto, se você tiver uma VLAN ampliada implantada entre o site primário e o Azure, manter os endereços IP para as máquinas virtuais se tornará uma opção válida. Manter os mesmos endereços IP simplifica a recuperação, reduzindo problemas relacionados à rede após o failover.
+- **Mesmo endereço IP**: talvez você deseje usar o mesmo intervalo de endereços IP da rede primária local para a rede do Azure após o failover.  Manter os mesmos endereços IP simplifica a recuperação, reduzindo problemas relacionados à rede após o failover. No entanto, quando você estiver replicando para o Azure, precisará atualizar as rotas com o novo local dos endereços IP após o failover.
 
 
-## <a name="retain-ip-addresses"></a>Reter os endereços IP
+## <a name="retain-ip-addresses"></a>Manter os endereços IP
 
-De uma perspectiva de recuperação de desastres, usar endereços IP fixos parece ser o método mais simples, mas há alguns possíveis desafios. O Site Recovery fornece a capacidade de reter os endereços IP durante o failover para o Azure, com um failover de sub-rede.
+O Site Recovery fornece a capacidade de manter endereços IP fixos durante o failover para o Azure, com um failover de sub-rede.
 
-
-### <a name="subnet-failover"></a>Failover da sub-rede
-
-Nesse cenário, uma sub-rede específica está presente no Site 1 ou Site 2, mas nunca em ambos os sites ao mesmo tempo. Para manter o espaço de endereço IP no caso de um failover, de forma programática, faça com que a infraestrutura do roteador mova as sub-redes de um site para outro. Durante o failover, as sub-redes são movidas com as VMs protegidas associadas. A principal desvantagem dessa abordagem é que, no caso de falha, você precisa mover toda a sub-rede, o que pode afetar as considerações de granularidade do failover.
+Com o failover de sub-rede, uma sub-rede específica está presente no Site 1 ou Site 2, mas nunca em ambos os sites ao mesmo tempo. Para manter o espaço de endereço IP no caso de um failover, de forma programática, faça com que a infraestrutura do roteador mova as sub-redes de um site para outro. Durante o failover, as sub-redes são movidas com as VMs protegidas associadas. A principal desvantagem é que, em caso de falha, você precisa mover toda a sub-rede.
 
 
 ### <a name="failover-example"></a>Exemplo de failover

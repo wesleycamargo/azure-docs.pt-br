@@ -15,27 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
-O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. A não obediência leva à perda da conectividade e, até então, a resolução desses problemas não era algo trivial e geralmente levava horas para identificar e corrigir o problema.
+O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as configurações estiverem incorretas, haverá perda da conectividade e, até então, a resolução desses problemas não era algo trivial e geralmente levava horas para identificar e corrigir o problema.
 
 Com o recurso de solução de problemas do Observador de Rede do Azure, é possível diagnosticar problemas com seu Gateway e Conexões e, em poucos minutos, obter informações suficientes para tomar uma decisão informada para corrigir o problema.
 
 ## <a name="scenario"></a>Cenário
 
-Você deseja configurar uma conexão site a site entre a rede local e o Azure usando o Cisco ASA como o Gateway de VPN local. Para obter esse cenário, a seguinte configuração seria necessária:
+Você deseja configurar uma conexão site a site entre a rede local e o Azure usando o FortiGate como o Gateway de VPN local. Para obter esse cenário, a seguinte configuração seria necessária:
 
 1. Gateway de Rede Virtual - O Gateway de VPN no Azure
-1. Gateway de Rede Local - a representação do [Gateway de VPN (CISCO ASA) local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) na nuvem do Azure
-1. Conexão site a site (baseada na política) - [Conexão entre o Gateway de VPN e o CISCO ASA local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
-1. [Configuração do CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
+1. Gateway de Rede Local - a representação do [Gateway de VPN (FortiGate) local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) na nuvem do Azure
+1. Conexão site a site (baseada na política) - [Conexão entre o Gateway de VPN e o roteador local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. [Configuração do FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Orientações passo a passo detalhadas para definir uma configuração de Site a Site podem ser encontradas ao consultar: [Criar uma VNet com uma conexão Site a Site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
@@ -52,7 +52,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 | Algoritmo de hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 1 |28.800 segundos |10.800 segundos |
 
-Como usuário, seria necessário configurar o Cisco ASA. Uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre outras configurações, você também precisaria especificar o algoritmo de hash. O Cisco ASA é compatível com mais [algoritmos de hash e criptografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) do que o Gateway de VPN do Azure. Sem saber, você configurou seu Cisco ASA para usar o SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em política, a conexão VPN funcionará.
+Como usuário, seria necessário configurar o FortiGate. Uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sem saber, você configurou seu FortiGate para usar o SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em política, a conexão VPN funcionará.
 
 Esses problemas são difíceis de solucionar e as causas principais geralmente são não intuitivas. Nesse caso, você pode abrir um tíquete de suporte e obter ajuda para resolver o problema. Mas, com a API de solução de problemas do Observador de Rede do Azure, é possível identificar esses problemas sozinho.
 

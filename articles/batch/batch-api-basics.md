@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
@@ -98,17 +98,18 @@ Para decidir qual modo de alocação de pools usar, considere o que melhor se ad
 
 A tabela a seguir compara os modos de alocação de pools do Serviço em Lotes e da Assinatura de Usuário.
 
-| **Modo de alocação de pools:**                 | **Serviço em Lotes**                                                                                       | **Assinatura de Usuário**                                                              |
+| **Modo de alocação de pools**                 | **Serviço em Lotes**                                                                                       | **Assinatura de Usuário**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Os pools são alocados:**               | Em uma assinatura gerenciada pelo Azure                                                                           | Na assinatura do usuário em que a conta do Lote é criada                        |
-| **Configurações com suporte:**             | <ul><li>Configuração do Serviço de Nuvem</li><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul> | <ul><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul>                |
-| **Imagens de VM com suporte:**                  | <ul><li>Imagens do Azure Marketplace</li></ul>                                                              | <ul><li>Imagens do Azure Marketplace</li><li>Imagens personalizadas</li></ul>                   |
-| **Tipos de nós de computação com suporte:**         | <ul><li>Nós dedicados</li><li>Nós de baixa prioridade</li></ul>                                            | <ul><li>Nós dedicados</li></ul>                                                  |
-| **Autenticação com suporte:**             | <ul><li>Chave compartilhada</li><li>AD do Azure</li></ul>                                                           | <ul><li>AD do Azure</li></ul>                                                         |
-| **Azure Key Vault obrigatório:**             | Não                                                                                                      | Sim                                                                                |
-| **Cota de núcleos:**                           | Determinado pela cota de núcleos do Lote                                                                          | Determinado pela cota de núcleos da assinatura                                              |
-| **A VNet (rede virtual do Azure) dá suporte a:** | Pools criados com a Configuração do Serviço de Nuvem                                                      | Pools criados com a Configuração de Máquina Virtual                               |
-| **Modelo de implantação de rede virtual com suporte:**      | VNets criadas com o modelo de implantação clássico                                                             | VNets criadas com o modelo de implantação clássico ou com o Azure Resource Manager |
+| **Os pools são alocados em**               | Em uma assinatura gerenciada pelo Azure                                                                           | Na assinatura do usuário em que a conta do Lote é criada                        |
+| **Configurações com suporte**             | <ul><li>Configuração do Serviço de Nuvem</li><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul> | <ul><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul>                |
+| **Imagens de VM com suporte**                  | <ul><li>Imagens do Azure Marketplace</li></ul>                                                              | <ul><li>Imagens do Azure Marketplace</li><li>Imagens personalizadas</li></ul>                   |
+| **Tipos de nós de computação com suporte**         | <ul><li>Nós dedicados</li><li>Nós de baixa prioridade</li></ul>                                            | <ul><li>Nós dedicados</li></ul>                                                  |
+| **Autenticação com suporte**             | <ul><li>Chave compartilhada</li><li>AD do Azure</li></ul>                                                           | <ul><li>AD do Azure</li></ul>                                                         |
+| **Azure Key Vault obrigatório**             | Não                                                                                                      | Sim                                                                                |
+| **Cota de núcleos**                           | Determinado pela cota de núcleos do Lote                                                                          | Determinado pela cota de núcleos da assinatura                                              |
+| **Suporte a VNet (Rede Virtual) do Azure** | Pools criados com a Configuração do Serviço de Nuvem                                                      | Pools criados com a Configuração de Máquina Virtual                               |
+| **Modelo de implantação de rede virtual com suporte**      | VNets criadas com o modelo de implantação clássico                                                             | VNets criadas com o modelo de implantação clássico ou com o Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 
 A maioria das soluções do Lote usa o Armazenamento do Azure para armazenar arquivos de recurso e de saída.  
@@ -171,16 +172,22 @@ Quando você cria um pool do Lote, pode especificar a configuração de máquina
     * Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte a seção [Sobre os serviços de nuvem](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) na [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)).
     * Assim como ocorre com as funções de trabalho, é recomendável especificar `*` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada – as tarefas em execução serão interrompidas e colocadas novamente na fila.
 
+Quando você cria um pool, precisa selecionar o **nodeAgentSkuId** apropriado, dependendo do sistema operacional da imagem base do seu VHD. Você pode obter um mapeamento das IDs de SKU do agente de nó disponível para suas referências de imagem do SO chamando a operação [Listar SKUs do agente de nó](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
 Confira a seção [Conta](#account) para saber mais sobre como definir o modo de alocação de pool ao criar uma conta do Lote.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imagens personalizadas para pools de máquina virtual
 
 Para usar uma imagem personalizada e provisionar os pools de Máquina Virtual, crie sua conta do Lote com o modo de alocação de pools de Assinatura de Usuário. Com esse modo, os pools do Lote são alocados para a assinatura onde reside a conta. Confira a seção [Conta](#account) para saber mais sobre como definir o modo de alocação de pool ao criar uma conta do Lote.
 
-Para usar uma imagem personalizada, você precisará preparar a imagem generalizando-a. Para obter informações sobre como preparar imagens personalizadas do Linux de VMs do Azure, confira [Capturar uma VM Linux do Azure para usar como modelo](../virtual-machines/linux/capture-image-nodejs.md). Para obter informações sobre como preparar imagens personalizadas do Windows de VMs do Azure, confira [Criar imagens de VM personalizadas com o Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). Ao preparar sua imagem, tenha em mente o seguinte:
+Para usar uma imagem personalizada, você precisará preparar a imagem generalizando-a. Para obter informações sobre como preparar imagens personalizadas do Linux de VMs do Azure, confira [Capturar uma VM Linux do Azure para usar como modelo](../virtual-machines/linux/capture-image-nodejs.md). Para obter informações sobre como preparar imagens personalizadas do Windows de VMs do Azure, confira [Criar imagens de VM personalizadas com o Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Verifique se a imagem do sistema operacional base usada para provisionar os pools do Lote não têm extensões do Azure pré-instaladas, como a extensão Script Personalizado. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a VM.
-- Verifique se a imagem do sistema operacional base fornecida usa a unidade temporária padrão, já que o agente de nó do Lote espera a unidade temporária padrão.
+> [!IMPORTANT]
+> Ao preparar sua imagem personalizada, lembre-se do seguinte:
+> - Verifique se a imagem do sistema operacional base usada para provisionar os pools do Lote não têm extensões do Azure pré-instaladas, como a extensão Script Personalizado. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a VM.
+> - Verifique se a imagem do sistema operacional base fornecida usa a unidade temporária padrão, já que o agente de nó do Lote espera a unidade temporária padrão.
+>
+>
 
 Para criar um pool de configuração de máquina virtual usando uma imagem personalizada, você precisará de uma ou mais contas de Armazenamento do Azure padrão para armazenar as imagens VHD personalizadas. As imagens personalizadas são armazenadas como blobs. Para fazer referência a imagens personalizadas ao criar um pool, especifique os URIs dos blobs VHD de imagem personalizada para a propriedade [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) da propriedade [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 
@@ -191,8 +198,6 @@ Verifique se suas contas de armazenamento atendem aos seguintes critérios:
 - No momento, somente as contas de armazenamento padrão de uso geral têm suporte. O armazenamento Premium do Azure terá suporte no futuro.
 - Você pode especificar uma conta de armazenamento com vários blobs VHD personalizados ou várias contas de armazenamento, cada uma com um único blob. Recomendamos que você use várias contas de armazenamento para obter um melhor desempenho.
 - Um blob VHD de imagem personalizada pode dar suporte a até 40 instâncias de VM Linux ou 20 instâncias de VM Windows. Você precisa criar cópias do blob VHD para criar pools com mais VMs. Por exemplo, um pool com 200 máquinas virtuais Windows precisa de 10 blobs VHD exclusivos especificados para a propriedade **osDisk**.
-
-Quando você cria um pool, precisa selecionar o **nodeAgentSkuId** apropriado, dependendo do sistema operacional da imagem base do seu VHD. Você pode obter um mapeamento das IDs de SKU do agente de nó disponível para suas referências de imagem do SO chamando a operação [Listar SKUs do agente de nó](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
 Para criar um pool de uma imagem personalizada usando o portal do Azure:
 

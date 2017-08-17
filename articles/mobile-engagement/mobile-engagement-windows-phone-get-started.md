@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Mobile Engagement do Azure para aplicativos do Windows Phone Silverlight"
-description: "Saiba como usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos do Windows Phone Silverlight."
+title: "Introdução ao Azure Mobile Engagement para aplicativos do Windows Phone Silverlight"
+description: "Saiba como usar o Azure Mobile Engagement com análises e notificações por push para aplicativos do Windows Phone Silverlight."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
@@ -15,17 +15,20 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Introdução ao Mobile Engagement do Azure para aplicativos do Windows Phone Silverlight
+# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Introdução ao Azure Mobile Engagement para aplicativos do Windows Phone Silverlight
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e enviar notificações por push para usuários segmentados de um aplicativo do Windows Phone Silverlight.
 Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Engagement. Nele, você cria um aplicativo do Windows Phone Silverlight em branco que coleta dados básicos e recebe notificações por push usando o Serviço de Notificação por Push da Microsoft (MPNS).
+
+> [!NOTE]
+> O serviço Azure Mobile Engagement será desativado em março de 2018 e, no momento, está disponível somente para os clientes existentes. Para saber mais, confira [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 > [!NOTE]
 > Não há suporte para projetos do Windows Phone 8.1 e versões anteriores no Visual Studio 2017.  Para saber mais, confira [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
@@ -62,7 +65,7 @@ As etapas a seguir pressupõem o uso do Visual Studio 2015, embora as etapas sej
     ![][1]
 3. Você pode escolher como destino **Windows Phone 8.0** ou **Windows Phone 8.1**.
 
-Você agora criou um novo aplicativo do Windows Phone Silverlight no qual integraremos o SDK do Mobile Engagement do Azure.
+Você agora criou um novo aplicativo do Windows Phone Silverlight no qual integraremos o SDK do Azure Mobile Engagement.
 
 ### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
 1. Instale o pacote do nuget [MicrosoftAzure.MobileEngagement] em seu projeto.

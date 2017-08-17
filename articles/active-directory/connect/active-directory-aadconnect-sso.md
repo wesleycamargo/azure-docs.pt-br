@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -32,38 +32,41 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
->[!NOTE]
->Esse recurso _não_ é aplicável aos Serviços de Federação do Active Directory (ADFS), que já incluem essa capacidade.
+>[!IMPORTANT]
+>O SSO Contínuo do Azure AD está atualmente em versão de visualização. Esse recurso _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Principais benefícios do uso do SSO Contínuo do Azure AD
+## <a name="key-benefits"></a>Principais benefícios
 
 - *Ótima experiência do usuário*
   - Os usuários são conectados automaticamente aos aplicativos baseados em nuvem e locais.
   - Os usuários não precisam digitar suas senhas repetidamente.
 - *Fácil de implantar e administrar*
   - Não há necessidade de nenhum componente adicional local para fazer com que ele funcione.
-  - Funciona com qualquer método de autenticação gerenciado – [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona com qualquer método de autenticação de nuvem – [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md).
   - Pode ser distribuído a alguns ou todos os seus usuários usando a Política de Grupo.
-  - Registra dispositivos que não sejam do Windows 10 com o Azure AD. Isso precisa da versão 2.1 ou posterior do [cliente de ingresso no local de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Registre dispositivos não Windows 10 no Azure AD sem a necessidade de nenhuma infraestrutura do AD FS. Esse recurso deve usar a versão 2.1 ou posterior do [cliente workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## <a name="feature-highlights"></a>Destaques do recurso
 
-- O nome de usuário de conexão pode ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`).
+- O nome de usuário de conexão pode ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Ambos casos de uso funcionam porque o SSO Contínuo usa a declaração `securityIdentifier` no tíquete do Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO Contínuo é um recurso oportunista. Se ele falhar por qualquer motivo, a experiência de entrada do usuário retornará ao comportamento normal, ou seja, o usuário precisará digitar sua senha na página de entrada.
-- Se um aplicativo encaminhar um parâmetro `domain_hint` (identificando seu locatário) ou `login_hint` (identificando o usuário) na solicitação de entrada do Azure AD, os usuários serão automaticamente conectados sem inserirem nomes de usuário ou senhas.
+- Se um aplicativo encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Azure AD, os usuários serão automaticamente conectados sem inserirem nomes de usuário ou senhas.
 - Isso pode ser habilitado por meio do Azure AD Connect.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Há suporte para ele em clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em plataformas e navegadores que sejam compatíveis com a autenticação Kerberos:
 
 | Sistema operacional\Navegador |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim|Sem suporte|Sim|Sim\*|N/D
-|Windows 8.1|Sim|Sem suporte|Sim|Sim\*|N/D
-|Windows 8|Sim|Sem suporte|Sim|Sim\*|N/D
-|Windows 7|Sim|Sem suporte|Sim|Sim\*|N/D
-|Mac OS X|N/D|N/D|Sim\*|Sim\*|Sem suporte
+|Windows 10|Sim|Não|Sim|Sim\*|N/D
+|Windows 8.1|Sim|N/D|Sim|Sim\*|N/D
+|Windows 8|Sim|N/D|Sim|Sim\*|N/D
+|Windows 7|Sim|N/D|Sim|Sim\*|N/D
+|Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
 
 \*Exige [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+
+>[!IMPORTANT]
+>Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../active-directory-azureadjoin-overview.md) para obter a experiência ideal de logon único com o Azure AD.

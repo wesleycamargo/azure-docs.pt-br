@@ -1,5 +1,5 @@
 ---
-title: "  Publicar conteúdo com o Portal do Azure | Microsoft Docscs"
+title: "  Publicar conteúdo com o Portal do Azure | Microsoft Docs"
 description: "Este tutorial orienta você pelas etapas de publicar o conteúdo com o portal do Azure."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 403f15db2979a6626d5896ccc950f355f0a06a4e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="publish-content-with-the-azure-portal"></a>Publicar conteúdo com o portal do Azure
@@ -88,7 +89,7 @@ Clique no vídeo desejado e clique no botão **Reproduzir** .
 Algumas considerações se aplicam:
 
 * Verifique se que o vídeo foi publicado.
-* Esse **Media player** * reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir a partir de um ponto de extremidade da transmissão não padrão, clique para copiar a URL e use outra reprodução. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Esse **Media player** reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir a partir de um ponto de extremidade da transmissão não padrão, clique para copiar a URL e use outra reprodução. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * O ponto de extremidade de streaming do qual você estiver transmitindo deverá estar em execução.  
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -98,10 +99,5 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

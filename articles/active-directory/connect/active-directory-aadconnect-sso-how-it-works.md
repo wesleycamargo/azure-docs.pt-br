@@ -12,21 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6db2fa2f568c3cf8296bd91214b380a01b85c134
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
-Este artigo fornece detalhes técnicos sobre como o recurso Logon Único Contínuo do Azure Active Directory (SSO Contínuo do Azure AD) funciona.
+Este artigo fornece detalhes técnicos sobre como o recurso SSO Contínuo (Logon único contínuo) do Azure Active Directory funciona.
 
-## <a name="how-does-azure-ad-seamless-sso-work"></a>Como funciona o SSO contínuo do Azure AD?
+>[!IMPORTANT]
+>Atualmente, o recurso SSO Contínuo está em visualização.
+
+## <a name="how-does-seamless-sso-work"></a>Como o SSO contínuo funciona?
 
 Esta seção tem duas partes:
 1. A instalação do recurso de SSO Contínuo.
@@ -41,6 +44,9 @@ O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [a
 
 >[!NOTE]
 > A conta do computador e os SPNs Kerberos são criados em cada floresta do AD que você sincroniza com o Azure AD (usando o Azure AD Connect) e para cujos usuários você deseja o SSO Contínuo. Mova a conta do computador `AZUREADSSOACCT` para uma UO (unidade organizacional) em que outras contas de computador são armazenadas para garantir que ela seja gerenciada da mesma maneira e não seja excluída.
+
+>[!IMPORTANT]
+>É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) da conta do computador `AZUREADSSOACCT` pelo menos a cada 30 dias.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Como a entrada com o SSO Contínuo funciona?
 

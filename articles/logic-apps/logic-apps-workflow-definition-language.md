@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ Aqui está a estrutura básica de uma definição de fluxo de trabalho:
 |$schema|Não|Especifica o local para o arquivo de esquema JSON que descreve a versão da linguagem de definição. Esse local é necessário quando você faz referência a uma definição externamente. Para este documento, o local é: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|Não|Especifica a versão de definição. Quando você implanta um fluxo de trabalho usando a definição, você pode usar esse valor para certificar-se de que a definição correta é usada.|  
 |parameters|Não|Especifica os parâmetros usados para inserir os dados na definição. Podem ser definidos no máximo 50 parâmetros.|  
-|gatilhos|Não|Especifica informações sobre os gatilhos que iniciam o fluxo de trabalho. Podem ser definidos no máximo 250 gatilhos.|  
+|gatilhos|Não|Especifica informações sobre os gatilhos que iniciam o fluxo de trabalho. Podem ser definidos no máximo 10 gatilhos.|  
 |Ações|Não|Especifica as ações executadas durante a execução do fluxo. Podem ser definidas no máximo 250 ações.|  
 |outputs|Não|Especifica as informações sobre o recurso implantado. Podem ser definidas no máximo 10 saídas.|  
   

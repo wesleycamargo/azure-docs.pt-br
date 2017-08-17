@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 13811996654a238fd28d17547eacbdf74c932e9f
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
@@ -72,7 +71,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, ótimo! Continue em [Exporte as definições da configuração de rede virtual](#export). Caso contrário, faça o seguinte:
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Se você já tiver uma rede virtual site a site, mas ela tiver um gateway de roteamento estático (baseado em política):
-1. Altere o tipo de gateway para roteamento dinâmico. Uma VPN multissites exige um gateway de roteamento dinâmico (também chamado de baseado em rota). Para alterar o tipo de gateway, você precisará primeiro excluir o gateway existente e, em seguida, criar um novo. Para obter instruções, consulte [Como alterar o tipo de roteamento de VPN para seu gateway](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway).  
+1. Altere o tipo de gateway para roteamento dinâmico. Uma VPN multissites exige um gateway de roteamento dinâmico (também chamado de baseado em rota). Para alterar o tipo de gateway, você precisará primeiro excluir o gateway existente e, em seguida, criar um novo. Para obter instruções, consulte [Como alterar o tipo de roteamento de VPN para seu gateway](vpn-gateway-configure-vpn-gateway-mp.md).  
 2. Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Configurar um gateway de VPN no Portal Clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md). Primeiro, altere o tipo de gateway para roteamento dinâmico.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se você não tiver uma rede virtual site a site:

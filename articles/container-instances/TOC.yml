@@ -23,15 +23,27 @@
   items:
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
+    - name: Grupos de contêineres
+      href: container-instances-container-groups.md
 - name: Guias de instruções
   items:
-    - name: Grupos com vários contêineres
+    - name: Implantar grupos com vários contêineres
       href: container-instances-multi-container-group.md
-    - name: Gerenciamento de estado com compartilhamentos de arquivos do Azure
+    - name: Gerenciar o estado com compartilhamentos de arquivos do Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Implantar a partir do Registro de Contêiner do Azure
+      href: container-instances-using-azure-container-registry.md
+    - name: Solucionar problemas de implantações de Instâncias de Contêiner do Azure
+      href: container-instances-troubleshooting.md
+- name: Referência
+  items:
+    - name: CLI do Azure 2.0
+      href: /cli/azure/container
 - name: Recursos
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/regions/services/'

@@ -3,12 +3,13 @@
 ## [Sobre o gerenciamento de identidade do Azure](identity-fundamentals.md)
 ## [Entender as soluções de identidade do Azure](understand-azure-identity-solutions.md)
 ## [Escolher uma solução de identidade híbrida](choose-hybrid-identity-solution.md)
+## [Gerenciar assinaturas do Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Perguntas frequentes](active-directory-faq.md)
 
 # Introdução
-## [Obter um locatário do AD do Azure](active-directory-howto-tenant.md)
 ## [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md)
-## [Gerenciar assinaturas do Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Como adicionar um nome de domínio personalizado](add-custom-domain.md)
+## [Como configurar a redefinição de senha de autoatendimento](active-directory-passwords-getting-started.md)
 ## Gerenciar o licenciamento do Azure AD
 ### [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portal clássico](active-directory-licensing-what-is.md)
@@ -18,16 +19,11 @@
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
-## [Como obter suporte para o Azure Active Directory](active-directory-troubleshooting-support-howto.md)
-## [Tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
+
 
 # Como
 ## Planejar e projetar
 ### [Compreenda a arquitetura do Azure AD](active-directory-architecture.md)
-### [Políticas de segurança e configurações recomendadas](secure-email-introduction.md)
-#### [Proteger políticas recomendadas de email](secure-email-recommended-policies.md)
-##### [Implantar políticas recomendadas de email seguro](secure-email-deploy-recommended-policies.md)
-#### [Visão geral de serviços do EMS e do Office 365](secure-email-ems-office365-service-descriptions.md)
 ### [Implantar uma Solução de Identidade Híbrida](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mapeamento de declarações no Azure Active Directory](active-directory-claims-mapping.md)
 #### Determinar os requisitos
@@ -58,7 +54,6 @@
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
-
 ### [Adicionar usuários de outros diretórios (portal clássico)](active-directory-create-users-external.md)
 ### [Excluir usuários](active-directory-users-delete-user-azure-portal.md)
 ### [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
@@ -82,6 +77,7 @@
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
+### [Configurar a expiração de grupos do Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Exibir todos os grupos](active-directory-groups-view-azure-portal.md)
 ### [Habilitar grupos dedicados](active-directory-accessmanagement-dedicated-groups.md)
 ### [Adicionar grupo de acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -128,7 +124,6 @@
 #### [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
 #### [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md)
-### [Início rápido: redefinição de senha por autoatendimento](active-directory-passwords-getting-started.md)
 ### [Licença SSPR](active-directory-passwords-licensing.md)
 ### [Implantar SSPR](active-directory-passwords-best-practices.md)
 ### Administradores de TI: redefinir senhas
@@ -167,7 +162,7 @@
 ## Gerenciar aplicativos
 ### [Visão geral](active-directory-enable-sso-scenario.md)
 ### [Guia de Introdução](active-directory-integrating-applications-getting-started.md)
-
+### [Tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Atualizar configurações do Registro](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Compreender a segurança e a privacidade](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
 ##### [Publicar aplicativos](application-proxy-publish-azure-portal.md)
 ##### [Domínios personalizados](active-directory-application-proxy-custom-domains.md)
-#### [Acesso SSO](active-directory-appssoaccess-whatis.md)
+#### [Logon Único](application-proxy-sso-overview.md)
 ##### [SSO com KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO com cabeçalhos](application-proxy-ping-access.md)
 ##### [SSO com compartimentação de senha](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 #### [Acesso de autoatendimento](active-directory-self-service-application-access.md)
+#### [Acesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
 #### [Restrições de locatário](active-directory-tenant-restrictions.md)
 #### [Usar usuários de provisionamento de SCIM](active-directory-scim-provisioning.md)
@@ -242,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Nomes de domínio personalizados
 #### [Visão geral](active-directory-add-domain-concepts.md)
-#### Adicionar seu nome de domínio
-##### [Portal do Azure](active-directory-domains-add-azure-portal.md)
-##### [Portal clássico](active-directory-add-domain.md)
-##### [Com o AD FS](active-directory-add-domain-federated.md)
-#### [Atribuir usuários](active-directory-add-domain-add-users.md)
 #### Gerenciar nomes de domínio
 ##### [Portal do Azure](active-directory-domains-manage-azure-portal.md)
 ##### [Portal clássico](active-directory-add-manage-domain-names.md)
@@ -273,6 +264,7 @@
 #### [Exemplo de portal para iniciar sessão com autoatendimento](active-directory-b2b-self-service-portal.md)
 #### [Email de convite](active-directory-b2b-invitation-email.md)
 #### [Resgate do convite](active-directory-b2b-redemption-experience.md)
+#### [Como adicionar usuários de B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 #### [Acesso condicional para B2B](active-directory-b2b-mfa-instructions.md)
 #### [Políticas de compartilhamento B2B](active-directory-b2b-delegate-invitations.md)
 #### [Adicionar um usuário B2B a uma função](active-directory-b2b-add-guest-to-role.md)
@@ -360,7 +352,8 @@
 ### [Alta disponibilidade](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Alterar o algoritmo de hash da assinatura](active-directory-federation-sha256-guidance.md)
 
-## [Solucionar problemas](active-directory-troubleshooting.md)
+## [Solucionar problemas](active-directory-troubleshooting-support-howto.md)
+### [O item de solução de problemas do Active Directory sumiu ou não está disponível](active-directory-troubleshooting.md)
 
 ## Implantar a Prova de conceito (PoC) do Azure AD
 ### [Manual de PoC: introdução](active-directory-playbook-intro.md)
@@ -370,6 +363,7 @@
 
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cmdlets do PowerShell](/powershell/azure/overview)
 ## [Referência de API Java](/java/api)
 ## [API do .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +381,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Preços](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

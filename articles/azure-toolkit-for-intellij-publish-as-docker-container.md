@@ -106,7 +106,7 @@ Contêineres do Docker são um método amplamente usado para implantar aplicativ
 
       * **Novas credenciais de logon**: crie um novo conjunto de credenciais de logon. Se você selecionar essa opção, faça o seguinte:
 
-        a. Na guia **Credenciais de VM**, forneça as seguintes informações para as credenciais de logon da máquina virtual de seu host do Docker: * **Nome de usuário**: insira o nome de usuário para as credenciais de logon da máquina virtual.
+        a. Na guia **Credenciais de VM** forneça as seguintes informações para as credenciais de logon da máquina virtual de seu host do Docker: * **Nome de usuário**: insira o nome de usuário para as credenciais de logon da máquina virtual.
              * **Senha** e **Confirmar**: especifica a senha para as credenciais de logon da máquina virtual.
              * **SSH**: insira as configurações de SSH (Secure Shell) para o host do Docker. Você pode selecionar uma das seguintes opções: * **Nenhum**: especifica que a sua máquina virtual não permite conexões SSH.
                 * **Gerar automaticamente**: cria automaticamente as configurações necessárias para conectar-se via SSH.
@@ -115,7 +115,7 @@ Contêineres do Docker são um método amplamente usado para implantar aplicativ
                   * *id_rsa*: Contains the RSA identification for a user.
                   * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
-        b. Na guia **Acesso ao Daemon do Docker**, forneça as seguintes informações:
+        b. Na guia **Acesso ao Daemon do Docker** forneça as seguintes informações:
 
           ![Criar host do Docker][PUB06]
     

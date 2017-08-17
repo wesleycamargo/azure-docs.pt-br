@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Como migrar dados para dentro e fora do Azure RemoteApp
@@ -61,5 +61,11 @@ Embora não seja possível habilitar o agente de sincronização do OneDrive for
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copiar arquivos usando o redirecionamento de unidade
 Se tiver habilitado o [redirecionamento de unidade](remoteapp-redirection.md), você já terá criado uma unidade mapeada para seus usuários. Nesse caso, eles poderão compactar seus arquivos na unidade redirecionada e salvá-los em seu computador local.
+
+## <a name="how-administrators-can-export-data"></a>Como os administradores podem exportar dados
+
+Os administradores do Azure RemoteApp podem exportar todos os UPDs (discos de perfil do usuário) de todas as coleções de uma assinatura para o Armazenamento do Azure usando o cmdlet Export-AzureRemoteAppUserDisk do Azure PowerShell.  Não é possível selecionar UPDs individuais.  Quando o comando do PowerShell for executado, cada disco de usuário terá 50 GB de disco fixo e será exportado para o armazenamento do Azure.  Os custos de armazenamento do Azure incorrerão imediatamente para esse armazenamento.  Ao executar esse comando, verifique se não existem sessões; caso contrário, a exportação falhará.
+
+UPDs para implantações do Azure RemoteApp ingressadas no domínio só podem ser usados novamente em uma implantação do RDS; implantações ingressadas fora do domínio não podem ser usadas.  Se esses discos forem ser usados em uma implantação do RDS, recomendamos o uso de nossos [scripts automatizados](https://github.com/arcadiahlyy/aramigration), que exportarão, converterão e importarão os UDPs para uma implantação do RDS.
 
 

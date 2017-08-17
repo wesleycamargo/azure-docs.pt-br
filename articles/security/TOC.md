@@ -3,11 +3,13 @@
 ## [Segurança de banco de dados](azure-database-security-overview.md)
 ## [Segurança de armazenamento](security-storage-overview.md)
 ## [Segurança de computação](security-virtual-machines-overview.md)
+## [Segurança operacional](azure-operational-security-overview.md)
 ## [Gerenciamento e monitoramento de segurança](security-management-and-monitoring-overview.md)
+## [Segurança do Service Fabric](azure-service-fabric-security-overview.md)
 ## [Gerenciamento de identidades](security-identity-management-overview.md)
 ## [Segurança da IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Arquitetura de segurança](azure-security-architecture-overview.md)
-### [Segurança operacional](azure-operational-security.md)
+### [Habilitação de segurança operacional](azure-operational-security.md)
 ### [Detecção avançada de ameaças](azure-threat-detection.md)
 ### [Log e auditoria](azure-log-audit.md)
 ### [Isolamento na nuvem pública](azure-isolation.md)
@@ -35,7 +37,12 @@
 ### [Práticas recomendadas para cargas de trabalho do IaaS ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Criptografia de disco para VMs de IaaS](azure-security-disk-encryption.md)
+#### [Perguntas frequentes sobre a Criptografia do disco](azure-security-disk-encryption-faq.md)
+#### [Solução de problemas da Criptografia do disco](azure-security-disk-encryption-tsg.md)
 ### [Criptografar uma VM do Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Segurança operacional
+### [Práticas recomendadas de segurança operacional](azure-operational-security-best-practices.md)
 
 ## Gerenciamento e monitoramento de segurança
 ### [Gerenciamento de segurança](azure-security-management.md)
@@ -47,14 +54,20 @@
 #### [Integrar os logs do Key Vault usando Hubs de Eventos](security-azure-log-integration-keyvault-eventhub.md)
 #### [Perguntas frequentes](security-azure-log-integration-faq.md)
 
+## Service Fabric
+### [Práticas recomendadas do Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Lista de verificação do Service Fabric](azure-service-fabric-security-checklist.md)
+
 ## Gerenciamento de identidades
 ### [Práticas recomendadas de segurança de gerenciamento de identidade](azure-security-identity-management-best-practices.md)
 
 ## Serviços PaaS
 ### [Proteção das implantações PaaS](security-paas-deployments.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando o SQL](security-paas-applications-using-sql.md)
-#### [Práticas recomendadas de Banco de Dados SQL](azure-database-security-best-practices.md)
+#### [Práticas recomendadas de segurança do Banco de Dados SQL](azure-database-security-best-practices.md)
+#### [Lista de verificação de segurança do Banco de Dados SQL](azure-database-security-checklist.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos](security-paas-applications-using-app-services.md)
+####[Lista de verificação de segurança operacional](azure-operational-security-checklist.md)
 
 ## Internet das coisas
 ### [Proteger sua implantação de IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +92,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Programa MVP de segurança do Azure](azure-security-mvp.md)
 ## [Consultoria de segurança cibernética](azure-security-cyber-services.md)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Blog de segurança e conformidade](http://blogs.msdn.com/b/azuresecurity/)
 ## [Cursos de segurança da Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Vídeos de segurança no Canal 9](security-channel-nine.md)

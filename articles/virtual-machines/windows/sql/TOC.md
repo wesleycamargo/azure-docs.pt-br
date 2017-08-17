@@ -4,7 +4,7 @@
 ## [PERGUNTAS FREQUENTES](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Introdução
-## [Provisionar uma VM no Portal do Azure](virtual-machines-windows-portal-sql-server-provision.md)
+## [Como provisionar uma VM no Portal do Azure](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Provisionar uma VM usando o Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## [Conectar-se a uma VM](virtual-machines-windows-sql-connect.md)
 ## [Migrar um banco de dados do SQL Server](virtual-machines-windows-migrate-sql.md)
@@ -45,6 +45,7 @@
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [SSDT - Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [Ferramentas do SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)

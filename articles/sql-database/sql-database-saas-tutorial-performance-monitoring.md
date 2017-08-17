@@ -5,7 +5,7 @@ keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: a76b1fc1e3fad5f47ffc550833bf34937e62163d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitoração do desempenho do aplicativo de SaaS do Wingtip
@@ -143,7 +142,6 @@ Defina um alerta no pool que é disparado após \>75% de utilização, da seguin
    ![definir alerta](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
 
-
 ## <a name="scale-up-a-busy-pool"></a>Escalar verticalmente um pool ocupado
 
 Se o nível de carga agregado aumentar em um pool até o seu limite e alcançar 100% de uso de eDTU, o desempenho individual do banco de dados será afetado, reduzindo potencialmente os tempos de resposta de consulta de todos os bancos de dados no pool.
@@ -157,12 +155,12 @@ Você pode simular um pool ocupado aumentando a carga produzida pelo gerador. Fa
 1. Defina *$DemoScenario* = **3**, _Gerar carga com picos mais longos e mais frequentes por banco de dados_, para aumentar a intensidade da carga agregada no pool sem alterar a carga de pico necessária a cada banco de dados.
 1. Pressione **F5** para aplicar uma carga em todos os seus bancos de dados de locatário.
 
-1. Acesse **Pool1** no portal.
+1. Acesse **Pool1** no Portal do Azure.
 
 Monitore o aumento no uso de eDTUs do pool no gráfico superior. São necessários alguns minutos para que a nova carga mais alta seja exibida, mas você deverá ver rapidamente o pool começar a atingir a utilização máxima e, conforme a carga se estabiliza no novo padrão, ela rapidamente sobrecarrega o pool.
 
-1. Para escalar verticalmente o pool, clique em **Configurar pool**
-1. Ajuste o controle deslizante **eDTU do Pool** para **100**. Alterar o eDTU do pool não altera as configurações por banco de dados (que ainda é, no máximo, de 50 eDTU por banco de dados). Veja as configurações por banco de dados no lado direito da página **Configurar pool**.
+1. Para escalar verticalmente o pool, clique em **Configurar pool** na parte superior da página **Pool1**.
+1. Ajuste a configuração **eDTU do Pool** para **100**. Alterar o eDTU do pool não altera as configurações por banco de dados (que ainda é, no máximo, de 50 eDTU por banco de dados). Veja as configurações por banco de dados no lado direito da página **Configurar pool**.
 1. Clique em **Salvar** para enviar a solicitação para dimensionar o pool.
 
 Volte para **Pool1** > **Visão Geral** para exibir os gráficos de monitoramento. Monitore o efeito do fornecimento de mais recursos ao pool (embora com poucos bancos de dados e uma carga aleatória não seja sempre fácil observar conclusivamente, até a execução durante um período). Enquanto estiver examinando os gráficos lembre-se que 100% no gráfico superior agora representa 100 eDTUs, enquanto que no gráfico inferior, 100% ainda representa 50 eDTUs, pois o máximo por banco de dados ainda é de 50 eDTUs.

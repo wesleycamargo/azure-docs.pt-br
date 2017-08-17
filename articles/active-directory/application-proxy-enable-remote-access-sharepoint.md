@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
-ms.lasthandoff: 04/17/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 97eeec3b3936bcbef6ac3966b890332901bcb153
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,13 +31,11 @@ Para habilitar o acesso remoto ao SharePoint com o Proxy de aplicativo do Azure 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já tenha o SharePoint 2013 ou mais recente instalado e em execução no seu ambiente. Além disso, considere os seguintes pré-requisitos:
+Este artigo pressupõe que você já tenha o SharePoint 2013 ou mais recente no seu ambiente. Além disso, considere os seguintes pré-requisitos:
 
-* O Proxy de Aplicativo é um recurso que estará disponível somente se você tiver atualizado para a edição Premium ou Básica do Azure Active Directory. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+* O SharePoint inclui suporte nativo a Kerberos. Portanto, os usuários que acessam sites internos remotamente por meio do Proxy de Aplicativo do Azure AD podem supor que terão uma experiência de SSO (logon único).
 
-* O SharePoint inclui suporte nativo a Kerberos. Portanto, os usuários que acessam sites internos remotamente por meio do Proxy de Aplicativo do Azure AD podem supor que terão uma perfeita experiência de SSO (logon único).
-
-* Você precisará fazer algumas mudanças na configuração do seu servidor do SharePoint. É recomendável usar um ambiente de preparo. Dessa forma, você pode fazer atualizações no servidor de preparo primeiro e depois facilitar um ciclo de testes antes de passar para o de produção.
+* Você precisa fazer algumas mudanças na configuração do seu servidor do SharePoint. É recomendável usar um ambiente de preparo. Dessa forma, você pode fazer atualizações no servidor de preparo primeiro e depois facilitar um ciclo de testes antes de passar para o de produção.
 
 * Supomos que você já configurou o SSL para SharePoint, pois exigimos o SSL na URL publicada. Você precisa ter o SSL habilitado no site interno a fim de assegurar que os links sejam enviados/mapeados corretamente. Se você ainda não configurou o SSL, consulte [Configurar o SSL para o SharePoint 2013](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013) para obter instruções. Além disso, verifique se o computador conector confia no certificado que você emite. (O certificado não precisa ser emitido publicamente.)
 
@@ -45,13 +45,13 @@ Nossos clientes querem a melhor experiência de SSO para seus aplicativos de bac
 
 Para aplicativos locais que exigem ou usam a autenticação do Windows, você pode obter SSO usando o protocolo de autenticação Kerberos e um recurso chamado KCD (delegação restrita de Kerberos). A KCD, quando configurada, permite que o conector do proxy de aplicativo obtenha um tíquete/token do Windows para um usuário, mesmo que ele não tenha entrado no Windows diretamente. Para saber mais sobre a KCD, confira [Visão geral da delegação restrita de Kerberos](https://technet.microsoft.com/library/jj553400.aspx).
 
-Para configurar o KCD para um servidor do SharePoint, use os procedimentos nas seções sequenciais a seguir.
+Para configurar o KCD para um servidor do SharePoint, use os procedimentos nas seções sequenciais a seguir:
 
 ### <a name="ensure-that-sharepoint-is-running-under-a-service-account"></a>Certificar-se de que SharePoint está em execução como uma conta de serviço
 
-Primeiro, certifique-se de que o SharePoint está em execução em uma conta de serviço e não no sistema local, serviço local ou serviço de rede. Isso é necessário para que você possa anexar SPNs (nomes da entidade de serviço) a uma conta válida. Os SPNs são a maneira como o protocolo Kerberos identifica serviços diferentes. E você precisará da conta mais tarde para configurar a KCD.
+Primeiro, certifique-se de que o SharePoint está em execução em uma conta de serviço e não no sistema local, serviço local ou serviço de rede. Faça isso para que você possa anexar SPNs (nomes da entidade de serviço) a uma conta válida. Os SPNs são a maneira como o protocolo Kerberos identifica serviços diferentes. E você precisará da conta mais tarde para configurar a KCD.
 
-Para garantir que seus sites estejam em execução em uma conta de serviço definida, faça o seguinte:
+Para garantir que seus sites estejam em execução em uma conta de serviço definida, realize as seguintes etapas:
 
 1. Abra o site **Administração Central do SharePoint 2013**.
 2. Vá para **Segurança** e selecione **Configurar contas de serviço**.
@@ -72,7 +72,7 @@ Você usa a KCD para executar o logon único no servidor do SharePoint e isso fu
 Para configurar o site do SharePoint para autenticação Kerberos:
 
 1. Abra o site **Administração Central do SharePoint 2013**.
-2. Vá para **Gerenciamento de Aplicativos**, selecione **Gerenciar aplicativos Web** e selecione seu site do SharePoint. Neste exemplo, é **SharePoint – 80**.
+2. Vá para **Gerenciamento de Aplicativos**, selecione **Gerenciar aplicativos Web** e selecione seu site do SharePoint. Neste exemplo, é **SharePoint - 80**.
 
   ![Selecionar o site do SharePoint](./media/application-proxy-remote-sharepoint/remote-sharepoint-manage-web-applications.png)
 
@@ -99,7 +99,7 @@ No formato SPN:
 
 * _service class_ é um nome exclusivo para o serviço. Para o SharePoint, você usa **HTTP**.
 
-* _host_ é o domínio totalmente qualificado ou o nome NetBIOS do host no qual o serviço está em execução. No caso de um site do SharePoint, pode ser a URL do site, dependendo da versão do IIS que você está usando.
+* _host_ é o domínio totalmente qualificado ou o nome NetBIOS do host no qual o serviço está em execução. Para um site do SharePoint, esse texto pode ser a URL do site, dependendo da versão do IIS que você está usando.
 
 * _port_ é opcional.
 
@@ -138,13 +138,13 @@ Klist retorna então o conjunto de SPNs de destino. Neste exemplo, o valor real�
 
  Esse comando define o SPN para a conta de serviço do SharePoint em execução como _demo\sp_svc_.
 
- Substitua _http/sharepoint.demo.o365identity.us_ pelo SPN do seu servidor e _demo\sp_svc_ pela conta de serviço no seu ambiente. O comando Setspn pesquisará pelo SPN antes de adicioná-lo. Nesse caso, você poderá ver um erro **Valor de SPN duplicado**. Caso esse erro seja exibido, verifique se o valor está associado à conta de serviço.
+ Substitua _http/sharepoint.demo.o365identity.us_ pelo SPN do seu servidor e _demo\sp_svc_ pela conta de serviço no seu ambiente. O comando Setspn pesquisa pelo SPN antes de adicioná-lo. Nesse caso, você poderá ver um erro **Valor de SPN duplicado**. Caso esse erro seja exibido, verifique se o valor está associado à conta de serviço.
 
 Você pode verificar se o SPN foi adicionado executando o comando Setspn com a opção -I. Para saber mais sobre esse comando, confira [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>Certificar-se de que o conector está definido como um delegado confiável para o SharePoint
 
-Configure a KCD para que o serviço Proxy de Aplicativo do Azure AD seja capaz de delegar identidades do usuário ao serviço do SharePoint. Faça isso habilitando o conector Proxy de Aplicativo para recuperar tíquetes Kerberos para seus usuários que foram autenticados no Azure AD. Em seguida, esse servidor passará o contexto ao aplicativo de destino, ou o SharePoint, nesse caso.
+Configure a KCD para que o serviço Proxy de Aplicativo do Azure AD seja capaz de delegar identidades do usuário ao serviço do SharePoint. Faça isso habilitando o conector Proxy de Aplicativo para recuperar tíquetes Kerberos para seus usuários que foram autenticados no Azure AD. Em seguida, esse servidor passa o contexto ao aplicativo de destino, ou o SharePoint, nesse caso.
 
 Para configurar a KCD, repita as etapas a seguir para cada computador conector:
 
@@ -181,7 +181,7 @@ Para executar as etapas a seguir, você precisa ser um membro da Função Admini
 5. Depois que o aplicativo for publicado, clique na guia **Configurar**.
 6. Role para baixo até a opção **Traduzir URL nos Cabeçalhos**. O valor padrão é **SIM**. Altere-o para **NÃO**.
 
- O SharePoint usa o valor _Cabeçalho de Host_ para pesquisar o site. Ele também gera links com base nesse valor. O resultado final é a certeza de que qualquer link que o SharePoint gere será uma URL publicada corretamente definida para usar a URL externa. Configurar o valor para **SIM** também permite que o conector encaminhe a solicitação ao aplicativo de back-end. No entanto, configurar o valor como **NÃO** significa que o conector não enviará o nome de host interno. Em vez disso, o conector enviará o cabeçalho do host como a URL publicada para o aplicativo de back-end.
+ O SharePoint usa o valor _Cabeçalho de Host_ para pesquisar o site. Ele também gera links com base nesse valor. O resultado final é a certeza de que qualquer link que o SharePoint gere será uma URL publicada corretamente definida para usar a URL externa. Configurar o valor para **SIM** também permite que o conector encaminhe a solicitação ao aplicativo de back-end. No entanto, configurar o valor como **NÃO** significa que o conector não enviará o nome de host interno. Em vez disso, o conector envia o cabeçalho do host como a URL publicada para o aplicativo de back-end.
 
  Além disso, para garantir que o SharePoint aceite essa URL, você precisa concluir mais uma configuração no servidor do SharePoint. Você fará isso na próxima seção.
 
@@ -189,7 +189,7 @@ Para executar as etapas a seguir, você precisa ser um membro da Função Admini
 8. Defina o **SPN do Aplicativo Interno** para o valor que você definiu anteriormente. Por exemplo, **http/sharepoint.demo.o365identity.us**.
 9. Atribua o aplicativo aos usuários de destino.
 
-Seu aplicativo deve ser semelhante ao seguinte:
+Seu aplicativo deve ser semelhante ao seguinte exemplo:
 
   ![Aplicativo concluído](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 

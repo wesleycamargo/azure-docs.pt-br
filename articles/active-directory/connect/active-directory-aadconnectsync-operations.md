@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronização do Azure AD Connect: considerações e tarefas operacionais
@@ -77,7 +77,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 
 #### <a name="switch-active-server"></a>Servidor ativo do comutador
 1. No servidor atualmente ativo, desligue o servidor (FIM/DirSync/Azure AD Sync) para que ele não exporte para o Azure AD ou defina-o no modo de preparação (Azure AD Connect).
-2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o**modo de preparo**.
+2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Recuperação de desastre
@@ -109,7 +109,9 @@ Para obter mais informações, consulte [Modo de preparo](#staging-mode).
 Um método comum e com suporte é a execução do mecanismo de sincronização em uma máquina virtual. Se o host tiver um problema, a imagem com o servidor do mecanismo de sincronização pode ser migrada para outro servidor.
 
 ### <a name="sql-high-availability"></a>Alta disponibilidade do SQL
-Se você não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deverá ser considerada. A única solução de alta disponibilidade com suporte é o SQL clustering. Soluções sem suporte incluem espelhamento e Sempre ativo.
+Se você não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deverá ser considerada. As soluções de alta disponibilidade com suporte incluem o clustering de SQL e AOA (Grupos de Disponibilidade AlwaysOn). Soluções sem suporte incluem espelhamento.
+
+Suporte para SQL AOA foi adicionado ao Azure AD Connect versão 1.1.524.0. Você deve habilitar o SQL AOA antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect detecta se a instância do SQL fornecida está habilitada para SQL AOA ou não. Se o SQL AOA estiver habilitado, o Azure AD Connect descobrirá melhor se o AOA SQL está configurado para usar replicação síncrona ou replicação assíncrona. Ao configurar o Ouvinte do Grupo de Disponibilidade, é recomendável definir a propriedade RegisterAllProvidersIP como 0. Isso ocorre porque o Azure AD Connect atualmente usa o SQL Native Client para conectar-se ao SQL, e o SQL Native Client não dá suporte ao uso da propriedade MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Apêndice: CSAnalyzer
 Consulte a seção [Verificar](#verify) para saber como usar esse script.

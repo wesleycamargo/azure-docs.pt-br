@@ -154,8 +154,8 @@ Ao usar o Azure AD Connect para implantar Serviços de Federação do Active Dir
   * No computador de destino (computador WAP):
     * Verifique se o serviço winrm (Windows Remote Management/WS-Management) está em execução por meio do snap-in de Serviços
     * Em uma janela Comando de PSH com privilégio elevado, use o comando `Enable-PSRemoting –force`
-      * No computador que está executando o assistente (se o computador de destino não for associado ao domínio ou for de um domínio não confiável):
-      * Em uma janela Comando de PSH com privilégio elevado, use o comando `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+  * No computador que está executando o assistente (se o computador de destino não for associado ao domínio ou for de um domínio não confiável):
+    * Em uma janela Comando de PSH com privilégio elevado, use o comando `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * No Gerenciador de Servidores:
       * adicione o host DMZ WAP ao pool de computadores (gerenciador de servidores -> Gerenciar -> Adicionar Servidores... use a guia DNS)
       * Guia Todos os Servidores do Gerenciador de Servidores: clique com o botão direito do mouse no servidor WAP e escolha Gerenciar como... e digite credenciais locais (não de domínio) para o computador WAP

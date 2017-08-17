@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Descobrir competições na Cortana Intelligence Gallery
@@ -34,8 +34,7 @@ Para respostas a perguntas frequentes sobre as Competições, consulte [Pergunta
 
 ![Escolher competições na home page da Galeria](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- A página **[Competições](https://gallery.cortanaintelligence.com/competitions)**
- exibe uma lista das competições mais populares.
+ A página **[Competições](https://gallery.cortanaintelligence.com/competitions)** exibe uma lista das competições mais populares.
 Clique em **Ver todos** para exibir todos as competições.
 Nessa página, você pode procurar todas as competições na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
@@ -48,11 +47,9 @@ Nessa página, você pode procurar todas as competições na Galeria. Você tamb
 ## <a name="enter-a-competition"></a>Participar de uma competição
 Se a competição estiver aberta, o status na página de detalhes será **Ativa**. Para entrar na competição, clique em **Entrar na Competição**, e você receberá instruções sobre os recursos necessários e as etapas que você precisa realizar.
 
-![Competição concluída](media/machine-learning-gallery-competitions/open-competition.png)
+![A concorrência está ativa](media/machine-learning-gallery-competitions/open-competition.png)
 
-Se a competição não estiver mais aberta, seu status na página de detalhes será **Concluída** e o link **Entrar na Competição** será substituído pela palavra **Concluída**.
-
-![Competição concluída](media/machine-learning-gallery-competitions/completed-competition.png)
+Se a competição tiver sido concluída, uma lista com os vencedores será exibida.
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 

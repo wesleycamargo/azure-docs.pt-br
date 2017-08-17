@@ -54,6 +54,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Perguntas frequentes](iot-suite-faq.md)
 ## [Roteiro de aprendizagem do IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 
 
 

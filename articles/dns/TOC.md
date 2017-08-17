@@ -40,11 +40,12 @@
 ## [Proteger zonas e registros DNS](dns-protect-zones-recordsets.md)
 ## [Automatizar operações de DNS com o SDK do .NET](dns-sdk.md)
 
-## [Integrar o DNS do Azure com recursos do Azure](dns-custom-domain.md)
+## [Domínios personalizados dos recursos do Azure](dns-custom-domain.md)
 ## Solucionar problemas
 ### [Guia de Solução de problemas](dns-troubleshoot.md)
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [CLI do Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -68,4 +69,5 @@
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 ## [Preços](https://azure.microsoft.com/pricing/details/dns/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=dns)

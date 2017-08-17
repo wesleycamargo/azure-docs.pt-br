@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bd7694374034faa5ef1df84397580d80e3f40e43
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -241,6 +241,39 @@ As seções a seguir descrevem como atualizar os agentes de proteção para comp
 4. Para um computador cliente que não está conectado à rede, até que o computador esteja conectado à rede, a coluna do **Status do Agente** mostra um status de **Atualização Pendente**.
 
   Depois que um computador cliente está conectado à rede, a coluna **Atualizações de Agente** para o computador cliente mostra um status de **Atualizando**.
+  
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Mover grupos de proteção herdados de uma versão antiga e sincronizar a nova versão com o Azure
+
+Depois que o Servidor de Backup do Azure e o sistema operacional são atualizados, você está pronto para proteger novas fontes de dados usando armazenamento de backup moderno. Independentemente de já estarem protegidas anteriormente, as fontes de dados continuarão a estar protegidas do modo herdado assim como estavam no Servidor de Backup do Azure, mas todas as novas proteções usarão o armazenamento de backup moderno.
+
+As etapas abaixo são para migrar fontes de dados de modo herdado de proteção para o armazenamento de backup moderno.
+
+• Adicione os novos volumes ao pool de armazenamento do DPM e atribua marcas de fonte de dados e nomes amigáveis, se desejado.
+• Para cada fonte de dados que está no modo herdado, interrompa a proteção das fontes de dados e a opção "Reter Dados Protegidos".  Isso permitirá a recuperação de pontos de recuperação antigos após a migração.
+
+• Crie um novo grupo de proteção e selecione as fontes de dados que serão armazenadas usando o novo formato.
+• O DPM fará uma cópia de réplica do armazenamento de backup herdado para o volume de armazenamento de backup moderno localmente.
+Observação: Isso será visto como um trabalho de operação pós-recuperação • Todos os novos pontos de sincronização e de recuperação serão então armazenados no armazenamento de backup moderno.
+• Pontos de recuperação antigos serão removidos conforme expirarem e, eventualmente, liberarão o espaço em disco.
+• Depois que todos os volumes herdados são excluídos do armazenamento antigo, o disco pode ser removido do backup do Azure e do sistema.
+• Faça um backup do DPMDB do Azure.
+
+Parte 2: -Itens importantes> O novo servidor precisará receber o mesmo nome que o servidor de Backup do Azure original. Você não poderá alterar o nome do novo servidor de backup do Azure se você quiser usar o pool de armazenamento antigo e o DPMDB para manter os pontos de recuperação – será necessário ter o backup do DPMDB, já que ele precisará ser restaurado
+
+1) Desligue o servidor de Backup do Azure original ou retire-o da rede.
+2) Redefina a conta do computador no Active Directory.
+3) Instale o Server 2016 no novo computador e dê a ele o mesmo nome de computador do servidor de Backup do Azure original.
+4) Ingressar no domínio
+5) Instalar o servidor de Backup do Azure V2 (mover discos do pool de armazenamento do DPM do servidor antigo e importar)
+6) Restaurar o DPMDB retirado do final da parte 2
+7) Anexe o armazenamento do servidor de backup original ao novo servidor.
+8) Do SQL, restaurar o DPMDB
+9) Na linha de comando de administrador no novo servidor, vá para o diretório do local de instalação do Backup do Microsoft Azure e a pasta bin
+
+Exemplo de caminho: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+para o backup do Azure. Execute DPMSYNC-SYNC
+
+10) Execute DPMSYNC -SYNC Observação Se você adicionou NOVOS discos ao pool de armazenamento do DPM em vez de mover os antigos, execute DPMSYNC -Reallocatereplica
 
 ## <a name="new-powershell-cmdlets-in-v2"></a>Novo cmdlets do PowerShell em v2
 

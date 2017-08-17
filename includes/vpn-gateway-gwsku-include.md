@@ -14,7 +14,7 @@ Devido a diferenças nos SLAs e conjuntos de recursos, é recomendável usar as 
 | **Teste de desenvolvimento ou prova de conceito**   | Basic                  |
 |                                    |                        |
 
-Se você estiver usando as SKUs antigas, as recomendações de SKU de produção serão Standard e Alto Desempenho. Para saber mais sobre os SKUs antigos, veja [SKUs de Gateway (antigos)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Se você estiver usando as SKUs antigas, as recomendações de SKU de produção serão Standard e Alto Desempenho. Para saber mais sobre os SKUs antigos, confira [SKUs de Gateway (SKUs herdados)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Conjuntos de recursos do SKU de gateway
 

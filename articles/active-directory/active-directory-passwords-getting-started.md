@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Início rápido: redefinição da senha de autoatendimento do Azure AD
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Início rápido: redefinição da senha de autoatendimento do Azure AD
+
+> [!IMPORTANT]
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Implantar rapidamente a redefinição da senha de autoatendimento
 
@@ -74,9 +77,9 @@ Para habilitar a sincronização de identidades local ao Azure AD, você precisa
 
 ## <a name="disabling-self-service-password-reset"></a>Desabilitação da redefinição da senha de autoatendimento
 
-Desabilitar a redefinição de senha de autoatendimento é tão simples quanto abrir seu locatário do Azure AD e acessar **Redefinição de Senha > Propriedades** e escolher **Ninguém** em **Redefinição da Senha de Autoatendimento Habilitada**
+Desabilitar a redefinição de senha de autoatendimento é tão simples quanto abrir seu locatário do Azure AD e acessar **Redefinição de Senha > Propriedades** e escolher **Nenhuma** em **Redefinição da Senha de Autoatendimento Habilitada**
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="learn-more"></a>Saiba mais
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [**Licenciamento** ](active-directory-passwords-licensing.md) - Configuração do licenciamento do Azure AD
@@ -88,4 +91,12 @@ Os links a seguir fornecem informações adicionais sobre a redefinição de sen
 * [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
 * [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste guia de início rápido, você aprendeu a configurar a redefinição de senha por autoatendimento para seus usuários. Para continuar no Portal do Azure a fim de concluir estas etapas, siga o link abaixo até o portal.
+
+> [!div class="nextstepaction"]
+> [Habilitar a redefinição de senha por autoatendimento](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

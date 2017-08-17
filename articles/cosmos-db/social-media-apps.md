@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0691d6730fddbf9b6145d4a39da94a1762516c2c
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
@@ -45,7 +44,7 @@ Por que o SQL não é a melhor opção nesse cenário? Vamos examinar a estrutur
 É claro que, para atender às necessidades de nosso conteúdo, poderíamos usar uma instância SQL gigantesca com capacidade suficiente para resolver milhares de consultas com essas várias junções, mas, sinceramente, por que faríamos isso quando há uma solução mais simples?
 
 ## <a name="the-nosql-road"></a>O caminho NoSQL
-Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, [BD Cosmos do Azure](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos de BD Cosmo do Azure, como a [API do Graph Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos de Azure Cosmos DB, como a [API do Graph Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -136,7 +135,7 @@ Para resolver isso, podemos usar uma abordagem mista. Como parte do documento de
         "totalPoints":11342
     }
 
-E o gráfico real de seguidores pode ser armazenado usando a [API do Graph Gremlin](../cosmos-db/graph-introduction.md) do BD Cosmos do Azure, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Graph permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionarmos ao gráfico as Categorias de Conteúdo que as pessoas curtem, poderemos começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que seguimos ou localização das pessoas com quem podemos ter muito em comum.
+E o gráfico real de seguidores pode ser armazenado usando a [API do Graph Gremlin](../cosmos-db/graph-introduction.md) do Azure Cosmos DB, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Graph permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionarmos ao gráfico as Categorias de Conteúdo que as pessoas curtem, poderemos começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que seguimos ou localização das pessoas com quem podemos ter muito em comum.
 
 O documento Estatísticas do Usuário ainda pode ser usado para criar cartões na interface do usuário ou visualizações rápidas de perfil.
 
@@ -171,9 +170,9 @@ A menor etapa é chamada de UserChunk, a informação mínima que identifica um 
 
 A etapa intermediária é chamada de usuário: são os dados completos que serão usados na maioria das consultas dependentes de desempenho no Cosmos DB, os mais acessados e críticos. Ela inclui as informações representadas por um UserChunk.
 
-A maior etapa é Extended User. Ela inclui todas as informações críticas do usuário, bem como outros dados que realmente não precisam ser lidos rapidamente ou cujo uso é eventual (como o processo de logon). Esses dados podem ser armazenados fora do BD Cosmos, no Banco de Dados SQL do Azure ou nas Tabelas de Armazenamento do Azure.
+A maior etapa é Extended User. Ela inclui todas as informações críticas do usuário, bem como outros dados que realmente não precisam ser lidos rapidamente ou cujo uso é eventual (como o processo de logon). Esses dados podem ser armazenados fora do Cosmos DB, no Banco de Dados SQL do Azure ou nas Tabelas de Armazenamento do Azure.
 
-Por que dividiríamos o usuário e, até mesmo, armazenaríamos essas informações em locais diferentes? Porque, da perspectiva de desempenho, quanto maiores os documentos, mais caras as consultas. Mantenha os documentos simples, com as informações certas para fazer todas as suas consultas dependentes de desempenho para sua rede social, e armazene as outras informações extras para eventuais cenários como edições de perfil completo, logons e, até mesmo, mineração de dados para análise de uso e iniciativas de Big Data. Realmente, não nos importamos se a coleta de dados para mineração de dados é mais lenta porque está em execução no Banco de Dados SQL do Azure; o que nos preocupa é fazer com que nossos usuários tenham uma experiência rápida e descomplicada. Um usuário, armazenado no BD Cosmos, teria esta aparência:
+Por que dividiríamos o usuário e, até mesmo, armazenaríamos essas informações em locais diferentes? Porque, da perspectiva de desempenho, quanto maiores os documentos, mais caras as consultas. Mantenha os documentos simples, com as informações certas para fazer todas as suas consultas dependentes de desempenho para sua rede social, e armazene as outras informações extras para eventuais cenários como edições de perfil completo, logons e, até mesmo, mineração de dados para análise de uso e iniciativas de Big Data. Realmente, não nos importamos se a coleta de dados para mineração de dados é mais lenta porque está em execução no Banco de Dados SQL do Azure; o que nos preocupa é fazer com que nossos usuários tenham uma experiência rápida e descomplicada. Um usuário, armazenado no Cosmos DB, teria esta aparência:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -201,13 +200,13 @@ E quando surgir uma edição em que um dos atributos da parte é afetado, será 
 ## <a name="the-search-box"></a>A caixa de pesquisa
 Felizmente, os usuários vão gerar muito conteúdo. Além disso, devemos ser capazes de fornecer os meios pelos quais seja possível pesquisar e encontrar o conteúdo que, talvez, não esteja disponível diretamente em seus fluxos de conteúdo, provavelmente, porque não seguimos os criadores ou porque estamos apenas tentando encontrar aquela mensagem antiga que postamos há seis meses.
 
-Felizmente, tendo em vista que estamos usando o Banco de Dados de Documentos, em poucos minutos, podemos implementar com facilidade um mecanismo de pesquisa com a [Pesquisa do Azure](https://azure.microsoft.com/services/search/) , sem digitar uma única linha de código (a não ser, evidentemente, a interface do usuário e o processo da pesquisa).
+Felizmente, tendo em vista que estamos usando o Azure Cosmos DB, em poucos minutos, podemos implementar com facilidade um mecanismo de pesquisa com o [Azure Search](https://azure.microsoft.com/services/search/) , sem digitar uma única linha de código (a não ser, evidentemente, a interface do usuário e o processo da pesquisa).
 
 Por que isso é tão fácil?
 
-O Azure Search implementa o que é chamado de [Indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), processos em segundo plano que se anexam aos repositórios de dados e adicionam, atualizam ou removem automaticamente os objetos nos índices. Eles dão suporte a [indexadores do Banco de Dados SQL do Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores dos Blobs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, ainda bem, [indexadores do BD Cosmos do Azure](../search/search-howto-index-documentdb.md). A transição de informações do BD Cosmos para o Azure Search é simples, já que ambos armazenam as informações em formato JSON; basta [criarmos nosso Índice](../search/search-create-index-portal.md) e mapearmos quais atributos de nossos Documentos queremos indexar e... pronto! Em questão de minutos (dependendo do tamanho dos dados), todo o nosso conteúdo estará disponível para ser pesquisado pela melhor solução de Pesquisa como Serviço da infraestrutura de nuvem. 
+O Azure Search implementa o que é chamado de [Indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), processos em segundo plano que se anexam aos repositórios de dados e adicionam, atualizam ou removem automaticamente os objetos nos índices. Eles dão suporte a [indexadores do Banco de Dados SQL do Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores dos Blobs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, ainda bem, [indexadores do Azure Cosmos DB](../search/search-howto-index-documentdb.md). A transição de informações do Cosmos DB para o Azure Search é simples, já que ambos armazenam as informações em formato JSON; basta [criarmos nosso Índice](../search/search-create-index-portal.md) e mapearmos quais atributos de nossos Documentos queremos indexar e... pronto! Em questão de minutos (dependendo do tamanho dos dados), todo o nosso conteúdo estará disponível para ser pesquisado pela melhor solução de Pesquisa como Serviço da infraestrutura de nuvem. 
 
-Para obter mais informações sobre a Pesquisa do Azure, visite o [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Para obter mais informações sobre o Azure Search, visite o [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## <a name="the-underlying-knowledge"></a>O conhecimento subjacente
 Depois de armazenar todo esse conteúdo que aumenta a cada dia, talvez comecemos a pensar: O que posso fazer com todo esse fluxo de informações de meus usuários?
@@ -241,7 +240,7 @@ Mas espere... logo você percebe que a experiência deles com a plataforma não 
 
 O Cosmos DB permite [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-documentdb.md) e de forma transparente com alguns cliques e selecionar automaticamente uma das regiões disponíveis por meio do [código cliente](../cosmos-db/tutorial-global-distribution-documentdb.md). Isso também significa que é possível ter [várias regiões de failover](regional-failover.md). 
 
-Ao replicar os dados globalmente, você precisa garantir que os clientes podem aproveitá-los. Se você estiver usando um front-end da Web ou acessando APIs em clientes móveis, poderá implantar o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar o Serviço de Aplicativo do Azure em todas as regiões desejadas, usando uma [Configuração de desempenho](../app-service-web/web-sites-traffic-manager.md) para dar suporte à cobertura global estendida. Quando os clientes acessarem o front-end ou as APIs, eles serão roteados para o Serviço de Aplicativo mais próximo, que, por sua vez, se conectará à réplica local do BD Cosmos.
+Ao replicar os dados globalmente, você precisa garantir que os clientes podem aproveitá-los. Se você estiver usando um front-end da Web ou acessando APIs em clientes móveis, poderá implantar o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar o Serviço de Aplicativo do Azure em todas as regiões desejadas, usando uma [Configuração de desempenho](../app-service-web/web-sites-traffic-manager.md) para dar suporte à cobertura global estendida. Quando os clientes acessarem o front-end ou as APIs, eles serão roteados para o Serviço de Aplicativo mais próximo, que, por sua vez, se conectará à réplica local do Cosmos DB.
 
 ![Adicionando cobertura global à plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
 

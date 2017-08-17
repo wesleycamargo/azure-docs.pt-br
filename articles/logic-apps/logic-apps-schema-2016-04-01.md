@@ -1,5 +1,5 @@
 ---
-title: "Atualizações de esquema de&1;º de junho de&2016; - Aplicativos Lógicos do Azure | Microsoft Docs"
+title: "Atualizações de esquema de 1º de junho de 2016 - Aplicativos Lógicos do Azure | Microsoft Docs"
 description: "Criar definições de JSON para Aplicativos Lógicos do Azure com a versão de esquema 2016-06-01"
 author: jeffhollan
 manager: anneta
@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - 1º de junho de 2016
@@ -31,7 +30,7 @@ Esse novo esquema e a versão da API para Aplicativos Lógicos do Azure incluem 
 * [Condições e loops](#conditions-loops) agora são ações de primeira classe.
 * Ordenação mais precisa para executar ações com a propriedade `runAfter`, substituindo `dependsOn`
 
-Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](#upgrading-to-2016-06-01-schema).
+Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>Escopos
@@ -115,8 +114,7 @@ A atualização para o novo esquema exige apenas algumas etapas. O processo de a
     ![Escolher o Esquema de Atualização][1]
    
     É retornada a definição atualizada, que você pode copiar e colar em uma definição de recurso, se necessário. 
-    No entanto, é **altamente recomendável** escolher **Salvar como** 
-    para garantir que todas as referências de conexão sejam válidas no aplicativo lógico atualizado.
+    No entanto, é **altamente recomendável** escolher **Salvar como** para garantir que todas as referências de conexão sejam válidas no aplicativo lógico atualizado.
 
 3. Na barra de ferramentas da folha de atualização, escolha **Salvar como**.
 

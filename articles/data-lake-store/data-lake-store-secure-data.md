@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
-ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protegendo os dados armazenados no repositório Azure Data Lake
@@ -41,6 +40,18 @@ Antes de começar este tutorial, você deve ter o seguinte:
 ## <a name="create-security-groups-in-azure-active-directory"></a>Criar grupos de segurança no Active Directory do Azure
 Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
+> [!NOTE] 
+> Adicione usuários e outros grupos a um grupo no Azure AD usando o portal do Azure. No entanto, para adicionar uma entidade de serviço a um grupo, use um [módulo do PowerShell do Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> 
+> ```powershell
+> # Get the desired group and service principal and identify the correct object IDs
+> Get-AzureADGroup -SearchString "<group name>"
+> Get-AzureADServicePrincipal -SearchString "<SPI name>"
+> 
+> # Add the service principal to the group
+> Add-AzureADGroupMember -ObjectId <Group object ID> -RefObjectId <SPI object ID>
+> ```
+ 
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Atribua usuários ou grupos de segurança às contas do repositório Azure Data Lake.
 Ao atribuir usuários ou grupos de segurança às contas do repositório Azure Data Lake, você controla o acesso às operações de gerenciamento na conta usando o Portal do Azure e as APIs do Gerenciador de Recursos do Azure. 
 
@@ -60,7 +71,7 @@ Ao atribuir usuários ou grupos de segurança às contas do repositório Azure D
    
     ![Adicionar uma função para o usuário](./media/data-lake-store-secure-data/adl.add.user.1.png "adicionar uma função do usuário")
    
-    As funções **Proprietário** e **Colaborador** fornecem acesso a várias funções de administração da conta do Data Lake. Adicione os usuários que interagirão com dados no Data Lake à função **Leitor **. O escopo dessas funções é limitado às operações de gerenciamento relacionadas à conta do repositório Azure Data Lake.
+    As funções **Proprietário** e **Colaborador** fornecem acesso a várias funções de administração da conta do Data Lake. Para os usuários que interagirão com os dados no Data Lake, adicione-os à função **Leitor**. O escopo dessas funções é limitado às operações de gerenciamento relacionadas à conta do repositório Azure Data Lake.
    
     Para as operações de dados, as permissões do sistema de arquivos individual definem o que os usuários podem fazer. Portanto, um usuário com uma função de Leitor pode exibir somente as configurações administrativas associadas à conta, mas possivelmente pode ler e gravar dados com base nas permissões de sistema de arquivo atribuídas a ele. As permissões do sistema de arquivos do repositório Data Lake são descritas em [Atribuir grupo de segurança como ACLs ao sistema de arquivos do repositório Azure Data Lake](#filepermissions).
 5. Na folha **Adicionar acesso**, clique em **Adicionar usuários** para abrir a folha **Adicionar usuários**. Nesta folha, procure o grupo de segurança criado anteriormente no Active Directory do Azure. Se houver muitos grupos para sua pesquisa, use a caixa de texto na parte superior para filtrar pelo nome do grupo. Clique em **Selecionar**.

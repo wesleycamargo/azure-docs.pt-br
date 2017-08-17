@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Etapa 6: Preparar a replicação da VMware local para o Azure
@@ -28,7 +27,7 @@ Use as instruções neste artigo para preparar servidores VMware locais para int
 
 ## <a name="prepare-for-automatic-discovery"></a>Preparar para a descoberta automática
 
-O Site Recovery detecta automaticamente as VMs localizadas e hosts ESXi vSphere e/ou gerenciado pelos servidores vCenter.  Para fazer isso, o Site Recovery precisa de credenciais que possam acessar servidores vCenter e hosts vSphere ESXi. Crie-os da seguinte maneira:
+O Site Recovery detecta automaticamente as VMs em execução em hosts ESXi vSphere (com ou sem um servidor do vCenter). Para a descoberta automática, o Site Recovery precisa de uma conta para acessar os hosts e servidores:
 
 1. Para usar uma conta dedicada, crie uma função (no nível do vCenter com as permissões, conforme descrito na tabela abaixo. Use um nome como **Azure_Site_Recovery**.
 2. Em seguida, crie um usuário no host vSphere/servidor vCenter e atribua a função ao usuário. Você especifica essa conta de usuário durante a implantação de Site Recovery.
@@ -58,7 +57,7 @@ Se você quiser usar a instalação por push, precisará preparar uma conta que 
 
 - Você pode usar uma conta local ou de domínio
 - Para Windows, se não estiver usando uma conta de domínio, precisará desabilitar o controle de Acesso de Usuário Remoto no computador local. Para fazer isso, no registro, em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** com um valor de 1.
-- Se deseja adicionar a entrada do Registro do Windows de uma CLI, digite:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Se deseja adicionar a entrada do Registro do Windows de uma CLI, digite: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para Linux, a conta deve ser a raiz no servidor Linux de origem.
 
 

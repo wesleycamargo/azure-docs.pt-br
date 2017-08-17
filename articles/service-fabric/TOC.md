@@ -16,6 +16,7 @@
 ### [2- Implantar um aplicativo .NET usando o Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Exemplos
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [CLI do Azure](samples-cli.md)
 # Conceitos
@@ -68,6 +69,7 @@
 ##### [Serviço DNS](service-fabric-dnsservice.md)
 ##### [Proxy reverso](service-fabric-reverseproxy.md)
 ##### [Configurar o proxy reverso para comunicação segura](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Diagnósticos de proxy reverso](service-fabric-reverse-proxy-diagnostics.md)
 ### [Escalabilidade de aplicativos](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -131,11 +133,11 @@
 ### Compilar um serviço de contêiner
 #### [Criar um aplicativo de contêiner do Windows](service-fabric-get-started-containers.md)
 #### [Criar um aplicativo de contêiner do Linux](service-fabric-get-started-containers-linux.md)
-#### [Implantar contêiner do Windows](service-fabric-deploy-container.md)
 #### [Implantar contêiner do Linux](service-fabric-deploy-container-linux.md)
 #### [Docker compose (visualização)](service-fabric-docker-compose.md)
 #### [Governança de recursos para serviços e contêineres](service-fabric-resource-governance.md)
 #### [Volume e drivers de log](service-fabric-containers-volume-logging-drivers.md)
+#### [Serviços dentro de contêineres](service-fabric-services-inside-containers.md)
 
 ### Compilar um serviço de Reliable Services
 #### [Visão geral](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### Introdução
 ##### [C# em Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java no Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Enviar notificações](service-fabric-reliable-actors-events.md) 
+#### [Enviar notificações](service-fabric-reliable-actors-events.md)
 #### [Definir lembretes e temporizadores](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configurar KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Definir as configurações da comunicação](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Definir as configurações da comunicação](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configurar ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Configurar o proxy reverso para comunicação segura](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Criar e gerenciar clusters
 ### Clusters no Azure
-#### Criação 
+#### Criação
 ##### [Criar seu primeiro cluster no Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Gerenciador de Recursos do Azure](service-fabric-cluster-creation-via-arm.md)
-#### Escala 
+#### Escala
 ##### [Manualmente](service-fabric-cluster-scale-up-down.md)
 ##### [Programaticamente](service-fabric-cluster-programmatic-scaling.md)
 #### [Atualizar](service-fabric-cluster-upgrade.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-fabric-settings.md)
-#### [Gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Excluir](service-fabric-cluster-delete.md)
 
 ### Clusters independentes
@@ -264,7 +266,7 @@
 #### [Escala](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-manifest.md)
-#### [Atualizar](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Atualizar](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Visualizar um cluster](service-fabric-visualizing-your-cluster.md)
 ### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
@@ -328,8 +330,8 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Preços](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Exemplo de código](http://aka.ms/servicefabricsamples)
 ## [Opções de suporte](service-fabric-support.md)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

@@ -13,36 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/07/2017
+ms.date: 08/14/2017
 ms.author: iainfou
-experimental: true
-experiment_id: rasquill-ssh-20170308
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 49541306c66e066a9d9f75d90bed2f4dfd21ce9d
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/23/2017
 
-
 ---
 
-<a id="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure" class="xliff"></a>
-
-# Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
+# <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 Com um par de chaves SSH (secure shell), você pode criar VMs (máquinas virtuais) no Azure que usam chaves SSH para autenticação, eliminando a necessidade de senhas para fazer logon. Este artigo mostra como gerar e usar rapidamente um par de arquivos de chave pública e privada RSA do protocolo SSH versão 2 para VMs Linux. Para obter outros exemplos e etapas mais detalhados, consulte [etapas detalhadas para criar pares de chave SSH e certificados](create-ssh-keys-detailed.md).
 
-<a id="create-an-ssh-key-pair" class="xliff"></a>
-
-## Criar um par de chaves SSH
+## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Use o comando `ssh-keygen` para criar arquivos de chave SSH pública e privada criados por padrão no diretório `~/.ssh`, mas especifique um local diferente e uma senha adicional (uma senha para acessar o arquivo de chave privada) quando receber a solicitação. Execute o seguinte comando a partir do shell Bash, respondendo aos prompts com suas próprias informações.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-<a id="use-the-ssh-key-pair" class="xliff"></a>
-
-## Usar o par de chave SSH
+## <a name="use-the-ssh-key-pair"></a>Usar o par de chave SSH
 A chave pública que você coloca em sua VM Linux no Azure é armazenada por padrão em `~/.ssh/id_rsa.pub`, a menos que você altere o local quando a criar. Se você usar a [CLI do Azure 2.0](/cli/azure) para criar a VM, especifique o local dessa chave pública quando usar [az vm create](/cli/azure/vm#create) com a opção `--ssh-key-path`. Se você copiar e colar o conteúdo do arquivo de chave pública para usar no Portal do Azure ou em um modelo do Resource Manager, não copie um espaço em branco adicional. Por exemplo, se você usar o OS X, direcione o arquivo de chave pública (por padrão, **~/.ssh/id_rsa.pub**) para **pbcopy** para copiar o conteúdo (há outros programas Linux que fazem a mesma coisa, como `xclip`).
 
 Se você não estiver familiarizado com as chaves públicas SSH, veja sua chave pública executando `cat` da seguinte forma, substituindo `~/.ssh/id_rsa.pub` por seu próprio local de arquivo de chave pública:
@@ -59,9 +50,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Se você forneceu uma senha quando criou o par de chaves, insira a senha quando receber a solicitação durante o processo de logon. (O servidor é adicionado à sua pasta `~/.ssh/known_hosts` e você não receberá uma solicitação para se conectar novamente até que a chave pública em sua VM do Azure mude ou o nome do servidor seja removido do `~/.ssh/known_hosts`.)
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 As VMs criadas com chaves SSH são, por padrão, configuradas com as senhas desabilitadas, para tornar as tentativas de adivinhação por força bruta muito mais caras e difíceis. Este tópico descreve como criar um par de chaves SSH simples para uso rápido. Se você precisar de mais ajuda com a criação de seu par de chaves SSH ou precisar de outros certificados, confira [Etapas detalhadas para criar pares de chave SSH e certificados](create-ssh-keys-detailed.md).
 

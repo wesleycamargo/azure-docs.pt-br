@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8b401036d4fa8e6c4e6430433b1641f5cb4ae010
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 5b1362854dbc3b0098718bd2ea3cffb06366000c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
-# <a name="app-service-environment-documentation"></a>Documentação do Ambiente de Serviço de Aplicativo
-O Ambiente do Serviço de Aplicativo é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure em grande escala. Esse recurso pode hospedar os [Aplicativos Web][webapps], [Aplicativos Móveis][mobileapps], [Aplicativos de API][APIApps] e [Funções][Functions].
+# <a name="app-service-environment-documentation"></a>Documentação do ambiente do Serviço de Aplicativo
+ Um Ambiente do Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Esse recurso pode hospedar os [aplicativos Web][webapps], [aplicativos móveis][mobileapps], [aplicativos de API][APIApps] e [funções][Functions].
 
-Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de aplicativos que exigem:
+Os ASE (Ambientes de Serviço de Aplicativo) são ideais para cargas de trabalho de aplicativos que exijam:
 
-* Escala muito alta
-* Isolamento e acesso seguro à rede
+* Uma escala muito alta.
+* Isolamento e acesso seguro à rede.
 
-Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
+Os clientes podem criar vários ASEs dentro de uma única região do Azure, bem como entre várias regiões do Azure. Essa versatilidade torna os ASEs ideais para escalar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
 
-Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual. Os clientes têm controle refinado sobre o tráfego de rede do aplicativo de entrada e saída usando os [grupos de segurança de rede][NSGs]. Os aplicativos também podem estabelecer conexões seguras de alta velocidade por redes virtuais para recursos corporativos locais.
+Os ASEs são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual do Azure. Os clientes têm controle refinado sobre o tráfego de rede do aplicativo de entrada e saída usando os [Grupos de Segurança de Rede][NSGs]. Os aplicativos também podem estabelecer conexões seguras de alta velocidade por redes virtuais para recursos corporativos locais.
 
-Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web. Os aplicativos em execução em Ambientes de Serviço de Aplicativo podem acessar os recursos acessíveis via conexões VPN [Site a Site][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
+Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web. Os aplicativos executados em ASEs podem acessar recursos por meio de conexões VPN [site a site][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
 
 * [O que é um Ambiente do Serviço de Aplicativo?][Intro]
-* [Criando um Ambiente do Serviço de Aplicativo][MakeExternalASE]
-* [Criando um Ambiente do Serviço de Aplicativo de Load Balancer Interno][MakeILBASE]
-* [Usando um Ambiente do Serviço de Aplicativo][UsingASE]
-* [Considerações de rede e o Ambiente do Serviço de Aplicativo][ASENetwork]
-* [Criando um Ambiente do Serviço de Aplicativo de um modelo][MakeASEfromTemplate]
+* [Criar um ambiente de serviço de aplicativo][MakeExternalASE]
+* [Criar um ambiente do Serviço de Aplicativo de balanceador de carga interno][MakeILBASE]
+* [Usar um ambiente do Serviço de Aplicativo][UsingASE]
+* [Considerações de rede e o ambiente do Serviço de Aplicativo][ASENetwork]
+* [Criar um ambiente do Serviço de Aplicativo de um modelo][MakeASEfromTemplate]
 
 
 ## <a name="videos"></a>Vídeos
@@ -53,8 +53,8 @@ Implantando aplicativos altamente escalonáveis e seguros
 Executando aplicativos Enterprise Web e móveis no Serviço de Aplicativo do Azure
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
-## <a name="asev1"></a>ASEv1 ##
-Há duas versões para o Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. Para obter informações sobre ASEv1, consulte a [documentação do Ambiente do Serviço de Aplicativo v1][ASEv1README].
+## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1 ##
+Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. Para obter informações sobre ASEv1, confira a [documentação do Ambiente do Serviço de Aplicativo v1][ASEv1README].
 
 
 <!--Links-->

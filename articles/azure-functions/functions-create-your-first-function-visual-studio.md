@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 4a6b706b63c4e1b0df3c46bce4ff6877efca4ead
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar sua primeira função usando o Visual Studio
@@ -58,27 +58,29 @@ Agora que você criou o projeto, poderá criar sua primeira função.
 
 ## <a name="create-the-function"></a>Criar a função
 
-No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Adicionar** > **Novo Item**. Selecione **Azure Function** e clique em **Adicionar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Adicionar** > **Novo Item**. Selecione **Azure Function** e clique em **Adicionar**.
 
-Selecione **HttpTrigger**, digite um **Nome da Função**, selecione **Anônimo** para **Direitos de Acesso**e clique em **Criar**. A função criada é acessada por uma solicitação HTTP de qualquer cliente. 
+2. Selecione **HttpTrigger**, digite um **Nome da Função**, selecione **Anônimo** para **Direitos de Acesso**e clique em **Criar**. A função criada é acessada por uma solicitação HTTP de qualquer cliente. 
 
-![Criar uma nova função do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
+    ![Criar uma nova função do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
 Agora que você criou uma função disparada por HTTP, poderá testá-la em seu computador local.
 
 ## <a name="test-the-function-locally"></a>Testar a função localmente
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+As Ferramentas Principais do Azure Functions permitem executar o projeto do Azure Functions no seu computador de desenvolvimento local. Você precisa instalar essas ferramentas na primeira vez em que inicia uma função no Visual Studio.  
 
-Copie a URL da sua função da saída de tempo de execução do Azure Functions.  
+1. Para testar sua função, pressione F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas principais (CLI) do Azure Functions.  Você também precisará habilitar a exceção de firewall de forma que as ferramentas possam lidar com solicitações HTTP.
 
-![Tempo de execução local do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+2. Copie a URL da sua função da saída de tempo de execução do Azure Functions.  
 
- Cole a URL para a solicitação HTTP na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `&name=<yourname>` a essa URL e execute a solicitação. O exemplo a seguir mostra a resposta no navegador à solicitação GET local retornada pela função: 
+    ![Tempo de execução local do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-![Resposta da função localhost no navegador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+3. Cole a URL para a solicitação HTTP na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `&name=<yourname>` a essa URL e execute a solicitação. O exemplo a seguir mostra a resposta no navegador à solicitação GET local retornada pela função: 
 
-Para interromper a depuração, clique no botão **Parar** na barra de ferramentas do Visual Studio.
+    ![Resposta da função localhost no navegador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+
+4. Para interromper a depuração, clique no botão **Parar** na barra de ferramentas do Visual Studio.
 
 Após verificar se a função foi executada corretamente no computador local, é hora de publicar o projeto no Azure.
 
@@ -90,22 +92,22 @@ Você deve ter um aplicativo de funções em sua assinatura do Azure antes de pu
 
 ## <a name="test-your-function-in-azure"></a>Testar sua função no Azure
 
-Copie a URL base do aplicativo de funções da página de perfil de publicação. Substitua a parte `localhost:port` da URL que você usou ao testar a função localmente pela nova URL base. Como anteriormente, acrescente o valor de cadeia de consulta `&name=<yourname>` a essa URL e execute a solicitação.
+1. Copie a URL base do aplicativo de funções da página de perfil de publicação. Substitua a parte `localhost:port` da URL que você usou ao testar a função localmente pela nova URL base. Como anteriormente, acrescente o valor de cadeia de consulta `&name=<yourname>` a essa URL e execute a solicitação.
 
-A URL que chama a função disparada por HTTP é mais ou menos assim:
+    A URL que chama a função disparada por HTTP é mais ou menos assim:
 
-    http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-Cole essa nova URL para a solicitação HTTP na barra de endereços do navegador. O exemplo a seguir mostra a resposta no navegador à solicitação GET remota retornada pela função: 
+2. Cole essa nova URL para a solicitação HTTP na barra de endereços do navegador. O exemplo a seguir mostra a resposta no navegador à solicitação GET remota retornada pela função: 
 
-![Resposta da função no navegador](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Resposta da função no navegador](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
  
 ## <a name="next-steps"></a>Próximas etapas
 
 Você usou o Visual Studio para criar um aplicativo de funções C# com uma função disparada por HTTP simples. 
 
-[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-
-Para saber mais sobre o local de teste e a depuração usando as Ferramentas Principais do Azure Functions, confira [Codificar e testar o Azure Functions localmente](functions-run-local.md). Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, veja [Como usar bibliotecas de classes do .NET com o Azure Functions](functions-dotnet-class-library.md). 
++ Para saber como configurar seu projeto para dar suporte a outros tipos de gatilhos e associações, consulte a seção [Configurar o projeto para desenvolvimento local](functions-develop-vs.md#configure-the-project-for-local-development) em [Ferramentas do Azure Functions para Visual Studio](functions-develop-vs.md).
++ Para saber mais sobre o local de teste e a depuração usando as Ferramentas Principais do Azure Functions, confira [Codificar e testar o Azure Functions localmente](functions-run-local.md). 
++ Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, veja [Como usar bibliotecas de classes do .NET com o Azure Functions](functions-dotnet-class-library.md). 
 
 

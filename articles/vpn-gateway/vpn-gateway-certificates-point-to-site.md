@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Gerar e exportar certificados para conexões Ponto a Site utilizando o PowerShell no Windows 10
@@ -39,7 +38,7 @@ Conexões ponto a site usam certificados para se autenticar. Este artigo mostra 
 
 Execute as etapas deste artigo em um computador que executa o Windows 10. Os cmdlets do PowerShell que você utiliza para gerar certificados são parte do sistema operacional Windows 10 e não funcionam em outras versões do Windows. O computador Windows 10 é necessário apenas para gerar os certificados. Depois que os certificados forem gerados, você poderá carregá-los ou instalá-los em qualquer sistema operacional cliente com suporte. 
 
-Se você não tiver acesso a um computador com Windows 10 poderá utilizar o [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para gerar certificados. No entanto, o MakeCert não pode gerar certificados SHA-2, apenas SHA-1. Os certificados SHA-1 ainda são válidos para conexões de Ponto a Site, mas SHA-1 utiliza um hash de criptografia que não é tão forte quanto SHA-2. Por esse motivo, recomendamos que você utilize essas etapas do PowerShell, se possível. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em qualquer sistema operacional cliente [com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Se você não tiver acesso a um computador com Windows 10 poderá utilizar o [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para gerar certificados. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em qualquer sistema operacional cliente [com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ## <a name="rootcert"></a>Criar um certificado raiz autoassinado
 

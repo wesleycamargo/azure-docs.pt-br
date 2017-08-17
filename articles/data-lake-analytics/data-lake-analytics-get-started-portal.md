@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
@@ -36,7 +35,7 @@ Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Con
 Agora, você criará um Data Lake Analytics e uma conta do Data Lake Store simultaneamente.  Esta etapa é simples e demora apenas 60 segundos para ser concluída.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** >  **Intelligence + análise** > **Data Lake Analytics**.
+2. Clique em **Novo** >  **Data + Analytics** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens:
    * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
    * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. Clique em **Enviar Trabalho**.   
 4. Aguarde até que o status do trabalho seja alterado para **Êxito**.
 5. Se o trabalho falhar, veja [Monitorar e solucionar problemas dos trabalhos do Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Clique na guia **Saída** e em `SearchLog-from-Data-Lake.csv`. 
+6. Clique na guia **Saída** e em `data.csv`. 
 
 ## <a name="see-also"></a>Consulte também
 

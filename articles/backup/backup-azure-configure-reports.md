@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
@@ -66,13 +65,18 @@ Use as etapas a seguir para configurar a conta de armazenamento para o cofre de 
       ![Etapa 6 Selecione a conta de armazenamento](./media/backup-azure-configure-reports/save-configuration.png)
 7. Examine todas as alterações e clique no botão **Salvar** na parte superior, conforme mostrado na figura acima. Esta ação garante que todas as alterações sejam salvas e a conta de armazenamento agora está configurada para armazenar os dados de relatório.
 
+> [!NOTE]
+> Após configurar os relatórios salvando a conta de armazenamento, você deverá **aguardar 24 horas** para concluir o push de dados iniciais. Você deverá importar o pacote de conteúdo do Backup do Azure no Power BI somente após esse período. Para obter mais detalhes, consulte a seção [Perguntas frequentes](#frequently-asked-questions). 
+>
+>
+
 ## <a name="view-reports-in-power-bi"></a>Exibir relatórios no Power BI 
 Depois de configurar a conta de armazenamento para relatórios usando o cofre de serviços de recuperação, leva cerca de 24 horas para os dados de relatório começarem a fluir. Após 24 horas da configuração da conta de armazenamento, use as etapas a seguir para exibir relatórios no Power BI:
 1. [Entre](https://powerbi.microsoft.com/landing/signin/) no Power BI.
 2. Clique em **Obter Dados** e clique em Obter em **Serviços** na Biblioteca do pacote de conteúdo. Use as etapas mencionadas na documentação do [Power BI para acessar o pacote de conteúdo](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
 
      ![Importar o pacote de conteúdo](./media/backup-azure-configure-reports/content-pack-import.png)
-3. Digite o **Backup do Azure** na Barra de pesquisa e clique em **Obter agora**.
+3. Digite o **Backup do Azure** na barra Search e clique em **Obter agora**.
 
       ![Obter pacote de conteúdo](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Insira o nome da conta de armazenamento configurada na etapa 5 acima e clique no botão **Avançar**.

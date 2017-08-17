@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 50e9095d38c96323db3ccce4e3601eccbb9eb2ab
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Codificar um ativo usando o Codificador de Mídia Padrão com o portal do Azure
@@ -42,7 +42,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 2. Na janela **Configurações**, selecione **Ativos**.  
 3. Na janela **Ativos** , selecione o ativo que você gostaria de codificar.
 4. Pressione o botão **Codificar** .
-5. Na janela **Codificar um ativo** , selecione o processador "Media Encoder Standard" e uma predefinição. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Para obter mais informações sobre as predefinições, confira [este](media-services-mes-presets-overview.md) artigo – é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição padrão "H264 Múltiplas Taxas de Bits 1080p".
+5. Na janela **Codificar um ativo** , selecione o processador "Media Encoder Standard" e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para MES](media-services-mes-presets-overview.md). Se você pretende controlar qual predefinição de codificação é usada, lembre-se disso: é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p".
    
    Para facilitar o gerenciamento, você tem a opção de editar o nome do ativo de saída e o nome do trabalho.
    

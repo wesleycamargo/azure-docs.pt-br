@@ -8,14 +8,18 @@
 ## [Tutorial de .NET em lote](batch-dotnet-get-started.md)
 ## [Tutorial do Python em Lote](batch-python-tutorial.md)
 ## [Tutorial de Node.js do Lote](batch-nodejs-get-started.md)
-# Como:
+## [Serviço de Renderização em Lotes](batch-rendering-service.md)
+# Como
 ## Desenvolver
 ### [Pacotes de aplicativos](batch-application-packages.md)
 ### [Dimensionar nós de computação automaticamente](batch-automatic-scaling.md)
 ### Autenticação do Azure AD
 #### [Azure AD com serviço do Lote](batch-aad-auth.md)
 #### [Azure AD com o Gerenciamento de Lote](batch-aad-auth-management.md)
+### [VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
 ### [Tarefas de nó simultâneas](batch-parallel-node-tasks.md)
+### [Contagem de tarefas por estado](batch-get-task-counts.md)
+### [Criar um pool com uma imagem personalizada](batch-custom-images.md)
 ### [Consultas de lista eficientes](batch-efficient-list-queries.md)
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)
 ### [Nós de computação do Linux](batch-linux-nodes.md)
@@ -36,8 +40,8 @@
 #### [Adicionar um aplicativo](./scripts/batch-cli-sample-add-application.md)
 #### [Gerenciar pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Executar um trabalho e tarefas](./scripts/batch-cli-sample-run-job.md)
-
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [CLI do Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +73,7 @@
 ## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Preços](https://azure.microsoft.com/pricing/details/batch/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Exemplos de código do Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

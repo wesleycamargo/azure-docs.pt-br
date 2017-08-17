@@ -269,7 +269,7 @@ O script PowerShell imprimiu alguns valores nomeados quando terminou. Você prec
 
 ### <a name="transact-sql-code"></a>Transact-SQL code
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -465,7 +465,7 @@ GO
 
 Se o destino não for anexado durante a execução, você deverá parar e reiniciar a sessão de eventos:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;

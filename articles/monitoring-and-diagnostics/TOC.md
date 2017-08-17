@@ -39,6 +39,7 @@
 ### [Transmitir log de atividades para Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Criar alertas de log de atividade com o Gerenciador de Recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Migrar para alertas de log de atividades](monitoring-migrate-management-alerts.md)
 ## Usar Notificações de serviço
 ### [Exibir notificações de serviço](monitoring-service-notifications.md)
 ### [Configurar alertas em notificações de serviço](monitoring-activity-log-alerts-on-service-notifications.md)
@@ -59,6 +60,7 @@
 ### [Solução de problemas](azure-diagnostics-troubleshooting.md)
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Fontes de dados de monitoramento](monitoring-data-sources.md)
 ## [Lista de métricas com suporte](monitoring-supported-metrics.md)
 ## [Esquema sobre eventos do log de atividades](monitoring-activity-log-schema.md)
@@ -74,5 +76,6 @@
 ## [Exemplos de CLI 1.0 do Azure](insights-cli-samples.md)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Exemplos do PowerShell](insights-powershell-samples.md)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Modelos de início rápido](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

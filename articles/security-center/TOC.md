@@ -57,9 +57,10 @@
 ## Detectar e Responder
 ### [Capacidades de detecção](security-center-detection-capabilities.md)
 ### [Gerenciar alertas de segurança](security-center-managing-and-responding-alerts.md)
+### [Tipos de alertas de segurança](security-center-alerts-type.md)
+### [Validação de alerta](security-center-alert-validation.md)
 ### [Gerenciar incidentes de segurança](security-center-incident.md)
 ### [Integração de log do Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Tipos de alertas de segurança](security-center-alerts-type.md)
 ### [Relatório de inteligência de ameaças](security-center-threat-report.md)
 
 ## Solucionar problemas
@@ -75,6 +76,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Segurança, Privacidade e Conformidade do Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Preços](security-center-pricing.md)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Visão geral do serviço](https://azure.microsoft.com/services/security-center/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=security-center)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
@@ -107,7 +106,7 @@ Refere-se a informações de estado do dispositivo, como o método de conectivid
 Os dados do dispositivo referem-se aos dados por dispositivo armazenados no [registro de identidade](#identity-registry) do Hub IoT. É possível importar e exportar esses dados.
 
 ## <a name="device-explorer"></a>Gerenciador de dispositivos
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry) e envie e receba mensagens para seus dispositivos.
+O [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry). A ferramenta também pode enviar e receber mensagens para os seus dispositivos.
 
 ## <a name="device-identities-rest-api"></a>API REST de Identidades de Dispositivo
 A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/iothub/iothubresource) permite que você gerencie seus dispositivos registrados no [registro de identidade](#identity-registry) usando uma API REST. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
@@ -116,7 +115,7 @@ A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/i
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
 ## <a name="device-management"></a>Gerenciamento de dispositivos
-O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação
+O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
 O [hub IoT](#iot-hub) permite que os padrões comuns de gerenciamento de dispositivos, incluindo reinicialização, execução de redefinições de fábrica e execução de atualizações de firmware nos seus dispositivos.

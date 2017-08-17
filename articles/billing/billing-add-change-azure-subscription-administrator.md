@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços
@@ -38,16 +37,22 @@ Para adicionar alguém como administrador de uma assinatura no portal do Azure, 
 
     ![Captura de tela que mostra a assinatura selecionada](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. Na folha da assinatura, selecione **Controle de acesso (IAM)**> **Adicionar**.
+3. Na folha da assinatura, selecione **Controle de acesso (IAM)**.
+4. Selecione **Adicionar** > **Função** > **Proprietário**. Digite o endereço de email do usuário que você deseja adicionar como proprietário, selecione o usuário e, em seguida, **Salvar**.
 
-    ![Captura de tela que mostra o botão Adicionar selecionado](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Selecione **Selecionar uma função** > **Proprietário**.
+    ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. Se você deseja adicionar a conta do proprietário como coadministrador, na página **Controle de acesso (IAM)**, clique com o botão direito do mouse no usuário e, em seguida, selecione **Adicionar como coadministrador**. Esse recurso agora está disponível na [versão prévia do portal do Azure](https://preview.portal.azure.com/). 
 
-5. Digite o endereço de email do usuário que deseja adicionar como proprietário, clique no usuário e, em seguida, clique em **Selecionar**.
+     ![Captura de tela que adiciona o coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Captura de tela que mostra um email de usuário adicionado e selecionado](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >Você precisará adicionar o usuário “Proprietário” como coadministrador se o usuário precisar gerenciar os serviços do Azure no [portal clássico do Azure](https://manage.windowsazure.com/).
+
+    Para remover a permissão de coadministrador, clique com o botão direito do mouse no usuário “coadministrador” e, em seguida, selecione **Remover coadministrador**.
+
+    ![Captura de tela que remove o coadministrador](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **Portal clássico do Azure**
 
@@ -68,14 +73,12 @@ O seguinte endereço de email pode ser adicionado como Coadministrador:
 
     usuario@&lt;seu domínio&gt;.onmicrosoft.com
 
-
-
 ## <a name="change-service-administrator-for-a-subscription"></a>Alterar o Administrador de Serviços de uma assinatura
 Somente o Administrador da Conta pode alterar o Administrador de Serviços de uma assinatura.
 
 1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) usando o Administrador da Conta.
 2. Selecione a assinatura que deseja alterar.
-3. No lado direito, clique em **Editar detalhes da assinatura** . </br>
+3. No lado direito, selecione **Editar detalhes da assinatura**. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços. </br>

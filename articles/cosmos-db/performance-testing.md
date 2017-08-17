@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a3f2e8634981ac158312e6b9700db92415e9e6c5
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: b5a1edd08819e82437c5b22d8eb131665d7c9645
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Teste de desempenho e escala com o Azure Cosmos DB
@@ -50,7 +49,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET abai
 **Etapa 2:** modifique as configurações de EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em App.config.
 
 > [!NOTE]
-> Antes de provisionar as coleções com alta produtividade, confira a [Página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar os custos por coleção. O Cosmos DB cobra o armazenamento e a produtividade de forma independente e por hora. Portanto, você pode economizar excluindo ou reduzindo a produtividade de suas coleções do DocumentDB após o teste.
+> Antes de provisionar as coleções com alta produtividade, confira a [Página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar os custos por coleção. O Azure Cosmos DB cobra o armazenamento e a produtividade de forma independente e por hora. Portanto, você pode economizar excluindo ou reduzindo a produtividade de suas coleções do Azure Cosmos DB após o teste.
 > 
 > 
 

@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
@@ -60,8 +60,7 @@ Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de 
 
   > [!NOTE]
   > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](## Use DSC in disconnected environments).
-  >
-  >
+  
 
 O Serviço de Mobilidade pode ser instalado por meio da linha de comando e aceita vários argumentos. É por isso que você precisa ter os binários (após extraí-los de sua configuração) e armazená-los em algum lugar em que possa recuperá-los usando uma configuração de DSC.
 

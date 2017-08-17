@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
 ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
@@ -33,8 +33,8 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Exibir painéis de monitoramentos no portal e criar seus próprios painéis de monitoramentos privados.
 * Consultar métricas usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [os cmdlets do PowerShell](insights-powershell-samples.md) ou a [CLI de plataforma cruzada](insights-cli-samples.md).
 * Consultar o Log de atividades usando o portal, a API REST do Azure Monitor, os cmdlets do PowerShell ou a CLI de plataforma cruzada.
-* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
-* Exibir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) para uma assinatura.
+* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.
+* Exibir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
@@ -54,8 +54,8 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 Pessoas atribuídas à função de Colaborador de monitoramento podem exibir todos os dados de monitoramento em uma assinatura e criar ou modificar as configurações de monitoramento, mas não podem modificar outros recursos. Essa função é um superconjunto da função Leitor de monitoramento e é apropriada para membros de uma equipe de monitoramento ou provedores de serviços gerenciados de uma organização que, além das permissões acima, também precisam ser capazes de:
 
 * Publicra os painéis de monitoramentos como um painel compartilhado.
-* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.*
-* Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) para uma assinatura.*
+* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.*
+* Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.*
 * Definir as configurações e a atividade do alerta.
 * Criar testes Web e componentes do Application Insights.
 * Listar chaves de espaço de trabalho compartilhadas do Log Analytics (OMS).

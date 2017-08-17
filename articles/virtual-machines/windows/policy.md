@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3401c0af776691d22e51906eefaf895d684fdfd1
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs Windows com o Azure Resource Manager
@@ -28,7 +27,7 @@ Usando políticas, uma organização pode impor várias convenções e regras em
 
 Para obter uma introdução às políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](../../azure-resource-manager/resource-manager-policy.md).
 
-## <a name="define-policy-for-permitted-virtual-machines"></a>Definir a política de Máquinas Virtuais permitidas
+## <a name="permitted-virtual-machines"></a>Máquinas virtuais permitidas
 Para garantir que as máquinas virtuais de sua organização são compatíveis com um aplicativo, você pode restringir os sistemas operacionais permitidos. No seguinte exemplo de política, você permite que apenas Máquinas Virtuais Windows Server 2012 R2 Datacenter sejam criadas:
 
 ```json
@@ -92,7 +91,7 @@ Use um curinga para modificar a política anterior a fim de permitir qualquer im
 
 Para obter informações sobre campos de política, consulte [Aliases de política](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-## <a name="define-policy-for-using-managed-disks"></a>Definir a política para uso de discos gerenciados
+## <a name="managed-disks"></a>Discos gerenciados
 
 Para exigir o uso de discos gerenciados, use a seguinte política:
 
@@ -137,6 +136,100 @@ Para exigir o uso de discos gerenciados, use a seguinte política:
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="images-for-virtual-machines"></a>Imagens de máquinas virtuais
+
+Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente. Você pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
+
+O exemplo a seguir exige imagens de um grupo de recursos aprovado:
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Compute/imageId",
+                    "contains": "resourceGroups/CustomImage"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+} 
+```
+
+O exemplo a seguir especifica as IDs de imagem aprovadas:
+
+```json
+{
+    "field": "Microsoft.Compute/imageId",
+    "in": ["{imageId1}","{imageId2}"]
+}
+```
+
+## <a name="virtual-machine-extensions"></a>Extensões de Máquina Virtual
+
+Talvez você queira proibir o uso de determinados tipos de extensões. Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizadas. O exemplo a seguir mostra como bloquear uma extensão específica. Ele usa o publicador e o tipo para determinar qual extensão será bloqueada.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                "equals": "Microsoft.Compute"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                "equals": "{extension-type}"
+
+      }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+
+## <a name="azure-hybrid-use-benefit"></a>Benefício de Uso do Azure Híbrido
+
+Quando você tiver uma licença local, poderá salvar a taxa de licença em suas máquinas virtuais. Quando você não tiver a licença, deverá proibir a opção. A seguinte política proíbe o uso do Benefício de Uso do Azure Híbrido (AHUB):
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in":[ "Microsoft.Compute/virtualMachines","Microsoft.Compute/VirtualMachineScaleSets"]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "exists": true
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

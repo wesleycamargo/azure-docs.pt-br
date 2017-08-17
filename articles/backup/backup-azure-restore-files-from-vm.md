@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>Recuperar arquivos de backup de máquina virtual do Azure (Versão Prévia)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
 O backup do Azure oferece a funcionalidade de restaurar [VMs e discos do Azure](./backup-azure-arm-restore-vms.md) de backups de VM do Azure. Este artigo explica como você pode recuperar itens, como arquivos e pastas, de um backup de VM do Azure.
 
@@ -35,7 +34,7 @@ O backup do Azure oferece a funcionalidade de restaurar [VMs e discos do Azure](
 
 1. Faça logon no [Portal do Azure](http://portal.Azure.com). Encontre o cofre de Serviços de Recuperação relevante e os itens de backup necessários.
 
-2. Na folha de Item de Backup, clique em **Recuperação de Arquivo (Preview)**
+2. Na folha Item de Backup, clique em **Recuperação de Arquivo**
 
     ![Abra o item de backup do cofre de Serviços de Recuperação](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ O backup do Azure oferece a funcionalidade de restaurar [VMs e discos do Azure](
 
   O arquivo executável/script cria uma conexão entre o computador local e o ponto de recuperação especificado.
 
-5. No computador no qual você deseja recuperar os arquivos, execute o arquivo executável/script. Execute o script com credenciais de administrador. Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
+5. É necessária uma senha para executar o script/executável baixado. Copie a senha do portal usando o botão Copiar ao lado da senha gerada
 
-    - go.microsoft.com
+    ![Senha gerada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. No computador no qual você deseja recuperar os arquivos, execute o arquivo executável/script. Execute o script com credenciais de administrador. Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
+
+    - download.microsoft.com
     - Pontos de extremidade do Azure usados para backups de VM do Azure
     - porta de saída 3260
 
    Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se eles não existirem no computador no qual serão executados, ele solicitará a permissão para instalar os componentes relevantes, e os instalará mediante consentimento.
+   
+   Insira a senha copiada do portal quando solicitado. Depois de inserir a senha válida, os scripts se conectam ao ponto de recuperação.
       
     ![Folha de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

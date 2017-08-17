@@ -121,7 +121,7 @@ WHERE
     AND DateRequested < '01/01/2015';
 ```
 ## <a name="isolate-loading-users"></a>Isolar Usuários em carregamento
-Geralmente, há a necessidade de ter vários usuários que podem carregar dados em um SQL DW. Como [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] requer permissões CONTROL do banco de dados, você acabará tendo vários usuários com acesso de controle sobre todos os esquemas. Para limitar isso, você pode usar a instrução DENY CONTROL.
+Geralmente, há a necessidade de ter vários usuários que podem carregar dados em um SQL DW. Como [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requer permissões CONTROL do banco de dados, você acabará tendo vários usuários com acesso de controle sobre todos os esquemas. Para limitar isso, você pode usar a instrução DENY CONTROL.
 
 Exemplo: considere os esquemas de banco de dados schema_A para o departamento A e schema_B para o departamento B. Os usuários de banco de dados user_A e user_B serão usuários de carregamento de PolyBase nos departamentos A e B, respectivamente. Ambos receberam permissões de banco de dados CONTROL.
 Os criadores dos esquemas A e B agora bloquearam seus esquemas usando DENY:

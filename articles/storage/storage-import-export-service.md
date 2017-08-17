@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de blobs
@@ -232,7 +231,7 @@ A tabela a seguir descreve os estados de falha de unidade e as ações executada
 | N/D | Uma unidade que não é parte de qualquer trabalho chega no data center como parte de outro trabalho. | A unidade será marcada como uma unidade adicional e será retornada ao cliente quando o trabalho associado ao pacote original for concluído. |
 
 ### <a name="time-to-process-job"></a>Tempo para processar o trabalho
-O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O serviço de Importação/Exportação não tem um SLA. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
+O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O serviço de Importação/Exportação não tem um SLA, mas depois que os discos forem recebidos, o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
 
 ### <a name="pricing"></a>Preços
 **Taxa de manuseio de unidade**
@@ -250,13 +249,12 @@ Não há nenhum custo de transação ao importar dados para o armazenamento de b
 ## <a name="quick-start"></a>Início rápido
 Nesta seção, fornecemos instruções passo a passo para criar um trabalho de importação e exportação. Atenda a todos os [pré-requisitos](#pre-requisites) antes de prosseguir.
 
+> [!IMPORTANT]
+> O serviço dá suporte a uma conta de armazenamento Standard por trabalho de importação ou exportação e não dá suporte a contas de armazenamento Premium. 
+> 
+> 
 ## <a name="create-an-import-job"></a>Criar um trabalho de importação
 Crie um trabalho de importação para copiar os dados para sua conta de armazenamento do Azure enviando uma ou mais unidades contendo dados para o data center especificado. O trabalho de importação transmite detalhes sobre os discos rígidos, dados a serem copiados, conta de armazenamento de destino e envio de informações para o serviço de Importação/Exportação do Azure. A criação de um trabalho de importação é um processo de três etapas. Primeiro, prepare suas unidades usando a ferramenta WAImportExport. Segundo, envie um trabalho de importação usando o Portal do Azure. Terceiro, envie as unidades para o endereço de envio fornecido durante a criação do trabalho e atualize as informações de envio nos detalhes do seu trabalho.   
-
-> [!IMPORTANT]
-> Você pode enviar somente um trabalho por conta de armazenamento. Cada unidade que você enviar pode ser importada para uma conta de armazenamento. Por exemplo, digamos que você deseja importar dados para duas contas de armazenamento. Você deve usar unidades de disco rígido separados para cada conta de armazenamento e criar trabalhos separados por conta de armazenamento.
-> 
-> 
 
 ### <a name="prepare-your-drives"></a>Preparar suas unidades
 A primeira etapa ao importar os dados usando o serviço de Importação/Exportação do Azure é preparar suas unidades usando a ferramenta WAImportExport. Siga as etapas abaixo para preparar suas unidades.
@@ -431,9 +429,9 @@ Leia a seção de perguntas frequentes abaixo, que abrange as perguntas mais com
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**Posso copiar os Arquivos do Azure usando o serviço de Importação/Exportação do Azure?**
+**Posso copiar o armazenamento de Arquivos do Azure usando o serviço de Importação/Exportação do Azure?**
 
-Não, o serviço de Importação/Exportação do Azure só dá suporte a Blobs de Bloco e Blobs de Página. Todos os outros tipos de armazenamento incluindo os Arquivos do Azure, Tabelas e Filas não têm suporte.
+Não, o serviço de Importação/Exportação do Azure só dá suporte a Blobs de Bloco e Blobs de Página. Não há suporte para todos os outros tipos de armazenamento, incluindo o armazenamento de Arquivos do Azure, o Armazenamento de Tabelas e o Armazenamento de Filas.
 
 **O serviço de Importação/Exportação do Azure está disponível para as assinaturas de CSP?**
 
@@ -462,6 +460,7 @@ Você pode exibir o status dos trabalhos concluídos por até 90 dias. Os trabal
 **Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?**
 
 Um trabalho de importação ou de exportação pode fazer referência a apenas 10 unidades em um único trabalho para o serviço de Importação/Exportação. Se quiser enviar mais de 10 unidades, você poderá criar vários trabalhos. Unidades que estão associadas com o mesmo trabalho devem ser enviadas juntas no mesmo pacote.
+A Microsoft oferece orientações e assistência quando a capacidade dos dados se estender por vários trabalhos de importação de disco. Entre em contato com bulkimport@microsoft.com para saber mais
 
 **O serviço formata as unidades antes de retorná-las?**
 
@@ -471,7 +470,9 @@ Não. Todas as unidades são criptografadas com o BitLocker.
 
 Não. Você precisará enviar suas próprias unidades para os trabalhos de importação e exportação.
 
-** Como acesso os dados importados por este serviço** Os dados em sua conta de armazenamento do Azure podem ser acessados por meio do Portal do Azure ou usando uma ferramenta autônoma chamado Gerenciador de Armazenamento. https://docs.microsoft.com/pt-br/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+**Como fazer para acessar dados importados por este serviço**
+
+Os dados em sua conta de armazenamento do Azure podem ser acessados por meio do Portal do Azure ou usando uma ferramenta autônoma chamada Gerenciador de Armazenamento. https://docs.microsoft.com/pt-br/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Depois de o trabalho de importação ser concluído, como ficarão meus dados na conta de armazenamento? A hierarquia de diretório será preservada?**
 
@@ -520,6 +521,20 @@ Qualquer número de HDDs pode ser em uma remessa e se os discos pertencerem a v�
 
 O tamanho máximo de Blob de Blocos é de aproximadamente 4,768 TB ou 5.000.000 MB.
 O tamanho máximo de Blob de Páginas é de 1 TB.
+
+**A Importação/Exportação de Disco dá suporte à criptografia AES 256?**
+
+Por padrão, o serviço de Importação/Exportação do Azure criptografa com a criptografia BitLocker AES 128, mas pode ser aumentado para AES 256 com a criptografia manual com o BitLocker antes da cópia dos dados. 
+
+Se estiver usando o [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), veja abaixo um comando de exemplo
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+Se estiver usando a [Ferramenta WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip), especifique “AlreadyEncrypted” e forneça a chave no CSV do driveset.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)

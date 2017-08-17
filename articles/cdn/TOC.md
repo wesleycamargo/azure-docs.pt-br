@@ -10,6 +10,8 @@
 ### [Serviços de Nuvem](cdn-cloud-service-with-cdn.md)
 ### [Armazenamento](cdn-create-a-storage-account-with-cdn.md)
 ### [Compartilhamento de recursos entre origens](cdn-cors.md)
+### [Mapear um domínio personalizado para a CDN](cdn-map-content-to-custom-domain.md)
+### [Habilitar HTTPS em um domínio personalizado](cdn-custom-ssl.md)
 ## Otimizar conteúdo
 ### [Visão geral da otimização](cdn-optimization-overview.md)
 ####[Otimização de arquivos grandes](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Aceleração de site dinâmica](cdn-dynamic-site-acceleration.md)
  
 ## Gerenciar
-### [Habilitar HTTPS em um domínio personalizado](cdn-custom-ssl.md)
 ### [Gerenciar com o PowerShell](cdn-manage-powershell.md)
 ### Configurar vida útil
 #### [Conteúdo de Aplicativos Web/Serviços de Nuvem, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Conteúdo do serviço Blob de armazenamento](cdn-manage-expiration-of-blob-content.md)
-### [Mapear um domínio personalizado para a CDN](cdn-map-content-to-custom-domain.md)
 ### [Restringir o acesso por país](cdn-restrict-access-by-country.md)
 ### [Melhorar o desempenho ao compactar arquivos](cdn-improve-performance.md)
 ### Armazenar o conteúdo em cache por cadeia de caracteres de consulta
@@ -52,6 +52,7 @@
 ### [Compactação de arquivos](cdn-troubleshoot-compression.md)
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -66,6 +67,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Preços](https://azure.microsoft.com/pricing/details/cdn/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

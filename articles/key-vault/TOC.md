@@ -15,24 +15,27 @@
 ### [Chaves protegidas por HSM](key-vault-hsm-protected-keys.md)
 ### [Migrar para o .Net 2.0](key-vault-dotnet2api-release-notes.md)
 ### Visões gerais
-#### [Visão geral de mundos de segurança](key-vault-ovw-security-worlds.md)
-#### [Visão geral de exclusão reversível](key-vault-ovw-soft-delete.md)
-#### [Visão geral das chaves da conta de armazenamento](key-vault-ovw-storage-keys.md)
-#### [Visão geral da limitação de mecanismo](key-vault-ovw-throttling.md)
+#### [Mundos de segurança](key-vault-ovw-security-worlds.md)
+#### [Exclusão reversível](key-vault-ovw-soft-delete.md)
+#### [Chaves da conta de armazenamento](key-vault-ovw-storage-keys.md)
+#### [Limitação](key-vault-ovw-throttling.md)
 
 ## Gerenciar
 ### [Logs do Azure Key Vault](key-vault-logging.md)
 ### [Acesso por trás de firewalls](key-vault-access-behind-firewall.md)
-### [Alterar ID de locatário](key-vault-subscription-move-fix.md)
-### [Usar grupos para conceder acesso](key-vault-group-permissions-for-apps.md)
 ### [Disponibilidade e redundância](key-vault-disaster-recovery-guidance.md)
+### [Alterar ID de locatário](key-vault-subscription-move-fix.md)
+### [Criar e gerenciar usando a CLI 2.0](key-vault-manage-with-cli2.md)
+### [Como usar a exclusão reversível do Key Vault com a CLI](key-vault-soft-delete-cli.md)
+### [Como usar a exclusão reversível do Key Vault com o PowerShell](key-vault-soft-delete-powershell.md)
+### [Usar grupos para conceder acesso](key-vault-group-permissions-for-apps.md)
 ### [Proteger seu cofre de chaves](key-vault-secure-your-key-vault.md)
 
 ## Automatizar
 ### [Automação do Azure](automation-manage-key-vault.md)
-### [Criar e gerenciar usando a CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [CLI 2 do Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +58,4 @@
 ## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fóruns](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

@@ -31,12 +31,23 @@
 #### [Logs do IIS](log-analytics-data-sources-iis-logs.md)
 #### [Logs personalizados](log-analytics-data-sources-custom-logs.md)
 #### [Campos Personalizados](log-analytics-custom-fields.md)
+
 ## Consultar dados
 ### [Visão geral das pesquisas de log](log-analytics-log-searches.md)
 ### [Referência de pesquisa](log-analytics-search-reference.md)
 #### [Expressões regulares](log-analytics-log-searches-regex.md)
 ### [Execute a ação nos resultados da pesquisa](log-analytics-log-search-takeaction.md)
 ### [Grupos de computadores](log-analytics-computer-groups.md)
+
+## Nova pesquisa de logs
+### [Atualize seu espaço de trabalho](log-analytics-log-search-upgrade.md)
+### [Perguntas frequentes](log-analytics-log-search-faq.md)
+### [Visão geral das pesquisas de log](log-analytics-log-search-new.md)
+### [Portais de pesquisa de logs](log-analytics-log-search-portals.md)
+#### [Use o portal de pesquisa de logs](log-analytics-log-search-log-search-portal.md)
+### [Transição do idioma herdado](log-analytics-log-search-transition.md)
+### [Conector de fluxo](log-analytics-flow-tutorial.md)
+
 ## Analisar dados
 ### [Painéis](log-analytics-dashboards.md)
 ### [Exibir Designer](log-analytics-view-designer.md)
@@ -74,6 +85,7 @@
 ### [Avaliação de malware](log-analytics-malware.md)
 ### [Análise de Rede](log-analytics-azure-networking-analytics.md)
 ### [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Avaliação do SCOM](log-analytics-scom-assessment.md)
 ### [Auditoria de Segurança](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Service Fabric](log-analytics-service-fabric.md)
@@ -101,5 +113,6 @@
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Preços](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Análise do Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

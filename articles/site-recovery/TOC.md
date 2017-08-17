@@ -120,7 +120,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [Aplicativos Web baseados em IIS](site-recovery-iis.md)
 ### [Citrix XenApp e XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Outras cargas de trabalho](site-recovery-workload.md#workload-summary)
@@ -129,6 +129,7 @@
 ### [Automatizar a replicação do Hyper-V para o Azure (com VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatizar a replicação do Hyper-V para um site secundário (com VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Gerenciar
+### [Como atualizar o cofre do Site Recovery para o cofre dos Serviços de Recuperação](upgrade-site-recovery-vaults.md)
 ### [Gerenciar servidores de processo no Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Gerenciar o servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Gerenciar servidores de processo dimensionados](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
@@ -155,4 +156,5 @@
 ## [Fórum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Preços](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=site-recovery)

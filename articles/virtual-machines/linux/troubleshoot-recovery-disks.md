@@ -1,5 +1,4 @@
 ---
-
 title: "Usar uma VM de solução de problemas Linux com a CLI 2.0 do Azure | Microsoft Docs"
 description: "Saiba como solucionar problemas de VM Linux conectando o disco do SO a uma VM de recuperação usando a CLI 2.0 do Azure"
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 518a21896ddfc34156615907b710b421bcea42c1
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -169,7 +168,7 @@ Para criar uma VM com base no disco rígido virtual original, use [esse modelo d
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-O modelo implanta uma VM usando o URI do VHD do comando anterior. Implante o modelo com [az group deployment create](/cli/azure/vm/deployment#create). Forneça o URI para o VHD original e, em seguida, especifique o tipo do sistema operacional, o tamanho da VM e o nome da VM da seguinte maneira:
+O modelo implanta uma VM usando o URI do VHD do comando anterior. Implante o modelo com [az group deployment create](/cli/azure/group/deployment#create). Forneça o URI para o VHD original e, em seguida, especifique o tipo do sistema operacional, o tamanho da VM e o nome da VM da seguinte maneira:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

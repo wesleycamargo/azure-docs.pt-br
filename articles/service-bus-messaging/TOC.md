@@ -36,7 +36,8 @@
 ### [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 ### [Aplicativos que usam filas](service-bus-create-queues.md)
 ### [Aplicativos que usam tópicos/assinaturas](service-bus-create-topics-subscriptions.md)
-### [Autenticação e autorização](service-bus-sas.md)
+### [Autenticação e autorização](service-bus-authentication-and-authorization.md)
+#### [Autenticação com assinaturas de acesso compartilhado](service-bus-sas.md)
 ### [Filas e tópicos particionados](service-bus-partitioning.md)
 ### [Filas de mensagens mortas](service-bus-dead-letter-queues.md)
 ### [Processamento de transação](service-bus-transactions.md)
@@ -56,8 +57,8 @@
 
 # Referência
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Padrão)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceções](service-bus-messaging-exceptions.md)
@@ -69,9 +70,11 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Fóruns do MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Detalhes de preço](service-bus-pricing-billing.md)
 ## [Preços](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
+## [Detalhes de preço](service-bus-pricing-billing.md)
 ## [Exemplos](service-bus-samples.md)
+## [ServiceBus360](https://www.servicebus360.com/)
 ## [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)

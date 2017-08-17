@@ -1,7 +1,7 @@
 ---
 title: "Criar o primeiro contêiner de Instâncias de Contêiner do Azure | Azure Docs"
 description: "Implantar e começar a trabalhar com as Instâncias de Contêiner do Azure"
-services: container-service
+services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
@@ -9,19 +9,19 @@ editor:
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 933299ce5a5d6f5b2262d40ae768019ccaf8796a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Os comandos da CLI das Instâncias de Contêiner do Azure atualmente só estão disponíveis no Azure Cloud Shell.
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.12 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -52,8 +52,6 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-container"></a>Criar um contêiner
 
 Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure. Opcionalmente, você pode expor o contêiner à Internet com um endereço IP público. Nesse caso, vamos usar um contêiner que hospeda um aplicativo Web muito simples escrito em [Node.js](http://nodejs.org).
-
-Os comandos da CLI das Instâncias de Contêiner do Azure atualmente só estão disponíveis no Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

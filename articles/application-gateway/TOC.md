@@ -8,6 +8,7 @@
 ## [Multissite](application-gateway-multi-site-overview.md)
 ## [SSL de Ponta a Ponta](application-gateway-backend-ssl.md)
 ## [Redirecionamento](application-gateway-redirect-overview.md)
+## [Suporte multilocatário](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limites de serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introdução
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Modelo do Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [CLI do Azure](application-gateway-create-gateway-cli.md)
+#### [CLI 1.0 do Azure](application-gateway-create-gateway-cli-nodejs.md)
+#### [CLI 2.0 do Azure](application-gateway-create-gateway-cli.md)
 #### [PowerShell (clássico)](application-gateway-create-gateway.md)
 ### Voltado internamente
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -25,21 +27,27 @@
 ## Configurar firewall do aplicativo Web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [CLI 2.0 do Azure](application-gateway-web-application-firewall-cli.md)
 ## Personalizar as regras de firewall do aplicativo Web
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
+### [CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md)
 ## Configurar para descarregamento do SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Clássico)](application-gateway-ssl.md)
+### [CLI 2.0 do Azure](application-gateway-ssl.md)
 ### [Política e ponta a ponta](application-gateway-end-to-end-ssl-powershell.md)
 ## Configurar roteamento baseado no caminho da URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [CLI 2.0 do Azure](application-gateway-create-url-route-cli.md)
 ## Configurar hospedagem de vários sites
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configurar redirecionamento
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configurar aplicativos Web como membros do pool de back-end
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Configurar investigações da integridade
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +78,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Preços](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

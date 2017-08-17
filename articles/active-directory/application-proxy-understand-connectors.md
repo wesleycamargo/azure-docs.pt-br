@@ -1,6 +1,6 @@
 ---
-title: "Noções básicas sobre conectores do Proxy de Aplicativo do Azure AD | Microsoft Docs"
-description: "Cobre as noções básicas sobre os conectores do Proxy de Aplicativo do Azure AD."
+title: "Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs"
+description: "Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,86 +11,111 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/03/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
-ms.lasthandoff: 04/21/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/05/2017
 
 ---
 
-# <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD
+# <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
-Os conectores são o que torna o Proxy de Aplicativo do Azure AD possível. Eles são simples, fáceis de implantar e manter, além de superpotentes. Este artigo aborda o que são conectores, como eles funcionam, além de algumas das melhores práticas para aproveitar ao máximo sua implantação. 
+Os conectores são o que torna o Proxy de Aplicativo Azure AD possível. Eles são simples, fáceis de implantar e manter, além de superpotentes. Este artigo aborda o que são conectores, como eles funcionam e algumas sugestões sobre como otimizar sua implantação. 
 
-## <a name="connector-deployment"></a>Implantação do conector
+## <a name="what-is-an-application-proxy-connector"></a>O que é um conector do Proxy de Aplicativo
 
-O Proxy de Aplicativo funciona depois que você instala o serviço do Windows Server, chamado de conector, em sua rede. Você pode instalar vários conectores de acordo com suas necessidades de escalabilidade e alta disponibilidade. Comece com um e adicione mais conforme a necessidade. Toda vez que um conector é instalado, ele é adicionado ao pool de conectores que atende ao seu locatário.
+Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos. Os conectores fazem o balanceamento de carga automaticamente e podem ajudar a otimizar sua estrutura de rede. 
 
-Recomendamos que você não instale os conectores nos mesmos servidores que hospedam os aplicativos. No entanto, você deve ser capaz de acessar o aplicativo do servidor onde você instala o conector.
+## <a name="requirements-and-deployment"></a>Requisitos e implantação
 
+Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector deve ser capaz de se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
 
-## <a name="connector-maintenance"></a>Manutenção do conector
+Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](active-directory-application-proxy-enable.md).
+
+## <a name="maintenance"></a>Manutenção 
 Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. Eles podem ser adicionados ou removidos dinamicamente. Sempre que uma nova solicitação chega, ela é roteada para um dos conectores que está disponível no momento. Se um conector estiver temporariamente indisponível, ele não responderá a esse tráfego.
 
-Os conectores não têm estado e nenhum dado de configuração no computador, a não ser a conectividade com as configurações do serviço e o certificado que autentica esse conector. Quando se conectam ao serviço, eles extraem todos os dados de configuração necessários e os atualizam a cada dois minutos.
-Eles também sondam o servidor para saber se há uma versão mais recente do conector. Se for encontrada, os próprios conectores se atualizam.
+Os conectores são sem estado e não têm nenhum dado de configuração no computador. Os únicos dados que eles armazenam são as configurações para conectar o serviço e seu certificado de autenticação. Quando se conectam ao serviço, eles extraem todos os dados de configuração necessários e os atualizam a cada dois minutos.
 
-É possível monitorar os conectores no computador em que eles estão em execução, usando o log de eventos e os contadores de desempenho ou a página Proxy de Aplicativo do portal do Azure.
+Os conectores também sondam o servidor para descobrir se há uma versão mais recente do conector. Se for encontrada, os próprios conectores se atualizam.
 
- ![Conectores do Proxy de Aplicativo do Azure AD](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
+É possível monitorar os conectores no computador em que eles estão em execução, usando o log de eventos e os contadores de desempenho. Ou você pode exibir o status da página do Proxy de Aplicativo do portal do Azure:
 
-Não é necessário excluir manualmente os conectores que não foram utilizados. Quando um conector está em execução, ele permanece ativo, pois se conecta ao serviço. Os conectores que não estão sendo usados são marcados como _inativos_ e serão removidos depois de 10 dias de inatividade. 
+ ![Conectores do Proxy de Aplicativo Azure AD](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
 
-## <a name="automatic-updates-to-the-connector"></a>Atualizações automáticas para o conector
+Não é necessário excluir manualmente os conectores que não foram utilizados. Quando um conector está em execução, ele permanece ativo, pois se conecta ao serviço. Os conectores não utilizados são marcados como _inativos_ e são removidos depois de 10 dias de inatividade. No entanto, se você quiser desinstalar um conector, desinstale o serviço Conector e o serviço Atualizador do servidor. Reinicie o computador para remover completamente o serviço.
 
-Com o serviço de Atualizador do Conector, oferecemos uma maneira automatizada de manter-se atualizado. Dessa forma, você tem a vantagem contínua de todos os recursos novos, bem como de aprimoramentos de segurança e desempenho.
+## <a name="automatic-updates"></a>Atualizações automáticas
 
-O Azure AD dá suporte a atualizações automáticas para todos conectores que você implanta. Desde que o serviço Atualizador do Conector de Proxy de Aplicativo esteja em execução, os conectores são atualizados automaticamente. Caso você não veja o serviço Atualizador do Conector no servidor, precisará [reinstalar o conector](active-directory-application-proxy-enable.md) para obter todas as atualizações.
+O Azure AD fornece atualizações automáticas para todos conectores que você implanta. Desde que o serviço Atualizador do Conector de Proxy de Aplicativo esteja em execução, os conectores são atualizados automaticamente. Caso você não veja o serviço Atualizador do Conector no servidor, precisará [reinstalar o conector](active-directory-application-proxy-enable.md) para obter todas as atualizações. 
 
-Poderá ocorrer tempo de inatividade quando o conector for atualizado se:
+Se você não quiser aguardar uma atualização automática chegar a seu conector, você poderá executar uma atualização manual. Vá para o [página de download do conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor em que o conector está localizado e selecione **Baixar**. Esse processo inicia uma atualização do conector local. 
 
-- Você só tiver um conector. Para evitar esse tempo de inatividade e melhorar a alta disponibilidade, recomendamos instalar um segundo conector e [criar um grupo de conectores](active-directory-application-proxy-connectors-azure-portal.md).
+Para locatários com vários conectores, as atualizações automáticas destinam-se a um conector de cada vez em cada grupo para evitar tempo de inatividade em seu ambiente. 
 
-- Um conector estava no meio de uma transação quando a atualização foi iniciada. O navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
+Poderá ocorrer tempo de inatividade quando o conector for atualizado se:  
+- Você só tiver um conector. Para evitar esse tempo de inatividade e melhorar a alta disponibilidade, recomendamos instalar um segundo conector e [criar um grupo de conectores](active-directory-application-proxy-connectors-azure-portal.md).  
+- Um conector estava no meio de uma transação quando a atualização foi iniciada. Embora a transação inicial seja perdida, o navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
 
-## <a name="all-networking-is-outbound"></a>Toda a rede é de saída
-Os conectores enviam somente solicitações de saída. Portanto, a conexão sempre é iniciada pelo conector. Não é necessário abrir portas de entrada, pois o tráfego fluirá de ambos os lados assim que uma sessão for estabelecida.
+## <a name="creating-connector-groups"></a>Criando grupos de conector
 
-O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. O tráfego para o serviço é enviado aos datacenters do Azure para vários números de porta diferentes. Para obter mais informações sobre quais portas são usadas, consulte [Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md).
+Os grupos de conectores permitem atribuir conectores específicos para atender a aplicativos específicos. Você pode agrupar um número de conectores e, em seguida, atribuir cada aplicativo a um grupo. 
 
-Como consequência de ter apenas o tráfego de saída, não há necessidade de configurar o balanceamento de carga entre os conectores nem de configurar o acesso de entrada por meio dos firewalls.
+Os grupos de conectores facilitam o gerenciamento de grandes implantações. Eles também melhoram a latência para locatários que têm aplicativos hospedados em regiões diferentes, pois você pode criar grupos com base no local de conector para servir apenas aos aplicativos locais. 
 
-Para saber mais sobre como configurar regras de firewall de saída, confira [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md) (Trabalhar com servidores proxy locais existentes).
+Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](active-directory-application-proxy-connectors-azure-portal.md).
 
-Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo do Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência. 
+## <a name="security-and-networking"></a>Rede e segurança
 
-## <a name="network-security"></a>Segurança de rede
+Os conectores podem ser instalados em qualquer lugar na rede que permite que eles enviem solicitações para o serviço de Proxy de aplicativo. O importante é que o computador que executa o conector também tenha acesso aos aplicativos. Você pode instalar conectores dentro de sua rede corporativa ou em uma máquina virtual que é executada na nuvem. Os conectores podem ser executados em uma DMZ (zona desmilitarizada), mas não é necessário porque todo o tráfego é de saída e, portanto, sua rede fica segura.
 
-Os conectores podem ser instalados em qualquer lugar na rede que permite que eles enviem solicitações para o serviço de Proxy de aplicativo e os aplicativos de back-end. Eles funcionarão bem se você instalá-los dentro da rede corporativa, dentro de uma DMZ (zona desmilitarizada) ou até mesmo em uma máquina virtual que funciona na nuvem. O importante é que o computador que executa o conector também tenha acesso aos aplicativos.
+Os conectores só enviam solicitações de saída. O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. Você não precisa abrir portas de entrada porque o tráfego flui nos dois sentidos quando uma sessão é estabelecida. Você não precisa configurar o balanceamento de carga entre os conectores ou configurar o acesso de entrada por meio dos firewalls. 
 
-As implantações em uma DMZ são mais complicadas. No entanto, um motivo para uma possível implantação de conectores em uma DMZ é o uso de outra infraestrutura como balanceadores de carga do aplicativo de back-end ou sistemas de detecção de intrusões.
+Para saber mais sobre como configurar regras de firewall de saída, confira [Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md).
+
+Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência. 
+
+## <a name="performance-and-scalability"></a>Desempenho e escala
+
+A escala para o serviço Proxy de Aplicativo é transparente, mas a escala é uma questão para conectores. Você precisa ter conectores suficientes para tratar do pico de tráfego. No entanto, você não precisa configurar o balanceamento de carga, pois todos os conectores dentro de um grupo de conector fazem o balanceamento de carga automaticamente.
+
+Como os conectores não têm estado, eles não são afetados pelo número de usuários ou sessões. Em vez disso, eles respondem ao número de solicitações e a seu tamanho do conteúdo. Com o tráfego padrão da Web, um computador médio pode manipular milhares de solicitações por segundo. A capacidade específica depende das características exatas do computador. 
+
+O desempenho do conector está vinculado à CPU e rede. O desempenho da CPU é necessário para criptografia e descriptografia SSL, enquanto a rede é importante para obter conectividade rápida com os aplicativos e com o serviço online no Azure.
+
+Por outro lado, a memória é uma questão menos significativa para os conectores. O serviço online cuida de grande parte do processamento e de todo o tráfego não autenticado. Tudo o que pode ser feito na nuvem é feito na nuvem. 
+
+Outro fator que afeta o desempenho é a qualidade da rede entre os conectores, incluindo: 
+
+* **O serviço online**: conexões lentas ou de alta latência para o serviço Proxy de Aplicativo no Azure influenciam o desempenho do conector. Para obter o melhor desempenho, conecte sua organização ao Azure com o ExpressRoute. Caso contrário, faça com que a equipe de rede garanta que as conexões com o Azure são tratadas da maneira mais eficiente possível. 
+* **Os aplicativos de back-end:** em alguns casos, há outros proxies entre o conector e os aplicativos de back-end que possam retardar ou impedir as conexões. Para solucionar problemas nesse cenário, abra um navegador no servidor de conector e tente acessar o aplicativo. Se você executar os conectores no Azure, mas os aplicativos forem locais, a experiência poderá não ocorrer como esperado pelos usuários.
+* **Os controladores de domínio**: se os conectores executarem SSO usando a KCD (Delegação Restrita de Kerberos), eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Esse problema é mais comum em conectores executados no Azure, mas que se comunicam com os controladores de domínio locais. 
+
+Para saber mais sobre como otimizar sua rede, confira [Considerações sobre a topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory](application-proxy-network-topology-considerations.md).
 
 ## <a name="domain-joining"></a>Ingresso no domínio
 
-Os conectores podem ser executados em um computador que não foi ingressado no domínio. Entretanto, se você desejar efetuar SSO (logon único) em aplicativos que usam a IWA (Autenticação Integrada do Windows), precisará de um computador ingressado no domínio. Nesse caso, os computadores do conector devem ser adicionados a um domínio que possa executar a Delegação Restrita de [Kerberos](https://web.mit.edu/kerberos) em nome dos usuários relevantes para os aplicativos publicados.
+Os conectores podem ser executados em um computador que não foi ingressado no domínio. Entretanto, se você desejar efetuar SSO (logon único) em aplicativos que usam a IWA (Autenticação Integrada do Windows), precisará de um computador ingressado no domínio. Nesse caso, os computadores do conector devem ser adicionados a um domínio que possa executar a Delegação Restrita de [Kerberos](https://web.mit.edu/kerberos) em nome dos usuários para os aplicativos publicados.
 
 Os conectores também podem ser ingressados em domínios ou florestas que têm uma relação de confiança parcial ou em controladores de domínio somente leitura.
 
-## <a name="connectors-on-hardened-environments"></a>Conectores em ambientes protegidos
+## <a name="connector-deployments-on-hardened-environments"></a>Implantações de conector em ambientes protegidos
 
 Normalmente, a implantação do conector é simples e não exige nenhuma configuração especial. No entanto, há algumas condições exclusivas que devem ser consideradas:
 
 * As organizações que limitam o tráfego de saída devem [abrir as portas necessárias](active-directory-application-proxy-enable.md#open-your-ports).
-* Os computadores em conformidade com FIPS podem precisar alterar sua configuração para permitir o serviço do conector, o serviço de atualizador do conector e seu instalador para gerar e armazenar um certificado.
+* Os computadores em conformidade com FIPS podem precisar alterar sua configuração para permitir que os processos do conector gerem e armazenem um certificado.
 * As organizações que bloqueiam o ambiente de acordo com os processos que emitem as solicitações de rede precisam ter certeza de que os serviços do conector estão habilitados para acessar todas as portas e IPs necessários.
 * Em alguns casos, os proxies de encaminhamento de saída podem interromper a autenticação de certificado bidirecional e causar falha na comunicação.
 
 ## <a name="connector-authentication"></a>Autenticação do conector
 
-Para fornecer um serviço seguro, os conectores devem fazer a autenticação no serviço e o serviço deve fazer a autenticação no conector. Isso é feito usando certificados de cliente e servidor quando os conectores iniciam a conexão. Dessa forma, o nome de usuário e a senha do administrador não são armazenados no computador do conector.
+Para fornecer um serviço seguro, os conectores devem fazer a autenticação no serviço e o serviço deve fazer a autenticação no conector. Essa autenticação é feita usando certificados de cliente e servidor quando os conectores iniciam a conexão. Dessa forma, o nome de usuário e a senha do administrador não são armazenados no computador do conector.
 
 Os certificados usados são específicos ao serviço de Proxy de Aplicativo. Eles são criados durante o registro inicial e renovados automaticamente pelos conectores no intervalo de alguns meses. 
 
@@ -100,20 +125,6 @@ Se um conector não estiver conectado ao serviço por vários meses, seus certif
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
-
-## <a name="performance-and-scalability"></a>Desempenho e escala
-
-Mesmo que a escala do serviço online seja transparente, ela é um fator para os conectores. Você precisa ter conectores suficientes para tratar do pico de tráfego. Como os conectores não têm estado, eles não são afetados pelo número de usuários ou sessões. Em vez disso, eles respondem ao número de solicitações e a seu tamanho do conteúdo. Com o tráfego padrão da Web, um computador médio pode manipular milhares de solicitações por segundo. A capacidade específica depende das características exatas do computador.
-
-O desempenho do conector está vinculado à CPU e rede. O desempenho da CPU é necessário para a criptografia e descriptografia SSL, enquanto a rede é importante para obter conectividade rápida com os aplicativos e com o serviço online no Azure. 
-
-Por outro lado, a memória é uma questão menos significativa para os conectores. O serviço online cuida de grande parte do processamento e de todo o tráfego não autenticado. Tudo o que pode ser feito na nuvem é feito na nuvem.
-
-Outro fator que afeta o desempenho é a qualidade da rede entre os conectores, incluindo:
-
-* **O serviço online:** conexões lentas ou de alta latência influenciam o serviço do conector. É melhor se sua organização estiver conectada ao Azure por meio da Rota Expressa. Caso contrário, faça com que a equipe de rede garanta que as conexões com o Azure são tratadas de maneira eficiente.  
-* **Os aplicativos de back-end:** em alguns casos, há outros proxies entre o conector e os aplicativos de back-end. Solucione o problema desse cenário abrindo um navegador no computador do conector e acessando esses aplicativos. Se você executar os conectores no Azure e os aplicativos forem locais, a experiência poderá não ser como esperada pelos usuários.
-* **Os controladores de domínio:** se os conectores estiverem executando o SSO usando a KCD (Delegação Restrita de Kerberos), eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar a experiência. Esse problema é mais comum em conectores executados no Azure, enquanto os controladores de domínio são locais.
 
 ## <a name="under-the-hood"></a>Nos bastidores
 
@@ -129,15 +140,16 @@ Os conectores têm logs de administrador e sessão. Os logs de administrador inc
 
 Para ver os logs, acesse o Visualizador de Eventos, abra o menu **Exibir** e habilite **Mostrar logs analíticos e de depuração**. Em seguida, habilite-os para iniciar a coleta de eventos. Esses logs não aparecem no Proxy de Aplicativo Web no Windows Server 2012 R2, pois os conectores são baseados em uma versão mais recente.
 
-Você pode examinar o estado do serviço na janela Serviços. O conector é composto por dois Serviços do Windows: o conector real e o atualizador. Ambos precisam ser executados o tempo todo.
+Você pode examinar o estado do serviço na janela Serviços. O conector é composto por dois Serviços do Windows: o conector real e o atualizador. Ambos devem ser executados o tempo todo.
 
  ![Local dos Serviços do Azure AD](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Solucionar erros do conector e do Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 
-[Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
 
-[Como fazer uma instalação silenciosa do Conector de Proxy de Aplicativo do Azure AD](active-directory-application-proxy-silent-installation.md)
+* [Publicar aplicativos em redes e locais separados usando grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md)
+* [Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
+* [Solucionar erros do conector e do Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
+* [Como fazer uma instalação silenciosa do Conector de Proxy de Aplicativo Azure AD](active-directory-application-proxy-silent-installation.md)
 
 

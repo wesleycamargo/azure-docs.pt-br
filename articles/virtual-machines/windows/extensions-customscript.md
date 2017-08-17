@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: a6f417ea6575b81258998ae3b31c10e9df59b603
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
@@ -37,7 +36,7 @@ A Extensão de Script Personalizado para Windows pode ser executada nas versões
 
 ### <a name="script-location"></a>Local do script
 
-O script precisa ser armazenado no armazenamento do Azure ou em qualquer outro local acessível por meio de uma URL válida.
+O script precisa ser armazenado no Armazenamento de Blobs do Azure ou em qualquer outro local acessível por meio de uma URL válida.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -63,7 +62,7 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -86,7 +85,7 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (por exemplo) | examplestorageacct |

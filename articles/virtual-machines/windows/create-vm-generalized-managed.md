@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4b2593067193fe928cb8ac2b662fc3fd8ba7aedf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
@@ -32,10 +31,10 @@ Você pode criar várias VMs de uma imagem de VM gerenciada no Azure. Uma imagem
 
 Você já precisa ter [criado uma imagem de VM gerenciada](capture-image-resource.md) a ser usada para criação da nova VM. 
 
-Verifique se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo.
+Verifique se você tem as últimas versões dos módulos AzureRM.Compute e AzureRM.Network do PowerShell. Abra um prompt do PowerShell como Administrador e execute o comando a seguir para instalá-los.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
 
