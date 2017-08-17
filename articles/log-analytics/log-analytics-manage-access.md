@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
@@ -108,7 +107,60 @@ As atividades a seguir também exigem permissões do Azure:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerenciar o acesso ao Log Analytics usando permissões do Azure
 Para conceder acesso ao espaço de trabalho do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../active-directory/role-based-access-control-configure.md).
 
-Se você tiver pelo menos a permissão de leitura do Azure no espaço de trabalho do Log Analytics, abra o portal do OMS clicando na tarefa **Portal do OMS** ao exibir o espaço de trabalho do Log Analytics.
+O Azure tem duas funções de usuário predefinidas para o Log Analytics:
+- Leitor do Log Analytics
+- Colaborador do Log Analytics
+
+Os membros da função *Leitor do Log Analytics* podem:
+- Exibir e pesquisar todos os dados de monitoramento 
+- Exiba configurações de monitoramento, incluindo exibir a configuração do diagnóstico do Azure em todos os recursos do Azure.
+
+| Tipo    | Permissão | Descrição |
+| ------- | ---------- | ----------- |
+| Ação | `*/read`   | Capacidade de exibir todos os recursos e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
+| Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidade de execução de consultas de Pesquisa de Logs v2 |
+| Ação | `Microsoft.OperationalInsights/workspaces/search/action` | Capacidade de execução de consultas de Pesquisa de Logs v1 |
+| Ação | `Microsoft.Support/*` | Capacidade de abrir casos de suporte |
+|Nenhuma Ação | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impede a leitura da chave do espaço de trabalho necessária para usar a API da coleta de dados e instalar os agentes |
+
+
+Os membros da função *Colaborador do Log Analytics* podem:
+- Ler todos os dados de monitoramento 
+- Criar e configurar Contas de automação
+- Adicionar e remover soluções de gerenciamento
+- Ler as chaves da conta de armazenamento 
+- Configurar a coleta de logs no Armazenamento do Azure
+- Editar configurações de monitoramento dos recursos do Azure, incluindo
+  - Adicionar a extensão VM às VMs
+  - Configurar o diagnóstico do Azure em todos os recursos do Azure
+
+> [!NOTE] 
+> Você pode usar a capacidade de adicionar uma extensão da máquina virtual a uma máquina virtual para ter controle total sobre uma máquina virtual.
+
+| Permissão | Descrição |
+| ---------- | ----------- |
+| `*/read`     | Capacidade de exibir todos os recursos e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
+| `Microsoft.Automation/automationAccounts/*` | Capacidade de criar e configurar Contas de automação do Azure, incluindo adicionar e editar runbooks |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Adicionar, atualizar e remover as extensões da máquina virtual, incluindo a extensão do Microsoft Monitoring Agent e o Agente do OMS para a extensão do Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Exiba a chave da conta de armazenamento. Necessário para configurar o Log Analytics para ler os logs das contas de armazenamento do Azure |
+| `Microsoft.Insights/alertRules/*` | Adicionar, atualizar e remover as regras de alerta |
+| `Microsoft.Insights/diagnosticSettings/*` | Adicionar, atualizar e remover as configurações de diagnóstico nos recursos do Azure |
+| `Microsoft.OperationalInsights/*` | Adicionar, atualizar e remover a configuração dos espaços de trabalho do Log Analytics |
+| `Microsoft.OperationsManagement/*` | Adicionar e remover soluções de gerenciamento |
+| `Microsoft.Resources/deployments/*` | Crie e exclua implantações. Necessário para adicionar e remover soluções, espaços de trabalho e contas de automação |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Crie e exclua implantações. Necessário para adicionar e remover soluções, espaços de trabalho e contas de automação |
+
+Para adicionar e remover usuários de uma função de usuário, é necessário ter as permissões `Microsoft.Authorization/*/Delete` e `Microsoft.Authorization/*/Write`.
+
+Use essas funções para conceder acesso aos usuários em escopos diferentes:
+- Assinatura – acesso a todos os espaços de trabalho na assinatura
+- Grupo de Recursos - acesso a todo espaço de trabalho no grupo de recursos
+- Recurso - acesso somente ao espaço de trabalho especificado
+
+Use as [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Funções de usuário do Azure e funções de usuário do portal do Log Analytics
+Se você tiver pelo menos a permissão de leitura do Azure no espaço de trabalho do Log Analytics, poderá abrir o portal do Log Analytics clicando na tarefa **Portal do OMS** ao exibir o espaço de trabalho do Log Analytics.
 
 Ao abrir o portal do Log Analytics, use as funções de usuário herdadas do Log Analytics. Se você não tiver uma atribuição de função no portal do Log Analytics, o serviço [verificará as permissões do Azure existentes no espaço de trabalho](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Sua atribuição de função no portal do Log Analytics é determinada da seguinte maneira:
@@ -195,7 +247,7 @@ Use as seguintes etapas para remover um usuário de um espaço de trabalho. Remo
 4. Selecione o grupo nos resultados da lista e clique em **Adicionar**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular um espaço de trabalho existente a uma assinatura do Azure
-Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Espaços de trabalho criados antes dessa data deverão ser vinculados a um espaço de trabalho quando você entrar pela próxima vez. Quando você cria o espaço de trabalho no Portal do Azure ou vincula seu espaço de trabalho a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
+Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Os espaços de trabalho criados antes dessa data devem ser vinculados a um espaço de trabalho quando você entra. Quando você cria o espaço de trabalho no Portal do Azure ou vincula seu espaço de trabalho a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Para vincular um espaço de trabalho a uma assinatura do Azure no portal do OMS
 

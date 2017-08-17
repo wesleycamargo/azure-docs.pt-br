@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabela da Web](data-factory-web-table-connector.md)
-### [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md)
+### Gateway de gerenciamento de dados
+#### [Visão geral](data-factory-data-management-gateway.md)
+#### [Alta disponibilidade e escalabilidade (visualização)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Passo a passo: mover dados de um SQL Server local para o armazenamento de Blobs do Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transformar dados](data-factory-data-transformation-activities.md)

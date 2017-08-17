@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Criar a imagem de contêiner
 
-O Dockerfile fornecido no repositório de exemplo mostra como o contêiner é criado. Ele inicia de uma [imagem oficial do Node.js] [ dockerhub-nodeimage] com base no [Alpine Linux](https://alpinelinux.org/), uma distribuição pequena que é adequada para usar com contêineres. Em seguida, ele copia os arquivos do aplicativo para o contêiner, instala dependências usando o Gerenciador de Pacotes do Node e inicia o aplicativo.
+O Dockerfile fornecido no repositório de exemplo mostra como o contêiner é criado. Ele inicia de uma [imagem oficial do Node.js][dockerhub-nodeimage] com base no [Alpine Linux](https://alpinelinux.org/), uma distribuição pequena que é adequada para usar com contêineres. Em seguida, ele copia os arquivos do aplicativo para o contêiner, instala dependências usando o Gerenciador de Pacotes do Node e inicia o aplicativo.
 
 ```
 FROM node:8.2.0-alpine

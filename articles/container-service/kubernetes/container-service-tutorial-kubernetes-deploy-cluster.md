@@ -11,16 +11,17 @@ keywords: "Docker, Contêineres, Microsserviços, Kubernetes, DC/SO, Azure"
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 13d1582112468f55f473ce1b77d5d58213f0e6af
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -110,3 +111,4 @@ Avance para o próximo tutorial para saber mais sobre como executar o aplicativo
 
 > [!div class="nextstepaction"]
 > [Implantar o aplicativo no Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
+

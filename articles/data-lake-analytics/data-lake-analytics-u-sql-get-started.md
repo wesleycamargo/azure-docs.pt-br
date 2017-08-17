@@ -3,8 +3,8 @@ title: "Introdução à linguagem U-SQL | Microsoft Docs"
 description: "Aprenda os conceitos básicos da linguagem U-SQL."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4884d96e8126337f62af23316935978cfe219ec8
+ms.date: 06/23/2017
+ms.author: saveenr
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="get-started-with-u-sql"></a>Introdução ao U-SQL
@@ -27,9 +26,9 @@ U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para pe
 
 ## <a name="learning-resources"></a>Recursos de aprendizagem
 
-Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348) (Referência da linguagem U-SQL).
-
-Para entender a **filosofia de design do U-SQL**, confira a postagem do blog do Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Apresentando o U-SQL – Uma linguagem que torna fácil o processamento de Big Data).
+* O [Tutorial do U-SQL](http://aka.ms/usqltutorial) fornece um passo a passo guiado sobre a maior parte da linguagem U-SQL. A leitura deste documento é recomendada para todos os desenvolvedores que desejam aprender sobre U-SQL.
+* Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348) (Referência da linguagem U-SQL).
+* Para entender a **filosofia de design do U-SQL**, confira a postagem do blog do Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Apresentando o U-SQL – Uma linguagem que torna fácil o processamento de Big Data).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +36,7 @@ Antes de percorrer os exemplos do U-SQL nesse documento, leia e conclua o [Tutor
 
 ## <a name="your-first-u-sql-script"></a>Seu primeiro script U-SQL
 
-O script U-SQL a seguir é muito simples e nos permite explorar muitos aspectos da linguagem U-SQL.
+O script U-SQL a seguir é simples e nos permite explorar muitos aspectos da linguagem U-SQL.
 
 ```
 @searchlog =
@@ -69,20 +68,13 @@ Observe o ponto de interrogação ao lado do tipo de dados no campo `Duration`. 
 
 As instruções EXTRACT e OUTPUT usam caminhos de arquivo. Os caminhos de arquivo podem ser absolutos ou relativos:
 
-Esse caminho de arquivo absoluto se refere a um arquivo em um Data Lake Store chamado `mystore`:
+O caminho de arquivo absoluto a seguir se refere a um arquivo em um Data Lake Store chamado `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Esse caminho de arquivo absoluto se refere a um arquivo em uma Conta de Armazenamento de Blobs do Azure chamada `myblobaccount` e em um contêiner chamado `mycontainer`:
+O caminho de arquivo a seguir começa com `"/"`. Ele se refere a um arquivo na conta padrão do Data Lake Store:
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Atualmente, não há suporte para contêineres de Armazenamento de Blobs do Azure com permissões de acesso para blobs públicos ou contêineres públicos.
-
-Esse caminho de arquivo relativo começa com `"/"`. Ele se refere a um arquivo na conta do Data Lake Store que está associada à conta do Data Lake Analytics:
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Usar variáveis escalares
 
@@ -192,15 +184,16 @@ Os conjuntos de linhas do U-SQL não mantêm a ordem para a consulta seguinte. P
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -226,21 +219,17 @@ A cláusula HAVING do U-SQL pode ser usada para restringir a saída aos grupos q
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## <a name="see-also"></a>Consulte também
+Para cenários de agregação avançados, consulte a documentação de referência do U-SQL sobre as [funções de agregação, análise e referência](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+
+## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
-
-## <a name="let-us-know-what-you-think"></a>Queremos saber sua opinião
-* [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
-* [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
-* [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
 

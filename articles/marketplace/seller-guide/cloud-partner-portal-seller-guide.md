@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guia de vendedor do Azure Marketplace
@@ -216,7 +214,7 @@ O Marketplace oferece relatórios sobre seus pedidos, utilização e clientes, o
   - Tendência de ofertas
   - Tipo de licença do Marketplace
 
-Relatórios detalhados com informações do cliente, por exemplo, nome da empresa e localização geográfica até o CEP, para composição de seus vendedores. A lista a seguir inclui os atributos específicos que fornecemos sobre seus clientes:
+Relatórios detalhados com informações do cliente, por exemplo, nome da empresa e localização geográfica até o CEP, para que você possa comparar seus clientes. A lista a seguir inclui os atributos específicos que fornecemos sobre seus clientes:
 
 - Revendedor
 - Nome

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
@@ -262,6 +262,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |IsEnabled|Bool, o padrão é false | Habilita/desabilita o httpgateway. O httpgateway está desabilitado por padrão e essa configuração precisa ser definida para habilitá-lo. |
 |ActiveListeners |Uint, o padrão é 50 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
 |MaxEntityBodySize |Uint, o padrão é 4194304 |  Fornece o tamanho máximo do corpo que se espera de uma solicitação http. O valor padrão é 4 MB. Uma solicitação falhará no httpgateway se ele tiver um corpo de tamanho maior que esse valor. O tamanho mínimo da parte de leitura é 4096 bytes. Portanto, isso tem que ser >= 4096. |
+|HttpGatewayHealthReportSendInterval |Tempo em segundos, o padrão é de 30 | Especifique o intervalo de tempo em segundos. O intervalo no qual o Gateway Http envia relatórios de integridade acumulados ao Gerenciador de Integridade. |
 
 ### <a name="section-name-ktllogger"></a>Nome da seção: KtlLogger
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
@@ -278,10 +279,10 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 |IsEnabled |Bool, o padrão é false | Habilita/desabilita o HttpApplicationGateway. HttpApplicationGateway está desabilitado por padrão e essa configuração precisa ser definida para habilitá-lo. |
-|NumberOfParallelOperations | Uint, o padrão é 1000 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
-|DefaultHttpRequestTimeout |Tempo em segundos. o padrão é 60 |Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
+|NumberOfParallelOperations | Uint, o padrão é 5000 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
+|DefaultHttpRequestTimeout |Tempo em segundos. O padrão é 120 |Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
 |ResolveServiceBackoffInterval |Tempo em segundos, o padrão é 5 |Especifique o intervalo de tempo em segundos.  Fornece o intervalo de retirada padrão antes de tentar uma operação de serviço de resolução falido novamente. |
-|BodyChunkSize |Uint, o padrão é 4096 |  Fornece o tamanho da parte em bytes usado para ler o corpo. |
+|BodyChunkSize |Uint, o padrão é 16384 |  Fornece o tamanho da parte em bytes usado para ler o corpo. |
 |GatewayAuthCredentialType |cadeia de caracteres, o padrão é "None" | Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
 |GatewayX509CertificateStoreName |cadeia de caracteres, o padrão é "My" | Nome do repositório de certificados X.509 que contém o certificado do gateway de aplicativo http. |
 |GatewayX509CertificateFindType |cadeia de caracteres, o padrão é "FindByThumbprint" | Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |

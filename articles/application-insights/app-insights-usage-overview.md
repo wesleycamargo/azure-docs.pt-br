@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fe513adfe40b675b1154e24388316eb7ee09a37d
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,10 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
     Publique seu aplicativo para monitorar o desempenho do aplicativo e descobrir o que seus usuários estão fazendo com o aplicativo.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Incluir a ID de usuário e de sessão em sua telemetria
+Para controlar os usuários ao longo do tempo, o Application Insights requer um modo para identificá-los. A ferramenta Eventos é a única ferramenta de Uso que não requer uma ID de usuário ou uma ID de sessão.
+
+Comece a enviar essas IDs [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Explore as estatísticas e dados demográficos de uso
 Descubra quando as pessoas usam seu aplicativo, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. 
@@ -123,7 +127,6 @@ Saiba mais sobre [eventos personalizados](app-insights-api-custom-events-metrics
 ### <a name="slice-and-dice-events"></a>Fatiar e dividir eventos
 
 Com as ferramentas de Usuários, Sessões e Eventos, você pode fatiar e dividir eventos personalizados segundo o usuário, o nome do evento e as propriedades.
-
 ![Usuários](./media/app-insights-usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Design de telemetria com o aplicativo
@@ -167,9 +170,9 @@ No inicializador do aplicativo Web, como Global.asax.cs:
 Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade que você especificar. Eventos de telemetria individuais podem substituir os valores padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-* [Usuários e sessões](app-insights-usage-segmentation.md)
-* [Retenção](app-insights-usage-retention.md)
-* [Codificação de eventos personalizados](app-insights-api-custom-events-metrics.md)
-
+   - [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md)
+   - [Funis](usage-funnels.md)
+   - [Retenção](app-insights-usage-retention.md)
+   - [Pastas de trabalho](app-insights-usage-workbooks.md)
+   - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
 

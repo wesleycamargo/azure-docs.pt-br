@@ -46,6 +46,7 @@
 ### [Portais de pesquisa de logs](log-analytics-log-search-portals.md)
 #### [Use o portal de pesquisa de logs](log-analytics-log-search-log-search-portal.md)
 ### [Transição do idioma herdado](log-analytics-log-search-transition.md)
+### [Conector de fluxo](log-analytics-flow-tutorial.md)
 
 ## Analisar dados
 ### [Painéis](log-analytics-dashboards.md)

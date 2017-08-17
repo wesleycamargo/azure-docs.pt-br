@@ -12,28 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
+## <a name="how-to-deploy-seamless-sso"></a>Como implantar o SSO Contínuo
+
 O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos desktops corporativos conectados à rede corporativa. Ele fornece aos usuários acesso fácil a seus aplicativos baseados em nuvem sem a necessidade de nenhum componente local adicional.
 
-## <a name="how-to-deploy-azure-ad-seamless-sso"></a>Como implantar o SSO Contínuo do Azure AD
+>[!IMPORTANT]
+>Atualmente, o recurso SSO Contínuo está em visualização.
 
 Para implantar o SSO Contínuo, você precisa seguir estas etapas:
-1. *Verificar pré-requisitos*: configure o seu ambiente local e de locatário corretamente antes de habilitar o recurso.
-2. *Habilitar o recurso*: ativar o SSO Contínuo em seu locatário usando o Azure AD Connect.
-3. *Distribuir o recurso*: usar a Política de Grupo para distribuir o recurso para alguns ou todos os seus usuários.
-4. *Testar o recurso*: testar a entrada do usuário usando o SSO Contínuo.
-5. *Sobrepor chaves*: Frequentemente sobrepor chaves de descriptografia do Kerberos de contas de computador.
 
 ## <a name="step-1-check-prerequisites"></a>Etapa 1: verificar pré-requisitos
 
@@ -63,6 +61,15 @@ Após a conclusão do assistente, o SSO Contínuo está habilitado no seu locat�
 
 >[!NOTE]
 > As credenciais de Administrador de Domínio não são armazenadas no Azure AD Connect ou no Azure AD, mas são usadas somente para habilitar o recurso.
+
+Siga estas instruções para verificar se você habilitou o SSO Contínuo corretamente:
+
+1. Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do Administrador Global do seu locatário.
+2. Selecione **Azure Active Directory** na navegação à esquerda.
+3. Selecione **Azure AD Connect**.
+4. Verifique se o recurso **Logon Único Contínuo** está **Habilitado**.
+
+![Portal do Azure – folha do Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
@@ -118,6 +125,9 @@ O uso de extensões de Política de Grupo do Active Directory de terceiros para 
 #### <a name="known-limitations"></a>Limitações conhecidas
 
 O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
+
+>[!IMPORTANT]
+>Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
 
 ## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
@@ -50,7 +50,7 @@ Os recursos a seguir são importantes para o desenvolvimento móvel habilitado p
 * **SDKs de Cliente** – fornecemos um conjunto completo de SDKs de Cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataforma cruzada ([Xamarin para iOS e Android], [Formulários do Xamarin]) e o desenvolvimento de aplicativos híbridos ([Apache Cordova]).  Cada SDK de cliente está disponível com uma licença MIT e é software livre.
 
 ## <a name="azure-app-service-features"></a>Recursos do Serviço de Aplicativo do Azure.
-Os seguintes recursos de plataforma são geralmente úteis para sites de produção móvel.
+Os seguintes recursos de plataforma são úteis para sites de produção móvel.
 
 * **Dimensionamento automático** - o Serviço de Aplicativo permite que você redimensione rapidamente aumentando ou reduzindo para lidar com qualquer carga de cliente em entrada. Selecionar o número e o tamanho das VMs manualmente ou configurar o dimensionamento automático para dimensionar seu back-end de aplicativo móvel com base na carga ou a agenda.
 
@@ -64,7 +64,7 @@ Os seguintes recursos de plataforma são geralmente úteis para sites de produç
 * **Rede Virtual** – o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, o ExpressRoute ou conexões híbridas.
 
   Descubra mais sobre as [conexões híbridas], as [redes virtuais] e o [ExpressRoute].
-* **Ambientes Isolados/Dedicados** – o Serviço de Aplicativo pode ser executado em um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do Serviço de Aplicativo do Azure em alta escala.  Isso é ideal para cargas de trabalho de aplicativos que exijam uma escala muito alta, isolamento ou acesso seguro à rede.
+* **Ambientes Isolados/Dedicados** – o Serviço de Aplicativo pode ser executado em um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do Serviço de Aplicativo do Azure em alta escala.  Isso é ideal para cargas de trabalho de aplicativos que exijam uma escala alta, isolamento ou acesso seguro à rede.
 
   Descubra mais sobre os [Ambientes do Serviço de Aplicativo].
 
@@ -73,11 +73,6 @@ Para começar com aplicativos móveis, siga o tutorial [Introdução] .  Isso ab
 
 Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de aprendizagem].
 Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, confira [Serviço de Aplicativo do Azure].
-
-> [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/mobile/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
->
->
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configuração de token, de sessão e de logon único
@@ -30,7 +31,7 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 
 Você pode usar esse recurso em seu locatário B2C da seguinte maneira:
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Clique em **Políticas de entrada**. *Observação: você pode usar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada***.
 3. Clique em uma política para abri-la. Por exemplo, clique em **B2C_1_SiIn**.
 4. Clique em **Editar** na parte superior da folha.
@@ -109,10 +110,5 @@ Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá g
     > Essas configurações não estão disponíveis para as políticas de redefinição de senha.
     > 
     > 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

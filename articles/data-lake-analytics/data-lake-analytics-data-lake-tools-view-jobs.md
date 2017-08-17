@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics
@@ -31,7 +30,7 @@ Por padrão, o serviço Data Lake Analytics arquiva os trabalhos por 30 dias. O 
 Veja [Pré-requisitos das Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Abrir o Navegador de Trabalhos
-O Navegador de Trabalhos pode ser acessado via **Gerenciador de Servidores > Azure > Data Lake Analytics > Trabalhos** no Visual Studio.  Usando o navegador, você pode acessar o repositório de consultas de uma conta do Data Lake Analytics. O Navegador de Trabalhos mostra o Repositório de Consultas à esquerda, o qual mostra as informações básicas sobre trabalhos; já a Exibição de Trabalho é mostrada à direita e que fornece as informações detalhadas sobre um trabalho.
+Acesse o Navegador de Trabalhos via **Gerenciador de Servidores > Azure > Data Lake Analytics > Trabalhos** no Visual Studio.  Usando o navegador de trabalho, você pode acessar o repositório de consultas de uma conta do Data Lake Analytics. O Navegador de Trabalho exibe o Repositório de Consultas à esquerda, mostrando as informações básicas do trabalho, bem como a Exibição de Trabalho à direita, mostrando as informações detalhadas do trabalho.
 
 ## <a name="job-view"></a>Exibição de Trabalho
 A Exibição de Trabalho mostra as informações detalhadas de um trabalho. Para abrir um trabalho, clique duas vezes em um trabalho no Navegador de Trabalhos ou abra-o do menu do Data Lake clicando em Exibição de Trabalho. Você deve ver uma caixa de diálogo populada com a URL do trabalho.

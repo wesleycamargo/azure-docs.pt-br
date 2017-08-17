@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 8280669ac74b46232de81a0bf4f8094f8d9b069e
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/21/2017
 
 A segurança é uma das principais preocupações durante o gerenciamento de bancos de dados e sempre foi uma prioridade para o Banco de Dados SQL do Azure. O Banco de Dados SQL do Azure dá suporte à segurança de conexão com regras de firewall e criptografia da conexão. Ele dá suporte à autenticação com nome de usuário e senha e a Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory. A autorização usa o controle de acesso baseado em função.
 
-O Banco de Dados SQL do Azure dá suporte à criptografia executando criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
+O Banco de Dados SQL do Azure dá suporte à criptografia executando criptografia e descriptografia em tempo real de banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
 
 A Microsoft fornece maneiras adicionais para criptografar os dados da empresa:
 

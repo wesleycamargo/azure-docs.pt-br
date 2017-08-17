@@ -1,0 +1,181 @@
+---
+title: "Implantar um aplicativo do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs"
+description: "Saiba como configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.  Implantar um aplicativo em um cluster do Service Fabric no Azure."
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/09/2017
+ms.author: ryanwi
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/10/2017
+
+---
+
+# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Implantar um aplicativo com CI/CD em um cluster do Service Fabric
+Este tutorial é a terceira parte de uma série e descreve como configurar a integração e a implantação contínua para um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
+
+Na terceira parte da série, você aprenderá a:
+
+> [!div class="checklist"]
+> * Adicionar controle do código-fonte ao seu projeto
+> * Criar uma definição de build no Team Services
+> * Criar uma definição de versão no Team Services
+> * Implantar e atualizar automaticamente um aplicativo
+
+Nesta série de tutoriais, você aprenderá a:
+> [!div class="checklist"]
+> * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+> * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Configurar CI/CD usando o Visual Studio Team Services
+
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar este tutorial:
+- Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
+- [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
+- Crie um aplicativo do Service Fabric; você pode [seguir este tutorial](service-fabric-tutorial-create-dotnet-app.md) como exemplo. 
+- Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-cluster-azure-ps.md) como exemplo
+- Crie uma [conta do Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+
+## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
+Agora que você [criou um aplicativo](service-fabric-tutorial-create-dotnet-app.md) e [implantou o aplicativo no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), você está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação em seu aplicativo para ser usado pelo processo de implantação que é executado no Team Services.  O perfil de publicação deve ser configurado para direcionar-se ao cluster que você criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicativo do Service Fabric existente.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no aplicativo e selecione **Publicar...**.
+
+Escolha um perfil de destino em seu projeto de aplicativo a fim de usar para o fluxo de trabalho de integração contínua, por exemplo, Nuvem.  Especifique o ponto de extremidade de conexão do cluster.  Marque a caixa de seleção **Atualizar o Aplicativo** para que seu aplicativo seja atualizado a cada implantação no Team Services.  Clique no hiperlink **Salvar** para salvar as configurações em seu perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.  
+
+![Perfil de envio por push][publish-app-profile]
+
+## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Team Services
+Compartilhe os arquivos de origem do seu aplicativo em um projeto de equipe no Team Services, para que você possa gerar builds.  
+
+Crie um novo repositório Git local para seu projeto selecionando **Adicionar ao controle do código-fonte** -> **Git** na barra de status no canto inferior direito do Visual Studio. 
+
+Na exibição **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Visual Studio Team Services**.
+
+![Enviar por push o repositório Git][push-git-repo]
+
+Verifique seu email e selecione sua conta na lista suspensa **Domínio do Team Services**. Digite o nome do seu repositório e selecione **Publicar Repositório**.
+
+![Enviar por push o repositório Git][publish-code]
+
+A publicação do repositório cria um novo projeto de equipe em sua conta com o mesmo nome do repositório local. Para criar o repositório em um projeto de equipe existente, clique em **Avançado** ao lado do nome do **Repositório** e selecione um projeto de equipe. Você pode exibir seu código na Web selecionando **Vê-lo na Web**.
+
+## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a entrega contínua com VSTS
+Use o assistente interno no Visual Studio para configurar a entrega contínua com VSTS.
+
+1. Clique com o botão direito do mouse no projeto de aplicativo **MyApplication** no **Gerenciador de Soluções** e, em seguida, selecione **Adicionar** -> **Entrega Contínua com VSTS**. Uma caixa de diálogo é exibida para que você insira a configuração necessária.
+
+    ![Entrega contínua com VSTS][continuous-delivery-with-VSTS]
+
+    Os valores **Conta**, **Projeto** e **Repositório Git** são inseridos automaticamente.
+
+2. Escolha **VS2017 Hospedado** como a fila do agente.
+
+3. Escolha **criar Conexão** na lista suspensa **Conexão de Cluster**, o que abrirá um site da Web para configurar um ponto de extremidade de serviço no VSTS. 
+
+4. Defina o foco na janela do navegador e escolha **Novo Ponto de Extremidade de Serviço** -> **Service Fabric**.
+
+    ![Novo Ponto de Extremidade de Serviço][new-service-endpoint]
+
+    Uma caixa de diálogo é exibida para adicionar uma nova conexão do Service Fabric.
+    
+5. Selecione **Baseada em Certificado** e preencha a caixa de diálogo:
+
+    ![Caixa de diálogo novo Ponto de extremidade de serviço][new-service-endpoint-dialog]
+
+    1. Insira um **Nome de Conexão**.
+    2. Insira o ponto de extremidade de gerenciamento do cluster no campo **Ponto de extremidade do cluster** (por exemplo, "tcp://mycluster.eastus.cloudapp.azure.com:19000"). Especifique "tcp://" como o protocolo.  A porta de gerenciamento de ponto de extremidade padrão é 19000.
+    3. Insira a **Impressão Digital de Certificado do Servidor**.  A impressão digital pode ser obtida abrindo o Service Fabric Explorer para o seu cluster (https://mycluster.eastus.cloudapp.azure.com:19080).
+        - Escolha o nó de **Cluster** no modo de exibição de árvore e a guia **Manifesto** no painel à direita.
+        - Procure o elemento **<ServerCertificate>** no arquivo XML e copie o conteúdo do atributo **X509FindValue**.
+    4. No campo **Certificado do Cliente**, insira o certificado do cliente como uma cadeia de caracteres codificada em Base64, necessária para obter o certificado instalado no agente de build:
+        - Verifique se você tem o certificado disponível como um arquivo PFX.
+        - Execute o seguinte comando do PowerShell para gerar o arquivo PFX como uma cadeia de caracteres Base64Encoded na área de transferência: `[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip`
+        - Cole (CTRL + V) a forma do valor da área de transferência no campo na caixa de diálogo.
+    5. Digite a **Senha do Certificado** no campo **Senha** e clique em **OK**.
+
+6. No Visual Studio, escolha **<Refresh>** no campo **Conexão de Cluster** da caixa de diálogo **Entrega Contínua com VSTS**. O ponto de extremidade do cluster que você acabou de criar deve aparecer na lista suspensa.
+
+7. Escolha o nome de definição de build e versão padrão ou altere os nomes propostos na caixa de diálogo. Clique em **OK** depois de terminar.
+
+Após alguns instantes uma caixa de diálogo é exibida no Visual Studio, perguntando se você deseja abrir a definição de build e versão no navegador. Você pode optar por fazer isso a fim de verificar como elas estão configuradas, mas isso não é necessário para concluir este tutorial.
+
+- Uma definição de build do Team Services descreve um fluxo de trabalho composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie uma definição de build que produza um pacote de aplicativos do Service Fabric e outros artefatos, para implantar em um cluster do Service Fabric. Saiba mais sobre as [definições de build do Team Services](https://www.visualstudio.com/docs/build/define/create).
+- Uma definição de versão do Team Services descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usadas juntas, a definição de build e a definição de versão executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Team Services.
+
+## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e enviar alterações por push, disparar uma versão
+Para verificar se o pipeline de integração contínua está funcionando ao fazer check-in de algumas alterações de código no Team Services.    
+
+Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local, selecionando o ícone de alterações pendentes (![Pendente][pending]) na barra de status na parte inferior direita.
+
+Na exibição **Alterações** no Team Explorer, adicione uma mensagem que descreva a atualização e confirme suas alterações.
+
+![Confirmar tudo][changes]
+
+Selecione o ícone de barra de status de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a exibição de sincronização no Team Explorer. Selecione **Push** para atualizar seu código no Team Services/TFS.
+
+![Enviar alterações por push][push]
+
+Enviar por push as alterações ao Team Services dispara um build automaticamente.  Quando a definição de build é concluída com êxito, uma versão é criada automaticamente e inicia a atualização do aplicativo no cluster.
+
+Para verificar o progresso do build, alterne para a guia **Builds** no **Team Explorer** no Visual Studio.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster.
+
+Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
+
+![Service Fabric Explorer][sfx1]
+
+## <a name="update-the-application"></a>Atualizar o aplicativo
+Fazer alterações de código no aplicativo.  Salve e confirme as alterações, seguindo as etapas anteriores.
+
+Depois que a atualização do aplicativo se inicia, você pode observar o progresso da atualização no Service Fabric Explorer:
+
+![Service Fabric Explorer][sfx2]
+
+A atualização do aplicativo pode levar vários minutos. Quando a atualização estiver concluída, o aplicativo estará executado a próxima versão.  Neste exemplo, "1.0.0.20170616.4".
+
+![Service Fabric Explorer][sfx3]
+
+## <a name="next-steps"></a>Próximas etapas
+Neste tutorial, você aprendeu como:
+
+> [!div class="checklist"]
+> * Adicionar controle do código-fonte ao seu projeto
+> * Criar a definição de build
+> * Criar uma definição de versão
+> * Implantar e atualizar automaticamente um aplicativo
+
+Agora que você implantou um aplicativo e configurou a integração contínua, experimente o seguinte:
+- [Atualizar um aplicativo](service-fabric-application-upgrade.md)
+- [Testar um aplicativo](service-fabric-testability-overview.md) 
+- [Monitorar e diagnosticar](service-fabric-diagnostics-overview.md)
+
+
+<!-- Image References -->
+[publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
+[push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
+[publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
+[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
+[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
+[add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
+[sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
+[sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
+[pending]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Pending.png
+[changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Changes.png
+[unpublished-changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/UnpublishedChanges.png
+[push]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Push.png
+[continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
+[new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
+[new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png

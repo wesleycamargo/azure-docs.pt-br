@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 07/19/2017
 ms.author: oanapl
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9d261741efd7e49e40b807b1631ff8a2b9eefdb1
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
@@ -31,7 +31,7 @@ O vídeo do Microsoft Virtual Academy a seguir também descreve o modelo de inte
 </a></center>
 
 > [!NOTE]
-> Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
+> Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base nas políticas de atualização configuradas. Uma atualização pode continuar somente quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
 > 
 > 
 
@@ -39,7 +39,7 @@ O vídeo do Microsoft Virtual Academy a seguir também descreve o modelo de inte
 O Repositório de Integridade mantém informações relacionadas à integridade sobre entidades no cluster para facilidade de recuperação e avaliação. Ele é implementado como um serviço com estado persistente da Malha do Serviço, garantindo alta disponibilidade e escalabilidade. O Repositório de Integridade faz parte do aplicativo **fabric:/System** e é disponibilizado quando o cluster é ativado e está em execução.
 
 ## <a name="health-entities-and-hierarchy"></a>Hierarquia e entidades de integridade
-As entidades de integridade são organizadas em uma hierarquia lógica que captura as interações e dependências entre diferentes entidades. As entidades e a hierarquia são criadas automaticamente pelo Repositório de Integridade com base nos relatórios recebidos dos componentes do Service Fabric.
+As entidades de integridade são organizadas em uma hierarquia lógica que captura as interações e dependências entre diferentes entidades. O repositório de integridade cria automaticamente entidades e hierarquia com base nos relatórios recebidos dos componentes do Service Fabric.
 
 As entidades de integridade espelham as entidades do Service Fabric. (Por exemplo, a **entidade de aplicativo de integridade** corresponde a uma instância do aplicativo implantada no cluster, enquanto a **entidade de nó de integridade** corresponde a um nó de cluster do Service Fabric). A hierarquia de integridade captura as interações das entidades do sistema e é a base para a avaliação avançada de integridade. Você pode aprender sobre os principais conceitos do Service Fabric em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para saber mais sobre aplicativos, confira [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
 
@@ -52,23 +52,23 @@ As entidades de integridade, organizadas em uma hierarquia com base nas relaçõ
 
 As entidades de integridade são:
 
-* **Cluster**. Representa a integridade de um cluster da Malha do Serviço. Os relatórios de integridade do cluster descrevem as condições que afetam o cluster inteiro e não podem ser limitados a um ou mais filhos não íntegros. O exemplo inclui a personalidade do cluster sendo dividida devido ao particionamento da rede ou problemas de comunicação.
-* **Nó**. Representa a integridade de um nó da Malha do Serviço. Os relatórios de integridade do nó descrevem condições que afetam toda a funcionalidade do nó. Normalmente, elas afetam todas as entidades implantadas em execução. Os exemplos incluem quando um nó não tem espaço em disco (ou outra propriedade em todo o computador, como memória, conexões) ou quando o nó está desativado. A entidade de nó é identificada pelo nome do nó (cadeia de caracteres).
+* **Cluster**. Representa a integridade de um cluster da Malha do Serviço. Os relatórios de integridade do cluster descrevem condições que afetam todo o cluster. Essas condições afetam várias entidades no cluster ou o próprio cluster. Com base na condição, o gerador de relatórios não consegue restringir o problema para um ou mais filhos não íntegros. O exemplo inclui a personalidade do cluster sendo dividida devido ao particionamento da rede ou problemas de comunicação.
+* **Nó**. Representa a integridade de um nó da Malha do Serviço. Os relatórios de integridade do nó descrevem condições que afetam toda a funcionalidade do nó. Normalmente, elas afetam todas as entidades implantadas em execução. Os exemplos incluem um nó sem espaço em disco (ou outras propriedades em todo o computador, como memória, conexões) ou quando o nó está desativado. A entidade de nó é identificada pelo nome do nó (cadeia de caracteres).
 * **Aplicativo**. Representa a integridade de uma instância do aplicativo em execução no cluster. Os relatórios de integridade do aplicativo descrevem condições que afetam a integridade geral do aplicativo. Elas não podem ser limitadas a filhos individuais (serviços ou aplicativos implantados). Os exemplos incluem a interação de ponta a ponta entre diferentes serviços no aplicativo. A entidade de aplicativo é identificada pelo nome do aplicativo (URI).
-* **Serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço e as mesmas não podem ser limitadas a uma partição ou réplica. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
+* **Serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço. O gerador de relatórios não consegue restringir o problema para uma partição ou réplica não íntegras. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
 * **Partição**. Representa a integridade de uma partição de serviço. Os relatórios de integridade da partição descrevem condições que afetam todo o conjunto de réplicas. Os exemplos incluem quando o número de réplicas está abaixo da contagem de destino e quando a partição está na perda do quórum. A entidade de partição é identificada pela ID da partição (GUID).
-* **Réplica**. Representa a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. A menor unidade que os watchdogs e os componentes do sistema podem reportar para um aplicativo. Para serviços com estado, os exemplos incluem um relatório de réplica primária quando a mesma não puder replicar operações em locais secundários e quando a replicação não está seguindo no ritmo esperado. Além disso, uma instância sem estado pode relatar quando estiver em execução sem recursos ou tiver problemas de conectividade. A entidade de réplica é identificada pela ID da partição (GUID) e pela ID de réplica ou instância (longo).
-* **DeployedApplication**. Representa a integridade de um *aplicativo que é executado em um nó*. Os relatórios de integridade do aplicativo implantado descrevem condições específicas ao aplicativo no nó que não podem ser limitados aos pacotes de serviço implantados no mesmo nó. Os exemplos incluem quando o pacote de aplicativos não pode ser baixado nesse nó e quando há um problema na configuração das entidades de segurança do aplicativo no nó. O aplicativo implantado é identificado pelo nome do aplicativo (URI) e pelo nome do nó (cadeia de caracteres).
-* **DeployedServicePackage**. Representa a integridade de um pacote de serviço em execução em um nó no cluster. Descreve as condições específicas a um pacote de serviço que não afetam os outros pacotes de serviço no mesmo nó para o mesmo aplicativo. Os exemplos incluem um pacote de códigos no pacote de serviço que não pode ser iniciado e um pacote de configuração que não pode ser lido. O pacote de serviço implantado é identificado pelo nome do aplicativo (URI), o nome do nó (cadeia de caracteres) e o nome do manifesto do serviço (cadeia de caracteres).
+* **Réplica**. Representa a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. A réplica é menor unidade que os watchdogs e os componentes do sistema podem reportar para um aplicativo. Para serviços com estado, os exemplos incluem uma réplica primária que não consegue replicar operações em locais secundários e replicação lenta. Além disso, uma instância sem estado pode relatar quando estiver em execução sem recursos ou tiver problemas de conectividade. A entidade de réplica é identificada pela ID da partição (GUID) e pela ID de réplica ou instância (longo).
+* **DeployedApplication**. Representa a integridade de um *aplicativo que é executado em um nó*. Os relatórios de integridade do aplicativo implantado descrevem condições específicas ao aplicativo no nó que não podem ser limitados aos pacotes de serviço implantados no mesmo nó. Os exemplos incluem erros quando o pacote de aplicativos não pode ser baixado nesse nó e problemas na configuração das entidades de segurança do aplicativo no nó. O aplicativo implantado é identificado pelo nome do aplicativo (URI) e pelo nome do nó (cadeia de caracteres).
+* **DeployedServicePackage**. Representa a integridade de um pacote de serviço em execução em um nó no cluster. Descreve as condições específicas a um pacote de serviço que não afetam os outros pacotes de serviço no mesmo nó para o mesmo aplicativo. Os exemplos incluem um pacote de códigos no pacote de serviço que não pode ser iniciado e um pacote de configuração que não pode ser lido. O pacote de serviço implantado é identificado pelo nome do aplicativo (URI), o nome do nó (cadeia de caracteres), o nome do manifesto do serviço (cadeia de caracteres) e a ID de ativação do pacote de serviço (cadeia de caracteres).
 
 A granularidade do modelo de integridade facilita a detecção e correção dos problemas. Por exemplo, se um serviço não estiver respondendo, é possível relatar que a instância do aplicativo não está íntegra. No entanto, a emissão de relatórios neste nível não é ideal porque o problema talvez não esteja afetando todos os serviços no aplicativo. O relatório deve ser aplicado no serviço não íntegro ou partição filha específica, se mais informações apontarem para essa partição. Os dados emergem automaticamente pela hierarquia e uma partição não íntegra fica visível nos níveis de serviço e aplicativo. Essa agregação ajuda a identificar e resolver a causa raiz do problema mais rapidamente.
 
-A hierarquia de integridade é composta por relações de pai/filho. Um cluster é composto de nós e aplicativos. Os aplicativos possuem serviços e aplicativos implantados. Os aplicativos implantados possuem pacotes de serviço implantados. Os serviços têm partições, e cada partição tem uma ou mais réplicas. Há uma relação especial entre nós e entidades implantadas. Se um nó não estiver íntegro conforme reportado por seu componente de sistema de autoridade (Serviço do Gerenciador de Failover), ele afetará os aplicativos implantados, os pacotes de serviço e as réplicas implantadas nele.
+A hierarquia de integridade é composta por relações de pai/filho. Um cluster é composto de nós e aplicativos. Os aplicativos possuem serviços e aplicativos implantados. Os aplicativos implantados possuem pacotes de serviço implantados. Os serviços têm partições, e cada partição tem uma ou mais réplicas. Há uma relação especial entre nós e entidades implantadas. Um nó não íntegro conforme reportado por seu componente de sistema de autoridade, o Serviço do Gerenciador de Failover, afeta os aplicativos implantados, os pacotes de serviço e as réplicas implantadas nele.
 
 A hierarquia de integridade representa o estado mais recente do sistema com base em relatórios de integridade mais recentes, que é uma informação quase em tempo real.
 Os watchdogs internos e externos podem reportar as mesmas entidades com base na lógica específica do aplicativo ou nas condições monitoradas personalizadas. Os relatórios do usuário coexistem com os relatórios do sistema.
 
-Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande para facilitar para o serviço depurar, monitorar e operar.
+Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande. Este investimento inicial facilita a depuração, monitoramento e operação do serviço.
 
 ## <a name="health-states"></a>Estados de integridade
 O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, Aviso e Erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
@@ -76,9 +76,9 @@ O Service Fabric usa três estados de integridade para descrever se uma entidade
 Os [estados de integridade](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) possíveis são:
 
 * **OK**. A entidade está íntegra. Não há nenhum problema conhecido reportado em seus filhos (quando aplicável).
-* **Aviso**. A entidade apresenta alguns problemas, mas ainda não está íntegra (por exemplo, há atrasos, mas eles ainda não causam problemas funcionais). Em alguns casos, a condição de aviso pode se corrigir sem nenhuma intervenção especial, e é útil para proporcionar visibilidade do que está acontecendo. Em outros casos, a condição de Aviso pode se transformar em um problema grave sem intervenção do usuário.
+* **Aviso**. A entidade tem alguns problemas, mas ainda funciona corretamente. Por exemplo, há atrasos, mas eles ainda não causam problemas funcionais. Em alguns casos, a condição de aviso pode corrigir-se sozinha sem intervenção externa. Nesses casos, os relatórios de integridade aumentam o reconhecimento e fornecem visibilidade sobre o que está acontecendo. Em outros casos, a condição de Aviso pode se transformar em um problema grave sem intervenção do usuário.
 * **Erro**. A entidade não está íntegra. Uma medida deve ser tomada para corrigir o estado da entidade, pois ela não funciona corretamente.
-* **Desconhecido**. A entidade não existe no repositório de integridade. Esse resultado pode ser obtido em consultas distribuídas que mesclam resultados de vários componentes. Por exemplo, a consulta para obter a lista de nós vai para **FailoverManager** e **HealthManager** e a consulta para obter a lista de aplicativos vai para **ClusterManager** e **HealthManager**. Essas consultas mesclam os resultados de vários componentes do sistema. Se outro componente do sistema retornar uma entidade que não alcançou ou foi eliminada do Repositório de Integridade, o resultado mesclado terá um estado de integridade desconhecido.
+* **Desconhecido**. A entidade não existe no repositório de integridade. Esse resultado pode ser obtido em consultas distribuídas que mesclam resultados de vários componentes. Por exemplo, a consulta para obter a lista de nós vai para **FailoverManager** e **ClusterManager** e **HealthManager** e a consulta para obter a lista de aplicativos vai para **ClusterManager** e **HealthManager**. Essas consultas mesclam os resultados de vários componentes do sistema. Se outro componente do sistema retornar uma entidade que não está presente no repositório de integridade, o resultado mesclado terá um estado de integridade desconhecido. Uma entidade não está no repositório porque os relatórios de integridade ainda não foram processados ou a entidade foi apagada após a exclusão.
 
 ## <a name="health-policies"></a>Políticas de integridade
 O Repositório de Integridade aplica políticas de integridade para determinar se uma entidade está íntegra com base em seus relatórios e filhos.
@@ -192,7 +192,7 @@ Depois que o Repositório de Integridade tiver avaliado todos os filhos, ele agr
 ## <a name="health-reporting"></a>Relatório de integridade
 Os componentes do sistema, os aplicativos do System Fabric e os watchdogs internos/externos podem ser relatados em relação às entidades do Service Fabric. Os relatores fazem uma determinação *local* da integridade da entidades monitoradas com base em algumas condições que estão monitorando. Eles não precisam observar nenhum estado global ou dados agregados. O comportamento desejado é ter relatores simples e organismos não complexos que precisariam observar muitas circunstâncias para inferir quais informações enviar.
 
-Para enviar dados de integridade ao repositório de integridade, o relator precisa identificar a entidade afetada e criar um relatório de integridade. O relatório pode então ser enviado por meio da API usando [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), do PowerShell ou da REST.
+Para enviar dados de integridade ao repositório de integridade, o relator precisa identificar a entidade afetada e criar um relatório de integridade. Para enviar o relatório, use a API [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), relate as APIs de integridade expostos nos objetos `Partition` ou `CodePackageActivationContext`, os cmdlets do PowerShell ou REST.
 
 ### <a name="health-reports"></a>Relatórios de integridade
 Os [relatórios de integridade](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) de cada uma das entidades no cluster contêm as seguintes informações:
@@ -208,7 +208,7 @@ Os [relatórios de integridade](https://docs.microsoft.com/dotnet/api/system.fab
   * Réplica. A ID de réplica do serviço com estado ou a ID da instância do serviço sem estado (INT64).
   * DeployedApplication. Nome do aplicativo (URI) e o nome do nó (cadeia de caracteres).
   * DeployedServicePackage. Nome do aplicativo (URI), nome do nó (cadeia de caracteres) e nome do manifesto do serviço (cadeia de caracteres).
-* **Property**. Um *cadeia de caracteres* (não uma enumeração fixa) que permite ao relator classificar o evento de integridade para uma propriedade específica da entidade. Por exemplo, o relator A pode relatar a integridade da propriedade “storage” de Node01 e o relator B pode relatar a integridade na propriedade “connectivity” de Node01. No Repositório de Integridade, esses relatórios são tratados como eventos de integridade distintos para a entidade Node01.
+* **Property**. Um *cadeia de caracteres* (não uma enumeração fixa) que permite ao relator classificar o evento de integridade para uma propriedade específica da entidade. Por exemplo, o relator A pode relatar a integridade da propriedade “Storage” de Node01 e o relator B pode relatar a integridade na propriedade “Connectivity” de Node01. No Repositório de Integridade, esses relatórios são tratados como eventos de integridade distintos para a entidade Node01.
 * **Description**. Uma cadeia de caracteres que permite ao relator fornecer informações detalhadas sobre o evento de integridade. **SourceId**, **Property** e **HealthState** devem descrever o relatório por completo. A descrição adiciona informações legíveis sobre o relatório. O texto facilita para que os administradores e os usuários entendam o relatório de integridade.
 * **HealthState**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de integridade do relatório. Os valores aceitáveis são OK, Aviso e Erro.
 * **TimeToLive**. Um período de tempo que indica por quanto tempo o relatório de integridade é válido. Em conjunto com **RemoveWhenExpired**, permite que o repositório de integridade saiba como avaliar eventos expirados. Por padrão, o valor é infinito e o relatório é válido indefinidamente.
@@ -239,7 +239,7 @@ O exemplo a seguir envia um relatório de integridade por meio PowerShell no apl
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ExcludeHealthStatistics
 
 
 ApplicationName                 : fabric:/WordCount
@@ -303,7 +303,7 @@ HealthEvents                    :
 
 ## <a name="health-model-usage"></a>Uso do modelo de integridade
 O modelo de integridade permite que os serviços de nuvem e a plataforma subjacente do Service Fabric ajustem a escala, pois o monitoramento e a determinação da integridade são distribuídos entre os diferentes monitores no cluster.
-Outros sistemas têm um único serviço centralizado no nível de cluster, que analisa todas as informações *potencialmente* úteis emitidas pelos serviços. Essa abordagem impede a escalabilidade dos mesmos. Isso também impede que eles coletem informações bastante específicas que ajudam a identificar problemas e problemas potenciais mais próximos possíveis da causa raiz.
+Outros sistemas têm um único serviço centralizado no nível de cluster, que analisa todas as informações *potencialmente* úteis emitidas pelos serviços. Essa abordagem impede a escalabilidade dos mesmos. Isso também impede que eles coletem informações específicas que ajudam a identificar problemas e problemas potenciais mais próximos possíveis da causa raiz.
 
 O modelo de integridade é muito usado para monitoramento e diagnóstico, para avaliar a integridade do cluster e do aplicativo, bem como para atualizações monitoradas. Outros serviços usam os dados de integridade para executar reparos automáticos, para criar histórico de integridade do cluster e para emitir alertas em determinadas condições.
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/02/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: ce19c24905c9ea93a7a35134fe6035b788d8af22
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="resource-policy-overview"></a>Visão geral de políticas de recursos
-Políticas de recursos permitem que você estabeleça convenções para recursos em sua organização. Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos, ou você pode exigir que todos os recursos tenham uma determinada marca. As políticas são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
+Políticas de recursos permitem que você estabeleça convenções para recursos em sua organização. Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
 
 Há dois conceitos a entender sobre políticas:
 
@@ -39,7 +39,7 @@ Políticas são avaliadas durante a criação e atualização de recursos (PUT e
 > 
 
 ## <a name="how-is-it-different-from-rbac"></a>Qual é a diferença dela em relação ao RBAC?
-Há algumas diferenças importantes entre a política e o RBAC (controle de acesso baseado em função). O RBAC se concentra nas ações do **usuário** em escopos diferentes. Por exemplo, você é adicionado à função de colaborador de um grupo de recursos no escopo do desejado, para que você possa fazer alterações a esse grupo de recursos. Diretiva enfoca **recursos** propriedades durante a implantação. Por exemplo, por meio de políticas, é possível controlar os tipos de recursos que podem ser provisionados ou restringir os locais em que os recursos podem ser provisionados. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita. 
+Há algumas diferenças importantes entre a política e o RBAC (controle de acesso baseado em função). O RBAC se concentra nas ações do **usuário** em escopos diferentes. Por exemplo, você é adicionado à função de colaborador de um grupo de recursos no escopo do desejado, para que você possa fazer alterações a esse grupo de recursos. Diretiva enfoca **recursos** propriedades durante a implantação. Por exemplo, por meio de políticas, você pode controlar os tipos de recursos que podem ser provisionados. Ou você pode restringir os locais em que os recursos podem ser provisionados. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita. 
 
 Para usar políticas, você deve estar autenticado pelo RBAC. Especificamente, a conta precisa de:
 
@@ -232,7 +232,7 @@ O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
 ## <a name="aliases"></a>Aliases
 
-Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. 
+Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. Os aliases permitem restringir quais valores ou condições são permitidas para uma propriedade em um recurso. Cada alias é mapeado para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação de política, o mecanismo de políticas obtém o caminho de propriedade para essa versão de API.
 
 **Microsoft.Cache/Redis**
 
@@ -264,6 +264,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 | Alias | Descrição |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Defina o identificador da imagem usada para criar a máquina virtual. |
 | Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
@@ -288,6 +289,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 | Alias | Descrição |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Defina o identificador da imagem usada para criar a máquina virtual. |
 | Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/imageSku | Defina a SKU da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |

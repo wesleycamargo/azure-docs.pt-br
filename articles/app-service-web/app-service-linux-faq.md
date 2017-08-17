@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -56,7 +55,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?
 
-**R:** Para configurar a integração/implantação contínua para imagens do Hub do Docker, verifique o seguinte artigo [Implantação contínua do DockerHub com o Aplicativo Web no Linux](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
+**R:** Para configurar a integração/implantação contínua para o Registro de Contêiner do Azure ou imagens do DockerHub, verifique o artigo [Implantação contínua com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
 
 **P:** Há suporte para ambientes de preparo?
 
@@ -64,7 +63,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Posso usar **implantação da web** implantar meu aplicativo web?
 
-**R:** Sim, você precisa definir um aplicativo de configuração chamado `UseWebDeployScm` para `false`.
+**R:** Sim, você precisa definir um aplicativo de configuração chamado `WEBSITE_WEBDEPLOY_USE_SCM` para `false`.
 
 ## <a name="language-support"></a>Suporte ao idioma
 
@@ -104,7 +103,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Meu contêiner personalizado escuta uma porta diferente da porta 80. Como configurar meu aplicativo para rotear as solicitações para essa porta?
 
-**R:** Nós temos a detecção automática da porta, além disso, é possível especificar uma configuração de aplicativo chamada **PORT** e fornecer a ela o valor do número da porta esperada.
+**R:** Nós temos detecção automática da porta; além disso, é possível especificar uma configuração de aplicativo chamada **WEBSITES_PORT** e fornecer a ela o valor do número da porta esperada. A plataforma estava usando a configuração de aplicativo `PORT` anteriormente, estamos planejando substituir o uso dessa configuração de aplicativo e passar a usar exclusivamente `WEBSITES_PORT`.
 
 **P:** É necessário implementar o HTTPS no meu contêiner personalizado?
 
@@ -131,5 +130,5 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 * [Criando Aplicativos Web no Aplicativo Web do Azure no Linux](app-service-linux-how-to-create-web-app.md)
 * [Suporte de SSH para o Aplicativo Web do Azure no Linux](./app-service-linux-ssh-support.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](./web-sites-staged-publishing.md)
-* [Implantação contínua do Hub do Docker com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md)
+* [Implantação contínua com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md)
 

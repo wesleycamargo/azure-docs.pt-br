@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Este guia resume as soluções de problemas comuns encontrados no Gerenciador de
 
 ## <a name="sign-in-issues"></a>Problemas de entrada
 
-Antes de continuar, tente reiniciar o aplicativo e verifique se os problemas podem ser corrigidos.
+Somente contas do AAD (Azure Active Directory) têm suporte. Se você usar uma conta do ADFS, espera-se que a entrada no Gerenciador de Armazenamento não funcione. Antes de continuar, tente reiniciar o aplicativo e verifique se os problemas podem ser corrigidos.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erro: Certificado autoassinado na cadeia confiável
 

@@ -5,10 +5,11 @@
 ## [Segurança de computação](security-virtual-machines-overview.md)
 ## [Segurança operacional](azure-operational-security-overview.md)
 ## [Gerenciamento e monitoramento de segurança](security-management-and-monitoring-overview.md)
+## [Segurança do Service Fabric](azure-service-fabric-security-overview.md)
 ## [Gerenciamento de identidades](security-identity-management-overview.md)
 ## [Segurança da IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Arquitetura de segurança](azure-security-architecture-overview.md)
-### [Segurança operacional](azure-operational-security.md)
+### [Habilitação de segurança operacional](azure-operational-security.md)
 ### [Detecção avançada de ameaças](azure-threat-detection.md)
 ### [Log e auditoria](azure-log-audit.md)
 ### [Isolamento na nuvem pública](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Solução de problemas da Criptografia do disco](azure-security-disk-encryption-tsg.md)
 ### [Criptografar uma VM do Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Segurança operacional
+### [Práticas recomendadas de segurança operacional](azure-operational-security-best-practices.md)
+
 ## Gerenciamento e monitoramento de segurança
 ### [Gerenciamento de segurança](azure-security-management.md)
 ### [Central de Segurança do Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Integrar os alertas da Central de Segurança](security-azure-log-integration-security-center.md)
 #### [Integrar os logs do Key Vault usando Hubs de Eventos](security-azure-log-integration-keyvault-eventhub.md)
 #### [Perguntas frequentes](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Práticas recomendadas do Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Lista de verificação do Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Gerenciamento de identidades
 ### [Práticas recomendadas de segurança de gerenciamento de identidade](azure-security-identity-management-best-practices.md)

@@ -15,27 +15,31 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 094ae187ec8ba5ff38f174ee4cf139d30db7e057
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c3e93614f012eecff0e88f5f2ad13db199406f4a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="customize-web-application-firewall-rules-through-the-portal"></a>Personalizar as regras de firewall de aplicativo Web por meio do portal
 
-O firewall de aplicativo Web de Gateway de Aplicativo fornece proteção para aplicativos Web. Essas proteções são fornecidas pelos conjuntos de regras OWASP CRS. Algumas regras podem causar falsos positivos e bloquear o tráfego real.  Por esse motivo, o gateway de aplicativo fornece a capacidade de personalizar grupo de regras e regras em um gateway de aplicativo com firewall do aplicativo Web habilitado. Para obter mais informações sobre os grupos de regras e regras específicas, visite [regras e grupos de regras CRS de firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md)
+> [!div class="op_single_selector"]
+> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
+> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
+> * [CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md)
+
+O firewall de aplicativo Web de Gateway de Aplicativo fornece proteção para aplicativos Web. Essas proteções são fornecidas pelos conjuntos de regras OWASP CRS. Algumas regras podem causar falsos positivos e bloquear o tráfego real.  Por esse motivo, o Gateway de Aplicativo fornece a capacidade de personalizar regras e grupos de regras em um Gateway de Aplicativo com firewall do aplicativo Web habilitado. Para obter mais informações sobre os grupos de regras e regras específicas, visite [regras e grupos de regras CRS de firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md)
 
 >[!NOTE]
 > Se o gateway de aplicativo não estiver usando a camada de WAF, será exibida a opção para atualizar o gateway de aplicativo para a camada de WAF, conforme mostrado na imagem a seguir:
 
-![habilitar waf][fig1]
+![habilitar WAF][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>Exibir grupos de regras e regras
 
-Navegue para um gateway de aplicativo e selecione **Firewall do aplicativo Web**.  Clique em **Configuração de regra avançada**.  Isso mostra uma tabela na página de todos os grupos de regras fornecidos com o conjunto de regras escolhido.
+Navegue para um gateway de aplicativo e selecione **Firewall do aplicativo Web**.  Clique em **Configuração de regra avançada**.  Essa exibição mostra uma tabela na página de todos os grupos de regras fornecidos com o conjunto de regras escolhido.
 
 ![configurar regras desabilitadas][1]
 
@@ -47,13 +51,13 @@ A folha de configurações de firewall do aplicativo Web fornece a capacidade de
 
 ## <a name="disable-rule-groups-and-rules"></a>Desabilitar regras e grupos de regras
 
-Ao desabilitar regras, você pode desabilitar um grupo de regras inteiro ou regras específicas em um ou mais grupos de regras.  Quando as regras que você deseja desabilitar estiverem desmarcadas, clique em **Salvar**.  Isso salva as alterações para o gateway de aplicativo.
+Ao desabilitar regras, você pode desabilitar um grupo de regras inteiro ou regras específicas em um ou mais grupos de regras.  Quando as regras que você deseja desabilitar estiverem desmarcadas, clique em **Salvar**.  Essa etapa salva as alterações para o Gateway de Aplicativo.
 
 ![salvar alterações][3]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que você configurar suas regras desabilitadas, saiba como exibir os logs de WAF visitando [Diagnóstico de Gateway de Aplicativo](application-gateway-diagnostics.md#diagnostic-logs)
+Depois que você configurar suas regras desabilitadas, saiba como exibir os logs de WAF visitando [Diagnóstico de Gateway de Aplicativo](application-gateway-diagnostics.md#diagnostic-logging)
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

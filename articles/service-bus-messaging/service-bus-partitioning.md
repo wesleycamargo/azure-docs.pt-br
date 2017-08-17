@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
@@ -32,6 +31,7 @@ O particionamento é habilitado por padrão na criação da entidade em todos os
 Não é possível alterar a opção de particionamento em uma fila ou um tópico existente nas camadas Standard e Premium. Você pode definir a opção apenas quando cria a entidade.
 
 ## <a name="how-it-works"></a>Como ele funciona
+
 Cada fila ou tópico particionado consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente e manipulado por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
 
 Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma assinatura de um tópico particionado, o Barramento de Serviço consulta todos os fragmentos de mensagens e, em seguida, retorna a primeira mensagem obtida de qualquer um dos repositórios de mensagens para o destinatário. O Barramento de Serviço armazena em cache as outras mensagens e as retorna ao receber solicitações de recebimento adicionais. Um cliente receptor não está ciente do particionamento; o comportamento voltado para o cliente de uma fila ou um tópico particionado (por exemplo, ler, concluir, adiar, colocar mensagem na fila de mensagens mortas, executar pré-busca) é idêntico ao comportamento de uma entidade regular.
@@ -39,6 +39,7 @@ Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma
 Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tópico particionado.
 
 ## <a name="enable-partitioning"></a>Habilitar particionamento
+
 Para usar filas e tópicos particionados com o Barramento de Serviço do Azure, use o SDK do Azure versão 2.2 ou posterior, ou especifique `api-version=2013-10` em suas solicitações HTTP.
 
 ### <a name="standard"></a>Standard

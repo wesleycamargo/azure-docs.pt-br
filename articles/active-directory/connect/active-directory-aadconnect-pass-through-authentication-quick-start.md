@@ -12,33 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c1bc7cc5fe53d04019f68a520fb03c9187a6148b
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: e5fb323090d8c3a533199b396047a1c63b5ae9f4
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: início rápido
 
-A autenticação de passagem do Azure AD (Azure Active Directory) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Ela permite a entrada de usuários validando suas senhas diretamente no Active Directory local.
-
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Como implantar a autenticação de passagem do Azure AD
 
-Para implantar autenticação de passagem, você precisa seguir estas etapas:
-1. *Verificar pré-requisitos*: configure o seu ambiente local e de locatário corretamente antes de habilitar o recurso.
-2. *Habilitar o recurso*: ative a autenticação de passagem em seu locatário e instale um agente local leve para manipular as solicitações de validação de senha.
-3. *Testar o recurso*: teste a entrada de usuário usando a autenticação de passagem.
-4. *Garantir a alta disponibilidade*: instale um segundo agente autônomo para fornecer alta disponibilidade às solicitações de logon.
+A autenticação de passagem do Azure AD (Azure Active Directory) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Ela permite a entrada de usuários validando suas senhas diretamente no Active Directory local.
+
+>[!IMPORTANT]
+>A autenticação de passagem do Azure AD está atualmente na versão prévia. Se você está usando esse recurso por meio da versão prévia, é necessário atualizar as versões prévias dos Agentes de autenticação usando as instruções fornecidas [aqui](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+
+Você precisa seguir estas instruções para implantar a Autenticação de passagem:
 
 ## <a name="step-1-check-prerequisites"></a>Etapa 1: verificar pré-requisitos
 
 Verifique se os seguintes pré-requisitos estão em vigor:
 
-### <a name="on-the-azure-portal"></a>No portal do Azure
+### <a name="on-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
 
 1. Crie uma conta Administrador Global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário caso seus serviços locais falhem ou fiquem indisponíveis. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). Executar essa etapa é essencial para garantir que você não seja bloqueado de seu locatário.
 2. Adicione um ou mais [nomes de domínio personalizados](../active-directory-add-domain.md) ao seu locatário do Azure AD. Os usuários entram usando um desses nomes de domínio.
@@ -46,14 +45,40 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
 1. Identifique um servidor que execute o Windows Server 2012 R2 ou posterior para executar o Azure AD Connect. Adicione o servidor à mesma floresta do AD como os usuários cujas senhas precisam ser validadas.
-2. Instale a [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado na Etapa 2. Se o Azure AD Connect já estiver em execução, verifique se a versão é 1.1.486.0 ou posterior.
-3. Identifique um servidor adicional executando o Windows Server 2012 R2 ou posterior no qual o Agente de Autenticação autônomo será executado. A versão do Agente de Autenticação precisa ser a 1.5.58.0 ou posterior. Este servidor é necessário para garantir a alta disponibilidade das solicitações de entrada. Adicione o servidor à mesma floresta do AD como os usuários cujas senhas precisam ser validadas.
+2. Instale a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado na etapa anterior. Se o Azure AD Connect já está em execução, verifique se a versão é a 1.1.557.0 ou posterior.
+3. Identifique um servidor adicional executando o Windows Server 2012 R2 ou posterior no qual o Agente de Autenticação autônomo será executado. A versão do Agente de autenticação precisa ser a 1.5.193.0 ou posterior. Este servidor é necessário para garantir a alta disponibilidade das solicitações de entrada. Adicione o servidor à mesma floresta do AD como os usuários cujas senhas precisam ser validadas.
 4. Se houver um firewall entre os servidores e o Azure AD, será necessário configurar os seguintes itens:
-   - Abra as portas: verifique se os agentes de autenticação nos seus servidores podem fazer solicitações de saída para o Azure AD pelas portas 80 e 443. Se o firewall impõe as regras de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede.
-   - Permita os pontos de extremidade do Azure AD: se a filtragem de URL estiver habilitada, verifique se os agentes de autenticação podem se comunicar com **\*.msappproxy.net** e **\*.servicebus.windows.net**.
-   - Verifique as conexões de IP diretas: verifique se os agentes de autenticação nos seus servidores podem fazer conexões de IP diretas com os [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+   - Certifique-se de que os Agentes de Autenticação podem fazer solicitações de **saída** ao Azure AD sobre as seguintes portas:
+   
+   | Número da porta | Como ele é usado |
+   | --- | --- |
+   | **80** | Baixando as CRLs (listas de certificados revogados) ao validar o certificado SSL |
+   | **443** | Toda a comunicação de saída com o nosso serviço |
+   
+   Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços do Windows que são executados como um serviço de rede.
+   - Se o seu firewall ou proxy permitirem lista de permissões de DNS, adicione as conexões a **\*msappproxy.net** e **\*servicebus.windows.net** à lista de permissões. Caso contrário, permita acesso aos [Intervalos de IP do DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
+   - Os seus Agentes de Autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial, portanto, abra seu firewall para essas URLs também.
+   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www.microsoft.com:80**. Essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, então você talvez já tenha essas URLs desbloqueadas.
 
-## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
+## <a name="step-2-enable-exchange-activesync-support-optional"></a>Etapa 2: Habilitar o suporte do Exchange ActiveSync (opcional)
+
+Siga estas instruções para habilitar o suporte do Exchange ActiveSync:
+
+1. Use o [PowerShell do Exchange](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) para executar o comando a seguir:
+```
+Get-OrganizationConfig | fl per*
+```
+
+2. Verifique o valor da configuração `PerTenantSwitchToESTSEnabled`. Se o valor for **true**, seu locatário está configurado corretamente - esse é geralmente o caso para a maioria dos clientes. Se o valor for **false**, execute o seguinte comando:
+```
+Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
+```
+
+3. Verifique se o valor da configuração `PerTenantSwitchToESTSEnabled` agora está definida como **true**. Aguarde uma hora antes de passar para a próxima etapa.
+
+Se você enfrentar problemas durante esta etapa, verifique nosso [guia de solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues) para obter mais informações.
+
+## <a name="step-3-enable-the-feature"></a>Etapa 3: Habilitar o recurso
 
 A autenticação de passagem pode ser habilitada usando o [Azure AD Connect](active-directory-aadconnect.md).
 
@@ -69,32 +94,37 @@ Se você já tiver instalado o Azure AD Connect (usando o caminho de [instalaç�
 ![Azure AD Connect – Alterar entrada do usuário](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário.
+>A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando do AD FS para Autenticação de Passagem, recomendamos que você aguarde pelo menos 12 horas antes de desligar a infraestrutura do AD FS - esse tempo de espera é para garantir que os usuários podem continuar entrando no Exchange ActiveSync durante a transição.
 
-## <a name="step-3-test-the-feature"></a>Etapa 3: testar o recurso
+## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 
-Após a Etapa 2, os usuários de todos os domínios gerenciados no seu locatário entrarão usando a autenticação de passagem. No entanto, os usuários de domínios federados continuam a entrar usando o Serviços de Federação do Active Directory (AD FS) ou outro provedor de federação que já esteja configurado. Se você converter um domínio de federado para gerenciado, todos os usuários nesse domínio passarão automaticamente a entrar usando a autenticação de passagem. Os usuários somente em nuvem não são afetados pelo recurso de autenticação de passagem.
+Siga estas instruções para verificar se você habilitou a Autenticação de passagem corretamente:
 
-## <a name="step-4-ensure-high-availability"></a>Etapa 4: Verificar a alta disponibilidade
+1. Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do Administrador Global do seu locatário.
+2. Selecione **Azure Active Directory** na navegação à esquerda.
+3. Selecione **Azure AD Connect**.
+4. Verifique se o recurso **Autenticação de passagem** aparece como **Habilitado**.
+5. Selecione **Autenticação de passagem**. Essa folha lista os servidores em que os Agentes de autenticação estão instalados.
+
+![Centro de administração do Azure Active Directory - folha Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Centro de administração do Azure Active Directory - folha Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
+
+Nesse momento, os usuários de todos os domínios gerenciados no seu locatário podem entrar usando a Autenticação de passagem. No entanto, os usuários de domínios federados continuam a entrar usando o Serviços de Federação do Active Directory (AD FS) ou outro provedor de federação que já esteja configurado. Se você converter um domínio de federado para gerenciado, todos os usuários nesse domínio passarão automaticamente a entrar usando a autenticação de passagem. Os usuários somente em nuvem não são afetados pelo recurso de autenticação de passagem.
+
+## <a name="step-5-ensure-high-availability"></a>Etapa 5: Verificar a alta disponibilidade
 
 Se você planeja implantar autenticação de passagem em um ambiente de produção, instale um Agente de Autenticação autônomo. Instale esse segundo Agente de Autenticação em um servidor _que não seja_ o que está executando o Azure AD Connect e o primeiro Agente de Autenticação. Esta instalação fornece alta disponibilidade para solicitações de entrada. Siga estas instruções para implantar um Agente de Autenticação autônomo:
 
-### <a name="download-and-install-the-authentication-agent-software-on-your-server"></a>Baixe e instale o software do Agente de Autenticação no servidor
+1. **Baixe a versão mais recente do Agente de Autenticação (versões 1.5.193.0 ou posteriores)**: entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de Administrador Global do seu locatário.
+2. Selecione **Azure Active Directory** na navegação à esquerda.
+3. Selecione **Azure AD Connect** e, em seguida, **Autenticação de passagem**. E selecione **Baixar agente**.
+4. Clique no botão **Aceitar termos e baixar**.
+5. **Instalar a versão mais recente do Agente de Autenticação**: Execute o executável baixado na etapa anterior. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
 
-1.  [Baixe](https://go.microsoft.com/fwlink/?linkid=837580) o software mais recente do Agente de Autenticação. Verifique se a versão é 1.5.58.0 ou posterior.
-2.  Abra o prompt de comando como administrador.
-3.  Execute o seguinte comando (a opção **/q** significa "instalação silenciosa" – a instalação não solicitará que você aceite os termos de licença):`
-AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-`
+![Centro de administração do Azure Active Directory - botão de Baixar Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
->[!NOTE]
->Você pode instalar apenas um único Agente de Autenticação por servidor.
-
-### <a name="register-the-authentication-agent-with-azure-ad"></a>Registrar o Agente de Autenticação no Azure AD
-
-1.  Abra uma janela do PowerShell como administrador.
-2.  Navegue até **C:\Program Files\Microsoft AAD App Proxy Conector** e execute o script conforme demonstrado a seguir: `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.  Quando solicitado, insira as credenciais de sua conta de Administrador Global no locatário do Azure AD.
+![Centro de administração do Azure Active Directory - folha para Baixar Agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.

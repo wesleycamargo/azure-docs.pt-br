@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -76,7 +75,7 @@ Faça cópias dos arquivos originais, caso você precise voltar para os arquivos
 
 Como mencionado antes, alguns ambientes requerem que todo o tráfego de saída passe por um proxy de saída, sem exceção. Consequentemente, ignorar o proxy não é uma opção.
 
-Você pode configurar que o tráfego do conector passe pelo proxy de saída, como mostrado no diagrama a seguir.
+Você pode configurar que o tráfego do conector passe pelo proxy de saída, como mostrado no diagrama a seguir:
 
  ![Configurar o tráfego do conector para passar por um proxy de saída para o Proxy do Aplicativo do Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -126,14 +125,10 @@ Para o registro inicial, permita o acesso aos seguintes pontos de extremidade:
 * login.windows.net
 * login.microsoftonline.com
 
-Os canais de controle subjacentes do Barramento de Serviço que o serviço do conector usa também requerem uma conectividade com endereços IP específicos. Até o Barramento de Serviço ir para um FQDN, há duas opções:
+Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
 * permitir o acesso de saída do conector para todos os destinos.
-* permitir o acesso de saída do conector para os [intervalos IP do datacenter do Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisará implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo.
->
+* permitir o acesso de saída do conector para os [intervalos IP do datacenter do Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo.
 
 #### <a name="proxy-authentication"></a>Autenticação do proxy
 
@@ -141,18 +136,15 @@ No momento, não há suporte à autenticação do proxy. Nossa recomendação at
 
 #### <a name="proxy-ports"></a>Portas do proxy
 
-O conector faz conexões de saída baseadas em SSL usando o método CONNECT. Basicamente, esse método configura um túnel pelo proxy de saída. Alguns servidores proxy, por padrão, permitem o túnel de saída somente para as portas SSL padrão, como a 443. Se for este o caso, o servidor proxy precisará ser configurado para permitir o túnel para portas adicionais.
-
-Configure o servidor proxy para permitir o túnel para as portas SSL não padrão 8080, 9090, 9091 e 10100-10120.
+O conector faz conexões de saída baseadas em SSL usando o método CONNECT. Basicamente, esse método configura um túnel pelo proxy de saída. Configure o servidor proxy para permitir o túnel para as portas 443 e 80.
 
 >[!NOTE]
 >Quando o Barramento de Serviço for executado por HTTPS, ele usará a porta 443. No entanto, por padrão, o Barramento de Serviço tenta as conexões TCP diretas e voltará para o HTTPS somente se a conectividade direta falhar.
->
 
 Para garantir que o tráfego do Barramento de Serviço também seja enviado pelo servidor proxy de saída, verifique se o conector não pode conectar diretamente os serviços do Azure pelas portas 9350, 9352 e 5671.
 
 #### <a name="ssl-inspection"></a>Inspeção SSL
-Não use a inspeção SSL para o tráfego do conector, pois isso causará problemas no tráfego dele.
+Não use a inspeção SSL para o tráfego do conector, pois isso causa problemas no tráfego dele.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solucionar problemas do proxy do conector e problemas de conectividade do serviço
 Agora, você deve ver todo o tráfego fluindo pelo proxy. Se você tiver problemas, as seguintes informações de solução de problemas deverão ajudar.
@@ -195,11 +187,11 @@ Um filtro é como a seguir (onde 8080 é a porta do serviço proxy):
 
 Se você inserir esse filtro na janela **Filtro de Exibição** e selecionar **Aplicar**, ele filtrará o tráfego capturado com base no filtro.
 
-O filtro anterior mostrará apenas as solicitações e respostas HTTP para/da porta do proxy. Para a inicialização de um conector, na qual ele está configurado para usar um servidor proxy, o filtro mostraria algo assim:
+O filtro anterior mostra apenas as solicitações e respostas HTTP para/da porta do proxy. Para a inicialização de um conector, na qual ele está configurado para usar um servidor proxy, o filtro mostraria algo assim:
 
  ![Lista de exemplo das solicitações e respostas HTTP filtradas](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-Agora, você está procurando especificamente as solicitações CONNECT que mostram a comunicação com o servidor proxy. No caso de sucesso, você receberá uma resposta HTTP OK (200).
+Agora, você está procurando especificamente as solicitações CONNECT que mostram a comunicação com o servidor proxy. No caso de êxito, você obterá uma resposta HTTP OK (200).
 
 Se você vir outros códigos de resposta, como 407 ou 502, o proxy está exigindo autenticação ou não está permitindo o tráfego por algum outro motivo. Neste ponto, você interage com a equipe de suporte do servidor proxy.
 

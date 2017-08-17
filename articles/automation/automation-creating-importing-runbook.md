@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 0264de12caaf62e976673a423df731ad27ab01e0
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Criando ou importando um runbook na Automação do Azure
@@ -36,7 +37,7 @@ No portal do Azure, você só poderá trabalhar com os [runbooks do Fluxo de Tra
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Para criar um novo runbook da Automação do Azure com o portal do Azure
 1. No portal do Azure, abra sua conta da Automação.
-2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
+2. No Hub, selecione **Runbooks** para abrir a lista de runbooks.
 3. Clique no botão **Adicionar um runbook** e em **Criar um novo runbook**.
 4. Digite um **Nome** para o runbook e selecione seu [Tipo](automation-runbook-types.md). O nome do runbook deve começar com uma letra e pode ter letras, números, sublinhados e traços.
 5. Clique em **Criar** para criar o runbook e abrir o editor.
@@ -75,7 +76,7 @@ Você pode usar o procedimento a seguir para importar um arquivo de script para 
 > 
 
 1. No portal do Azure, abra sua conta da Automação.
-2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
+2. No Hub, selecione **Runbooks** para abrir a lista de runbooks.
 3. Clique no botão **Adicionar um runbook** e em **Importar**.
 4. Clique em **Arquivo de runbook** para selecionar o arquivo a ser importado
 5. Se o campo **Nome** estiver habilitado, você terá a opção de alterá-lo.  O nome do runbook deve começar com uma letra e pode ter letras, números, sublinhados e traços.
@@ -131,10 +132,5 @@ Você pode usar o cmdlet [Publish-AzureRmAutomationRunbook](https://msdn.microso
 * Para saber mais sobre como você pode aproveitar a Galeria de Módulos do PowerShell e do Runbook, consulte [Galerias de runbook e de módulos para a Automação do Azure](automation-runbook-gallery.md)
 * Para saber mais sobre como editar runbooks do PowerShell e do Fluxo de Trabalho do PowerShell com um editor de texto, consulte [Editando runbooks textuais na Automação do Azure](automation-edit-textual-runbook.md)
 * Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

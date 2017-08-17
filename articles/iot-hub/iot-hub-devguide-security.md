@@ -12,19 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6287fa716c708cf35a5d124756c488929a93b435
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
-
-## <a name="overview"></a>Visão geral
 
 Esta seção descreve as opções para proteger o Hub IoT. O Hub IoT usa *permissões* para conceder acesso a cada ponto de extremidade do Hub IoT. As permissões limitam o acesso a um hub IoT com base na funcionalidade.
 
@@ -117,15 +114,18 @@ Esse mecanismo é semelhante à [política do editor dos Hubs de Eventos][lnk-ev
 
 ## <a name="security-tokens"></a>Tokens de segurança
 
-O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os [SDKs do IoT do Azure][lnk-sdks] geram tokens automaticamente sem precisar de configuração especial. No entanto, alguns cenários exigem que você gere e use tokens de segurança diretamente. Nesses cenários estão o uso direto de superfícies MQTT, AMQP ou HTTP, ou a implementação do padrão de serviço de token, conforme explicado em [Autenticação personalizada de dispositivo][lnk-custom-auth].
+O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os [SDKs do IoT do Azure][lnk-sdks] geram tokens automaticamente sem precisar de configuração especial. Alguns cenários exigem que você gere e use tokens de segurança diretamente. Esses cenários incluem:
 
-O Hub IoT também permite que os dispositivos se autentiquem no Hub IoT usando [certificados X.509][lnk-x509]. 
+* O uso direto de superfícies de MQTT, AMQP ou HTTP.
+* A implementação do padrão de serviço de token, conforme explicado em [Autenticação de dispositivo personalizada][lnk-custom-auth].
+
+O Hub IoT também permite que os dispositivos se autentiquem no Hub IoT usando [certificados X.509][lnk-x509].
 
 ### <a name="security-token-structure"></a>Estrutura do token de segurança
 
-Você usa tokens de segurança para conceder aos dispositivos e serviços acesso de tempo limitado à funcionalidade específica do Hub IoT. Para garantir que somente os dispositivos e serviços autorizados possam se conectar, os tokens de segurança devem ser assinados com uma chave de acesso compartilhado ou uma chave simétrica. Essas chaves são armazenadas com uma identidade de dispositivo no registro de identidade.
+Você usa tokens de segurança para conceder aos dispositivos e serviços acesso de tempo limitado à funcionalidade específica do Hub IoT. Para obter autorização para se conectar ao Hub IoT, os dispositivos e serviços devem enviar tokens de segurança assinados com um acesso compartilhado ou uma chave simétrica. Essas chaves são armazenadas com uma identidade de dispositivo no registro de identidade.
 
-Um token assinado com uma chave de acesso compartilhada concede acesso a todas funcionalidades associadas às permissões da política de acesso compartilhado. Por outro lado, um token assinado com uma chave simétrica de uma identidade de dispositivo apenas concede a permissão **DeviceConnect** para a identidade do dispositivo associado.
+Um token assinado com uma chave de acesso compartilhada concede acesso a todas funcionalidades associadas às permissões da política de acesso compartilhado. Um token assinado com uma chave simétrica de uma identidade de dispositivo apenas concede a permissão **DeviceConnect** para a identidade do dispositivo associado.
 
 O token de segurança tem o seguinte formato:
 
@@ -242,14 +242,14 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 
-Ao criar um token de uma política de acesso compartilhado, o campo de nome da política `skn` deve ser definido como o nome da política usada. Também é necessário que a política conceda a permissão **DeviceConnect** .
+Ao criar um token a partir de uma política de acesso compartilhado, defina o campo `skn` como o nome da política. Essa política deve conceder a permissão **DeviceConnect**.
 
 Os dois cenários principais para usar as políticas de acesso compartilhado para acessar a funcionalidade do dispositivo são:
 
 * [gateways de protocolo em nuvem][lnk-endpoints],
 * [serviços de token][lnk-custom-auth] usados para implementar esquemas de autenticação personalizada.
 
-Como a política de acesso compartilhado pode conceder acesso de conexão como qualquer dispositivo, é importante usar o URI do recurso correto durante a criação dos tokens de segurança. Isso é especialmente importante para os serviços de token, que precisam estabelecer o escopo do token para um dispositivo específico usando o URI do recurso. Esse ponto é menos relevante para os gateways de protocolo, pois eles já estão mediando o tráfego para todos os dispositivos.
+Como a política de acesso compartilhado pode conceder acesso de conexão como qualquer dispositivo, é importante usar o URI do recurso correto durante a criação dos tokens de segurança. Essa configuração é especialmente importante para os serviços de token, que precisam estabelecer o escopo do token para um dispositivo específico usando o URI do recurso. Esse ponto é menos relevante para os gateways de protocolo, pois eles já estão mediando o tráfego para todos os dispositivos.
 
 Por exemplo, um serviço de token usando a política de acesso compartilhado criada anteriormente chamada **dispositivo** criaria um token com os seguintes parâmetros:
 
@@ -278,7 +278,7 @@ Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, s
 
 Os componentes de serviço só podem gerar tokens de segurança usando políticas de acesso compartilhado que concedem as permissões apropriadas, conforme explicado anteriormente.
 
-Veja as funções de serviço expostas nos pontos de extremidade:
+Estas são as funções de serviço expostas nos pontos de extremidade:
 
 | Ponto de extremidade | Funcionalidade |
 | --- | --- |
@@ -312,7 +312,7 @@ Você pode usar qualquer certificado X.509 para autenticar um dispositivo com o 
 
 * **Um certificado X.509 existente**. Talvez um dispositivo já tenha um certificado X.509 associado a ele. O dispositivo pode usar este certificado para se autenticar no Hub IoT.
 * **Um certificado X-509 gerado automaticamente e autoassinado**. Um fabricante de dispositivos ou um implantador interno pode gerar esses certificados e armazenar a chave privada correspondente (e o certificado) no dispositivo. Você pode usar ferramentas como o [OpenSSL][lnk-openssl] e o utilitário [SelfSignedCertificate][lnk-selfsigned] do Windows para essa finalidade.
-* **Certificado X.509 assinado por autoridade de certificação**. Você também pode usar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA) para identificar um dispositivo e autenticar um dispositivo no Hub IoT. O Hub IoT apenas verifica se a impressão digital apresentada corresponde à impressão digital configurada. Ele não valida a cadeia de certificados.
+* **Certificado X.509 assinado por autoridade de certificação**. Para identificar um dispositivo e autenticá-lo com um Hub IoT, você pode usar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (AC). O Hub IoT apenas verifica se a impressão digital apresentada corresponde à impressão digital configurada. Ele não valida a cadeia de certificados.
 
 Um dispositivo pode usar um certificado X.509 ou um token de segurança para autenticação, mas não ambos.
 
@@ -350,7 +350,7 @@ O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou
 
 ### <a name="c-support"></a>Suporte a C\#
 
-A classe **DeviceAuthenticationWithX509Certificate** dá suporte à criação de instâncias  **DeviceClient** usando um certificado X.509. O certificado X.509 deve estar no formato PFX (também chamado de PKCS nº 12) que inclui a chave privada.
+A classe **DeviceAuthenticationWithX509Certificate** dá suporte à criação de instâncias **DeviceClient** usando um certificado X.509. O certificado X.509 deve estar no formato PFX (também chamado de PKCS nº 12) que inclui a chave privada.
 
 Veja um trecho de código de exemplo:
 
@@ -362,7 +362,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-authentication"></a>Autenticação personalizada de dispositivo
 
-Você pode usar o [registro de identidade][lnk-identity-registry] do Hub IoT para configurar credenciais de segurança e controle de acesso por dispositivo usando [tokens][lnk-sas-tokens]. No entanto, se uma solução IoT já tiver um investimento considerável em um registro de identidade personalizado e/ou em um esquema de autenticação, você poderá integrar essa infraestrutura existente ao Hub IoT por meio da criação de um *serviço de token*. Dessa forma, você pode usar outros recursos de IoT em sua solução.
+Você pode usar o [registro de identidade][lnk-identity-registry] do Hub IoT para configurar credenciais de segurança e controle de acesso por dispositivo usando [tokens][lnk-sas-tokens]. Se uma solução IoT já tiver um registro de identidade personalizado e/ou esquema de autenticação, considere a criação de um *serviço de token* para integrar essa infraestrutura existente ao Hub IoT. Dessa forma, você pode usar outros recursos de IoT em sua solução.
 
 Um serviço de token é um serviço de nuvem personalizado. Ele usa uma *política de acesso compartilhado* do Hub IoT com permissões **DeviceConnect** para criar tokens *device-scoped*. Esses tokens permitem que um dispositivo se conecte ao seu Hub IoT.
 
@@ -380,11 +380,11 @@ Estas são as principais etapas do padrão de serviço do token:
 
 O serviço de token pode definir a expiração do token como desejado. Quando o token expira, o Hub IoT rompe a conexão do dispositivo. Em seguida, o dispositivo deve solicitar um novo token ao serviço de token. Um tempo de expiração curto aumenta a carga no dispositivo e no serviço de token.
 
-Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao registro de identidades do Hub IoT, mesmo se o dispositivo estiver usando um token e não uma chave de dispositivo para se conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo habilitando ou desabilitando as identidades de dispositivo no [registro de identidade do Hub IoT][lnk-identity-registry] quando o dispositivo for autenticado com um token. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
+Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao registro de identidades do Hub IoT, mesmo se o dispositivo estiver usando um token e não uma chave de dispositivo para se conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo habilitando ou desabilitando as identidades de dispositivo no [registro de identidade][lnk-identity-registry]. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparação com um gateway personalizado
 
-O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo de tal cenário é usar [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway do protocolo][lnk-protocols].
+O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. Esse padrão é recomendado porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, se o esquema de autenticação personalizado estiver entremeado com o protocolo, você poderá exigir um *gateway personalizado* para processar todo o tráfego. Um exemplo de tal cenário é usar [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway do protocolo][lnk-protocols].
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 
@@ -406,9 +406,9 @@ A tabela a seguir lista as permissões que você pode usar para controlar o aces
 Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
-* [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
+* [Limitação e cotas][lnk-quotas] descreve as cotas e os comportamentos de limitação que se aplicam ao serviço Hub IoT.
 * [SDKs de dispositivo e serviço IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
-* [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
+* A [linguagem de consulta do Hub IoT][lnk-query] descreve a linguagem de consulta que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas

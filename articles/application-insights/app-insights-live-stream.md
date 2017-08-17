@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: sewhee
+ms.author: bwren
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
@@ -161,3 +161,4 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: o Fluxo de mét
 * [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 * [Criador de perfil](app-insights-profiler.md)
 * [Depurador instantâneo](app-insights-snapshot-debugger.md)
+
