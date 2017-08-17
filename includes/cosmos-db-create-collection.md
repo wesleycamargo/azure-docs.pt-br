@@ -12,7 +12,7 @@ Agora, você pode usar a ferramenta Data Explorer no Portal do Azure para criar 
     ID da coleção|Itens|O nome da nova coleção. Os nomes de coleção têm os mesmos requisitos de caractere que as IDs de banco de dados.
     Capacidade de armazenamento| Fixo (10 GB)|Use o valor padrão. Esse valor é a capacidade de armazenamento do banco de dados.
     Taxa de transferência|400 RU|Use o valor padrão. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
-    RU/m|Desativar|Mantenha o valor padrão. Se você precisar lidar com cargas de trabalho com pico de uso mais tarde, poderá ativar o recurso [RU/m](../articles/cosmos-db/request-units-per-minute.md).
+    RU/m|Desativar|Mantenha o valor padrão.
     Chave de partição|/category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. Para saber mais, veja [Design de particionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
 3. Depois de concluir o formulário, clique em **OK**.
 

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de gráfico usando o Java e o portal do Azure
@@ -61,7 +61,7 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     ID do Gráfico|gráfico de exemplo|A ID do novo gráfico. Os nomes de Gráfico possuem os mesmos requisitos de caractere que os ids de banco de dados.
     Capacidade de Armazenamento| 10 GB|Mantenha o valor padrão. Essa é a capacidade de armazenamento do banco de dados.
     Taxa de transferência|400 RUs|Mantenha o valor padrão. Você pode escalar verticalmente a taxa de transferência mais tarde se desejar reduzir a latência.
-    RU/m|Desativar|Mantenha o valor padrão. Se você precisar lidar com cargas de trabalho com pico de uso mais tarde, poderá ativar o recurso [RU/m](request-units-per-minute.md).
+    RU/m|Desativar|Mantenha o valor padrão.
     Chave de partição|Deixar em branco|Para este início rápido, deixe a chave de partição em branco.
 
 3. Quando o formulário estiver preenchido, clique em **OK**.

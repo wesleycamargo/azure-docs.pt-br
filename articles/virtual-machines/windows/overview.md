@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
@@ -38,7 +38,7 @@ Máquinas virtuais do Azure podem ser usadas de várias maneiras. Alguns exemplo
 O número de VMs que o aplicativo usa pode ser escalado verticalmente e horizontalmente para atender às suas necessidades.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>O que é necessário pensar antes de criar uma VM?
-Sempre há uma infinidade de [considerações de design](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) quando você cria uma infraestrutura de aplicativo no Azure. Estes aspectos de uma VM são importantes a considerar antes de começar:
+Sempre há uma infinidade de [considerações de design](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) quando você cria uma infraestrutura de aplicativo no Azure. Estes aspectos de uma VM são importantes a considerar antes de começar:
 
 * Os nomes dos recursos do aplicativo
 * O local onde os recursos são armazenados
@@ -49,7 +49,7 @@ Sempre há uma infinidade de [considerações de design](infrastructure-virtual-
 * Os recursos relacionados dos quais a VM precisa
 
 ### <a name="naming"></a>Nomenclatura
-Uma máquina virtual tem um [nome](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) atribuído a ela e tem um nome de computador configurado como parte do sistema operacional. O nome de uma VM pode ter até 15 caracteres.
+Uma máquina virtual tem um [nome](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) atribuído a ela e tem um nome de computador configurado como parte do sistema operacional. O nome de uma VM pode ter até 15 caracteres.
 
 Se você usar o Azure para criar o disco do sistema operacional, o nome do computador e o nome da máquina virtual serão os mesmos. Se você [carregar e usar sua própria imagem](upload-generalized-managed.md) que contém um sistema operacional previamente configurado e usá-la para criar uma máquina virtual, os nomes poderão ser diferentes. Recomendamos que, ao carregar seu próprio arquivo de imagem, você use o mesmo nome para o computador no sistema operacional e a máquina virtual.
 
@@ -106,7 +106,7 @@ Os recursos nesta tabela são usados por VM e precisam existir ou ser criados qu
 | [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Sim |A VM deve ser membro de uma rede virtual. |
 | [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Não |A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente. |
 | [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Sim |A VM precisa de interface de rede para se comunicar na rede. |
-| [Discos de dados](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não |A VM pode incluir discos de dados para expandir os recursos de armazenamento. |
+| [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não |A VM pode incluir discos de dados para expandir os recursos de armazenamento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como criar minha primeira VM?
 Você tem várias opções para criar a VM. A opção que você escolherá depende do ambiente em que está. 
@@ -142,7 +142,7 @@ Você usa o botão [Conectar](connect-logon.md?toc=%2fazure%2fvirtual-machines%2
 ### <a name="manage-availability"></a>Gerenciar disponibilidade
 É importante entender como [garantir a alta disponibilidade](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para o aplicativo. Essa configuração envolve a criação de várias VMs para garantir que pelo menos uma esteja em execução.
 
-Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um [conjunto de disponibilidade](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Essa configuração garante que as VMs sejam distribuídas entre vários domínios de falha e implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo.
+Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Essa configuração garante que as VMs sejam distribuídas entre vários domínios de falha e implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo.
 
 ### <a name="back-up-the-vm"></a>Fazer backup da VM
 Um [dos serviços de recuperação de cofre](../../backup/backup-introduction-to-azure-backup.md) é usado para proteger dados e ativos nos serviços de Backup do Azure e do Azure Site Recovery. Você pode usar um cofre de serviços de recuperação para [implantar e gerenciar backups para VMs implantadas pelo Gerenciador de Recursos usando o PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Um [dos serviços de recuperação de cofre](../../backup/backup-introduction-to
 ## <a name="next-steps"></a>Próximas etapas
 * Se seu objetivo é trabalhar com VMs do Linux, confira [Azure e Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Saiba mais sobre as diretrizes para configurar sua infraestrutura no [Passo a passo de infraestrutura do Azure de exemplo](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Siga as [Práticas recomendadas para executar uma VM do Windows no Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

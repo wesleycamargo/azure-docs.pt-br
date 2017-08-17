@@ -7,7 +7,7 @@ Você pode gerar certificados de cliente usando os seguintes métodos:
 - **Certificado corporativo:**
 
   - Se você estiver usando uma solução de certificado corporativo, gere um certificado de cliente com o formato de valor de nome comum 'name@yourdomain.com', em vez do formato 'nome do domínio\nomedeusuário'.
-  - Verifique se o certificado do cliente baseia-se no modelo de certificado 'Usuário' que tem 'Autenticação de cliente' como o primeiro item na lista de uso, em vez de Logon de Cartão Inteligente, etc. Você pode verificar o certificado clicando duas vezes no certificado do cliente e exibindo *Detalhes > Uso Avançado de Chave*.
+  - Verifique se o certificado do cliente baseia-se no modelo de certificado 'Usuário' que tem 'Autenticação de cliente' como o primeiro item na lista de uso, em vez de Logon de Cartão Inteligente, etc. Você pode verificar o certificado clicando duas vezes no certificado do cliente e exibindo **Detalhes > Uso Avançado de Chave**.
 
 - **Certificado raiz autoassinado:** é importante que você execute as etapas em um dos artigos de certificado de P2S abaixo. Caso contrário, os certificados de cliente criados não serão compatíveis com conexões P2S, e os clientes receberão um erro ao tentar se conectar. As etapas em qualquer um dos artigos a seguir geram um certificado do cliente compatível: 
 
