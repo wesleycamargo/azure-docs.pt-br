@@ -41,7 +41,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * Ao usar as APIs de hospedagem múltipla do Azure Cosmos DB, o aplicativo sempre sabe onde é a região mais próxima e enviará solicitações para o data center mais próximo. Tudo isso é possível sem alterações de configuração. Você define sua região de gravação e quantas regiões de leitura do seu jeito e o resto é feito para você.
 
 * **Vários modelos de dados e APIs populares para acessar e consultar dados**
-    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, gráfico, valor de chave, tabela e modelos de dados de colunas.
+    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, grafos, valor de chave, tabela e modelos de dados de colunas.
     * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
         * [API do DocumentDB](documentdb-introduction.md)
         * [API do MongoDB](mongodb-introduction.md)
