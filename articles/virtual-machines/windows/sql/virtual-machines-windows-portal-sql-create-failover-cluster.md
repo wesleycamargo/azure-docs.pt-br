@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
 
 1. Faça logon na [portal do Azure](http://portal.azure.com) com sua assinatura.
 
-1. [Criar um conjunto de disponibilidade do Azure](../create-availability-set.md).
+1. [Criar um conjunto de disponibilidade do Azure](../tutorial-availability-sets.md).
 
    O conjunto de disponibilidade agrupa máquinas virtuais em domínios de falha e domínios de atualização. O conjunto de disponibilidade garante que o aplicativo não seja afetado por pontos únicos de falha, como o comutador de rede ou a unidade de energia de um rack de servidores.
 
@@ -223,14 +223,14 @@ Para validar o cluster com a interface do usuário, execute as etapas a seguir e
 
 1. Em **Gerenciador do Servidor**, clique em **Ferramentas** e clique em **Gerenciador de Cluster de Failover**.
 1. Em **Gerenciador de Cluster de Failover**, clique em **Ação** e clique em **Validar Configuração...**.
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Em **Selecionar Servidores ou um Cluster**, digite o nome de ambas as máquinas virtuais.
-1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Próximo**.
+1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Avançar**.
 1. Em **Testar seleção**, inclua todos os testes, exceto **Armazenamento**. Confira a seguinte figura:
 
    ![Validar Testes](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Em **Confirmação**, clique em **Avançar**.
 
 O **Assistente para Validar uma Configuração** executa os testes de validação.

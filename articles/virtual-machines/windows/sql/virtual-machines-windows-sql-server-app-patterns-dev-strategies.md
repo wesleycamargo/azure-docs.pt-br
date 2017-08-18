@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: e668fb62843e09031e203edf51606aa64dad594b
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
@@ -127,7 +126,7 @@ Para aproveitar as várias instâncias de VM de uma camada, você precisa config
 
 Como prática recomendada, sempre certifique-se de que todas as conexões de Internet vão primeiro para a camada de apresentação. A camada de apresentação acessa a camada de negócios e, em seguida, a camada de negócios acessa a camada de dados. Para obter mais informações sobre como permitir o acesso à camada de apresentação, consulte [Permitir o acesso externo à sua VM usando o Portal do Azure](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Observe que o Balanceador de Carga no Azure funciona de forma semelhante a balanceadores de carga em um ambiente local. Para obter mais informações, veja [Balanceamento de carga para serviços de infraestrutura do Azure](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Observe que o Balanceador de Carga no Azure funciona de forma semelhante a balanceadores de carga em um ambiente local. Para obter mais informações, veja [Balanceamento de carga para serviços de infraestrutura do Azure](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Além disso, recomendamos que você configure uma rede privada para suas máquinas virtuais usando a Rede Virtual do Azure. Isso permite que elas se comuniquem por meio do endereço IP privado. Para obter mais informações, veja [Rede Virtual do Azure](../../../virtual-network/virtual-networks-overview.md).
 
@@ -160,7 +159,7 @@ Esse padrão de aplicativo é útil quando:
 
 O diagrama a seguir demonstra um cenário local e sua solução habilitada para nuvem. Nesse cenário, você escala horizontalmente os componentes da camada de apresentação e da camada de negócios em várias máquinas virtuais no Azure. Além disso, você deve implementar técnicas de HADR (alta disponibilidade e recuperação de desastres) em seus bancos de dados do SQL Server.
 
-Ao executar várias cópias de um aplicativo em diferentes VMs, certifique-se de estar balanceando a carga de solicitações entre elas. Quando tem várias máquinas virtuais, você precisa certificar-se de que todas as suas VMs estejam acessíveis e em execução em um determinado momento. Se você configurar o balanceamento de carga, o Azure Load Balancer vai monitorar a integridade das VMs e direcionar as chamadas de entrada para os nós de VM funcionando corretamente. Para obter informações sobre como configurar o balanceamento de carga das máquinas virtuais, veja [Balanceamento de carga para serviços de infraestrutura do Azure](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ter várias instâncias dos servidores Web e de aplicativo atrás de um balanceador de carga garante a alta disponibilidade das camadas de negócios e apresentação.
+Ao executar várias cópias de um aplicativo em diferentes VMs, certifique-se de estar balanceando a carga de solicitações entre elas. Quando tem várias máquinas virtuais, você precisa certificar-se de que todas as suas VMs estejam acessíveis e em execução em um determinado momento. Se você configurar o balanceamento de carga, o Azure Load Balancer vai monitorar a integridade das VMs e direcionar as chamadas de entrada para os nós de VM funcionando corretamente. Para obter informações sobre como configurar o balanceamento de carga das máquinas virtuais, veja [Balanceamento de carga para serviços de infraestrutura do Azure](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ter várias instâncias dos servidores Web e de aplicativo atrás de um balanceador de carga garante a alta disponibilidade das camadas de negócios e apresentação.
 
 ![Escalamento horizontal e alta disponibilidade](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 

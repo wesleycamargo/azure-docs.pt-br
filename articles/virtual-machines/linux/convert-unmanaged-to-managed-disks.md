@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Managed Disks e criptografia do Serviço de armazenamento do Azure
-Você não poderá usar as etapas anteriores para converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado estiver em uma conta de armazenamento criptografada usando a [Criptografia do Serviço de Armazenamento do Azure](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como copiar e usar discos não gerenciados que estiveram em uma conta de armazenamento criptografada:
-
-1. Copie o VHD usando [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca foi habilitada para a Criptografia do Serviço de Armazenamento do Azure.
-
-2. Use a VM copiada de uma das seguintes maneiras:
-
-   * Crie uma VM que usa Managed Disks e especifique este arquivo VHD durante a criação com [az vm create](/cli/azure/vm#create).
-
-   * Anexe o VHD copiado usando [az vm disk attach](/cli/azure/vm/disk#attach) para uma VM em execução que usa Managed Disks.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as opções de armazenamento, confira a [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md).

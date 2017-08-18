@@ -15,25 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Aplicativo web Django Olá, Mundo em uma VM do Windows Server
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e o modelo de implantação clássico](../../../resource-manager-deployment-model.md). Este artigo descreve o modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. Para um modelo do Resource Manager que você pode usar para implantar Django, consulte [Implantar um aplicativo de Django](https://azure.microsoft.com/documentation/templates/django-app/).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e o modelo de implantação clássico](../../../resource-manager-deployment-model.md). Este artigo descreve o modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
 
 Este tutorial mostra como hospedar um site baseado em Django no Windows Server em Máquinas Virtuais do Azure. No tutorial, supomos que não há nenhuma experiência anterior com o Azure. Quando concluir o tutorial, você pode ter um aplicativo baseado em Django funcionando na nuvem.
 

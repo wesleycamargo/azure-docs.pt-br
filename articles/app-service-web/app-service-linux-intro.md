@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introdução ao Aplicativo Web do Azure no Linux
@@ -83,10 +83,14 @@ Esta visualização pública está disponível atualmente nas seguintes regiões
 * Leste dos EUA
 * Europa Ocidental
 * Norte da Europa
+* Centro-Sul dos Estados Unidos
+* Centro-Norte dos EUA
 * Sudeste Asiático
+* Ásia Oriental
 * Leste da Austrália
 * Leste do Japão
 * Sul do Brasil
+* Sul da Índia
 
 No Linux, os aplicativos Web só têm suporte nos planos de serviço de aplicativo Dedicados e não têm uma camada Gratuita ou Compartilhada. Além disso, planos de Serviço de Aplicativo para aplicativos Web Linux e regulares são mutuamente exclusivos e, portanto, você não pode criar um aplicativo Linux em um plano do serviço de aplicativo não Linux.
 

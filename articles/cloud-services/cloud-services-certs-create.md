@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: f760bfd93b19c43d12889b5dd38015c5eba0a8ac
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral sobre certificados para os Serviços de Nuvem do Azure
@@ -36,7 +36,7 @@ Você pode carregar certificados de serviço no Portal Clássico do Azure usando
 Certificados de serviço podem ser gerenciados separadamente de seus serviços e podem ser gerenciados por indivíduos diferentes. Por exemplo, um desenvolvedor pode carregar um pacote de serviço que se refere a um certificado que um gerente de TI carregou anteriormente no Azure. Um gerente de TI pode gerenciar e renovar esse certificado alterando a configuração do serviço sem precisar carregar um novo pacote de serviço. A atualização sem um novo pacote de serviço é possível porque o nome lógico, o nome do repositório e o local do certificado estão no arquivo de definição de serviço, enquanto que a impressão digital do certificado está especificada no arquivo de configuração de serviço. Para atualizar o certificado, é necessário apenas carregar um novo certificado e alterar o valor da impressão digital no arquivo de configuração de serviço.
 
 >[!Note]
->O artigo [Perguntas frequentes sobre Serviços de Nuvem](cloud-services-faq.md#certificates) tem algumas informações úteis sobre certificados.
+>O artigo [Perguntas frequentes sobre Serviços de Nuvem](cloud-services-faq.md) tem algumas informações úteis sobre certificados.
 
 ## <a name="what-are-management-certificates"></a>O que são certificados de gerenciamento?
 Os certificados de gerenciamento permitem que você autentique com o modelo de implantação clássico. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. Eles serviços não estão, na verdade, relacionados a serviços de nuvem. 

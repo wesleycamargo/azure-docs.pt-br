@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 0445df244848469cc2071681bec4b8f4c5fceeac
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4cbd2791649c6d2dd005521cedb44c17aa874073
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-service-fabric-security-overview"></a>Visão geral de segurança do Azure Service Fabric
