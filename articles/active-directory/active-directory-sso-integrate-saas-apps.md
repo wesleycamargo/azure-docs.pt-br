@@ -1,5 +1,4 @@
 ---
-
 title: "Integrar o logon único do Azure Active Directory com aplicativos SaaS | Microsoft Docs"
 description: "Habilitar o gerenciamento de acesso centralizado da autenticação de logon único e do provisionamento de usuário dos aplicativos SaaS no Active Directory do Azure. Uma visão geral de como integrar o Active Directory do Azure a aplicativos SaaS."
 services: active-directory
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrar o logon único do Azure AD com aplicativos de SaaS
