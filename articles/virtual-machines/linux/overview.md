@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -117,8 +117,6 @@ Criar uma VM do Linux no Portal da Web do Azure é uma maneira fácil de apontar
 
 ### <a name="login-using-ssh-without-a-password"></a>Fazer logon usando SSH sem uma senha
 Agora, a VM está em execução no Azure e você está pronto para fazer logon.  Usar senhas para fazer logon via SSH é inseguro e demorado.  Usar chaves SSH é a maneira mais segura, e também a mais rápida, de fazer logon.  Quando você cria sua VM do Linux por meio do portal ou da CLI, você tem duas opções de autenticação.  Se você escolher uma senha para o SSH, o Azure configurará a VM para permitir logons por meio de senhas.  Se você optar por usar uma chave pública SSH, o Azure configurará a VM para permitir somente os logons por meio de chaves SSH, e desabilita logons com senha. Para proteger sua VM do Linux, permitindo apenas logons com chave SSH, use a opção de chave pública SSH durante a criação da VM no portal ou na CLI.
-
-* [Desabilitar senhas SSH na sua VM Linux configurando o SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>Componentes relacionados do Azure
 ## <a name="storage"></a>Armazenamento
