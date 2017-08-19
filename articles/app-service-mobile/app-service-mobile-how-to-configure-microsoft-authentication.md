@@ -41,7 +41,8 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
    > 
 7. Em "Segredos do Aplicativo", clique em **Gerar nova senha**. Anote o valor que aparece. Depois que você sair da página, ela não será exibida novamente.
 
-    > [AZURE.IMPORTANT] A senha é uma credencial de segurança importante. Não compartilhe a senha com ninguém nem distribua-a em um aplicativo cliente.
+    > [!IMPORTANT]
+    > A senha é uma credencial de segurança importante. Não compartilhe a senha com ninguém nem distribua-a em um aplicativo cliente.
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo de Serviço de Aplicativo
 1. De volta ao [Portal do Azure], navegue até o aplicativo, clique em **Configurações** > **Autenticação/Autorização**.
