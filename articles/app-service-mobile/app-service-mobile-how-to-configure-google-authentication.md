@@ -37,8 +37,8 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 6. Cole a **URL** do Serviço de Aplicativo que você copiou anteriormente em **Origens Autorizadas do JavaScript** e, então, cole seu URI de Redirecionamento em **URI de Redirecionamento Autorizado**. O URI de redirecionamento é a URL do seu aplicativo acrescentada com o caminho */.auth/login/google/callback*. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Criar**.
 7. Na próxima tela, anote os valores de ID do cliente e de segredo do cliente.
 
-    > [AZURE.IMPORTANT]
-    O segredo do cliente é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
+    > [!IMPORTANT]
+    > O segredo do cliente é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
 
 ## <a name="secrets"> </a>Adicionar informações do Google ao seu aplicativo

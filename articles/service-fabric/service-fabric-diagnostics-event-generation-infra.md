@@ -70,7 +70,7 @@ Para relatar a integridade, use um código semelhante a este:
 Para relatar uma métrica, use um código semelhante a este:
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Logs de suporte do Service Fabric
