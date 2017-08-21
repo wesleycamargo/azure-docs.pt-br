@@ -1,5 +1,5 @@
 ---
-title: "Configurar clusters HDInsight ingressados no domínio | Microsoft Docs"
+title: "Configurar clusters do HDInsight ingressados no domínio – Azure | Microsoft Docs"
 description: "Saiba como instalar e configurar clusters HDInsight ingressados no domínio"
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurar clusters HDInsight ingressados no domínio (Preview)
+
 Saiba como configurar um cluster Azure HDInsight com o Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar proveito das políticas de autenticação forte e do RBAC (controle de acesso avançado baseado em função).  O HDInsight ingressado em domínio só pode ser configurado em clusters baseados em Linux. Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md).
+
+> [!IMPORTANT]
+> O Oozie não está habilitado no HDInsight ingressado no domínio.
 
 Este artigo é o primeiro tutorial de uma série:
 
@@ -71,8 +76,8 @@ Este tutorial fornece as etapas para configurar um cluster HDInsight ingressado 
 
 Há um script do PowerShell que automatiza as etapas 3 a 7.  Para obter mais informações, consulte [Configurar clusters HDInsight ingressados em domínio usando o Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 
-## <a name="create-an-azure-classic-vnet"></a>Criar uma VNet clássica do Azure
-Nesta seção, você deve criar uma VNet clássica usando o portal do Azure. Na próxima seção, você pode habilitar o Azure AD DS para o Azure AD na VNet clássica. Para obter mais informações sobre o procedimento a seguir e usar outros métodos de criação de VNet, consulte [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) (Criar uma rede virtual (clássica) usando o portal do Azure).
+## <a name="create-an-azure-virtual-network-classic"></a>Criar uma rede virtual (clássica) do Azure
+Nesta seção, você criará uma rede virtual (clássica) usando o Portal do Azure. Na próxima seção, você poderá habilitar o Azure AD DS para o Azure AD na rede virtual. Para obter mais informações sobre o procedimento a seguir e usar outros métodos de criação de redes virtuais, consulte [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **Para criar uma VNet clássica**
 
@@ -250,7 +255,7 @@ Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usa
      
      * **Tipo de cluster**: Hadoop. Atualmente, apenas clusters Hadoop dão suporte ao HDInsight ingressado no domínio.
      * **Sistema Operacional**: Linux.  Apenas clusters HDInsight baseados em Linux dão suporte ao HDInsight ingressado no domínio.
-     * **Versão**: Hadoop 2.7.3 (HDI 3.5). Somente a versão 3.5 de cluster HDInsight dá suporte ao HDInsight ingressado no domínio.
+     * **Versão**: HDI 3.6. Somente a versão 3.6 do cluster HDInsight dá suporte ao HDInsight ingressado no domínio.
      * **Tipo de cluster**: PREMIUM
        
        Clique em **Selecionar** para salvar as alterações.
@@ -305,8 +310,8 @@ Outra opção para criar o cluster HDInsight de domínio é usar um modelo do Az
    * **DN da Unidade Organizacional**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
    * **DNs do grupo de usuários do cluster**: [\"HiveUsers\"]
    * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName**: (Insira o nome de usuário do administrador do domínio)
-   * **DomainAdminPassword**: (Insira a senha de usuário do administrador do domínio)
+   * **DomainAdminUserName**: (Insira o nome do usuário administrador do domínio)
+   * **DomainAdminPassword**: (Insira a senha do usuário administrador do domínio)
    * **Concordo com os termos e condições declarados acima**: (Marcar)
    * **Fixar no painel**: (Marcar)
 3. Clique em **Comprar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo**. A criação de um cluster demora cerca de 20 minutos. Após a criação do cluster, você pode clicar na folha do cluster no portal para abri-la.

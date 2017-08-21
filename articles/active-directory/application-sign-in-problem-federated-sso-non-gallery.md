@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 30c3a1f6a90a430abc67a20134bc5474cd33468b
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -34,11 +34,11 @@ Para solucionar o problema é necessário verificar a configuração do aplicati
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro: Aplicativo com Identificador ‘https://contoso.com’ não encontrado no diretório*.
+*Erro AADSTS70001: aplicativo com o identificador ‘https://contoso.com’ não encontrado no diretório*.
 
 **Possível causa**
 
-O atributo que o Emissor envia do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do Identificador configurado no aplicativo do Azure AD.
+O atributo que o Emissor envia do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do Identificador configurado no aplicativo Azure AD.
 
 **Resolução**
 
@@ -50,9 +50,9 @@ Certifique-se de que o atributo Emissor na solicitação SAML corresponde ao val
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -64,9 +64,43 @@ Certifique-se de que o atributo Emissor na solicitação SAML corresponde ao val
 
 Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o valor enviado pelo aplicativo na solicitação SAML, deverá ser possível entrar no aplicativo.
 
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
+
+*Erro AADSTS50011: O endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo* 
+
+**Possível causa** 
+
+O valor de AssertionConsumerServiceURL na solicitação SAML não corresponde ao valor da URL de resposta ou ao padrão configurado no Azure AD. O valor de AssertionConsumerServiceURL na solicitação SAML é a URL que você vê no erro. 
+
+**Resolução** 
+
+Verifique se o valor de AssertionConsumerServiceURL na solicitação SAML corresponde ao valor da URL de resposta configurado no Azure AD. 
+ 
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** 
+
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal. 
+
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**. 
+
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory. 
+
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos. 
+
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  
+6.  Selecione o aplicativo para o qual deseja configurar o logon único
+
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+
+8.  Acesse a seção **Domínio e URLs**. Verifique ou atualize o valor na caixa de texto URL de Resposta para corresponder ao valor AssertionConsumerServiceURL na solicitação SAML.
+
+  * Se você não vir a caixa de texto URL de Resposta, selecione a caixa de seleção **Mostrar configurações de URL avançadas**. 
+
+Após atualizar o valor da URL de Resposta no Azure AD e correspondê-lo com o valor enviado pelo aplicativo na solicitação SAML, deverá ser possível entrar no aplicativo.
+
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
 
-*Erro: O usuário conectado 'brian@contoso.com' não está atribuído a uma função para o aplicativo*
+*Erro AADSTS50105: o usuário conectado 'brian@contoso.com' não está atribuído a uma função para o aplicativo*
 
 **Possível causa**
 
@@ -82,9 +116,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -94,9 +128,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
@@ -112,7 +146,7 @@ Após um breve período, os usuários que você selecionou poderão iniciar esse
 
 ## <a name="not-a-valid-saml-request"></a>Não é uma solicitação SAML válida
 
-*Erro: A solicitação não é uma mensagem de protocolo Saml2 válida.*
+*Erro AADSTS75005: a solicitação não é uma mensagem de protocolo Saml2 válida.*
 
 **Possível causa**
 
@@ -136,7 +170,7 @@ Eles devem validar que oferecem suporte à implementação do SAML do Azure AD p
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Nenhum recurso na lista requiredResourceAccess
 
-*Erro: O aplicativo cliente solicitou acesso ao recurso '00000002-0000-0000-c000-000000000000'. Essa solicitação falhou porque o cliente não especificou esse recurso na sua lista requiredResourceAccess*.
+*Erro AADSTS65005: o aplicativo cliente solicitou acesso ao recurso '00000002-0000-0000-c000-000000000000'. Essa solicitação falhou porque o cliente não especificou esse recurso na sua lista requiredResourceAccess*.
 
 **Possível causa**
 
@@ -152,9 +186,9 @@ Para resolver o problema, remova o aplicativo do diretório. Em seguida, adicion
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -168,7 +202,7 @@ Após reconfigurar o aplicativo, deverá ser possível entrar no aplicativo.
 
 ## <a name="certificate-or-key-not-configured"></a>Chave ou certificado não configurado
 
-Erro: Nenhuma chave de assinatura configurada.
+Erro AADSTS50003: nenhuma chave de assinatura configurada.
 
 **Possível causa**
 
@@ -184,9 +218,9 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -201,6 +235,10 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 10. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior da folha e aceite para ativar o certificado de substituição.
 
 11. Na seção **Certificado de Autenticação SAML**, clique em **remover** para remover o certificado **Não Usado**.
+
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as declarações SAML enviadas para um aplicativo
+
+Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Requisitos de protocolo SAML de logon único do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)

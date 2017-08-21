@@ -1,5 +1,5 @@
 ---
-title: "Gerar recomendações usando o HDInsight para Mahout no PowerShell | Microsoft Docs"
+title: "Gerar recomendações usando o HDInsight para Mahout do PowerShell – Azure | Microsoft Docs"
 description: "Saiba como usar a biblioteca de Machine Learning do Apache Mahout para gerar recomendações de vídeos com o HDInsight (Hadoop) usando o script de PowerShell em execução no seu cliente."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 102cd55a0b55e18ec5240bf6ddf94a1909c08ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59ae075944ce7e19542f19d285440c3822922fbe
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Gerar recomendações de vídeo usando o Apache Mahout com o Hadoop no HDInsight (PowerShell)
@@ -35,7 +34,7 @@ Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http:
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um, confira [Introdução ao uso do Hadoop baseado em Linux no HDInsight][getstarted].
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [PowerShell do Azure](/powershell/azure/overview)
 
@@ -140,7 +139,7 @@ A saída é semelhante ao texto a seguir:
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-### <a name="cannot-overwrite-files"></a>Não foi possível sobrescrever arquivos
+### <a name="cannot-overwrite-files"></a>Não foi possível substituir os arquivos
 
 Os trabalhos do Mahout não limpam arquivos temporários criados durante o processamento. Além disso, os trabalhos não substituirão um arquivo de saída existente.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -124,8 +124,9 @@ Este tópico mostra como usar o conector do Banco de Dados Oracle um aplicativo 
 * Qualquer tabela com chaves compostas
 * Tipos de objeto aninhados em tabelas
  
-## <a name="view-the-swagger"></a>Exibir o Swagger
-Consulte os [detalhes do Swagger](/connectors/oracle/). 
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
+
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Obtenha ajuda
 

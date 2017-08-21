@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c6bf7cd3bd16d8af30fed09f7878a0e68748a971
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -31,7 +30,7 @@ Questões de diagnóstico e de solução de problemas em um aplicativo distribu�
 Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e entenda todos os aspectos de como se faz o diagnóstico e a solução de problemas deles e de suas tecnologias dependentes. Como usuário dos serviços de Armazenamento do Azure, monitore continuamente o serviços de Armazenamento que o seu aplicativo utiliza para qualquer mudança inesperada em comportamento (como um tempo maior de resposta do que o normal) e faça o login para coletar mais dados detalhados para analisar o problema em profundidade. As informações de diagnósticos que você obtiver tanto do monitoramento como do registro em log irão ajudá-lo a determinar a raiz do problema que o seu aplicativo encontrou. Você poderá solucionar o problema e determinar as etapas apropriadas que você pode tomar para corrigi-lo. O Armazenamento do Azure é um serviço básico do Azure e é parte importante da maioria das soluções que os clientes implantam para a infraestrutura Azure. O Armazenamento do Azure inclui capacidades de simplificar questões de monitoramento, diagnóstico e de soluções de problemas de armazenamento em seus aplicativos em nuvem.
 
 > [!NOTE]
-> No momento, o serviço de Arquivos do Azure não dá suporte ao log.
+> O Armazenamento de Arquivos do Azure não dá suporte ao registro em log no momento.
 > 
 
 Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](storage-e2e-troubleshooting.md).
@@ -72,7 +71,7 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
   * [Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste]
   * [Você encontrou problemas ao instalar o SDK do Azure para .NET]
   * [Você tem um problema diferente com um serviço de armazenamento]
-  * [Solucionando problemas de arquivos do Azure com Windows e Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Solucionando problemas de Armazenamento de Arquivos do Azure com Windows e Linux](storage-troubleshoot-file-connection-problems.md)
 * [Anexos]
   * [Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]
   * [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]
@@ -438,7 +437,7 @@ Se você estiver vendo picos no valor do **PercentThrottlingError** que coincida
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Aumento permanente em erro de PercentThrottlingError
-Se você está vendo constantemente um valor alto para **PercentThrottlingError** seguido de um aumento permanente nos seus volumes de transações ou quando você está realizando os seus testes de carga iniciais no seu aplicativo, então você deve avaliar como o seu aplicativo está usando as partições de armazenamento e se está atingindo os alvos de escalabilidade para a conta de armazenamento. Por exemplo, se você está vendo erros de limitação na fila (o qual conta como uma partição única), então considere usar filas adicionais para espalhar as transações entre diversas partições. Se você está vendo erros de limitação em uma tabela, você precisa considerar usar um esquema de partições diferentes para espalhar suas transações entre as diversas partições usando uma gama maior de valores chave de partição. Uma causa comum desse problema é a colocar/acrescentar antipadrão onde você seleciona a data como a chave de partição e, em seguida, todos os dados em um determinado dia são gravados em uma partição: sob carga, isso pode resultar em um gargalo de gravação. Considere um design de partição diferente ou avalie se usando um armazenamento de blob pode ser uma solução melhor. Verifique também se a limitação está ocorrendo como resultado de picos no seu tráfego e investigue as formas de suavizar seu padrão de solicitações.
+Se você está vendo constantemente um valor alto para **PercentThrottlingError** seguido de um aumento permanente nos seus volumes de transações ou quando você está realizando os seus testes de carga iniciais no seu aplicativo, então você deve avaliar como o seu aplicativo está usando as partições de armazenamento e se está atingindo os alvos de escalabilidade para a conta de armazenamento. Por exemplo, se você está vendo erros de limitação na fila (o qual conta como uma partição única), então considere usar filas adicionais para espalhar as transações entre diversas partições. Se você está vendo erros de limitação em uma tabela, você precisa considerar usar um esquema de partições diferentes para espalhar suas transações entre as diversas partições usando uma gama maior de valores chave de partição. Uma causa comum desse problema é a colocar/acrescentar antipadrão onde você seleciona a data como a chave de partição e, em seguida, todos os dados em um determinado dia são gravados em uma partição: sob carga, isso pode resultar em um afunilamento de gravação. Considere um design de partição diferente ou avalie se usando um armazenamento de blob pode ser uma solução melhor. Verifique também se a limitação está ocorrendo como resultado de picos no seu tráfego e investigue as formas de suavizar seu padrão de solicitações.
 
 Se você distribuir suas transações entre diversas partições, você ainda deve levar em consideração os limites de escalabilidade definidos para a conta de armazenamento. Por exemplo, se você usa dez filas cada processando no máximo 2.000 mensagens de 1KB por segundo, você estará no limite total de 20.000 mensagens por segundo para cada conta de armazenamento. Se você precisa processar mais de 20.000 entidades por segundo, você deve considerar usar diversas contas de armazenamento. Você também deve ter em mente que o tamanho de suas solicitações e entidades tem um impacto no quando o serviço de armazenamento limita seus clientes: se você tiver maiores solicitações e entidades, você pode estar limitada mais cedo.
 
@@ -570,11 +569,11 @@ A tabela a seguir mostra um exemplo de mensagem d log do lado do servidor a part
 | Hora de início da solicitação | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
 | Status da solicitação     | SASAuthorizationError        |
-| Código de status HTTP   | 404                            |
+| Código de status HTTP   | 404                          |
 | Tipo de autenticação.| Sas                          |
 | Tipo de serviço       | Blob                         |
-| URL de Solicitação         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de Solicitação        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho da id de solicitação do   | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de solicitação do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -814,7 +813,7 @@ Na etapa 1 do **Assistente de Importação de Texto**, selecione **Ponto e vírg
 Você pode também usar o recurso Application Insights no Visual Studio Team Services como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
 
 * Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
-* Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós poderemos lhe enviar um email. Você pode monitorar os serviços da Web .NET e Java.
+* Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós poderemos lhe enviar um email. Você pode monitorar os serviços Web .NET e Java.
 
 Você pode encontrar mais informações em [O que é o Application Insights?](../application-insights/app-insights-overview.md).
 

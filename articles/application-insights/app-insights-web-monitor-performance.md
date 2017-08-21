@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 69ead621c179bf49f17ed3274be4b625fc587556
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
@@ -26,7 +25,7 @@ ms.lasthandoff: 06/14/2017
 
 Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] lhe informará sobre quaisquer problemas de desempenho e exceções e lhe ajudará a localizar e diagnosticar as causas raiz.
 
-O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure. 
+O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados localmente, em máquinas virtuais ou como sites do Microsoft Azure. 
 
 No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e aplicativos da Windows Store.
 

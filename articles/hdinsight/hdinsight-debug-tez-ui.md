@@ -1,5 +1,5 @@
 ---
-title: "Usar a interface do usuário do Tez com o HDInsight baseado em Windows | Microsoft Docs"
+title: "Usar a interface do usuário do Tez com o HDInsight baseado em Windows – Azure | Microsoft Docs"
 description: "Saiba como usar a interface de usuário do Tez para depurar trabalhos do Tez no HDInsight baseado no Windows."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 870d8001b67b43d09427a626761ede1833101ddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 A interface de usuário do Tez é uma página da Web que pode ser usada para entender e depurar trabalhos que usam o Tez como o mecanismo de execução em clusters HDInsight baseados no Windows. A interface de usuário do Tez permite que você visualize o trabalho como um gráfico de itens conectados, detalhe cada item e recupere estatísticas e informações de registro.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight baseado no Windows. Para obter as etapas de criação de um novo cluster, confira [Introdução ao uso do HDInsight baseado no Windows](hdinsight-hadoop-tutorial-get-started-windows.md).

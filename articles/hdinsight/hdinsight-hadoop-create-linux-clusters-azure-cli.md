@@ -1,5 +1,5 @@
 ---
-title: Criar o Azure HDInsight (Hadoop) usando a linha de comando | Microsoft Docs
+title: "Criar clusters Hadoop usando a linha de comando – Azure HDInsight | Microsoft Docs"
 description: Saiba como criar clusters do HDInsight usando a CLI do Azure 1.0 de plataforma cruzada.
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ccb2c827aa95ea967d740860ed17e6cc7bd3b392
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/18/2017
 As etapas deste documento são um passo a passo para a criação de um cluster HDInsight 3.5 usando a CLI do Azure 1.0.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,7 +40,7 @@ As etapas deste documento são um passo a passo para a criação de um cluster H
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **CLI do Azure**. As etapas neste documento foram testadas pela última vez com a versão 0.10.1 da CLI do Azure.
+* **CLI do Azure**. As etapas neste documento foram testadas pela última vez com a versão 0.10.14 da CLI do Azure.
 
     > [!IMPORTANT]
     > As etapas neste documento não funcionam com a CLI do Azure 2.0. A CLI do Azure 2.0 não dá suporte à criação de um cluster HDInsight.
@@ -51,7 +51,7 @@ Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da C
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sessão terminal após instalar e configurar o CLI do Azure.
+As etapas a seguir devem ser executadas de uma linha de comando, como o PowerShell ou o Bash.
 
 1. Use o seguinte comando para fazer logon em sua assinatura do Azure:
 
@@ -67,21 +67,21 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
         azure group create groupname location
 
-    * Substitua **groupname** por um nome exclusivo para o grupo.
+    * Substitua `groupname` por um nome exclusivo para o grupo.
 
-    * Substitua **local** pela região geográfica em que você deseja criar um grupo.
+    * Substitua `location` pela região geográfica na qual você deseja criar um grupo.
 
-       Para obter uma lista de locais válidos, use o comando `azure location list` e use um dos locais da coluna **Nome** .
+       Para obter uma lista de locais válidos, use o comando `azure location list` e, então, utilize um dos locais da coluna `Name`.
 
 4. Criar uma conta de armazenamento. Essa conta de armazenamento é usada como o armazenamento padrão do cluster HDInsight.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Substitua **groupname** pelo nome do grupo criado na etapa anterior:
+    * Substitua `groupname` pelo nome do grupo criado na etapa anterior.
 
-    * Substitua **location** pelo mesmo local usado na etapa anterior.
+    * Substitua `location` pelo mesmo local usado na etapa anterior.
 
-    * Substitua **storagename** por um nome exclusivo da conta de armazenamento.
+    * Substitua `storagename` por um nome exclusivo para a conta de armazenamento.
 
         > [!NOTE]
         > Para saber mais sobre os parâmetros usados nesse comando, use `azure storage account create -h` para exibir a ajuda deste comando.
@@ -90,36 +90,36 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
         azure storage account keys list -g groupname storagename
 
-    * Substitua **groupname** pelo nome do grupo de recursos.
-    * Substitua **storagename** pelo nome da conta de armazenamento.
+    * Substitua `groupname` pelo nome do grupo de recursos.
+    * Substitua `storagename` pelo nome da conta de armazenamento.
 
-     Nos dados retornados, salve o valor **key** para **key1**.
+     Nos dados retornados, salve o valor `key` para `key1`.
 
 6. Crie um cluster HDInsight.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Substitua **groupname** pelo nome do grupo de recursos.
+    * Substitua `groupname` pelo nome do grupo de recursos.
 
-    * Substitua **Hadoop** com o tipo de cluster que você deseja criar. Por exemplo, Hadoop, HBase, Storm ou Spark.
+    * Substitua `Hadoop` pelo tipo de cluster que você deseja criar. Por exemplo, `Hadoop`, `HBase`, `Kafka`, `Spark` ou `Storm`.
 
      > [!IMPORTANT]
      > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster.
 
-    * Substitua **location** pelo mesmo local usado nas etapas anteriores.
+    * Substitua `location` pelo mesmo local usado nas etapas anteriores.
 
-    * Substitua **storagename** pelo nome da conta de armazenamento:
+    * Substitua `storagename` pelo nome da conta de armazenamento.
 
-    * Substitua **storagekey** pela chave obtida na etapa anterior.
+    * Substitua `storagekey` pela chave obtida na etapa anterior.
 
     * Como parâmetro `--defaultStorageContainer` , use o mesmo nome que você está usando para o cluster.
 
-    * Substitua **admin** e **httppassword** pelo nome e pela senha que você deseja usar quando acessar o cluster por meio de HTTPS.
+    * Substitua `admin` e `httppassword` pelo nome e pela senha que você deseja usar quando acessar o cluster por meio de HTTPS.
 
-    * Substitua **sshuser** e **sshuserpassword** pelo nome de usuário e pela senha que deseja usar quando acessar o cluster usando SSH
+    * Substitua `sshuser` e `sshuserpassword` pelo nome de usuário e senha que você deseja usar quando acessar o cluster usando SSH
 
     > [!IMPORTANT]
-    > Este exemplo cria um cluster com duas anotações de trabalho. Se você planejar ter mais de 32 nós de trabalho (durante a criação do cluster ou pelo dimensionamento do cluster), será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize`.
+    > Este exemplo cria um cluster com duas anotações de trabalho. Você também pode alterar o número de nós de trabalho após a criação do cluster realizando operações de colocação em escala. Se você planeja usar mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize` durante a criação do cluster.
     >
     > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

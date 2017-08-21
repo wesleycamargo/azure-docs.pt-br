@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 00b19fdb0a4cac44fc1d338a580fe4500ac50463
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7e8d7a53623219864dc2d5c9ace86f36f3db889
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 06/02/2017
 
 Assim que um [tipo de aplicativo for empacotado][10], ele está pronto para implantação em um cluster do Azure Service Fabric. A implantação envolve as três etapas a seguir:
 
-1. Carregar o pacote de aplicativo no repositório de imagens
+1. Carregar o pacote de aplicativos no repositório de imagens
 2. Registrar o tipo de aplicativo
 3. Criar a instância do aplicativo
 
@@ -42,7 +42,7 @@ Depois que um aplicativo é implantado e uma instância está em execução no c
 
 1. Remover (ou excluir) a execução da instância do aplicativo
 2. Cancelar o registro do tipo de aplicativo se você não precisar mais dele
-3. Remover o pacote de aplicativo do repositório de imagens
+3. Remover o pacote de aplicativos do repositório de imagens
 
 Se você usar o [Visual Studio para implantar e depurar aplicativos](service-fabric-publish-app-remote-cluster.md) no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Esse script é encontrado na pasta *Scripts* do projeto do aplicativo. Este artigo fornece informações sobre o que esse script faz para que você possa executar as mesmas operações fora do Visual Studio. 
  
@@ -55,7 +55,7 @@ PS C:\>Connect-ServiceFabricCluster
 
 Para obter exemplos de como se conectar a um cluster remoto ou protegido usando o Azure Active Directory, certificados X509 ou Active Directory do Windows, veja [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md).
 
-## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativo
+## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativos
 O carregamento do pacote de aplicativos coloca-o em um local acessível por componentes internos do Service Fabric.
 Se quiser verificar o pacote de aplicativos localmente, use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
@@ -66,12 +66,12 @@ O cmdlet **Get-ImageStoreConnectionStringFromClusterManifest** , que faz parte d
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio 2015. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicativos, que contém o manifesto do aplicativo necessário, manifestos de serviço e os pacotes de códigos/configurações/dados, está localizado em *C:\Users\\\nome de usuário\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
+Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio 2015. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicativos, que contém o manifesto do aplicativo, os manifestos de serviço e os pacotes de códigos/configurações/dados necessários, está localizado em *C:\Users\\<nome de usuário\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 O comando a seguir lista o conteúdo do pacote de aplicativos:
 
 ```powershell
-PS C:\> $path = 'C:\Users\\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
 PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
@@ -153,7 +153,7 @@ Dependendo dos fatores descritos, talvez você precise aumentar o tempo limite. 
 
 Confira [Noções básicas sobre a configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para obter informações suplementares sobre o repositório de imagens e a cadeia de conexão de armazenamento de imagens.
 
-## <a name="register-the-application-package"></a>Registrar o pacote de aplicativo
+## <a name="register-the-application-package"></a>Registrar o pacote de aplicativos
 O tipo e a versão do aplicativo declarados no manifesto do aplicativo tornam-se disponíveis para uso quando o pacote de aplicativos é registrado. O sistema lê o pacote carregado na etapa anterior, verifica o pacote, processa o conteúdo do pacote e copia o pacote processado em um local interno do sistema.  
 
 Execute o cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) para registrar o tipo de aplicativo no cluster e disponibilizá-lo para implantação:
@@ -252,8 +252,8 @@ Execute [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabr
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativo do repositório de imagens
-Quando um pacote de aplicativo não for mais necessário, você poderá excluí-lo do repositório de imagens para liberar recursos do sistema.
+## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativos do repositório de imagens
+Quando um pacote de aplicativos não for mais necessário, você poderá excluí-lo do repositório de imagens para liberar recursos do sistema.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))

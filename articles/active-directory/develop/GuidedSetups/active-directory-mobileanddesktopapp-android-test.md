@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8523f46d6a352c9a6625ddeacc5abe2b4bbf977e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6df64f4820f8409bd8897d5ac24f81bffeeef102
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -43,8 +43,8 @@ Você deverá ver os resultados de uma chamada ao ponto de extremidade “me” 
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre escopos e permissões delegadas
-A API do Graph precisa do escopo `user.read` para ler o perfil do usuário. Esse escopo é adicionado por padrão a todos os aplicativos registrados por meio de nosso portal de registro. Algumas outras APIs do Graph, bem como APIs personalizadas do servidor de back-end, exigem escopos adicionais. Por exemplo, para o Graph, `Calendars.Read` é necessário para listar os calendários do usuário. Para acessar o calendário do usuário no contexto de um aplicativo, você precisa adicionar as informações de registro desse aplicativo delegado e, em seguida, adicionar `Calendars.Read` à chamada `AcquireTokenAsync`. O usuário pode precisar fornecer consentimento adicional à medida que o número de escopos aumenta.
 
-Se uma API de back-end não exigir um escopo (não recomendado), você poderá usar a `ClientId` como o escopo na chamada `AcquireTokenAsync`.
+A API do Microsoft Graph requer o escopo `user.read` para ler o perfil do usuário. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado em nosso portal de registro. Algumas outras APIs do Microsoft Graph, bem como APIs personalizadas do servidor de back-end, podem exigir escopos adicionais. Por exemplo, para o Microsoft Graph, o escopo `Calendars.Read` é necessário para listar os calendários do usuário. Para acessar o calendário do usuário no contexto de um aplicativo, é necessário adicionar a permissão delegada `Calendars.Read` às informações de registro do aplicativo e, em seguida, adicionar o escopo `Calendars.Read` à chamada `acquireTokenSilentAsync`. Talvez o usuário precise fornecer consentimentos adicionais à medida que o número de escopos aumentar.
+
 <!--end-collapse-->
 

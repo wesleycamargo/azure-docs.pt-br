@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
@@ -43,6 +42,7 @@ Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as
 | **Arquivo de configuração do Agente de monitoramento** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Pacote de extensão do Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho do utilitário de coleta de log** | %SystemDrive%\Packages\GuestAgent\ |
+| **Arquivo de log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas Virtuais
 | Artefato | Caminho |
@@ -54,9 +54,12 @@ Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as
 | **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Pacote de extensão do Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Packages |
+| **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics não está iniciando
-Analise os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** do local dos arquivos de log para obter informações sobre porque o diagnóstico não pode ser iniciado.  
+Analise os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** do local dos arquivos de log para obter informações sobre porque o diagnóstico não pode ser iniciado. 
+
+Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs em busca disso no local indicado para `MonAgentHost log file` na seção acima.
 
 A última linha dos arquivos de log contém o código de saída.  
 
@@ -86,7 +89,7 @@ A Configuração de diagnóstico contém a parte que instrui para um determinado
 - **Contadores de desempenho**: abra o perfmon e verifique o contador.
 - **Logs de rastreamento**: a área de trabalho remota na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Consulte http://msdn.microsoft.com/pt-br/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
 Se você não vir os logs de rastreamento sendo gerados, execute [Mais sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
- - **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
+- **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
 - **Logs de evento**: área de trabalho remota na VM. Abra `Event Viewer` e verifique se os eventos existem.
 #### <a name="is-data-getting-captured-locally"></a>Os dados estão sendo capturados localmente:
 Em seguida, certifique-se de que os dados estão sendo capturados localmente.
@@ -241,4 +244,3 @@ A experiência do portal de máquinas virtuais mostra determinados contadores de
 - Se você estiver usando caracteres curinga (\*) em seus nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
 
 **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Painel de Controle -> Região -> Administrativos -> Configurações de Cópia -> desmarque "Bem-vindo às contas de tela e do sistema" para que o idioma personalizado não seja aplicado à conta do sistema. Verifique também se você não usa caracteres curinga, se quiser que o portal seja sua experiência de consumo principal.
-

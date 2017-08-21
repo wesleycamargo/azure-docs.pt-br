@@ -1,6 +1,6 @@
 ---
 title: "Readaptar os modelos de Machine Learning de forma programática | Microsoft Docs"
-description: "Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Aprendizado de Máquina do Azure."
+description: "Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
-ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: cf7a39e14a935d0d0e0df07e66a8f37480ec9687
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Readaptar os modelos de Aprendizado de Máquina de forma programática
+# <a name="retrain-machine-learning-models-programmatically"></a>Readaptar os modelos do Machine Learning de forma programática
 Neste passo a passo, você aprenderá como programaticamente readaptar um serviço Web do Machine Learning do Azure usando C# e o serviço de Execução de Lote do Machine Learning.
 
 Depois de você ter readaptado o modelo, as instruções a seguir mostram como atualizar o modelo no seu serviço Web preditivo:
@@ -34,11 +34,11 @@ Para obter uma visão geral do processo de readaptação, confira [Readaptar um 
 Se você quiser começar a usar o seu novo serviço Web baseado no Azure Resource Manager existente, confira [Readaptar um serviço Web preditivo existente](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Criar um teste de treinamento
-Para este exemplo, você usará "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto" das amostras do Aprendizado de Máquina do Microsoft Azure. 
+Para este exemplo, você usará "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto" das amostras do Microsoft Azure Machine Learning. 
 
 Para criar o experimento:
 
-1. Entre no Estúdio de Aprendizado de Máquina do Microsoft Azure. 
+1. Entre no Microsoft Azure Machine Learning Studio. 
 2. No canto inferior direito do painel, clique em **Novo**.
 3. Nas Amostras da Microsoft, selecione a Amostra 5.
 4. Para renomear o teste, na parte superior da tela do experimento, selecione o nome do teste "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto".
@@ -91,7 +91,7 @@ Para este exemplo, você está usando C# para criar o aplicativo de readaptaçã
 
 Para chamar as APIs de Readaptação:
 
-1. Crie um Aplicativo de Console do C# no Visual Studio (Novo->Projeto->Área de Trabalho do Windows->Aplicativo de Console).
+1. Crie um aplicativo de console C# no Visual Studio: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
 2. Entre no portal do Serviço Web de Machine Learning.
 3. Se você estiver trabalhando com um serviço Web Clássico, clique em **Serviços Web Clássicos**.
    1. Clique no serviço Web com o qual você está trabalhando.

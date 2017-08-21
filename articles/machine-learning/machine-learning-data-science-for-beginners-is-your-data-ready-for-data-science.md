@@ -1,5 +1,5 @@
 ---
-title: "Seus dados estão prontos para a ciência de dados? Avaliação de dados – Azure | Microsoft Docs"
+title: "Seus dados estão prontos para a ciência de dados? Avaliação de dados – Azure Machine Learning | Microsoft Docs"
 description: "Saiba sobre os quatro critérios para os dados estarem prontos para a ciência de dados. O vídeo Ciência de Dados para Iniciantes 2 tem exemplos concretos para ajudar na avaliação dos dados básicos."
 keywords: "dados relevantes, avaliar dados, preparar dados, critérios dos dados, dados prontos"
 services: machine-learning
@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8c27159e75482e5d3b2048298b118c55574c6b57
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Série de ciência de dados para iniciantes
 Aprenda como avaliar seus dados para assegurar que eles atendem aos critérios básicos de preparo para a ciência de dados.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
+Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
 >
@@ -44,7 +45,7 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a list
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcrição: Seus dados estão prontos para a ciência de dados?
 Bem-vindo a "Seus dados estão prontos para a ciência de dados?" o segundo vídeo na série *Ciência de dados para iniciantes*.  
 
-Antes da ciência de dados poder fornecer as respostas desejadas, você precisa dar-lhe algum material bruto de alta qualidade com o qual trabalhar. Assim como fazer uma pizza, quanto melhores os ingredientes com os quais você inicia, melhor o produto final.
+Antes da ciência de dados poder fornecer as respostas desejadas, você precisa dar-lhe algum material bruto de alta qualidade com o qual trabalhar. Assim como fazer uma pizza, quanto melhores os ingredientes com os quais você inicia, melhor o produto final. 
 
 ## <a name="criteria-for-data"></a>Critérios dos dados
 Assim, no caso da ciência de dados, existem alguns componentes que precisamos para reunir.
@@ -59,7 +60,7 @@ Precisamos de dados que sejam:
 ## <a name="is-your-data-relevant"></a>Seus dados são relevantes?
 Então, o primeiro princípio - precisamos de dados relevantes.
 
-![Dados relevantes versus dados irrelevantes - avaliar dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
+![Dados relevantes versus dados irrelevantes - avaliar dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
 Veja a tabela à esquerda. Encontramos sete pessoas fora dos bares de Boston, medimos seu nível de álcool no sangue, a média de rebatidas do Red Sox no último jogo e o preço do leite na loja de conveniência mais próxima.
 
@@ -70,7 +71,7 @@ Agora, veja a tabela à direita. Desta vez, medimos a massa corporal de cada pes
 ## <a name="do-you-have-connected-data"></a>Você tem dados conectados?
 O próximo ingrediente serão os dados conectados.
 
-![Dados conectados versus dados desconectados – critérios dos dados, dados prontos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Dados conectados versus dados desconectados – critérios dos dados, dados prontos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
 Aqui estão alguns dados relevantes sobre a qualidade dos hambúrgueres: temperatura da churrasqueira, peso do hambúrguer e a classificação na revista de alimentos local. Mas observe as lacunas na tabela à esquerda.
 
@@ -83,7 +84,7 @@ A tabela à direita, no entanto, está completa - um exemplo de dados conectados
 ## <a name="is-your-data-accurate"></a>Seus dados são precisos?
 O próximo ingrediente que precisamos é a precisão. Aqui estão os quatro destinos que gostaríamos de atingir com setas.
 
-![Dados precisos versus dados imprecisos - critérios dos dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
+![Dados precisos versus dados imprecisos - critérios dos dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
 Veja o destino à direita superior. Temos um agrupamento rígido em torno do alvo. Claro, isso é preciso. Estranhamente, na linguagem da ciência de dados, nosso desempenho no destino logo abaixo também é considerado preciso.
 
@@ -94,7 +95,7 @@ Agora, veja o destino à esquerda superior. Aqui, nossas setas estão muito pró
 ## <a name="do-you-have-enough-data-to-work-with"></a>Você tem dados suficientes com os quais trabalhar?
 Por fim, o ingrediente 4 - precisamos ter dados suficientes.
 
-![Você tem dados suficientes para a análise? Avaliação dos dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
+![Você tem dados suficientes para a análise? Avaliação dos dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
 Pense em cada ponto de dados na tabela como sendo uma pincelada em uma pintura. Se você tiver apenas algumas, a pintura poderá ser bastante confusa – será difícil dizer o que é.
 
@@ -110,5 +111,5 @@ Certifique-se de conferir outros vídeos da série *Ciência de dados para inici
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](machine-learning-create-experiment.md)
-* [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Obtenha uma introdução ao Microsoft Azure Machine Learning](machine-learning-what-is-machine-learning.md)
 

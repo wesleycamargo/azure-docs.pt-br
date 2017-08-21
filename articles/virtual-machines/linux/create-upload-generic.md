@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0a1717219bfc33033bdb827e66e80dd18388e64
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para as distribuições não endossadas
@@ -53,8 +53,8 @@ O restante deste artigo traz orientações gerais para execução da sua distrib
 * Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
 * Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
 
-### <a name="installing-linux-without-hyper-v"></a>Instalação do Linux sem Hyper-V
-Em alguns casos, os instaladores do Linux não incluem os drivers Hyper-v no ramdisk inicial (initrd ou initramfs), a menos que ele detecte que está executando um ambiente Hyper-V.  Ao usar um sistema de virtualização diferente (ou seja, Virtualbox, KVM, etc.) para preparar a imagem do Linux, talvez seja necessário recompilar o initrd para garantir que pelo menos os módulos kernel `hv_vmbus` e `hv_storvsc` estejam disponíveis no ramdisk inicial.  Isso é um problema conhecido pelo menos em sistemas com base na distribuição Red Hat upstream.
+### <a name="installing-kernel-modules-without-hyper-v"></a>Instalação dos módulos de kernel sem Hyper-V
+O Azure é executado no hipervisor Hyper-V, de modo que o Linux requer que determinados módulos de kernel estejam instalados para executar no Azure. Se você tem uma VM que foi criada fora do Hyper-V, os instaladores do Linux não incluem os drivers Hyper-V no ramdisk inicial (initrd ou initramfs), a menos que ele detecte que está executando um ambiente Hyper-V. Ao usar um sistema de virtualização diferente (ou seja, Virtualbox, KVM, etc.) para preparar a imagem do Linux, talvez seja necessário recompilar o initrd para garantir que pelo menos os módulos kernel `hv_vmbus` e `hv_storvsc` estejam disponíveis no ramdisk inicial.  Isso é um problema conhecido pelo menos em sistemas com base na distribuição Red Hat upstream.
 
 O mecanismo para recriar a imagem initrd ou initramfs pode variar dependendo da distribuição. Consulte a documentação da distribuição ou suporte para o procedimento adequado.  Aqui está um exemplo de como recompilar o initrd usando o utilitário `mkinitrd` :
 

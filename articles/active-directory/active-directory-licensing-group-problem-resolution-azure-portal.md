@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,7 +34,26 @@ Quando você atribui licenças diretamente a usuários individuais, sem usar o l
 
 Quando você está usando o licenciamento com base em grupo, o mesmo erro pode ocorrer, mas ocorre em segundo plano quando o serviço do Azure AD está atribuindo licenças. Por esse motivo, os erros não podem ser comunicados a você imediatamente. Em vez disso, eles são registrados no objeto do usuário e relatados por meio do portal administrativo. Observe que a intenção original para licenciar o usuário nunca é perdida, mas é registrada em um estado de erro para investigação futura e resolução.
 
-Para localizar os usuários que estão em um estado de erro para cada grupo, abra a folha de cada grupo. Em **Licenças**, uma notificação será exibida se houver usuários em um estado de erro. Selecione a notificação para abrir uma lista de todos os usuários afetados. Você pode exibir os usuários individualmente para entender o problema subjacente. Neste artigo, descrevemos cada problema e a maneira de resolvê-lo.
+## <a name="how-to-find-license-assignment-errors"></a>Como localizar erros de atribuição de licenças
+
+1. Para localizar usuários em estado de erro em um grupo específico, abra a folha de cada grupo. Em **Licenças**, uma notificação será exibida se houver usuários em um estado de erro.
+
+![Grupo, notificação de erro](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+
+2. Clique na notificação para abrir uma lista de todos os usuários afetados. Você pode clicar em cada usuário individualmente para ver mais detalhes.
+
+![Grupo, lista de usuários em estado de erro](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+
+3. Para localizar todos os grupos que têm pelo menos um erro, na folha **Azure Active Directory** selecione **Licenças** e, em seguida, **Visão Geral**. Uma caixa de informações é exibida quando alguns grupos exigem sua atenção.
+
+![Visão geral, informações sobre grupos em estado de erro](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+
+4. Clique na caixa para ver uma lista de todos os grupos com erros. Você pode clicar em cada grupo para obter mais detalhes.
+
+![Visão geral, lista de grupos com erros](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
+
+Veja abaixo uma descrição de cada problema potencial e como resolvê-lo.
 
 ## <a name="not-enough-licenses"></a>Não há licenças suficientes
 
@@ -88,6 +108,20 @@ Você pode atribuir mais de uma licença de produto a um grupo. Por exemplo, voc
 O Azure AD tenta atribuir todas as licenças que são especificadas no grupo para cada usuário. Se o Azure AD não puder atribuir um dos produtos devido a problemas de lógica de negócios (por exemplo, se não houver licenças suficientes para todos ou se houver conflitos com outros serviços que estão habilitados no usuário), ele também não atribuirá outras licenças no grupo.
 
 Você poderá ver os usuários que não foram atribuídos e verificar quais produtos foram afetados por isso.
+
+## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>A atribuição de licença falha silenciosamente para um usuário devido a endereços de proxy duplicados no Exchange Online
+
+Se você estiver usando o Exchange Online, alguns usuários em seu locatário poderão estar configurados incorretamente com o mesmo valor de endereço do proxy. Quando o licenciamento baseado em grupo tentar atribuir uma licença para esse usuário, ele falhará e não registrará um erro (diferente dos outros casos de erro descritos acima) – esta é uma limitação da versão de visualização deste recurso e vamos solucioná-la antes da *disponibilidade geral*.
+
+> [!TIP]
+> Se você notar que alguns usuários não receberam uma licença e não há nenhum erro gravado nesses usuários, verifique primeiro se eles têm o endereço de proxy duplicado.
+> Isso pode ser feito executando o seguinte cmdlet do PowerShell no Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> [Este artigo](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online) contém mais detalhes sobre o problema, incluindo informações sobre [Como conectar o Exchange Online usando o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
+
+Depois de solucionar problemas de endereço de proxy para os usuários afetados, certifique-se de forçar o processamento de licença no grupo para garantir que as licenças possam ser aplicadas novamente.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Como forçar o processamento de licença em um grupo para resolver erros?
 

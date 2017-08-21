@@ -16,16 +16,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 84e95127ae2951ec5d1e0727801fc598d7e78227
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
-Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups automáticos de banco de dados completo, além dos 7-35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL do Azure. Ao utilizar o recurso de retenção de backup de longo prazo, você poderá armazenar seus backups do Banco de Dados SQL em um cofre dos Serviços de Recuperação do Azure por um período de até 10 anos. É possível armazenar até 1.000 bancos de dados por cofre. Selecione qualquer backup no cofre para restaurá-lo como um novo banco de dados.
+Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups de banco de dados além dos 7 a 35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL do Microsoft Azure. Ao utilizar o recurso de retenção de backup de longo prazo, você poderá armazenar seus backups do Banco de Dados SQL em um cofre dos Serviços de Recuperação do Azure por um período de até 10 anos. É possível armazenar até 1.000 bancos de dados por cofre. Você poderá selecionar qualquer backup no cofre para restaurá-lo como um novo banco de dados.
 
 > [!IMPORTANT]
 > A retenção de backup de longo prazo está atualmente em versão prévia e está disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, EUA Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Índia Central, Sul da Índia, Leste do Japão, Oeste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental e Oeste dos EUA.

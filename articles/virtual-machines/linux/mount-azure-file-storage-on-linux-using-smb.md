@@ -1,6 +1,6 @@
 ---
-title: Montar o Armazenamento de Arquivos do Azure em VMs Linux usando o SMB | Microsoft Docs
-description: Como montar o Armazenamento de Arquivos do Azure em VMs Linux usando SMB com a CLI 2.0 do Azure
+title: Montar o armazenamento de Arquivos do Azure em VMs Linux usando SMB | Microsoft Docs
+description: Como montar o armazenamento de Arquivos do Azure em VMs Linux usando SMB com a CLI 2.0 do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 279b165cbdb924dcae0cb95ad9f9d187aed1a1b3
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o Armazenamento de Arquivos do Azure em VMs Linux usando o SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o Armazenamento de Arquivos do Azure em VMs Linux usando SMB
 
-Este artigo mostra como utilizar o serviço Armazenamento de Arquivos do Azure em uma VM Linux usando uma montagem SMB com a CLI 2.0 do Azure. O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Você também pode executar essas etapas com a [CLI do Azure 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esses requisitos são:
+Este artigo mostra como utilizar o serviço armazenamento de Arquivos do Azure em uma VM Linux usando uma montagem SMB com a CLI 2.0 do Azure. O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Você também pode executar essas etapas com a [CLI do Azure 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esses requisitos são:
 
 - [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md)

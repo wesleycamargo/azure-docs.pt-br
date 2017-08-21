@@ -1,6 +1,6 @@
 ---
 title: "Backups do SQL Data Warehouse do Azure - instantâneos, redundância geográfica | Microsoft Docs"
-description: "Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica."
+description: "Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um SQL Data Warehouse do Azure para um ponto de restauração ou outra região geográfica."
 services: sql-data-warehouse
 documentationcenter: 
 author: Lakshmi1812
@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
 ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backups do SQL Data Warehouse
@@ -54,6 +53,11 @@ Esse recurso está ligado por padrão. Se você não quiser usar backups com red
 > [!NOTE]
 > No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
 > 
+> 
+
+> [!NOTE]
+> Não é possível recusar backups com redundância geográfica no DWU 9000 e DWU 18000. 
+>
 > 
 
 Para saber mais sobre:

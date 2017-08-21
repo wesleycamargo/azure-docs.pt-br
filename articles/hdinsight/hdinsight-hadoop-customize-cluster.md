@@ -1,5 +1,5 @@
 ---
-title: "Personalizar os Clusters HDInsight usando ações de script | Microsoft Docs"
+title: "Personalizar os Clusters HDInsight usando ações de script – Azure | Microsoft Docs"
 description: "Saiba como personalizar os clusters HDInsight usando a ação de Script."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e6af6f915a4356ae137ba3b92dd0331f7b5411c0
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters HDInsight baseados em Windows usando a Ação de Script
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 As informações contidas neste artigo são específicas aos clusters HDInsight baseados no Windows. Para cluster baseados em Linux, confira [Personalizar clusters do HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Clusters HDInsight também podem ser personalizados de várias outras formas, como incluir contas adicionais do Armazenamento do Azure, alterar os arquivos de configuração do Hadoop (core-site.xml, hive-site.xml, etc.) ou adicionar bibliotecas compartilhadas (p.ex., Hive, Oozie) em locais comuns no cluster. Essas personalizações podem ser feitas por meio do Azure PowerShell, SDK do .NET do Azure HDInsight ou Portal do Azure. Para obter mais informações, veja [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster].
 
@@ -239,11 +238,7 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
                 ClusterType = NewClusterType,
                 OSType = NewClusterOSType,
                 Version = NewClusterVersion,
-
-                DefaultStorageAccountName = ExistingStorageName,
-                DefaultStorageAccountKey = ExistingStorageKey,
-                DefaultStorageContainer = ExistingContainer,
-
+                DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingContainer),
                 UserName = NewClusterUsername,
                 Password = NewClusterPassword,
             };

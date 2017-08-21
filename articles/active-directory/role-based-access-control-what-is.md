@@ -5,21 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 07/13/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 06daecfe8cd61cbb3ab9d2307acb07e30270d921
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao Controle de Acesso Baseado em Função no Portal do Azure
@@ -48,7 +47,7 @@ As demais funções RBAC no Azure permitem o gerenciamento de recursos específi
 [Funções internas RBAC](role-based-access-built-in-roles.md) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md).
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>Hierarquia de recursos e herança de acesso
-* Cada **assinatura** do Azure pertence somente a um diretório.
+* Cada **assinatura** do Azure pertence somente a um diretório. (Porém, cada diretório pode ter mais de uma assinatura).
 * Cada **grupo de recursos** pertence somente a uma assinatura.
 * Cada **recurso** pertence somente a um grupo de recursos.
 

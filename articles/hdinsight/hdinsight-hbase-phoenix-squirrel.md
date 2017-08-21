@@ -15,12 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 024b70df99fdefa1598225ebb1fbfee85ea375d0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usar Apache Phoenix e SQuirreL com clusters do HBase baseados em Windows no HDInsight
@@ -31,7 +30,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 >
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -89,7 +88,7 @@ Antes de seguir os procedimentos, você deve ter o seguinte:
 * Obtenha o sufixo DNS específico da Conexão do cluster de cluster HBase. Para obtê-lo, faça RDP no cluster e, em seguida, execute IPConfig.  O sufixo DNS é semelhante a:
 
         myhbase.b7.internal.cloudapp.net
-* Baixe e instale o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) em sua estação de trabalho. Você precisará garantir o pacote para criar seu certificado.  
+* Baixe e instale o [Microsoft Visual Studio Express para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) em sua estação de trabalho. Você precisará garantir o pacote para criar seu certificado.  
 * Baixe e instale o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) em sua estação de trabalho.  O SQuirreL SQL client versão 3.0 e superior requer JRE versão 1.6 ou superior.  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Configurar uma conexão VPN site a ponto para a rede virtual do Azure
@@ -128,7 +127,7 @@ Garanta que você possua um cluster HBase em uma rede virtual do Azure (consulte
     O diagrama mostra 0 conexões de cliente. Depois de fazer uma conexão com a rede virtual, o número será atualizado para um.
 
 #### <a name="create-your-certificates"></a>Criar seus certificados
-Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de certificado (makecert.exe) que acompanha o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de Certificado (makecert.exe) que acompanha o [Microsoft Visual Studio Express para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **Para criar um certificado autoassinado**
 

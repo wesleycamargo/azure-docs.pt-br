@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
@@ -53,7 +52,7 @@ Para obter mais informações sobre as opções de implantação de cluster do H
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Para usar a rede RDMA do Azure com um dos tamanhos de VM compatíveis com RDMA, especifique uma imagem de HPC com base em CentOS ou de HPC do SUSE Linux Enterprise Server 12 no Azure Marketplace. Para obter mais informações, veja [Sobre VMs série H ou série A com computação intensiva](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Para usar a rede RDMA do Azure com um dos tamanhos de VM compatíveis com RDMA, especifique uma imagem de HPC com base em CentOS ou de HPC do SUSE Linux Enterprise Server 12 no Azure Marketplace. Para obter mais informações, consulte [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -187,7 +186,7 @@ Você tem várias opções para mover dados entre nós Linux e o nó principal d
 ### <a name="azure-file-storage"></a>Armazenamento de arquivos do Azure
 O serviço [Arquivo do Azure](https://azure.microsoft.com/services/storage/files/) expõe os compartilhamentos de arquivos usando o protocolo SMB 2.1 padrão. As VMs e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivos. 
 
-Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/storage-dotnet-how-to-use-files.md). Para montar o compartilhamento de Arquivos do Azure nos nós do Linux, veja [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/storage-file-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 No exemplo a seguir, crie um compartilhamento de arquivos do Azure em uma conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
 
@@ -300,7 +299,7 @@ A ferramenta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) do H
 
 ## <a name="next-steps"></a>Próximas etapas
 * Tente dimensionar verticalmente o cluster para um maior número de nós ou executar uma carga de trabalho do Linux no cluster. Para ver um exemplo, confira [Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](hpcpack-cluster-namd.md).
-* Tente um cluster com [VMs compatíveis com RDMA, com uso intensivo de computação](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar cargas de trabalho MPI. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](hpcpack-cluster-openfoam.md).
+* Tente um cluster com [VMs compatíveis com RDMA, com uso intensivo de computação](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar cargas de trabalho MPI. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](hpcpack-cluster-openfoam.md).
 * Se você estiver interessado em trabalhar em nós do Linux em um cluster do HPC Pack local, veja as [diretrizes do TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

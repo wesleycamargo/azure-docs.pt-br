@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
-ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
-ms.lasthandoff: 12/17/2016
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 303d7b06d259bc42c8093fb20a0e4a55410e28f5
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -26,7 +27,7 @@ O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Depois de transferirem dados locais para a nuvem, os clientes poderão acessá-los de qualquer serviço do Azure para aproveitar todo o potencial do conjunto de tecnologias do Azure. Ele pode ser usado, por exemplo, no Aprendizado de Máquina do Azure ou em um cluster HDInsight.
+Depois de transferirem dados locais para a nuvem, os clientes poderão acessá-los de qualquer serviço do Azure para aproveitar todo o potencial do conjunto de tecnologias do Azure. Ele pode ser usado, por exemplo, no Azure Machine Learning ou em um cluster HDInsight.
 
 Normalmente, essa é a primeira etapa das instruções passo a passo para o [SQL](machine-learning-data-science-process-sql-walkthrough.md) e o [HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
@@ -82,10 +83,10 @@ Os parâmetros usados pela tarefa são descritos aqui:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Baixar dados do armazenamento de blob do Azure
-Para baixar dados do armazenamento de blob do Azure no armazenamento local com SSIS, use uma instância da [Tarefa de Carregamento de Blob do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+Para baixar dados do armazenamento de blobs do Azure para o armazenamento local com SSIS, use uma instância da [Tarefa de Upload de Blob do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários mais avançados de SSIS-Azure
-O pacote de recursos do SSIS permite que fluxos mais complexos sejam tratados em conjunto por tarefas de empacotamento. Por exemplo, os dados de blob poderiam ser inseridos diretamente em um cluster do HDInsight cuja saída pode ser baixada em um blob e em um armazenamento local. O SSIS pode executar trabalhos de Hive e Pig em um cluster HDInsight usando conectores adicionais do SSIS:
+O pacote de recursos do SSIS permite que fluxos mais complexos sejam tratados em conjunto por tarefas de empacotamento. Por exemplo, os dados de blob poderiam ser inseridos diretamente em um cluster do HDInsight cuja saída pudesse ser baixada de volta para um blob e então para o armazenamento local. O SSIS pode executar trabalhos de Hive e Pig em um cluster HDInsight usando conectores adicionais do SSIS:
 
 * Para executar um script Hive em um cluster HDInsight do Azure com SSIS, use a [Tarefa Hive de HDInsight do Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 * Para executar um script Pig em um cluster HDInsight do Azure com SSIS, use a [Tarefa Pig de HDInsight do Azure](https://msdn.microsoft.com/library/mt146781.aspx).

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: bee96774abacebe36e61a1f4d051f65dd20342f6
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 428dcaa8e842077936b7d9b9cb6ac639844c3961
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
@@ -108,7 +107,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
   Este é um link para um vídeo da conferência MS Ignite de 2015, no Channel 9. Nessa sessão, falam sobre gerenciamento de acesso e recursos de relatório no Azure, além de explorar práticas recomendadas em torno de proteção do acesso às assinaturas do Azure usando o Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Gerenciando as chaves da conta de armazenamento
-As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blobs, entidades em uma tabela, mensagens na fila e arquivos em um compartilhamento de arquivos do Azure. O controle do acesso às chaves da conta de armazenamento controla o acesso ao plano de dados dessa conta de armazenamento.
+As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blobs, entidades em uma tabela, mensagens na fila e arquivos em um Compartilhamento de Arquivos do Azure. O controle do acesso às chaves da conta de armazenamento controla o acesso ao plano de dados dessa conta de armazenamento.
 
 Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](http://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Azure.
 
@@ -268,21 +267,21 @@ Para ter um canal de comunicação seguro, você sempre deve usar o HTTPS ao cha
 
 É possível impor o uso de HTTPS ao chamar as APIs REST para acessar objetos em contas de armazenamento habilitando a opção [Transferência segura necessária](storage-require-secure-transfer.md) na conta de armazenamento. As conexões que usam HTTP serão recusadas depois que essa opção for habilitada.
 
-### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Uso da criptografia durante a transferência com Compartilhamentos de Arquivos do Azure
-O Armazenamento de Arquivos do Azure é compatível com HTTPS quando se usa a API REST, mas é mais frequentemente usado como um compartilhamento de arquivos SMB conectado a uma VM. O SMB 2.1 não é compatível com a criptografia, de modo que as conexões só são permitidas dentro da mesma região no Azure. No entanto, o SMB 3.0 dá suporte à criptografia e está disponível no Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, permitindo o acesso entre regiões e, até mesmo, o acesso na área de trabalho.
+### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Usar criptografia durante a transferência com Compartilhamentos de Arquivos do Azure
+O Armazenamento de Arquivos do Azure dá suporte a HTTPS ao usar a API REST, mas é mais frequentemente usado como um compartilhamento de arquivos SMB conectado a uma VM. O SMB 2.1 não é compatível com a criptografia, de modo que as conexões só são permitidas dentro da mesma região no Azure. No entanto, o SMB 3.0 dá suporte à criptografia e está disponível no Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, permitindo o acesso entre regiões e, até mesmo, o acesso na área de trabalho.
 
-Observe que enquanto os Compartilhamentos de Arquivos do Azure podem ser usados com o Unix, o cliente SMB Linux ainda não permite a criptografia, de modo que o acesso é permitido apenas dentro da uma região do Azure. O suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. Quando eles adicionarem criptografia, você terá a mesma capacidade de acessar um Compartilhamento de Arquivos do Azure no Linux que tem no Windows.
+Observe que, embora os Compartilhamentos de Arquivos do Azure possam ser usados com o Unix, o cliente SMB do Linux ainda não dá suporte à criptografia, de modo que o acesso é permitido apenas de dentro de uma região do Azure. O suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. Quando a criptografia for adicionada, você terá a mesma capacidade de acessar um Compartilhamento de Arquivos do Azure no Linux que tem no Windows.
 
 É possível impor o uso de criptografia com o serviço Arquivos do Azure habilitando a opção [Transferência segura necessária](storage-require-secure-transfer.md) na conta de armazenamento. Se você estiver usando as APIs REST, o HTTPS será necessário. Para o SMB, apenas as conexões SMB que dão suporte à criptografia se conectarão com êxito.
 
 #### <a name="resources"></a>Recursos
-* [Como utilizar o armazenamento de arquivos do Azure com Linux](storage-how-to-use-files-linux.md)
+* [Como utilizar o Armazenamento de Arquivos do Azure com Linux](storage-how-to-use-files-linux.md)
 
   Esse artigo mostra como montar um Compartilhamento de Arquivos do Azure em um sistema Linux e carregar/baixar arquivos.
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 
   Esse artigo fornece uma visão geral dos Compartilhamentos de Arquivos do Azure e de como montá-los e usá-los com o PowerShell e o .NET.
-* [Por dentro do Armazenamento de arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Por dentro do Armazenamento de Arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 
   Esse artigo anuncia a disponibilidade geral do Armazenamento de Arquivos do Azure e fornece detalhes técnicos sobre a criptografia SMB 3.0.
 
@@ -351,7 +350,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia na v
 * Como desabilitar a criptografia em unidades do sistema operacional para VMs IaaS do Linux
 * VMs de IaaS que são criadas usando o método de criação de VM clássico
 * Integração com o Serviço de Gerenciamento de Chaves no local
-* Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
+* Armazenamento de Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
 
 
 > [!NOTE]
@@ -362,7 +361,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia na v
 Esse recurso garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Azure.
 
 #### <a name="resources"></a>Recursos
-* [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption para VMs IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparação do Azure Disk Encryption, da SSE e da Criptografia do Cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>VMs IaaS e seus arquivos VHD

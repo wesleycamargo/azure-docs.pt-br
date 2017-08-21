@@ -3,7 +3,7 @@ title: "Referência à API de auditoria do Azure Active Directory | Microsoft Do
 description: "Como começar a usar a API de auditoria do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: markusvi
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Referência à API de auditoria do Azure Active Directory
@@ -29,10 +29,17 @@ O escopo deste tópico é fornecer informações de referência sobre a **API de
 
 Consulte:
 
-* [Logs de auditoria](active-directory-reporting-azure-portal.md#audit-logs) para obter mais informações conceituais
+* [Logs de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações conceituais
+
 * [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
-Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
+
+Para:
+
+- Perguntas frequentes, leia nossas [Perguntas Frequentes](active-directory-reporting-faq.md) 
+
+- Solucionar problemas, [registre um tíquete de suporte](active-directory-troubleshooting-support-howto.md) 
+
 
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 * Usuários na função de Administrador de segurança ou Leitor de segurança

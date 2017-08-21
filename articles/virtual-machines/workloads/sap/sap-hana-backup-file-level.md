@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -131,15 +131,15 @@ Para verificar o caso de uso de NFS, um compartilhamento NFS da outra VM do Azur
 
 O compartilhamento NFS era um conjunto de distribuição rápida, como aquele no servidor do SAP HANA. No entanto, demorou 1 hora e 46 minutos para realizar o backup diretamente no compartilhamento NFS, em vez de 10 minutos, ao gravar em um conjunto de distribuição local.
 
-![A alternativa não era muito mais rápida com 1 hora e 43 minutos](media/sap-hana-backup-file-level/image037.png)
+![A alternativa não foi muito mais rápida com 1 hora e 43 minutos](media/sap-hana-backup-file-level/image037.png)
 
-A alternativa de realizar um backup em um conjunto de distribuição local e copiar no compartilhamento NFS no nível do sistema operacional (um comando **cp - avr** simples) não era muito mais rápida. Demorou 1 hora e 43 minutos.
+A alternativa de fazer um backup em um conjunto de distribuição local e copiar no compartilhamento NFS no nível do sistema operacional (um comando **cp - avr** simples) não foi muito mais rápida. Demorou 1 hora e 43 minutos.
 
-Funciona, mas o desempenho não era bom para o teste de backup de 230 GB. Ficaria ainda pior para vários terabytes.
+Funciona, mas o desempenho não foi bom para o teste de backup de 230 GB. Ficaria ainda pior para vários terabytes.
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copiar arquivos de backup do SAP HANA para o serviço de arquivo do Azure
 
-É possível montar um compartilhamento de arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de Arquivos do Azure com Linux](../../../storage/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
+É possível montar um compartilhamento de arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
 
 Os testes mostraram, no entanto, que o backup do SAP HANA não funciona diretamente no momento com esse tipo de montagem de CIFS. Também está declarado na [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) que o CIFS não é recomendado.
 

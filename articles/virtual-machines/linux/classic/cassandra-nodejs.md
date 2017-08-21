@@ -4,7 +4,7 @@ description: "Como executar um cluster Cassandra no Linux em máquinas virtuais 
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: hanuk
-manager: erikre
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: hanuk;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.date: 08/17/2017
+ms.author: hanuk;tarcher
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Executando Cassandra com Linux no Azure e acessando-a do Node.js
@@ -80,7 +79,7 @@ Configuração de cluster de Cassandra de região única:
 
 **Considerações do azure para o cluster do Cassandra:** o recurso de máquinas virtuais do Microsoft Azure usa o armazenamento de Blob do Azure para persistência de disco; o Armazenamento do Azure salva 3 réplicas de cada disco para alta durabilidade. Isso significa que cada linha de dados inseridos em uma tabela do Cassandra já está armazenada em 3 réplicas e, portanto, a consistência dos dados já estará resolvida, mesmo se o fator de replicação (RF) for 1. O principal problema com o Fator de Replicação ser 1 é que o aplicativo terá um tempo de inatividade, mesmo se um único nó do Cassandra falhar. No entanto, se um nó estiver inativo para os problemas (por exemplo, falhas de hardware, software do sistema) reconhecidos pelo Controlador de Malha do Azure, ele provisionará um novo nó em seu lugar usando as mesmas unidades de armazenamento. O provisionamento de um novo nó para substituir o antigo pode levar alguns minutos.  Da mesma forma, para atividades de manutenção planejada como alterações do sistema operacional convidado, atualizações do Cassandra e alterações de aplicativo, o Controlador de Malha do Azure executa atualizações sem interrupções de nós no cluster.  Atualizações sem interrupção também podem desativar alguns nós por vez; portanto, o cluster pode apresentar um breve tempo de inatividade para algumas partições. No entanto, os dados não serão perdidos devido à redundância interna do Armazenamento do Azure.  
 
-Para sistemas implantados no Azure que não exijam alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; confira [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), você poderá executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM tolerarão o tempo de inatividade de um dos nós de uma das réplicas. RF = 1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
+Para sistemas implantados no Azure que não exijam alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; confira [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), você poderá executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM tolerarão o tempo de inatividade de um dos nós de uma das réplicas. RF=1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
 
 ## <a name="multi-region-deployment"></a>Implantação em várias regiões
 A replicação de reconhecimento e o modelo de consistência de data center de Cassandra, descritos acima, ajudam com a implantação de várias regiões fora da caixa sem a necessidade de qualquer ferramenta externa. Isto é bem diferente dos bancos de dados relacionais tradicionais em que a configuração de espelhamento de banco de dados para gravações de vários mestres pode ser bastante complexa. Cassandra em uma configuração de várias regiões pode ajudar com os cenários de uso, incluindo os seguintes:

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: cdcc06844dce5df09b50a9a5f6a97a7a96a9ef48
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard econômico e discos de VM do Azure gerenciados e não gerenciados
@@ -49,7 +48,7 @@ Para obter informações sobre como criar uma VM com Managed Disks, consulte um 
 
 Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para saber mais, confira [Introdução ao Armazenamento do Azure](storage-introduction.md).
 
-**Armazenamento Standard**: o Armazenamento Standard do Azure oferece suporte a discos do Azure, blobs do Azure, arquivos do Azure, tabelas do Azure e filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account).
+**Armazenamento Standard**: o Armazenamento Standard do Azure dá suporte a Discos, Blobs, Armazenamento de Arquivos, Tabelas e Filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account).
 
 **Discos de armazenamento Standard:** discos de armazenamento Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o armazenamento Premium, como as séries DSv2 e GS. Um disco de armazenamento padrão só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descreveremos as especificações em mais detalhes. 
 

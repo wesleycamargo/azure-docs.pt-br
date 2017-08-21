@@ -1,5 +1,5 @@
 ---
-title: "Usar a Ação de Script para instalar o Solr no HDInsight baseado em Linux | Microsoft Docs"
+title: "Usar a Ação de Script para instalar o Solr no HDInsight baseado em Linux – Azure | Microsoft Docs"
 description: "Saiba como instalar o Solr em clusters baseados Hadoop HDInsight baseados em Linux usando as ações de script."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 9035dd639433f1edc628db85f1663add4abfdbd3
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Solr em clusters HDInsight do Hadoop
@@ -29,10 +28,10 @@ ms.lasthandoff: 05/18/2017
 Saiba como instalar o Solr no Azure HDInsight usando a Ação de Script. O Solr é uma plataforma de pesquisa poderosa e oferece recursos de pesquisa em nível corporativo para os dados gerenciados pelo Hadoop.
 
 > [!IMPORTANT]
-    > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
-> O script de exemplo usado neste documento cria um cluster Solr com uma configuração específica. Se você quiser configurar o cluster Solr com diferentes coleções, fragmentos, esquemas, réplicas, etc., modifique o script e os binários do Sol.
+> O script de exemplo usado neste documento instala o Solr 4.9 com uma configuração específica. Se você quiser configurar o cluster Solr com diferentes coleções, fragmentos, esquemas, réplicas, etc., modifique o script e os binários do Sol.
 
 ## <a name="whatis"></a>O que é Solr
 
@@ -47,7 +46,7 @@ Saiba como instalar o Solr no Azure HDInsight usando a Ação de Script. O Solr 
 
 Esse script faz as seguintes alterações ao cluster HDInsight:
 
-* Instala o Solr em `/usr/hdp/current/solr`
+* Instala o Solr 4.9 em `/usr/hdp/current/solr`
 * Cria um usuário, **solrusr**, que é usado para executar o serviço do Solr
 * Define **solruser** como o proprietário de `/usr/hdp/current/solr`
 * Adiciona uma configuração [Upstart](http://upstart.ubuntu.com/) que inicia automaticamente o Solr.
@@ -321,7 +320,7 @@ Use as etapas a seguir para fazer backup de dados do Solr no armazenamento padr�
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [Fazendo backups e restaurações de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Próximas etapas
 

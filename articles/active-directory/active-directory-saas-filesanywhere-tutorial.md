@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integração do Azure Active Directory com o FilesAnywhere
@@ -117,6 +117,8 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
     ![Configurar o logon único](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+> [!NOTE]
+> Observe que o valor **215** é uma **clientid** e é apenas um exemplo. É necessário substituí-lo pelo valor de clientid real.
 
 4. Na seção **Domínio e URLs do FilesAnywhere**, se você desejar configurar o aplicativo no **Modo iniciado por SP**, siga as etapas abaixo:
     
@@ -170,10 +172,10 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
 
     ![Configurar o logon único](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    Para obter a configuração de SSO completa para seu aplicativo na extremidade do FilesAnywhere, contate a [equipe de suporte do FilesAnywhere](mailto:support@FilesAnywhere.com) e forneça a eles a URL do certificado e do SSO (Logon único) da assinatura do token SAML.
+10. Para obter a configuração de SSO completa para seu aplicativo na extremidade do FilesAnywhere, contate a [equipe de suporte do FilesAnywhere](mailto:support@FilesAnywhere.com) e forneça a eles a URL do certificado e do SSO (Logon único) da assinatura do token SAML.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 

@@ -2,7 +2,7 @@
 title: "Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos | Microsoft Docs"
 description: "Saiba como transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
-ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: d974d64dbafe15707a6ce86144b98bad334f7f00
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="stream-azure-diagnostic-logs-to-event-hubs"></a>Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos
@@ -27,25 +28,25 @@ Os **[Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)*
 Veja algumas maneiras de usar o recurso de streaming para os Logs de Diagnóstico:
 
 * **Transmitir logs para sistemas de registro em log e telemetria de terceiros** – Ao longo do tempo, a transmissão de Hubs de Eventos se tornará o mecanismo para direcionar seus Logs de Diagnóstico para SIEMs e soluções de análise de log de terceiros.
-* **Exibir a integridade do serviço transmitindo dados de "afunilamento" para o Power BI** – Com os Hubs de Eventos, Stream Analytics e o Power BI, é fácil transformar seus dados de diagnóstico em informações quase em tempo real nos serviços do Azure. [Este artigo de documentação fornece uma ótima visão geral de como configurar um Hubs de Eventos, processar dados com o Stream Analytics e usar o Power BI como uma saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Veja algumas dicas para configurá-lo com os Logs de Diagnóstico:
+* **Exibir a integridade do serviço transmitindo dados de "afunilamento" para o Power BI** – Com os Hubs de Eventos, Stream Analytics e o Power BI, é fácil transformar seus dados de diagnóstico em informações quase em tempo real nos serviços do Azure. [Este artigo de documentação apresenta uma excelente visão geral de como configurar Hubs de Eventos, processar dados com o Stream Analytics e usar o PowerBI como saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para configurá-lo com os Logs de Diagnóstico:
   
-  * Os Hubs de Eventos de uma categoria de Logs de Diagnóstico é criado automaticamente quando você marca a opção no portal ou habilita-o por meio do PowerShell, para que você possa selecionar os Hubs de Eventos no namespace do Barramento de Serviço com o nome que começa com “insights-”
-  * Veja um exemplo de consulta do Stream Analytics que você pode usar para simplesmente analisar todos os dados de log em uma tabela do PowerBI:
+  * Um hub de evento de uma categoria de Logs de Diagnóstico é criado automaticamente quando você marca a opção no portal ou habilita-a por meio do PowerShell, de modo que você possa selecionar o hub de evento no namespace com o nome que começa com **insights-**.
+  * O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do PowerBI:
 
-```
-SELECT
-records.ArrayValue.[Properties you want to track]
-INTO
-[OutputSourceName – the PowerBI source]
-FROM
-[InputSourceName] AS e
-CROSS APPLY GetArrayElements(e.records) AS records
-```
+    ```sql
+    SELECT
+    records.ArrayValue.[Properties you want to track]
+    INTO
+    [OutputSourceName – the PowerBI source]
+    FROM
+    [InputSourceName] AS e
+    CROSS APPLY GetArrayElements(e.records) AS records
+    ```
 
 * **Compilar uma plataforma de registro em log e telemetria personalizada** – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de logs de diagnóstico. [Confira o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Habilitar o streaming de Logs de Diagnóstico
-Você pode habilitar programaticamente o streaming de Logs de Diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). De qualquer forma, escolha um Namespace do Barramento de Serviço e um Hub de Eventos será criado no namespace para cada categoria de log que você habilitar. Uma **Categoria de Log** de Diagnóstico é um tipo de log que um recurso pode coletar. Você pode selecionar quais categorias de log deseja coletar para um determinado recurso no Portal do Azure, na folha Diagnóstico.
+Você pode habilitar programaticamente o streaming de Logs de Diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). De qualquer forma, você escolhe um namespace de Hubs de Evento e um hub de evento é criado no namespace para cada categoria de log que você habilita. Uma **Categoria de Log** de Diagnóstico é um tipo de log que um recurso pode coletar. Você pode selecionar quais categorias de log deseja coletar para um determinado recurso no Portal do Azure, na folha Diagnóstico.
 
 ![Categorias de log no Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
@@ -54,37 +55,37 @@ Você pode habilitar programaticamente o streaming de Logs de Diagnóstico por m
 > 
 > 
 
-O namespace do barramento de serviço ou do hub de eventos não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+O namespace do Barramento de Serviço ou dos Hubs de Eventos não precisa estar na mesma assinatura que o recurso que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
 Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-powershell-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
 
-```
-Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+```powershell
+Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}` , `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}` , `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 ### <a name="via-azure-cli"></a>Via CLI do Azure
 Para habilitar o streaming por meio da [CLI do Azure](insights-cli-samples.md), use o comando `insights diagnostic set` da seguinte forma:
 
-```
+```azurecli
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
 Use o mesmo formato para ID de Regra do Barramento de Serviço, conforme explicado para o Cmdlet do PowerShell.
 
 ### <a name="via-azure-portal"></a>Via Portal do Azure
-Para habilitar o streaming por meio do Portal do Azure, navegue até as configurações de diagnóstico de um recurso e selecione “Exportar para o Hub de Eventos”.
+Para habilitar o streaming por meio do Portal do Azure, navegue até as configurações de diagnóstico de um recurso e selecione **Exportar para o Hub de Eventos**.
 
 ![Exportar para Hubs de Eventos no Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-Para configurá-lo, selecione um Namespace de Barramento de Serviço existente. O namespace selecionado será o local onde os Hubs de Eventos serão criados (se este for seu primeiro streaming de logs de diagnóstico) ou transmitidos (se já houver recursos realizando o streaming dessa categoria log para esse namespace), e a política define as permissões do mecanismo de streaming. Atualmente, o streaming para um Hub de Eventos exige as Gerenciar, Enviar e Escutar. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar uma dessas Configurações de Diagnóstico, o cliente deve ter a permissão ListKey na Regra de Autorização do Barramento de Serviço.
+Para configurá-lo, selecione um namespace de Hubs de Evento existente. O namespace selecionado será o local em que o hub de evento é criado (se este for seu primeiro streaming de logs de diagnóstico) ou transmitido (se já houver recursos realizando o streaming dessa categoria log para esse namespace) e a política define as permissões do mecanismo de streaming. Atualmente, o streaming para um hub de eventos exige as permissões para Gerenciar, Enviar e Escutar. Você pode criar ou modificar políticas de acesso compartilhado de namespace de Hubs de Evento no portal na guia **Configurar** para seu namespace. Para atualizar uma dessas configurações de diagnóstico, o cliente deve ter a permissão **ListKey** na regra de autorização de Hubs de Evento.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como eu consumo os dados de log dos Hubs de Eventos?
-Estes são os dados de saída de exemplo dos Hubs de Eventos:
+Aqui está um exemplo de dados de saída dos Hubs de Eventos:
 
-```
+```json
 {
     "records": [
         {
@@ -155,7 +156,7 @@ Estes são os dados de saída de exemplo dos Hubs de Eventos:
 | level |Opcional. Indica o nível do evento de log. |
 | propriedades |Propriedades do evento. |
 
-Veja uma lista de todos os provedores de recursos que oferecem suporte a streaming para o Hub de Eventos [aqui](monitoring-overview-of-diagnostic-logs.md).
+É possível exibir uma lista de todos os provedores de recursos que dão suporte a streaming para o Hub de Eventos [aqui](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Transmitir dados de recursos de Computação
 Também é possível transmitir logs de diagnóstico de recursos de Computação usando o agente do Diagnóstico do Microsoft Azure. [Consulte este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para saber como configurar isso.
@@ -163,10 +164,5 @@ Também é possível transmitir logs de diagnóstico de recursos de Computação
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

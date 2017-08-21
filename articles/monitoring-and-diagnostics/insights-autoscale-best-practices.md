@@ -1,8 +1,8 @@
 ---
 title: "Práticas recomendadas para dimensionamento automático | Microsoft Docs"
-description: "Aprenda os princípios para dimensionar efetivamente as máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem."
-author: kamathashwin
-manager: carmonm
+description: "Padrões de dimensionamento automático no Azure para Aplicativos Web, conjuntos de Dimensionamento de Máquina Virtual e Serviços de Nuvem"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.date: 07/07/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
@@ -151,4 +150,10 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
   Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
+  
+Você também pode usar um alerta do Log de Atividades para monitorar a integridade do mecanismo de dimensionamento automático. Aqui estão exemplos para [criar um Alerta de Log de Atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [criar um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+## <a name="next-steps"></a>Próximas etapas
+- [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

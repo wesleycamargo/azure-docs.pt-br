@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2017
+ms.date: 07/07/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: edc1a2b42f1148923b8acfd8b3ee35f790d7f230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebe8b9f0cace419125bde84a9ff2a912af061156
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/05/2017
 
 Assim que um [tipo de aplicativo for empacotado][10], ele está pronto para implantação em um cluster do Azure Service Fabric. A implantação envolve as três etapas a seguir:
 
-1. Carregar o pacote de aplicativo no repositório de imagens
+1. Carregar o pacote de aplicativos no repositório de imagens
 2. Registrar o tipo de aplicativo
 3. Criar a instância do aplicativo
 
@@ -42,7 +42,7 @@ Depois que um aplicativo é implantado e uma instância está em execução no c
 
 1. Remover (ou excluir) a execução da instância do aplicativo
 2. Cancelar o registro do tipo de aplicativo se você não precisar mais dele
-3. Remover o pacote de aplicativo do repositório de imagens
+3. Remover o pacote de aplicativos do repositório de imagens
 
 Se você usar o [Visual Studio para implantar e depurar aplicativos](service-fabric-publish-app-remote-cluster.md) no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Esse script é encontrado na pasta *Scripts* do projeto do aplicativo. Este artigo fornece informações sobre o que esse script faz para que você possa executar as mesmas operações fora do Visual Studio. 
  
@@ -54,8 +54,8 @@ Conecte-se ao cluster criando uma instância [FabricClient](/dotnet/api/system.f
 FabricClient fabricClient = new FabricClient();
 ```
 
-## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativo
-Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio 2015. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicativos, que contém o manifesto do aplicativo necessário, manifestos de serviço e os pacotes de códigos/configurações/dados, está localizado em *C:\Users\\\nome de usuário\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
+## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativos
+Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicativos, que contém o manifesto do aplicativo, os manifestos do serviço e os pacotes de códigos/configurações/dados necessários, está localizado em *C:\Users\&lt;nome de usuário&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*.
 
 O carregamento do pacote de aplicativos coloca-o em um local acessível pelos componentes internos do Service Fabric. O Service Fabric verifica o pacote de aplicativos durante o registro do pacote de aplicativos. No entanto, se você quiser verificar o pacote de aplicativos localmente (ou seja, antes de carregá-lo), use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
@@ -65,7 +65,7 @@ Se o pacote de aplicativos for grande e/ou tiver vários arquivos, será possív
 
 Confira [Noções básicas sobre a configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para obter informações suplementares sobre o repositório de imagens e a cadeia de conexão de armazenamento de imagens.
 
-## <a name="register-the-application-package"></a>Registrar o pacote de aplicativo
+## <a name="register-the-application-package"></a>Registrar o pacote de aplicativos
 O tipo e a versão do aplicativo declarados no manifesto do aplicativo tornam-se disponíveis para uso quando o pacote de aplicativos é registrado. O sistema lê o pacote carregado na etapa anterior, verifica o pacote, processa o conteúdo do pacote e copia o pacote processado em um local interno do sistema.  
 
 A API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) registra o tipo de aplicativo no cluster e o disponibiliza para implantação.
@@ -97,7 +97,7 @@ Quando a instância de um aplicativo não for mais necessária, será possível 
 ## <a name="unregister-an-application-type"></a>Cancelar o registro de um tipo de aplicativo
 Quando uma versão específica de um tipo de aplicativo não for mais necessária, você deve cancelar o registro dessa versão específica do tipo de aplicativo usando a API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). O cancelamento de registro de versões não utilizadas de tipos de aplicativo libera espaço de armazenamento usado pelo repositório de imagens. Uma versão de um tipo de aplicativo pode ter seu registro cancelado, desde que não existam aplicativos instanciados nela nem nenhuma atualização de aplicativo pendente que faça referência a ela.
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativo do repositório de imagens
+## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativos do repositório de imagens
 Quando um pacote de aplicativos não for mais necessário, será possível excluí-lo do repositório de imagens para liberar recursos do sistema usando a API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="troubleshooting"></a>Solucionar problemas
@@ -180,7 +180,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

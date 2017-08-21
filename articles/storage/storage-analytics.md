@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
@@ -38,7 +38,7 @@ A análise de armazenamento registra informações detalhadas sobre solicitaçõ
 
 As entradas de log são criadas somente se houver atividade de serviço de armazenamento. Por exemplo, se uma conta de armazenamento tiver atividade em seu serviço Blob, mas não em seus serviços de fila ou tabela, somente os logs referentes ao serviço Blob serão criados.
 
-O log de análise de armazenamento não está disponível para o serviço de arquivo do Azure.
+O Log de Análise de Armazenamento não está disponível para o Armazenamento de Arquivos do Azure.
 
 ### <a name="logging-authenticated-requests"></a>Solicitações de registro em log autenticadas
 Os seguintes tipos de solicitações autenticadas são registrados:
@@ -104,8 +104,8 @@ Todos os blobs de log são armazenados com metadados que podem ser usados para i
 | Atributo | Descrição |
 | --- | --- |
 | LogType |Descreve se o log contém informações referentes a operações de ler, gravar ou de exclusão. Esse valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas. Exemplo 1: gravar. Exemplo 2: ler, gravar. Exemplo 3: ler, gravar e excluir. |
-| StartTime |A hora mais antiga de uma entrada no log, no formato AAAA-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:21:46Z. |
-| EndTime |A hora mais recente de uma entrada no log, no formato YYYY-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:22:09Z. |
+| StartTime |A hora mais antiga de uma entrada de log, no formato AAAA-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:21:46Z. |
+| EndTime |A hora mais recente de uma entrada de log, no formato YYYY-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:22:09Z. |
 | LogVersion |A versão do formato do log. Atualmente, o único valor aceito é 1.0. |
 
 A lista a seguir exibe exemplos completos de metadados que usam os exemplos anteriores.

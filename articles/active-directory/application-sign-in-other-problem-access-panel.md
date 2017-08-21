@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="problems-signing-in-to-an-application-from-the-access-panel" class="xliff"></a>
-
-# Problemas para entrar em um aplicativo a partir do Painel de Acesso
+# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
 
@@ -39,9 +38,7 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Aplicativos com soluções de SSO existentes
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Questões gerais que primeiro devem ser verificadas
+## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
 
 -   Verifique se você está usando um **navegador** que atenda aos requisitos mínimos para o Painel de Acesso.
 
@@ -63,9 +60,7 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Tente também eliminar os cookies do navegador e tente entrar novamente.
 
-<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
-
-## Atender aos requisitos de navegador para o Painel de Acesso
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Atender aos requisitos de navegador para o Painel de Acesso
 
 O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilitado. Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
@@ -73,21 +68,19 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
 
+-   Edge no Windows 10 Anniversary Edition ou posterior
+
 -   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 
 -   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-**Observação**: a extensão de SSO baseada em senha será disponibilizada para o Edge no Windows 10 quando as extensões de navegador tiverem suporte no Edge.
-
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Como instalar a extensão do Navegador do Painel de Acesso
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
 1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  Clique em **aplicativo de SSO de senha** no Painel de Acesso.
+2.  Clique em um **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -99,15 +92,13 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
 
-Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
+Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensão do Painel de Acesso do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-## Como configurar o logon único federado para um aplicativo na galeria do Azure AD
+## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na galeria do Azure AD
 
 Todos os aplicativos na galeria do Azure AD habilitados com o recurso de Logon Único Corporativo possuem um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
 
@@ -125,11 +116,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Atribuir usuários ao aplicativo](#assign-users-to-the-application)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
-### Adicionar um aplicativo da galeria do Azure AD
-
-Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
+Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**
 
@@ -151,9 +140,7 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-### Configurar o logon único para um aplicativo da galeria do Azure AD
+### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurar o logon único para um aplicativo da galeria do Azure AD
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -163,13 +150,13 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
@@ -199,9 +186,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 15. Atribuir usuários a um aplicativo.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -211,11 +196,11 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você precisa configurar o logon único.
 
@@ -236,11 +221,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2. Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-### Baixar o certificado ou metadados do Azure AD
-
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -248,9 +231,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -262,9 +245,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-## Como configurar o logon único federado para um aplicativo inexistente na galeria
+## <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -276,9 +257,7 @@ Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configuring-single-sign-on)
 
-<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
-
-### Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
+### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 
 Para configurar o logon único para um aplicativo que não está na galeria do Azure AD, siga as etapas abaixo:
 
@@ -288,7 +267,7 @@ Para configurar o logon único para um aplicativo que não está na galeria do A
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**
 
@@ -320,9 +299,7 @@ Para configurar o logon único para um aplicativo que não está na galeria do A
 
 14. clique em **Configurar &lt;nome do aplicativo&gt;**  para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs do Azure AD e o certificado necessários para o aplicativo.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -332,9 +309,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -357,11 +334,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2 Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-### Baixar o certificado ou metadados do Azure AD
-
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -369,9 +344,9 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -383,9 +358,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-## Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -393,11 +366,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
-### Adicionar um aplicativo da galeria do Azure AD
-
-Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
+Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**
 
@@ -405,23 +376,21 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**
+5.  Clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**
 
 6.  Na caixa de texto **Inserir um nome** da seção **Adicionar da galeria**, digite o nome do aplicativo
 
-7.  Selecione o aplicativo para o qual você deseja configurar o logon único
+7.  Selecione o aplicativo para o qual deseja configurar o logon único
 
-8.  Antes de adicionar o aplicativo, é possível alterar seu nome pela caixa de texto **Nome**.
+8.  Antes de adicionar o aplicativo, é possível alterar seu nome na caixa de texto **Nome**.
 
 9.  Clique no botão **Adicionar** para adicionar o aplicativo.
 
-Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
+Após um breve período, você verá a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-### Configurar o aplicativo para logon único com senha
+### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -431,15 +400,15 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual deseja configurar o logon único
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Selecione o modo **Logon baseado em Senha.**
 
@@ -447,9 +416,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-## Como configurar o logon único com senha para um aplicativo inexistente na galeria
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -457,9 +424,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-a-non-gallery-application" class="xliff"></a>
-
-### Adicionar um aplicativo inexistente na galeria
+### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
@@ -469,19 +434,17 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**
+5.  Clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**
 
-6.  Clique em **Aplicativo inexistente na galeria.**
+6.  clique em **Aplicativo inexistente na galeria.**
 
 7.  Insira o nome do aplicativo na caixa de texto **Nome**. Selecione **Adicionar.**
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-### Configurar o aplicativo para logon único com senha
+### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -491,17 +454,17 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Selecione o modo **Logon baseado em Senha.**
+8.  Selecione o modo **Logon baseado em senha.**
 
 9.  Insira a **URL de Logon**. Trata-se da URL em que os usuários inserem o nome de usuário e senha para entrar. Verifique se os campos de entrada estão visíveis na URL.
 
@@ -509,9 +472,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
-
-## Como atribuir um usuário diretamente a um aplicativo
+## <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -521,21 +482,21 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Na lista, selecione o aplicativo ao qual você deseja atribuir um usuário.
+6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
 7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar atribuição**.
+8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
@@ -549,9 +510,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
-
-## Se essas etapas de solução de problemas não resolverem o problema
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -567,9 +526,7 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
-[Fornecer logon único para seus aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+## <a name="next-steps"></a>Próximas etapas
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 
 

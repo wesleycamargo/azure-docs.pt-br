@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -55,7 +56,7 @@ O Assistente de migração cria um relatório de prontidão para identificar qua
 * Outros componentes, como SharePoint, extensões de servidor do FrontPage (FPSE), FTP, certificados SSL não serão migrados.
 
 ## <a name="how-to-use-the-web-apps-migration-assistant"></a>Como usar o Assistente de migração de aplicativos Web
-Esta seção percorre um exemplo para migrar alguns sites que usam um banco de dados do SQL Server e em execução em um computador Windows Server 2003 R2 (IIS 6.0) no local:
+Esta seção percorre um exemplo para migrar alguns sites que usam um banco de dados do SQL Server e estão em execução em um computador Windows Server 2003 R2 (IIS 6.0) local:
 
 1. No servidor IIS ou em seu computador cliente, navegue até [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
@@ -107,7 +108,7 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > A caixa de seleção **Habilitar o Azure Active Directory** em configurações personalizadas integra o aplicativo Web do Azure ao [Azure Active Directory](../active-directory/active-directory-whatis.md) (o **Diretório padrão**). Para obter mais informações sobre sincronização do Active Directory do Azure com o Active Directory no local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
+    > A caixa de seleção **Habilitar o Azure Active Directory** em configurações personalizadas integra o aplicativo Web do Azure ao [Azure Active Directory](../active-directory/active-directory-whatis.md) (o **Diretório padrão**). Para obter mais informações sobre a sincronização do Azure Active Directory com o Active Directory local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
 11. Após fazer as alterações desejadas, clique em **Criar** para iniciar o processo de migração. A ferramenta de migração criará o banco de dados SQL do Azure e o aplicativo Web do Azure e, em seguida, publicará o conteúdo do site e os bancos de dados. O andamento da migração é mostrado com clareza na ferramenta de migração e você verá, no final, uma tela de resumo que detalha os sites migrados, se eles foram ou não bem-sucedidos e que vincula aos aplicativos Web do Azure recém-criados. 
