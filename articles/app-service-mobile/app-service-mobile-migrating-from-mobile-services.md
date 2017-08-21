@@ -3,8 +3,8 @@ title: "Migrar dos Serviços Móveis para o Aplicativo Móvel do Serviço de Apl
 description: "Saiba como migrar facilmente seu aplicativo de Serviços Móveis para um Aplicativo Móvel do Serviço de Aplicativo"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d5bceb8dd53850f0f11be05be2d5e5d3fbd01c5d
-ms.lasthandoff: 03/01/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -33,7 +33,7 @@ A migração do Serviço Móvel do Azure torna o serviço móvel um aplicativo d
 A Microsoft está recomendando que você migre o serviço móvel do Azure para aproveitar os recursos do Serviço de Aplicativo do Azure, incluindo:
 
 * Novos recursos de host, incluindo [Trabalhos Web] e [nomes de domínio personalizados].
-* Conectividade para seus recursos locais usando [VNet], além de [Conexões híbridas].
+* Conectividade para seus recursos locais usando [VNet], além de [Conexões Híbridas].
 * Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
 * Ferramentas do DevOps internas, incluindo [Slots de preparo], reversão e testes em produção.
 * [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
@@ -51,7 +51,7 @@ Para migrar seu site:
 1. Faça logon no [Portal Clássico do Azure].
 2. Selecione um serviço móvel na região que você deseja migrar.
 3. Clique no botão **Migrar para o Serviço de Aplicativo** .
-   
+
    ![O botão Migração][0]
 4. Leia o diálogo Migrar para o Serviço de Aplicativo.
 5. Insira o nome do serviço móvel na caixa fornecida.  Por exemplo, se o nome de domínio for contoso.azure-mobile.net, digite *contoso* na caixa fornecida.
@@ -89,8 +89,8 @@ Há flexibilidade considerável na escolha do tipo de preços certo para o aplic
 
 > [!TIP]
 > A camada Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [Slots de preparo], backups automáticos e dimensionamento automático.  Confira os novos recursos lá!
-> 
-> 
+>
+>
 
 ### <a name="review-migration-scheduler-jobs"></a>Examine os trabalhos do agendador migrados
 Os trabalhos do agendador não estarão visíveis até cerca de 30 minutos após a migração.  Trabalhos agendados continuam a ser executados em segundo plano.
@@ -115,8 +115,8 @@ As configurações de CORS migradas estão disponíveis como a Configuração do
 
 > [!TIP]
 > Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site.  Para obter mais informações, confira a seção [Próximas etapas](#next-steps).
-> 
-> 
+>
+>
 
 ### <a name="download-publish-profile"></a>Baixar um novo perfil de publicação
 O perfil de publicação do seu site é alterado durante a migração para o Serviço de Aplicativo do Azure.  Se pretende publicar o site de dentro do Visual Studio, você precisa de um novo perfil de publicação.  Para baixar um novo perfil de publicação:
@@ -163,8 +163,8 @@ Você pode atualizar várias configurações de aplicativo ao mesmo tempo.
 
 > [!TIP]
 > Há duas Configurações de Aplicativo com o mesmo valor.  Por exemplo, você pode ver *ApplicationKey* e *MS\_ApplicationKey*.  Atualize ambas as configurações de aplicativo ao mesmo tempo.
-> 
-> 
+>
+>
 
 ### <a name="authentication"></a>Autenticação
 Todas as configurações de autenticação estão disponíveis como configurações de aplicativo no site migrado.  Para atualizar as configurações de autenticação, é preciso alterar as configurações do aplicativo apropriadas.  A tabela a seguir mostra as configurações do aplicativo apropriadas para o seu provedor de autenticação:
@@ -181,10 +181,10 @@ Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírg
 
 > [!WARNING]
 > **Não use os mecanismos de autenticação no menu Configurações**
-> 
+>
 > O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações *Autenticação/Autorização* e a opção (preterida) *Autenticação Móvel* no menu Configurações.  Essas opções são incompatíveis com um Serviço Móvel do Azure migrado.  Você pode [atualizar seu site](app-service-mobile-net-upgrading-from-mobile-services.md) para aproveitar a autenticação do Serviço de Aplicativo do Azure.
-> 
-> 
+>
+>
 
 ### <a name="easytables"></a>Dados
 A guia *Dados* nos Serviços Móveis foi substituída pelas *Tabelas Fáceis* no Portal do Azure.  Para acessar tabelas fáceis:
@@ -250,15 +250,15 @@ O Hub de notificação é gerenciado por meio do [portal do Azure].  Observe o n
 
 > [!NOTE]
 > Se o Hub de Notificação for um tipo "Misto", ele não será visível.  Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados.  [Converta seus namespaces mistos] antes de continuar.  Quando a conversão for concluída, o hub de notificação será exibido no [portal do Azure].
-> 
-> 
+>
+>
 
 Para obter mais informações, consulte a documentação [Hubs de Notificação] .
 
 > [!TIP]
 > Recursos de gerenciamento de Hubs de notificação no [portal do Azure] ainda estão em visualização.  O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
-> 
-> 
+>
+>
 
 ### <a name="legacy-push"></a>Configurações de envio por push herdado
 Se configurou o envio por push no seu serviço móvel antes da introdução em Hubs de Notificação, você está usando o *envio por push herdado*.  Se estiver usando o envio por push e não vir um Hub de Notificação listado na configuração, é provável que você esteja usando o *envio por push herdado*.  Esse recurso é migrado com todos os outros recursos.  No entanto, recomendamos que você atualize para Hubs de Notificação logo após a migração ser concluída.
@@ -389,7 +389,7 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilidade geral do Serviço de Aplicativo do Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[Conexões híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Conexões Híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [Logs]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis vs. Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md

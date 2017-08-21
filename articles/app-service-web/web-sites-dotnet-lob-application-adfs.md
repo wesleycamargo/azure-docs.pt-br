@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9a8984400378d154a504af8a41609900128d052
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>Criar um aplicativo de linha de negócios do Azure com autenticação do AD FS
@@ -105,7 +104,7 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
    &lt;add key="ClientValidationEnabled" value="true" /&gt;
    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
    <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-   <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:AADInstance" value="https://login.microsoftonline.com" /&gt;</del></mark>
    <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
    <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
@@ -129,7 +128,7 @@ Aqui, você publica o aplicativo para um aplicativo Web nos Aplicativos Web do S
 2. Clique em **Serviço de Aplicativo do Microsoft Azure**.
 3. Se você não tiver se inscrito no Azure, clique em **Entrar** e use a conta da Microsoft para sua assinatura do Azure para entrar.
 4. Depois de conectado, clique em **Novo** para criar um aplicativo Web.
-5. Preencha todos os campos obrigatórios. Você pretende se conectar a dados locais posteriormente, então não crie um banco de dados para este aplicativo Web.
+5. Preencha todos os campos obrigatórios. Você vai conectar-se a dados locais posteriormente, assim, não crie um banco de dados para este aplicativo Web.
    
     ![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 6. Clique em **Criar**. Depois que o aplicativo Web for criado, a caixa de diálogo Publicar Web será aberta.
@@ -186,7 +185,7 @@ Agora você precisa configurar uma relação de confiança de RP no Gerenciament
 9. Na página **Configurar identificadores**, verifique se o seu projeto de URL de SSL já está listado e clique em **Avançar**. Clique em **Avançar** até o final do assistente com as seleções padrão.
    
    > [!NOTE]
-   > No App_Start\Startup.Auth.cs do projeto do Visual Studio, esse identificador é comparado com o valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante a autenticação federada. Por padrão, a URL do aplicativo da etapa anterior é adicionada como um identificador RP.
+   > No App_Start\Startup.Auth.cs do projeto do Visual Studio, esse identificador é combinado ao valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante a autenticação federada. Por padrão, a URL do aplicativo da etapa anterior é adicionada como um identificador RP.
    > 
    > 
 10. Agora você concluiu a configuração do aplicativo de RP para seu projeto no AD FS. Em seguida, configure esse aplicativo para enviar as declarações necessitadas para seu aplicativo. A caixa de diálogo **Editar regras de declaração** é aberta por padrão para você no final do assistente para que você possa começar imediatamente. Vamos configurar pelo menos as seguintes declarações (com esquemas entre parênteses):
@@ -347,9 +346,9 @@ Como incluiu associações de grupo como declarações de função em sua config
 <a name="bkmk_data"></a>
 
 ## <a name="connect-to-on-premises-data"></a>Conectar-se a dados locais
-Um motivo pelo qual você desejaria implementar seu aplicativo de linha de negócios com o AD FS, em vez de Active Directory do Azure, são os problemas de conformidade em manter dados organizacionais fora do local. Isso também pode significar que o seu site do Azure deve acessar bancos de dados locais, pois você não tem permissão para usar o [banco de dados SQL](/services/sql-database/) como a camada de dados para seus sites.
+Um motivo pelo qual você desejaria implementar seu aplicativo de linha de negócios com o AD FS, em vez de Active Directory do Azure, são os problemas de conformidade em manter dados organizacionais fora do local. Isso também pode significar que o seu aplicativo Web no Azure deve acessar bancos de dados locais, pois você não tem permissão para usar o [Banco de Dados SQL](/services/sql-database/) como a camada de dados para seus aplicativos Web.
 
-Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a bancos de dados locais com duas abordagens: [Conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais](web-sites-integrate-with-vnet.md). Para obter mais informações, consulte [Usando integração de VNET e conexões híbridas com Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a bancos de dados locais com duas abordagens: [Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais](web-sites-integrate-with-vnet.md). Para obter mais informações, consulte [Usando integração de VNET e conexões híbridas com Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 

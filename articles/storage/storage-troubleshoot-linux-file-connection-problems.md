@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5c22c2d8c00882c45ecc2991916e389b2a00586d
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 62cd62ec3a2900f06acacc0852a48b5e3ff1c8cd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Solucionar problemas de armazenamento de Arquivos do Azure no Linux
@@ -47,7 +46,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns deles e
 -   Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
 -   Se você sabe o tamanho final de um arquivo que está estendendo com gravações e o software não apresenta problemas de compatibilidade quando a parte final não escrita do arquivo contém zeros, defina o tamanho do arquivo antecipadamente, em vez de realizar cada gravação como uma gravação de extensão.
 -   Use o método de cópia correto:
-    -   Use o [AzCopy](storage-use-azcopy.md#file-copy) para todas as transferências entre dois compartilhamentos de arquivos.
+    -   Use o [AzCopy](storage-use-azcopy.md#file-copy) para todas as transferências entre dois compartilhamentos de arquivo.
     -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
 
 <a id="error112"></a>
@@ -84,11 +83,11 @@ Se você não pode atualizar para as últimas versões do kernel, resolva esse p
 
 ### <a name="cause"></a>Causa
 
-As distribuições do Linux ainda não dão suporte aos recursos de criptografia do SMB 3.0. Em algumas distribuições, os usuários poderão receber uma mensagem de erro “115” se tentarem montar o armazenamento de Arquivos do Azure usando o SMB 3.0, devido a um recurso ausente.
+Algumas distribuições do Linux ainda não dão suporte para os recursos de criptografia do SMB 3.0, por isso os usuários poderão receber uma mensagem de erro “115” se tentarem montar o Armazenamento de Arquivos do Azure usando o SMB 3.0, devido a um recurso ausente.
 
 ### <a name="solution"></a>Solução
 
-Se o cliente Linux SMB não der suporte à criptografia, monte o armazenamento de Arquivos do Azure usando o SMB 2.1 por meio de uma VM Linux do Azure que está no mesmo datacenter da conta do armazenamento de Arquivos.
+O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. Se seu cliente SMB do Linux não der suporte à criptografia, monte o Armazenamento de Arquivos do Azure usando o SMB 2.1 em uma VM Linux do Azure que esteja no mesmo datacenter que a conta de Armazenamento de Arquivos.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em um compartilhamento de arquivos do Azure montado em uma VM Linux
@@ -111,18 +110,7 @@ Também verifique se as opções corretas estão sendo usadas executando o coman
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se a opção **cache=strict** ou **serverino** não estiver presente, desmonte e monte o armazenamento de Arquivos do Azure novamente executando o comando de montagem da [documentação](storage-how-to-use-files-linux.md#mount-the-file-share). Em seguida, verifique novamente se a entrada **/etc/fstab** tem as opções corretas.
-
-<a id="error11"></a>
-## <a name="mount-error11-resource-temporarily-unavailable-when-youre-mounting-to-an-ubuntu-48-kernel"></a>“Erro de montagem (11): recurso temporariamente indisponível” durante a montagem no kernel do Ubuntu 4.8
-
-### <a name="cause"></a>Causa
-
-No kernel do Ubuntu 16.10 (versão 4.8), está documentado que o cliente dá suporte à criptografia, mas, na verdade, isso não ocorre.
-
-### <a name="solution"></a>Solução
-
-Até a correção do Ubuntu 16.10, especifique a opção de montagem `vers=2.1` ou use o Ubuntu 16.04.
+Se a opção **cache=strict** ou **serverino** não estiver presente, desmonte e monte o armazenamento de Arquivos do Azure novamente executando o comando de montagem da [documentação](storage-how-to-use-files-linux.md). Em seguida, verifique novamente se a entrada **/etc/fstab** tem as opções corretas.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Os carimbos de data/hora foram perdidos durante a cópia de arquivos do Windows para o Linux

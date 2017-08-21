@@ -14,35 +14,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 07/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: aa204efcdc1a3fce5093abd7c9e94566ba6dd259
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 Este tópico descreve como é possível resolver alguns erros de implantação comuns do Azure que você pode encontrar.
-
-## <a name="two-types-of-errors"></a>Dois tipos de erros
-Há dois tipos de erros que você pode receber:
-
-* erros de validação
-* erros de implantação
-
-A imagem a seguir mostra o log de atividades de uma assinatura. Há três operações que ocorreram em duas implantações. Na primeira implantação, o modelo passou na validação, mas falhou ao criar os recursos (**Implantações de Gravação**). Na segunda implantação, o modelo falhou na validação e não prosseguiu com as **Implantações de Gravação**.
-
-![mostrar código de erro](./media/resource-manager-common-deployment-errors/show-activity-log.png)
-
-Os erros de validação surgem de cenários que podem ser determinados previamente como causadores de problema. Os erros de validação incluem erros de sintaxe em seu modelo ou tentar implantar recursos que excederiam suas cotas de assinatura. Os erros de implantação surgem de condições que ocorrem durante o processo de implantação. Por exemplo, um erro de implantação pode surgir de uma tentativa de acessar um recurso que está sendo implantado em paralelo.
-
-Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erro aparecem no [log de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no seu histórico de implantação porque a implantação nunca foi iniciada.
-
-
-## <a name="error-codes"></a>Códigos do Erro
 
 Os seguintes códigos de erro estão descritos neste tópico:
 
@@ -65,13 +47,13 @@ Os seguintes códigos de erro estão descritos neste tópico:
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
 
-### <a name="deploymentfailed"></a>DeploymentFailed
+## <a name="deploymentfailed"></a>DeploymentFailed
 
 Esse código de erro indica um erro de implantação geral, mas não é o código de erro que você precisa para começar a solução de problemas. O código de erro que o ajuda a resolver o problema de verdade fica um nível abaixo desse erro. Por exemplo, a imagem a seguir mostra o código de erro **RequestDisallowedByPolicy** que está por baixo do erro de implantação.
 
 ![mostrar código de erro](./media/resource-manager-common-deployment-errors/error-code.png)
 
-### <a name="skunotavailable"></a>SkuNotAvailable
+## <a name="skunotavailable"></a>SkuNotAvailable
 
 Ao implantar um recurso (normalmente uma máquina virtual), você pode receber o seguinte código de erro e a mensagem de erro:
 
@@ -124,9 +106,9 @@ Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) n
   }    
   ```
 
-Se não for possível encontrar um SKU adequado nessa região, ou em uma região alternativa que atenda às suas necessidades de negócios, entre em contato com o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+Caso você não consiga encontrar um SKU adequado na região ou em uma região alternativa que atende às suas necessidades de negócios, envie uma [solicitação de SKU](https://aka.ms/skurestriction) para o Suporte do Azure.
 
-### <a name="disallowedoperation"></a>DisallowedOperation
+## <a name="disallowedoperation"></a>DisallowedOperation
 
 ```
 Code: DisallowedOperation
@@ -160,7 +142,7 @@ E para definir a assinatura atual, use:
 az account set --subscription {subscription-name}
 ```
 
-### <a name="invalidtemplate"></a>InvalidTemplate
+## <a name="invalidtemplate"></a>InvalidTemplate
 Esse erro pode resultar de vários tipos diferentes de erros.
 
 - Erro de sintaxe
@@ -260,7 +242,7 @@ Esse erro pode resultar de vários tipos diferentes de erros.
 
 - Dependência circular detectada
 
-   Você recebe esse erro quando recursos dependem entre si de uma maneira que impede que a implantação seja iniciado. Uma combinação de interdependências faz com que dois ou mais recursos aguardar para outros recursos que também estão aguardando. Por exemplo, recurso1 depende resource3 resource2 depende recurso1 e resource3 depende resource2. Geralmente você pode resolver esse problema removendo dependências desnecessárias. Para obter sugestões sobre como solucionar erros de dependência, veja [Verificar a sequência de implantação](#check-deployment-sequence).
+   Você recebe esse erro quando recursos dependem entre si de uma maneira que impede que a implantação seja iniciado. Uma combinação de interdependências faz com que dois ou mais recursos aguardar para outros recursos que também estão aguardando. Por exemplo, recurso1 depende resource3 resource2 depende recurso1 e resource3 depende resource2. Geralmente você pode resolver esse problema removendo dependências desnecessárias. 
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound e ResourceNotFound
@@ -305,7 +287,7 @@ group {resource group name} was not found.
 
 Procure por uma expressão que inclui a função **reference**. Verifique uma segunda vez se os valores de parâmetro estão corretos.
 
-### <a name="parentresourcenotfound"></a>ParentResourceNotFound
+## <a name="parentresourcenotfound"></a>ParentResourceNotFound
 
 Quando um recurso é pai de outro recurso, o recurso pai deve existir antes da criação do recurso filho. Se ele ainda não existir, você receberá o seguinte erro:
 
@@ -332,7 +314,8 @@ Mas, se você não especificar uma dependência no recurso pai, o recurso filho 
 ```
 
 <a id="storagenamenotunique" />
-### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists e StorageAccountAlreadyTaken
+
+## <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists e StorageAccountAlreadyTaken
 Para contas de armazenamento, você deve fornecer um nome para o recurso que é exclusivo no Azure. Se você não fornecer um nome exclusivo, receberá um erro como:
 
 ```
@@ -349,15 +332,16 @@ Você pode criar um nome exclusivo concatenando a convenção de nomenclatura co
 
 Se você implantar uma conta de armazenamento com o mesmo nome que uma conta de armazenamento existente na sua assinatura, mas fornecer um local diferente, você receberá um erro indicando que a conta de armazenamento já existe em um local diferente. Exclua a conta de armazenamento existente ou forneça o mesmo local da conta de armazenamento existente.
 
-### <a name="accountnameinvalid"></a>AccountNameInvalid
+## <a name="accountnameinvalid"></a>AccountNameInvalid
 Você verá o erro **AccountNameInvalid** ao tentar conceder um nome que inclui caracteres proibidos a uma conta de armazenamento. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. O [uniqueString](resource-group-template-functions-string.md#uniquestring) função retorna 13 caracteres. Se você concatenar um prefixo para o **uniqueString** resultar, forneça um prefixo de 11 caracteres ou menos.
 
-### <a name="badrequest"></a>BadRequest
+## <a name="badrequest"></a>BadRequest
 
 Você pode receber um status BadRequest ao fornecer um valor inválido para uma propriedade. Por exemplo, se você fornecer um valor incorreto de SKU para uma conta de armazenamento, a implantação falhará. Para determinar os valores válidos para a propriedade, veja o [API REST](/rest/api) para o tipo de recurso que você está implantando.
 
 <a id="noregisteredproviderfound" />
-### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound e MissingSubscriptionRegistration
+
+## <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound e MissingSubscriptionRegistration
 Ao implantar recursos, você pode receber o seguinte código de erro e a mensagem:
 
 ```
@@ -440,7 +424,8 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ```
 
 <a id="quotaexceeded" />
-### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded e OperationNotAllowed
+
+## <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded e OperationNotAllowed
 Você pode ter problemas quando a implantação ultrapassar uma cota, que pode ser por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida.
 Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
 
@@ -501,7 +486,7 @@ Nesses casos, você deve ir para o portal e abrir um problema de suporte para au
 >
 >
 
-### <a name="invalidcontentlink"></a>InvalidContentLink
+## <a name="invalidcontentlink"></a>InvalidContentLink
 Quando você recebe a mensagem de erro:
 
 ```
@@ -511,7 +496,7 @@ Message=Unable to download deployment content from ...
 
 Provavelmente você tentou vincular a um modelo aninhado que não está disponível. Verifique uma segunda vez o URI que você forneceu para o modelo aninhado. Caso o modelo exista em uma conta de armazenamento, verifique se o URI está acessível. Pode ser necessário passar um token SAS. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
-### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
+## <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 Você recebe esse erro quando sua assinatura inclui uma política de recursos que impede uma ação que está tentando executar durante a implantação. Na mensagem de erro, procure o identificador da política.
 
 ```
@@ -524,184 +509,22 @@ No **PowerShell**, forneça o identificador de política como o parâmetro **Id*
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-Na **CLI do Azure 2.0**, forneça o nome da definição da política:
+Na **CLI do Azure**, forneça o nome da definição da política:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
 ```
 
-Para obter mais informações sobre as políticas, consulte [Usar a política para gerenciar os recursos e controlar o acesso](resource-manager-policy.md).
+Para obter mais informações, consulte os seguintes artigos:
 
-### <a name="authorization-failed"></a>Falha na autorização
+- [Erro RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+- [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
+
+## <a name="authorization-failed"></a>Falha na autorização
 Você pode receber um erro durante a implantação porque a conta ou a entidade de serviço que está tentando implantar os recursos de serviço não tem acesso para executar essas ações. O Azure Active Directory permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Por exemplo, se sua conta estiver atribuída à função Leitor, você não poderá criar recursos. Nesse caso, você vê uma mensagem de erro indicando que houve falha na autorização.
 
 Para obter mais informações sobre o controle de acesso baseado em funções, consulte [Controle de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-configure.md).
 
-## <a name="troubleshooting-tricks-and-tips"></a>Dicas e truques para solução de problemas
-
-### <a name="enable-debug-logging"></a>Habilitar o log de depuração
-Você pode descobrir informações valiosas sobre o processamento da sua implantação registrando a solicitação, a resposta ou ambas em log.
-
-- PowerShell
-
-   No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
-
-   Examine o conteúdo da solicitação com o seguinte cmdlet:
-
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
-
-   Ou o conteúdo da resposta com:
-
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
-
-   Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
-
-- CLI 2.0 do Azure
-
-   Examine as operações de implantação, com o comando a seguir:
-
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
-
-- Modelo aninhado
-
-   Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
-
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
-
-
-### <a name="create-a-troubleshooting-template"></a>Criar um modelo de solução de problemas
-Em alguns casos, a maneira mais fácil de solucionar problemas do seu modelo é testar partes dele. Você pode criar um modelo simplificado que permite a você se concentrar na parte que acredita estar causando o erro. Por exemplo, suponha que você esteja recebendo um erro ao fazer referência a um recurso. Em vez de lidar com um modelo inteiro, crie um modelo que retorne a parte que pode estar causando o problema. Ele pode ajudá-lo a determinar se você está sendo aprovado nos parâmetros certos, usando funções de modelo corretamente e obtendo os recursos desejados.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageName": {
-        "type": "string"
-    },
-    "storageResourceGroup": {
-        "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "exampleOutput": {
-        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-        "type" : "object"
-    }
-  }
-}
-```
-
-Ou, vamos supor que você esteja enfrentando erros de implantação, os quais você acredita terem relação com as dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso foi definido corretamente, adicione um recurso depende dele (como um Banco de Dados SQL). Quando esses dois recursos estiverem definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para garantir o teste adequado das dependências. 
-
-### <a name="check-deployment-sequence"></a>Verificar a sequência de implantação
-
-Muitos erros de implantação ocorrem quando os recursos são implantados em uma sequência inesperada. Esses erros surgem quando as dependências não são definidas corretamente. Quando você não tiver uma dependência necessária, um recurso tenta usar um valor para outro recurso, mas o outro ainda não existir. Você obterá um erro informando que um recurso não foi encontrado. Você pode encontrar esse tipo de erro intermitente porque o tempo de implantação para cada recurso pode variar. Por exemplo, sua primeira tentativa de implantar seus recursos é bem-sucedida pois aleatoriamente conclui um recurso necessário no tempo. No entanto, a segunda tentativa falha porque o recurso necessário não foi concluída no tempo. 
-
-Mas, para evitar definindo dependências que não são necessários. Quando você tiver dependências desnecessárias, você prolongar a duração da implantação, impedindo que os recursos que não são dependentes entre si seja implantado em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. O [referência](resource-group-template-functions-resource.md#reference) função cria uma dependência implícita do recurso que você especificar como um parâmetro na função, se esse recurso for implantado no mesmo modelo. Portanto, você pode ter dependências mais que as dependências especificada no **dependsOn** propriedade. O [resourceId](resource-group-template-functions-resource.md#resourceid) função não cria uma dependência implícita ou validar que o recurso existe.
-
-Quando você encontrar problemas de dependência, você precisa obter informações sobre a ordem de implantação de recursos. Para exibir a ordem das operações de implantação:
-
-1. Selecione o histórico de implantação do grupo de recursos.
-
-   ![selecionar o histórico de implantação](./media/resource-manager-common-deployment-errors/select-deployment.png)
-
-2. Selecione uma implantação no histórico e selecione **Eventos**.
-
-   ![selecionar os eventos de implantação](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
-
-3. Examine a sequência de eventos de cada recurso. Preste atenção ao status de cada operação. Por exemplo, a imagem a seguir mostra três contas de armazenamento implantadas em paralelo. Observe que as três contas de armazenamento são iniciadas ao mesmo tempo.
-
-   ![implantação paralela](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
-
-   A imagem a seguir mostra três contas de armazenamento que não são implantadas em paralelo. A segunda conta de armazenamento depende da primeira conta de armazenamento e a terceira conta de armazenamento depende da segunda conta de armazenamento. Portanto, a primeira conta de armazenamento é iniciada, aceita e concluída antes que a próxima seja iniciada.
-
-   ![implantação sequencial](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
-
-Cenários do mundo real podem ser consideravelmente mais complicados, mas você pode usar a mesma técnica para descobrir quando a implantação é iniciada e concluída para cada recurso. Examine os eventos de implantação para ver se a sequência é diferente do esperado. Nesse caso, reavalie as dependências desse recurso.
-
-O Resource Manager identifica dependências circulares durante a validação do modelo. Ele retorna uma mensagem de erro afirmando especificamente uma dependência circular existe. Para resolver uma dependência circular:
-
-1. No modelo, localize o recurso identificado na dependência circular. 
-2. Para esse recurso, examine o **dependsOn** propriedade e quaisquer usos da **referência** função para ver quais recursos ele depende. 
-3. Examine os recursos para ver quais recursos eles dependem. Siga as dependências até você perceber um recurso depende do recurso original.
-5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todas as funções de **dependsOn** propriedade para identificar quaisquer dependências que não são necessários. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-lo. 
-6. Reimplante o modelo.
-
-Removendo valores do **dependsOn** propriedade pode causar erros quando você implanta o modelo. Se você encontrar um erro, adicione a dependência de volta para o modelo. 
-
-Se essa abordagem não resolver a dependência circular, considere mover parte de sua lógica de implantação para recursos filho (como extensões ou definições de configuração). Configure os recursos filho para implantar após os recursos envolvidos na dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
-
-1. vm1
-2. vm2
-3. Extensão na vm1 depende vm1 e vm2. A extensão define valores na vm1 que ele obtém da vm2.
-4. Extensão da vm2 depende vm1 e vm2. A extensão define valores de vm2 obtido do vm1.
-
-A mesma abordagem funciona para aplicativos de serviço de aplicativo. Considere a mudança de valores de configuração em um recurso filho de recurso de aplicativo. Você pode implantar dois aplicativos web na seguinte ordem:
-
-1. webapp1
-2. webapp2
-3. a configuração para webapp1 depende de webapp1 e webapp2. Ele contém configurações do aplicativo com os valores do webapp2.
-4. a configuração para webapp2 depende de webapp1 e webapp2. Ele contém configurações do aplicativo com os valores do webapp1.
-
-## <a name="troubleshooting-other-services"></a>Solucionando problemas de outros serviços
-Se os códigos de erro de implantação anteriores não ajudaram a solucionar o problema, procure diretrizes de solução de problemas mais detalhadas para cada serviço do Azure.
-
-A tabela a seguir lista os tópicos de solução de problemas para máquinas virtuais.
-
-| Erro | Artigos |
-| --- | --- |
-| Erros de extensão de script personalizado |[Falhas de extensão da VM do Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de extensão da VM do Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros de provisionamento de imagem do SO |[Novos erros da VM do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Novos erros da VM do Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Falhas na alocação |[Falhas de alocação da VM do Windows](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Falhas de alocação da VM do Linux](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros do Secure Shell (SSH) ao tentar conectar |[Conexões do Secure Shell com a VM do Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros ao conectar o aplicativo em execução na VM |[Aplicativo em execução na VM do Windows](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou o<br />[Aplicativo em execução na VM do Linux](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erros de conexão da Área de Trabalho Remota |[Conexões da Área de Trabalho Remota com a VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Erros de conexão resolvidos por meio da reimplantação |[Reimplantar Máquina Virtual em um novo nó do Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Erros do serviço de nuvem |[Problemas de implantação do serviço de nuvem](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
-
-A tabela a seguir lista os tópicos de solução de problemas para outros serviços do Azure. Ela se concentra nos problemas relacionados à implantação ou à configuração dos recursos. Se você precisar de ajuda para solucionar os problemas de execução com um recurso, confira a documentação desse serviço do Azure.
-
-| O Barramento de | Artigo |
-| --- | --- |
-| Automação |[Dicas de solução de problemas para erros comuns na Automação do Azure](../automation/automation-troubleshooting-automation-errors.md) |
-| Azure Stack |[Solução de problemas do Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
-| Data Factory |[Solucionar problemas da Data Factory](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Monitorar e diagnosticar aplicativos do Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
-| Recuperação de Site |[Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
-| Armazenamento |[Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple |[Solucionar problemas de implantação do dispositivo StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
-| Banco de Dados SQL |[Solucionar problemas de conexão no Banco de Dados SQL do Azure](../sql-database/sql-database-troubleshoot-common-connection-issues.md) |
-| SQL Data Warehouse |[Solução de problemas do Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).

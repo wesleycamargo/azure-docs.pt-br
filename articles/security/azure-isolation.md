@@ -1,5 +1,4 @@
 ---
-
 title: "Isolamento na nuvem pública do Azure | Microsoft Docs"
 description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a167f15b1c885c51c9a85c501a9a9a60992cdf5d
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2559bdbca8002392ef925e0eddfd23044cc563b5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -116,9 +114,9 @@ Entre os outros recursos para o Azure Active Directory estão:
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento dos administradores da Microsoft e exclusão de dados
 A Microsoft toma providências fortes para proteger seus dados contra o acesso ou uso inadequado por pessoas não autorizadas. Esses controles e processos operacionais têm base nos [Termos de Serviços Online](http://aka.ms/Online-Services-Terms), que oferecem compromissos contratuais que regulam o acesso aos seus dados.
 
--    Os engenheiros da Microsoft não tem acesso padrão aos seus dados na nuvem. Em vez disso, eles recebem acesso sob supervisão de gerenciamento, apenas quando é necessário. Esse acesso é cuidadosamente controlado e registrado em log, sendo revogado assim que não é mais necessário.
+-   Os engenheiros da Microsoft não tem acesso padrão aos seus dados na nuvem. Em vez disso, eles recebem acesso sob supervisão de gerenciamento, apenas quando é necessário. Esse acesso é cuidadosamente controlado e registrado em log, sendo revogado assim que não é mais necessário.
 
--    A Microsoft pode contratar outras empresas para fornecer serviços limitados em seu nome. Os subcontratados podem acessar os dados do cliente apenas para fornecer os serviços para os quais os contratamos, e estão proibidos de usá-los para qualquer outra finalidade. Além disso, eles estão obrigados por contrato a manter a confidencialidade das informações de nossos clientes.
+-   A Microsoft pode contratar outras empresas para fornecer serviços limitados em seu nome. Os subcontratados podem acessar os dados do cliente apenas para fornecer os serviços para os quais os contratamos, e estão proibidos de usá-los para qualquer outra finalidade. Além disso, eles estão obrigados por contrato a manter a confidencialidade das informações de nossos clientes.
 
 Os serviços comerciais com certificações auditadas como ISO/IEC 27001 são verificados regularmente pela Microsoft e por empresas de auditoria reconhecidas, que realizam amostras de auditorias para atestar que o acesso ocorre apenas para fins comerciais legítimos. Você pode acessar os dados de seus clientes a qualquer momento e por qualquer motivo.
 
@@ -176,9 +174,9 @@ Por padrão, todo o tráfego é bloqueado quando uma máquina virtual é criada.
 
 Há duas categorias de regras que são programadas:
 
--    **Configuração de máquina ou regras de infraestrutura**: por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma máquina virtual envie e receba tráfego DHCP e DNS. As máquinas virtuais também podem enviar tráfego para a Internet "pública" e para outras máquinas virtuais na mesma Rede Virtual do Azure e no servidor de ativação do sistema operacional. A lista de destinos permitidos das máquinas virtuais não inclui sub-redes de roteador do Azure, gerenciamento do Azure e outras propriedades da Microsoft.
+-   **Configuração de máquina ou regras de infraestrutura**: por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma máquina virtual envie e receba tráfego DHCP e DNS. As máquinas virtuais também podem enviar tráfego para a Internet "pública" e para outras máquinas virtuais na mesma Rede Virtual do Azure e no servidor de ativação do sistema operacional. A lista de destinos permitidos das máquinas virtuais não inclui sub-redes de roteador do Azure, gerenciamento do Azure e outras propriedades da Microsoft.
 
--    **Arquivo de configuração de função**: define as Listas de Controle de Acesso (ACLs) de entrada com base no modelo de serviço do locatário.
+-   **Arquivo de configuração de função**: define as Listas de Controle de Acesso (ACLs) de entrada com base no modelo de serviço do locatário.
 
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 Há três VLANs em cada cluster:
@@ -186,11 +184,11 @@ Há três VLANs em cada cluster:
 ![Isolamento de VLAN](./media/azure-isolation/azure-isolation-fig8.jpg)
 
 
--    A VLAN principal – interconecta nós de clientes não confiáveis
+-   A VLAN principal – interconecta nós de clientes não confiáveis
 
--    A VLAN de FC – contém FCs confiáveis e sistemas de suporte
+-   A VLAN de FC – contém FCs confiáveis e sistemas de suporte
 
--    A VLAN do dispositivo – contém a rede confiável e outros dispositivos de infraestrutura
+-   A VLAN do dispositivo – contém a rede confiável e outros dispositivos de infraestrutura
 
 A comunicação é permitida da VLAN de FC para a VLAN principal, mas não pode ser iniciada da VLAN principal para a VLAN de FC. A comunicação também é bloqueada da VLAN principal para a VLAN do dispositivo. Isso garante que mesmo se um nó que executa o código do cliente for comprometido, ele não poderá atacar nós no FC ou nas VLANs do dispositivo.
 
@@ -215,67 +213,67 @@ Os dados de armazenamento IP podem ser protegidos contra usuários não autoriza
 
 ### <a name="encryption"></a>Criptografia
 O Azure oferece os seguintes tipos de Criptografia para proteção dos dados:
--    Criptografia em trânsito
+-   Criptografia em trânsito
 
--    Criptografia em repouso
+-   Criptografia em repouso
 
 #### <a name="encryption-in-transit"></a>Criptografia em trânsito
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o Armazenamento do Azure, você pode proteger dados usando:
 
--    [Criptografia de nível de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
+-   [Criptografia de nível de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
 
--    [Criptografia na transmissão](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de arquivos do Azure.
+-   [Criptografia na transmissão](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
 
--    [Criptografia do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
+-   [Criptografia do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
 #### <a name="encryption-at-rest"></a>Criptografia em repouso
 Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
 
--    [Criptografia do Serviço de Armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
+-   [Criptografia do Serviço de Armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 
--    [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) também fornece o recurso de criptografia em repouso.
+-   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) também fornece o recurso de criptografia em repouso.
 
--    [Criptografia de Disco do Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
-#### <a name="azure-disk-encryption"></a>Criptografia de Disco do Azure
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 O [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para VMs (Máquinas Virtuais) o ajuda a atender aos requisitos de conformidade e segurança organizacionais criptografando os discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas no [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 A solução de Criptografia de Disco para Windows é baseada na [Criptografia de Unidade de Disco BitLocker da Microsoft](https://technet.microsoft.com/library/cc732774.aspx) e a solução para Linux é baseada no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
--    Integração com o Cofre da Chave do Azure
+-   Integração com o Cofre da Chave do Azure
 
--    VMs da camada Standard: VMs IaaS das séries A, D, DS, G, GS e assim por diante
+-   VMs da camada Standard: VMs IaaS das séries A, D, DS, G, GS e assim por diante
 
--    Como habilitar a criptografia em VMs IaaS Windows e Linux
+-   Como habilitar a criptografia em VMs IaaS Windows e Linux
 
--    Como desabilitar a criptografia em unidades do sistema operacional e de dados para VMs IaaS do Windows
+-   Como desabilitar a criptografia em unidades do sistema operacional e de dados para VMs IaaS do Windows
 
--    Como desabilitar a criptografia em unidades de dados para VMs IaaS do Linux
+-   Como desabilitar a criptografia em unidades de dados para VMs IaaS do Linux
 
--    Ativando a criptografia em VMs IaaS que estão executando o sistema operacional cliente Windows
+-   Ativando a criptografia em VMs IaaS que estão executando o sistema operacional cliente Windows
 
--    Como habilitar a criptografia em volumes com caminhos de montagem
+-   Como habilitar a criptografia em volumes com caminhos de montagem
 
--    Habilitação da criptografia em VMs do Linux que estão configuradas com distribuição de discos (RAID) usando o [mdadm](https://en.wikipedia.org/wiki/Mdadm)
+-   Habilitação da criptografia em VMs do Linux que estão configuradas com distribuição de discos (RAID) usando o [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--    Como habilitar a criptografia em VMs do Linux usando [LVM (Gerenciador de Volume Lógico)](https://msdn.microsoft.com/library/windows/desktop/bb540532) para discos de dados
+-   Como habilitar a criptografia em VMs do Linux usando [LVM (Gerenciador de Volume Lógico)](https://msdn.microsoft.com/library/windows/desktop/bb540532) para discos de dados
 
--    Ativando a criptografia em VMs do Windows que são configurados usando espaços de armazenamento
+-   Ativando a criptografia em VMs do Windows que são configurados usando espaços de armazenamento
 
--    Há suporte para todas as regiões públicas do Azure
+-   Há suporte para todas as regiões públicas do Azure
 
 A solução não dá suporte aos seguintes cenários, recursos e tecnologia na versão:
 
--    VMs IaaS da camada Básica
+-   VMs IaaS da camada Básica
 
--    Como desabilitar a criptografia em unidades do sistema operacional para VMs IaaS do Linux
+-   Como desabilitar a criptografia em unidades do sistema operacional para VMs IaaS do Linux
 
--    VMs de IaaS que são criadas usando o método de criação de VM clássico
+-   VMs de IaaS que são criadas usando o método de criação de VM clássico
 
--    Integração com o Serviço de Gerenciamento de Chaves no local
+-   Integração com o Serviço de Gerenciamento de Chaves no local
 
--    Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
+-   Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
 
 ## <a name="sql-azure-database-isolation"></a>Isolamento do Banco de Dados SQL Azure
 O Banco de Dados SQL é um serviço de banco de dados relacional de nuvem da Microsoft com base no mecanismo líder de mercado do Microsoft SQL Server e é capaz de lidar com cargas de trabalho críticas. O Banco de Dados SQL oferece isolamento previsível de dados no nível da conta, com base na geografia/região e na rede, tudo com administração quase zero.
@@ -298,9 +296,9 @@ Os servidores do SQL Azure não são instâncias físicas ou de VM, em vez disso
 
 Os bancos de dados mestres lógicos incluem:
 
--    Logons do SQL usados para se conectar ao servidor
+-   Logons do SQL usados para se conectar ao servidor
 
--    Regras de firewall
+-   Regras de firewall
 
 Não há garantia de que as informações relacionadas à cobrança e ao uso para Bancos de Dados SQL do Azure do mesmo servidor lógico estejam na mesma instância física em cluster do SQL Azure, em vez disso, os aplicativos devem fornecer o nome do banco de dados de destino durante a conexão.
 
@@ -311,13 +309,13 @@ Da perspectiva do cliente, um servidor lógico é criado em uma região geográf
 Quando um servidor lógico é criado e seu nome DNS é registrado, o nome DNS aponta para o chamado endereço do "Gateway VIP" no data center específico onde o servidor foi posicionado.
 
 Por trás do VIP (Endereço IP virtual), temos uma coleção de serviços de gateway sem estado. Em geral, os gateways são envolvidos quando há a necessidade de coordenação entre várias fontes de dados (banco de dados mestre, banco de dados do usuário etc.). Os serviços de gateway implementam o seguinte:
--    **Proxy de conexão de TDS.** Isso inclui localizar o banco de dados de usuário no cluster de back-end, implementar a sequência de logon e encaminhar pacotes de TDS para o back-end e de volta.
+-   **Proxy de conexão de TDS.** Isso inclui localizar o banco de dados de usuário no cluster de back-end, implementar a sequência de logon e encaminhar pacotes de TDS para o back-end e de volta.
 
--    **Gerenciamento do banco de dados.** Isso inclui a implementação de uma coleção de fluxos de trabalho para executar operações de banco de dados CREATE/ALTER/DROP. As operações de banco de dados podem ser invocadas por meio do rastreamento de pacotes de TDS ou por APIs do OData explícitas.
+-   **Gerenciamento do banco de dados.** Isso inclui a implementação de uma coleção de fluxos de trabalho para executar operações de banco de dados CREATE/ALTER/DROP. As operações de banco de dados podem ser invocadas por meio do rastreamento de pacotes de TDS ou por APIs do OData explícitas.
 
--    Operações de logon/usuário CREATE/ALTER/DROP
+-   Operações de logon/usuário CREATE/ALTER/DROP
 
--    Operações de gerenciamento de servidor lógico por meio da API do OData
+-   Operações de gerenciamento de servidor lógico por meio da API do OData
 
 ![Isolamento por meio da topologia de rede](./media/azure-isolation/azure-isolation-fig12.png)
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
-ms.lasthandoff: 04/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: dcc7c088d7b6db7af334977315f122dca3c17f69
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -36,7 +37,7 @@ Você pode criar clusters em VMs que executem estes sistemas operacionais:
 * Windows Server 2016 
 * Linux Ubuntu 16.04 (em preview pública) 
 
-## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Crie clusters autônomos do Service Fabric localmente ou em qualquer provedor de nuvem
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Crie clusters autônomos do Service Fabric localmente ou com qualquer provedor de nuvem
 O Service Fabric fornece um pacote de instalação para você criar esses clusters autônomos do Service Fabric localmente ou em qualquer provedor de nuvem
 
 Para obter mais informações sobre como configurar os clusters autônomos do Service Fabric no Windows Server, leia [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)

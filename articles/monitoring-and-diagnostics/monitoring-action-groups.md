@@ -2,7 +2,7 @@
 title: "Criar e gerenciar Grupos de ação no Portal do Azure | Microsoft Docs"
 description: 
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 240f7f3788f6a432bcb1ec3b244bc76e3157445a
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 2b2fa2126b9c3f8598ec8fe686846920a4b7c422
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="create-and-manage-action-groups-in-azure-portal"></a>Criar e gerenciar Grupos de Ação no Portal do Azure
 ## <a name="overview"></a>Visão geral ##
 Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
-Os grupos de ações permitem configurar uma lista de destinatários. Esses grupos podem, então, ser utilizados ao definir alertas de log de atividades, garantindo que um grupo de ação específico seja notificado quando o alerta de log de atividades for disparado.
+Os grupos de ações permitem configurar uma lista de ações. Esses grupos podem, então, ser utilizados ao definir alertas de log de atividades, garantindo que um grupo de ação específico seja invocado quando o alerta de log de atividades for disparado.
 
 Um grupo de ação pode ter até 10 ações de cada tipo. Uma ação é definida pela combinação de:
 
@@ -34,41 +33,39 @@ Um grupo de ação pode ter até 10 ações de cada tipo. Uma ação é definida
 **Tipo de ação:** define a ação que será executada. As opções são enviar SMS, enviar email ou chamar um Webhook.  
 **Detalhes:** com base no tipo de ação, é necessário fornecer o número de telefone, endereço de email ou URI de webhook correspondente.
 
-É possível configurar e obter informações sobre alertas de notificação de integridade do serviço usando:
-* [Portal do Azure](monitoring-action-groups.md)
-- [Modelos do Gerenciador de Recursos](monitoring-create-action-group-with-resource-manager-template.md)
+Para obter informações sobre como usar modelos do Azure Resource Manager para configurar grupos de ação: [modelos do Resource Manager do Grupo](monitoring-create-action-group-with-resource-manager-template.md)
 
-## <a name="creating-an-action-group-for-the-azure-portal"></a>Criar um grupo de ação para o portal do Azure ##
-1.    No [portal](https://portal.azure.com), navegue até o serviço **Monitor**
+## <a name="creating-an-action-group-using-the-azure-portal"></a>Como criar um grupo de ação usando o portal do Azure ##
+1.  No [portal](https://portal.azure.com), navegue até o serviço **Monitor**
 
     ![Monitoramento](./media/monitoring-action-groups/home-monitor.png)
-2.    Clique na opção **Monitor** para abrir a folha Monitor. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
+2.  Clique na opção **Monitor** para abrir a folha Monitor. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
 
-3.    Agora, clique na seção **Grupos de ação**
+3.  Agora, clique na seção **Grupos de ação**
 
     ![Action-Group](./media/monitoring-action-groups/action-groups-blade.png)
-4.    Clique no comando do grupo de ação **Adicionar** e preencha os campos
+4.  Clique no comando do grupo de ação **Adicionar** e preencha os campos
 
     ![Add-Action-Group](./media/monitoring-action-groups/add-action-group.png)
-5.    Forneça um **Nome** e um **Nome curto** para o grupo de ação; o nome curto será referido em notificações enviadas a esse grupo
+5.  Forneça um **Nome** e um **Nome curto** para o grupo de ação; o nome curto será referido em notificações enviadas a esse grupo
 
       ![Action-Group-Define](./media/monitoring-action-groups/action-group-define.png)
 
-6.    A **Assinatura** é aquela em que o grupo de ação será salvo. Ela será preenchida automaticamente com a assinatura que você está usando no momento.
+6.  A **Assinatura** é aquela em que o grupo de ação será salvo. Ela será preenchida automaticamente com a assinatura que você está usando no momento.
 
-7.    Escolha o **Grupo de Recursos** para esse grupo de ação.
+7.  Escolha o **Grupo de Recursos** ao qual esse alerta será associado na **Assinatura**.
 
-8.    Em seguida, defina uma lista de ações por meio de uma combinação de:
+8.  Em seguida, defina uma lista de ações por meio de uma combinação de:
   1. **Nome:** um identificador exclusivo dentro do grupo de ação.
   2. **Tipo de ação:** define a ação que será executada. As opções são enviar SMS, enviar email ou chamar um Webhook.
   3. **Detalhes:** com base no tipo de ação, é necessário fornecer o número de telefone, endereço de email ou URI de webhook correspondente.
 
-9.    Selecione **OK** após concluir a criação do grupo de ação.
+9.  Selecione **OK** após concluir a criação do grupo de ação.
 
 ## <a name="managing-your-action-groups"></a>Gerenciando seus grupos de ação ##
 Após você ter criado um grupo de ação, ele ficará visível na seção de Grupos de ação do serviço de Monitor. Selecione o grupo de ação que você deseja gerenciar, de modo a poder:
-* Adicionar, editar ou remover destinatários.
--    Excluir o grupo de ação.
+* Adicionar, editar ou remover ações.
+-   Excluir o grupo de ação.
 
 ## <a name="next-steps"></a>Próximas etapas: ##
 Saiba mais sobre o [comportamento de alertas por SMS](monitoring-sms-alert-behavior.md)  

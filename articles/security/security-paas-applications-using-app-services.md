@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 0738522250f1863c9584936a2d2b2c7a0a823c8c
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-services"></a>Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativo do Azure
@@ -35,9 +35,9 @@ Para saber mais, consulte visões gerais sobre [Aplicativos Móveis](../app-serv
 Ao usar os Serviços de Aplicativo, siga estas práticas recomendadas:
 
 - [Autenticar por meio do Azure Active Directory (AD)](../app-service-web/web-sites-authentication-authorization.md#authenticate-through-azure-active-directory). Os Serviços de Aplicativo fornecem um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 se concentra na simplicidade de desenvolvedor do cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e telefones celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web.
-- Restringir o acesso com base nos princípios de segurança de divulgação restrita àqueles diretamente interessados e privilégios mínimos. A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso baseado em função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Consulte [Introdução ao gerenciamento de acesso](../active-directory/role-based-access-control-what-is.md), para saber mais sobre como conceder acesso aos aplicativos aos usuários.
+- Restringir o acesso com base nos princípios de segurança de divulgação restrita àqueles diretamente interessados e privilégios mínimos. A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso baseado em função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre a concessão de acesso aos aplicativos aos usuários, consulte [introdução ao gerenciamento de acesso](../active-directory/role-based-access-control-what-is.md).
 - Proteja seus dados. Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre de Chaves, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Confira [Azure Key Vault](../key-vault/key-vault-whatis.md) para saber mais. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática.
-- Restrinja os endereços IP de origem de entrada. Os Serviços de Aplicativo possuem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio dos NSGs (grupos de segurança de rede). Se você não estiver familiarizado com VNETs (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Confira [Integrar seu aplicativo Web a uma Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md) para saber mais.
+- Restrinja os endereços IP de origem de entrada. O [Ambiente de Serviços de Aplicativos](../app-service-web/app-service-app-service-environment-intro.md) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio dos NSGs (Grupos de Segurança de Rede). Se você não estiver familiarizado com VNETs (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Para saber mais, confira [Integrar seu aplicativo com uma Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo apresentou um conjunto de práticas recomendadas de segurança dos Serviços de Aplicativo para proteger seus aplicativos móveis e Web de PaaS. Para saber mais sobre como proteger suas implantações de PaaS, confira:

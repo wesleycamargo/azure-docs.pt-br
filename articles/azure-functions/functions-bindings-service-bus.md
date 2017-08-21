@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: a930e02313aa0a2238ecfaa31af68d59b2c8e961
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 58b6d5c6ef40891e56ea4811f5e778286bdb8bc3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Associações do Barramento de Serviço do Azure Functions
@@ -76,7 +75,7 @@ Observe o seguinte:
 
 ## <a name="trigger-behavior"></a>Comportamento do gatilho
 * **Threading simples** - por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrentCalls` como 1 em *host.json* . 
-  Para obter informações sobre *host.json*, consulte [Estrutura da pasta](functions-reference.md#folder-structure) e [host.json](https://git.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Para obter informações sobre o *host.json*, consulte [Estrutura da pasta](functions-reference.md#folder-structure) e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Manipulação de mensagens suspeitas** - o Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions. 
 * **Comportamento PeekLock** - o tempo de execução do Functions recebe uma mensagem no modo [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. 
   Se a função for executada por mais tempo que o limite `PeekLock` , o bloqueio é renovado automaticamente.

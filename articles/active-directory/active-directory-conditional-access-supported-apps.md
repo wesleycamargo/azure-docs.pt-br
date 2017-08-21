@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Aplicativos e navegadores que usam regras de acesso condicional no Azure Active Directory
 
-As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, (Azure AD) aplicativos SaaS (software como serviço) federados pré-integrados, aplicativos que usam senha de logon único (SSO), aplicativos de linha de negócios e aplicativos que usam o Proxy de Aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos para os quais você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md). O acesso condicional funciona com os aplicativos móveis e da área de trabalho que usam autenticação moderna. Neste artigo, abordaremos o funcionamento do acesso condicional em aplicativos móveis e de área de trabalho.
+As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, (Azure AD) aplicativos SaaS (software como serviço) federados pré-integrados, aplicativos que usam senha de logon único (SSO), aplicativos de linha de negócios e aplicativos que usam o Proxy de Aplicativo Azure AD. Para obter uma lista detalhada dos aplicativos para os quais você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md). O acesso condicional funciona com os aplicativos móveis e da área de trabalho que usam autenticação moderna. Neste artigo, abordaremos o funcionamento do acesso condicional em aplicativos móveis e de área de trabalho.
 
 Você pode usar páginas de entrada do Azure AD em aplicativos que usam autenticação moderna. Com uma página de logon, a autenticação multifator é solicitada de um usuário. Se o acesso do usuário estiver bloqueado, será mostrada uma mensagem. A autenticação moderna é necessária para que o dispositivo se autentique no Azure AD para que políticas de acesso condicional com base no dispositivo sejam avaliadas.
 
@@ -38,21 +38,30 @@ Você pode usar páginas de entrada do Azure AD em aplicativos que usam autentic
 
 Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365 e outros aplicativos de serviço conectados ao Azure AD:
 
-| Serviço de Destino | Plataforma | Aplicativo |
+
+| Serviço de Destino| Plataforma| Aplicativo |
 | --- | --- | --- |
-| Office 365 Exchange Online |Windows 10 |Aplicativo de Calendário/Email/Pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) |
-| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) |
-| Office 365 Exchange Online |iOS, Android |Aplicativo móvel do Outlook |
-| Office 365 Exchange Online |Mac OS X |Outlook 2016 para autenticação multifator e somente localização; suporte de política baseada em dispositivo planejada para o futuro, suporte ao Skype for Business planejado para o futuro |
-| Office 365 SharePoint Online |Windows 10 |Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
-| Office 365 SharePoint Online |iOS, Android |Aplicativos móveis do Office |
-| Office 365 SharePoint Online |Mac OS X |Aplicativos do Office 2016 para autenticação multifator e somente localização; suporte a política baseada em dispositivo planejado para o futuro |
-| Office 365 Yammer |Suporte para Windows 10, iOS e Android planejado para o futuro |Aplicativo Office Yammer |
-| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo Dynamics CRM |
-| Serviço PowerBI |Windows 10, Windows 8.1, Windows 7, iOS e Android |Aplicativo PowerBI |
-| Serviço de Aplicativo Remoto do Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X |Aplicativo Remoto do Azure |
-| Qualquer serviço de aplicativo de Meus Aplicativos |Android e iOS |Qualquer serviço de aplicativo de Meus Aplicativos |
+| Qualquer serviço de aplicativo de Meus Aplicativos| Android e iOS| Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte. |
+| Serviço de Aplicativo Remoto do Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X| Aplicativo Remoto do Azure|
+| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android| Aplicativo Dynamics CRM|
+| Equipes da Microsoft| Windows 10, Windows 8.1, Windows 7, iOS/Android e MAC OSX| Microsoft Team Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, MAC OS X, iOS, Android, WP e cliente da Web|
+| Office 365 Exchange Online| Windows 10| Aplicativo de Calendário/Email/Pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|
+| Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|
+| Office 365 Exchange Online| iOS| Aplicativo móvel do Outlook|
+| Office 365 Exchange Online| Mac OS X| Outlook 2016 para autenticação multifator e somente localização; suporte de política baseada em dispositivo planejada para o futuro, suporte ao Skype for Business planejado para o futuro|
+| Office 365 SharePoint Online| Windows 10| Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro|
+| Office 365 SharePoint Online| Windows 8.1, Windows 7| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
+| Office 365 SharePoint Online| iOS, Android| Aplicativos móveis do Office|
+| Office 365 SharePoint Online| Mac OS X| Aplicativos do Office 2016 para autenticação multifator e somente localização; suporte a política baseada em dispositivo planejado para o futuro|
+| Office 365 Yammer| Windows 10, iOS, Android| Aplicativo Office Yammer|
+| Serviço PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS| Aplicativo PowerBI. Atualmente, o aplicativo Power BI para Android não dá suporte ao acesso condicional baseado no dispositivo.|
+| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android| Aplicativo Visual Studio Team Services|
+
+
+
+
+
+
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Aplicativos que não usam autenticação moderna
 Atualmente, você deve usar outros métodos para bloquear o acesso a aplicativos que não usam autenticação moderna. As regras de acesso para aplicativos que não usam a autenticação moderna não são impostas por acesso condicional. Isso é basicamente uma consideração para acesso ao Exchange e ao SharePoint. A maioria das versões anteriores de aplicativos usar protocolos antigos de controle de acesso.
@@ -60,7 +69,7 @@ Atualmente, você deve usar outros métodos para bloquear o acesso a aplicativos
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Controlar o acesso no Office 365 SharePoint Online
 Você pode desabilitar os protocolos herdados para o acesso ao SharePoint usando o cmdlet Set-SPOTenant. Use este cmdlet para impedir que os clientes do Office que usam os protocolos de autenticação não moderna acessem recursos do SharePoint Online.
 
-**Exemplo de comando**:     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**Exemplo de comando**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Controlar o acesso no Office 365 Exchange Online
 O Exchange oferece duas categorias principais de protocolos. Examine as opções a seguir e selecione a política ideal para sua organização.
@@ -113,12 +122,14 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers"></a>Navegadores com suporte
+## <a name="supported-browsers-for-device-based-policies"></a>Navegadores com suporte para políticas baseadas em dispositivo 
+
+Você só pode obter acesso para políticas baseadas em dispositivo que verificam a conformidade do dispositivo e o ingresso no domínio quando o Azure AD puder identificar e autenticar o dispositivo. Enquanto a maioria das verificações, como de localização e MFA, funcionam na maioria dos dispositivos e navegadores, as políticas de dispositivo requerem a versão do sistema operacional e os navegadores listados abaixo. O acesso será bloqueado para usuários em navegadores ou sistemas operacionais sem suporte quando uma política de dispositivo estiver em vigor. 
 
 | SO                     | Navegadores                 | Suporte     |
 | :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![Verificação][1] |
-| Win 10                 | Chrome                   | Em breve |
+| Win 10                 | Chrome                   | Visualização     |
 | Win 8 / 8.1            | IE, Chrome               | ![Verificação][1] |
 | Win 7                  | IE, Chrome               | ![Verificação][1] |
 | iOS                    | Safari                   | ![Verificação][1] |
@@ -131,10 +142,15 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
 | Mac OS                 | Safari                   | ![Verificação][1] |
 | Mac OS                 | Chrome                   | Em breve |
 
+> [!NOTE]
+> Para obter suporte do Chrome, você precisa estar usando a Atualização do Windows 10 para Criadores e instalar a extensão encontrada [aqui](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais detalhes, confira [Acesso condicional no Azure Active Directory](active-directory-conditional-access.md)
+
 
 
 

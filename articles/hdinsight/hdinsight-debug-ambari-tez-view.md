@@ -1,5 +1,5 @@
 ---
-title: "Usar a Exibição do Ambari Tez com HDInsight | Microsoft Docs"
+title: "Usar a exibição do Ambari Tez com o HDInsight – Azure | Microsoft Docs"
 description: "Saiba como usar o modo de exibição do Ambari Tez para depurar trabalhos do Tez no HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 4dcccb313c517982680266656c36b9f23dee44c4
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 A interface do usuário da Web do Ambari para HDInsight contém uma exibição do Tez que pode ser usada para entender e depurar trabalhos que usam o Tez. O modo de exibição do Tez permite que você visualize o trabalho como um gráfico de itens conectados, detalhe cada item e recupere estatísticas e informações de log.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,55 +84,26 @@ Use as etapas a seguir para executar uma consulta do Hive que usa o Tez:
 
     ![Como selecionar o modo de exibição do Tez](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 
-2. Quando a exibição do Tez for carregada, você verá uma lista de DAGs que estão em execução no momento ou que foram executados no cluster.
+2. Quando a exibição do Tez for carregada, você verá uma lista de consultas do Hive que estão em execução no momento ou que foram executadas no cluster.
 
-    ![Todos os DAGS](./media/hdinsight-debug-ambari-tez-view/alldags.png)
+    ![Todos os DAGS](./media/hdinsight-debug-ambari-tez-view/tez-view-home.png)
 
-3. Se você tiver apenas uma entrada, ela representará a consulta que você executou na seção anterior. Se você tiver várias entradas, poderá pesquisar inserindo a ID do aplicativo no campo **ID do Aplicativo**, então, pressione Enter.
+3. Se você tiver apenas uma entrada, ela representará a consulta que você executou na seção anterior. Se tiver várias entradas, você poderá pesquisar usando os campos na parte superior da página.
 
-4. Selecione o **Nome do Dag**. As informações sobre o DAG são exibidas. Você também pode baixar um zip dos arquivos JSON que contém essas informações.
+4. Selecione a **ID da consulta** para uma consulta do Hive. As informações sobre a consulta são exibidas.
 
-    ![Detalhes do DAG](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
+    ![Detalhes do DAG](./media/hdinsight-debug-ambari-tez-view/query-details.png)
 
-5. Acima dos **Detalhes do DAG**, há vários links que podem ser usados para exibir informações sobre o DAG.
+5. As guias desta página permitem que você exiba as seguintes informações:
 
-   * **Contadores de DAG**: exibe as informações de contadores do DAG em questão.
-   * **Exibição Gráfica**: exibe uma representação gráfica deste DAG.
-   * **Todos os Vértices**: exibe uma lista dos vértices neste DAG.
-   * **Todas as Tarefas**: exibe uma lista das tarefas de todos os vértices neste DAG.
-   * **Todas as Tentativas de Tarefa**: exibe informações sobre as tentativas de execução de tarefas para este DAG.
+    * **Detalhes da consulta**: os detalhes sobre a consulta do Hive.
+    * **Linha do tempo**: as informações sobre quanto tempo durou cada estágio de processamento.
+    * **Configurações**: a configuração usada nesta consulta.
 
-     > [!NOTE]
-     > Se você rolar a exibição da coluna até Vértices, Tarefas e Tentativas de Tarefa, observe que há links para exibir **contadores** e **exibir ou baixar logs** para cada linha.
-
-     Se houver uma falha com o trabalho, os Detalhes do DAG exibirão um status de FALHA, juntamente com links para informações sobre a tarefa com falha. As informações de diagnóstico serão exibidas abaixo dos detalhes do DAG.
-
-     ![Uma tela de Detalhes do DAG detalhando uma falha](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
-
-6. Selecione  **Exibição Gráfica**. Essa exibição exibe uma representação gráfica do DAG. Você pode colocar o mouse sobre cada vértice no modo de exibição para exibir informações sobre ele.
-
-    ![Modo de Exibição Gráfico](./media/hdinsight-debug-ambari-tez-view/dagdiagram.png)
-
-7. Selecione uma vértice para carregar os **Detalhes do Vértice** para esse item. Selecione o vértice **Mapa 1** para exibir os detalhes desse item.
-
-    ![Detalhes do Vértice](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
-
-8. Observe que agora você tem links relacionados às tarefas e aos vértices na parte superior da página.
-
-   > [!NOTE]
-   > Você também pode chegar a essa página voltando para **Detalhes do DAG**, selecionando **Detalhes do Vértice** e selecionando o vértice **Mapa 1**.
-
-   * **Contadores de Vértice**: exibe informações de contadores do vértice em questão.
-   * **Tarefas**: exibe tarefas do vértice em questão.
-   * **Tentativas de Tarefa**: exibe informações sobre as tentativas de executar tarefas para esse vértice.
-   * **Fontes e Coletores**: exibe fontes de dados e coletores do vértice em questão.
-
-     > [!NOTE]
-     > Assim como no menu anterior, você pode rolar a exibição da coluna para Tarefas, Tentativas de Tarefa e Fontes de Coletores para exibir links para outras informações sobre cada item.
-
-9. Escolha **Tarefas** e selecione o item chamado **00_000000**. Os **Detalhes da Tarefa** desta tarefa são exibidos. Nessa tela, você pode exibir **Contadores de Tarefa** e **Tentativas de Tarefa**.
-
-   ![Detalhes de tarefa](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
+    Em __Detalhes da consulta__, você pode usar os links para encontrar mais informações sobre o __Aplicativo__ ou o __DAG__ para esta consulta.
+    
+    * O link __Aplicativo__ exibe informações sobre o aplicativo YARN para esta consulta. Aqui você pode acessar os logs de aplicativo YARN.
+    * O link __DAG__ exibe informações sobre o gráfico acíclico dirigido para esta consulta. Aqui você pode exibir uma representação gráfica do DAG. Você também pode encontrar informações sobre os vértices no DAG.
 
 ## <a name="next-steps"></a>Próximas etapas
 

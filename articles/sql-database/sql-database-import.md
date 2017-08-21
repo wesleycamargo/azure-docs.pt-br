@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/07/2017
+ms.date: 06/26/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4ddbeb78208d8e32fe5e505f396fbfec4e5d6c0a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -48,8 +48,7 @@ Para monitorar o progresso da operação de importação, abra a página para o 
 
 Para monitorar o progresso da operação de importação, abra a página para o servidor lógico que contém o banco de dados que está sendo importado. Role para baixo até **Operações** e, em seguida, clique em **Importar/Exportar histórico**.
    
-   ![importar](./media/sql-database-import/import-history.png)
-   ![status de importação](./media/sql-database-import/import-status.png)
+   ![importar](./media/sql-database-import/import-history.png) ![importar status](./media/sql-database-import/import-status.png)
 
 Para verificar se o banco de dados está ativo no servidor, clique em **Bancos de Dados SQL** e verifique se o novo banco de dados está **Online**.
 
@@ -57,7 +56,7 @@ Para verificar se o banco de dados está ativo no servidor, clique em **Bancos d
 
 Para importar um Banco de Dados SQL usando o utilitário de linha de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx), consulte [Importar parâmetros e propriedades](https://msdn.microsoft.com/library/hh550080.aspx#Import Parameters and Properties). O utilitário SQLPackage acompanha as últimas versões do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) ou você pode baixar a última versão do [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) diretamente no Centro de Download da Microsoft.
 
-Recomendamos o uso do utilitário SQLPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados do Azure SQL usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Recomendamos o uso do utilitário SQLPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
 Confira o comando SQLPackage a seguir para um script de exemplo sobre como importar o banco de dados **AdventureWorks2008R2** do armazenamento local para um servidor lógico do Banco de Dados SQL do Azure, chamado **mynewserver20170403** neste exemplo. Esse script mostra a criação de um novo banco de dados chamado **myMigratedDatabase** com uma camada de serviço **Premium** e um Objetivo de Serviço **P6**. Altere esses valores conforme apropriado para o ambiente.
 

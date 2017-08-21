@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 397f3e75830acf46b29ac864c77ed3160f4e01e4
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
@@ -73,7 +73,9 @@ Limitações
 * As VMs do Azure não podem se conectar via IPv6 com outras VMs, outros serviços do Azure ou dispositivos locais. Eles só podem se comunicar com o Azure Load Balancer via IPv6. No entanto, elas podem se comunicar com esses outros recursos usando IPv4.
 * Há suporte para proteção de NSG (grupo de segurança de rede) para IPv4 em implantações de pilha dupla (IPv4+IPv6). Os NSGs não se aplicam aos pontos de extremidade IPv6.
 * O ponto de extremidade IPv6 na VM não é exposto diretamente à internet. Ele fica atrás de um balanceador de carga. Somente as portas especificadas nas regras do balanceador de carga são acessíveis via IPv6.
-* **Não há suporte atualmente**para a alteração do parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
+* **No momento, não há suporte** para mudar o parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
+* **No momento, não há suporte** para alterar o parâmetro loadDistributionMethod para IPv6.
+* **No momento, não há suporte** para IPs IPv6 reservados (em que IPAllocationMethod = estático).
 
 ## <a name="next-steps"></a>Próximas etapas
 

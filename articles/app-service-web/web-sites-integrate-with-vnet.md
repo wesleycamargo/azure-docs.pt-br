@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 31b4f69a2870e619255feac6bed3679efb03f568
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
@@ -95,7 +95,7 @@ Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso p
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Habilitar Ponto a Site em uma VNET do Resource Manager
-Para configurar uma VNET do Resource Manager com um gateway e Ponto a Site, você pode usar o PowerShell, conforme documentado em [Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell][V2VNETP2S] ou usar o Portal do Azure, conforme documentado em [Configurar uma conexão Ponto a Site para uma rede virtual usando o Portal do Azure][V2VNETPortal].  A interface do usuário para executar esse recurso ainda não está disponível. 
+Para configurar uma VNET do Resource Manager com um gateway e Ponto a Site, você pode usar o PowerShell, conforme documentado em [Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell][V2VNETP2S] ou usar o Portal do Azure, conforme documentado em [Configurar uma conexão Ponto a Site para uma rede virtual usando o Portal do Azure][V2VNETPortal].  A interface do usuário para executar esse recurso ainda não está disponível. Observe que você não precisará criar certificados para a configuração ponto a site. Isso será automaticamente configurado quando você conectar seu WebApp para a VNET. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Criar uma VNET pré-configurada
 Se você quiser criar uma nova VNET que esteja configurada com um gateway e um Ponto a Site, a interface do usuário de rede do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para VNET de Resource Manager.  Se você quiser criar uma VNET Clássica com um gateway e um Ponto a Site, precisará fazer isso manualmente por meio da interface do usuário de rede. 
@@ -152,7 +152,7 @@ As informações que você tem no aplicativo na interface de usuário da Integra
 * Status do gateway – se os gateways ficarem inativos por algum motivo, seu aplicativo não poderá acessar recursos na rede virtual.  
 * Espaço de endereço da VNET – é o espaço de endereço IP para sua rede virtual.  
 * Espaço de endereço ponto a site – é o espaço de endereço IP ponto a site para sua rede virtual.  Seu aplicativo mostrará a comunicação como proveniente de um dos IPs nesse espaço de endereço.  
-* Espaço de endereço site a site – você pode usar as VPNs site a site para conectar sua rede virtual a seus recursos locais ou a outras redes virtuais.  Se estiver configurado, os intervalos de IP definidos com aquela conexão VPN serão exibidos aqui.
+* Espaço de endereço site a site – você pode usar as VPNs site a site para conectar sua VNET a seus recursos locais ou a outras VNETs.  Se estiver configurado, os intervalos de IP definidos com aquela conexão VPN serão exibidos aqui.
 * Servidores DNS – se você tiver servidores DNS configurados com sua rede virtual, eles serão listados aqui.
 * IPs roteados para a rede virtual – há uma lista de endereços IP para os quais sua rede virtual definiu o roteamento.  Esses endereços serão exibidos aqui.  
 
@@ -177,11 +177,11 @@ Em relação a ações, existem duas ações primárias.  A primeira é a capaci
 **Certificados** O status do certificado reflete uma verificação de que está sendo executada pelo Serviço de Aplicativo para validar se os certificados que estamos usando para a conexão VPN ainda estão válidos.  Ao habilitar a integração de rede virtual, se essa for a primeira integração com a rede virtual de qualquer aplicativos nesse ASP, há uma troca de certificados necessária para garantir a segurança da conexão.  Juntamente com os certificados, obtemos a configuração do DNS, as rotas e outros itens semelhantes que descrevem a rede.
 Se esses certificados ou informações de rede forem alterados, você precisará clicar em "Sincronizar Rede".  **Observação**: quando você clica em "Sincronização Rede", você pode causar uma breve interrupção na conectividade entre o aplicativo e a rede virtual.  Embora seu aplicativo não seja reiniciado, a perda de conectividade pode fazer com que seu site não funcione corretamente.  
 
-## <a name="accessing-on-premise-resources"></a>Acessar recursos locais
-Um dos benefícios do recurso Integração de rede virtual é que, se a rede virtual estiver conectado à rede local com uma VPN Site a Site, seus aplicativos podem ter acesso aos recursos locais usando seu aplicativo.  Para isso funcionar, talvez seja necessário atualizar o gateway de VPN local com as rotas para o intervalo de IP ponto a site.  Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a site.  Se você adicionar a VPN ponto a site depois de criar a VPN site a site, precisará atualizar as rotas manualmente.  Os detalhes sobre como fazer isso variam de acordo com o gateway e não são descritos aqui.  
+## <a name="accessing-on-premises-resources"></a>Como acessar recursos locais
+Um dos benefícios do recurso Integração VNET é que, se a VNET estiver conectada à rede local com uma VPN site a site, seus aplicativos poderão ter acesso aos recursos locais usando seu aplicativo.  Para isso funcionar, talvez seja necessário atualizar o gateway de VPN local com as rotas para o intervalo de IP ponto a site.  Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a site.  Se você adicionar a VPN ponto a site depois de criar a VPN site a site, precisará atualizar as rotas manualmente.  Os detalhes sobre como fazer isso variam de acordo com o gateway e não são descritos aqui.  
 
 > [!NOTE]
-> Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação.  Isso é verdadeiro ao integrar com uma VNET Clássica ou do Resource Manager.  Se você precisar acessar recursos por meio de uma VPN de Rota Expressa, poderá usar um ASE que pode ser executado em sua VNET. 
+> O recurso de Integração VNET não integra um aplicativo com uma rede VNet que tem um Gateway ExpressRoute. Mesmo que o Gateway ExpressRoute esteja configurado no [modo de coexistência][VPNERCoex], ele não funcionará. Se você precisar acessar recursos usando uma conexão ExpressRoute, poderá usar um [Ambiente de Serviço de Aplicativo][ASE] que seja executado em sua VNet.
 > 
 > 
 
@@ -249,15 +249,15 @@ As etapas de depuração adicionais incluem:
 
 * fazer logon em outra VM na rede virtual e tentar acessar o host:porta do recurso a partir daí.  Existem alguns utilitários de ping do TCP que você pode usar para essa finalidade, ou até mesmo usar o telnet, se for o caso.  O objetivo aqui é somente determinar se há conectividade de outra máquina virtual. 
 * colocar um aplicativo em outra VM e testar o acesso àquele host e porta usando o console do aplicativo  
-  ####<a name="on-premise-resources"></a>Recursos locais####
-  Se não puder acessar os recursos locais, a primeira coisa a fazer será verificar se pode acessar um recurso na VNET.  Se isso estiver funcionando, as próximas etapas são muito fáceis.  De uma VM em sua rede virtual, você precisa tentar acessar o aplicativo local.  Você pode usar o telnet ou um utilitário de ping de TCP.  Se sua VM não puder acessar seu recurso local  primeiro verifique se a conexão de VPN Site a Site está funcionando.  Se ela estiver funcionando, verifique as mesmas coisas observadas anteriormente, bem como a configuração e o status do gateway local.  
+  ####<a name="on-premises-resources"></a>on-premises resources####
+  Se não puder alcançar os recursos locais, a primeira medida a adotar será verificar se você consegue alcançar um recurso na VNET.  Se isso estiver funcionando, as próximas etapas são muito fáceis.  De uma VM na sua VNET, você precisa tentar alcançar o aplicativo local.  Você pode usar o telnet ou um utilitário de ping de TCP.  Se sua VM não conseguir acessar o recurso local, primeiro verifique se a conexão de VPN site a site está funcionando.  Se estiver funcionando, verifique os mesmos pontos observados anteriormente, bem como a configuração e o status do gateway local.  
 
-Agora, se sua VM hospedada na Rede Virtual pode alcançar seu sistema local, mas seu aplicativo não pode, provavelmente, isso ocorre devido a um dos seguintes motivos:
+Agora, se sua VM hospedada na VNET puder acessar seu sistema local, mas seu aplicativo não, provavelmente, isso ocorre devido a um dos seguintes motivos:
 
 * suas rotas não estão configuradas com os intervalos de IP ponto a site em seu gateway local
 * seus grupos de segurança de rede estão bloqueando o acesso para o intervalo de IP Ponto a Site
 * os firewalls locais estão bloqueando o tráfego do intervalo de IP Ponto a Site
-* você tem uma UDR (Rota Definida pelo Usuário) em sua Rede Virtual que impede que o tráfego baseado em Ponto a Site alcance sua rede local
+* você tem uma UDR (Rota Definida pelo Usuário) em sua VNET que impede que o tráfego baseado em Ponto a Site acesse sua rede local
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Conexões híbridas e ambientes de serviço de aplicativo
 Há três recursos que habilitam o acesso a recursos hospedados em rede virtual.  Eles são:
@@ -266,9 +266,9 @@ Há três recursos que habilitam o acesso a recursos hospedados em rede virtual.
 * Conexões Híbridas
 * Ambientes de Serviço de Aplicativo
 
-As conexões híbridas exigem que você instale um agente de retransmissão chamado HCM (gerente de conexões híbridas) na sua rede.  O HCM precisa ser capaz de se conectar ao Azure e também a seu aplicativo.  Essa solução é especialmente boa usando uma rede remota, como sua rede local ou outra rede hospedada em nuvem, já que não exige um ponto de extremidade com acesso a Internet.  O HCM só é executado no Windows e você pode ter até cinco instâncias em execução para fornecer alta disponibilidade.  No entanto, as conexões híbridas só dão suporte a TCP e cada ponto de extremidade de HC tem que corresponder a uma combinação de host:porta específica.  
+As conexões híbridas exigem que você instale um agente de retransmissão chamado HCM (gerente de conexões híbridas) na sua rede.  O HCM precisa ser capaz de se conectar ao Azure e também a seu aplicativo.  Essa solução é especialmente boa usando uma rede remota, como sua rede local ou mesmo outra rede hospedada em nuvem, já que não exige um ponto de extremidade acessível pela Internet.  O HCM só é executado no Windows e você pode ter até cinco instâncias em execução para fornecer alta disponibilidade.  No entanto, as conexões híbridas só dão suporte a TCP e cada ponto de extremidade de HC tem que corresponder a uma combinação de host:porta específica.  
 
-O recurso Ambiente de Serviço de Aplicativo permite a execução de uma instância do Serviço de Aplicativo do Azure em sua rede virtual.  Isso permite que seus aplicativos acessem os recursos de sua rede virtual sem etapas adicionais.  Alguns dos outros benefícios de um Ambiente de Serviço de Aplicativo é que você pode usar oito trabalhadores de núcleo dedicados com 14 GB de RAM.  Outra vantagem é que você pode escalonar o sistema para atender às suas necessidades.  Ao contrário de ambientes multilocatários, em que o ASP tem tamanho limitado, em um ASE, você controlar quantos recursos deseja dar ao sistema.  Em relação ao foco de rede deste documento, uma das coisas que você obtém com um ASE que não obtém da Integração VNET é poder funcionar com VPN Rota Expressa.  
+O recurso Ambiente de Serviço de Aplicativo permite a execução de uma instância do Serviço de Aplicativo do Azure em sua rede virtual.  Isso permite que seus aplicativos acessem os recursos de sua rede virtual sem etapas adicionais.  Alguns dos outros benefícios de um Ambiente de Serviço de Aplicativo é que você pode usar oito trabalhadores de núcleo dedicados com 14 GB de RAM.  Outra vantagem é que você pode escalonar o sistema para atender às suas necessidades.  Ao contrário de ambientes multilocatários, em que o ASP tem tamanho limitado, em um ASE, você controlar quantos recursos deseja dar ao sistema.  Em relação ao foco de rede deste documento, uma das coisas que você obtém com um ASE que não obtém da Integração VNET é poder funcionar com VPN ExpressRoute.  
 
 Embora haja sobreposição de caso de uso, nenhum desses recursos pode substituir o outro.  Saber qual recurso usar está vinculado às suas necessidades e como você deseja usá-lo.  Por exemplo:
 
@@ -276,7 +276,7 @@ Embora haja sobreposição de caso de uso, nenhum desses recursos pode substitui
 * Se você tem uma grande organização que deseja colocar um grande número de propriedades da Web na nuvem pública e gerenciá-las em sua própria rede, a melhor opção é o Ambiente de Serviço de Aplicativo.  
 * Se você tiver uma quantidade de aplicativos hospedados no Serviço de Aplicativo e simplesmente quiser acessar recursos na VNET, a melhor opção será a Integração VNET.  
 
-Além dos casos de uso, há alguns aspectos relativos à simplicidade.  Se sua rede virtual já está conectada à sua rede local, o uso da Integração de rede virtual ou de um Ambiente de Serviço de Aplicativo é uma maneira fácil de consumir recursos locais.  Por outro lado, se sua rede virtual não estiver conectada à sua rede local, é muito mais trabalhoso configurar uma VPN site a site com a VNET do que instalar o HCM.  
+Além dos casos de uso, há alguns aspectos relativos à simplicidade.  Se sua VNET já estiver conectada à sua rede local, o uso da Integração VNET ou de um Ambiente de Serviço de Aplicativo será uma maneira fácil de consumir recursos locais.  Por outro lado, se sua VNET não estiver conectada à sua rede local, será muito mais trabalhoso configurar uma VPN site a site com a VNET do que instalar o HCM.  
 
 Além das diferenças funcionais, há também diferenças de preço.  O recurso Ambiente de Serviço de Aplicativo é uma oferta do serviço Premium, mas oferece a maioria das possibilidades de configuração de rede, além de outros recursos incríveis.  A Integração de rede virtual pode ser usada com ASPs Standard ou Premium e é perfeita para consumir com segurança recursos em sua rede virtual do Serviço de Aplicativo multilocatário.  O Conexões Híbridas atualmente depende de um conta BizTalk, com preços que variam de gratuito a mais caros baseado na quantidade necessária.  Quando se trata de trabalhar em várias redes, no entanto, não há nenhum outro recurso como Conexões Híbridas, que pode permitir que você acesse recursos em mais de cem redes separadas.    
 
@@ -301,4 +301,6 @@ Além das diferenças funcionais, há também diferenças de preço.  O recurso 
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
 

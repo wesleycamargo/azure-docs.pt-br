@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,27 +30,25 @@ ms.lasthandoff: 04/18/2017
 * **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
-Os logs de diagnóstico estão **desativados** por padrão. Para habilitar logs de diagnóstico:
+Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico:
 
-1.    No portal do Azure, acesse a folha do trabalho de transmissão.
+1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
 
-2.    Em **Monitoramento**, acesse a folha **Logs de diagnóstico**.
+    ![Navegação de folha para os logs de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
 
-    ![Navegação de folha para os logs de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)  
+2.  Clique no recurso que você deseja monitorar.
 
-3.    Selecione **Ativar diagnóstico**.
+3.  Clique em **Ativar diagnóstico**.
 
     ![Ativar logs de diagnóstico](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.    Para **Status**, selecione **Ativado**.
+4.  Para **Status**, clique em **Ativar**.
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
+5.  Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
 
-6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
-
-7.    Salve as novas configurações de diagnóstico.
+6.  Salve as novas configurações de diagnóstico.
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
@@ -58,11 +57,11 @@ Para saber mais sobre como configurar um diagnóstico, confira a [visão geral d
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 Os Hubs de Eventos capturam os logs de diagnóstico de duas categorias:
 
-* **ArchivalLogs**: logs relacionados aos arquivamentos de Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
+* **ArchiveLogs**: logs relacionados aos arquivos mortos dos Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
 * **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do hub de eventos, os recursos usados e o status da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
-Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nos exemplos a seguir.
+Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nas seções a seguir.
 
 ### <a name="archive-logs-schema"></a>Esquema dos logs de arquivo morto
 
@@ -83,7 +82,7 @@ durationInSeconds | Duração da falha.
 Message | Mensagem de erro.
 categoria | ArchiveLogs
 
-Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
+O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
 ```json
 {
@@ -102,14 +101,14 @@ Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de arquivo mort
 }
 ```
 
-### <a name="operation-logs-schema"></a>Esquema de logs de operação
+### <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
-As cadeias de caracteres JSON do log de operação incluem os elementos listados na seguinte tabela:
+As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
 Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para fins de rastreamento.
-EventName | Nome da operação.     
+EventName | Nome da operação.  
 resourceId | ID do Recurso do Azure Resource Manager.
 SubscriptionId | ID da assinatura.
 EventTimeString | Tempo da operação.
@@ -118,7 +117,7 @@ Status | Status da operação.
 Chamador | Chamador da operação (Portal do Azure ou cliente de gerenciamento).
 categoria | OperationalLogs
 
-Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de operação:
+O código a seguir é um exemplo de uma cadeia de caracteres JSON do log operacional:
 
 ```json
 Example:

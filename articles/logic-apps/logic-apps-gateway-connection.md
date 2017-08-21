@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Acessar fontes de dados locais de aplicativos lógicos com o gateway de dados local
@@ -29,7 +28,7 @@ Para acessar fontes de dados locais de seus aplicativos lógicos, configure um g
 
 O gateway dá suporte a conexões com estas fontes de dados locais:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   Sistema de Arquivos
 *   Informix
@@ -39,18 +38,18 @@ O gateway dá suporte a conexões com estas fontes de dados locais:
 *   PostgreSQL
 *   Servidor de aplicativos SAP 
 *   Servidor de mensagens SAP
-*   SharePoint somente para HTTP e não para HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 Estas etapas mostram como configurar o gateway de dados local para funcionar com seus aplicativos lógicos. Para obter mais informações sobre os conectores com suporte, consulte [Conectores para Aplicativo Lógico do Azure](../connectors/apis-list.md). 
 
-Para obter mais informações sobre gateways de dados para outros serviços da Microsoft, consulte estes artigos:
+Para obter informações sobre como usar o gateway com outros serviços, consulte estes artigos:
 
-*   [Gateway de Aplicativo do Azure](https://azure.microsoft.com/services/application-gateway/): [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 *   [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Gateway de dados local do Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 *   [Gateway de dados local do Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Gateway de dados local do Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -105,7 +104,7 @@ Depois de instalar o gateway em um computador local, crie o gateway de dados com
 
     ![Fornecer detalhes para criar o gateway de dados local](./media/logic-apps-gateway-connection/createblade.png)
 
-    Para localizar ou exibir seu gateway de dados a qualquer momento, no menu principal do Azure à esquerda, acesse  **Mais Serviços** > **Enterprise Integration** > **Gateways de Dados Locais**.
+    Para localizar ou exibir seu gateway de dados a qualquer momento, no menu principal do Azure à esquerda, acesse **Mais Serviços**>**Enterprise Integration**>**Gateways de Dados Locais**.
 
     ![Vá para "Mais serviços", "Enterprise Integration", "Gateways de Dados Locais"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
@@ -142,7 +141,7 @@ Depois de criar uma conexão de gateway para seu aplicativo lógico, você talve
 
      ![Vá para seu aplicativo lógico e selecione "Conexões de API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Ou, no menu principal do Azure à esquerda, acesse **Mais Serviços** > **Serviços Web e Móveis** > **Conexões da API** para todas as conexões de API, incluindo conexões do gateway, que estão associadas à sua assinatura do Azure. 
+   * Ou, no menu principal do Azure à esquerda, acesse **Mais Serviços**>**Serviços Móveis e Web**>**Conexões da API** para todas as conexões de API, incluindo conexões do gateway, associadas à sua assinatura do Azure. 
 
    * Ou, no menu principal do Azure à esquerda, vá para **Todos os recursos** para todas as conexões de API, incluindo conexões do gateway, associadas à sua assinatura do Azure.
 

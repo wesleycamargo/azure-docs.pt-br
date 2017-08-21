@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Associações de Armazenamento de Filas do Azure Functions
@@ -75,7 +74,7 @@ O gatilho de fila fornece várias propriedades de metadados. Essas propriedades 
 * **ExpirationTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem expira.
 * **Id** – Tipo `string`. ID da mensagem da fila.
 * **InsertionTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem foi adicionada à fila.
-* **NextVisibleTime** – Tipo `DateTimeOffset?. A hora em que a mensagem estará visível.
+* **NextVisibleTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem estará visível.
 * **PopReceipt** – Tipo `string`. Recebimento pop da mensagem.
 
 Confira como usar os metadados de fila no [Exemplo de gatilho](#triggersample).
@@ -294,3 +293,4 @@ Para obter um exemplo de uma função que usa gatilhos de armazenamento de fila 
 <!-- LINKS -->
 
 [`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

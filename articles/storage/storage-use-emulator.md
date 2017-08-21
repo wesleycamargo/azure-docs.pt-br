@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
@@ -209,6 +208,10 @@ As diferenças a seguir aplicam-se ao armazenamento de tabela no emulador:
 Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de versão do emulador de armazenamento
+### <a name="version-52"></a>Versão 5.2
+* O emulador de armazenamento agora dá suporte à versão 2017-04-17 dos serviços de armazenamento nos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+* Correção de um bug em que os valores de propriedade de tabela não estavam sendo codificados corretamente.
+
 ### <a name="version-51"></a>Versão 5.1
 * Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não estava.
 

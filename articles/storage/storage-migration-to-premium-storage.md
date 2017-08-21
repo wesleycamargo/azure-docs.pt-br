@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 373dde7b751156490fafd3e052b32310c497b43b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -72,7 +72,7 @@ Dependendo da carga de trabalho, determine se discos de dados adicionais são ne
 #### <a name="storage-account-scalability-targets"></a>Metas de escalabilidade da conta de armazenamento
 As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, além das [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](storage-scalability-targets.md). Se as exigências de seu aplicativo exceder as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e particione seus dados nessas contas de armazenamento.
 
-| Capacidade total da conta | Largura de banda total para uma conta de armazenamento localmente redundante |
+| Capacidade total da conta | Largura de banda total para uma conta de armazenamento com redundância local |
 |:--- |:--- |
 | Capacidade de disco: 35 TB<br />Capacidade do instantâneo: 10 TB |Até 50 gigabits para Entrada + Saída |
 
@@ -85,7 +85,7 @@ Por padrão, a política de cache de disco é *Somente leitura* para todos os di
 Escolha um local onde o Armazenamento do Azure Premium está disponível. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis. As máquinas virtuais na mesma região da conta de armazenamento que armazena os discos da VM fornecerão um desempenho muito melhor em relação a estarem em regiões separadas.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Outras definições de configuração da VM do Azure
-Ao criar uma VM do Azure, você será solicitado a definir certas configurações da máquina virtual. Lembre-se de que algumas configurações são fixas durante a vida útil da VM, enquanto você pode modificar ou adicionar outras posteriormente. Revise essas definições de configuração da máquina virtual do Azure e verifique se elas estão definidas corretamente para atender aos seus requisitos de carga de trabalho.
+Ao criar uma VM do Azure, você será solicitado a definir certas configurações da máquina virtual. Lembre-se de que algumas configurações são fixas durante o tempo de vida da VM, enquanto você pode modificar ou adicionar outras posteriormente. Revise essas definições de configuração da máquina virtual do Azure e verifique se elas estão definidas corretamente para atender aos seus requisitos de carga de trabalho.
 
 ### <a name="optimization"></a>Otimização
 [Armazenamento Premium do Azure: design de alto desempenho](storage-premium-storage-performance.md) fornece diretrizes para criação de aplicativos de alto desempenho usando o Armazenamento Premium do Azure. Você pode seguir as diretrizes combinadas a práticas recomendadas aplicáveis a tecnologias usadas por seu aplicativo.
@@ -238,7 +238,7 @@ Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeir
 ##### <a name="copy-a-vhd-from-other-non-azure-cloud"></a>Copiar um VHD de outra nuvem que não é do Azure
 Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeiro deverá exportar o VHD para um diretório local. Copie o caminho de origem completo do diretório local onde o VHD está armazenado.
 
-##### <a name="copy-a-vhd-from-on-premise"></a>Copiar um VHD do local
+##### <a name="copy-a-vhd-from-on-premises"></a>Copiar um VHD do local
 Se você estiver migrando o VHD de um ambiente local, você precisará do caminho de origem completo em que o VHD está armazenado. O caminho de origem pode ser um compartilhamento de arquivo ou local do servidor.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Etapa 2. Criar o destino para seu VHD

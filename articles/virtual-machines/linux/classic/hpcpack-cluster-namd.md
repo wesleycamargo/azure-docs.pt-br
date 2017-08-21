@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
@@ -51,7 +51,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ```
    
    > [!NOTE]
-   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma senha aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
+   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
    > 
    > 
    
@@ -87,7 +87,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configurar um compartilhamento de arquivos para nós do Linux
-Agora, configure um compartilhamento de arquivo SMB e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos NAMD com um caminho comum. A seguir, as etapas para montar uma pasta compartilhada no nó principal. Um compartilhamento é recomendado para distribuições, como CentOS 6.6, que atualmente não têm suporte para o serviço de Arquivos do Azure. Se os nós do Linux permitirem um compartilhamento de arquivo do Azure, confira [Como usar o armazenamento de arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md). Para opções de compartilhamento de arquivos adicionais com o HPC Pack, e as etapas em [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](hpcpack-cluster.md).
+Agora, configure um compartilhamento de arquivo SMB e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos NAMD com um caminho comum. A seguir, as etapas para montar uma pasta compartilhada no nó principal. Um compartilhamento é recomendado para distribuições, como CentOS 6.6, que atualmente não têm suporte para o serviço de Arquivos do Azure. Se os nós do Linux derem suporte a compartilhamento de Arquivo do Azure, confira [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/storage-how-to-use-files-linux.md). Para opções de compartilhamento de arquivos adicionais com o HPC Pack, e as etapas em [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](hpcpack-cluster.md).
 
 1. Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de leitura/gravação. Neste exemplo, \\\\CentOS66HN\Namd é o nome da pasta, em que CentOS66HN é o nome de host do nó principal.
 2. Crie uma subpasta chamada namd2 na pasta compartilhada. No namd2, crie outra subpasta chamada namdsample.

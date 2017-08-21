@@ -1,6 +1,6 @@
 ---
-title: Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo do Azure AD | Microsoft Docs
-description: "Abora as noções básicas sobre os conectores do Proxy de Aplicativo do Azure AD"
+title: Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD | Microsoft Docs
+description: "Abora as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD"
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
-# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo do Azure AD
+# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
 Este artigo descreve como configurar aplicativos para direcionar os usuários para uma página inicial personalizada quando eles acessarem os aplicativos do painel de acesso do Azure Active Directory (Azure AD) e o iniciador do aplicativo do Office 365.
 
@@ -35,8 +36,6 @@ Usando o módulo do PowerShell do Azure AD, você pode definir URLs de home page
 
 ## <a name="before-you-start"></a>Antes de começar
 
-### <a name="determine-the-home-page-url"></a>Determinar a URL da home page
-
 Antes de definir a URL da home page, tenha em mente o seguinte:
 
 * Garanta que o caminho especificado seja um caminho de subdomínio da URL raiz do domínio.
@@ -44,6 +43,16 @@ Antes de definir a URL da home page, tenha em mente o seguinte:
   Se a URL do domínio raiz for, por exemplo, https://apps.contoso.com/app1/, a URL da página inicial que você configura deverá começar com https://apps.contoso.com/app1/.
 
 * Se você fizer uma alteração no aplicativo publicado, essa alteração poderá redefinir o valor da URL da home page. Quando você decidir atualizar o aplicativo no futuro, você deverá verificar novamente e, se necessário, atualizar a URL da home page.
+
+## <a name="change-the-home-page-in-the-azure-portal"></a>Altere a home page no portal do Azure
+
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
+2. Navegue até **Azure Active Directory** > **Registros do aplicativo** e escolha o seu aplicativo na lista. 
+3. Selecione **Propriedades** entre as configurações.
+4. Atualize o campo **URL da Home page** com o novo caminho. 
+5. Selecione **Salvar**
+
+## <a name="change-the-home-page-with-powershell"></a>Alterar a home page com o PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do Powershell do Azure AD
 
@@ -59,7 +68,7 @@ Para instalar o pacote, siga estas etapas:
     Se você estiver executando o comando como um não administrador, use a opção `-scope currentuser`.
 2. Durante a instalação, selecione **Y** para instalar dois pacotes do Nuget.org. Ambos os pacotes são necessários. 
 
-## <a name="step-1-find-the-objectid-of-the-app"></a>Etapa 1: Localizar a ObjectID do aplicativo
+### <a name="find-the-objectid-of-the-app"></a>Localizar a ObjectID do aplicativo
 
 Obtenha o ID do objeto do aplicativo e, em seguida, procure o aplicativo por sua home page.
 
@@ -87,7 +96,7 @@ Obtenha o ID do objeto do aplicativo e, em seguida, procure o aplicativo por sua
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## <a name="step-2-update-the-home-page-url"></a>Etapa 2: atualizar a URL da home page
+### <a name="update-the-home-page-url"></a>Atualizar a URL da home page
 
 No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
 
@@ -129,6 +138,6 @@ No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)
+- [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md)
 

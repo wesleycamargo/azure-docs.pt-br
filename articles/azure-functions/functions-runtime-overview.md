@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d9e655b6ebbdb02bae21fa7a8fa7ee5b46d6e63b
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 98d1e2ad162f4b69be4fdf9a5b004f640fbb5d7e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 
@@ -37,7 +37,7 @@ O Azure Functions Runtime é formado por duas partes:
 
 ## <a name="azure-functions-management-role"></a>Função de Gerenciamento do Azure Functions
 
-A Função de Gerenciamento do Azure Functions fornece um host para o gerenciamento local de seu Functions. Essa função executa as seguintes tarefas:
+A função de gerenciamento do Azure Functions fornece um host para gerenciar o Functions localmente. Essa função executa as seguintes tarefas:
 
 * Hospedagem do Portal de Gerenciamento do Azure Functions, que é o mesmo do [Portal do Azure](https://portal.azure.com). Isso permite que você desenvolva suas funções da mesma maneira que faria no Portal do Azure.
 * Distribuição de funções por vários trabalhadores do Functions.

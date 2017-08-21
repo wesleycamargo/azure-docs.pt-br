@@ -2,7 +2,7 @@
 title: "Criar grupos de ação com modelos do Resource Manager | Microsoft Docs"
 description: "Os grupos de ações permitem notificar email, SMS ou chamar webhooks quando determinados eventos ocorrem."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2dd7b14f1466fa7244a2af2c030d8b794658aaad
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -28,10 +27,10 @@ Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](ht
 
 Estas são as etapas básicas:
 
-1.    Crie um modelo como um arquivo JSON que descreve como criar o grupo de ação.
-2.    [Implantar o modelo usando qualquer método de implantação.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+1.  Crie um modelo como um arquivo JSON que descreve como criar o grupo de ação.
+2.  [Implantar o modelo usando qualquer método de implantação.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-Abaixo, descrevemos como criar um modelo do Resource Manager pela primeira vez para um grupo de ação apenas e, em seguida, para um grupo de ação durante a criação de outro recurso.
+Abaixo, descrevemos como criar um modelo do Resource Manager primeiro para um grupo de ação em que as definições de ação são embutidas em código no modelo, então para um modelo que usa as informações de configuração de webhook como parâmetros de entrada ao implantar o modelo.
 
 ## <a name="resource-manager-template-for-an-action-group"></a>Modelo do Resource Manager para um grupo de ação
 

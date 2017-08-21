@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bbd57547a0cc486a9cf7c8030dccaaf6f46c9860
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 28d91237adf745e591b02322de7881c8122827ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/11/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="problem-signing-in-to-the-access-panel-website" class="xliff"></a>
-
-# Problema ao entrar no site do painel de acesso
+# <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao entrar no site do painel de acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário que tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Um usuário com as edições do Azure AD também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do Painel de Acesso. O Painel de Acesso é separado do Portal do Azure e não exige que os usuários tenham uma assinatura do Azure.
 
@@ -37,9 +36,7 @@ Os usuários podem entrar no Painel de Acesso se eles tiverem uma conta corporat
 
 Se um usuário tiver uma assinatura do Azure ou Office 365 e estiver usando o Portal do Azure ou um aplicativo do Office 365, ele poderá usar o Painel de Acesso sem precisar entrar novamente. Usuários não autenticados recebem uma solicitação para entrar usando o nome de usuário e a senha de sua conta no Azure AD. Se a organização tiver configurado a federação, digitar o nome do usuário será suficiente.
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Problemas gerais para verificar primeiro 
+## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro 
 
 -   Verifique se o usuário está entrando com a **URL correta**: <https://myapps.microsoft.com>
 
@@ -55,13 +52,11 @@ Se um usuário tiver uma assinatura do Azure ou Office 365 e estiver usando o Po
 
 -   Verifique se uma **Política de acesso condicional** ou política de **Proteção de Identidade** não está bloqueando o acesso do usuário.
 
--   Verifique se as **informações de contato de autenticação** estão atualizadas para permitir a aplicação da Autenticação Multifator ou de políticas de Acesso Condicional.
+-   Verifique se as **informações de contato de autenticação** de um usuário estão atualizadas para permitir a aplicação da Autenticação Multifator ou de políticas de Acesso Condicional.
 
 -   Tente também eliminar os cookies do navegador e tente entrar novamente.
 
-<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
-
-## Atender aos requisitos de navegador para o Painel de Acesso
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Atender aos requisitos de navegador para o Painel de Acesso
 
 O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilitado. Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
 
@@ -69,18 +64,14 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
 
+-   Edge no Windows 10 Anniversary Edition ou posterior 
+
 -   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 
 -   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
->[!NOTE] 
->A extensão de SSO baseada em senha será disponibilizada para o Edge no Windows 10 quando as extensões de navegador tiverem suporte no Edge.
->
->
 
-<a id="problems-with-the-users-account" class="xliff"></a>
-
-## Problemas com a conta do usuário
+## <a name="problems-with-the-users-account"></a>Problemas com a conta do usuário
 
 O acesso ao Painel de Acesso pode ser bloqueado devido a um problema com a conta do usuário. Veja abaixo algumas maneiras de solucionar problemas dos usuários e suas configurações de conta:
 
@@ -102,15 +93,13 @@ O acesso ao Painel de Acesso pode ser bloqueado devido a um problema com a conta
 
 -   [Atribuir uma licença a um usuário](#assign-a-user-a-license)
 
-<a id="check-if-a-user-account-exists-in-azure-active-directory" class="xliff"></a>
+### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Verificar se existe uma conta de usuário no Azure Active Directory
 
-### Verificar se existe uma conta de usuário no Azure Active Directory
-
-Para verificar se há uma conta de usuário presente, execute estas etapas:
+Para verificar se há uma conta de usuário presente, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -122,15 +111,13 @@ Para verificar se há uma conta de usuário presente, execute estas etapas:
 
 7.  Verifique as propriedades do objeto do usuário para ter certeza de que elas estejam definidas conforme o esperado e de que nenhum dado esteja faltando.
 
-<a id="check-a-users-account-status" class="xliff"></a>
+### <a name="check-a-users-account-status"></a>Verificar o status da conta do usuário
 
-### Verificar o status da conta do usuário
-
-Para verificar o status da conta de um usuário, execute estas etapas:
+Para verificar o status da conta de um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -144,15 +131,13 @@ Para verificar o status da conta de um usuário, execute estas etapas:
 
 8.  Em **Configurações** verifique se **Bloquear entrada** está definido como **Não**.
 
-<a id="reset-a-users-password" class="xliff"></a>
+### <a name="reset-a-users-password"></a>Redefinir a senha de um usuário
 
-### Redefinir a senha de um usuário
-
-Para redefinir a senha de um usuário, execute estas etapas:
+Para redefinir a senha de um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -170,25 +155,21 @@ Para redefinir a senha de um usuário, execute estas etapas:
 
 10. Informe essa nova senha para o usuário, e que ele precisa alterar essa senha durante o próximo logon no Azure Active Directory.
 
-<a id="enable-self-service-password-reset" class="xliff"></a>
+### <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
-### Habilitar a redefinição de senha por autoatendimento
-
-Para habilitar a redefinição d senhas por autoatendimento, execute as etapas de implantação abaixo:
+Para habilitar a redefinição de senhas por autoatendimento, execute as etapas de implantação abaixo:
 
 -   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
 -   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
-<a id="check-a-users-multi-factor-authentication-status" class="xliff"></a>
+### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o status da Autenticação Multifator de um usuário
 
-### Verificar o status da Autenticação Multifator de um usuário
-
-Para verificar o status da Autenticação Multifator de um usuário, execute estas etapas:
+Para verificar o status da Autenticação Multifator de um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -209,15 +190,13 @@ Para verificar o status da Autenticação Multifator de um usuário, execute est
    >
    >
 
-<a id="check-a-users-authentication-contact-info" class="xliff"></a>
-
-### Verificar as informações de contato de autenticação de um usuário
+### <a name="check-a-users-authentication-contact-info"></a>Verificar as informações de contato de autenticação de um usuário
 
 Para verificar as informações de contato de autenticação do usuário usadas para Autenticação Multifator, Acesso Condicional, Proteção de Identidade e Redefinição de Senha, execute as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -233,15 +212,13 @@ Para verificar as informações de contato de autenticação do usuário usadas 
 
 9.  **Revise** os dados registrados para o usuário e a atualização conforme o necessário.
 
-<a id="check-a-users-group-memberships" class="xliff"></a>
+### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
 
-### Verificar as associações de grupo de um usuário
-
-Para verificar as associações de grupo de um usuário, execute estas etapas:
+Para verificar as associações de grupo de um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -251,17 +228,15 @@ Para verificar as associações de grupo de um usuário, execute estas etapas:
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Grupos** ver de quais grupos o usuário é membro.
+7.  Clique em **Grupos** para ver de quais grupos o usuário é membro.
 
-<a id="check-a-users-assigned-licenses" class="xliff"></a>
+### <a name="check-a-users-assigned-licenses"></a>Verificar as licenças atribuídas de um usuário
 
-### Verificar as licenças atribuídas de um usuário
-
-Para verificar as licenças atribuídas de um usuário, execute estas etapas:
+Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -271,17 +246,15 @@ Para verificar as licenças atribuídas de um usuário, execute estas etapas:
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
+7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
-<a id="assign-a-user-a-license" class="xliff"></a>
+### <a name="assign-a-user-a-license"></a>Atribuir uma licença a um usuário 
 
-### Atribuir uma licença a um usuário 
-
-Para atribuir uma licença a um usuário, execute estas etapas:
+Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
 3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -291,9 +264,9 @@ Para atribuir uma licença a um usuário, execute estas etapas:
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
+7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
-8.  Clique no botão **Atribuir**.
+8.  clique no botão **Atribuir**.
 
 9.  Selecione **um ou mais produtos** da lista de produtos disponíveis.
 
@@ -301,26 +274,22 @@ Para atribuir uma licença a um usuário, execute estas etapas:
 
 11. Clique no botão **Atribuir** para atribuir essas licenças para esse usuário.
 
-<a id="if-these-troubleshooting-steps-do-not-resolve-the-issue" class="xliff"></a>
-
-## Se essas etapas de solução de problemas não resolverem o problema
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
 -   ID de erro de correlação
 
--   UPN (endereço de email de usuário)
+-   UPN (endereço de email do usuário)
 
 -   ID do locatário
 
 -   Tipo de navegador
 
--   Fuso horário e tempo/cronograma durante o erro
+-   Fuso horário e hora/cronograma durante o erro
 
--   Rastreamento do Fiddler
+-   Rastreamentos do Fiddler
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

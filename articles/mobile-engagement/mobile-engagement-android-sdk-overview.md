@@ -1,5 +1,5 @@
 ---
-title: "Integração do Android SDK para Azure Mobile Engagement"
+title: "Integração do SDK do Android para Azure Mobile Engagement"
 description: Descreve como integrar o SDK do Azure Mobile Engagement em aplicativos Android
 services: mobile-engagement
 documentationcenter: mobile
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
-# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do Android SDK para Azure Mobile Engagement
+# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do SDK do Android para Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
@@ -53,8 +53,16 @@ Você pode adicionar esses recursos:
 [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
-### <a name="424-03302017"></a>4.2.4 (30/03/2017)
-* Corrija cores do texto de notificação no aplicativo Android 7 para serem as mesmas de versões mais antigas do Android.
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* Corrigir uma falha que raramente poderia acontecer ao chamar `EngagementAgentUtils.isInDedicatedEngagementProcess`, que também é usado pela classe `EngagementApplication`.
+
+### <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Suporte para Android 8 (versões anteriores do SDK não funcionarão em Android 8).
+* Não há mais dependência da biblioteca de suporte.
+* Remover classe `EngagementFragmentActivity`.
+* Devido a [Limites de Execução em Segundo de Fundo](https://developer.android.com/preview/features/background.html) no Android 8, logs no segundo plano podem ser atrasados até que o usuário interaja com o dispositivo. Isso terá um impacto sobre Campanha de Push **Entregue** e estatísticas de **Notificação do sistema exibida** sendo atrasadas no caso de dispositivo estar em suspensão (a notificação ainda será exibida, tocará e vibrará em tempo real sem problemas).
+* Devido a [Limites de Local do Segundo Plano](https://developer.android.com/preview/features/background-location-limits.html), o local em tempo real em segundo plano não será atualizado com frequência no Android 8.
 
 Para todas as versões, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
 

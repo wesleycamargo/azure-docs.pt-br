@@ -13,25 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4d8c241344485e50a1afde3cd67adf3d0a7c041f
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/11/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="problem-using-self-service-application-access" class="xliff"></a>
-
-# Problema ao usar o acesso de aplicativo de autoatendimento
+# <a name="problem-using-self-service-application-access"></a>Problema ao usar o acesso de aplicativo de autoatendimento
 
 O acesso de aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários descubram aplicativos por conta própria e, ainda, permitir que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para Aplicativos de logon único com senha, diretamente de seus painéis de acesso.
 
 Antes que seus usuários possam descobrir por conta própria aplicativos de seu painel de acesso, você precisa habilitar o **Acesso de aplicativo de autoatendimento** a todos os aplicativos que você quiser permitir que os usuários descubram e solicitem acesso por conta própria.
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Problemas gerais a serem verificados primeiro
+## <a name="general-issues-to-check-first"></a>Problemas gerais a serem verificados primeiro
 
 -   Verifique se o acesso do aplicativo de autoatendimento está configurado corretamente. Consulte "Como configurar o acesso de aplicativo de autoatendimento".
 
@@ -41,9 +38,7 @@ Antes que seus usuários possam descobrir por conta própria aplicativos de seu 
 
 -   Se o acesso de aplicativo de autoatendimento tiver sido configurado recentemente, tente entrar e sair novamente do Painel de Acesso do usuário após alguns minutos para ver se as alterações de acesso de autoatendimento apareceram.
 
-<a id="how-to-configure-self-service-application-access" class="xliff"></a>
-
-## Como configurar o acesso de aplicativo de autoatendimento
+## <a name="how-to-configure-self-service-application-access"></a>Como configurar o acesso de aplicativo de autoatendimento
 
 Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga as etapas abaixo:
 
@@ -51,7 +46,7 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
 4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
@@ -86,9 +81,7 @@ Após você concluir a configuração do aplicativo de autoatendimento, os usuá
 
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
-<a id="if-these-troubleshooting-steps-do-not-resolve-the-issue" class="xliff"></a>
-
-## Se essas etapas de solução de problemas não resolverem o problema 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema 
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
@@ -100,12 +93,10 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Tipo de navegador
 
--   Fuso horário e hora/período em que o erro ocorre
+-   Fuso horário e hora/cronograma durante o erro
 
 -   Rastreamentos do Fiddler
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)
 

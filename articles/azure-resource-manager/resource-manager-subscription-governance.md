@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: ce4e19738a66629c7dd587da50f71f6675c159e8
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -80,7 +80,7 @@ Os três padrões comuns para inscrições do Azure são:
 Aplique o andaime no nível de assinatura para estender os requisitos de governança da empresa na assinatura.
 
 ## <a name="naming-standards"></a>Padrões de nomenclatura
-O primeiro pilar do andaime são os padrões de nomenclatura. Os padrões de nomenclatura bem definidos permitem identificar recursos no portal, em uma cobrança e dentro de scripts. Provavelmente, você já tem padrões de nomenclatura para infraestrutura local. Ao adicionar o Azure ao seu ambiente, você deve estender esses padrões de nomenclatura para os recursos do Azure. O padrão de nomenclatura facilita gerenciamento eficiente do ambiente em todos os níveis.
+O primeiro pilar do andaime são os padrões de nomenclatura. Os padrões de nomenclatura bem definidos permitem identificar recursos no portal, em uma cobrança e dentro de scripts. Provavelmente, você já tem padrões de nomenclatura para a infraestrutura local. Ao adicionar o Azure ao seu ambiente, você deve estender esses padrões de nomenclatura para os recursos do Azure. O padrão de nomenclatura facilita gerenciamento eficiente do ambiente em todos os níveis.
 
 > [!TIP]
 > Para convenções de nomenclatura:

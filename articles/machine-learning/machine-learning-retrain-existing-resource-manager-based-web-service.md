@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
@@ -64,7 +64,7 @@ Para este exemplo, estamos usando C# para criar o aplicativo de readaptação. V
 
 Para chamar as APIs de Readaptação:
 
-1. Crie um aplicativo de console em C# no Visual Studio (**Novo** > **Projeto** > **Área de Trabalho do Windows** > **Aplicativo de Console**).
+1. Crie um aplicativo de console C# no Visual Studio: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
 2. Entre no portal de Serviços Web do Machine Learning.
 3. Clique no serviço Web com o qual você está trabalhando.
 4. Clique em **Consumo**.

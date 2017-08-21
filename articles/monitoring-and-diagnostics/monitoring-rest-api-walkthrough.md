@@ -2,7 +2,7 @@
 title: Passo a passo da API REST de monitoramento do Azure | Microsoft Docs
 description: "Como autenticar solicitações e usar a API REST de monitoramento do Azure."
 author: mcollier
-manager: carolz
+manager: 
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,25 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 454a85c4752ec9c7522ef147d5ce594ef5992c32
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
-<a id="azure-monitoring-rest-api-walkthrough" class="xliff"></a>
-
-# Passo a passo da API REST de monitoramento do Azure
+# <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de monitoramento do Azure
 Este artigo mostra como executar autenticação para que o seu código possa usar a [referência de API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
 A API do Azure Monitor possibilita recuperar programaticamente as definições de métricas padrões disponíveis (o tipo de métrica como, por exemplo, Tempo de CPU, Solicitações, etc.), granularidade e valores de métrica. Depois de recuperados, os dados podem ser salvos em um armazenamento de dados separado, como o Banco de Dados SQL do Azure, o BD Cosmos do Azure ou o Azure Data Lake. A partir daí análises adicionais podem ser executadas conforme necessário.
 
 Além de trabalhar com vários pontos de dados de métrica, como mostra este artigo, a API do Monitor possibilita listar as regras de alerta, exibir logs de atividade e muito mais. Para obter uma lista completa das operações disponíveis, consulte a [referência da API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
-<a id="authenticating-azure-monitor-requests" class="xliff"></a>
-
-## Autenticação de solicitações do Azure Monitor
+## <a name="authenticating-azure-monitor-requests"></a>Autenticação de solicitações do Azure Monitor
 A primeira etapa é autenticar a solicitação.
 
 Todas as tarefas executadas em relação à API do Azure Monitor usam o modelo de autenticação do Azure Resource Manager. Portanto, todas as solicitações devem ser autenticadas com o Azure Active Directory (Azure AD). Uma abordagem para autenticar o aplicativo cliente é criar uma entidade de serviço do Azure AD e recuperar o token de autenticação (JWT). O script de exemplo a seguir demonstra como criar uma entidade de serviço do Azure AD por meio do PowerShell. Para obter instruções mais detalhadas, consulte a documentação sobre como [usar o Azure PowerShell para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Também é possível [criar uma entidade de serviço por meio do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -93,9 +89,7 @@ Após a conclusão da etapa de configuração de autenticação, as consultas po
 1. Listar as definições de métricas para um recurso
 2. Recuperar os valores de métrica
 
-<a id="retrieve-metric-definitions" class="xliff"></a>
-
-## Recuperar as definições de métrica
+## <a name="retrieve-metric-definitions"></a>Recuperar as definições de métrica
 > [!NOTE]
 > Para recuperar as definições de métricas usando a API REST do Azure Monitor, use "2016-03-01" como a versão de API.
 >
@@ -116,9 +110,7 @@ Para um aplicativo lógico do Azure, as definições de métricas seriam semelha
 
 Para obter mais informações, consulte a documentação [Listar as definições de métricas para um recurso na API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/mt743621.aspx) .
 
-<a id="retrieve-metric-values" class="xliff"></a>
-
-## Recuperar valores de métrica
+## <a name="retrieve-metric-values"></a>Recuperar valores de métrica
 Depois que as definições de métrica disponíveis são conhecidas, é possível recuperar os valores de métrica relacionados. Use o “valor” do nome da métrica (não o “valor localizado”) para todas as solicitações de filtragem (por exemplo, recuperar os pontos de dados da métrica “Tempo de CPU” e “Solicitações”). Se nenhum filtro for especificado, a métrica padrão será retornada.
 
 > [!NOTE]
@@ -158,9 +150,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
                    -Verbose).Value | ConvertTo-Json
 ```
 
-<a id="use-armclient" class="xliff"></a>
-
-### Use o ARMClient
+### <a name="use-armclient"></a>Use o ARMClient
 Uma alternativa ao uso do PowerShell (conforme mostrado acima), é usar [ARMClient](https://github.com/projectkudu/ARMClient) no seu computador Windows. O ARMClient cuida da autenticação do Azure AD (e do token JWT resultante) automaticamente. As etapas a seguir descrevem o uso do ARMClient para recuperar dados de métrica:
 
 1. Instalar [Chocolatey](https://chocolatey.org/) e [ARMClient](https://github.com/projectkudu/ARMClient).
@@ -170,9 +160,7 @@ Uma alternativa ao uso do PowerShell (conforme mostrado acima), é usar [ARMClie
 
 ![Alt "Usar o ARMClient para trabalhar com a API REST de monitoramento do Azure"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
-<a id="retrieve-the-resource-id" class="xliff"></a>
-
-## Recuperar a ID do recurso
+## <a name="retrieve-the-resource-id"></a>Recuperar a ID do recurso
 Usar a API REST realmente pode ajudar a entender as definições de métrica disponíveis, granularidade e valores relacionados. Essas informações são úteis ao usar a [Biblioteca de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 No código anterior, a ID do recurso a ser usada é o caminho completo para o recurso do Azure desejado. Por exemplo, para consultar um aplicativo Web do Azure, a ID do recurso seria:
@@ -191,37 +179,27 @@ A lista a seguir contém alguns exemplos de formatos de ID do recurso para vári
 
 Há abordagens alternativas para recuperar a ID do recurso, incluindo o uso do Azure Resource Manager, exibindo o recurso desejado no portal do Azure e por meio do PowerShell ou da CLI do Azure.
 
-<a id="azure-resource-explorer" class="xliff"></a>
-
-### Gerenciador de Recursos do Azure
+### <a name="azure-resource-explorer"></a>Gerenciador de Recursos do Azure
 Para localizar a ID do recurso para um recurso desejado, uma abordagem útil é usar a ferramenta [Azure Resource Manager](https://resources.azure.com) . Navegue até o recurso desejado e, em seguida, verifique a ID exibida, conforme a tela a seguir:
 
 ![Alt "Explorador de Recursos do Azure"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
-<a id="azure-portal" class="xliff"></a>
-
-### Portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 A ID do recurso também pode ser obtida no portal do Azure. Para fazer isso, navegue até o recurso desejado e, em seguida, selecione Propriedades. A ID do recurso é exibida na folha de Propriedades, como mostrado na tela a seguir:
 
 ![Alt "ID do recurso exibido na folha de Propriedades no portal do Azure"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
-<a id="azure-powershell" class="xliff"></a>
-
-### Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 A ID do recurso também pode ser recuperada usando cmdlets do Azure PowerShell. Por exemplo, para obter a ID do recurso para um aplicativo Web do Azure, execute o cmdlet Get-AzureRmWebApp, como na tela a seguir:
 
 ![Alt "ID do recurso obtido por meio do PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
-<a id="azure-cli" class="xliff"></a>
-
-### CLI do Azure
+### <a name="azure-cli"></a>CLI do Azure
 Para recuperar a ID do recurso usando a CLI do Azure, execute o comando “azure webapp show”, especificando a opção “-json”, conforme mostrado na captura de tela a seguir:
 
 ![Alt "ID do recurso obtido por meio do PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
-<a id="retrieve-activity-log-data" class="xliff"></a>
-
-## Recuperar dados de Log de atividade
+## <a name="retrieve-activity-log-data"></a>Recuperar dados de Log de atividade
 Além de trabalhar com definições de métricas e valores relacionados, também é possível recuperar informações interessantes adicionais relacionadas aos recursos do Azure. Por exemplo, é possível consultar os dados do [log de atividades](https://msdn.microsoft.com/library/azure/dn931934.aspx) . O exemplo a seguir demonstra como usar o API REST do Azure Monitor para consultar dados de log de atividade dentro de um intervalo de datas específico para uma assinatura do Azure:
 
 ```PowerShell
@@ -234,9 +212,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
                    -Verbose).Value | ConvertTo-Json
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Verifique a [Visão geral do monitoramento](monitoring-overview.md).
 * Visualize as [Métricas compatíveis com o Azure Monitor](monitoring-supported-metrics.md).
 * Verifique a [referência da API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).

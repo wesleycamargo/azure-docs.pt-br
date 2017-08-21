@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 07/18/2017
 ms.author: milanga;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
-ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: c8e760460668aca89a754e2d8536282160de0e0a
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo
@@ -60,7 +60,7 @@ A tabela a seguir descreve a duração padrão, quando **maxMotionThumbnailInSec
 |  |  |  |
 | --- | --- | --- | --- | --- |
 | Duração do vídeo |d < 3 min |3 min < d < 15 min |
-| Duração da miniatura |15 s (2 a&3; cenas) |30 s (3 a&5; cenas) |
+| Duração da miniatura |15 s (2 a 3 cenas) |30 s (3 a 5 cenas) |
 
 O JSON a seguir define os parâmetros disponíveis.
 
@@ -73,7 +73,8 @@ O JSON a seguir define os parâmetros disponíveis.
         }
     }
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="net-sample-code"></a>Código de exemplo do .NET
+
 O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
@@ -89,7 +90,12 @@ O programa a seguir mostra como:
         }
 3. Baixar os arquivos de saída. 
 
-### <a name="net-code"></a>Código do .NET
+#### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
+
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+
+#### <a name="example"></a>Exemplo
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -103,24 +109,20 @@ O programa a seguir mostra como:
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
 
                 // Run the thumbnail job.

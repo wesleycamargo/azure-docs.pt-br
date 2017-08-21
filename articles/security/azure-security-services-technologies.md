@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Tecnologias e serviços de segurança do Azure
@@ -33,7 +33,7 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 * [Cofre da Chave do Azure](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Criptografia de Disco do Azure](azure-security-disk-encryption.md)
 * [Log Analytics](../log-analytics/log-analytics-overview.md)
-* [Laboratórios de Desenvolvimento/Teste do Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
+* [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Segurança do Armazenamento do Azure
 * [Criptografia do serviço de armazenamento do Azure](../storage/storage-service-encryption.md)
@@ -68,9 +68,9 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 ## <a name="azure-networking"></a>Rede do Azure
 * [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
 * [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-* [Application Gateway do Azure](../application-gateway/application-gateway-introduction.md)
+* [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md)
 * [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md)
-* [Rota Expressa do Azure](../expressroute/expressroute-introduction.md)
+* [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
 * [Proxy de aplicativo do Azure](../active-directory/active-directory-application-proxy-enable.md)
 
