@@ -4,7 +4,7 @@ description: "Saiba mais sobre o Stream Analytics, um serviço de nuvem gerencia
 keywords: "análise como um serviço, serviços gerenciados, processamento de fluxo, análise de fluxo, o que é Stream Analytics"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: jenniehubbard
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/16/2017
-ms.author: jeffstok
+ms.date: 08/08/2017
+ms.author: jhubbard
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 07/20/2017
 
 O Azure Stream Analytics é um mecanismo de processamento de eventos totalmente gerenciado que lhe permite configurar cálculos de análise em tempo real no fluxo de dados. Os dados podem vir de dispositivos, sensores, sites, feeds de mídia social, aplicativos, sistemas de infraestrutura e muito mais. 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>Para o que psso usar o Stream Analytics?
+## <a name="what-can-i-do-with-stream-analytics"></a>O que posso fazer com o Stream Analytics?
 
-Com o Stream Analytics, você pode examinar grandes volumes de dados que fluem de dispositivos ou processos, extrair informações do fluxo de dados e procurar padrões, tendências e relações. Com base no que está nos dados, você pode executar tarefas de aplicativo. Por exemplo, você pode gerar alertas, disparar fluxos de trabalho de automação, passar informações para uma ferramenta de relatório, como o Power BI, ou armazenar dados para investigação posterior. 
+Use o Stream Analytics para examinar grandes volumes de dados que fluem de dispositivos ou processos, extrair informações do fluxo de dados e procurar padrões, tendências e relações. Com base no que está nos dados, você pode executar tarefas de aplicativo. Por exemplo, você pode gerar alertas, disparar fluxos de trabalho de automação, passar informações para uma ferramenta de relatório, como o Power BI, ou armazenar dados para investigação posterior. 
 
-Exemplos de cenários do Stream Analytics incluem:
+Exemplos:
 
 * Análise e alertas de negociação na bolsa em tempo real oferecidas por empresas de serviços financeiros.
 * Detecção de fraudes em tempo real com base no exame dos dados da transação. 
@@ -42,7 +42,7 @@ Exemplos de cenários do Stream Analytics incluem:
 
 ## <a name="how-does-stream-analytics-work"></a>Como funciona o Stream Analytics?
 
-O diagrama a seguir ilustra o pipeline do Stream Analytics, mostrando como os dados são incluídos, analisados e enviados para apresentação ou ação. 
+Este diagrama ilustra o pipeline do Stream Analytics, mostrando como os dados são consumidos, analisados e enviados para apresentação ou ação. 
 
 ![Pipeline do Stream Analytics](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
@@ -57,7 +57,7 @@ Por fim, o trabalho especifica uma saída para onde enviar os dados transformado
 * Enviar dados para um painel do Power BI para emissão de relatórios.
 * Enviar dados para armazenamento, como o Data Lake Store, o banco de dados do SQL Server ou o Armazenamento de Blobs ou de Tabelas do Azure.
 
-Enquanto um trabalho estiver em execução, você poderá monitorar e ajustar quantos eventos ele processa por segundo. Você também pode fazer com que trabalhos gerem logs de diagnóstico para solução de problemas.
+É possível monitorar e ajustar quantos eventos são processados por segundo enquanto um trabalho está em execução. Você também pode fazer com que trabalhos gerem logs de diagnóstico para solução de problemas.
 
 ## <a name="key-capabilities-and-benefits"></a>Principais recursos e benefícios
 
@@ -69,7 +69,7 @@ O Stream Analytics se conecta diretamente a [Hubs de Eventos do Azure](https://a
 
 A entrada de trabalho também pode incluir dados de referência (dados estáticos ou alterados lentamente). Você pode adicionar dados de streaming a esses dados de referência para executar operações de pesquisa da mesma maneira que faria com consultas a banco de dados.
 
-A saída de um trabalho do Stream Analytics pode ser roteada em várias direções. Ela pode ser gravada no armazenamento, como blobs ou tabelas de armazenamento do Azure, Banco de Dados SQL do Azure, Azure Data Lake Stores ou BD Cosmos do Azure. A partir daí, os dados podem ir para análise em lote no Azure HDInsight. Você pode enviar a saída para outro serviço, para ser consumido por outro processo, como filas, tópicos de Barramento de Serviço do Azure ou hubs de eventos. Você pode enviar a saída para visualização no Power BI.
+Rotear a saída de trabalho do Stream Analytics em muitas direções. Você pode gravar no armazenamento, como nos blobs de Armazenamento do Azure ou tabelas, Banco de Dados SQL do Azure, Azure Data Lake Stores ou Azure Cosmos DB. A partir daí, os dados podem ir para análise em lote no Azure HDInsight. Você pode enviar a saída para outro serviço, para ser consumido por outro processo, como filas, tópicos de Barramento de Serviço do Azure ou hubs de eventos. Você pode enviar a saída para visualização no Power BI.
 
 ### <a name="ease-of-use"></a>Fácil de uso
 
@@ -98,6 +98,6 @@ Como um serviço gerenciado na nuvem, o Stream Analytics ajuda a evitar a perda 
 * Saiba mais sobre a linguagem de consulta do tipo SQL para o Stream Analytics e sobre conceitos exclusivos como [funções de janela](stream-analytics-window-functions.md).
 * Saiba como [dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md). 
 * Saiba como [integrar o Stream Analytics e o Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Encontre respostas para suas perguntas sobre o Stream Analytics no [Fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Encontre respostas para suas perguntas do Stream Analytics no [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 

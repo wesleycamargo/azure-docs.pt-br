@@ -20,7 +20,6 @@ ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -299,9 +298,9 @@ O URI da assinatura de acesso compartilhado criado deve atender aos seguintes re
 A URL SAS pode ser gerada de várias maneiras para compartilhar seu VHD no Azure Marketplace.
 Veja a seguiras 3 ferramentas recomendadas:
 
-1.    Gerenciador de Armazenamento do Azure
-2.    Microsoft Storage Explorer
-3.    CLI do Azure
+1.  Gerenciador de Armazenamento do Azure
+2.  Microsoft Storage Explorer
+3.  CLI do Azure
 
 **Gerenciador de Armazenamento do Azure (recomendado para usuários do Windows)**
 
@@ -332,15 +331,15 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    Após selecionar o arquivo .vhd no contêiner, clique na guia **Segurança** .
+8.  Após selecionar o arquivo .vhd no contêiner, clique na guia **Segurança** .
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    Na caixa de diálogo **Segurança de Contêiner de Blob**, deixe os padrões na guia **Nível de Acesso** e clique na guia **Assinaturas de Acesso Compartilhado**.
+9.  Na caixa de diálogo **Segurança de Contêiner de Blob**, deixe os padrões na guia **Nível de Acesso** e clique na guia **Assinaturas de Acesso Compartilhado**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    Siga as etapas abaixo para gerar um URI de assinatura de acesso compartilhado para a imagem. vhd:
+10. Siga as etapas abaixo para gerar um URI de assinatura de acesso compartilhado para a imagem. vhd:
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -360,45 +359,45 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
        - No final da assinatura, verifique se **“= rl”** é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
        - No meio da assinatura, verifique se **“sr=c”** é exibido. Isso demonstra que você tem acesso ao nível de contêiner
 
-11.    Para garantir que o URI de assinatura de acesso compartilhado funciona, clique em **Testar no navegador**. Ele deve começar o processo de download.
+11. Para garantir que o URI de assinatura de acesso compartilhado funciona, clique em **Testar no navegador**. Ele deve começar o processo de download.
 
-12.    Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
+12. Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
 
-13.    Repita as etapas 6 a 10 para cada VHD na SKU.
+13. Repita as etapas 6 a 10 para cada VHD na SKU.
 
 **Gerenciador de Armazenamento do Microsoft Azure (Windows/MAC/Linux)**
 
 A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de Armazenamento do Microsoft Azure
 
-1.    Baixe o formulário do Gerenciador de Armazenamento do Microsoft Azure no site [http://storageexplorer.com/](http://storageexplorer.com/). Acesse o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **“Baixar para Windows”**.
+1.  Baixe o formulário do Gerenciador de Armazenamento do Microsoft Azure no site [http://storageexplorer.com/](http://storageexplorer.com/). Acesse o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **“Baixar para Windows”**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    Depois de instalado, abra o aplicativo.
+2.  Depois de instalado, abra o aplicativo.
 
-3.    Clique em **Adicionar Conta**.
+3.  Clique em **Adicionar Conta**.
 
-4.    Configure o Gerenciador de Armazenamento do Microsoft Azure para sua assinatura por entre na sua conta
+4.  Configure o Gerenciador de Armazenamento do Microsoft Azure para sua assinatura por entre na sua conta
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    Acesse a conta de armazenamento e selecione o Contêiner
+5.  Acesse a conta de armazenamento e selecione o Contêiner
 
-6.    Selecione **“Obter a assinatura de acesso ao compartilhamento...”** usando clicar com o botão direito do mouse no **contêiner**
+6.  Selecione **“Obter a assinatura de acesso ao compartilhamento...”** usando clicar com o botão direito do mouse no **contêiner**
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    Hora de início da atualização, Hora de expiração e Permissões conforme mostrado no seguinte
+7.  Hora de início da atualização, Hora de expiração e Permissões conforme mostrado no seguinte
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **Hora de início:** para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 6 de outubro de 2014, selecione 5/10/2014.
+    a.  **Hora de início:** para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 6 de outubro de 2014, selecione 5/10/2014.
 
-    b.    **Hora de expiração:** selecione uma data que seja pelo menos três semanas após a data em **Hora de início**.
+    b.  **Hora de expiração:** selecione uma data que seja pelo menos três semanas após a data em **Hora de início**.
 
-    c.    **Permissões:** selecione as permissões de **Listagem** e **Leitura**
+    c.  **Permissões:** selecione as permissões de **Listagem** e **Leitura**
 
-8.    Copie o URI da assinatura de acesso compartilhado do contêiner
+8.  Copie o URI da assinatura de acesso compartilhado do contêiner
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -418,21 +417,21 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
     - No meio da assinatura, verifique se **“sp=rl”** é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
     - No meio da assinatura, verifique se **“sr=c”** é exibido. Isso demonstra que você tem acesso ao nível de contêiner
 
-9.    Para garantir que o URI de assinatura de acesso compartilhado funciona, teste-o no navegador. Ele deve iniciar o processo de download
+9.  Para garantir que o URI de assinatura de acesso compartilhado funciona, teste-o no navegador. Ele deve iniciar o processo de download
 
-10.    Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
+10. Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
 
-11.    Repita essas etapas para cada VHD na SKU.
+11. Repita essas etapas para cada VHD na SKU.
 
 **CLI do Azure (recomendado para não Windows e Integração Contínua)**
 
 A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
-1.    Baixe a CLI do Microsoft Azure [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Baixe a CLI do Microsoft Azure [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
-2.    Após concluir o download, instale-o
+2.  Após concluir o download, instale-o
 
-3.    Crie um arquivo do PowerShell com o código a seguir e salve-o no local
+3.  Crie um arquivo do PowerShell com o código a seguir e salve-o no local
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -454,21 +453,21 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    Abra o editor do Powershell com o modo de “Executar como Administrador” e abra o arquivo na etapa 3.
+4.  Abra o editor do Powershell com o modo de “Executar como Administrador” e abra o arquivo na etapa 3.
 
-5.    Execute o script e ele fornecerá a URL SAS para acesso no nível de contêiner
+5.  Execute o script e ele fornecerá a URL SAS para acesso no nível de contêiner
 
     Veja a seguir a saída da assinatura SAS e copie a parte realçada em um bloco de notas
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    Agora, você terá a URL SAS no nível de contêiner e precisará adicionar o nome do VHD a ela.
+6.  Agora, você terá a URL SAS no nível de contêiner e precisará adicionar o nome do VHD a ela.
 
     No. de URL de SAS de nível de contêiner
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    Insira o nome de VHD depois do nome do contêiner na URL SAS conforme mostrado abaixo `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Insira o nome de VHD depois do nome do contêiner na URL SAS conforme mostrado abaixo `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Exemplo:
 
@@ -477,14 +476,14 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - Verifique se o nome do arquivo de imagem e "VHD" estão no URI.
-    -    No meio da assinatura, verifique se “sp=rl” é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
-    -    No meio da assinatura, verifique se “sr=c” é exibido. Isso demonstra que você tem acesso ao nível de contêiner
+    -   No meio da assinatura, verifique se “sp=rl” é exibido. Isso demonstra que os acessos de leitura e lista foram fornecidos com êxito.
+    -   No meio da assinatura, verifique se “sr=c” é exibido. Isso demonstra que você tem acesso ao nível de contêiner
 
-8.    Para garantir que o URI de assinatura de acesso compartilhado funciona, teste-o no navegador. Ele deve iniciar o processo de download
+8.  Para garantir que o URI de assinatura de acesso compartilhado funciona, teste-o no navegador. Ele deve iniciar o processo de download
 
-9.    Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
+9.  Copie o URI da assinatura de acesso compartilhado. Este é o URI para colar no Portal de Publicação.
 
-10.    Repita essas etapas para cada VHD na SKU.
+10. Repita essas etapas para cada VHD na SKU.
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 Forneça informações sobre a Imagem VM e solicite a certificação no Portal de Publicação
@@ -547,8 +546,8 @@ Depois de concluir os detalhes do SKU, avance até o [Guia de conteúdo de marke
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

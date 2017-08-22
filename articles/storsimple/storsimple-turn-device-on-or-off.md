@@ -1,5 +1,5 @@
 ---
-title: Ativar e desativar o dispositivo StorSimple | Microsoft Docs
+title: "Ativar e desativar o dispositivo StorSimple série 8000 | Microsoft Docs"
 description: "Explica como ativar um novo dispositivo StorSimple, ativar um dispositivo que foi desligado ou teve a energia interrompida e desativar um dispositivo em execução."
 services: storsimple
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/29/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 74196c7d3989cc748a27026c04ea837b29a2785f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -56,8 +56,6 @@ Ao configurar este dispositivo pela primeira vez, execute as etapas para o cabea
 
 > [!NOTE]
 > Para obter instruções completas de cabeamento e configuração do dispositivo, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md). Certifique-se de seguir as instruções exatamente.
-> 
-> 
 
 ## <a name="turn-on-a-device-after-shutdown"></a>Ativar um dispositivo após o desligamento
 As etapas para ativar um dispositivo StorSimple após seu desligamento são diferentes, dependendo se o dispositivo é um modelo 8100 ou 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
@@ -77,7 +75,7 @@ Após um desligamento, use o procedimento a seguir para ativar um dispositivo St
    2. Os LEDs de status em ambos os controladores estão verdes sólidos.
    3. O LED azul em um dos controladores de está piscando, o que indica que o controlador está ativo.
       
-      Se alguma dessas condições não for atendida, o dispositivo não está íntegro. [Entre em contato com o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+      Se alguma dessas condições não for atendida, o dispositivo não está íntegro. [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="device-with-ebod-enclosure"></a>Dispositivo com o compartimento EBOD
 Após um desligamento, use o procedimento a seguir para ativar um dispositivo StorSimple com um compartimento primário e um compartimento EBOD. Execute cada etapa na sequência exatamente conforme descrito. Não fazer isso pode resultar em perda de dados.
@@ -140,9 +138,8 @@ Quando os cabos SAS (Serial Attached SCSI) forem removidos ou a conexão entre o
 10. Verifique se a conexão do compartimento EBOD com o compartimento primário é boa verificando se os LEDs da pista do SAS (quatro por controlador EBOD) estão todos LIGADOS.
 
 > [!IMPORTANT]
-> Se os cabos SAS estiverem com defeito ou a conexão entre o compartimento EBOD e o compartimento primário não for boa, quando você ligar o sistema, ele entrará no modo de recuperação. [Entre em contato com o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se isso ocorrer.
-> 
-> 
+> Se os cabos SAS estiverem com defeito ou a conexão entre o compartimento EBOD e o compartimento primário não for boa, quando você ligar o sistema, ele entrará no modo de recuperação. [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se isso ocorrer.
+
 
 ## <a name="turn-off-a-running-device"></a>Desativar um dispositivo em execução
 Um dispositivo StorSimple em execução poderá precisar ser desligado se estiver sendo movido, retirado de serviço ou contiver um componente defeituoso que precisa ser substituído. As etapas são diferentes, dependendo se o dispositivo StorSimple é um modelo 8100 ou um 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD. Esta seção detalha as etapas para desligar um dispositivo em execução.
@@ -164,21 +161,18 @@ Depois de acessar o Windows PowerShell para o StorSimple ou o Portal Clássico d
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com o compartimento EBOD <a name="8600a">
 > [!IMPORTANT]
-> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No Portal Clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique se todos os componentes estão íntegros.
-> 
-> 
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **Dispositivos** > **Monitor** > **Integridade do hardware**e verifique se todos os componentes estão íntegros.
+
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD
-1. Siga as etapas listadas em [Desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento principal.
+1. Siga as etapas listadas em [Desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento principal.
 2. Depois que o compartimento primário for desligado, desligue o EBOD invertendo os dois interruptores PCM (Módulo de Energia e Refrigeração).
 3. Para verificar se o EBOD foi desligado, verifique se todas as luzes na parte traseira do compartimento EBOD estão desligadas.
 
 > [!NOTE]
 > Os cabos SAS que são usados para conectar o compartimento EBOD ao compartimento primário não devem ser removidos até depois de o sistema ser desligado.
-> 
-> 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.
+[Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.
 
 

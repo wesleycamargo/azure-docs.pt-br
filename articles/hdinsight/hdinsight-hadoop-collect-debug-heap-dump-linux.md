@@ -1,5 +1,5 @@
 ---
-title: "Habilitar despejos de heap para serviços do Hadoop no HDInsight | Microsoft Docs"
+title: "Habilitar despejos de heap para serviços do Hadoop no HDInsight – Azure | Microsoft Docs"
 description: "Habilite despejos de heap para serviços do Hadoop por meio de clusters do HDInsight baseados em Linux para depuração e análise."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3811e3ee1a741230c4499d18f48a5208905cf300
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos heap para serviços Hadoop no HDInsight baseado em Linux
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução.
 
 > [!IMPORTANT]
-> As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Serviços
 

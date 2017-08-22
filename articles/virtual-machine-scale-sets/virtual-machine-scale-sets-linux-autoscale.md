@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente computadores Linux em um conjunto de escala de máquina virtual
@@ -55,7 +55,7 @@ Em sua interface de linha de comando (Bash, Terminal, prompt de comando), mude p
     ```
    
     > [!NOTE]
-    > Se tiver uma ID de trabalho ou de estudante e não tiver a autenticação de dois fatores habilitada, você poderá usar `azure login -u` com a ID de trabalho ou de estudante para fazer logon sem uma sessão interativa. Caso não tenha uma ID de trabalho ou de estudante, você poderá [criar uma ID de trabalho ou de estudante em sua conta pessoal da Microsoft](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Se tiver uma ID de trabalho ou de estudante e não tiver a autenticação de dois fatores habilitada, você poderá usar `azure login -u` com a ID de trabalho ou de estudante para fazer logon sem uma sessão interativa. Caso não tenha uma ID de trabalho ou de estudante, você poderá [criar uma ID de trabalho ou de estudante em sua conta pessoal da Microsoft](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **Criar um grupo de recursos**  
 Todos os recursos devem estar implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos **vmsstest1**.

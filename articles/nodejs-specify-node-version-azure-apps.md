@@ -3,8 +3,8 @@ title: "Especificando uma versão de Node.js"
 description: "Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure"
 services: 
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2016
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
 ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/06/2017
-
 
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Especificar uma versão do Node.js em um aplicativo do Azure

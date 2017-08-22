@@ -12,16 +12,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* Corrigir uma falha que raramente poderia acontecer ao chamar `EngagementAgentUtils.isInDedicatedEngagementProcess`, que também é usado pela classe `EngagementApplication`.
+
+## <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Suporte para Android 8 (versões anteriores do SDK não funcionarão em Android 8).
+* Não há mais dependência da biblioteca de suporte.
+* Remover classe `EngagementFragmentActivity`.
+* Devido a [Limites de Execução em Segundo de Fundo](https://developer.android.com/preview/features/background.html) no Android 8, logs no segundo plano podem ser atrasados até que o usuário interaja com o dispositivo. Isso terá um impacto sobre Campanha de Push **Entregue** e estatísticas de **Notificação do sistema exibida** sendo atrasadas no caso de dispositivo estar em suspensão (a notificação ainda será exibida, tocará e vibrará em tempo real sem problemas).
+* Devido a [Limites de Local do Segundo Plano](https://developer.android.com/preview/features/background-location-limits.html), o local em tempo real em segundo plano não será atualizado com frequência no Android 8.
 
 ## <a name="424-03302017"></a>4.2.4 (30/03/2017)
 * Corrija cores do texto de notificação no aplicativo Android 7 para serem as mesmas de versões mais antigas do Android.
@@ -65,7 +75,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="400-07062015"></a>4.0.0 (07/06/2015)
 * Alterações de protocolo interno para tornar a análise e o envio mais confiáveis.
-* O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais por push nativo para qualquer tipo de campanha de envio.
+* O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais de push nativo para qualquer tipo de campanha de envio.
 * Corrigir a notificação de visão geral: foram exibidas somente 10s depois de enviadas.
 * Corrigir um bug no modo de exibição da web: ao clicar em um link também estava sendo executada a URL da ação padrão.
 * Corrigir uma falha rara relacionada ao gerenciamento de armazenamento local.

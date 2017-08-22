@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Conectar máquinas virtuais do Azure ao Log Analytics com um agente do Log Analytics
@@ -414,8 +413,6 @@ Se a extensão do agente de VM *Agente do OMS para Linux* não estiver instaland
    * [Instalar o Agente de VM do Azure em VMs Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. Para outros status não íntegros, examine o Agente do OMS para arquivos de log de extensão de VMs do Linux em `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se o status da extensão estiver íntegro mas os dados não estiverem sendo carregados, examine o Agente do OMS para arquivos de log do Linux em `/var/opt/microsoft/omsagent/log/omsagent.log`
-
-Para obter mais informações, consulte [Solucionando problemas em extensões do Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar [fontes de dados no Log Analytics](log-analytics-data-sources.md) para especificar os logs e as métricas a coletar.

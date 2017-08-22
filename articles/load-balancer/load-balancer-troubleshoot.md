@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 53425eaf388e5164d2664c163f56a33d48cf8a36
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -119,9 +120,9 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 * Configure VMs de pool de back-end separadas por aplicativo. 
 * Configure o aplicativo em VMs de NIC dupla para que cada aplicativo use sua própria interface de rede e seu endereço IP. 
 
-### <a name="cause-4-accessing-the-internet-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Acessando o VIP do Load Balancer na Internet da VM do pool de back-end do Load Balancer participante
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Como acessar o VIP do Load Balancer Interno da VM do pool de back-end do Load Balancer participante
 
-Se um VIP ILB estiver configurado dentro de uma VNet e uma das VMs de back-end participantes estiver tentando acessar o VIP do Load Balancer na Internet, isso resultará em falha. Esse é um cenário sem suporte.
+Se um VIP ILB estiver configurado dentro de uma VNet e uma das VMs de back-end participantes estiver tentando acessar o VIP do Load Balancer Interno, isso resultará em falha. Esse é um cenário sem suporte.
 **Resolução** Avalie o Gateway de Aplicativo ou outros proxies (por exemplo, nginx ou haproxy) para dar suporte a esse tipo de cenário. Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Capturas de rede adicionais

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/14/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a4bc09d4b8b9f3bd207ffca977e9098d562bb9fd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -36,7 +36,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 <img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
 </table>
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tempo de design: o tipo de aplicativo, tipo de serviço, o pacote de aplicativo e manifesto, pacote de serviço e manifesto
+### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tempo de design: o tipo de aplicativo, tipo de serviço, o pacote de aplicativos e manifesto, pacote de serviço e manifesto
 Um tipo de aplicativo é o nome/versão atribuído a uma coleção de tipos de serviço. Isso é definido em um arquivo *ApplicationManifest.xml*, que é inserido em um diretório do pacote de aplicativos. O pacote de aplicativos é então copiado para o repositório de imagens do cluster do Service Fabric. Assim, você pode criar um aplicativo nomeado desse tipo de aplicativo que, em seguida, é executado no cluster. 
 
 Um tipo de serviço é o nome/versão atribuída aos pacotes de códigos, pacotes de dados e pacotes de configuração de um serviço. Isso é definido em um arquivo ServiceManifest.xml, que é inserido em um diretório do pacote de serviço. Em seguida, o diretório do pacote de serviço é referenciado por um arquivo *ApplicationManifest.xml* do pacote de aplicativos. Dentro do cluster, depois de criar um aplicativo nomeado, você pode criar um serviço nomeado a partir de um dos tipos de serviço do tipo de aplicativo. Um tipo de serviço é descrito pelo seu arquivo *ServiceManifest.xml*. O tipo de serviço é composto por definições de configuração de serviço do código executável, que são carregadas em tempo de execução e por dados estáticos que são consumidos pelo serviço.
@@ -78,7 +78,7 @@ Uma diferença chave com o Service Fabric é seu foco forte na criação de serv
 
 Por que ter microsserviços com estado junto microsserviços sem estado? Os dois motivos principais são:
 
-* É possível compilar serviços OLAP (processamento de transações online tolerante a falha) de alta taxa de transferência e baixa latência mantendo o códigos e dados próximos no mesmo computador. Alguns exemplos são vitrines interativas, pesquisa, sistemas de Internet das coisas (IoT), sistemas de comércio, sistemas de detecção de fraudes e processamento de cartão de crédito e gerenciamento de registros pessoais.
+* É possível compilar serviços OLTP (processamento de transações online tolerante a falha) de alta taxa de transferência e baixa latência mantendo o códigos e dados próximos no mesmo computador. Alguns exemplos são vitrines interativas, pesquisa, sistemas de Internet das coisas (IoT), sistemas de comércio, sistemas de detecção de fraudes e processamento de cartão de crédito e gerenciamento de registros pessoais.
 * Você pode simplificar o design do aplicativo. Os microsserviços com estado eliminam a necessidade de filas e caches adicionais tradicionalmente necessários para atender aos requisitos de disponibilidade e latência de um aplicativo puramente sem estado. Os serviços com estado são naturalmente de alta disponibilidade e baixa latência, reduzindo o número de partes móveis para gerenciar em seu aplicativo como um todo.
 
 ## <a name="supported-programming-models"></a>Modelos de programação com suporte
@@ -102,14 +102,14 @@ Um [executável convidado](service-fabric-deploy-existing-app.md) é um executá
 ## <a name="application-lifecycle"></a>Ciclo de vida do aplicativo
 Semelhante a outras plataformas, um aplicativo no Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. O Service Fabric dá um excelente suporte ao ciclo de vida completo dos aplicativos em nuvem, desde o desenvolvimento até a implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. O [ciclo de vida de aplicativo do Service Fabric](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e de como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de aplicativo do Service Fabric. 
 
-Todo o ciclo de vida do aplicativo pode ser gerenciado usando [cmdlets do PowerShell](/powershell/module/ServiceFabric/), [APIs de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [APIs de Java](/java/api/system.fabric._application_management_client) e [APIs REST](/rest/api/servicefabric/). Você também pode configurar pipelines de integração contínua/implantação contínua, usando ferramentas como o [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+Todo o ciclo de vida do aplicativo pode ser gerenciado usando [cmdlets do PowerShell](/powershell/module/ServiceFabric/), [APIs de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [APIs de Java](/java/api/system.fabric._application_management_client) e [APIs REST](/rest/api/servicefabric/). Você também pode configurar pipelines de integração contínua/implantação contínua, usando ferramentas como o [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 O vídeo da Microsoft Virtual Academy a seguir descreve como gerenciar o ciclo de vida do aplicativo:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
 ## <a name="test-applications-and-services"></a>Testar aplicativos e serviços
-Para criar serviços que são realmente em escala de nuvem, é essencial verificar se os aplicativos e serviços podem dar suporte a falhas reais. O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Service Fabric. Com o Serviço de Análise de Falha (service-fabric-testability-overview.md), é possível induzir falhas significativas e executar cenários de teste completos nos aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.
+Para criar serviços que são realmente em escala de nuvem, é essencial verificar se os aplicativos e serviços podem dar suporte a falhas reais. O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Service Fabric. Com o [Serviço de Análise de Falha](service-fabric-testability-overview.md), é possível induzir falhas significativas e executar cenários de teste completos em seus aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.
 
 As [Ações](service-fabric-testability-actions.md) destinam-se ao teste de um serviço, usando falhas individuais. Um desenvolvedor de serviço pode usá-las como blocos de construção para escrever cenários complicados. Exemplos de falhas simuladas são:
 
@@ -133,7 +133,7 @@ O seguinte vídeo da Microsoft Virtual Academy descreve os clusters do Service F
 </a></center>
 
 ### <a name="clusters-on-azure"></a>Clusters no Azure
-A execução de clusters do Service Fabric no Azure proporciona integração a outros recursos e serviços do Azure, o que facilita e torna as operações e o gerenciamento do cluster mais confiável. Um cluster é um recurso do Azure Resource Manager, portanto você pode modelar clusters da mesma maneira que qualquer outro recurso no Azure. O Resource Manager também proporciona o gerenciamento fácil de todos os recursos usados pelo cluster como uma única unidade. Os clusters no Azure são integrados com o diagnóstico do Azure e o Log Analytics. Os nodetypes do cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index) e, portanto, a funcionalidade de dimensionamento automático é interna.
+A execução de clusters do Service Fabric no Azure proporciona integração a outros recursos e serviços do Azure, o que facilita e torna as operações e o gerenciamento do cluster mais confiável. Um cluster é um recurso do Azure Resource Manager, portanto você pode modelar clusters da mesma maneira que qualquer outro recurso no Azure. O Resource Manager também proporciona o gerenciamento fácil de todos os recursos usados pelo cluster como uma única unidade. Os clusters no Azure são integrados com o diagnóstico do Azure e o Log Analytics. Os tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index) e, portanto, a funcionalidade de dimensionamento automático é interna.
 
 Você pode criar um cluster no Azure por meio do [Portal do Azure](service-fabric-cluster-creation-via-portal.md), de um [modelo](service-fabric-cluster-creation-via-arm.md) ou do [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -182,7 +182,7 @@ A emissão de relatórios pode ser feita:
 Os componentes do Service Fabric apresentam relatórios de integridade prontos para uso sobre todas as entidades do cluster. Os [relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) fornecem visibilidade da funcionalidade do cluster e de aplicativos e sinalizam problemas por meio da integridade. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades estão implementadas e se comportando corretamente da perspectiva do tempo de execução do Service Fabric. Os relatórios não fornecem monitoramento de integridade da lógica de negócios do serviço nem detectam processos que pararam de responder. Para adicionar informações de integridade específicas à lógica do seu serviço, [implemente relatórios de integridade personalizados](service-fabric-report-health.md) em seus serviços.
 
 O Service Fabric fornece várias maneiras de [exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md) agregados no repositório de integridade:
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização/
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização.
 * Consultas de integridade (por meio do [PowerShell](/powershell/module/ServiceFabric/), das [APIs FabricClient de C#](/api/system.fabric.fabricclient.healthclient) e das [APIs FabricClient de Java](/java/api/system.fabric._health_client), ou das [APIs REST](/rest/api/servicefabric)).
 * Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, da API ou de REST).
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Práticas recomendadas para criação de modelos do Azure Resource Manager
@@ -32,7 +31,7 @@ Normalmente, você trabalha com três tipos de nome de recurso no Resource Manag
 * Nomes de recurso que não precisam ser exclusivos, mas você opta por fornecer um nome que possa ajudar a identificar um recurso com base no contexto.
 * Nomes de recursos que podem ser genéricos.
 
-Para obter ajuda com o estabelecimento de uma convenção de nomenclatura, confira as [Diretrizes de nomenclatura de infraestrutura do Azure](../virtual-machines/windows/infrastructure-naming-guidelines.md). Para obter informações sobre restrições de nome de recurso, confira [Recursos recomendados de convenções de nomenclatura do Azure](../guidance/guidance-naming-conventions.md).
+ Para obter informações sobre restrições de nome de recurso, confira [Recursos recomendados de convenções de nomenclatura do Azure](../guidance/guidance-naming-conventions.md).
 
 ### <a name="unique-resource-names"></a>Nomes de recurso exclusivos
 Você deve fornecer um nome de recurso exclusivo para qualquer tipo de recurso que tenha um ponto de extremidade de acesso de dados. Entre os tipos comuns de recurso que exigem um nome exclusivo estão:
@@ -396,7 +395,6 @@ Também convém formatar o JSON para melhorar a legibilidade. Você pode usar um
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter diretrizes sobre a arquitetura de sua solução para máquinas virtuais, confira [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) (Executar uma VM Windows no Azure) e [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md) (Executar uma VM Linux no Azure).
 * Para obter orientação sobre como configurar uma conta de armazenamento, confira [Lista de verificação de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-performance-checklist.md).
-* Para obter ajuda com redes virtuais, confira [Diretrizes de infraestrutura de rede](../virtual-machines/windows/infrastructure-networking-guidelines.md).
 * Para saber mais sobre como uma empresa pode usar o Resource Manager para gerenciar assinaturas com eficiência, confira [Andaime empresarial do Azure: governança de assinatura prescritiva](resource-manager-subscription-governance.md).
 
 

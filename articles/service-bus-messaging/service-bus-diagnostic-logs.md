@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,11 +33,11 @@ ms.lasthandoff: 06/28/2017
 
 Os logs de diagnóstico estão desabilitados por padrão. Para habilitar os logs de diagnóstico, realize as seguintes etapas:
 
-1.  No [Portal do Azure](https://portal.azure.com), acesse a folha do trabalho de streaming.
+1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
 
-2.  Em **Monitoramento**, acesse a folha **Logs de diagnóstico**.
+    ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)
 
-    ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)  
+2. Clique no recurso que você deseja monitorar.  
 
 3.  Clique em **Ativar diagnóstico**.
 
@@ -47,11 +47,9 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar os logs
 
     ![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Log Analytics do Azure.
+5.  Defina o destino de arquivamento desejado; por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Azure Log Analytics.
 
-6.  Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
-
-7.  Salve as novas configurações de diagnóstico.
+6.  Salve as novas configurações de diagnóstico.
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
@@ -61,11 +59,11 @@ Para saber mais sobre como configurar um diagnóstico, confira a [visão geral d
 
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na seção a seguir.
 
-## <a name="operation-logs-example"></a>Exemplo de logs de operação
+## <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
 Faz logon na categoria **OperationalLogs** para capturar o que acontece durante a operação do Barramento de Serviço. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
 
-As cadeias de caracteres JSON do log de operação incluem os elementos listados na seguinte tabela:
+As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
 Nome | Descrição
 ------- | -------
@@ -79,7 +77,7 @@ Status | Status da operação
 Chamador | Chamador da operação (portal do Azure ou cliente de gerenciamento)
 categoria | OperationalLogs
 
-Este é um exemplo de uma cadeia de caracteres JSON do log de operação:
+Este é um exemplo de uma cadeia de caracteres JSON do log operacional:
 
 ```json
 {

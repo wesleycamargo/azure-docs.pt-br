@@ -1,5 +1,5 @@
 ---
-title: Usar o Hive do Hadoop no Console de Consulta no HDInsight | Microsoft Docs
+title: "Usar o Hive do Hadoop no Console de Consulta no HDInsight – Azure | Microsoft Docs"
 description: "Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3000f8db8357793c68f49b47cb5a1df16bb8df51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Executar consultas Hive usando o Console de Consulta
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
 
 > [!IMPORTANT]
-> O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Para HDInsight 3.4 ou superior, confira [Executar consultas do Hive no Modo de Exibição Hive do Ambari](hdinsight-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive em um navegador da Web.
 
@@ -52,7 +51,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     As instruções executam as seguintes ações:

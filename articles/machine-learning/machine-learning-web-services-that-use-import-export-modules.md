@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 123c8c2b1c5bae268b2a61c185743f2c3920175e
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implantação de serviços Web do Azure AM que usam módulos Importar Dados e Exportar Dados
 
 Quando você cria um experimento de previsão, normalmente adiciona uma entrada e uma saída de serviço Web. Ao implantar o experimento, os consumidores poderão enviar e receber dados do serviço Web por meio de entradas e saídas. Para alguns aplicativos, os dados do cliente podem estar disponíveis a partir de um feed de dados ou já residirem em uma fonte de dados externa, como o armazenamento de Blobs do Azure. Nesses casos, eles não precisam de dados de leitura e gravação usando saídas e entradas do serviço Web. Em vez disso, eles podem usar o BES (Serviço de execução de lote) para ler dados da fonte de dados usando um módulo Importar Dados e gravar os resultados de pontuação em um local de dados diferente usando um módulo Exportar Dados.
 
-Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais de dados, como uma URL da Web via HTTP, uma Consulta de Hive, um banco de dados SQL do Azure, Armazenamento de Tabelas do Azure, armazenamento de Blobs do Azure, um provedor de Feed de Dados ou um banco de dados SQL local.
+Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais de dados, como uma URL da Web via HTTP, uma Consulta de Hive, um banco de dados SQL do Azure, um armazenamento de Tabelas do Azure, um armazenamento de Blobs do Azure, um provedor de Feed de Dados ou um banco de dados SQL local.
 
 Este tópico usa o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto" e pressupõe que o conjunto de dados já tenha sido carregado em uma tabela SQL do Azure chamada censusdata.
 
@@ -102,14 +102,14 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 2. Após a conclusão da execução, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Clássico]**.
 3. No painel do serviço Web, localize sua chave de API. Copie e salve-a para uso posterior.
 4. Na tabela **Ponto de Extremidade Padrão**, clique no link **Execução em Lote** para abrir a Página de Ajuda da API.
-5. No Visual Studio, crie um aplicativo de console C#.
+5. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
 6. Na Página de Ajuda da API, encontre a seção **Código de Exemplo** na parte inferior da página.
 7. Copie e cole o código de exemplo C# no arquivo Program.cs e remova todas as referências ao armazenamento de blobs.
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
 9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
    
         var request = new BatchExecutionRequest() 
-        {            
+        {           
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -131,13 +131,13 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 3. Na página Implantar Experimento, insira um nome para o serviço Web e selecione um plano de preços, depois clique em **Implantar**.
 4. Na página **Início rápido**, clique em **Consumir**.
 5. Na seção **Código de Exemplo**, clique em **Lote**.
-6. No Visual Studio, crie um aplicativo de console C#.
+6. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
 7. Copie e cole o código de exemplo de C# no arquivo Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
    
         var scoreRequest = new
-        {        
+        {       
             Inputs = new Dictionary<string, StringTable>()
             {
             },

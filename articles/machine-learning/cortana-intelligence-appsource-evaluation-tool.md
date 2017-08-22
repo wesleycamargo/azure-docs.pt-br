@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 6d85e02ec538a0a7073915a9d613328cedb41bfb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Visão geral
-Você pode usar a ferramenta de avaliação da solução do Cortana Intelligence para ajudar os seus aplicativos analíticos avançados a estarem em conformidade com as melhores práticas recomendadas pela Microsoft. A Microsoft está ansiosa para trabalhar com os nossos parceiros (ISVs / SIs) para fornecer soluções de alta qualidade aos clientes, revendedores e para a sua implementação. Este guia irá orientar o processo de uso da ferramenta de avaliação da solução com o seu aplicativo e irá descrever as melhores práticas específicas a serem verificadas.
+Você pode usar a ferramenta de avaliação da solução do Cortana Intelligence para ajudar as suas soluções de análise avançadas a estarem em conformidade com as melhores práticas recomendadas pela Microsoft. A Microsoft está ansiosa para trabalhar com os nossos parceiros (ISVs / SIs) para fornecer soluções de alta qualidade aos clientes, revendedores e para a sua implementação. Este guia orientará o processo de uso da ferramenta de avaliação da solução com o seu aplicativo e descreverá as melhores práticas específicas a serem verificadas.
 
 ## <a name="getting-started"></a>Introdução
-Por favor, [ baixe](https://aka.ms/aa-evalution-tool-download) e instale ferramenta de avaliação da solução do Cortana Intelligence.
+Por favor, [ baixe](https://aka.ms/aa-evaluation-tool-download) e instale ferramenta de avaliação da solução do Cortana Intelligence.
 
 Pré-requisitos:
 - Windows 10: [Site oficial para o Windows 10](https://www.microsoft.com/en-us/windows)
@@ -36,7 +36,7 @@ Após completar a instalação, abra a ferramenta e comece a sua primeira avalia
 
 ![Abra a ferramenta de avaliação](./media/cortana-intelligence-appsource-evaluation-tool/1-open-evaluation-tool.png)
 
-Forneça informações de identificação sobre o aplicativo.
+Forneça informações de identificação sobre sua solução.
 
 ![Conecte a assinatura do Azure](./media/cortana-intelligence-appsource-evaluation-tool/2-connect-azure-subscription.png)
 
@@ -44,18 +44,18 @@ Conecte-se à sua assinatura do Azure e forneça o grupo de recursos que contém
 
 ![Selecionar recursos](./media/cortana-intelligence-appsource-evaluation-tool/3-select-resources.png)
 
-Assim que o grupo de recursos for carregado, escolha os recursos que estão incluídos no seu aplicativo e identifique a acessibilidade de qualquer recurso de dados como:
+Assim que o grupo de recursos for carregado, escolha os recursos que estão incluídos na sua solução e identifique a acessibilidade de qualquer recurso de dados como:
 - Ingestão
 - Consumo
 - Interna
 
-Usamos essas informações para entender melhor como seu aplicativo utiliza vários componentes e garantir que os componentes voltados para o usuário sejam consistentes com as melhores práticas.
+Usamos essas informações para entender melhor como sua solução utiliza vários componentes e garantir que os componentes voltados para o usuário sejam consistentes com as melhores práticas.
 
 ### <a name="ingestion"></a>Ingestão
-A ingestão neste caso significa quaisquer fontes de dados que são usadas para extrair dados de fora do aplicativo ou quaisquer serviços fora do aplicativo usados para enviar dados para o aplicativo.
+A ingestão neste caso significa quaisquer fontes de dados que são usadas para efetuar pull de dados de fora da solução ou quaisquer serviços fora da solução usados para enviar dados por push para ela.
 
 ### <a name="consumption"></a>Consumo
-A publicação neste caso significa qualquer conjunto de dados que são utilizados para enviar dados aos usuários finais, de forma direta ou indiretamente. Por exemplo:
+O consumo neste caso significa qualquer conjunto de dados que são utilizados para enviar dados por push aos usuários finais, direta ou indiretamente. Por exemplo:
 - Conjuntos de dados usados em consultas diretas da PowerBI.
 - Conjuntos de dados consultados em um aplicativo Web.
 
@@ -70,25 +70,29 @@ Em seguida, será solicitado a entrega de credenciais válidas para quaisquer ba
 ![Defina os pré-requisitos para a realização do teste](./media/cortana-intelligence-appsource-evaluation-tool/4-set-test-prerequisites.png)
 
 ## <a name="solution-test-cases"></a>Casos de testes referentes à solução
-A ferramenta de solução irá realizar uma coleção de testes automatizados no seu aplicativo.
+A ferramenta de solução realizará uma coleção de testes automatizados na sua solução.
 
 ![Defina a execução do teste](./media/cortana-intelligence-appsource-evaluation-tool/5-set-test-execution.png)
 
-Após a conclusão dos testes, você deverá fornecer uma explicação ou uma justificação sobre o motivo pelo qual o seu aplicativo não se encontra em conformidade com o requisito.
+Após a conclusão dos testes, você deverá fornecer uma explicação ou uma justificação sobre o motivo pelo qual a sua solução não se encontra em conformidade com o requisito.
 
 ![Fornecer uma justificação de negócios](./media/cortana-intelligence-appsource-evaluation-tool/6-provide-business-justification.png)
 
-Por exemplo, caso o seu aplicativo seja publicado no Azure SQL DW, os testes para avaliação irão exigir que você também o publique nos Azure Analysis Services. 
+Por exemplo, caso a sua solução seja publicada no Azure SQL DW, os testes para avaliação exigirão que você também a publique nos Azure Analysis Services. 
 
-Seu aplicativo pode usar máquinas virtuais IaaS executando o Sql Server Analysis Services ao invés do Azure Analysis Services. Este seria um motivo aceitável para a falha do teste.
+Sua solução pode usar máquinas virtuais IaaS executando o SQL Server Analysis Services em vez do Azure Analysis Services. Este seria um motivo aceitável para a falha do teste.
 ## <a name="packaging-your-evaluation-results"></a>Guardando os resultados de avaliação
-Após concluir os testes, o seu pacote de avaliação será exportado para um arquivo zipado e deverá oferecer um feedback para a ferramenta de avaliação.
+Após concluir os testes, o seu pacote de avaliação será exportado para um arquivo zipado e deverá oferecer um feedback para a ferramenta de avaliação. 
+
+Você precisa compartilhar este arquivo zip de resultados de teste com a Microsoft para sua solução a ser avaliada antes de obter aprovação para ser adicionada ao AppSource
 
 ![Avalie a ferramenta de avaliação](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
 
+A seção acima deste artigo abrange vários recursos da ferramenta; agora, examinaremos tipos de melhores práticas que essa ferramenta avalia.
+
 ## <a name="security-evaluation-considerations"></a>Considerações sobre a avaliação da segurança
 ### <a name="databases-should-use-azure-active-directory-authentication"></a>As bases de dados devem usar a autenticação do Azure Active Directory
-Qualquer Azure SQL ou recurso do Azure SQL DW no aplicativo deve ser ativado com a autenticação do Azure Active Directory (AAD). A AAD fornece um único lugar para gerenciar todas as suas identidades e funções.
+Qualquer Azure SQL ou recurso do Azure SQL DW na solução deve ser habilitado com a autenticação do AAD (Azure Active Directory). A AAD fornece um único lugar para gerenciar todas as suas identidades e funções.
 
 | Para saber mais sobre | Consulte este artigo |
 | --- | --- |
@@ -126,21 +130,21 @@ Tanto o SQL do Azure e quanto o Azure SQL DW oferecem o suporte Transparent Data
 Além do TDE, o SQL do Azure também oferece suporte Always Encrypted, uma nova tecnologia de criptografia de dados que assegura que os dados sejam criptografados não apenas quando estiverem em repouso e durante a movimentação entre o cliente e o servidor, mas também enquanto os dados estão em uso executando comandos dentro do servidor.
 
 ### <a name="any-virtual-machines-must-be-deployed-from-the-azure-marketplace"></a>Quaisquer máquinas virtuais devem ser adquiridas na Microsoft Azure Marketplace
-Para fornecer um nível consistente de segurança no AppSource, exigimos que quaisquer máquinas virtuais adquiridas como parte de um aplicativo Cortana Intelligence seja certificado e publicado na Microsoft Azure Marketplace.
+Para fornecer um nível consistente de segurança no AppSource, exigimos que quaisquer máquinas virtuais implantadas como parte de uma solução Cortana Intelligence seja certificado e publicado na Microsoft Azure Marketplace.
 
 Para buscar a lista atual das imagens no Azure Marketplace, consulte, [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
 
 Para mais informações sobre como publicar uma imagem de uma máquina virtual para Microsoft Azure Marketplace, consulte [Guia para criar uma imagem de uma máquina virtual para Microsoft Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
 ## <a name="scalability-evaluation-considerations"></a>Considerações sobre a avaliação de escalabilidade
-### <a name="cortana-intelligence-apps-should-include-a-scalable-big-data-platform"></a>O aplicativo Cortana Intelligence devem aumentar a plataforma Big Data escalonável
-O aplicativo Cortana Intelligence devem escalar os tamanhos de dados muito grandes. No Azure, isto significa que devem incluir uma ou duas plataformas de dados em escala de Petabytes:
+### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Soluções Cortana Intelligence devem incluir uma plataforma Big Data escalonável
+Soluções Cortana Intelligence devem escalonar para tamanhos de dados muito grandes. No Azure, isto significa que devem incluir uma ou duas plataformas de dados em escala de Petabytes:
 - Repositório Azure Data Lake
 - SQL Data Warehouse do Azure
 
-Caso o seu aplicativo não exija o suporte para estes tamanhos de dados ou caso você use uma plataforma alternativa de dados, por favor, explique isso na justificação dos casos de teste.
-### <a name="cortana-intelligence-apps-should-include-dedicated-ingestion-data-environments"></a>O aplicativo Cortana Intelligence devem incluir ambientes de dados dedicados à ingestão
-O aplicativo Cortana Intelligence devem evitar a inserção direta de dados nas fontes relacionais de dados. Ao invés disso, os dados brutos devem ser armazenados em um ambiente não estruturado, com inserções/atualizações idempotentes em quaisquer armazenamentos relacionais usando o Azure Data Factory.
+Caso a sua solução não exija o suporte para estes tamanhos de dados ou caso você use uma plataforma alternativa de dados, por favor, explique isso na justificação dos casos de teste.
+### <a name="cortana-intelligence-solutions-should-include-dedicated-ingestion-data-environments"></a>Soluções Cortana Intelligence devem incluir ambientes de dados dedicados à ingestão
+Soluções Cortana Intelligence devem evitar a inserção direta de dados nas fontes de dados relacionais. Ao invés disso, os dados brutos devem ser armazenados em um ambiente não estruturado, com inserções/atualizações idempotentes em quaisquer armazenamentos relacionais usando o Azure Data Factory.
 
 Para mais informações sobre os dados da Azure Data Factory, [Tutorial: crie um pipeline com uma atividade de Cópia usando um estúdio visual](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio).
 
@@ -170,7 +174,7 @@ Para saber mais sobre a replicação geográfica para bancos de dados do SQL Azu
 Para obter instruções sobre como configurar a replicação geográfica para o SQL Azure, consulte [Configurar replicação geográfica ativa para banco de dados SQL do Azure com o Transact-SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
 
 ### <a name="azure-sql-data-warehouse-should-have-geo-redundant-backups-enabled"></a>O SQL Data Warehouse do Azure deverá ter backups com redundância geográfica habilitados
-O SQL DW do Azure suporta backups diários para o armazenamento com redundância geográfica. Essa replicação geográfica garante que você possa restaurar o data warehouse mesmo em situações onde você não tenha acesso ao armazenamento instantâneo em sua região primária. Esse recurso é ativado como padrão e não deve ser desabilitado para os aplicativos Cortana Intelligence.
+O SQL DW do Azure suporta backups diários para o armazenamento com redundância geográfica. Essa replicação geográfica garante que você possa restaurar o data warehouse mesmo em situações onde você não tenha acesso ao armazenamento instantâneo em sua região primária. Esse recurso é ativado como padrão e não deve ser desabilitado para as soluções Cortana Intelligence.
 
 Para ter mais informações sobre os backups e a restauração do SQL DW do Azure, consulte aqui [Backups do SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
 
@@ -190,5 +194,10 @@ A Azure Machine Learning (AzureML) fornece ferramentas fáceis de usar para a cr
 Para saber mais sobre como criar reciclagem de serviços Web em AzureML, consulte [Recicle Machine Learning de forma programada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
 Para saber mais sobre o processo de treinamento do modelo de automatização usando o Azure Data Factory, consulte [Atualizando os modelos da Azure Machine Learning usando a atividade de Recurso de atualização](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-azure-ml-update-resource-activity).
+
+## <a name="existing-documentation"></a>Documentação existente
+[Expanda seu negócio em nuvem com o Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+
+[Microsoft Azure Certified para Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
 
 

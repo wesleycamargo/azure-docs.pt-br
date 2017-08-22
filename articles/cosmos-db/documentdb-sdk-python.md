@@ -1,6 +1,6 @@
 ---
 title: API do Python, SDK e recursos do Azure Cosmos DB | Microsoft Docs
-description: "Saiba tudo sobre o SDK e a API do Python, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Python para o DocumentDB."
+description: "Saiba tudo sobre o SDK e a API do Python, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Python para o Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 413b8a41ea4d87125e6fa1b46ee86288f7ec8c66
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="documentdb-python-sdk-release-notes-and-resources"></a>SDK do Python para o DocumentDB: notas de versão e recursos
+# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed de alterações do .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -53,13 +53,12 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>Notas de versão
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
 * Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
 
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
-* Adição de uma opção para desabilitar a verificação do SSL quando executada no Emulador do DocumentDB.
+* Adição de uma opção para desabilitar a verificação do SSL quando executada no Emulador do Cosmos DB.
 * Removida a restrição do módulo de solicitações dependentes para serem exatamente 2.10.0.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
 * Adicionado suporte para habilitar o registro em log de script durante a execução do procedimento armazenado.
@@ -75,7 +74,7 @@ ms.lasthandoff: 05/31/2017
 * Suporte às consultas TOP/ORDERBY de coleções particionadas adicionado.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o DocumentDB tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O DocumentDB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Este tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
+* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o Azure Cosmos DB tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Este tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
 * O Cosmos DB agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para indicar a contagem de repetições restritas e o tempo cumulativo que a solicitação aguardou entre as tentativas.
 * A classe RetryPolicy foi removida e a propriedade correspondente (retry_policy) foi exposta na classe document_client. Como alternativa, foi introduzida uma classe RetryOptions, expondo a propriedade RetryOptions na classe ConnectionPolicy, que pode ser usada para substituir algumas das opções de repetição padrão.
 
@@ -83,7 +82,7 @@ ms.lasthandoff: 05/31/2017
 * Suporte adicionado para contas de banco de dados de várias regiões.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Adicionado o suporte para o recurso TTL (vida útil) para documentos.
+* Adicionado o suporte para o recurso TTL (tempo de vida) para documentos.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
 * Correções de bugs relacionadas ao particionamento no lado do servidor a fim de permitir caracteres especiais no caminho de partitionkey.

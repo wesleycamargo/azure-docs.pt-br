@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c0265490cfae733133b6e0c938f90f9b392da4
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-<a id="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management" class="xliff"></a>
-
-# Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 Ao escolher publicar e gerenciar suas APIs através do Gerenciamento de API do Azure, você está tirando proveito de muitos recursos de tolerância e infraestrutura que você precisaria criar, implementar e gerenciar. A plataforma Azure atenua grande parte das falhas potenciais a uma fração do custo.
 
 Para se recuperar de problemas de disponibilidade que afetam a região onde o serviço de Gerenciamento de API está hospedado, você deverá estar pronto para reconstituir seu serviço em uma região diferente a qualquer momento. Dependendo de suas metas de disponibilidade e objetivo de tempo de recuperação, você pode querer reservar um serviço de backup em uma ou mais regiões e tentar manter suas configurações e conteúdos na sincronização com o serviço ativo. O backup do serviço e o recurso de restauração fornece o bloco de criação necessário para implementação de sua estratégia de recuperação de desastre.
@@ -37,9 +35,7 @@ Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Az
 >
 >
 
-<a id="authenticating-azure-resource-manager-requests" class="xliff"></a>
-
-## Autenticação de solicitações do gerenciador de recursos do Azure
+## <a name="authenticating-azure-resource-manager-requests"></a>Autenticação de solicitações do gerenciador de recursos do Azure
 > [!IMPORTANT]
 > A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 >
@@ -54,9 +50,7 @@ Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do A
 A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
 > [!NOTE]
-> Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte "Localizar o diretório padrão no portal clássico do Azure" em [Criando uma identidade Corporativa ou de Estudante no Azure Active Directory para usar com VMs do Windows](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
->
->
+> Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta.
 
 ![Criar aplicativo do Active Directory do Azure][api-management-add-aad-application]
 
@@ -193,9 +187,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
 
 * [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

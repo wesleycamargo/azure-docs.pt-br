@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Como gerenciar perfis e configurações de serviço
@@ -60,7 +61,7 @@ Você também pode abrir a caixa de diálogo **Gerenciar Configurações** das p
     O nome do arquivo de configuração de serviço é modificado no projeto do Azure no Gerenciador de Soluções.
 
 ### <a name="to-change-a-service-configuration"></a>Para alterar uma configuração de serviço
-* Se você quiser alterar uma configuração de serviço, abra o menu de atalho da função específica que você deseja alterar no projeto do Azure e selecione **Propriedades**. Confira [Como configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) para saber mais.
+* Se você quiser alterar uma configuração de serviço, abra o menu de atalho da função específica que você deseja alterar no projeto do Azure e selecione **Propriedades**. Confira [Como configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) para saber mais.
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>Fazer diferentes combinações de configurações usando perfis
 Usando um perfil, você pode preencher automaticamente o **Assistente de Publicação** com diferentes combinações de configurações para diferentes finalidades. Por exemplo, você pode ter um perfil para depuração e outro para compilações de versão. Nesse caso, o perfil **Depurar** teria a opção **IntelliTrace** habilitada e a configuração **Depurar** selecionada; seu perfil **Versão** teria a opção **IntelliTrace** desabilitada e a configuração **Versão** selecionada. Você também pode usar perfis diferentes para implantar um serviço usando uma conta de armazenamento diferente.
@@ -101,10 +102,5 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Configurando um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

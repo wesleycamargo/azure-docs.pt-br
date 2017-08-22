@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
-ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/18/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
@@ -98,7 +97,7 @@ Ao resgatar um token de atualização para um novo token de acesso, você recebe
 
 ## <a name="validating-tokens"></a>Validando tokens
 
-Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Fornecemos bibliotecas e códigos de exemplo que mostram como tratar com facilidade a validação do token. As informações abaixo são fornecidas simplesmente para aqueles que desejam entender o processo subjacente.  Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT; há pelo menos uma opção para quase todos os idiomas e plataformas. Para saber mais sobre bibliotecas de autenticação e exemplos de código do AD do Azure, veja [bibliotecas de autenticação do AD do Azure](active-directory-authentication-libraries.md).
 
@@ -303,6 +302,6 @@ Além de declarações, o token inclui um número de versão em ver; **inclui** 
     }.
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* Consulte as [Operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) do Graph do AD do Azure e o [Entidade de política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), para saber mais sobre o gerenciamento de políticas de vida útil do token por meio da API do Graph do AD do Azure.
-* Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida útil de token configuráveis no AD do Azure](../active-directory-configurable-token-lifetimes.md). 
+* Consulte as [Operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) do Graph do AD do Azure e o [Entidade de política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), para saber mais sobre o gerenciamento de políticas de tempo de vida do token por meio da API do Graph do AD do Azure.
+* Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](../active-directory-configurable-token-lifetimes.md). 
 

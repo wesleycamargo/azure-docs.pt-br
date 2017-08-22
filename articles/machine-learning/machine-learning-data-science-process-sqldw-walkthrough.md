@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
-ms.lasthandoff: 03/29/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 244684bc875e3917b8fd0d1a6bc1464a7c36a938
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/11/2017
 
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
 
-O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Aprendizado de Máquina do Azure.
+O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Azure Machine Learning.
 
 ## <a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
 Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônimo e o número de medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
@@ -87,7 +88,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql
 
 **Instale o Visual Studio e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Connect to Azure SQL Data Warehouse with Visual Studio (Conectar-se ao Azure SQL Data Warehouse com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Connect to Azure SQL Data Warehouse with Visual Studio (Conectar-se ao SQL Data Warehouse do Azure com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
 > Execute a seguinte consulta SQL no banco de dados que você criou no SQL Data Warehouse (em vez da consulta fornecida na etapa 3 do tópico de conexão) para **criar uma chave mestra**.
@@ -102,7 +103,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql
            --If the master key exists, do nothing
     END CATCH;
 
-**Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md).
+**Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho do Azure Machine Learning](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Carregar os dados no SQL Data Warehouse
 Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no GitHub para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
@@ -326,7 +327,7 @@ Você precisará decidir o que fazer se tiver arquivos de origem e destino dupli
 
 ![Plotar nº 21][21]
 
-Você pode usar seus próprios dados. Se os dados estiverem em sua máquina local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
+Você pode usar seus próprios dados. Se os dados estiverem em seu computador local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais para seu armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
 
 > [!TIP]
 > Se seus dados já estiverem no armazenamento de blobs particular do Azure em seu aplicativo real, ignore a etapa do AzCopy no script do PowerShell e carregue os dados diretamente no Azure SQL DW. Isso exigirá mais edições do script para ajustá-lo para o formato de seus dados.
@@ -339,7 +340,7 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
 ![][20]
 
-## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no SQL Data Warehouse do Azure
 Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no GitHub não tem as informações do Azure SQL DW conectadas.
 
 Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW_Explorations.sql*.
@@ -560,7 +561,7 @@ A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera u
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:  
+Quando você estiver pronto para prosseguir para o Azure Machine Learning, você pode:  
 
 1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning ou
 2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
@@ -599,7 +600,7 @@ Veja a seguir a sequência recomendada ao criar soluções de análise avançada
 * Execute algumas visualizações e explorações usando os dados de amostrados.
 * Experimente a engenharia de recursos usando os dados amostrados.
 * Para exploração de volumes maiores de dados, manipulação de dados e engenharia de recursos, use o Python para emitir consultas SQL diretamente no SQL DW.
-* Decida o tamanho do exemplo adequado para criação do modelo do Aprendizado de Máquina do Azure.
+* Decida o tamanho do exemplo adequado para criação do modelo do Azure Machine Learning.
 
 A seguir estão alguns exemplos de exploração de dados, visualização de dados e engenharia de recursos. É possível encontrar mais explorações de dados no Notebook IPython de exemplo e no arquivo de script de Python de exemplo.
 
@@ -805,18 +806,18 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
-Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Aprendizado de Máquina do Azure](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
+## <a name="mlmodel"></a>Compilar modelos no Azure Machine Learning
+Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
 
 1. **Classificação binária**: para prever se uma gorjeta foi ou não paga em uma corrida.
 2. **Classificação multiclasse**: para prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
-Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do **Aprendizado de Máquina do Azure** . Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do **Azure Machine Learning** . Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md).
 
-1. Para ver os primeiros passos no Aprendizado de Máquina do Azure, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md)
-2. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net).
-3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Aprendizado de Máquina do Azure, confira o [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
+2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).
+3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Azure Machine Learning, confira o [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Um teste de treinamento típico é formado pelas seguintes etapas:
 
@@ -854,8 +855,8 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 > 
 > 
 
-## <a name="mldeploy"></a>Implantar modelos no Aprendizado de Máquina do Azure
-Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do AM do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
+## <a name="mldeploy"></a>Implantar modelos no Azure Machine Learning
+Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do AM do Azure, veja [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 
@@ -866,7 +867,7 @@ Para criar um teste de pontuação por meio de um teste de treinamento **Conclu�
 
 ![Pontuação do Azure][18]
 
-O Aprendizado de Máquina do Azure tentará criar um experimento de pontuação com base nos componentes do experimento de treinamento. Em especial, ele vai:
+O Azure Machine Learning tentará criar um experimento de pontuação com base nos componentes do experimento de treinamento. Em especial, ele vai:
 
 1. Salvar o modelo treinado e remover os módulos de treinamento de modelo.
 2. Identificar uma **porta de entrada** lógica para representar o esquema de dados de entrada esperado.
@@ -879,7 +880,7 @@ Veja na figura abaixo um exemplo de teste de pontuação. Quando estiver pronto 
 ![Publicação do AM do Azure][11]
 
 ## <a name="summary"></a>Resumo
-Vamos recapitular o que fizemos neste tutorial passo a passo: você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados público, passando pelo Processo de Ciência de Dados de Equipe, desde a aquisição dos dados até o treinamento de modelo e, em seguida, até a implantação de um serviço Web do Aprendizado de Máquina do Azure.
+Vamos recapitular o que fizemos neste tutorial passo a passo: você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados público, passando pelo Processo de Ciência de Dados de Equipe, desde a aquisição dos dados até o treinamento de modelo e, em seguida, até a implantação de um serviço Web do Azure Machine Learning.
 
 ### <a name="license-information"></a>Informações de licença
 Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebooks são compartilhados pela Microsoft sob a licença MIT. Verifique o arquivo LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.

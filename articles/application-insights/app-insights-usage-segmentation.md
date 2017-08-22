@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -67,11 +67,12 @@ A barra lateral Insights mostra grandes clusters de usuários que compartilham p
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para habilitar experiências de uso, comece a enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Funis](usage-funnels.md)
     - [Retenção](app-insights-usage-retention.md)
+    - [Fluxos de Usuário](app-insights-usage-flows.md)
     - [Pastas de trabalho](app-insights-usage-workbooks.md)
-    - [Adicionar o contexto de usuário](app-insights-usage-send-user-context.md)
+    - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
 
 

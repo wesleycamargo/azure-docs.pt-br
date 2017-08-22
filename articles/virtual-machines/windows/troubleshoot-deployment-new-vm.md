@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7453a6525b053e73fd8c935d578ffa9604d6e021
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
@@ -65,7 +64,7 @@ Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original
 
 **Resolução**
 
-Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
+Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada em um cluster que não tem suporte para o tamanho da VM sendo solicitado ou não tem espaço livre disponível para acomodar a solicitação.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 69c517da6c23df1708f94ef7486b8c3b5b4edcaa
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicativos do Service Fabric
@@ -36,20 +35,20 @@ A plataforma do Service Fabric no Azure é ideal para as seguintes categorias de
 Vimos vários clientes que criaram sistemas IoT usando o Service Fabric, incluindo a [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), a [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) e a [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## <a name="application-design-case-studies"></a>Estudos de caso de design do aplicativo
-Vários estudos de caso mostrando como o Service Fabric é usado para projetar aplicativos são publicados no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) e no [site de soluções de microsserviços](https://azure.microsoft.com/solutions/microservice-applications/)
+Vários estudos de caso mostrando como o Service Fabric é usado para projetar aplicativos são publicados no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) e no [site de soluções de microsserviços](https://azure.microsoft.com/solutions/microservice-applications/).
 
 ## <a name="design-applications-composed-of-stateless-and-stateful-microservices"></a>Projetar aplicativos compostos de microsserviços com e sem monitoração de estado
-A criação de aplicativos com funções de trabalho com o Serviço de Nuvem do Azure é um exemplo de serviço sem monitoração de estado. Por outro lado, os microsserviços com monitoração de estado mantêm o estado autoritário além da solicitação e de sua resposta. Isso fornece alta disponibilidade e consistência do estado por meio de APIs simples que oferecem garantias transacionais feitas pela replicação. Os serviços com monitoração de estado do Service Fabric democratiza a alta disponibilidade, incorporando-a a todos os tipos de aplicativo, e não apenas a bancos de dados e outros armazenamentos de dados. Essa é uma progressão natural. Os aplicativos já passaram do uso de bancos de dados totalmente relacionais para bancos de dados NoSQL de alta disponibilidade. Agora os próprios aplicativos podem ter seu estado e dados "hot" gerenciados dentro deles para ganhos de desempenho adicionais sem sacrificar a disponibilidade, a consistência e a confiabilidade.
+A criação de aplicativos com funções de trabalho com o Serviço de Nuvem do Azure é um exemplo de serviço sem estado. Por outro lado, os microsserviços com monitoração de estado mantêm o estado autoritário além da solicitação e de sua resposta. Isso fornece alta disponibilidade e consistência do estado por meio de APIs simples que oferecem garantias transacionais feitas pela replicação. Os serviços com monitoração de estado do Service Fabric democratiza a alta disponibilidade, incorporando-a a todos os tipos de aplicativo, e não apenas a bancos de dados e outros armazenamentos de dados. Essa é uma progressão natural. Os aplicativos já passaram do uso de bancos de dados totalmente relacionais para bancos de dados NoSQL de alta disponibilidade. Agora os próprios aplicativos podem ter seu estado e dados "hot" gerenciados dentro deles para ganhos de desempenho adicionais sem sacrificar a disponibilidade, a consistência e a confiabilidade.
 
 Ao criar aplicativos que consistem em microsserviços, você normalmente tem uma combinação de aplicativos Web sem estado (ASP.NET, Node.js etc.) chamando serviços de camada intermediária de negócios com e sem monitoração de estado, tudo implantado no mesmo cluster do Service Fabric usando os comandos de implantação do Service Fabric. Cada um desses serviços não depende de escala, confiabilidade e uso de recursos, melhorando consideravelmente a agilidade no gerenciamento de ciclo de vida e desenvolvimento.
 
 Os microsserviços com monitoração de estado simplificam o design dos aplicativos porque eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente necessários para abordar os requisitos de disponibilidade e de latência de um aplicativo totalmente sem monitoração de estado. Uma vez que os serviços com monitoramento de estado são, de forma natural, altamente disponíveis e baixa latência, isso significa que há menos partes móveis para gerenciar no seu aplicativo como um todo. Os diagramas a seguir ilustram as diferenças entre criar um aplicativo sem monitoração de estado e um com monitoração de estado. Ao aproveitar os modelos de programação dos [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md), os serviços com estado reduzem a complexidade do aplicativo, ao mesmo tempo que alcançam uma alta taxa de transferência e baixa latência.
 
 ## <a name="an-application-built-using-stateless-services"></a>Um aplicativo criado usando serviços sem monitoração de estado
-![Aplicativo usando serviço sem monitoração de estado][Image1]
+![Aplicativo usando serviço sem estado][Image1]
 
 ## <a name="an-application-built-using-stateful-services"></a>Um aplicativo criado usando os serviços com monitoração de estado
-![Aplicativo usando serviço sem monitoração de estado][Image2]
+![Aplicativo usando serviço sem estado][Image2]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas

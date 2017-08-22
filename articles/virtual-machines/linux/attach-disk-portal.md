@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 185e09366a8d68746415f4cbbac217d4ad558de7
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: fb3b4ea612777d0ba801342dacf4b2ece46afed6
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Como anexar um disco de dados a uma VM Linux no Portal do Azure
-Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Você pode optar por usar o Azure Managed Disks ou discos não gerenciado. O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Discos não gerenciados exigem uma conta de armazenamento e têm algumas [cotas e limites que se aplicam](../../azure-subscription-service-limits.md#storage-limits). Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Você pode optar por usar o Azure Managed Disks ou discos não gerenciado. O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Discos não gerenciados exigem uma conta de armazenamento e têm algumas [cotas e limites que se aplicam](../../azure-subscription-service-limits.md#storage-limits). Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
 
 Antes de anexar discos à sua VM, veja estas dicas:
 

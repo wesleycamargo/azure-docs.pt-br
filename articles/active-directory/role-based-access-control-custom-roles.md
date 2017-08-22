@@ -5,28 +5,29 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
-Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre todas as assinaturas que usam esse locatário como o diretório do Azure AD para a assinatura.
+Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre assinaturas.
 
 Cada locatário pode criar até 2000 funções personalizadas. 
 
-Este é um exemplo de uma função personalizada para monitorar e reiniciar as máquinas virtuais:
+O seguinte exemplo mostra uma função personalizada para monitorar e reiniciar máquinas virtuais:
 
 ```
 {
@@ -87,7 +88,7 @@ azure provider operations show "Microsoft.Network/*"
 Use a propriedade **NotActions** se o conjunto de operações que você deseja permitir fica definido mais facilmente pela exclusão das operações restritas. A permissão de acesso concedida por uma função personalizada é computada subtraindo as operações **NotActions** das operações **Actions**.
 
 > [!NOTE]
-> Se um usuário receber uma função que exclui uma operação em **NotActions**e receber uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
+> Se um usuário for atribuído a uma função que exclui uma operação em **NotActions** e for atribuído a uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
 >
 >
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
@@ -91,7 +91,7 @@ Depois que a implantação for concluída, é possível exibir o novo Conjunto d
 
 ![Gerenciador de Nuvem][cloud_explorer]
 
- O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Azure Resource Manager fornece uma maneira fácil de explorar e depurar recursos do Azure, oferecendo uma janela na “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando. Embora os Conjuntos de Dimensionamento de Máquinas Virtuais estejam em versão prévia, o Gerenciador de Recursos mostra a maioria dos detalhes dos Conjuntos de Dimensionamento de Máquinas Virtuais.
+ O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Gerenciador de Recursos do Azure oferece uma maneira fácil de explorar e depurar recursos do Azure, proporcionando uma janela para a “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando.
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de implantar os Conjuntos de Dimensionamento de Máquinas Virtuais com êxito por meio do Visual Studio, é possível personalizar o projeto ainda mais para atender às necessidades do aplicativo. Por exemplo, configurar a escala automática adicionando um recurso do **Insights**, adicionar a infraestrutura ao Modelo (como VMs independentes) ou implantar aplicativos usando a extensão de script personalizado. Encontre bons modelos de exemplo no repositório GitHub de [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) (pesquise “vmss”).

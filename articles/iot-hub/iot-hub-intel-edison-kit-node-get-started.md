@@ -1,10 +1,10 @@
 ---
 title: Intel Edison para nuvem (Node.js) - Conectar o Intel Edison ao Hub IoT do Azure | Microsoft Docs
-description: Conecte o Intel Edison ao Hub IoT do Azure para Intel Edison a fim de enviar dados para a nuvem do Azure.
+description: Neste tutorial, aprenda a configurar e conectar o Intel Edison ao Hub IoT do Azure para o Intel Edison enviar dados para a plataforma de nuvem do Azure.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: azure iot intel edison, intel edison iot hub, intel edison envia dados para a nuvem, intel edison para nuvem
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 

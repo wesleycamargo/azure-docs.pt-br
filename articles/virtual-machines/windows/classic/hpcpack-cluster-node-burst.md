@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
@@ -77,7 +77,7 @@ Depois de adicionar e iniciar os nós, eles estarão prontos para uso para a exe
 Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of Azure Nodes with Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx)(Solucionar problemas de nós do Azure com o Microsoft HPC Pack).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para usar um tamanho de instância para os nós de disparo contínuo, veja as considerações em [Sobre VMs série A de computação intensiva e série H](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para usar um tamanho de instância com uso intenso de computação para os nós de disparo, consulte as considerações em [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Caso deseje aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a carga de trabalho do cluster, veja [Aumentar e reduzir automaticamente os recursos do cluster HPC Pack no Azure conforme a carga de trabalho do cluster](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->

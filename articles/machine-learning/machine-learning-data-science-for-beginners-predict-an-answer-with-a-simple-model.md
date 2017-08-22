@@ -1,5 +1,5 @@
 ---
-title: "Prever uma resposta com um modelo simples de regressão – Azure | Microsoft Docs"
+title: "Prever uma resposta com um modelo simples de regressão – Azure Machine Learning | Microsoft Docs"
 description: "Como criar um modelo simples de regressão para prever um preço no vídeo 4, Ciência de dados para iniciantes. Inclui uma regressão linear com os dados de destino."
 keywords: "criar um modelo, modelo simples, previsão de preço, modelo simples de regressão"
 services: machine-learning
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série de ciência de dados para iniciantes
 Aprenda como criar um modelo simples de regressão para prever o preço de um diamante no vídeo 4, Ciência de dados para iniciantes. Vamos desenhar um modelo de regressão com dados de destino.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
+Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
@@ -127,14 +129,9 @@ Além disso, se em vez de apenas um punhado de diamantes, tivéssemos dois mil o
 
 Hoje, falamos sobre como fazer a regressão linear e fizemos uma previsão usando dados.
 
-Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendizado de Máquina do Microsoft Azure.
+Confira outros vídeos da série "Ciência de dados para iniciantes" no Microsoft Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](machine-learning-create-experiment.md)
-* [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+* [Obtenha uma introdução ao Microsoft Azure Machine Learning](machine-learning-what-is-machine-learning.md)
 

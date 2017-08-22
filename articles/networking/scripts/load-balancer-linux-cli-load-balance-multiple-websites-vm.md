@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/19/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b4bfc65a4a32e33e6eaecf16e928484862100cd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5a584b33025122033b930822ae0a0864a7ec1cb
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -34,7 +34,7 @@ Este exemplo de script cria uma rede virtual com duas VMs (máquinas virtuais) q
 ## <a name="sample-script"></a>Script de exemplo
 
 
-[!code-azurecli[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Balancear a carga de vários sites")]
+[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Balancear a carga de vários sites")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -53,9 +53,9 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma rede 
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Cria uma sub-rede e uma rede virtual do Azure. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Cria um balanceador de carga de rede (NLB) do Azure. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Cria uma investigação NLB. Uma investigação NLB é usada para monitorar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é roteado para a máquina virtual. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Cria uma regra NLB. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao NLB, ele é roteado para a porta 80, uma das VMs no conjunto do NLB. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Cria um Azure Load Balancer. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Cria uma investigação do balanceador de carga. Uma investigação do balanceador de carga é usada para monitorar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é roteado para a máquina virtual. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Cria uma regra de balanceador de carga. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao balanceador de carga, ele é roteado para a porta 80, uma das VMs no conjunto de balanceadores de carga. |
 | [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) | Crie um endereço IP de front-end para o balanceador de carga. |
 | [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) | Cria um pool de endereços de back-end. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Cria uma placa de rede virtual e a anexa à rede virtual e à sub-rede. |

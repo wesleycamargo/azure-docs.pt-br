@@ -1,6 +1,6 @@
 ---
 title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Application Gateway usando o portal"
+description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o portal"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Application Gateway usando o portal
+# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
@@ -54,7 +53,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
   |---|---|---|
   |**Nome**|customProbe|Este valor é um nome amigável para a investigação que está acessível no portal.|
   |**Protocolo**|HTTP ou HTTPS | O protocolo que a investigação de integridade usa.|
-  |**Host**|ou seja contoso.com|Este valor é o nome do host usado para a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM.|
+  |**Host**|ou seja contoso.com|Este valor é o nome do host usado para a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM.|
   |**Caminho**|/ ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com "/". Para o caminho padrão de http://contoso.com use apenas '/' |
   |**Intervalo (segundos)**|30|Frequência com que a investigação é executada para verificar a integridade. Não é recomendável defini-la abaixo de 30 segundos.|
   |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação espera antes de atingir o tempo limite. O intervalo de tempo limite deve ser alto o suficiente para que uma chamada http possa ser feita a fim de garantir que a página de integridade do back-end estará disponível.|
@@ -65,7 +64,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
 
 ## <a name="add-probe-to-the-gateway"></a>Adicionar a investigação ao gateway
 
-Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As configurações da investigação são definidas nas configurações de http do back-end do Application Gateway.
+Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As configurações da investigação são definidas nas configurações de http do back-end do Gateway de Aplicativo.
 
 1. Clique em **Configurações de HTTP** do Gateway de Aplicativo e clique nas configurações de HTTP do back-end atual listadas na janela para abrir a folha de configuração.
 
@@ -74,7 +73,7 @@ Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As co
 1. Na folha de configuração **appGatewayBackEndHttp**, marque a caixa de seleção **Usar investigação personalizada** e selecione a investigação criada na seção [Criar a investigação](#createprobe) do menu suspenso **Investigação personalizada**.
 Ao concluir, clique em **Salvar** e as configurações são aplicadas.
 
-A investigação de padrão verifica o acesso padrão ao aplicativo Web. Agora que uma investigação personalizada foi criada, o Application Gateway usa o caminho personalizado definido para monitorar a integridade dos servidores back-end selecionados. Com base nos critérios definidos, o Application Gateway verifica o caminho especificado na investigação. Se a chamada para host:Porta/caminho não retornar uma resposta de status HTTP 200-299, o servidor será retirado da rotação após o limite não íntegro ser atingido. A investigação continua na instância não íntegra para determinar quando ela se torna íntegra novamente. Após a instância ser adicionada novamente ao pool de servidores íntegros, o tráfego começa a fluir para ela novamente e a investigação da instância continua normalmente no intervalo especificado pelo usuário.
+A investigação de padrão verifica o acesso padrão ao aplicativo Web. Agora que uma investigação personalizada foi criada, o gateway de aplicativo usa o caminho personalizado definido para monitorar a integridade dos servidores back-end selecionados. Com base nos critérios definidos, o Gateway de Aplicativo verifica o caminho especificado na investigação. Se a chamada para host:Porta/caminho não retornar uma resposta de status HTTP 200-399, o servidor será retirado da rotação após o limite não íntegro ser atingido. A investigação continua na instância não íntegra para determinar quando ela se torna íntegra novamente. Após a instância ser adicionada novamente ao pool de servidores íntegros, o tráfego começa a fluir para ela novamente e a investigação da instância continua normalmente no intervalo especificado pelo usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

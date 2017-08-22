@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="an-assigned-application-is-not-appearing-on-the-access-panel" class="xliff"></a>
-
-# Um aplicativo atribuído não aparece no painel de acesso
+# <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Um aplicativo atribuído não aparece no painel de acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo no qual o usuário é membro para ver o aplicativo no Painel de Acesso.
 
@@ -37,17 +36,13 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 
 -   Aplicativos com soluções de SSO existentes
 
-<a id="general-issues-to-check-first" class="xliff"></a>
-
-## Questões gerais que primeiro devem ser verificadas
+## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
 
 -   Se um aplicativo acabou de ser adicionado a um usuário, tente entrar e sair novamente no Painel de Acesso do usuário após alguns minutos para ver se o aplicativo foi adicionado.
 
--   Se uma licença acabou de ser removida de um usuário ou grupo, um longo período tempo poderá demorar para que as alterações sejam concluídas ao usuário membro, dependendo do tamanho e da complexidade do grupo. permitir tempo extra antes de entrar no Painel de Acesso.
+-   Se uma licença tiver acabado de ser removida de um usuário ou de um grupo de que o usuário faz parte, isso poderá levar um longo período, dependendo do tamanho e da complexidade do grupo. Espere mais algum tempo antes de entrar no Painel de Acesso.
 
-<a id="problems-related-to-application-configuration" class="xliff"></a>
-
-## Problemas relacionados à configuração de aplicativo
+## <a name="problems-related-to-application-configuration"></a>Problemas relacionados à configuração de aplicativo
 
 Um aplicativo pode não aparecer no Painel de Acesso de um usuário porque não está configurado corretamente. Abaixo, são apresentadas algumas maneiras de solucionar problemas relacionados à configuração do aplicativo:
 
@@ -59,11 +54,9 @@ Um aplicativo pode não aparecer no Painel de Acesso de um usuário porque não 
 
 -   [Como configurar um aplicativo de logon único com senha para um aplicativo inexistente na galeria](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
 
-<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na galeria do Azure AD
 
-### Como configurar o logon único federado para um aplicativo na galeria do Azure AD
-
-Todos os aplicativos na galeria do Azure AD habilitados com o recurso de Logon Único Corporativo possuem um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
+Todos os aplicativos na galeria do Azure AD habilitados com a capacidade de Logon Único Corporativo têm um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -77,11 +70,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
-#### Adicionar um aplicativo da galeria do Azure AD
-
-Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
+Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**
 
@@ -103,9 +94,7 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-#### Configurar o logon único para um aplicativo da galeria do Azure AD
+#### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurar o logon único para um aplicativo da galeria do Azure AD
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -115,7 +104,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -143,17 +132,15 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
    1. clique em **Adicionar atributo**. Insira o **Nome** e selecione o **Valor** da lista suspensa.
 
-   2. Clique em **Salvar.** Você verá o novo atributo na tabela.
+   2. clique em **Salvar.** Você verá o novo atributo na tabela.
 
 13. clique em **Configurar &lt;nome do aplicativo&gt;**  para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs de metadados e o certificado necessários para configurar o SSO com o aplicativo.
 
-14. Clique em **Salvar** para salvar a configuração.
+14. clique em **Salvar** para salvar a configuração.
 
 15. Atribuir usuários a um aplicativo.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-#### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -163,9 +150,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -186,13 +173,11 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    1. clique em **Adicionar atributo**. Insira o **Nome** e selecione o **Valor** da lista suspensa.
 
-   2. Clique em **Salvar.** Você verá o novo atributo na tabela.
+   2. clique em **Salvar.** Você verá o novo atributo na tabela.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-#### Baixar o certificado ou metadados do Azure AD
-
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -200,7 +185,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -214,9 +199,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
     O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-### Como configurar o logon único federado para um aplicativo inexistente na galeria
+### <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -228,9 +211,7 @@ Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure
 
 -   [Configurar os valores de metadados do Azure AD no aplicativo (URL de Logon, Emissor, URL de Logoff e certificado)](#configuring-single-sign-on)
 
-<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
-
-#### Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
+#### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 
 Para configurar o logon único para um aplicativo que não está na galeria do Azure AD, siga as etapas abaixo:
 
@@ -272,9 +253,7 @@ Para configurar o logon único para um aplicativo que não está na galeria do A
 
 14. clique em **Configurar &lt;nome do aplicativo&gt;**  para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs do Azure AD e o certificado necessários para o aplicativo.
 
-<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
-
-#### Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecionar o Identificador de Usuário e adicionar os atributos de usuário a serem enviados ao aplicativo
 
 Para selecionar o Identificador de Usuário ou adicionar os atributos de usuário, siga as etapas abaixo:
 
@@ -284,7 +263,7 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -309,11 +288,9 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
    2. Clique em **Salvar.** Você verá o novo atributo na tabela.
 
-<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-#### Baixar o certificado ou metadados do Azure AD
-
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -321,7 +298,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -335,9 +312,7 @@ Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas
 
 O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-### Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+### <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -345,11 +320,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+#### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
 
-#### Adicionar um aplicativo da galeria do Azure AD
-
-Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
+Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**
 
@@ -369,11 +342,9 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 9.  Clique no botão **Adicionar** para adicionar o aplicativo.
 
-Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
+Após um breve período, você verá a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-#### Configurar o aplicativo para logon único com senha
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -383,7 +354,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -399,9 +370,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-### Como configurar o logon único com senha para um aplicativo inexistente na galeria
+### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo da galeria do Azure AD será necessário:
 
@@ -409,11 +378,9 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 -   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
 
-<a id="add-a-non-gallery-application" class="xliff"></a>
+#### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
 
-#### Adicionar um aplicativo inexistente na galeria
-
-Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
+Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**.
 
@@ -431,9 +398,7 @@ Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
 Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-#### Configurar o aplicativo para logon único com senha
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
@@ -443,7 +408,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -453,7 +418,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Selecione o modo **Logon baseado em Senha.**
+8.  Selecione o modo **Logon baseado em senha.**
 
 9.  Insira a **URL de Logon**. Trata-se da URL em que os usuários inserem o nome de usuário e senha para entrar. Verifique se os campos de entrada estão visíveis na URL.
 
@@ -461,9 +426,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-<a id="problems-related-to-assigning-applications-to-users" class="xliff"></a>
-
-## Problemas relacionados à atribuição de aplicativos para usuários
+## <a name="problems-related-to-assigning-applications-to-users"></a>Problemas relacionados à atribuição de aplicativos para usuários
 
 Um usuário pode não ver um aplicativo no seu Painel de Acesso porque o usuário não está atribuído ao aplicativo. Abaixo, são apresentadas algumas maneiras de verificação:
 
@@ -475,9 +438,7 @@ Um usuário pode não ver um aplicativo no seu Painel de Acesso porque o usuári
 
 -   [Como atribuir uma licença a um usuário](#how-to-assign-a-user-a-license)
 
-<a id="check-if-a-user-is-assigned-to-the-application" class="xliff"></a>
-
-### Verificar se um usuário está atribuído ao aplicativo
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Verificar se um usuário está atribuído ao aplicativo
 
 Para verificar se um usuário está atribuído ao aplicativo, siga as etapas abaixo:
 
@@ -487,21 +448,19 @@ Para verificar se um usuário está atribuído ao aplicativo, siga as etapas aba
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-6.  **Pesquise** o nome do aplicativo em questão.
+6.  **Pesquise** pelo nome do aplicativo em questão.
 
-7.  clique em **Usuários e grupos**.
+7.  Clique em **Usuários e grupos**.
 
 8.  Verifique se o usuário está atribuído ao aplicativo.
 
    * Se não, siga as etapas em "Como atribuir um usuário diretamente a um aplicativo" para fazer isso.
 
-<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
-
-### Como atribuir um usuário diretamente a um aplicativo
+### <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -511,25 +470,25 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja atribuir um usuário a partir da lista.
+6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
-7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar atribuição**.
+8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  clique no seletor **Usuários e Grupos** da folha **Adicionar atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
-11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção próxima ao logotipo ou ao perfil do usuário para adicionar a lista **Selecionado**.
+11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa**Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
@@ -539,47 +498,43 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-<a id="check-if-a-user-is-under-a-license-related-to-the-application" class="xliff"></a>
-
-### Verificar se um usuário está sob uma licença relacionada ao aplicativo
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Verificar se um usuário está sob uma licença relacionada ao aplicativo
 
 Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  Clique em **Todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
+7.  Clique em **Licenças** para ver quais licenças estão atribuídas ao usuário.
 
   * Se o usuário for atribuído a uma licença do Office, isso permitirá que os aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
-<a id="how-to-assign-a-user-a-license" class="xliff"></a>
-
-### Como atribuir uma licença a um usuário 
+### <a name="how-to-assign-a-user-a-license"></a>Como atribuir uma licença a um usuário 
 
 Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  Clique em **Todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
+7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
 8.  clique no botão **Atribuir**.
 
@@ -589,11 +544,9 @@ Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
 11. Clique no botão **Atribuir** para atribuir essas licenças para esse usuário.
 
-<a id="problems-related-to-assigning-applications-to-groups" class="xliff"></a>
+## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemas relacionados à atribuição de aplicativos para usuários
 
-## Problemas relacionados à atribuição de aplicativos para usuários
-
-Um usuário pode ver um aplicativo no seu Painel de Acesso porque ele faz parte de um grupo que atribuiu o aplicativo. Abaixo, são apresentadas algumas maneiras de verificação:
+Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer parte de um grupo ao qual o aplicativo foi atribuído. Abaixo, são descritas algumas formas de verificar:
 
 -   [Verificar as associações de grupo de um usuário](#check-a-users-group-memberships)
 
@@ -603,21 +556,19 @@ Um usuário pode ver um aplicativo no seu Painel de Acesso porque ele faz parte 
 
 -   [Como atribuir uma licença a um grupo](#how-to-assign-a-license-to-a-group)
 
-<a id="check-a-users-group-memberships" class="xliff"></a>
-
-### Verificar as associações de grupo de um usuário
+### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
 
 Para verificar as associações de um grupo, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  Clique em **Todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -627,9 +578,7 @@ Para verificar as associações de um grupo, siga as etapas abaixo:
 
   * Se você quiser remover o usuário do grupo, **clique na linha** do grupo e selecione excluir.
 
-<a id="how-to-assign-an-application-to-a-group-directly" class="xliff"></a>
-
-### Como atribuir um aplicativo diretamente a um grupo
+### <a name="how-to-assign-an-application-to-a-group-directly"></a>Como atribuir um aplicativo diretamente a um grupo
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -639,25 +588,25 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja atribuir um usuário a partir da lista.
+6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
-7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar atribuição**.
+8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  clique no seletor **Usuários e Grupos** da folha **Adicionar atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome de grupo completo** do grupo que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo do grupo** que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **grupo** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção próxima ao logotipo ou ao perfil do grupo para adicionar o usuário na lista **Selecionado**.
 
-12. **Opcional:** Caso queira **adicionar mais de um grupo**, digite um putro **nome de grupo completo** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e cliquem na caixa de seleção para adicionar esse grupo à lista**Selecionado**.
+12. **Opcional:** caso queira **adicionar mais de um grupo**, digite outro **nome de grupo completo** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse grupo à lista **Selecionado**.
 
 13. Ao concluir a seleção dos grupos, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
@@ -667,19 +616,17 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
-<a id="check-if-a-user-is-part-of-group-assigned-to-a-license" class="xliff"></a>
-
-### Verificar se um usuário faz parte do grupo atribuído a uma licença
+### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>Verificar se um usuário faz parte do grupo atribuído a uma licença
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  Clique em **Todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -687,23 +634,21 @@ Após um breve período, os usuários selecionados poderão iniciar esses aplica
 
 8.  clique na linha de um grupo específico.
 
-9.  clique em **Licenças** para ver quais licenças o grupo atribuiu a ele.
+9.  Clique em **Licenças** para ver quais licenças o grupo atribuiu a ele.
 
    * Se o grupo for atribuído a uma licença do Office, isso poderá permitir que determinados aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
-<a id="how-to-assign-a-license-to-a-group" class="xliff"></a>
-
-### Como atribuir uma licença a um grupo
+### <a name="how-to-assign-a-license-to-a-group"></a>Como atribuir uma licença a um grupo
 
 Para atribuir uma licença a um grupo, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
@@ -724,9 +669,7 @@ Para atribuir uma licença a um grupo, siga as etapas abaixo:
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
 
 

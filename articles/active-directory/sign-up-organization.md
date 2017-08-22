@@ -1,6 +1,6 @@
 ---
 title: "Inscrever-se no Azure como uma organização"
-description: "Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
+description: "Saiba como você pode usar uma conta corporativa ou de estudante para aproveitar as contas de usuário existentes, as políticas, as configurações ou implantações de servidor local que você já tem e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
 ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/11/2017
 
 
 ---

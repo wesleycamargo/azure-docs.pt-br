@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be8504b492bdbdf7445abcdf1fb55e375eda133e
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: f770b6181a99d24ea6a6e945d505da914e1b6128
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
@@ -48,13 +47,13 @@ O Service Fabric dá suporte a contêineres no Linux e no Windows e também ofer
 
 ### <a name="docker-containers-on-linux"></a>Contêineres de Docker no Linux
 O docker oferece APIs de alto nível para criar e gerenciar contêineres sobre contêineres de kernel do Linux. O Hub do Docker é um repositório central para armazenar e recuperar imagens de contêiner.
-Para obter um tutorial, confira [Implantar um contêiner do Docker no Service Fabric](service-fabric-deploy-container-linux.md).
+Para obter um tutorial, confira [Implantar um contêiner do Docker no Service Fabric](service-fabric-get-started-containers-linux.md).
 
 ### <a name="windows-server-containers"></a>Contêineres do Windows Server
 O Windows Server 2016 fornece dois tipos diferentes de contêineres que diferem no nível de isolamento fornecido. Contêineres do Windows Server e contêineres do Docker são semelhantes porque ambos têm isolamento de sistema de arquivos e namespace, mas compartilham o kernel com o host no qual estão sendo executados. No Linux, esse isolamento sempre foi fornecido por `cgroups` e `namespaces`, e os contêineres do Windows Server se comportam da mesma forma.
 
 Contêineres do Windows Hyper-V fornecem mais segurança e isolamento porque nenhum contêiner compartilha o kernel do sistema operacional com outros contêineres ou com o host. Com esse nível mais alto de isolamento de segurança, os contêineres do Hyper-V são indicados para cenários hostis e multilocatários.
-Para obter um tutorial, confira [Implantar um contêiner do Windows no Service Fabric](service-fabric-deploy-container.md).
+Para obter um tutorial, confira [Implantar um contêiner do Windows no Service Fabric](service-fabric-get-started-containers.md).
 
 A figura a seguir mostra os diferentes tipos de virtualização e níveis isolamento disponíveis no sistema operacional.
 ![Plataforma Service Fabric][Image1]
@@ -88,9 +87,9 @@ O Service Fabric tem vários recursos de contêiner que ajudam a compilar de apl
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu sobre contêineres, que o Service Fabric é um orquestrador de contêiner e que o Service Fabric tem recursos que dão suporte a contêineres. Como uma próxima etapa, apresentaremos exemplos de cada um dos recursos para mostrar como usá-los.
 
-[Implantar um contêiner do Windows no Service Fabric no Windows Server 2016](service-fabric-deploy-container.md)
+[Implantar um contêiner do Windows no Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
 
-[Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-deploy-container-linux.md)
+[Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-get-started-containers-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 

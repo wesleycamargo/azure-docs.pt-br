@@ -13,53 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 07/07/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: aa2d4f671bab46929ccc4444f8fe9de98a3e0eb2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Configurar drivers GPU para VMs da série N executando o Windows Server
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, é necessário instalar os drivers gráficos NVIDIA em cada VM após a implantação. Também há informações de instalação de driver disponíveis para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para aproveitar os recursos de GPU das VMs série N do Azure que estão executando o Windows Server 2016 ou o Windows Server 2012 R2, instale os drivers gráficos NVIDIA com suporte. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para obter as especificações básicas, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Consulte também [Considerações gerais sobre as VMs da Série N](#general-considerations-for-n-series-vms).
+Para especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows da GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-
-## <a name="supported-gpu-drivers"></a>Drivers GPU com suporte
-
-Conecte-se pela Área de Trabalho Remota a cada VM da série N. Baixe, extraia e instale o driver com suporte para o sistema operacional Windows. 
-
-### <a name="nvidia-tesla-drivers-for-nc-vms-tesla-k80"></a>Drivers NVIDIA Tesla para VMs NC (Tesla K80)
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 
 
-| SO | Versão do driver |
-| -------- |------------- |
-| Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
-| Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
+## <a name="driver-installation"></a>Instalação do driver
 
-> [!NOTE]
-> Os links de download do driver Tesla fornecidos aqui são atuais no momento da publicação. Para os drivers mais recentes, visite o site da [NVIDIA](http://www.nvidia.com/).
->
+1. Conecte-se pela Área de Trabalho Remota a cada VM da série N.
 
-### <a name="nvidia-grid-drivers-for-nv-vms-tesla-m60"></a>Drivers NVIDIA GRID para VMs NV (Tesla M60)
-
-| SO | Versão do driver |
-| -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
-
-
-
-## <a name="verify-gpu-driver-installation"></a>Verificar a instalação de drivers de GPU
+2. Baixe, extraia e instale o driver com suporte para o sistema operacional Windows.
 
 Em VMs NV do Azure, uma reinicialização é necessária após a instalação de drivers. Em VMs NC, uma reinicialização não é necessária.
+
+## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
 É possível verificar a instalação de drivers no Gerenciador de Dispositivos. O exemplo a seguir mostra uma configuração bem-sucedida da placa Tesla K80 em uma VM NC do Azure.
 
@@ -67,7 +49,7 @@ Em VMs NV do Azure, uma reinicialização é necessária após a instalação de
 
 Para consultar o estado do dispositivo GPU, execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver.
 
-1. Abra um prompt de comando e altere para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI**.
+1. Abra um prompt de comando e mude para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
 2. Execute **nvidia-smi**. Se o driver estiver instalado, você verá um resultado semelhante ao mostrado abaixo. Observe que **GPU-Util** mostrará **0%**, a menos que você esteja executando uma carga de trabalho da GPU na VM.
 
@@ -89,7 +71,6 @@ Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível
 
 A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou Intel MPI 5.x. 
 
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

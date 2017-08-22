@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/18/2017
+ms.date: 07/06/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
@@ -34,28 +33,14 @@ O diagrama a seguir mostra os componentes que estão envolvidos.
 
 As etapas a seguir ajudarão você a isolar a origem da falha e encontrar soluções ou soluções alternativas.
 
-Primeiro, verifique o status da VM no portal.
+1. Verifique o status da VM no portal.
+   No [Portal do Azure](https://portal.azure.com), selecione **Máquinas virtuais** > *Nome da VM*.
 
-No [portal do Azure](https://portal.azure.com):
+   O painel de status da VM deve mostrar **Executando**. Role para baixo para mostrar a atividade recente dos recursos de computação, armazenamento e rede.
 
-1. Para VMs criadas usando o modelo do Resource Manager, selecione **Máquinas virtuais** > *Nome da VM*.
-   
-    -OU-
-   
-    Para VMs criadas usando o modelo de implantação clássico, selecione **Máquinas virtuais (clássicas)** > *Nome da VM*.
-   
-    O painel de status da VM deve mostrar **Executando**. Role para baixo para mostrar a atividade recente dos recursos de computação, armazenamento e rede.
+2. Selecione **Configurações** para examinar os pontos de extremidade, os endereços IP, os grupos de segurança de rede e outras configurações.
 
-2. Selecione **Configurações** para examinar os pontos de extremidade, os endereços IP e outras configurações.
-   
-    Para identificar pontos de extremidade em VMs que foram criadas usando o Resource Manager, verifique se um [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) foi definido. Verifique também se as regras foram aplicadas ao grupo de segurança de rede e se elas são referenciadas na sub-rede.
-
-No [Portal Clássico do Azure](https://manage.windowsazure.com), para VMs que foram criadas usando o modelo de implantação clássico:
-
-1. Selecione **Máquinas virtuais** > *Nome da VM*.
-2. Selecione o **Painel** da VM para verificar o status.
-3. Selecione **Monitor** para ver a atividade recente dos recursos de computação, armazenamento e rede.
-4. Selecione **Pontos de extremidade** para garantir que haja um ponto de extremidade para o tráfego SSH.
+   A VM deve ter um ponto de extremidade definido para o tráfego SSH que você pode exibir nos **Pontos de extremidade** ou no  **[Grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Os pontos de extremidade nas VMs que foram criados usando o Resource Manager são armazenados em um grupo de segurança de rede. Verifique também se as regras foram aplicadas ao grupo de segurança de rede e se elas são referenciadas na sub-rede.
 
 Para verificar a conectividade de rede, verifique os pontos de extremidade configurados e se você pode acessar a VM por meio de outro protocolo, como HTTP ou outro serviço.
 
@@ -118,7 +103,7 @@ Se não houver outra VM na mesma rede virtual, você poderá criar facilmente um
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique as seguintes áreas:
 
-* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.** A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Para as VMs criadas usando o modelo de implantação do Resource Manager, verifique o número da porta SSH TCP no Portal do Azure selecionando **Máquinas virtuais** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
+* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.** A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Verifique o número da porta TCP do SSH no Portal do Azure selecionando **Máquinas virtuais** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
 * **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.** Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](../../virtual-network/virtual-networks-acl.md).
 
 Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -128,6 +113,8 @@ Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto
 ## <a name="source-4-network-security-groups"></a>Fonte 4: Grupos de segurança de rede
 Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego SSH de entrada e saída da Internet é permitido.
 Para saber mais, confira [Sobre grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
+
+Você também pode usar a Verificação de IP para validar a configuração do NSG. Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Fonte 5: máquina virtual do Azure baseada no Linux
 A última fonte possível de problemas é a própria máquina virtual do Azure.
@@ -145,5 +132,4 @@ Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a s
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](troubleshoot-app-connection.md)
-
 

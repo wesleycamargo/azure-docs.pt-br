@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 86b34c6c44b957009610f20ee0b9d7ed7fc441be
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB
@@ -306,10 +306,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
             }
         }
    
-   > [!TIP]
-   > Ao criar um novo DocumentCollection, você pode fornecer um parâmetro RequestOptions opcional de OfferType, o qual permite especificar o nível de desempenho da nova coleção. Se esse parâmetro não for passado, o tipo de oferta padrão será usado. Para saber mais sobre os tipos de oferta do Azure Cosmos DB, consulte [Níveis de desempenho do Azure Cosmos DB](performance-levels.md).
-   > 
-   > 
+    
 3. Estamos lendo alguns valores da configuração, por isso, abra o arquivo **Web.config** de seu aplicativo e adicione as linhas a seguir sob a seção `<AppSettings>`.
    
         <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>

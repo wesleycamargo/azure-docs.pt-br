@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 5/31/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 03cb14b5710b6dd17599a3c4eab21380c76c2b40
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -72,7 +72,9 @@ Certifique-se de que a VM possa receber solicitações de investigação de inte
 
 ## <a name="limitations"></a>Limitações
 
-Embora não garantido, o número máximo de portas SNAT disponíveis hoje é 64.511 (65.535 - 1.024 portas privilegiadas).  Isso não se traduz diretamente no número de conexões. Veja acima as especificações sobre quando e como as portas SNAT são alocadas e como gerenciar esse esgotável recurso.
-
 Se [vários endereços IP (públicos) estão associados com um balanceador de carga](load-balancer-multivip-overview.md), qualquer desses endereços IP públicos são um candidato para fluxos de saída.
+
+O Azure usa um algoritmo para determinar o número de portas SNAT disponíveis com base no tamanho do pool.  Isso não é configurável no momento.
+
+É importante lembrar que o número de portas SNAT disponíveis não se converte diretamente no número de conexões. Consulte acima para obter informações específicas sobre quando e como portas SNAT são alocadas e como gerenciar esse recurso esgotável.
 

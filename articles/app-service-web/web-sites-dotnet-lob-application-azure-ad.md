@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory
 Este artigo mostra como criar um aplicativo de linha de negócios do .NET nos [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o recurso [Autenticação/Autorização](../app-service/app-service-authentication-overview.md). Também mostra como usar a [API do Graph do Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) para consultar dados de diretório no aplicativo.
 
-O locatário do Azure Active Directory que você usa pode ser um diretório somente do Azure. Ou, pode ser [sincronizado com o Active Directory local](../active-directory/active-directory-aadconnect.md) para criar uma experiência de logon único para trabalhadores locais e remotos. Este artigo usa o diretório padrão para sua conta do Azure.
+O locatário do Azure Active Directory que você usa pode ser um diretório somente do Azure. Ou pode ser [sincronizado com seu Active Directory local](../active-directory/active-directory-aadconnect.md) para criar uma experiência de logon único para trabalhadores locais e remotos. Este artigo usa o diretório padrão para sua conta do Azure.
 
 <a name="bkmk_build"></a>
 
@@ -346,6 +346,6 @@ Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira
 * [Autenticar com o Active Directory local em seu aplicativo do Azure](web-sites-authentication-authorization.md)
 * [Criar um aplicativo de linha de negócios no Azure com autenticação do AD FS](web-sites-dotnet-lob-application-adfs.md)
 * [Autenticação do Serviço de Aplicativo e a API do Graph do Azure AD](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
-* [Exemplos e documentação do Active Directory do Microsoft Azure](https://github.com/AzureADSamples)
+* [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 * [Tipos de declaração e token com suporte no Active Directory do Azure](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 

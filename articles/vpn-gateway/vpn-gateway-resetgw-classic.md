@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 4315e9168a1ad724a6c28bd9bab065d6ffdabb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
@@ -37,7 +36,7 @@ Se a conexão não é restaurada após a primeira reinicialização, execute o m
 
 Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre instalações, abra uma solicitação de suporte no portal do Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before"></a>Antes de começar
 
 Antes de redefinir o gateway, verifique os principais itens listados abaixo para cada túnel VPN Site a Site (S2S) de IPsec. Qualquer incompatibilidade nos itens resultará na desconexão de túneis VPN S2S. Verificar e corrigir as configurações para seus gateways de VPN do Azure e locais faz com que você evite reinicializações desnecessárias e interrupções para as outras conexões de trabalho nos gateways.
 
@@ -47,7 +46,7 @@ Verifique os itens a seguir antes de redefinir seu gateway:
 * A chave pré-compartilhada deve ser a mesma em ambos o gateway de VPN do Azure e o gateway de VPN local.
 * Se você aplicar a configuração de IPsec/IKE específica, como criptografia, algoritmos de hash e PFS (Perfect Forward Secrecy), verifique se que o gateway de VPN do Azure e o gateway de VPN local têm as mesmas configurações.
 
-## <a name="azure-portal"></a>Portal do Azure
+## <a name="portal"></a>Portal do Azure
 
 Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Azure. Se você quiser redefinir um gateway clássico, veja as etapas [PowerShell](#resetclassic).
 
@@ -59,7 +58,7 @@ Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Az
   ![Folha Redefinir Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Na folha Redefinir, clique no botão **Reiniciar**.
 
-## <a name="powershell"></a>PowerShell
+## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
@@ -93,7 +92,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="cli"></a>Azure CLI
 
 Para redefinir o gateway, utilize o comando [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet5GW no grupo de recursos TestRG5:
 

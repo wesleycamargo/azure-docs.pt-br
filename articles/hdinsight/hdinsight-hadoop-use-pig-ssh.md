@@ -1,5 +1,5 @@
 ---
-title: Usar o Hadoop Pig com o SSH em um cluster HDInsight | Microsoft Docs
+title: "Usar o Hadoop Pig com o SSH em um cluster HDInsight – Azure | Microsoft Docs"
 description: "Saiba como conectar a um cluster Hadoop baseado em Linux com o SSH e use o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 36ede2b1c2964f85c454ffd1a653c90296bb307a
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: e4c893ef4bfa573dd9fbc9c9b0ae296720769842
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar trabalhos do Pig em um cluster baseado em Linux com o comando Pig (SSH)
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Saiba como executar trabalhos do Pig interativamente de uma conexão SSH para seu cluster HDInsight. A linguagem de programação Pig Latin permite descrever as transformações que são aplicadas aos dados de entrada para produzir a saída desejada.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight baseado em Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas deste documento exigem um cluster HDInsight baseado em Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>Conexão com o SSH
 

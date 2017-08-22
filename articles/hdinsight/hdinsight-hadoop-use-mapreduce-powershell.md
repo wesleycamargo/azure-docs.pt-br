@@ -1,5 +1,5 @@
 ---
-title: Usar o MapReduce e o PowerShell com Hadoop | Microsoft Docs
+title: "Usar o MapReduce e o PowerShell com Hadoop – Azure HDInsight | Microsoft Docs"
 description: Aprenda a usar o PowerShell para executar trabalhos MapReduce remotamente com Hadoop no HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: b24bfb08e692ec7ab6da9c60515d7cbeec9589b3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 * **Um cluster Azure HDInsight (Hadoop no HDInsight)**
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Uma estação de trabalho com o PowerShell do Azure**.
 

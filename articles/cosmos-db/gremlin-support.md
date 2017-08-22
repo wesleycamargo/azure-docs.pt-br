@@ -3,7 +3,7 @@ title: Suporte do BD Cosmos do Azure para Gremlin | Microsoft Docs
 description: "Saiba mais sobre a linguagem Gremlin do Apache TinkerPop e quais são os recursos e as etapas disponíveis no Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: 
 tags: 
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do BD Cosmos do Azure para gráfico do Gremlin
-O Azure Cosmos DB dá suporte ao idioma de percurso do gráfico do [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) que é uma API do Graph para criar entidades de gráfico e executar operações de consulta do gráfico. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
+O Azure Cosmos DB dá suporte à linguagem de cruzamento de gráficos [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de gráficos e executar operações de consulta de gráficos. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
 O BD Cosmos do Azure traz recursos prontos para empresas para bancos de dados de gráfico. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs de 99,99%. Como o BD Cosmos do Azure dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de gráfico sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o BD Cosmos do Azure integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -150,7 +149,7 @@ E a borda contém as seguintes informações para ajudar com a navegação para 
 | --- | --- |
 | ID | A ID da borda. Deve ser exclusiva (em combinação com o valor de _partition, se aplicável) |
 | label | O rótulo da borda. Esta propriedade é opcional e é usada para descrever o tipo de relacionamento. |
-| inV | Recipiente de propriedades definidas pelo usuário associadas à borda. Cada propriedade pode ter vários valores. |
+| inV | Ela contém uma lista nos vértices de uma borda. Armazenar as informações de adjacência com a borda permite a execução rápida das passagens. Os vértices são agrupados com base em seus rótulos. |
 | propriedades | Recipiente de propriedades definidas pelo usuário associadas à borda. Cada propriedade pode ter vários valores. |
 
 Cada propriedade pode armazenar diversos valores em uma matriz. 
@@ -210,3 +209,4 @@ O mecanismo otimizado para gravação do BD Cosmos do Azure dá suporte à index
 ## <a name="next-steps"></a>Próximas etapas
 * Comece a compilar um aplicativo de gráfico [usando nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre o [Suporte para gráfico do BD Cosmos do Azure](graph-introduction.md)
+

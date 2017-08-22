@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2016
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 529c723a9e071b7cc388cf92423c1f74707cb831
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8ff6b9825212359617b748aba1c78ed789b130dd
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -28,20 +29,21 @@ Confira [Visão geral do Diagnóstico do Azure](../monitoring-and-diagnostics/az
 Esse passo a passo descreve como instalar remotamente o Diagnostics em uma máquina virtual do Azure a partir de um computador de desenvolvedor. Você também aprende como implementar um aplicativo que executa nesta máquina virtual do Azure e emite dados de telemetria usando o .NET [EventSource Class][EventSource Class]. O Diagnóstico do Azure é usado para coletar a telemetria e armazená-la em uma conta de armazenamento do Azure.
 
 ### <a name="pre-requisites"></a>Pré-requisitos
-Esse passo a passo assume que você tem uma assinatura do Azure e está usando o Visual Studio 2013 com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação Gratuita][Free Trial]. Certifique-se de [Instalar e configurar o Azure PowerShell, versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
+Este passo a passo presume que você tenha uma assinatura do Azure e esteja usando o Visual Studio 2017 com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação Gratuita][Free Trial]. Certifique-se de [Instalar e configurar o Azure PowerShell, versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-virtual-machine"></a>Etapa 1: Criar uma máquina virtual
-1. No computador do desenvolvedor, inicie o Visual Studio 2013.
+1. No computador de desenvolvimento, inicialize o Visual Studio 2017.
 2. No **Gerenciador de Servidores** do Visual Studio, expanda o **Azure**, clique com botão direito do mouse em **Máquinas Virtuais** e, em seguida, selecione **Criar Máquina Virtual**.
 3. Selecione sua assinatura do Azure na caixa de diálogo **Escolha uma assinatura** e clique em **Avançar**.
-4. Selecione **Windows Server 2012 R2 Datacenter, novembro de 2014** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
+4. Selecione **Windows Server 2012 R2 Datacenter, junho de 2017** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
 5. Nas **Configurações Básicas da Máquina Virtual**, defina o nome da máquina virtual para "wadexample". Defina o nome de usuário e senha do Administrador clique em **Avançar**.
 6. Na caixa de diálogo **Configurações de Serviço de Nuvem** , crie um novo serviço de nuvem chamado "wadexampleVM". Crie uma nova conta de Armazenamento chamada "wadexample" e clique em **Avançar**.
 7. Clique em **Criar**.
 
 ### <a name="step-2-create-your-application"></a>Etapa 2: Criar o seu aplicativo
-1. No computador do desenvolvedor, inicie o Visual Studio 2013.
+1. No computador de desenvolvimento, inicialize o Visual Studio 2017.
 2. Crie um novo aplicativo de console do Visual C# que se destina ao .NET Framework 4.5. Atribua o nome “WadExampleVM” ao projeto.
+
    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
 3. Substitua os conteúdos do Program.cs pelo código a seguir. A classe **SampleEventSourceWriter** implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o método WriteEvent define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
@@ -147,10 +149,18 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
 Os cmdlets do PowerShell para gerenciar Diagnostics em uma máquina virtual são: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension e Remove-AzureVMDiagnosticsExtension.
 
 1. No computador do desenvolvedor, abra o PowerShell do Azure.
-2. Execute o script para instalar remotamente o Diagnostics no seu VM (substitua o *StorageAccountKey* com a chave de conta de armazenamento para sua conta de armazenamento wadexamplevm):
-
-     $storage_name = "wadexamplevm"   $key = "<StorageAccountKey>"   $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"   $service_name="wadexamplevm"   $vm_name="WadExample"   $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key   $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name   $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext   $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
-
+2. Execute o script para instalar remotamente o Diagnóstico em sua VM (substitua `<user>` pelo nome do diretório do usuário. Substitua `<StorageAccountKey>` pela chave de conta de armazenamento para sua conta de armazenamento wadexamplevm):
+```
+     $storage_name = "wadexamplevm"
+     $key = "<StorageAccountKey>"
+     $config_path="c:\users\<user>\documents\visual studio 2017\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
+     $service_name="wadexamplevm"
+     $vm_name="WadExample"
+     $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
+     $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
+     $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
+     $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
+```
 ### <a name="step-6-look-at-your-telemetry-data"></a>Etapa 6: Examinar os dados de telemetria
 No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Depois que a VM estiver em execução por cerca de 5 minutos, você deve ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
 
