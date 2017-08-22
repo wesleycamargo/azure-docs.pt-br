@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
@@ -41,7 +41,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
   
   **Informações adicionais importantes**
   
-  * Para obter os pré-requisitos de rede RDMA do Linux no Azure, consulte [Sobre VMs série H ou série A com computação intensiva](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Para pré-requisitos de rede RDMA Linux no Azure, consulte [Tamanhos de VM de computação de alto desempenho](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Se você usar a opção de implantação de script do Powershell, implante todos os nós de computação Linux em um serviço de nuvem para usar a conexão de rede RDMA.
   * Depois de implantar os nós do Linux, conecte-se via SSH para executar tarefas administrativas adicionais. Encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.  
 * **Intel MPI** – Para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no site [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. Para se preparar para essa etapa, depois de se registrar na Intel, siga o link no email de confirmação para a página da Web relacionada. Em seguida, copie o link de download do arquivo .tgz para a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
@@ -62,7 +62,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ```
    
    > [!NOTE]
-   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma senha aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
+   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
    > 
    > 
    

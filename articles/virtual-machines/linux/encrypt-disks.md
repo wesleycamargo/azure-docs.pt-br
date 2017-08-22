@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/23/2017
+ms.date: 07/05/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 62122105288d9d625079c385edb9760be31071dd
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -29,24 +29,27 @@ Para conformidade e segurança aprimorados da VM (máquina virtual), os discos v
 ## <a name="quick-commands"></a>Comandos rápidos
 Se você precisar realizar rapidamente a tarefa, a seção a seguir detalha a base de dados de comandos para criptografar discos virtuais em sua VM. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](#overview-of-disk-encryption).
 
-É necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `myKey` e `myVM`.
+É necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myKey* e *myVM*.
 
-Primeiro, habilite o provedor do Azure Key Vault dentro de sua assinatura do Azure com [az provider register](/cli/azure/provider#register) e crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização `WestUS`:
+Primeiro, habilite o provedor do Azure Key Vault dentro de sua assinatura do Azure com [az provider register](/cli/azure/provider#register) e crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location WestUS
+az group create --name myResourceGroup --location eastus
 ```
 
-Crie um Azure Key Vault com [az keyvault create](/cli/azure/keyvault#create) e habilite o Key Vault para uso com criptografia de disco. Especifique um nome exclusivo de Key Vault para `keyvault_name` da seguinte maneira:
+Crie um Azure Key Vault com [az keyvault create](/cli/azure/keyvault#create) e habilite o Key Vault para uso com criptografia de disco. Especifique um nome exclusivo de Key Vault para *keyvault_name* da seguinte maneira:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
-az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location WestUS --enabled-for-disk-encryption True
+keyvault_name=mykeyvaultikf
+az keyvault create \
+    --name $keyvault_name \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --enabled-for-disk-encryption True
 ```
 
-Criar uma chave de criptografia em seu Key Vault com [az keyvault key create](/cli/azure/keyvault/key#create). O exemplo a seguir cria uma chave chamada `myKey`:
+Criar uma chave de criptografia em seu Key Vault com [az keyvault key create](/cli/azure/keyvault/key#create). O exemplo a seguir cria uma chave chamada *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -60,33 +63,39 @@ read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -
 
 A senha só será gerada quando você criar a entidade de serviço. Se desejar, exiba e grave a senha (`echo $sp_password`). Você pode listar suas entidades de serviço com [az ad sp list](/cli/azure/ad/sp#list) e exibir informações adicionais sobre uma entidade de serviço específica com [az ad sp show](/cli/azure/ad/sp#show).
 
-Defina permissões em seu Key Vault com [az keyvault set-policy](/cli/azure/keyvault#set-policy). No exemplo a seguir, a entidade de serviço é fornecida por meio do comando anterior:
+Defina permissões em seu Key Vault com [az keyvault set-policy](/cli/azure/keyvault#set-policy). No exemplo a seguir, a ID da entidade de serviço é fornecida por meio do comando anterior:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+    --key-permissions wrapKey \
+    --secret-permissions set
 ```
 
 Crie uma VM com [az vm create](/cli/azure/vm#create) e anexe um disco de dados de 5 GB. Somente determinadas imagens do marketplace dão suporte à criptografia de disco. O exemplo a seguir cria uma VM chamada `myVM` usando uma imagem do **CentOS 7.2n**:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
-  --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-  --data-disk-sizes-gb 5
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 5
 ```
 
-SSH para sua VM. Crie uma partição e o sistema de arquivos e, em seguida, monte o disco de dados. Para obter mais informações, consulte [Conectar-se a uma VM Linux para montar o novo disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Feche a sessão SSH.
+SSH para a VM usando o `publicIpAddress` mostrado na saída do comando anterior. Crie uma partição e o sistema de arquivos e, em seguida, monte o disco de dados. Para obter mais informações, consulte [Conectar-se a uma VM Linux para montar o novo disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Feche a sessão SSH.
 
 Criptografe sua VM com [az vm encryption enable](/cli/azure/vm/encryption#enable). O exemplo a seguir usa as variáveis `$sp_id` e `$sp_password` do comando `ad sp create-for-rbac` anterior:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all
 ```
 
 Leva algum tempo para o processo de criptografia de disco ser concluído. Monitorar o status do processo com [az vm encryption show](/cli/azure/vm/encryption#show):
@@ -107,7 +116,7 @@ O processo de criptografia de disco é finalizado durante o processo de iniciali
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
- O status agora deve relatar o disco do sistema operacional e o disco de dados como **Criptografado**.
+O status agora deve relatar o disco do sistema operacional e o disco de dados como **Criptografado**.
 
 ## <a name="overview-of-disk-encryption"></a>Visão geral da criptografia de disco
 Discos virtuais em VMs do Linux são criptografados em repouso usando [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Não há nenhuma taxa para criptografar discos virtuais no Azure. Chaves e criptográficas são armazenadas no Cofre de chaves do Azure usando a proteção de software ou você pode importar ou gerar as chaves em Módulos de segurança de Hardware (HSMs) certificados para padrões de nível 2 de FIPS 140-2. Você mantém o controle dessas chaves criptográficas e pode auditar seu uso. Essas chaves criptográficas são usadas para criptografar e descriptografar os discos virtuais conectados à sua VM. Uma entidade de serviço do Azure Active Directory fornece um mecanismo seguro para emitir essas chaves de criptografia, enquanto as VMs são ligadas e desligadas.
@@ -146,30 +155,31 @@ A criptografia de disco não tem suporte atualmente nos seguintes cenários:
 * Atualização das chaves de criptografia em uma VM Linux já está criptografado.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Criar o Azure Key Vault e as chaves
-É necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Em todos os exemplos de comando, substitua todos os parâmetros de exemplo pelos seus próprios valores de nome, localização e chave. Os seguintes exemplos usam uma convenção de `myResourceGroup`, `myKeyVault`, `myAADApp` etc.
-
-Em todos os exemplos de comando, substitua todos os parâmetros de exemplo pelos seus próprios valores de nome, localização e chave. Os seguintes exemplos usam uma convenção de `myResourceGroup`, `myKey`, `myVM` etc.
+É preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myKey* e *myVM*.
 
 A primeira etapa é criar um Cofre de Chaves do Azure para armazenar as chaves criptográficas. O Cofre de Chaves do Azure pode armazenar chaves, segredos ou senhas que permitem implementá-los de forma segura em seus aplicativos e serviços. Para criptografia de disco virtual, use o Cofre de chaves para armazenar uma chave de criptografia que é usada para criptografar ou descriptografar seus discos virtuais.
 
-Habilite o provedor do Azure Key Vault dentro de sua assinatura do Azure com [az provider register](/cli/azure/provider#register) e crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização `WestUS`:
+Habilite o provedor do Azure Key Vault dentro de sua assinatura do Azure com [az provider register](/cli/azure/provider#register) e crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local `eastus`:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location WestUS
+az group create --name myResourceGroup --location eastus
 ```
 
-O Cofre de chaves do Azure que contém as chaves criptográficas e recursos de computação associados, como armazenamento e a própria VM deve residir na mesma região. Crie um Azure Key Vault com [az keyvault create](/cli/azure/keyvault#create) e habilite o Key Vault para uso com criptografia de disco. Especifique um nome exclusivo de Key Vault para `keyvault_name` da seguinte maneira:
+O Cofre de chaves do Azure que contém as chaves criptográficas e recursos de computação associados, como armazenamento e a própria VM deve residir na mesma região. Crie um Azure Key Vault com [az keyvault create](/cli/azure/keyvault#create) e habilite o Key Vault para uso com criptografia de disco. Especifique um nome exclusivo de Key Vault para *keyvault_name* da seguinte maneira:
 
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
-az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location WestUS --enabled-for-disk-encryption True
+az keyvault create \
+    --name $keyvault_name \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --enabled-for-disk-encryption True
 ```
 
 É possível armazenar chaves de criptografia usando a proteção do Modelo de segurança de Hardware (HSM) ou software. Usar um HSM requer um Cofre de Chaves premium. Há um custo adicional para a criação de um Cofre de Chaves premium em vez do Cofre de Chaves padrão que armazena as chaves protegidas por software. Para criar um Cofre de Chaves premium, na etapa anterior, adicione `--sku Premium` ao comando. O exemplo a seguir usa chaves protegidas por software, desde que criamos um Cofre de Chaves padrão.
 
-Para ambos os modelos de proteção, a plataforma do Azure deve ter acesso para solicitar as chaves criptográficas quando a VM é inicializada para descriptografar os discos virtuais. Criar uma chave de criptografia em seu Key Vault com [az keyvault key create](/cli/azure/keyvault/key#create). O exemplo a seguir cria uma chave chamada `myKey`:
+Para ambos os modelos de proteção, a plataforma do Azure deve ter acesso para solicitar as chaves criptográficas quando a VM é inicializada para descriptografar os discos virtuais. Criar uma chave de criptografia em seu Key Vault com [az keyvault key create](/cli/azure/keyvault/key#create). O exemplo a seguir cria uma chave chamada *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -187,24 +197,29 @@ read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -
 
 A senha só será exibida quando você criar a entidade de serviço. Se desejar, exiba e grave a senha (`echo $sp_password`). Você pode listar suas entidades de serviço com [az ad sp list](/cli/azure/ad/sp#list) e exibir informações adicionais sobre uma entidade de serviço específica com [az ad sp show](/cli/azure/ad/sp#show).
 
-Para criptografar ou descriptografar discos virtuais com êxito, as permissões na chave de criptografia armazenada no Key Vault devem ser definidas para permitir que a entidade de serviço do Azure Active Directory leia as chaves. Defina permissões em seu Key Vault com [az keyvault set-policy](/cli/azure/keyvault#set-policy). No exemplo a seguir, a entidade de serviço é fornecida por meio do comando anterior:
+Para criptografar ou descriptografar discos virtuais com êxito, as permissões na chave de criptografia armazenada no Key Vault devem ser definidas para permitir que a entidade de serviço do Azure Active Directory leia as chaves. Defina permissões em seu Key Vault com [az keyvault set-policy](/cli/azure/keyvault#set-policy). No exemplo a seguir, a ID da entidade de serviço é fornecida por meio do comando anterior:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+  --key-permissions wrapKey \
+  --secret-permissions set
 ```
 
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
-Para criptografar alguns discos virtuais, vamos criar uma VM e adicionar um disco de dados. Crie uma VM para criptografar com [az vm create](/cli/azure/vm#create) e anexe um disco de dados de 5 GB. Somente determinadas imagens do marketplace dão suporte à criptografia de disco. O exemplo a seguir cria uma VM chamada `myVM` usando uma imagem do **CentOS 7.2n**:
+Para criptografar alguns discos virtuais, vamos criar uma VM e adicionar um disco de dados. Crie uma VM para criptografar com [az vm create](/cli/azure/vm#create) e anexe um disco de dados de 5 GB. Somente determinadas imagens do marketplace dão suporte à criptografia de disco. O exemplo a seguir cria uma VM chamada *myVM* usando uma imagem do **CentOS 7.2n**:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
-  --data-disk-sizes-gb 5
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 5
 ```
 
-Conecte-se à sua VM por SSH para criar uma partição e sistema de arquivos e, em seguida, monte o disco de dados. Para obter mais informações, consulte [Conectar-se a uma VM Linux para montar o novo disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Feche a sessão SSH.
+SSH para a VM usando o `publicIpAddress` mostrado na saída do comando anterior. Crie uma partição e o sistema de arquivos e, em seguida, monte o disco de dados. Para obter mais informações, consulte [Conectar-se a uma VM Linux para montar o novo disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Feche a sessão SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Criptografar máquina virtual
@@ -218,12 +233,14 @@ Para criptografar os discos virtuais, reúna todos os componentes anteriores:
 Criptografe sua VM com [az vm encryption enable](/cli/azure/vm/encryption#enable). O exemplo a seguir usa as variáveis `$sp_id` e `$sp_password` do comando `ad sp create-for-rbac` anterior:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all
 ```
 
 Leva algum tempo para o processo de criptografia de disco ser concluído. Monitorar o status do processo com [az vm encryption show](/cli/azure/vm/encryption#show):
@@ -268,13 +285,15 @@ az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-
 Execute novamente o comando para criptografar os discos virtuais, dessa vez, adicionando o parâmetro `--sequence-version` e incrementando o valor de nossa primeira execução da seguinte maneira:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all \
-  --sequence-version 2
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all \
+    --sequence-version 2
 ```
 
 

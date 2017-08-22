@@ -16,10 +16,10 @@ ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44867f16acb620fd29957eae90311ef6c8fde559
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 Com o Privileged Identity Management do Azure Active Directory (AD), você pode gerenciar, controlar e monitorar o acesso em sua organização. Isso inclui o acesso a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
 
 > [!NOTE]
-> O Privileged Identity Management só está disponível com a edição Premium P2 do Azure Active Directory. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+> O Privileged Identity Management fica disponível para toda a sua organização quando você licencia seus administradores com a edição Premium P2 do Azure Active Directory. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um usuário mal-intencionado obter esse tipo de acesso. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure, Office 365 ou SaaS. As organizações dão aos usuários acesso privilegiado no Azure AD sem monitorar o que esses usuários estão fazendo com seus privilégios de administrador. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.  
 
@@ -37,6 +37,7 @@ O Azure AD Privileged Identity Management ajuda você a:
 * Habilitar o acesso administrativo “just in time” para Microsoft Online Services como Office 365 e Intune
 * Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador
 * Receber alertas sobre o acesso a uma função com privilégios
+* Exigir aprovação para ativar (Versão prévia)
 
 O Azure AD Privileged Identity Management pode gerenciar as funções organizacionais do Azure AD internas, incluindo (mas sem limitação):  
 
@@ -64,13 +65,13 @@ Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management 
 
 Somente um administrador com função com privilégios pode gerenciar o acesso de outros administradores. Você pode [conceder a outros usuários a capacidade de gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-## <a name="privileged-identity-management-dashboard"></a>Painel de gerenciamento de identidades com privilégios
-O Privileged Identity Manager do Azure AD oferece um painel que fornece informações importantes, como:
+## <a name="privileged-identity-management-admin-dashboard"></a>Painel de administração do Privileged Identity Management
+O Privileged Identity Manager do Azure AD oferece um painel de administração que fornece informações importantes, como:
 
 * Alertas que indicam oportunidades para melhorar a segurança
 * O número de usuários atribuídos a cada função com privilégios  
 * O número de administradores elegíveis e permanentes
-* Revisões de acesso em andamento
+* Um gráfico de ativações de funções com privilégios em seu diretório
 
 ![painel PIM - captura de tela][2]
 
@@ -84,11 +85,13 @@ Usando as [configurações de função](active-directory-privileged-identity-man
 
 * A duração do período de ativação de função
 * A notificação de ativação de função
-* As informações que um usuário precisa fornecer durante o processo de ativação de função  
+* As informações que um usuário precisa fornecer durante o processo de ativação de função
+* Tíquete de serviço ou número do incidente
+* [Requisitos do fluxo de trabalho de aprovação – Versão prévia](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
 ![configurações do PIM - ativação do administrador - captura de tela][4]
 
-Observe que na imagem, os botões para **Multi-Factor Authentication** estão desabilitados. Certamente, funções com altos privilégios exigirão MFA para maior proteção.
+Observe que na imagem, os botões para **Autenticação Multifator** estão desabilitados. Certamente, funções com altos privilégios exigirão MFA para maior proteção.
 
 ## <a name="role-activation"></a>Ativação de função
 Para [ativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md), um administrador qualificado solicita uma "ativação" com limite de tempo para a função. A ativação pode ser solicitada usando a opção **Ativar minha função** no Gerenciamento de identidades com privilégios do AD do Azure.
@@ -100,14 +103,14 @@ A ativação de função é personalizável. Nas configurações do PIM, você p
 ![ativação da função de solicitação do administrador do PIM - captura de tela][5]
 
 ## <a name="review-role-activity"></a>Examinar atividade de função
-Há duas maneiras de controlar como seus funcionários e os administradores estão usando funções com privilégios. A primeira opção é usar o [histórico de auditoria](active-directory-privileged-identity-management-how-to-use-audit-log.md). O histórico de auditoria registra em log o controle de alterações em atribuições de funções com privilégios e o histórico de ativação de função.
+Há duas maneiras de controlar como seus funcionários e os administradores estão usando funções com privilégios. A primeira opção é usar o [Histórico de auditoria das Funções do diretório](active-directory-privileged-identity-management-how-to-use-audit-log.md). O histórico de auditoria registra em log o controle de alterações em atribuições de funções com privilégios e o histórico de ativação de função.
 
 ![histórico da ativação do PIM - captura de tela][6]
 
 A segunda opção é configurar [revisões de acesso](active-directory-privileged-identity-management-how-to-start-security-review.md)regulares. Essas revisões de acesso podem ser executadas pelo revisor (como um gerente de equipe) e atribuídas por ele, ou os funcionários podem examinar por conta própria. Essa é a melhor maneira de monitorar quem ainda precisa ter acesso e quem não precisa mais.
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM na expiração da assinatura
-Antes de atingir a disponibilidade geral, o Azure AD PIM estava no modo de visualização e não havia nenhuma verificação de licença para um locatário visualizar o Azure AD PIM de visualização.  Agora que o Azure AD PIM atingiu a disponibilidade geral, uma assinatura de avaliação ou paga deverá estar presente no locatário para que o PIM continue a ser usado depois de dezembro de 2016.  Se sua organização não adquirir o Azure AD Premium P2 ou se sua assinatura expirar, o Azure AD PIM não estará mais disponível em seu locatário.  Você pode ler mais nos [requisitos de assinatura do Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
+Antes de atingir a disponibilidade geral, o Azure AD PIM estava no modo de visualização e não havia nenhuma verificação de licença para um locatário visualizar o Azure AD PIM de visualização.  Agora que o PIM do Azure AD chegou à disponibilidade geral, licenças pagas ou de avaliação precisam ser atribuídas aos administradores do locatário para continuar usando o PIM.  Se sua organização não adquirir o Azure AD Premium P2 ou se sua avaliação expirar, a maioria dos recursos do PIM do Azure AD ficarão indisponíveis em seu locatário.  Você pode ler mais nos [requisitos de assinatura do Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -115,9 +118,9 @@ Antes de atingir a disponibilidade geral, o Azure AD PIM estava no modo de visua
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
 [3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
+[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 

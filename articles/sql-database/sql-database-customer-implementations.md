@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Aspectos técnicos de implementações do cliente do Banco de Dados SQL do Azure
@@ -37,5 +36,5 @@ ms.lasthandoff: 06/21/2017
 
 - [Quest](https://customers.microsoft.com/en-US/story/quest): o Quest oferece o Spotlight no serviço SQL Server Enterprise com um objetivo em mente: fornecer as melhores ferramentas disponíveis aos profissionais de banco de dados para proteção de dados, movimentação dos dados e monitoramento de operações de bancos de dados. Com o Spotlight, usando o Microsoft Azure e Banco de Dados SQL do Azure, os administradores de Banco de Dados do SQL Server podem monitorar, detectar, diagnosticar e fornecer uma maneira de resolver problemas de desempenho no SQL Server, seja de suas mesas de trabalho ou em casa.
 
-- [Microsoft Synamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as melhores práticas e lições aprendidas com a experiência da equipe do produto 365 Dynamics 365 for Operations em migrar para o banco de dados SQL do Azure a fim de fornecer aos clientes um SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as práticas recomendadas e lições aprendidas com a experiência da equipe do produto Dynamics 365 for Operations em migrar para o Banco de Dados SQL do Azure a fim de fornecer aos clientes uma oferta de SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
 

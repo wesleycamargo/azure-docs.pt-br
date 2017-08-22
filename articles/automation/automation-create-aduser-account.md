@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticar Runbooks com implantação clássica do Azure e do Resource Manager
@@ -32,7 +32,7 @@ Este artigo descreve as etapas que você deve executar para configurar uma conta
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione **Novo usuário na sua organização**.
 5. Insira um nome de usuário.  
 6. Selecione o nome do diretório associado à sua assinatura do Azure na página do Active Directory.
-7. Na página **perfil do usuário**, forneça um nome e um sobrenome, um nome amigável e Usuário na lista **Funções**.  Não selecione **Habilitar Multi-Factor Authentication**.
+7. Na página **perfil do usuário**, forneça um nome e um sobrenome, um nome amigável e Usuário na lista **Funções**.  Não selecione **Habilitar Autenticação Multifator**.
 8. Anote o nome completo do usuário e a senha temporária.
 9. Selecione **Configurações > Administradores > Adicionar**.
 10. Digite o nome de usuário completo do usuário que você criou.
@@ -68,7 +68,7 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 3. Na folha Contas de Automação, clique em **Adicionar**.<br><br>![Adicionar Conta de Automação](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. Na folha **Adicionar Conta de Automação**, na caixa **Nome**, digite um nome para a nova conta de Automação.
 5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de datacenter do Azure.
-6. Selecione o valor **Não** para a opção **Criar conta Executar como do Azure** e clique no botão **Criar**.  
+6. Selecione o valor **Sim** para a opção **Criar uma conta Executar como do Azure** e clique no botão **Criar**.  
    
     > [!NOTE]
     > Se você optar por não criar a conta Executar Como selecionando a opção **Não**, verá uma mensagem de aviso com a folha **Adicionar Conta de Automação**.  Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura.  Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do Azure Resource Manager.

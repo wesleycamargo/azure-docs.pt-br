@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44a6e1c8e71f3a89b5900887c71fbce92af45d6f
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e480671e6550b305c49442becaed3c0b42ce5cb3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL
@@ -29,12 +29,12 @@ Por exemplo, um tipo Standard de 800 Unidades de Computação fornece 8 vezes ma
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>Como posso determinar o número de unidades de computação necessárias para a minha carga de trabalho?
 Se você estiver pretendendo migrar um servidor PostgreSQL local ou em uma máquina virtual, poderá determinar o número de Unidades de Computação estimando quantos núcleos de taxa de transferência de processamento são necessários para a sua carga de trabalho. 
 
-Se a máquina local ou servidor virtual existente estiver utilizando 4 núcleos (sem contar o hyperthread da CPU), comece configurando 400 Unidades de Computação para o seu Banco de Dados do Azure para o servidor PostgreSQL. É possível aumentar ou diminuir dinamicamente as Unidades de Computação conforme as suas necessidades de carga de trabalho sem praticamente nenhum tempo de inatividade do aplicativo. 
+Se o seu servidor local ou de máquina virtual existente estiver utilizando 4 núcleos (sem contar o hyperthread da CPU), comece configurando 400 Unidades de Computação para o seu Banco de Dados do Azure para o servidor PostgreSQL. É possível aumentar ou diminuir dinamicamente as Unidades de Computação conforme as suas necessidades de carga de trabalho sem praticamente nenhum tempo de inatividade do aplicativo. 
 
 Monitorar o gráfico de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir as Unidades de Computação. As métricas relevantes para monitorar são a porcentagem de Unidade de Computação e o limite de Unidade de Computação.
 
 >[!IMPORTANT]
-> Se você achar que não está usando a capacidade máxima do IOPS de armazenamento, monitore também a utilização de Unidades de Computação. Aumentar as Unidades de Computação pode permitir maior taxa de transferência de E/S, diminuindo o congestionamento de desempenho devido a limites de CPU ou memória.
+> Se você achar que não está usando a capacidade máxima do IOPS de armazenamento, monitore também a utilização de Unidades de Computação. Aumentar as Unidades de Computação pode permitir maior taxa de transferência de E/S, diminuindo o afunilamento de desempenho devido a limites de CPU ou memória.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>O que acontece quando eu atinjo o máximo de Unidades de Computação?
 Os níveis de desempenho são calibrados e controlados para fornecer os recursos para executar sua carga de trabalho de banco de dados até os limites máximos para o tipo de preços e o nível de desempenho selecionados. 

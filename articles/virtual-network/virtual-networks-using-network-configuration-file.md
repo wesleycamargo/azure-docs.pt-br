@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/24/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -32,7 +32,7 @@ Você pode criar e configurar uma rede virtual (clássica) com um arquivo de con
 
 Criar e configurar uma rede virtual (clássica) com um arquivo de configuração de rede requer exportar, alterar e importar o arquivo.
 
-## <a name="export-a-network-configuration-file"></a>Exportar um arquivo de configuração de rede
+## <a name="export"></a>Exportar um arquivo de configuração de rede
 
 É possível utilizar o PowerShell ou CLI do Azure para exportar um arquivo de configuração de rede. O PowerShell exporta um arquivo XML, enquanto a CLI do Azure exporta um arquivo json.
 
@@ -120,7 +120,7 @@ O arquivo de configuração de rede de exemplo a seguir cria uma rede virtual no
 
 Se o arquivo de configuração de rede que você exportou não contém conteúdo, você pode copiar o json no exemplo anterior e colá-lo em um novo arquivo.
 
-## <a name="import-a-network-configuration-file"></a>Importar um arquivo de configuração de rede
+## <a name="import"></a>Importar um arquivo de configuração de rede
 
 Você pode utilizar o PowerShell ou a CLI do Azure para importar um arquivo de configuração de rede. O PowerShell exporta um arquivo XML, enquanto a CLI do Azure exporta um arquivo json. Se a importação falhar, confirme se o arquivo está em conformidade com o [esquema de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -143,3 +143,4 @@ Você pode utilizar o PowerShell ou a CLI do Azure para importar um arquivo de c
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 06/14/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 19cf0a68a8cd05d94badee2efc6c8b023fee7461
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 8a399ca2f529568dbe5ffd4b58c3f0f69248b71d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejar e restaurar
@@ -27,7 +27,7 @@ Para seguir este guia de instruções, você precisa:
 Siga as etapas abaixo para despejar e restaurar seu banco de dados PostgreSQL:
 
 ## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Criar um arquivo de despejo usando pg_dump que contém os dados a serem carregados
-Para fazer backup de um banco de dados PostgreSQL existente no local ou em uma VM, execute o seguinte comando:
+Para fazer backup de um banco de dados PostgreSQL que existe localmente ou em uma VM, execute o seguinte comando:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```

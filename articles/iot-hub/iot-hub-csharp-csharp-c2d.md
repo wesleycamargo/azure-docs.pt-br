@@ -1,6 +1,6 @@
 ---
 title: Mensagens da nuvem para o dispositivo com o Hub IoT do Azure (.NET)| Microsoft Docs
-description: "Como enviar mensagens da nuvem para o dispositivo para um dispositivo de um Hub IoT do Azure usando os SDKs do IoT do Azure para .NET. Modifique um aplicativo de dispositivo simulado para receber mensagens da nuvem para o dispositivo e modificar um aplicativo de back-end para enviá-las."
+description: "Como enviar mensagens da nuvem para o dispositivo para um dispositivo de um Hub IoT do Azure usando os SDKs do IoT do Azure para .NET. Você modifica um aplicativo de dispositivo para receber mensagens da nuvem para o dispositivo e modificar um aplicativo de back-end para enviá-las."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 150e7a1b2f86594d91b044b1b697f035ed1d270b
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 6ae1dad67b34127aadcb5d093a5adeaa3394879c
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo simulado com o Hub IoT (.NET)
+# <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo com o Hub IoT (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. O tutorial [Introdução ao Hub IoT] mostra como criar um Hub IoT, provisionar uma identidade do dispositivo nele e codificar um aplicativo do dispositivo simulado que envia mensagens do dispositivo para a nuvem.
+O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. O tutorial [Introdução ao Hub IoT] mostra como criar um hub IoT, provisionar uma identidade do dispositivo nele e codificar um aplicativo do dispositivo que envie mensagens do dispositivo para a nuvem.
 
 Esse tutorial se baseia na [Introdução ao Hub IoT]. Ele mostra como:
 
@@ -38,7 +38,7 @@ Esse tutorial se baseia na [Introdução ao Hub IoT]. Ele mostra como:
 No final deste tutorial, você executará dois aplicativos do console .NET:
 
 * **SimulatedDevice**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu hub IoT e recebe mensagens da nuvem para o dispositivo.
-* **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo ao aplicativo do dispositivo simulado por meio do Hub IoT e recebe sua confirmação de entrega.
+* **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo ao aplicativo do dispositivo por meio do Hub IoT e recebe sua confirmação de entrega.
 
 > [!NOTE]
 > O Hub IoT tem suporte a SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e Javascript) nos [SDKs do dispositivo IoT do Azure]. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Guia do desenvolvedor do Hub IoT].
@@ -50,8 +50,8 @@ Para concluir este tutorial, você precisará do seguinte:
 * Visual Studio 2015 ou Visual Studio 2017
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Receber mensagens no aplicativo do dispositivo simulado
-Nesta seção, você modificará o aplicativo do dispositivo simulado criado na [Introdução ao Hub IoT] para receber mensagens da nuvem para o dispositivo do Hub IoT.
+## <a name="receive-messages-in-the-device-app"></a>Receber mensagens no aplicativo do dispositivo
+Nesta seção, você modificará o aplicativo do dispositivo criado na [Introdução ao Hub IoT] para receber mensagens da nuvem para o dispositivo do hub IoT.
 
 1. No Visual Studio, no projeto **SimulatedDevice**, adicione o método a seguir à classe **Program**.
    
@@ -89,7 +89,7 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
 > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Envie uma mensagem da nuvem para o dispositivo
-Nesta seção, você criará um aplicativo de console .NET que envia mensagens da nuvem para o dispositivo ao aplicativo do dispositivo simulado.
+Nesta seção, você escreve um aplicativo de console .NET que envia mensagens da nuvem para o dispositivo ao aplicativo do dispositivo.
 
 1. Na solução do Visual Studio atual, crie um projeto de Aplicativo da Área de Trabalho do Visual C# usando o modelo de projeto do **Aplicativo do Console**. Nomeie o projeto **SendCloudToDevice**.
    
@@ -127,7 +127,7 @@ Nesta seção, você criará um aplicativo de console .NET que envia mensagens d
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
 8. No Visual Studio, clique com o botão direito do mouse na solução e selecione **Definir Projetos de inicialização...**. Selecione **Vários projetos de inicialização** e, em seguida, selecione a ação **Iniciar** para **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **SendCloudToDevice**.
-9. Pressione **F5**. Todos os três aplicativos devem ser iniciados. Selecione as janelas **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem que está sendo recebida pelo aplicativo do dispositivo simulado.
+9. Pressione **F5**. Todos os três aplicativos devem ser iniciados. Selecione as janelas **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem que está sendo recebida pelo aplicativo do dispositivo.
    
    ![Aplicativo recebendo mensagens][21]
 
@@ -163,7 +163,7 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 3. Para solicitar comentários sobre a entrega da mensagem da nuvem para o dispositivo, você deve especificar uma propriedade no método **SendCloudToDeviceMessageAsync** . Adicione a seguinte linha, logo após a linha `var commandMessage = new Message(...);` :
    
         commandMessage.Ack = DeliveryAcknowledgement.Full;
-4. Execute os aplicativos pressionando **F5**. Você deve ver todos os três aplicativos serem iniciados. Selecione as janelas **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem sendo recebida pelo aplicativo do dispositivo simulado e, depois de alguns segundos, a mensagem de comentários sendo recebida pelo aplicativo **SendCloudToDevice**.
+4. Execute os aplicativos pressionando **F5**. Você deve ver todos os três aplicativos serem iniciados. Selecione as janelas **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem sendo recebida pelo aplicativo do dispositivo e, depois de alguns segundos, a mensagem de comentários sendo recebida pelo aplicativo **SendCloudToDevice**.
    
    ![Aplicativo recebendo mensagens][22]
 

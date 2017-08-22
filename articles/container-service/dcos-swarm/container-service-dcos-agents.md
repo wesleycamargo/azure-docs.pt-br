@@ -8,7 +8,6 @@ manager: timlt
 editor: 
 tags: acs, azure-container-service
 keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
-ms.assetid: 36d657c9-8845-4bf7-bed2-088323b67406
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -16,10 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: be10411e735c5b96702ee8dcb893f1a48e479f6f
-ms.openlocfilehash: cffc65e25ae8eab90a9879a0030b78b3b77890b7
-
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Pools de agentes DC/OS para Serviço de Contêiner do Azure
@@ -49,10 +50,5 @@ Por padrão, **Maratona** implanta qualquer novo aplicativo a nós de agente *pa
 * Leia mais sobre [como gerenciar seus contêineres DC/OS](container-service-mesos-marathon-ui.md).
 
 * Saiba como [abrir o firewall](container-service-enable-public-access.md) fornecido pelo Azure para permitir acesso público aos seus contêineres DC/OS.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2017
+ms.date: 08/09/2017
 ms.author: motanv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 00f703cf9e727cd5981c4f8254fc11330e41a470
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
@@ -53,10 +52,6 @@ Para obter quais falhas o Chaos induziu, você pode usar a API GetChaosReport (P
 
 ## <a name="important-configuration-options"></a>Opções de configuração importantes
 * **TimeToRun**: tempo total durante o qual o Chaos é executado antes de ser finalizado com êxito. Você pode interromper o Chaos antes que ele seja executado pelo período de TimeToRun usando a API StopChaos.
-
-> [!NOTE]
-> O Chaos pode ainda estar em execução quando *TimeToRun* está funcionando, ele pode levar até (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations) de tempo adicional para parar automaticamente.
->
 
 * **MaxClusterStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes de produzir um ValidationFailedEvent. Essa espera serve para reduzir a carga no cluster enquanto ele está se recuperando. As verificações executadas são:
   * Se a integridade do cluster está OK

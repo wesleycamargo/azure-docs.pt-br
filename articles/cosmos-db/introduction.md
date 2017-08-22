@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
         * Modelos de dados adicionais em breve 
 
 * **Dimensionar elasticamente a taxa de transferência e o armazenamento sob demanda, em todo o mundo**
-    * Dimensione facilmente a taxa de transferência de banco de dados em granularidades de [segundo](request-units.md) e [minuto](request-units-per-minute.md) e altere-a sempre que desejar. 
+    * Dimensione facilmente a taxa de transferência do banco de dados em uma granularidade [por segundo](request-units.md) e altere-a sempre que desejar. 
     * Dimensione o tamanho do armazenamento [de forma transparente e automática](partition-data.md) para cobrir a seus requisitos de tamanho agora e para sempre.
 
 * **Criar aplicativos altamente responsivos e críticos**

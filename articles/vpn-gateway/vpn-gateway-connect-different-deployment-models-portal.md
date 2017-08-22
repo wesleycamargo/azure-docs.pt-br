@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
@@ -84,7 +84,16 @@ A seguinte tabela mostra um exemplo de como as VNets e os sites locais de exempl
 
 ## <a name="classicvnet"></a>1. Definir as configurações da VNet clássica
 
-Nesta seção, você cria a rede local (site local) e o gateway de rede virtual para sua VNet clássica. Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima. Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmico. Se for Estático, você deverá excluir o gateway de VPN primeiro e depois continuar.
+Nesta seção, você cria a rede local (site local) e o gateway de rede virtual para sua VNet clássica. Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima.
+
+Ao usar o portal para criar uma rede virtual clássica, navegue até a folha de rede virtual usando as etapas a seguir, caso contrário, a opção para criar uma rede virtual clássica não aparecerá:
+
+1. Clique no sinal “+” para abrir a folha “Novo”.
+2. No campo “Pesquisar no Marketplace”, digite “Rede Virtual”. Se você selecionar, em vez disso, Rede -> Rede Virtual, você não terá a opção de criar uma VNet clássica.
+3. Localize “Rede Virtual” na lista retornada e clique para abrir a folha Rede Virtual. 
+4. Na folha da rede virtual, selecione “Clássica” para criar uma VNet clássica. 
+
+Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmico. Se for Estático, você deverá excluir o gateway de VPN primeiro e depois continuar.
 
 Capturas de tela são fornecidas como exemplos. Não se esqueça de substituir os valores pelos seus próprios valores ou use os valores de [Exemplo](#values).
 

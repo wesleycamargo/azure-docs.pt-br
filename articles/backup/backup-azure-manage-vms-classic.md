@@ -16,10 +16,10 @@ ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: eb94f7222476af3d15089589a5e69556f7d6888b
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gerenciar trabalhos comuns do Backup do Azure e disparar alertas no portal clássico
@@ -37,8 +37,8 @@ Este artigo fornece informações sobre tarefas comuns de gerenciamento e monito
 > [!IMPORTANT]
 >A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
 >
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Depois de 15 de outubro de 2017, não será possível usar o PowerShell para criar os cofres de Backup. **Até 1º de novembro de 2017**:
->- Todos os cofres de Backup restantes serão automaticamente atualizados para os cofres dos Serviços de Recuperação.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 
 ## <a name="manage-protected-virtual-machines"></a>Gerenciar máquinas virtuais protegidas
@@ -244,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
-2. Esse recurso está em Preview. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. Esse recurso está em Preview. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Você receberá alertas de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
 ## <a name="next-steps"></a>Próximas etapas

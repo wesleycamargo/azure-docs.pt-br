@@ -1,9 +1,9 @@
 ---
-title: "Provisionamento de usuário automatizado em aplicativo SaaS no AD do Azure | Microsoft Docs"
+title: "Provisionamento de usuário automatizado em aplicativo SaaS no Azure AD | Microsoft Docs"
 description: "Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
-ms.lasthandoff: 03/31/2017
-
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 7cb780117d64d67449146b9757f8162e23e65d1e
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
-## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuário para aplicativos SaaS?
+# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
+## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuários para aplicativos SaaS?
 O Azure AD (Azure Active Directory) permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow e muito mais.
 
 **Abaixo estão alguns exemplos do que esse recurso permite que você faça:**

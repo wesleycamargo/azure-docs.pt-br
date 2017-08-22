@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 78945ec210c56106833291167ecaf920794f717f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -54,7 +53,7 @@ O passo a passo a seguir fornece instruções para criar uma atividade personali
 ## <a name="walkthrough-create-a-custom-activity"></a>Passo a passo: criar uma atividade personalizada
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012/2013/2015
-* Baixe e instale o [SDK do .NET do Azure][azure-developer-center]
+* Baixar e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Pré-requisitos de Lote do Azure
 No passo a passo, você executa suas atividades personalizadas do .NET usando o Lote do Azure como um recurso de computação. O **Lote do Azure** é um serviço de plataforma para execução de aplicativos paralelos em grande escala e aplicativos HPC (computação de alto desempenho) com eficiência na nuvem. O Lote do Azure agenda o trabalho de computação intensiva para execução em uma **coleção de máquinas virtuais** gerenciada e pode dimensionar automaticamente os recursos de computação para atender às necessidades de seus trabalhos. Consulte o artigo [Noções básicas de Lote do Azure][batch-technical-overview] para obter uma visão geral do serviço de Lote do Azure.
@@ -1174,7 +1173,6 @@ O exemplo do [Azure Data Factory – ambiente local](https://github.com/gbrueckl
 [azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 

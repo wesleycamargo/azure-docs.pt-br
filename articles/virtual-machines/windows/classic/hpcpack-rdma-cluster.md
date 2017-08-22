@@ -15,16 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI
-Configure um cluster RDMA do Windows no Azure com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [instâncias série H ou série A com computação intensiva](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelos. Quando você configura nós compatíveis com RDMA baseados no Windows Server em um cluster de Pacote HPC, os aplicativos MPI se comunicam de modo eficiente por uma rede de baixa latência e alta taxa de transferência baseada na tecnologia RDMA (acesso remoto direto à memória).
+Configure um cluster do Windows RDMA no Azure com [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar aplicativos MPI (Message Passing Interface). Quando você configura nós compatíveis com RDMA baseados no Windows Server em um cluster de Pacote HPC, os aplicativos MPI se comunicam de modo eficiente por uma rede de baixa latência e alta taxa de transferência baseada na tecnologia RDMA (acesso remoto direto à memória).
 
 Se quiser executar cargas de trabalho MPI em VMs Linux que acessam a rede RDMA do Azure, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../../linux/classic/rdma-cluster.md).
 
@@ -36,7 +35,7 @@ Este artigo apresenta dois cenários e links para diretrizes detalhadas de como 
 * Cenário 1. Implantar instâncias de função de trabalho de computação intensiva (PaaS)
 * Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
 
-Para ver os pré-requisitos gerais para o uso de instâncias de computação intensiva com o Windows, confira [Sobre VMs série H ou série A com computação intensiva](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para pré-requisitos gerais para usar instâncias com uso intenso de computação com o Windows, consulte [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Cenário 1: Implantar instâncias de função de trabalho de computação intensiva (PaaS)
 Em um cluster existente do HPC Pack, adicione recursos de computação extras nas instâncias de função de trabalho do Azure (nós do Azure) em execução em um serviço de nuvem (PaaS). Esse recurso, também chamado de "disparo no Azure" do HPC Pack, dá suporte a uma variedade de tamanhos para as instâncias de função de trabalho. Ao adicionar os nós do Azure, especifique um dos tamanhos compatíveis com RDMA.
@@ -103,7 +102,7 @@ Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de comp
    * **Sistema operacional Windows Server**: para dar suporte à conectividade RDMA, especifique um sistema operacional Windows Server 2012 R2 ou Windows Server 2012 para as VMs do nó de computação.
    * **Serviços de nuvem**: é recomendável implantar o nó de cabeçalho em um serviço de nuvem e seus nós de computação em outro serviço de nuvem.
    * **Tamanho do nó de cabeçalho**: para esse cenário, considere, no mínimo, um tamanho A4 (extra grande) para o nó de cabeçalho.
-   * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA. Em VMs da série H compatíveis com RDMA, você deve instalar a extensão HpcVmDrivers manualmente. Veja [Sobre a série H e uso intensivo de computação VMs série A](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA. Em VMs da série H compatíveis com RDMA, você deve instalar a extensão HpcVmDrivers manualmente. Consulte [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Configuração de rede de cluster**: o script de implantação configura automaticamente o cluster HPC Pack na Topologia 5 (todos os nós na rede corporativa). Essa topologia é necessária para todas as implantações de cluster de HPC Pack em VMs. Não altere a topologia de rede do cluster posteriormente.
 2. **Colocar os nós de computação online para executar trabalhos**
    

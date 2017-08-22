@@ -133,11 +133,12 @@
 ### Compilar um serviço de contêiner
 #### [Criar um aplicativo de contêiner do Windows](service-fabric-get-started-containers.md)
 #### [Criar um aplicativo de contêiner do Linux](service-fabric-get-started-containers-linux.md)
-#### [Implantar contêiner do Linux](service-fabric-deploy-container-linux.md)
+#### [Segurança do contêiner](service-fabric-securing-containers.md)
 #### [Docker compose (visualização)](service-fabric-docker-compose.md)
 #### [Governança de recursos para serviços e contêineres](service-fabric-resource-governance.md)
 #### [Volume e drivers de log](service-fabric-containers-volume-logging-drivers.md)
 #### [Serviços dentro de contêineres](service-fabric-services-inside-containers.md)
+#### [Modos de rede do contêiner](service-fabric-networking-modes.md)
 
 ### Compilar um serviço de Reliable Services
 #### [Visão geral](service-fabric-reliable-services-introduction.md)

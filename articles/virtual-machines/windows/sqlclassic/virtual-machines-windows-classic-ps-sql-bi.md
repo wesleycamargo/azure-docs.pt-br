@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -135,7 +135,7 @@ Analysis Services, Reporting Services, Mecanismo de Banco de Dados SQL Server e 
 * Neste exemplo de implantação, o Analysis Services, o Reporting Services e o Mecanismo de Banco de Dados SQL Server são executados em uma única máquina virtual. A máquina virtual hospeda os bancos de dados do servidor de relatório. A máquina virtual é ingressada em um Domínio local por meio da Rede Virtual do Azure ou por alguma outra solução de túnel VPN.
 * A fonte de dados é local.
 
-![cenários bi iaas com vm e fonte de dados locais](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
+![fontes de dados locais e da vm de cenários iaas de bi](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## <a name="reporting-services-native-mode-configuration"></a>Configuração do modo Nativo do Reporting Services
 A imagem da galeria de máquinas virtuais do SQL Server inclui a instalação do modo Nativo do Reporting Services. No entanto, o servidor de relatório não está configurado. As etapas desta seção configuram o servidor de relatório do Reporting Services. Para obter informações mais detalhadas sobre como configurar o modo Nativo do Reporting Services, consulte [Instalar o servidor de relatório no modo nativo do Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
@@ -227,7 +227,7 @@ Se você quiser se conectar ao portal da Web ou ao Gerenciador de Relatórios pa
 2. Abra a porta 80 no firewall da máquina virtual.
 3. Navegue até o portal da Web ou até o gerenciador de relatórios usando o **Nome DNS** da Máquina Virtual do Azure como o nome do servidor na URL. Por exemplo:
    
-    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver  **Portal da Web**: http://uebi.cloudapp.net/reports
+    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver **Portal da Web**: http://uebi.cloudapp.net/reports
    
     [Configurar um firewall para acesso ao servidor de relatório](https://msdn.microsoft.com/library/bb934283.aspx)
 

@@ -1,6 +1,6 @@
 ---
-title: "Como os dados distribuídos funcionam no Azure SQL Data Warehouse | Microsoft Docs"
-description: "Saiba como os dados são distribuídos para MPP (Processamento Paralelo Maciço) e as opções de distribuição tabelas no Azure SQL Data Warehouse e Parallel Data Warehouse."
+title: "Como os dados distribuídos funcionam no SQL Data Warehouse do Azure | Microsoft Docs"
+description: "Saiba como os dados são distribuídos para MPP (Processamento Paralelo Maciço) e as opções de distribuição tabelas no SQL Data Warehouse do Azure e Parallel Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Dados distribuídos e tabelas distribuídas para MPP (Processamento Paralelo Maciço)
-Saiba como os dados do usuário são distribuídos no Azure SQL Data Warehouse e Parallel Data Warehouse, que são os sistemas de MPP (Processamento Paralelo Maciço) da Microsoft. Criar seu data warehouse para usar dados distribuídos efetivamente ajuda a obter a benefícios de processamento de consulta da arquitetura MPP. Algumas opções de design de banco de dados podem ter um impacto significativo sobre como melhorar o desempenho da consulta.  
+Saiba como os dados do usuário são distribuídos no SQL Data Warehouse do Azure e Parallel Data Warehouse, que são os sistemas de MPP (Processamento Paralelo Maciço) da Microsoft. Criar seu data warehouse para usar dados distribuídos efetivamente ajuda a obter a benefícios de processamento de consulta da arquitetura MPP. Algumas opções de design de banco de dados podem ter um impacto significativo sobre como melhorar o desempenho da consulta.  
 
 > [!NOTE]
-> O Azure SQL Data Warehouse e o Parallel Data Warehouse usam o mesmo design MPP (Processamento Paralelo Maciço), mas eles têm algumas diferenças devido à plataforma subjacente. O SQL Data Warehouse é uma PaaS (plataforma como serviço) executada no Azure. Parallel Data Warehouse é executado no APS (sistema de Plataforma de Análise), que é um dispositivo local executado no Windows Server.
+> O SQL Data Warehouse do Azure e o Parallel Data Warehouse usam o mesmo design MPP (Processamento Paralelo Maciço), mas eles têm algumas diferenças devido à plataforma subjacente. O SQL Data Warehouse é uma PaaS (plataforma como serviço) executada no Azure. Parallel Data Warehouse é executado no APS (sistema de Plataforma de Análise), que é um dispositivo local executado no Windows Server.
 > 
 > 
 
@@ -68,7 +67,7 @@ Cada nó de computação tem uma ID de nó e está visível nas exibições do s
 ## <a name="Replicated"></a>Tabelas Replicadas
 Uma tabela replicada tem uma cópia completa da tabela armazenada em cada nó de Computação. Replicar uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de uma junção ou agregação. Tabelas replicadas só são viáveis com tabelas pequenas devido ao armazenamento extra necessário para armazenar a tabela completa em cada nó de computação.  
 
-O diagrama a seguir mostra uma tabela replicada armazenada em cada nó de Computação. Para o SQL Data Warehouse, a tabela replicada é mantida por uma tabela de round-robin e copiada totalmente para o primeiro banco de dados de distribuição em cada nó de Computação. Para o Data Warehouse Paralelo, a tabela replicada é armazenada em todos os discos atribuídos ao nó de Computação.  Essa estratégia de disco é implementada usando grupos de arquivos do SQL Server.  
+O diagrama a seguir mostra uma tabela replicada armazenada em cada nó de Computação. Para SQL Data Warehouse, a tabela replicada é totalmente copiada para um banco de dados de distribuição em cada nó de computação. Para o Data Warehouse Paralelo, a tabela replicada é armazenada em todos os discos atribuídos ao nó de Computação.  Essa estratégia de disco é implementada usando grupos de arquivos do SQL Server.  
 
 ![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 

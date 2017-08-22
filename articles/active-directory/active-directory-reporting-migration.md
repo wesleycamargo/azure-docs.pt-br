@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/20/2017
 
 ---
-# Localizar relatórios de atividade no Portal do Azure
-<a id="find-activity-reports-in-the-azure-portal" class="xliff"></a>
+# <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
 Se você estiver mudando do Portal Clássico do Azure para o Portal do Azure, dê uma nova olhada nos logs de atividade do Azure Active Directory (Azure AD). Em uma [postagem de blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) recente, explicamos como você pode ver os logs de atividade no contexto do recurso no qual você está trabalhando no Portal do Azure. Neste artigo, descrevemos como localizar relatórios que você usou no Portal Clássico do Azure no Portal do Azure.
 
-## Novidades
-<a id="whats-new" class="xliff"></a>
+## <a name="whats-new"></a>Novidades
 
 Os relatórios no Portal Clássico do Azure são separados em categorias:
 
@@ -36,8 +34,7 @@ Os relatórios no Portal Clássico do Azure são separados em categorias:
 2.  Relatórios de atividades
 3.  Relatórios de aplicativo integrados
 
-### Relatórios do aplicativo integrado e de atividade
-<a id="activity-and-integrated-app-reports" class="xliff"></a>
+### <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
 
 Para relatórios baseados no contexto no Portal do Azure, os relatórios existentes são mesclados em uma única exibição. Uma única API subjacente fornece os dados para a exibição.
 
@@ -65,13 +62,11 @@ A exibição **Entradas** inclui todas as entradas de usuário. Use essas inform
 
 ![Aplicativos empresariais](./media/active-directory-reporting-migration/484.png "Aplicativos empresariais")
 
-## Acessar uma porta específica
-<a id="access-a-specific-report" class="xliff"></a>
+## <a name="access-a-specific-report"></a>Acessar uma porta específica
 
 Embora o Portal do Azure ofereça uma exibição única, também é possível examinar relatórios específicos.
 
-### Logs de auditoria
-<a id="audit-logs" class="xliff"></a>
+### <a name="audit-logs"></a>Logs de auditoria
 
 Em resposta aos comentários dos clientes, no Portal do Azure, você pode usar a filtragem avançada para acessar os dados desejados. É um filtro que você pode usar é *categoria de atividade*, que lista os tipos diferentes de logs de atividade no Azure AD. Para restringir os resultados para o que você está procurando, selecione uma categoria.
 
@@ -86,18 +81,15 @@ As categorias de atividades incluem:
 - Gerenciamento de grupos de autoatendimento
 - Provisionamento de conta de usuário
 
-### Uso do aplicativo
-<a id="application-usage" class="xliff"></a>
+### <a name="application-usage"></a>Uso do aplicativo
 
 Para exibir detalhes sobre o uso do aplicativo para todos os aplicativos ou para um único aplicativo, em **ATIVIDADE**, selecione **Entradas**. Para restringir os resultados, filtre o nome de usuário ou nome do aplicativo.
 
 ![Página Filtrar Eventos de Entrada](./media/active-directory-reporting-migration/07.png "Página Filtrar Eventos de Entrada")
 
-### Relatórios de segurança
-<a id="security-reports" class="xliff"></a>
+### <a name="security-reports"></a>Relatórios de segurança
 
-#### Relatórios de atividades anômalas do Azure AD
-<a id="azure-ad-anomalous-activity-reports" class="xliff"></a>
+#### <a name="azure-ad-anomalous-activity-reports"></a>Relatórios de atividades anômalas do Azure AD
 
 Os relatórios de segurança de atividades anômalas do Azure AD do Portal Clássico do Azure foram consolidados para fornecer uma exibição única e central. Essa exibição mostra todos os eventos de risco relacionado à segurança que o Azure AD pode detectar e relatar.
 
@@ -122,8 +114,7 @@ Esses relatórios ainda estão disponíveis no Portal Clássico do Azure, mas se
 Para saber mais, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
 
-#### Eventos de risco detectados
-<a id="detected-risk-events" class="xliff"></a>
+#### <a name="detected-risk-events"></a>Eventos de risco detectados
 
 No Portal do Azure, você pode acessar os relatórios sobre os eventos de risco detectados na folha **Azure Active Directory** em **SEGURANÇA**. Os eventos de risco detectados são controlados nos seguintes relatórios:   
 
@@ -138,8 +129,7 @@ Para saber mais sobre relatórios de segurança, veja:
 - [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## Relatórios de atividade no Portal Clássico do Azure versus Portal do Azure
-<a id="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal" class="xliff"></a>
+## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Relatórios de atividade no Portal Clássico do Azure versus Portal do Azure
 
 A tabela nesta seção lista os relatórios existentes no Portal Clássico do Azure. Também descreve como você pode obter as mesmas informações no Portal do Azure.
 
@@ -162,4 +152,8 @@ Para ver o relatório **Uso do Aplicativo**, na folha **Azure Active Directory**
 
 
 ![Relatório de Entradas de aplicativos empresariais](./media/active-directory-reporting-migration/199.png "Relatório de Entradas de aplicativos empresariais")
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para ter uma visão geral dos relatórios, consulte [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).
 

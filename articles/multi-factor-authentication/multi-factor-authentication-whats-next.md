@@ -1,6 +1,6 @@
 ---
 title: Configurar o Azure MFA| Microsoft Docs
-description: "Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA.  Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
+description: "Esta é a página da Autenticação Multifator do Azure que descreve o que fazer depois com o MFA.  Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 92e4c7d5a873cd75cdc32e1feeede71bd5e37f40
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -38,7 +38,7 @@ Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tu
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Acesse o Portal de Gerenciamento do Azure MFA
 
-Os recursos abordados neste artigo são configurados no Portal de Gerenciamento do Azure MFA. Há duas maneiras de acessar o Portal de Gerenciamento do MFA no portal clássico do Azure. A primeira é usando um provedor de autenticação multifator. A segunda é por configurações do serviço MFA. 
+Os recursos abordados neste artigo são configurados no Portal de Gerenciamento da Autenticação Multifator. Há duas maneiras de acessar o Portal de Gerenciamento do MFA no portal clássico do Azure. A primeira é usando um provedor de autenticação multifator. A segunda é por configurações do serviço MFA. 
 
 ### <a name="use-an-auth-provider"></a>Usar um provedor de autenticação
 
@@ -48,7 +48,7 @@ Para acessar o Portal de Gerenciamento do MFA usando um provedor de autorizaçã
 
 ### <a name="use-the-mfa-service-settings-page"></a>Usar a página Configurações do Serviço do MFA 
 
-Se você tiver uma licença de provedor de autenticação multifator ou o Azure MFA, Azure AD Premium ou Enterprise Mobility + Seguranç, use este método para acessar a página de configurações do serviço MFA.
+Se você tiver uma licença de provedor de autenticação multifator ou o Azure MFA, Azure AD Premium ou Enterprise Mobility + Security, use este método para acessar a página de configurações do serviço MFA.
 
 Para acessar o Portal de Gerenciamento do MFA pela página Configurações do Serviço MFA, acesse o portal clássico do Azure como administrador e selecione a opção Active Directory. Clique em seu diretório e depois na guia **Configurar** . Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço do MFA, clique no link **Ir para o portal** .
 
@@ -159,7 +159,7 @@ Para ativar a mensagem para seus usuários:
 7. Clique em **Criar**. Uma mensagem confirma que você criou com êxito uma mensagem de voz.
     ![Nuvem](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
-## <a name="caching-in-azure-multi-factor-authentication"></a>Cache no Azure Multi-Factor Authentication
+## <a name="caching-in-azure-multi-factor-authentication"></a>Cache na Autenticação Multifator do Azure
 O cache permite que você defina um período específico para que as próximas tentativas de autenticação subsequentes nesse período automaticamente tenham êxito. Isso é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Esse recurso permite que as próximas solicitações automaticamente tenham êxito depois que o usuário concluir a primeira verificação em andamento. 
 
 Observe que o cache não deve ser usado para acessar o Azure AD.
@@ -220,7 +220,7 @@ Veja a seguir uma lista de importante das coisas que você deve saber sobre senh
 * A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso acontece porque a senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
 * Há um limite de 40 senhas por usuário. 
 * Os aplicativos que armazenam senhas em cache e a usam em cenários locais podem começar a falhar, pois a senha do aplicativo não será conhecida fora da ID organizacional. Um exemplo é o de emails do Exchange que estão no local, mas o email arquivado está na nuvem. A mesma senha não funciona.
-* Assim que a multi-factor authentication é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa.  Quando você criar uma conta de serviço, atribua a ela uma senha forte para executar scripts do PowerShell e não habilite essa conta para a verificação em duas etapas.
+* Assim que a autenticação multifator é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa.  Quando você criar uma conta de serviço, atribua a ela uma senha forte para executar scripts do PowerShell e não habilite essa conta para a verificação em duas etapas.
 
 > [!WARNING]
 > As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem. Isso ocorre porque as senhas de domínio são necessárias para autenticar no local e as senhas de aplicativo são necessárias para autenticar com a nuvem.
@@ -237,14 +237,14 @@ O Azure AD oferece suporte à federação (logon único) com os Serviços de Dom
 * Para usuários federados (SSO), nós nunca consultamos o Provedor de Identidade (IdP), diferentemente do fluxo passivo. As senhas são armazenadas na ID organizacional. Se o usuário sair da empresa, essa informação deve ir para a ID organizacional usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até 3 horas para sincronizar, atrasando a desabilitação/exclusão da Senha de aplicativo no Azure AD.
 * As configurações do Controle de Acesso do Cliente local não são consideradas pela senha de aplicativo.
 * Nenhum recurso de registro de autenticação/auditoria local está disponível para a Senha de aplicativo.
-* Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo com a verificação em duas etapas em clientes, dependendo de onde eles são autenticados. Para clientes que se autenticam em uma infraestrutura local, você usaria um nome e senha da organização. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
+* Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo com a verificação em duas etapas em clientes, dependendo de onde eles são autenticados. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
 
   Por exemplo, suponha que você tenha uma arquitetura que consiste no seguinte:
 
-  * Você está associando sua instância local do Active Directory com o Azure AD
+  * Você está federando sua instância local do Active Directory com o Azure AD
   * Você está usando o Exchange online
-  * Você está usando o Lync que está especificamente no local
-  * Você está usando o Azure Multi-Factor Authentication
+  * Você está usando o Lync que é especificamente local
+  * Você está usando a Autenticação Multifator do Azure
 
   ![Prova](./media/multi-factor-authentication-whats-next/federated.png)
 
@@ -268,7 +268,7 @@ Os usuários podem criar senhas de aplicativo durante o registro inicial. Essa o
 Os usuários também podem criar senhas de aplicativo após o registro alterando suas configurações no Portal do Azure ou no portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Lembrar a autenticação multifator em dispositivos de confiança dos usuários
-Lembrar Multi-Factor Authentication para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade, pois minimiza o número de vezes que um usuário executa a verificação em duas etapas no mesmo dispositivo.
+Lembrar Autenticação Multifator para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade, pois minimiza o número de vezes que um usuário executa a verificação em duas etapas no mesmo dispositivo.
 
 No entanto, se um dispositivo ou a conta for comprometido, lembrar a autenticação multifator em dispositivos confiáveis pode colocar sua segurança em risco. Caso uma conta corporativa seja comprometida ou um dispositivo confiável seja perdido ou roubado, você deve [restaurar a Autenticação Multifator em todos os dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Essa ação revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar o MFA em seus próprios dispositivos com as instruções em [Gerenciar as configurações de verificação em duas etapas](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 

@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 90c8c6d91de667f2d234b1d4e89ce7336813fb62
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Instalando o Python e o SDK
@@ -112,7 +111,7 @@ Para Linux ou MacOS, os principais cenários do Azure têm suporte:
 
 O primeiro cenário permite que você crie aplicativos Web avançados que aproveitam recursos do Azure PaaS como [armazenamento de blobs](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [armazenamento de filas](storage/storage-python-how-to-use-queue-storage.md), [armazenamento de tabelas](storage/storage-python-how-to-use-table-storage.md), etc., por meio de wrappers do Pythonic para as APIs REST do Azure. Eles funcionam de forma idêntica no Windows, Mac e Linux.  Você também pode usar essas bibliotecas cliente de sua máquina de desenvolvimento local ou em uma VM do Linux em execução no Azure.
 
-Para o cenário da VM, basta iniciar uma VM com Linux de sua escolha (Ubuntu, CentOS, Suse) e executar/gerenciar os itens desejados.  Por exemplo, você pode executar [IPython][IPython] REPL/notebook no seu computador com Windows/Mac/Linux e apontar o navegador para uma VM com Linux ou Windows de proc múltiplo que esteja executando o IPython Engine no Azure. Consulte o tutorial [IPython Notebook no Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações.
+Para o cenário da VM, basta iniciar uma VM com Linux de sua escolha (Ubuntu, CentOS, Suse) e executar/gerenciar os itens desejados.  Por exemplo, você pode executar [IPython][IPython] REPL/notebook no seu computador com Windows/Mac/Linux e apontar o navegador para uma VM com Linux ou Windows de proc múltiplo que esteja executando o IPython Engine no Azure.
 
 Para obter informações sobre como configurar uma VM do Linux, consulte o tutorial [Criar uma Máquina Virtual Executando o Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -131,7 +130,6 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 * [NumPy – uma biblioteca de numéricos para o Python][NumPy - A numerics library for Python]
 * [Projeto Django – uma estrutura da Web/CMS sólida][Django Project - A mature web framework/CMS]
 * [IPython – um REPL/Notebook avançado para o Python][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook no Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ferramentas Python para Visual Studio no GitHub][Python Tools for Visual Studio on GitHub]
 * [Centro de desenvolvedores do Python](/develop/python/)
 
