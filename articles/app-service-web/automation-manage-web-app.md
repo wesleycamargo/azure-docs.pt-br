@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: magoedte;csand
-translationtype: Human Translation
+ms.author: magoedte
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
 ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>Gerenciando o Aplicativo Web do Azure usando a Automação do Azure
@@ -41,10 +42,5 @@ Aqui estão alguns exemplos de Serviços de Aplicativos com a automação de ger
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Aplicativo Web do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
 * Confira o [Guia de introdução](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

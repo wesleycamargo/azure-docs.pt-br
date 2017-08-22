@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introdução ao Azure Cosmos DB: API do DocumentDB
@@ -39,7 +39,7 @@ O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por me
 * **Replicação de várias regiões:** o Azure Cosmos DB replica de forma transparente os seus dados para todas as regiões associadas à sua conta, permitindo que você desenvolva aplicativos que exigem acesso global aos dados e fornecendo compensações entre consistência, disponibilidade e desempenho, tudo isso com garantias correspondentes. O Azure Cosmos DB fornece failover regional transparente com APIs de hospedagem múltipla, e capacidade de dimensionar de forma elástica a taxa de transferência e o armazenamento em todo o mundo. Saiba mais em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 * **Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos e consulte-os com uma sintaxe SQL familiar. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada por log, sem bloqueio e altamente simultânea para indexar automaticamente todo o conteúdo do documento. Isso habilita consultas avançadas em tempo real sem a necessidade de especificar dicas de esquema, índices secundários ou exibições. Saiba mais em [Consulta do Azure Cosmos DB](documentdb-sql-query.md). 
-* **Execução de JavaScript dentro do banco de dados:** expresse a lógica do aplicativo como procedimentos armazenados, gatilhos e UDFs usando JavaScript padrão. Isso permite que a lógica do aplicativo opere em dados sem se preocupar com incompatibilidade entre o aplicativo e o esquema do banco de dados. A API do DocumentDB oferece execução transacional completa da lógica do aplicativo em JavaScript diretamente dentro do mecanismo do banco de dados. A profunda integração do JavaScript habilita a execução das operações INSERT, REPLACE, DELETE e SELECT por meio de um programa JavaScript como uma transação isolada. Saiba mais em [Programação no lado servidor do Banco de Dados de Documentos](programming.md).
+* **Execução de JavaScript dentro do banco de dados:** expresse a lógica do aplicativo como procedimentos armazenados, gatilhos e UDFs usando JavaScript padrão. Isso permite que a lógica do aplicativo opere em dados sem se preocupar com incompatibilidade entre o aplicativo e o esquema do banco de dados. A API do DocumentDB oferece execução transacional completa da lógica do aplicativo em JavaScript diretamente dentro do mecanismo do banco de dados. A profunda integração do JavaScript habilita a execução das operações INSERT, REPLACE, DELETE e SELECT por meio de um programa JavaScript como uma transação isolada. Saiba mais em [Programação no lado servidor do DocumentDB](programming.md).
 
 * **Níveis de consistência ajustáveis:** escolha entre cinco níveis de consistência bem-definidos para chegar ao equilíbrio ideal entre consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).
 
@@ -50,7 +50,7 @@ O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por me
 * **Indexação automática:** por padrão, o Azure Cosmos DB indexa automaticamente todos os documentos no banco de dados e não espera nem exige qualquer esquema ou criação de índices secundários. Não deseja indexar tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](indexing-policies.md) .
 
 ## <a name="data-management"></a>Como gerenciar dados com a API do DocumentDB?
-A API do DocumentDB gerencia dados JSON por meio de recursos de banco de dados bem-definidos. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. A API do DocumentDB oferece um modelo de programação RESTful baseado em HTTP simples para todos os recursos. 
+A API do DocumentDB ajuda a gerenciar os dados JSON por meio de recursos do banco de dados bem-definidos. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. A API do DocumentDB oferece um modelo de programação RESTful baseado em HTTP simples para todos os recursos. 
 
 
 A conta de banco de dados do Azure Cosmos DB é um namespace exclusivo que fornece acesso ao Azure Cosmos DB. Antes de criar uma conta de banco de dados, você deve ter uma assinatura do Azure, que dá acesso a uma variedade de serviços do Azure. 
@@ -86,7 +86,7 @@ Com o [Emulador do Azure Cosmos DB](local-emulator.md), você pode desenvolver e
 Além das operações básicas de criação, leitura, atualização e exclusão, a API do DocumentDB fornece uma interface de consulta SQL avançada para recuperar documentos JSON e suporte do servidor para a execução transacional da lógica do aplicativo JavaScript. As interfaces de execução de script e consulta estão disponíveis em todas as bibliotecas da plataforma, bem como as APIs REST. 
 
 ### <a name="sql-query"></a>Consulta SQL
-A API do DocumentDB dá suporte à consulta de documentos usando uma linguagem SQL baseada no sistema do tipo JavaScript e em expressões com suporte a consultas relacionais, hierárquicas e espaciais. A linguagem de consulta do Banco de Dados de Documentos é uma interface simples, mas poderosa para consultar documentos JSON. A linguagem suporta um subconjunto da gramática ANSI SQL e adiciona profunda integração do objeto JavaScript, matrizes, construção de objetos e invocação de funções. A PI do DocumentDB fornece seu modelo de consulta sem nenhum esquema explícito ou dicas de indexação do desenvolvedor.
+A API do DocumentDB dá suporte à consulta de documentos usando uma linguagem SQL baseada no sistema do tipo JavaScript e em expressões com suporte a consultas relacionais, hierárquicas e espaciais. A linguagem de consulta do DocumentDB é uma interface simples, mas poderosa para consultar documentos JSON. A linguagem suporta um subconjunto da gramática ANSI SQL e adiciona profunda integração do objeto JavaScript, matrizes, construção de objetos e invocação de funções. A PI do DocumentDB fornece seu modelo de consulta sem nenhum esquema explícito ou dicas de indexação do desenvolvedor.
 
 As Funções definidas (UDFs) de usuário podem ser registradas com a API do DocumentDB e referenciadas como parte de uma consulta SQL, estendendo a gramática para dar suporte à lógica personalizada do aplicativo. Essas UDFs são gravadas como programas JavaScript e executadas no banco de dados. 
 

@@ -37,8 +37,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
    > [!NOTE]
    > O URI de redirecionamento é a URL do seu aplicativo acrescentada com o caminho */.auth/login/microsoftaccount/callback*. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Certifique-se de que você está usando o esquema HTTPS.
-   > 
-   > 
+   
 7. Em "Segredos do Aplicativo", clique em **Gerar nova senha**. Anote o valor que aparece. Depois que você sair da página, ela não será exibida novamente.
 
     > [!IMPORTANT]

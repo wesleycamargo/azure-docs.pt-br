@@ -7,8 +7,8 @@ Um novo back-end da API Web ASP.NET será criado nas seções a seguir e terá t
 
 As etapas a seguir mostram como criar o novo back-end da API Web ASP.NET: 
 
-> [!NOTE]
-> **Importante**: se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, instale a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** para sua versão do Visual Studio, e verifique se versão mais recente está instalada. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
+> [!IMPORTANT]
+> Se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, instale a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** para sua versão do Visual Studio, e verifique se versão mais recente está instalada. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
 > 
 > ![][B4]
 > 

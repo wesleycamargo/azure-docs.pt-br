@@ -1,6 +1,6 @@
 ---
-title: "Relatório de segurança de usuários em risco no portal do Azure Active Directory | Microsoft Docs"
-description: "Saiba mais sobre o relatório de segurança de usuários em risco no portal do Azure Active Directory"
+title: "Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory | Microsoft Docs"
+description: "Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,27 +10,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Relatório de segurança de usuários em risco no portal do Azure Active Directory
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 
-Com os relatórios de segurança no Azure Active Directory (Azure AD) você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
+Com os relatórios de segurança no Azure Active Directory (Azure AD), você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
 
-O Azure Active Directory detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado *evento de risco* é criado. Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+O Azure Active Directory detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado *evento de risco* é criado. Para saber mais, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Os eventos de risco detectados são usados para calcular:
 
-- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja [Entradas arriscadas](active-directory-identityprotection.md#risky-sign-ins). 
+- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais informações, consulte [Entradas de risco](active-directory-identityprotection.md#risky-sign-ins). 
 
-- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, veja [Usuários sinalizados para riscos](active-directory-identityprotection.md#users-flagged-for-risk).  
+- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais informações, consulte [Usuários sinalizados para risco](active-directory-identityprotection.md#users-flagged-for-risk).  
 
 Você pode encontrar os relatórios de segurança no Portal do Azure na folha **Azure Active Directory** na seção **Segurança**.  
 
@@ -47,13 +47,13 @@ No entanto, o nível de granularidade do relatório varia entre as edições:
 
 - A edição do **Azure Active Directory Premium 1** estende esse modelo, também permitindo que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
 
-- A edição do **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre os eventos de risco subjacentes e também permite configurar políticas de segurança que atendem automaticamente a níveis de risco configurados.
+- A edição do **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todos os eventos de risco subjacentes e permite configurar políticas de segurança que atendem automaticamente aos níveis de risco configurados.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
 
-O relatório de segurança de usuários em risco nas edições gratuita e básica do Azure Active Directory fornece uma lista de contas de usuário que podem ter sido comprometidas. 
+Os usuários sinalizados para relatório de risco nas edições gratuita e básica do Azure Active Directory fornece uma lista de contas de usuário que podem ter sido comprometidas. 
 
 
 ![Entradas de risco](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -65,7 +65,7 @@ Você pode examinar o histórico de entradas dos usuários em risco e redefinir 
 
 ## <a name="azure-active-directory-premium-editions"></a>Edições premium do Azure Active Directory
 
-O relatório de usuários em risco nas edições premium do Azure Active Directory oferece:
+Os usuários sinalizados para o relatório de risco nas edições premium do Azure Active Directory fornecem:
 
 - Uma [lista de contas de usuário](active-directory-identityprotection.md#users-flagged-for-risk) que podem ter sido comprometidas 
 
@@ -92,8 +92,7 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 ![Entradas de risco](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Para investigar um evento de risco, selecione um na lista.  
-Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes**, você tem a opção de [fechar manualmente um evento de risco](active-directory-identityprotection.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
+Para investigar um evento de risco, selecione um na lista para abrir a folha **Detalhes** para esse evento de risco. Na folha **Detalhes**, você tem a opção de [fechar manualmente um evento de risco](active-directory-identityprotection.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
 
 
 ![Entradas de risco](./media/active-directory-reporting-security-user-at-risk/325.png)
