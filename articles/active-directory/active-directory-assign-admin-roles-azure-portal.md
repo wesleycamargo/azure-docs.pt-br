@@ -1,6 +1,6 @@
 ---
 title: "Atribuindo funções de administrador no Azure Active Directory | Microsoft Docs"
-description: "Explica quais funções de administrador estão disponíveis com o Active Directory do Azure e como atribuí-las."
+description: "Uma função de administrador pode criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios. Um usuário que tem uma função de administrador atribuída tem as mesmas permissões em todos os serviços de nuvem ao quais sua organização tenha assinado."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
+ms.reviewer: Vince.Smith
+ms.custom: it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 633e34ec3cdc9cf881978bf513294ea2365145dd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory

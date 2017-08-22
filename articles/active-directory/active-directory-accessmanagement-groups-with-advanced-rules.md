@@ -1,5 +1,5 @@
 ---
-title: "Preencher grupos dinamicamente com base nos atributos de usuário no Azure Active Directory | Microsoft Docs"
+title: Popular grupos dinamicamente com base em atributos de objeto no Azure Active Directory | Microsoft Docs
 description: "Instruções para criar regras avançadas para associação de grupo, incluindo parâmetros e operadores de regra de expressões com suporte."
 services: active-directory
 documentationcenter: 
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
+ms.reviewer: rodejo
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Preencher grupos dinamicamente com base em atributos de usuário 
+
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Popular grupos dinamicamente com base em atributos de objeto
 O portal clássico do Azure possibilita habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure AD (Azure Active Directory).  
 
-Quando os atributos de um usuário são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração do atributo do usuário dispararia adições ou remoções de grupo. Se um usuário atender a uma regra em um grupo, ele será adicionado como membro a esse grupo. Se ele não satisfizer mais à regra de um grupo do qual é membro, será removido do grupo.
+Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos.
 
 > [!NOTE]
-> Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. 
+> - Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
 >
-> As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
+> - Este recurso exige uma licença Azure AD Premium P1 para cada membro de usuário adicionado a pelo menos um grupo dinâmico.
 >
-> * O administrador que gerencia a regra em um grupo
-> * Todos os membros do grupo
->
-> Embora possa criar um grupo dinâmico para dispositivos ou usuários, você não pode criar uma regra que seleciona os objetos de usuário e dispositivo. 
+> - Você pode criar um grupo dinâmico para usuários ou dispositivos, mas não pode criar uma regra que contenha objetos de usuário e de dispositivo.
 
-## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
+> - Nesse momento não é possível criar um grupo de dispositivos com base em atributos do usuário proprietário. As regras de associação de dispositivo só podem fazer referência a atributos imediatos dos objetos de dispositivo no diretório.
+
+## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
 1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
 2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
 3. Selecione a guia **Configurar**, selecione a opção **Regra avançada** e, em seguida, digite a regra avançada na caixa de texto.
@@ -56,6 +56,7 @@ A seguir é exemplos de uma regra avançada construída de maneira adequada:
 * (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Para a lista completa de parâmetros com suporte e operadores de regra de expressão, consulte as seções a seguir.
+
 
 Observe que a propriedade deve ser prefixada com o tipo de objeto correto: usuário ou dispositivo.
 A regra a seguir falhará na validação: mail –ne null
@@ -86,10 +87,12 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 | Contém: |-contains |
 | Não corresponde |-notMatch |
 | Corresponde |-match |
+| Nesse | -in |
+| Não está em | -notIn |
 
 ## <a name="operator-precedence"></a>Precedência do operador
 
-Todos os operadores são listados abaixo da menor precedência para a maior, os operadores na mesma linha têm a mesma precedência. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+Todos os operadores estão listados abaixo da menor precedência para a maior; os operadores na mesma linha têm a mesma precedência. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 
 Todos os operadores podem ser usados com ou sem o prefixo de hífen.
 
@@ -101,13 +104,21 @@ Observe que os parênteses nem sempre serão necessários, você só precisará 
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
+## <a name="using-the--in-and--notin-operators"></a>Usando os operadores -In e -notIn
+
+Se quiser comparar o valor de um atributo de usuário com um número de valores diferentes, você pode usar os operadores -In ou -notIn. Veja um exemplo de uso do operador -In:
+
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Observe o uso de "[" e "]" no início e no final da lista de valores. Essa condição é avaliada como verdadeira se o valor de user.department for igual a um dos valores na lista.
+
 ## <a name="query-error-remediation"></a>Correção do erro de consulta
 A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorrerem
 
 | Erro de análise de consulta | Erros de uso | Uso corrigido |
 | --- | --- | --- |
 | Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/>deve corresponder a uma na [lista de propriedades com suporte](#supported-properties). |
-| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
+| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booliano da lista acima. |
 | Erro: Erro de compilação de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>O operador lógico deve corresponder a uma das propriedades com suporte listadas acima. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error na expressão regular. |
 | Erro: Expressão binária não está no formato correto. |user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
@@ -115,7 +126,7 @@ A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorre
 ## <a name="supported-properties"></a>Propriedades com suporte
 Estas são todas as propriedades do usuário que você pode usar na regra avançada:
 
-### <a name="properties-of-type-boolean"></a>Propriedades de tipo booleano
+### <a name="properties-of-type-boolean"></a>Propriedades de tipo booliano
 Operadores permitidos
 
 * -eq
@@ -123,8 +134,8 @@ Operadores permitidos
 
 | Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| accountEnabled |verdadeiro, falso |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |verdadeiro, falso |user.accountEnabled -eq true |
+| dirSyncEnabled |verdadeiro, falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia de caracteres
 Operadores permitidos
@@ -137,11 +148,14 @@ Operadores permitidos
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou $null |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou $null |(user.country -eq "valor") |
+| companyName | Qualquer valor de cadeia de caracteres ou $null | (user.companyName -eq "value") |
 | department |Qualquer valor de cadeia de caracteres ou $null |(user.department -eq "value") A propriedade  |
 | displayName |Um valor de cadeia de caracteres. |(user. DisplayName -eq "valor") |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou $null |user.facsimileTelephoneNumber -eq ("valor") |
@@ -151,6 +165,7 @@ Operadores permitidos
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou $null |(user.mobile -eq "valor") |
 | ID do objeto |GUID do objeto de usuário |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou $null |(user.physicalDeliveryOfficeName -eq "valor") |
 | postalCode |Qualquer valor de cadeia de caracteres ou $null |(user.postalCode - eq "valor") |
@@ -170,10 +185,38 @@ Operadores permitidos
 * -contains
 * -notContains
 
-| Properties | Valores permitidos | Uso |
+| Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+
+## <a name="multi-value-properties"></a>Propriedades de vários valores
+Operadores permitidos
+
+* -any (satisfeita quando pelo menos um item na coleção corresponde à condição)
+* -all (satisfeita quando todos os itens na coleção correspondem à condição)
+
+| Propriedades | Valores | Uso |
+| --- | --- | --- |
+| assignedPlans |Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+As propriedades de vários valores são coleções de objetos do mesmo tipo. Você pode usar os operadores -any e -all para aplicar uma condição a um ou todos os itens na coleção, respectivamente. Por exemplo:
+
+assignedPlans é uma propriedade de valores múltiplos que lista todos os planos de serviço atribuídos ao usuário. A expressão abaixo selecionará os usuários que tenham o plano do serviço Exchange Online (Plano 2) e que também estejam no estado Habilitado:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(O identificador GUID identifica o plano de serviço Exchange Online (Plano 2)).
+
+> [!NOTE]
+> Isso é útil se você deseja identificar todos os usuários para os quais uma funcionalidade do Office 365 (ou outro serviço da Microsoft Online) tenha sido habilitada, por exemplo, para direcioná-los com um determinado conjunto de políticas.
+
+A expressão a seguir selecionará todos os usuários com qualquer plano de serviço que esteja associado com o serviço do Intune (identificado pelo nome do serviço "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
@@ -184,62 +227,59 @@ Para especificar um valor nulo em uma regra, você pode usar "null" ou $null. Ex
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados
 Os atributos de extensão e os atributos personalizados têm suporte das regras de associação dinâmica.
 
-Os atributos de extensão são sincronizados a partir do AD do Windows Server local e têm o formato "ExtensionAttributeX", onde X é igual a 1 a 15.
+Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15.
 Um exemplo de uma regra que usa um atributo de extensão:
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Os Atributos Personalizados são sincronizados do Windows Server AD local ou de um aplicativo SaaS conectado e têm formato "user.extension[GUID]\__[Atributo]", onde [GUID] é o identificador exclusivo no AAD para o aplicativo que criou o atributo no AAD e [Atributo] é o nome do atributo como ele foi criado.
+Os Atributos Personalizados são sincronizados do AD do Windows Server local ou de um aplicativo SaaS conectado e têm formato "user.extension[GUID]\__[Atributo]", em que [GUID] é o identificador exclusivo no AAD para o aplicativo que criou o atributo no AAD e [Atributo] é o nome do atributo como ele foi criado.
 Um exemplo de uma regra que usa um atributo personalizado:
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
 O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
 
-## <a name="support-for-multi-value-properties"></a>Suporte para propriedades com vários valores
+## <a name="direct-reports-rule"></a>Regra de "subordinados diretos"
+Você pode criar um grupo contendo todos os subordinados diretos de um gerente. Quando os subordinados diretos do gerente forem alterados no futuro, a associação do grupo será ajustada automaticamente.
 
-Para incluir uma propriedade com vários valores em uma regra, use o operador "-any", como em
+> [!NOTE]
+> 1. Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em seu locatário. Você pode verificar o valor atual de um usuário na respectiva **guia Perfil**.
+> 2. Essa regra só dá suporte a subordinados **diretos**. No momento não é possível criar um grupo para uma hierarquia aninhada, por exemplo, um grupo que inclua os subordinados diretos e os subordinados deles.
 
-  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+**Para configurar o grupo**
 
-## <a name="direct-reports-rule"></a>Regra de relatórios diretos
-Você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
+1. Siga as etapas de 1 a 5 da seção [Para criar a regra avançada](#to-create-the-advanced-rule) e selecione o **Tipo de associação** como **Usuário Dinâmico**.
+2. Na folha **Regras de associação dinâmica** , insira a regra com a seguinte sintaxe:
 
-**Para configurar um grupo como "Gerenciador"**
+    *Subordinados diretos para "{obectID_of_manager}"*
 
-1. No portal clássico do Azure, clique em **Active Directory**e no nome do diretório de sua organização.
-2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
-3. Selecione a guia **Configurar** e selecione **REGRA AVANÇADA**.
-4. Digite a regra com a seguinte sintaxe:
-
-    Relatórios diretos para *Relatórios diretos para {obectID_of_manager}*. Um exemplo de regra válida para Funcionários Subordinados:
-
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    onde “62e19b97-8b3d-4d4a-a106-4ce66896a863” é a objectID do gerente. A ID de objeto pode ser encontrada no Azure AD na **guia Perfil** da página de usuário para o usuário que for o gerente.
-5. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Pode levar alguns minutos para o preenchimento inicial do grupo.
+    Um exemplo de uma regra válida:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. Depois de salvar a regra, todos os usuários com o valor da ID do Gerenciador especificada serão adicionados ao grupo.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Usando atributos para criar regras para objetos de dispositivo
 Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Os seguintes atributos de dispositivo podem ser usados:
 
-| Propriedades | Valores permitidos | Uso |
-| --- | --- | --- |
-| displayName |Um valor de cadeia de caracteres. |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Um valor de cadeia de caracteres. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Um valor de cadeia de caracteres. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq true) |
-| isManaged |true false null |(device.isManaged -eq false) |
-| isCompliant |true false null |(device.isCompliant -eq true) |
-| deviceCategory |Um valor de cadeia de caracteres. |(device.deviceCategory -eq "") |
-| deviceManufacturer |Um valor de cadeia de caracteres. |(device.deviceManufacturer -eq "Microsoft") |
-| deviceModel |Um valor de cadeia de caracteres. |(device.deviceModel -eq "IPhone 7+") |
-| deviceOwnership |Um valor de cadeia de caracteres. |(device.deviceOwnership -eq "") |
-| domainName |Um valor de cadeia de caracteres. |(device.domainName -eq "contoso.com") |
-| enrollmentProfileName |Um valor de cadeia de caracteres. |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.isRooted -eq true) |
-| managementType |Um valor de cadeia de caracteres. |(device.managementType -eq "") |
-| organizationalUnit |Um valor de cadeia de caracteres. |(device.organizationalUnit -eq "") |
-| deviceId |um deviceId válido |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| Propriedades              | Valores permitidos                  | Uso                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | verdadeiro, falso                      | (device.accountEnabled -eq true)                            |
+| displayName             | Um valor de cadeia de caracteres.                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Um valor de cadeia de caracteres.                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Um valor de cadeia de caracteres.                | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | Um valor de cadeia de caracteres.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Um valor de cadeia de caracteres.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Um valor de cadeia de caracteres.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Um valor de cadeia de caracteres.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Um valor de cadeia de caracteres.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Um valor de cadeia de caracteres.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | verdadeiro, falso                      | (device.deviceOSType -eq true)                              |
+| managementType          | Um valor de cadeia de caracteres.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Um valor de cadeia de caracteres.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | um deviceId válido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| ID do objeto                | um objectId válido do AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.

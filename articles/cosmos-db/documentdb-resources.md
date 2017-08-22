@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 18a2f6fba707ad920df96117f1c5fb4c8cf9142a
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8051742c7c368d1ed84bcd90ab75b20f62105e2f
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modelo de recurso hierárquico e principais conceitos do Azure Cosmos DB
@@ -39,7 +38,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 Como o diagrama a seguir ilustra, o **modelo de recurso** hierárquico do Cosmos DB é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed** . 
 
 > [!NOTE]
-> Cosmos DB oferece um protocolo TCP altamente eficiente, que também é RESTful no seu modelo de comunicação, disponíveis por meio de [API do cliente .NET DocumentDB](documentdb-sdk-dotnet.md).
+> O Azure Cosmos DB oferece um protocolo TCP altamente eficiente, que também é RESTful no seu modelo de comunicação, disponível por meio da [API do cliente .NET do DocumentDB](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -194,7 +193,7 @@ A política de indexação de cada coleção permite realizar compromissos de de
 A política de indexação pode ser alterada executando-se um PUT na coleção. Isso pode ser obtido por meio do [SDK de cliente](documentdb-sdk-dotnet.md), do [Portal do Azure](https://portal.azure.com) ou de [APIs REST](/rest/api/documentdb/).
 
 ### <a name="querying-a-collection"></a>Consultando uma coleção
-Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL da API do DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), que fornece operadores hierárquicos, relacionais e espaciais avançados, bem como extensibilidade por meio de UDFs baseadas em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado pelas técnicas de indexação automática da API do DocumentDB, bem como pelo dialeto SQL da API do DocumentDB. A linguagem de consulta da API do DocumentDB é formada por três aspectos principais:   
+Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [API DocumentDB do Azure Cosmos DB: referência de sintaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), que fornece operadores hierárquicos, relacionais e espaciais avançados, bem como extensibilidade por meio de UDFs baseadas em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado pelas técnicas de indexação automática da API do DocumentDB, bem como pelo dialeto SQL da API do DocumentDB. A linguagem de consulta da API do DocumentDB é formada por três aspectos principais:   
 
 1. Um pequeno conjunto de operações de consulta que é mapeado naturalmente para a estrutura de árvore, incluindo projeções e consultas hierárquicas. 
 2. Um subconjunto de operações relacionais, incluindo composição, filtragem, projeções, agregados e junções automáticas. 

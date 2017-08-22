@@ -1,5 +1,4 @@
 ---
-
 title: Usar o PowerShell para gerenciar backups do Windows Server no Azure | Microsoft Docs
 description: Implantar e gerenciar backups do Windows Server usando o PowerShell.
 services: backup
@@ -13,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
@@ -33,8 +31,8 @@ ms.lasthandoff: 06/16/2017
 Este artigo explica como usar o PowerShell para fazer backup dos dados do Windows Server ou da estação de trabalho do Windows em um cofre de backup. A Microsoft recomenda usar cofres dos Serviços de Recuperação para todas as novas implantações. Se você for um novo usuário do Backup do Azure e não tiver criado um cofre de backup na sua assinatura, use o artigo [Implantar e gerenciar dados do Data Protection Manager para o Azure usando o PowerShell](backup-client-automation.md), de modo que você armazene seus dados em um cofre dos Serviços de Recuperação. 
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
->- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 

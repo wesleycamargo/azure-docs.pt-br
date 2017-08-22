@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 88ed466053efd62370afd31f68c9617e79936267
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-redis-cache-faq"></a>Perguntas frequentes sobre Cache Redis do Azure
@@ -130,8 +129,8 @@ A tabela a seguir mostra os valores de largura de banda máxima observados duran
 
 Podemos tirar as seguintes conclusões desta tabela:
 
-* A taxa de transferência para os caches são do mesmo tamanho é superior na camada Premium em comparação com a camada Standard. Por exemplo, com um Cache de 6 GB, a taxa de transferência de P1 será 140 mil RPS, em comparação com 49 mil para C3.
-* Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 250 mil *10 = 2,5 milhões de RPS.
+* A taxa de transferência para os caches são do mesmo tamanho é superior na camada Premium em comparação com a camada Standard. Por exemplo, com um Cache de 6 GB, a taxa de transferência de P1 será 180 mil RPS, em comparação com 49 mil para C3.
+* Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 400.000 * 10 = 4 milhões de RPS.
 * A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
 | Camada de preços | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB |
@@ -142,13 +141,13 @@ Podemos tirar as seguintes conclusões desta tabela:
 | C2 |2,5 GB |2 |200 / 25 |24.000 |
 | C3 |6 GB |4 |400 / 50 |49.000 |
 | C4 |13 GB |2 |500 / 62,5 |61.000 |
-| C5 |26 GB |4 |1000 / 125 |115.000 |
-| C6 |53 GB |8 |2000 / 250 |150.000 |
-| **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | |**RPS (solicitações por segundo) por fragmento** |
-| P1 |6 GB |2 |1000 / 125 |140.000 |
-| P2 |13 GB |4 |2000 / 250 |220.000 |
-| P3 |26 GB |4 |2000 / 250 |220.000 |
-| P4 |53 GB |8 |4000 / 500 |250.000 |
+| C5 |26 GB |4 |1.000 / 125 |115.000 |
+| C6 |53 GB |8 |2.000 / 250 |150.000 |
+| **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) por fragmento** |
+| P1 |6 GB |2 |1.500 / 187.5 |180,000 |
+| P2 |13 GB |4 |3.000 / 375 |360,000 |
+| P3 |26 GB |4 |3.000 / 375 |360,000 |
+| P4 |53 GB |8 |6.000 / 750 |400.000 |
 
 Para obter instruções sobre como baixar as ferramentas do Redis como `redis-benchmark.exe`, consulte a seção [Como posso executar comandos do Redis?](#cache-commands)
 

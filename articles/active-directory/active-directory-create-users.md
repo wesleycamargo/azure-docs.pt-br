@@ -11,20 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/26/2017
-ms.author: curtand;jeffsta
-ms.reviewer: asteen
-ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
 Adicione usuários para preencher seu diretório. Este artigo explica como adicionar novos usuários na sua organização e como adicionar usuários que tenham contas da Microsoft. Para saber mais sobre como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras, veja [Adicionar usuários de outros diretórios ou de empresas parceiras ao Azure Active Directory](active-directory-create-users-external.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. Para saber como adicionar um usuário no Centro de administração do Azure AD, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) com uma conta que seja um administrador global para o diretório.
@@ -35,13 +39,13 @@ Adicione usuários para preencher seu diretório. Este artigo explica como adici
    * **Novo usuário em sua organização** – adiciona uma nova conta de usuário a seu diretório.
    * **Usuário com uma conta da Microsoft existente** – adiciona uma conta de consumidor da Microsoft existente a seu diretório (por exemplo, uma conta do Outlook)
 5. Dependendo da **Tipo de usuário**, insira um nome de usuário (para o novo usuário) ou um endereço de email (para um usuário com uma conta da Microsoft).
-6. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e uma função de usuário da lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar Multi-Factor Authentication** para o usuário.
+6. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e uma função de usuário da lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar Autenticação Multifator** para o usuário.
 7. Na página **Obter senha temporária**, selecione **Criar**.
 
 > [!IMPORTANT]
 > Se sua organização usa mais de um domínio, você deve saber sobre os seguintes problemas ao adicionar uma conta de usuário:
 >
-> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
+> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com **seguido de** geoffgrisso@contoso.com.
 > * **Não** adicione geoffgrisso@contoso.com antes de adicionar geoffgrisso@contoso.onmicrosoft.com. Essa ordem é extremamente importante e pode ser inconveniente para desfazer.
 >
 >

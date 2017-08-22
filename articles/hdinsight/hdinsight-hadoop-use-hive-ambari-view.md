@@ -1,5 +1,5 @@
 ---
-title: "Usar os Modos de Exibição do Ambari para trabalhar com o Hive no HDInsight (Hadoop) | Microsoft Docs"
+title: "Usar os Modos de Exibição do Ambari para trabalhar com o Hive no HDInsight (Hadoop) – Azure | Microsoft Docs"
 description: "Saiba como usar o Modo de Exibição do Hive em seu navegador da Web para enviar consultas do Hive. O Modo de exibição do Hive faz parte da Interface de Usuário da Web do Ambari fornecida com o cluster HDInsight baseado em Linux."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/05/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 8789643474ac84d4509cd25206091e49925c9dcd
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Use o Modo de Exibição do Hive com o Hadoop no HDInsight.
@@ -38,38 +37,30 @@ Aprenda a executar consultas do Hive usando a Exibição do Hive do Ambari. O Am
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um cluster, confira [Introdução ao HDInsight baseado no Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="open-the-hive-view"></a>Abrir o modo de exibição Hive
 
 Você pode abrir os Modos de exibição do Ambari do portal do Azure; selecione seu cluster HDInsight e escolha **Modos de exibição do Ambari** na seção **Links Rápidos**.
 
-![seção links rápidos](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![seção de links rápidos do portal](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-Você também pode navegar diretamente para o Ambari indo para https://NOMEDOCLUSTER.azurehdinsight.net em um navegador da web. Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight. Para listar os modos de exibição disponíveis, selecione o conjunto de quadrados no menu. Para abrir o modo de exibição, selecione a entrada **Exibição do Hive**.
+Na lista de exibições, selecione __Exibição de Hive__.
 
-![Escolhendo modos de exibição do Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png).
+![A exibição de Hive selecionada](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
 > Ao acessar o Ambari, você receberá uma solicitação para se autenticar no site. Insira o nome da conta e senha de administrador (o padrão é `admin`) que você usou ao criar o cluster.
 
 Você deverá ver uma página semelhante à seguinte imagem:
 
-![Imagem da página de modo de exibição do Hive, que contém uma seção de editor de consultas](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+![Imagem da planilha de consulta para a exibição de Hive](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="view-tables"></a>Exibir tabelas
-
-Na seção **Gerenciador de Banco de Dados** da página, escolha a entrada **padrão** na guia **Bancos de Dados**. Uma lista de tabelas no banco de dados padrão é exibida. O HDInsight inclui uma tabela chamada **hivesampletable**.
-
-![gerenciador de banco de dados com o banco de dados padrão expandido](./media/hdinsight-hadoop-use-hive-ambari-view/database-explorer.png)
-
-À medida que as tabelas forem adicionadas durante as etapas deste documento, você poderá usar o ícone de atualização no canto superior direito do Gerenciador de Banco de Dados para atualizar a lista.
-
-## <a name="hivequery"></a>Editor de consultas
+## <a name="hivequery"></a>Executar uma consulta
 
 Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive.
 
-1. Na seção **Editor de Consultas** da página, cole as seguintes instruções HiveQL na planilha:
+1. Da guia __Consulta__, cole as seguintes instruções HiveQL na planilha:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -95,12 +86,12 @@ Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive
      > [!NOTE]
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de carregamento de dados automatizados ou por outra operação MapReduce. Remover uma tabela externa *não* exclui os dados, somente a definição de tabela.
 
-2. Para iniciar a consulta, use o botão **Executar** na parte inferior do Editor de Consultas. Ele fica laranja e o texto é alterado para **Parar execução**. Uma seção **Resultados do Processo de Consulta** deve aparecer abaixo do Editor de Consultas e exibir informações sobre o trabalho.
+    > [!IMPORTANT]
+    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
 
-   > [!IMPORTANT]
-   > Alguns navegadores podem não atualizar corretamente o log ou as informações dos resultados. Se você executar um trabalho e parecer que ele não cessa a execução sem atualizar o log ou retornar resultados, em vez disso, experimente usar o Mozilla FireFox ou o Google Chrome.
+2. Para iniciar a consulta, use o botão **Executar** abaixo da planilha. Ele fica laranja e o texto é alterado para **Parar**.
 
-3. Depois que a consulta for concluída, a seção **Resultados do Processo de Consulta** exibirá os resultados da operação. O botão **Parar execução** também muda para um botão **Executar** verde quando a consulta é concluída. A guia **Resultados** deve conter as seguintes informações:
+3. Depois que a consulta for concluída, a seção **Resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
 
         sev       cnt
         [ERROR]   3
@@ -129,78 +120,46 @@ Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive
 
      Use o botão **Executar** para executar essa consulta. A guia **Resultados** não contém nenhuma informação quando a consulta retorna zero linhas. O status deve mostrar **SUCCEEDED** após a conclusão da consulta.
 
-### <a name="hive-settings"></a>Configurações do Hive
-
-Escolha o ícone **Configurações** à direita do editor.
-
-![Ícone Configurações da exibição do hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-settings-icon.png)
-
-A opção Configurações pode ser usada para alterar várias configurações de Hive. Por exemplo, alterar o mecanismo de execução para o Hive de Tez (o padrão) para MapReduce.
-
-### <a name="visualization"></a>Visualização
-
-Escolha o ícone __Visualização__ à direita do editor.
-
-![Ícone Visualização da exibição do hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization-icon.png)
-
-É na interface de visualização que se pode criar visualizações dos dados retornados da consulta. A imagem a seguir é uma visualização de exemplo usando dados do `hivesampletable` incluído com o HDInsight:
-
-![Visualização de exemplo](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
-
 ### <a name="visual-explain"></a>Explicação visual
 
-Escolha o ícone **Explicação Visual** à direita do editor.
-
-![Ícone de explicação visual para a visualização do hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visual-explain-icon.png)
+Para exibir uma visualização do plano de consulta, selecione a guia **Explicação Visual** abaixo da planilha.
 
 O modo de exibição **Explicação Visual** da consulta pode ser útil na compreensão do fluxo de consultas complexas. Você pode exibir um equivalente textual desse modo de exibição usando o botão **Explicar** no Editor de Consultas.
 
-![imagem de explicação visual](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+### <a name="tez-ui"></a>Interface de usuário do Tez
 
-### <a name="tez"></a>Tez
+Para exibir a interface do usuário do Tez para a consulta, selecione a guia **Tez** abaixo da planilha.
 
-Escolha o ícone de **Tez** à direita do editor.
-
-![Ícone do Tez para exibição do hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-tez-icon.png)
+> [!IMPORTANT]
+> O Tez não é usado para resolver todas as consultas. Muitas consultas de Hive podem ser resolvidas sem usar o Tez. 
 
 Se o Tez foi usado para resolver a consulta, o DAG (gráfico acíclico dirigido) é exibido. Se você quiser exibir o DAG de consultas executadas anteriormente ou depurar o processo do Tez, use [Modo de Exibição do Tez exibição](hdinsight-debug-ambari-tez-view.md) .
 
-### <a name="notifications"></a>Notificações
+## <a name="view-job-history"></a>Exibir histórico de trabalho
 
-Escolha o ícone de **Notificações** à direita do editor.
+A guia __Trabalhos__ exibe um histórico das consultas de Hive.
 
-![Ícone Notificações para exibição do hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-notifications-icon.png)
+![Imagem do histórico de trabalhos](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
 
-Notificações são mensagens geradas durante a execução de consultas. Por exemplo, você receberá uma notificação quando uma consulta for enviada ou quando ocorrer um erro.
+## <a name="database-tables"></a>Tabelas de banco de dados
+
+Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dados de Hive.
+
+![Imagem da guia tabelas](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
 
 ## <a name="saved-queries"></a>Consultas salvas
 
-1. No Editor de Consultas, crie uma planilha e insira a seguinte consulta:
+Na guia consulta você pode, opcionalmente, salvar consultas. Uma vez salva, você pode reutilizar a consulta por meio da guia __Consultas Salvas__.
 
-    ```hiveql
-    SELECT * from errorLogs;
-    ```
+![Imagem da guia Consultas Salvas](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
-    Execute a consulta para verificar se funciona. Os resultados são semelhantes ao exemplo a seguir:
+## <a name="user-defined-functions"></a>Funções definidas pelo usuário
 
-        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
-        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
-        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
-        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
-
-2. Clique no botão **Salvar como** na parte inferior do editor. Nomeie essa consulta como **Errorlogs** e marque **OK**. O nome da planilha é alterado para **Errorlogs**.
-
-3. Selecione a guia **Consultas Salvas** na parte superior da página Modo de Exibição do Hive. Agora, **Errorlogs** está listado como uma consulta salva. Ela permanecerá na lista até que você a remova. A seleção do nome abre a consulta no Editor de Consultas.
-
-## <a name="query-history"></a>Histórico de consultas
-
-O botão **Histórico** na parte superior da Exibição do Hive permite que você exiba consultas executadas anteriormente. Use-o agora e selecione uma das consultas executadas anteriormente. Quando você seleciona uma consulta, ela é aberta no Editor de Consultas.
-
-## <a name="user-defined-functions-udf"></a>UDF (Funções definidas pelo usuário)
-
-O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)**. As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL.
+O Hive também pode ser estendido por meio de UDFs (funções definidas pelo usuário). As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL.
 
 A guia UDF na parte superior da exibição do Hive permite que você declare e salve um conjunto de UDFs. Essas UDFs podem ser usadas com o **Editor de Consultas**.
+
+![Imagem da guia UDF](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Depois de adicionar uma UDF ao Modo de Exibição do Hive, um botão **Inserir udfs** será exibido na parte inferior do **Editor de Consultas**. Ao selecionar essa entrada, uma lista suspensa de UDFs definidas na Exibição do Hive será exibida. A seleção de uma UDF adiciona instruções HiveQL à sua consulta para habilitar a UDF.
 
@@ -227,6 +186,10 @@ Para saber mais sobre como usar UDFs com o Hive no HDInsight, consulte os seguin
 
 * [Usando o Python com o Hive e com o Pig no HDInsight](hdinsight-python.md)
 * [Como adicionar UDF personalizadas do Hive no HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+
+## <a name="hive-settings"></a>Configurações do Hive
+
+A opção Configurações pode ser usada para alterar várias configurações de Hive. Por exemplo, alterar o mecanismo de execução para o Hive de Tez (o padrão) para MapReduce.
 
 ## <a id="nextsteps"></a>Próximas etapas
 

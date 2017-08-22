@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/02/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---    
 
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm dos Serviços de Federação do Active Directory (AD FS)
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como usar o Azure AD Connect para atualizar o certificado SSL para um farm do AD FS (Serviços de Federação do Active Directory). Se o método de entrada no Azure AD Connect é definido como o AD FS, use a ferramenta Azure AD Connect para atualizar o certificado SSL para o farm do AD FS. Faça isso em todos os servidores WAP (Proxy de aplicativo da Web) e de federação em três etapas simples:
+Este artigo descreve como usar o Azure AD Connect para atualizar o certificado SSL para um farm do AD FS (Serviços de Federação do Active Directory). Você pode usar a ferramenta Azure AD Connect para atualizar facilmente o certificado SSL para o farm do AD FS, mesmo que o método selecionado de conexão do usuário não seja o AD FS.
+
+Você pode realizar toda a operação de atualização do certificado SSL para o farm do AD FS em todos os servidores de federação e de WAP (Proxy de aplicativo Web) em três etapas simples:
 
 ![Três etapas](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 

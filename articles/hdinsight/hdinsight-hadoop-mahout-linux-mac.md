@@ -1,5 +1,5 @@
 ---
-title: "Gerar recomendações usando o Mahout e o HDInsight (SSH) | Microsoft Docs"
+title: "Gerar recomendações usando o Mahout e o HDInsight (SSH) – Azure | Microsoft Docs"
 description: "Saiba como usar a biblioteca de aprendizado de máquina do Apache Mahout para gerar recomendações de vídeos com o HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d10d86fdb6ade326fb49fded9676a6106ab53aef
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight (SSH)
@@ -37,7 +36,9 @@ O Mahout é uma biblioteca de [machine learning][ml] para o Apache Hadoop. O Mah
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um, confira [Introdução ao uso do Hadoop baseado em Linux no HDInsight][getstarted].
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* Um cliente SSH. Para saber mais, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="mahout-versioning"></a>Versões do Mahout
 
@@ -168,16 +169,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Pressione **Ctrl-X**, **Y** e finalmente **Enter** para salvar os dados.
 
-4. Use o comando a seguir para tornar o arquivo executável:
+4. Execute o script Python. O comando a seguir pressupõe que você esteja no diretório em que todos os arquivos foram baixados:
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Execute o script Python. O comando a seguir pressupõe que você esteja no diretório em que todos os arquivos foram baixados:
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     Esse comando examina as recomendações geradas para o usuário ID 4.

@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
 
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados do Azure SQL usando a Análise do Azure SQL (Visualização) no Log Analytics
+# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
 ![Símbolo da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
@@ -104,19 +103,31 @@ Clique no bloco **Análise de SQL do Azure** para abrir o painel da Análise de 
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-A solução inclui consultas úteis para ajudar a analisar os dados. Se você rolar para a direita, o painel listará várias consultas comuns nas quais você poderá clicar para realizar uma [pesquisa de log](log-analytics-log-searches.md) e obter dados do Azure SQL.
+Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
 
-![consultas](./media/log-analytics-azure-sql/azure-sql-queries.png)
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-A solução inclui algumas *consultas baseadas em alerta*, conforme mostrado acima, que você pode usar para alertar sobre limites específicos de bancos de dados do Azure SQL e pools elásticos.
+
+*DTU alta no Banco de Dados SQL do Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*Alta DTU no pool elástico do Banco de Dados SQL do Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+Você pode usar essas consultas com base no alerta para alertar sobre limites específicos para o Banco de Dados SQL do Azure e pools elásticos. Para configurar um alerta para seu espaço de trabalho OMS:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Para configurar um alerta para seu espaço de trabalho
 
 1. Acesse o [portal do OMS](http://mms.microsoft.com/) e entre.
 2. Abra o espaço de trabalho que você configurou para a solução.
 3. Na página Visão geral, clique no bloco **Análise do Azure SQL (Visualização)**.
-4. Role para a direita e clique em uma consulta para começar a criar um alerta.  
-![consulta de alerta](./media/log-analytics-azure-sql/alert-query.png)
+4. Execute uma das consultas de exemplo.
 5. Na Pesquisa de Log, clique em **Alerta**.  
 ![criar alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
 6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**.  
@@ -131,6 +142,11 @@ Executando a consulta de Pesquisa de Log a seguir, você pode saber facilmente s
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
+
+>[!NOTE]
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+>
+>`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
 No exemplo a seguir, você pode ver que um pool elástico tem alto uso de quase 100% de DTU, enquanto outros têm pouca utilização. Você pode investigar mais para solucionar possíveis alterações recentes no ambiente usando os logs de atividade do Azure.
 

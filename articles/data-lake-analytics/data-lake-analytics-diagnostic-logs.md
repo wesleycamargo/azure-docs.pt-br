@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2bfd7d8a4c06b1b40a9852d21908e7c1c785b91d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -50,10 +49,10 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
      * Selecione **Transmitir para um Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use essa opção se tiver um pipeline de processamento downstream que esteja analisando logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-     * Selecione __Enviar para o Log Analytics__ para enviar os dados ao serviço Log Analytics. Use esta opção se você quiser usar o Log Analytics para coletar e analisar logs.
-   * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.  Um log de solicitação captura todas as solicitações de API e um log de auditoria registra todas as operações disparadas por essa solicitação de API.
+     * Selecione __Enviar para o Log Analytics__ para enviar os dados ao serviço Log Analytics. Use essa opção se você quiser usar o Log Analytics para coletar e analisar logs.
+   * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.  Um log de solicitação captura todas as solicitações da API. Um log de auditoria registra todas as operações disparadas pela solicitação de API.
 
-   * Para __Arquivar em uma conta de armazenamento__, especifique o número de dias para os quais os dados serão retidos.
+   * Para __Arquivar para uma conta de armazenamento__, especifique o número de dias a reter os dados.
 
    * Clique em __Salvar__.
 
@@ -75,7 +74,7 @@ Depois de habilitar as configurações de diagnóstico, retorne à folha __Logs 
     ![entradas de log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Analytics.
-   * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Analytics. Por exemplo, uma única chamada à API de upload em um log de solicitação pode resultar em várias operações do tipo "Acréscimo" no log de auditoria.
+   * Logs de auditoria são semelhantes aos Logs de solicitação, mas fornecem uma análise muito mais detalhada das operações. Por exemplo, uma única chamada à API de upload em um log de solicitação pode resultar em várias operações do tipo "Acréscimo" no log de auditoria.
 
 3. Clique no link **Download** para uma entrada de log para baixar o log.
 
@@ -87,7 +86,7 @@ Depois de habilitar as configurações de diagnóstico, retorne à folha __Logs 
 
    * O contêiner **insights-logs-audit** contém os logs de auditoria.
    * O contêiner **insights-logs-requests** contém os logs de solicitação.
-2. Dentro desses contêineres, os logs são armazenados na estrutura a seguir.
+2. Nesses contêineres, os logs são armazenados na estrutura a seguir:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -235,7 +234,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | Paralelismo |Cadeia de caracteres |O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** fornecem informações sobre uma operação e só conterão um valor se uma operação tiver sido iniciada ou concluída. Por exemplo, **SubmitTime** somente contém um valor após **operationName** ter o valor **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** fornecem informações sobre uma operação. Essas entradas contêm um valor apenas se operação tiver sido iniciada ou concluída. Por exemplo, **SubmitTime** somente contém um valor após **operationName** ter o valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Processar os dados de log
 
