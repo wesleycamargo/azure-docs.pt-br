@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,15 +33,25 @@ ms.lasthandoff: 05/04/2017
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico ou Standard). Além disso, escolha uma assinatura do Azure, o grupo de recursos e o local no qual o recurso será criado. 
-1. Clique em **Criar** para criar o namespace.
-1. Na lista de namespaces do Hubs de Eventos, clique no namespace recém-criado.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png)
-1. Na folha do namespace, clique em **Hubs de Eventos**.
-   
-    ![](./media/event-hubs-create/create-event-hub3.png)
+1. Clique em **Criar** para criar o namespace. Talvez você precise aguardar alguns minutos para o sistema provisionar totalmente os recursos.
+2. Na lista de namespaces do portal, clique no namespace recém-criado.
+2. Clique em **Políticas de acesso compartilhado** e, em seguida, clique em **RootManageSharedAccessKey**.
+    
+    ![](./media/event-hubs-create/create-event-hub7.png)
+
+3. Clique no botão de cópia para copiar a cadeia de conexão **RootManageSharedAccessKey** na área de transferência. Salve esta cadeia de conexão em um local temporário, como o Bloco de Notas, para uso futuro.
+    
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
+
+1. Na lista de namespaces dos Hubs de Eventos, clique no namespace recém-criado.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. Na folha do namespace, clique em **Hubs de Eventos**.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
 
 1. Na parte superior da folha, clique em **Adicionar Hub de Eventos**.
    
@@ -50,15 +59,6 @@ ms.lasthandoff: 05/04/2017
 1. Digite um nome para seu hub de eventos e clique em **Criar**.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. Na lista de hubs de eventos, clique no nome do hub de eventos recém-criado. 
-    
-    ![](./media/event-hubs-create/create-event-hub6.png)
-1. De volta na folha do namespace (não na folha do hub de eventos específico), clique em **Políticas de acesso compartilhado** e, em seguida, clique em **RootManageSharedAccessKey**.
-    
-    ![](./media/event-hubs-create/create-event-hub7.png)
-1. Clique no botão de cópia para copiar a cadeia de conexão **RootManageSharedAccessKey** na área de transferência. Salve essa cadeia de conexão para usá-la posteriormente no tutorial.
-    
-    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Seu hub de eventos foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 

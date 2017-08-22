@@ -5,22 +5,22 @@ services: active-tenant
 documentationcenter: 
 author: curtand
 manager: femila
-editor: piotrci
+editor: 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-tenant
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2017
+ms.date: 07/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 142bd7fea8d1a409662282b9b23a2e1598c9e86e
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -46,7 +46,7 @@ Configure cada locatário do Azure AD de maneira independente para sincronizar o
 * Conector de locatário do Azure Active Directory para o Forefront Identity Manager, para sincronizar dados com uma ou mais florestas locais e/ou fontes de dados não Azure AD.
 
 ## <a name="add-an-azure-ad-tenant"></a>Adicionar um locatário do Azure AD
-Para adicionar um locatário do Azure AD no portal clássico do Azure, selecione a extensão do Azure Active Directory à esquerda e toque em **Adicionar**.
+Para adicionar um locatário do Azure AD no Portal do Azure, entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do Azure AD e, à esquerda, selecione **Novo**.
 
 > [!NOTE]
 > Ao contrário de outros recursos do Azure, os locatários não são recursos filho de uma assinatura do Azure. Caso sua assinatura do Azure seja cancelada ou expire, você ainda poderá acessar os dados de locatário usando o Azure PowerShell, a API do Graph do Azure ou o Centro de Administração do Office 365. Você também pode associar outra assinatura ao locatário.

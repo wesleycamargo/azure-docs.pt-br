@@ -9,14 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 69e26eaf4aedaf17b58091420430ca996c01cf69
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,6 +28,8 @@ VMs de baixa prioridade tiram proveito da capacidade excedente do Azure. Quando 
 A desvantagem de usar VMs de baixa prioridade é que essas VMs podem ser sofrer preempção quando não houver capacidade excedente disponível no Azure. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncronas e em lote, em que o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre várias VMs.
 
 VMs de baixa prioridade são significativamente mais baratas que VMs dedicadas. Para ver detalhes dos preços, consulte [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/).
+
+Para obter uma discussão adicional sobre VMs de baixa prioridade, consulte o comunicado de postagem de blog: [Computação em lote por uma fração do preço](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
 
 > [!IMPORTANT]
 > Atualmente, as VMs de baixa prioridade estão na fase de versão prévia e estão disponíveis apenas para cargas de trabalho em execução no Lote. 
@@ -72,6 +73,9 @@ O Lote do Azure fornece vários recursos que tornam mais fácil consumir e se be
 -   Pools do Lote buscam automaticamente usar o número alvo de VMs de baixa prioridade. Se as VMs sofrerem preempção, o Lote tentará substituir a capacidade perdida e retornar ao valor alvo.
 
 -   Caso as tarefas sejam interrompidas, o Lote detectará e, automaticamente, colocará em fila essas tarefas para que elas sejam executadas novamente.
+
+-   VMs de baixa prioridade têm uma cota de núcleos que difere das VMs dedicadas. 
+    A cotação para VMs de baixa prioridade é maior do que a das VMs dedicadas, porque as VMs de baixa prioridade custam menos. Consulte [Limites e cotas do serviço de Lote](batch-quota-limit.md#resource-quotas) para obter mais informações.    
 
 > [!NOTE]
 > Atualmente, VMs de baixa prioridade não têm suporte para contas do Lote em que o modo de alocação do pool é definido como [Assinatura de usuário](batch-account-create-portal.md#user-subscription-mode).
@@ -167,6 +171,22 @@ Ocasionalmente, as VMs podem sofrer preempção. Quando isso acontece, o lote fa
 -   A VM será excluída efetivamente, o que fará com que todos os dados armazenados localmente na VM sejam perdidos.
 -   O pool tentará continuamente alcançar o número alvo de nós de baixa prioridade disponíveis. Quando a capacidade de substituição for encontrada, os nós manterão suas IDs, mas serão reinicializados, passando pelos estados **Criando** e **Inicial** antes que fiquem disponíveis para o agendamento de tarefas.
 -   Contagens de preempção estão disponíveis como uma métrica no Portal do Azure.
+
+## <a name="metrics"></a>Métricas
+
+Novas métricas estão disponíveis no [Portal do Azure](https://portal.azure.com) para nós de baixa prioridade. Essas métricas são:
+
+- Contagem de nós de baixa prioridade
+- Contagem de núcleos de baixa prioridade 
+- Contagem de nós com preempção
+
+Para exibir as métricas no Portal do Azure:
+
+1. Navegue até sua conta do Lote no portal e exiba as configurações de sua conta do Lote.
+2. Selecione **Métricas** na seção **Monitoramento**.
+3. Selecione as métricas desejadas na lista **Métricas Disponíveis**.
+
+![Métricas para nós de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

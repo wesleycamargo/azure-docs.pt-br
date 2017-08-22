@@ -1,6 +1,6 @@
 ---
-title: "Conectar-se ao Kafka no HDInsight usando redes virtuais – Azure | Microsoft Docs"
-description: "Saiba como se conectar remotamente ao Kafka no HDInsight usando o cliente kafka-python. A configuração neste documento usa HDInsight em uma Rede Virtual do Azure. O cliente remoto conecta-se à rede virtual por meio de um gateway de VPN ponto a site."
+title: "Conectar-se ao Kafka usando redes virtuais – Azure HDInsight | Microsoft Docs"
+description: "Saiba como conectar-se diretamente ao Kafka no HDInsight por meio de uma Rede Virtual do Azure. Saiba como se conectar ao Kafka de clientes de desenvolvimento usando um gateway de VPN ou então de clientes em sua rede local usando um dispositivo de gateway de VPN."
 services: hdinsight
 documentationCenter: 
 author: Blackmist
@@ -13,54 +13,83 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/18/2017
+ms.date: 08/01/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight (preview) por meio de uma Rede Virtual do Azure
 
-Saiba como se conectar ao Kafka no HDInsight usando Redes Virtuais do Azure. Os clientes do Kafka (produtores e consumidores) podem executar diretamente no HDInsight ou em sistemas remotos. Os clientes remotos devem se conectar ao Kafka no HDInsight por meio de uma Rede Virtual do Azure. Use as informações neste documento para entender como os clientes remotos podem se conectar ao HDInsight usando Redes Virtuais do Azure.
+Saiba como se conectar diretamente ao Kafka no HDInsight usando Redes Virtuais do Azure. Este documento fornece informações sobre como se conectar ao Kafka usando as seguintes configurações:
 
-> [!IMPORTANT]
-> Várias das configurações abordadas neste documento podem ser usadas com clientes Windows, macOS ou Linux. No entanto, o exemplo ponto a site incluído fornece apenas um cliente VPN para Windows.
->
-> O exemplo também usa um cliente Python ([kafka-python](http://kafka-python.readthedocs.io/en/master/)) para verificar a comunicação com o Kafka no HDInsight.
+* De recursos em uma rede local. Essa conexão é estabelecida usando um dispositivo VPN (software ou hardware) em sua rede local.
+* De um ambiente de desenvolvimento usando um cliente de software VPN.
 
 ## <a name="architecture-and-planning"></a>Arquitetura e planejamento
 
-Os clusters HDInsight são protegidos dentro de uma Rede Virtual do Azure e permitem apenas tráfego de entrada SSH e HTTPS. O tráfego chega por meio de um gateway público, que não roteia o tráfego de clientes do Kafka. Para acessar o Kafka de um cliente remoto, você deve criar uma Rede Virtual do Azure que forneça um gateway de VPN (rede virtual privada). Depois que você tiver configurado a rede virtual e o gateway, instale o HDInsight na rede virtual e conecte-se a ele usando o gateway de VPN.
+O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em vez disso, os clientes Kafka (produtores e consumidores) devem usar um dos seguintes métodos de conexão:
 
-![Um diagrama do HDInsight em uma Rede Virtual do Azure com um cliente conectados por VPN](media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-in-virtual-network.png)
+* Execute o cliente na mesma rede virtual que o Kafka no HDInsight. Essa configuração é usada no documento [Introdução ao Apache Kafka (versão prévia) no HDInsight](hdinsight-apache-kafka-get-started.md). O cliente é executado diretamente em nós do cluster HDInsight ou em outra máquina virtual na mesma rede.
 
-A lista a seguir contém informações sobre o processo de usar o Kafka no HDInsight com uma rede virtual:
+* Conecte uma rede privada, como a sua rede local, à rede virtual. Essa configuração permite que os clientes na rede local trabalhem diretamente com o Kafka. Para habilitar essa configuração, execute as seguintes tarefas:
 
-1. Crie uma rede virtual. Para obter informações específicas sobre como usar o HDInsight com Redes Virtuais do Azure, veja o documento [Estender o HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
+    1. Crie uma rede virtual.
+    2. Crie um gateway de VPN que use uma configuração de site a site. A configuração usada neste documento se conecta a um dispositivo de gateway de VPN na rede local.
+    3. Crie um servidor DNS na rede virtual.
+    4. Configure o encaminhamento entre o servidor DNS em cada rede.
+    5. Instale o Kafka no HDInsight na rede virtual.
 
-2. (Opcional) Crie uma Máquina Virtual do Azure na rede virtual e instale um servidor DNS personalizado nela. Esse servidor DNS é usado para permitir a resolução de nomes para clientes remotos em uma configuração site a site ou vnet a vnet. Para saber mais, confira o documento [Resolução de nomes para VMs e serviços de nuvem](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+    Para obter mais informações, consulte a seção [Conectar-se ao Kafka de uma rede local](#on-premises). 
 
-3. Crie um Gateway de VPN para a rede virtual. Para saber mais sobre configurações de gateway de VPN, confira o documento [Sobre o gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Conecte computadores individuais à rede virtual usando um gateway de VPN e um cliente VPN. Para habilitar essa configuração, execute as seguintes tarefas:
 
-4. Crie o HDInsight na rede virtual. Se você tiver configurado um servidor DNS personalizado para a rede, o HDInsight será automaticamente configurado para usá-lo.
+    1. Crie uma rede virtual.
+    2. Crie um gateway de VPN que use uma configuração de ponto a site. Essa configuração fornece um cliente VPN que pode ser instalado em clientes do Windows.
+    3. Instale o Kafka no HDInsight na rede virtual.
+    4. Configure o Kafka para anúncio de IP. Essa configuração permite ao cliente conectar-se usando o endereçamento IP em vez de nomes de domínio.
+    5. Baixe e use o cliente VPN no sistema de desenvolvimento.
 
-5. (Opcional) Se você não tiver usado um servidor DNS personalizado e não tem a resolução de nomes entre clientes e a rede virtual, será preciso configurar o Kafka para anúncio de IP. Para saber mais, veja a seção [Configurar Kafka para anúncio de IP](#configure-kafka-for-ip-advertising) neste documento.
+    Para obter mais informações, consulte a seção [Conectar-se ao Kafka com um cliente VPN](#vpnclient).
 
-## <a name="create-using-powershell"></a>Criar usando o PowerShell
+    > [!WARNING]
+    > Essa configuração é recomendada apenas para fins de desenvolvimento devido às seguintes limitações:
+    >
+    > * Cada cliente deve se conectar usando um cliente de software VPN. O Azure fornece apenas um cliente baseado em Windows.
+    > * O cliente não passar solicitações de resolução de nome para a rede virtual, então você deve usar endereçamento IP para se comunicar com o Kafka. A comunicação de IP requer configuração adicional no cluster Kafka.
 
-As etapas desta seção criam a seguinte configuração usando o [Azure PowerShell](/powershell/azure/overview):
+Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira [Estender o HDInsight usando Redes Virtuais do Azure](./hdinsight-extend-hadoop-virtual-network.md).
+
+## <a id="on-premises"></a> Conectar-se ao Kafka de uma rede local
+
+Para criar um cluster Kafka que se comunique com a rede local, siga as etapas no documento [Conectar o HDInsight à rede local](./connect-on-premises-network.md).
+
+> [!IMPORTANT]
+> Ao criar o cluster HDInsight, selecione o tipo de cluster __Kafka__.
+
+Essas etapas criam a configuração a seguir:
+
+* Rede Virtual do Azure
+* Gateway de VPN site a site
+* Conta de Armazenamento do Azure (usada pelo HDInsight)
+* Kafka no HDInsight
+
+Para verificar se um cliente Kafka pode se conectar ao cluster local, use as etapas na seção [Exemplo: cliente do Python](#python-client).
+
+## <a id="vpnclient"></a> Conectar-se ao Kafka com um cliente VPN
+
+Use as etapas nesta seção para criar a seguinte configuração:
 
 * Rede Virtual do Azure
 * Gateway de VPN ponto a site
 * Conta de Armazenamento do Azure (usada pelo HDInsight)
 * Kafka no HDInsight
 
-1. Siga as etapas do documento [Trabalhando com certificados autoassinados para conexões ponto a site](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) de modo a criar os certificados necessários para o gateway.
+1. Siga as etapas no documento [Trabalhando com certificados autoassinados para conexões de ponto a site](../vpn-gateway/vpn-gateway-certificates-point-to-site.md). Esse documento cria os certificados necessários para o gateway.
 
 2. Abra um prompt do PowerShell e use o seguinte código para fazer logon em sua assinatura do Azure:
 
@@ -222,9 +251,9 @@ As etapas desta seção criam a seguinte configuração usando o [Azure PowerShe
 
     Para baixar o cliente VPN do Windows, use o URI retornado no navegador da Web.
 
-## <a name="configure-kafka-for-ip-advertising"></a>Configurar Kafka para anúncio de IP
+### <a name="configure-kafka-for-ip-advertising"></a>Configurar Kafka para anúncio de IP
 
-Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos clientes. Essa configuração não funciona para o cliente VPN, pois não é possível usar a resolução de nomes para entidades na rede virtual. Use as seguintes etapas para configurar o Kafka no HDInsight a fim de anunciar endereços IP no lugar de nomes de domínio:
+Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos clientes. Essa configuração não funciona com o cliente de software VPN, pois não é possível usar a resolução de nomes para entidades na rede virtual. Para essa configuração, use as seguintes etapas para configurar o Kafka a fim de anunciar endereços IP no lugar de nomes de domínio:
 
 1. Usando um navegador da Web, acesse https://NOMEDOCLUSTER.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
 
@@ -254,7 +283,7 @@ Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos cli
 
 6. Para configurar a interface na qual o Kafka escuta, digite `listeners` no campo __Filtro__ na parte superior direita.
 
-7. Para configurar o Kafka para escutar em todas as interfaces de rede, altere o valor no campo __ouvintes__ para `PLAINTEXT://0.0.0.0:92092`.
+7. Para configurar o Kafka para escutar em todas as interfaces de rede, altere o valor no campo __ouvintes__ para `PLAINTEXT://0.0.0.0:9092`.
 
 8. Para salvar as alterações de configuração, use o botão __Salvar__. Digite uma mensagem de texto que descreva as alterações. Selecione __OK__ assim que as alterações tiverem sido salvas.
 
@@ -270,40 +299,39 @@ Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos cli
 
 11. Para desabilitar o modo de manutenção, use o botão __Ações de Serviço__ e selecione __Ativar o Modo de Manutenção__. Selecione **OK** para concluir essa operação.
 
-## <a name="connect-to-the-vpn-gateway"></a>Conectar-se ao gateway de VPN
+### <a name="connect-to-the-vpn-gateway"></a>Conectar-se ao gateway de VPN
 
-Para se conectar ao gateway de VPN usando um __cliente Windows__, use a seção __Conectar ao Azure__ do documento [Configurar uma conexão Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate).
+Para se conectar ao gateway de VPN usando um __cliente Windows__, use a seção __Conectar ao Azure__ do documento [Configurar uma conexão Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate).
 
-## <a name="remote-kafka-client"></a>Cliente remoto do Kafka
+## <a id="python-client"></a> Exemplo: cliente do Python
 
-Para se conectar ao Kafka do computador cliente, você deve usar o endereço IP dos agentes do Kafka ou nós do Zookeeper (o que o cliente exigir). Use as etapas a seguir para recuperar o endereço IP dos agentes do Kafka e use-os de um aplicativo Python
+Para validar a conectividade com o Kafka, use as etapas a seguir para criar e executar um produtor e consumidor de Python:
 
-1. Use o seguinte script para recuperar os endereços IP dos nós no cluster:
+1. Use um dos seguintes métodos para recuperar o FQDN (nome de domínio totalmente qualificado) e os endereços IP dos nós no cluster Kafka:
 
     ```powershell
-    # Get the NICs for the HDInsight workernodes (names contain 'workernode').
-    $nodes = Get-AzureRmNetworkInterface `
-        -ResourceGroupName $resourceGroupName `
-        | where-object {$_.Name -like "*workernode*"}
+    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-    # Loop through each node and get the IP address
-    foreach($node in $nodes) {
-        $node.IpConfigurations.PrivateIpAddress
+    $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+
+    $nodes = @()
+    foreach($nic in $clusterNICs) {
+        $node = new-object System.Object
+        $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+        $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+        $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+        $nodes += $node
     }
+    $nodes | sort-object Type
     ```
 
-    Esse script supõe que `$resourceGroupName` seja o nome do grupo de recursos do Azure que contém a rede virtual. A saída do script é semelhante ao seguinte texto:
+    ```azurecli
+    az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    ```
 
-        10.0.0.12
-        10.0.0.6
-        10.0.0.13
-        10.0.0.5
+    Esse script supõe que `$resourceGroupName` seja o nome do grupo de recursos do Azure que contém a rede virtual.
 
-    > [!NOTE]
-    > Se seu cliente do Kafka usar nós do Zookeeper em vez de agentes do Kafka, substitua `*workernode*` por `*zookeepernode*` no script do PowerShell.
-
-    > [!WARNING]
-    > Se você dimensionar o cluster, ou os nós falharem e forem substituídos, os endereços IP podem mudar. Atualmente, não há maneira de pré-atribuir endereços IP específicos para nós em um cluster HDInsight.
+    Salve as informações retornadas para uso nas próximas etapas.
 
 2. Use o seguinte para instalar o cliente [kafka-python](http://kafka-python.readthedocs.io/):
 
@@ -314,12 +342,17 @@ Para se conectar ao Kafka do computador cliente, você deve usar o endereço IP 
   ```python
   from kafka import KafkaProducer
   # Replace the `ip_address` entries with the IP address of your worker nodes
-  producer = KafkaProducer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'])
+  # NOTE: you don't need the full list of worker nodes, just one or two.
+  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
   for _ in range(50):
       producer.send('testtopic', b'test message')
   ```
 
-    Substitua as entradas `'ip_address'` pelos endereços retornados da etapa 1 nesta seção.
+    Substitua as entradas `'kafka_broker'` pelos endereços retornados da etapa 1 nesta seção:
+
+    * Se você estiver usando um __cliente VPN de software__, substitua as entradas `kafka_broker` pelo endereço IP de seus nós de trabalho.
+
+    * Se você tiver __habilitado a resolução de nomes por meio de um servidor DNS personalizado__, substitua as entradas `kafka_broker` pelo FQDN dos nós de trabalho.
 
     > [!NOTE]
     > Esse código envia a cadeia de caracteres `test message` para o tópico `testtopic`. A configuração padrão do Kafka no HDInsight é criar o tópico se ele não existir.
@@ -329,21 +362,24 @@ Para se conectar ao Kafka do computador cliente, você deve usar o endereço IP 
    ```python
    from kafka import KafkaConsumer
    # Replace the `ip_address` entries with the IP address of your worker nodes
+   # Again, you only need one or two, not the full list.
    # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
    #       of the topic
-   consumer = KafkaConsumer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'],auto_offset_reset='earliest')
+   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'],auto_offset_reset='earliest')
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)
    ```
 
-    Substitua as entradas `'ip_address'` pelos endereços retornados da etapa 1 nesta seção. A saída contém a mensagem de teste enviada ao produtor na etapa anterior.
+    Substitua as entradas `'kafka_broker'` pelos endereços retornados da etapa 1 nesta seção:
 
-## <a name="troubleshooting"></a>Solucionar problemas
+    * Se você estiver usando um __cliente VPN de software__, substitua as entradas `kafka_broker` pelo endereço IP de seus nós de trabalho.
 
-Se você tiver problemas para se conectar à rede virtual ou ao HDInsight por meio da rede, confira o documento [Como solucionar problemas de conexões e gateway de rede virtual](../network-watcher/network-watcher-troubleshoot-manage-powershell.md) para obter orientação.
+    * Se você tiver __habilitado a resolução de nomes por meio de um servidor DNS personalizado__, substitua as entradas `kafka_broker` pelo FQDN dos nós de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre como usar o HDInsight com uma redes virtual, veja o documento [Estender o Azure HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 Para saber mais sobre como criar uma Rede Virtual do Azure com o gateway de VPN Ponto a Site, confira os seguintes documentos:
 

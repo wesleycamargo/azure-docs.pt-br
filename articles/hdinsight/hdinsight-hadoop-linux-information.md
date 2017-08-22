@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
@@ -127,9 +127,9 @@ Ao usar o __Armazenamento do Azure__, use um dos seguintes esquemas de URI:
 
 * `wasb:///`: acessar o armazenamento padrão usando comunicação não criptografada.
 
-* `wasbs:///`: acessar o armazenamento padrão usando comunicação criptografada.
+* `wasbs:///`: acessar o armazenamento padrão usando comunicação criptografada.  O esquema wasbs tem suporte somente da versão 3.6 do HDInsight em diante.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: usado ao se comunicar com uma conta de armazenamento não padrão. Por exemplo, se você tiver uma conta de armazenamento adicional ou ao acessar dados armazenados em uma conta de armazenamento com acesso público.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: usado ao se comunicar com uma conta de armazenamento não padrão. Por exemplo, se você tiver uma conta de armazenamento adicional ou ao acessar dados armazenados em uma conta de armazenamento com acesso público.
 
 Ao usar o __Data Lake Store__, use um dos seguintes esquemas de URI:
 
@@ -153,7 +153,7 @@ Você pode usar o Ambari para recuperar a configuração de armazenamento padrã
 
 Esse comando retorna um valor semelhante às URIs a seguir:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net`, se estiver usando uma conta de armazenamento do Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net`, se estiver usando uma conta de armazenamento do Azure.
 
     O nome da conta é o nome da conta de armazenamento do Azure, enquanto o nome do contêiner é o contêiner de blob que é a raiz do armazenamento de cluster.
 

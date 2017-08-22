@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ No final do processo de implantação, a Microsoft fornece os seguintes dados pa
      - PeerID de ExpressRoute
 - Os dados para acessar Instâncias Grandes HANA depois que você tiver estabelecido o circuito de ExpressRoute e a Rede Virtual do Azure.
 
-Encontre também a sequência de conexão das Instâncias Grandes do HANA no documento [Instalação de ponta a ponta das Instâncias Grandes do SAP HANA](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf). Muitas das etapas a seguir são mostradas em uma implantação de exemplo nesse documento. 
+Encontre também a sequência de conexão das Instâncias Grandes do HANA no documento [Instalação de ponta a ponta das Instâncias Grandes do SAP HANA](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Muitas das etapas a seguir são mostradas em uma implantação de exemplo nesse documento. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Conectar uma Rede Virtual a ExpressRoute de Instância Grande do HANA

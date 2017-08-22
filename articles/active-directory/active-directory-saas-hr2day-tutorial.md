@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 456ef3620c1d7bb6ab2bf09b094f977e46cf2ed6
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure ao HR2day by Merces
@@ -27,47 +26,47 @@ Neste tutorial, você aprenderá a integrar o HR2day by Merces ao Azure AD (Azur
 
 A integração do HR2day by Merces ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar, no AD do Azure, quem tem acesso ao HR2day by Merces
-- Você pode permitir que seus usuários façam logon automaticamente no HR2day by Merces (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao HR2day by Merces.
+- Você pode permitir que os usuários façam logon automaticamente no HR2day by Merces com as respectivas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do AD do Azure ao HR2day by Merces, você precisará dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura com logon único habilitado do HR2day by Merces
+- Uma assinatura do Azure AD.
+- Uma assinatura do HR2day by Merces habilitada para logon único.
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Para testar as etapas deste tutorial, não recomendamos o uso de um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas neste tutorial, siga estas recomendações:
 
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Não use o ambiente de produção a menos que seja necessário.
+- Obtenha uma [avaliação gratuita de um mês do Azure AD](https://azure.microsoft.com/pricing/free-trial/) se você ainda não o fez.  
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito aqui consiste em dois blocos de construção principais:
 
-1. Adição do HR2day by Merces da galeria
-2. Configurar e testar o logon único do AD do Azure
+1. Adicionar o HR2day by Merces da galeria.
+2. Configurar e testar o logon único do Azure AD.
 
-## <a name="adding-hr2day-by-merces-from-the-gallery"></a>Adição do HR2day by Merces da galeria
-Para configurar a integração do HR2day by Merces ao AD do Azure, você precisará adicionar o HR2day by Merces da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-hr2day-by-merces-from-the-gallery"></a>Adicionar o HR2day by Merces da galeria
+Para configurar a integração do HR2day by Merces ao Azure AD, adicione o HR2day by Merces da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o HR2day by Merces da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione o ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Executar **Aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
     ![Aplicativos][3]
 
@@ -75,185 +74,183 @@ Para configurar a integração do HR2day by Merces ao AD do Azure, você precisa
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_search.png)
 
-5. No painel de resultados, selecione **HR2day by Merces** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados, selecione **HR2day by Merces** e selecione o botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o HR2day by Merces, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do HR2day by Merces é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do HR2day by Merces.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do HR2day by Merces é equivalente a um usuário do Azure AD. Em outras palavras, você precisa estabelecer um vínculo entre um usuário do Azure AD e o usuário relacionado no HR2day by Merces.
 
-No HR2day by Merces, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No HR2day by Merces, atribua o **nome de usuário** no Azure AD ao **Nome de usuário** para estabelecer a relação.
 
 Para configurar e testar o logon único do AD do Azure com o HR2day by Merces, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do HR2day by Merces](#creating-an-hr2day-by-merces-test-user)**: para ter um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. [Configurar o logon único do Azure AD](#configuring-azure-ad-single-sign-on): habilite seus usuários a usar esse recurso.
+2. [Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user): para testar o logon único do Azure AD com Brenda Fernandes.
+3. [Criar um usuário de teste do HR2day by Merces](#creating-an-hr2day-by-merces-test-user): crie um equivalente de Brenda Fernandes no HR2day by Merces que esteja vinculado à representação do usuário no Azure AD.
+4. [Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user): permita que Brenda Fernandes use o logon único do Azure AD.
+5. [Testar o logon único](#testing-single-sign-on): verifique se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único no aplicativo HR2day by Merces.
 
-**Para configurar o logon único do AD do Azure com o HR2day by Merces, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o HR2day by Merces, execute as seguintes etapas:**
 
-1. No portal do Azure, na página de integração do aplicativo **HR2day by Merces**, clique em **Logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **HR2day by Merces**, selecione **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o Logon Único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
 
-3. Na seção **URLs e Domínio do HR2day by Merces**, execute as seguintes etapas:
+3. Na seção **Domínio e URLs no HR2day by Merces**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`
+    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`.
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://hr2day.force.com/<companyname>`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do HR2day by Merces](mailto:servicedesk@merces.nl) para obter esses valores. 
  
 
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Na seção **Certificado de Autenticação do SAML**, selecione **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
-5. O objetivo desta seção é descrever como permitir que os usuários se autentiquem no HR2day by Merces com sua conta do AD do Azure usando a federação baseada no protocolo SAML.
+5. Esta seção descreve como permitir que os usuários se autentiquem no HR2day com as respectivas contas do Azure AD. Eles fazem isso usando a federação, que é baseada no protocolo SAML.
 
-    Seu aplicativo HR2day by Merces espera as declarações de SAML em um formato específico, o que exige adicionar mapeamentos de atributo personalizados à configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. 
+    Seu aplicativo HR2day by Merces espera as declarações de SAML em um formato específico, o que exige adicionar mapeamentos de atributo personalizados ao token SAML. As capturas de tela a seguir mostram um exemplo disso. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_00.png)
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_00.png)
     
     > [!NOTE] 
-    Antes de configurar a instrução de declaração SAML, você precisará entrar em contato com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para concluir as etapas na próxima seção.  
+    Antes de configurar a instrução de declaração SAML, você precisará entrar em contato com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para concluir as etapas na próxima seção. 
 
-6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
+6. Na caixa de diálogo **Logon único**, na seção **Atributos do Usuário**, configure o atributo do token SAML como mostrado na imagem a seguir. Em seguida, execute as etapas a seguir.
     
       | Nome do atributo    |   Valor do atributo |  
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
     
-      a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+      a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
+    ![Configurar o Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
 
-    b. Na caixa de texto **Nome**, digite **“ATTR_LOGINCLAIM”**.
+    b. Na caixa **Nome**, digite **ATTR_LOGINCLAIM**.
 
     c. Na lista **Valor**, selecione **Join()**.
 
     d. Na lista **String1**, selecione **user.mail**.
 
-    e. Na lista **String2**, digite o **identificador exclusivo** fornecido pela equipe do HR2day.
+    e. Para **String2**, digite o identificador exclusivo fornecido pela equipe do HR2day.
 
-    f. Na caixa de texto **Separador**, digite **@**.
+    f. Na caixa **Separador**, digite **@**.
     
-    g. Clique em **OK**.
+    g. Selecione **Ok**.
 
-7. Clique no botão **Salvar** .
+7. Selecione o botão **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do HR2day by Merces**, clique em **Configurar HR2day by Merces** para abrir a janela **Configurar o logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+8. Na seção **Configuração do HR2day by Merces**, selecione **Configurar o HR2day by Merces** para abrir a janela **Configurar o logon**. Copie a **URL de Saída**, a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** da seção **Referência Rápida**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
-9. Para configurar o SSO no seu aplicativo, entre em contato com sua [equipe de suporte do Cliente HR2day by Merces](mailTo:servicedesk@merces.nl) e anexe o arquivo de **Certificado (Base64)** baixado ao email. Forneça também a **URL de Saída, a ID de Entidade SAML e a URL do Serviço de Logon Único SAML** para que possam ser configuradas para a integração com o SSO.
+9. Para configurar o SSO para seu aplicativo, entre em contato com o [HR2day pela equipe de suporte de cliente Merces](mailTo:servicedesk@merces.nl). Anexe o arquivo **Certificate(Base64)** baixado ao seu email. Forneça também a **URL de Saída**, a **ID de Entidade SAML** e a **URL do Serviço de Logon Único SAML** para que possam ser configuradas para a integração com o SSO.
 
     > [!NOTE]
-    > Mencione à equipe do Merces que essa integração precisa que a ID da Entidade seja definida com este padrão **https://hr2day.force.com/INSTANCENAME**
-    > 
-    > 
+    >Mencione à equipe do Merces que essa integração precisa que a ID da Entidade seja definida com o padrão **https://hr2day.force.com/INSTANCENAME**.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    > [!TIP]
+    >É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar este aplicativo por meio da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único**. Em seguida, acesse a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **Portal do Azure**, no painel de navegação esquerdo, selecione o ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, em seguida, selecione **Todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Na caixa **Nome de usuário**, digite o **endereço de email** de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar Senha** e anote o valor da senha.
 
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
  
-### <a name="creating-an-hr2day-by-merces-test-user"></a>Criação de um usuário de teste do HR2day by Merces
+### <a name="create-an-hr2day-by-merces-test-user"></a>Criar um usuário de teste do HR2day by Merces
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no HR2day by Merces. Trabalhe com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) para adicionar usuários à conta do HR2day. 
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no HR2day by Merces. Para adicionar usuários à conta do HR2day, trabalhe com a [equipe de suporte ao cliente HR2day by Merces](mailto:servicedesk@merces.nl). 
 
 > [!NOTE]
-> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl).
+> Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do HR2day by Merces](mailto:servicedesk@merces.nl).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao conceder acesso ao HR2day by Merces.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao HR2day by Merces.
 
 ![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao HR2day by Merces, execute as seguintes etapas:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos, vá para a exibição de diretório e, em seguida, vá para **Aplicativos empresariais**. Em seguida, selecione **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
 2. Na lista de aplicativos, selecione **HR2day by Merces**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Selecione o botão **Adicionar**. Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes**.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Clique no botão **Selecionar**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
     
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
 
-Quando você clica no bloco HR2day by Merces no Painel de Acesso, deve fazer logon automaticamente em seu aplicativo HR2day by Merces.
+Quando você seleciona o bloco HR2day by Merces no Painel de Acesso, você entra automaticamente em seu aplicativo HR2day by Merces.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
@@ -35,6 +35,6 @@ Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assina
    
     ![Captura de tela que mostra o que selecionar para confirmar que você deseja atualizar sua assinatura](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Use os benefícios restantes de sua Avaliação Gratuita, como o limite de 30 dias ou o crédito de US$ 200. Depois de usar todos os benefícios, sua assinatura será atualizada.
+Use os benefícios restantes de sua Avaliação gratuita, como o limite de 30 dias ou o crédito. Depois de usar todos os benefícios, sua assinatura será atualizada.
 
 

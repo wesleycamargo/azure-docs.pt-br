@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
@@ -225,7 +225,7 @@ A ferramenta Azure AD Connect envia pings/keepalives periódicos para pontos de 
 
 A conta especificada no utilitário Azure AD Connect deve ter Permissões de Redefinição de Senha, Alteração de Senha, Permissões de Gravação em lockoutTime e Permissões de Gravação em pwdLastSet, direitos estendidos no objeto raiz de **cada domínio** nessa floresta **OU** nas UOs do usuário que você deseja que estejam no escopo do SSPR.
 
-Se não tiver certeza sobre qual conta a descrição acima se refere, abra a interface do usuário da configuração do Azure Active Directory Connect e clique na opção Examinar sua Solução. A conta à qual você precisa adicionar a permissão é listada em “Diretórios Sincronizados”
+Se não tiver certeza sobre qual conta a descrição acima se refere, abra a interface do usuário da configuração do Azure Active Directory Connect e clique na opção Exibir configuração atual. A conta à qual você precisa adicionar a permissão é listada em “Diretórios Sincronizados”
 
 Definir essas permissões permite que a conta de serviço MA de cada floresta gerencie senhas em nome das contas de usuário na floresta. **Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar suas senhas locais na nuvem.**
 
