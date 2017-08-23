@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
@@ -19,12 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-# Banco de dados do Azure para PostgreSQL: usar Java para se conectar e consultar dados
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando o Java e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
-## Pré-requisitos
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI do Azure](quickstart-create-server-database-azure-cli.md)
@@ -33,8 +31,7 @@ Você também precisará:
 - Baixar o [Driver JDBC PostgreSQL](https://jdbc.postgresql.org/download.html) correspondente à versão do Java e o Java Development Kit.
 - Incluir o arquivo jar do JDBC PostgreSQL (por exemplo, postgresql-42.1.1.jar) no classpath do seu aplicativo. Para saber mais, confira [detalhes de classpath](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
-## Obter informações de conexão
-<a id="get-connection-information" class="xliff"></a>
+## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
@@ -44,8 +41,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
  ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/connect-java/1-connection-string.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
-## Conectar-se, criar tabela e inserir dados
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
+## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar e carregar os dados usando a função com uma instrução SQL **INSERT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery ()](https://jdbc.postgresql.org/documentation/head/query.html) são usados para se conectar, descartar e criar a tabela. O objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) é usado para criar os comandos insert, com setString() e setInt() para associar os valores de parâmetro. O método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) executa o comando para cada conjunto de parâmetros. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -145,8 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-## Ler dados
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>Ler dados
 Use o código a seguir para ler os dados com uma instrução SQL **SELECT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) são usados para se conectar, criar e executar a instrução select. Os resultados são processados usando um objeto [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -233,8 +228,7 @@ public class ReadTable {
 
 ```
 
-## Atualizar dados
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>Atualizar dados
 Use o código a seguir para alterar os dados com uma instrução SQL **UPDATE**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usados para se conectar, preparar e executar a instrução select. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -314,8 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-## Excluir dados
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>Excluir dados
 Use o código a seguir para remover dados com uma instrução SQL **DELETE**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usados para se conectar, preparar e executar a instrução select. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
@@ -395,8 +388,7 @@ public class DeleteTable {
 }
 ```
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./howto-migrate-using-export-and-import.md)
 

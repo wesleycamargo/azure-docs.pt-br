@@ -5,7 +5,7 @@ metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: 'Documentação do Azure PostgreSQL - Tutoriais, Referência de API'
   description: 'O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional na nuvem da Microsoft, projetado para desenvolvedores com base no mecanismo de banco de dados PostgreSQL de software livre.'
-  services: app-service
+  services: postgresql
   author: jasonwhowell
   manager: jhubbard
   ms.service: postgresql
