@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
@@ -33,7 +33,7 @@ Somente há suporte para instalar o Azure Connect AD usando o assistente de inst
 Há suporte para isso nas compilações de fevereiro de 2016.
 
 **P: O agente de integridade do AD DS funciona no núcleo do servidor?**  
-Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte commandlet do PowerShell: 
+Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte cmdlet do PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 

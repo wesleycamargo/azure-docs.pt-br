@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 20ca0abab5e17f82b94a31c1b2c9a0942ba9508a
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opções e desempenho do Banco de Dados do Azure para MySQL: noções básicas sobre o que está disponível em cada tipo de preço
@@ -52,6 +52,9 @@ Para decidir sobre uma faixa de preço, comece determinando se sua carga de trab
 
 Durante o período de visualização, você não pode alterar o tipo de preço depois que o servidor for criado. No futuro, será possível atualizar ou fazer downgrade de um tipo de preço para outro.
 
+## <a name="understand-the-price"></a>Entender o preço
+Ao criar um novo Banco de dados do Azure para MySQL dentro do [Portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer), clique na folha de **Tipo de preço** e o custo mensal será mostrado com base nas opções que você selecionou. Se você não tem uma assinatura do Azure, use a calculadora de preços do Azure para obter um preço estimado. Acesse o site da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) e, em seguida, clique em **Adicionar itens**, expanda a categoria **Bancos de dados** e escolha **Banco de dados do Azure para MySQL** para personalizar as opções.
+
 ## <a name="choose-a-performance-level-compute-units"></a>Escolher um nível de desempenho (Unidades de Computação)
 Depois de determinar a faixa de preços para seu banco de dados do Azure para o servidor MySQL, você está pronto para determinar o nível de desempenho, selecionando o número de Unidades de Computação necessário. As Unidades de Computação 200 e 400 costumam ser um bom ponto de partida para aplicativos que exigem maior simultaneidade de usuários para suas cargas de trabalho de análise ou da Web e podem ser ajustadas incrementalmente conforme a necessidade. 
 
@@ -65,7 +68,7 @@ Unidades de computação são uma medida de taxa de transferência de processame
 | Tamanho do armazenamento incluído | 50 GB | 50 GB |
 | Tamanho máximo de armazenamento do servidor\* | 1 TB | 1 TB |
 
-### <a name="standard-pricing-tier-performance-levels"></a>Níveis de desempenho da faixa de preço Básico:
+### <a name="standard-pricing-tier-performance-levels"></a>Níveis de desempenho da faixa de preço Padrão:
 
 | **Nível de desempenho** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |

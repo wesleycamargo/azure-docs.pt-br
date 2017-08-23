@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
@@ -40,7 +40,6 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma máquina virtual. Isso é útil para a criação de implantações do Azure que exigem uma configurações que vão além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](extensions-customscript.md).
 
-Para trabalhar em um exemplo no qual uma extensão de VM é usada em uma implantação de aplicativos de ponta a ponta, confira [Automatizar implantações de aplicativos em máquinas virtuais do Azure](dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -159,7 +158,7 @@ Para saber mais, confira o [Modelo completo do Resource Manager](https://github.
 }
 ```
 
-Para saber mais, veja [Criação de modelos do Azure Resource Manager com extensões de VM do Windows](extensions-authoring-templates.md).
+Para saber mais, veja [Criação de modelos do Azure Resource Manager com extensões de VM do Windows](template-description.md#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Proteger dados de extensão da VM
 

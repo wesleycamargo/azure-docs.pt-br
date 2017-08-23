@@ -144,8 +144,14 @@
 
 ## Gerenciar dispositivos
 ### [Introdução](device-management-introduction.md)
-### [Registrar dispositivos](active-directory-device-registration-overview.md)
-#### [Configuração](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Perguntas frequentes](device-management-faq.md)
+### Tarefas
+#### [Configurar dispositivos híbridos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Solucionar problemas
+##### [Dispositivos híbridos do Windows 10 e Windows Server 2016 adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Dispositivos híbridos do Windows de herança adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Registrar dispositivos
 #### [Implantar no local](active-directory-device-registration-on-premises-setup.md)
 #### [Perguntas frequentes](active-directory-device-registration-faq.md)
 #### Solucionar problemas
@@ -368,7 +374,7 @@
 ## [Restrições e limites de serviço](active-directory-service-limits-restrictions.md)
 
 # Relacionados
-## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+## [Autenticação Multifator](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD para desenvolvedores](./develop/active-directory-how-to-integrate.md)

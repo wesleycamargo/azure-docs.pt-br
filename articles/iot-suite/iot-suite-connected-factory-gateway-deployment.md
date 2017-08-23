@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/08/2017
 
 O software necessário para implantar um gateway para a solução pré-configurada de fábrica conectada tem dois componentes:
 
-* O *Proxy OPC* estabelece uma conexão ao Hub IoT e aguarda até que as mensagens de comando e controle do navegador de OPC integrado que é executado no portal da solução de fábrica conectada.
+* O *Proxy OPC* estabelece uma conexão ao Hub IoT. O *Proxy OPC* aguarda então as mensagens de comando e controle do navegador de OPC integrado que é executado no portal da solução de fábrica conectada.
 * O *Publicador OPC* conecta-se a servidores OPC UA locais existentes e encaminha mensagens de telemetria deles para o Hub IoT.
 
 Ambos os componentes são de código livre e estão disponíveis como origem no GitHub e nos contêineres do Docker:
@@ -38,7 +38,7 @@ Ambos os componentes são de código livre e estão disponíveis como origem no 
 
 Nenhum endereço IP voltado ao público nem falhas no firewall do gateway são necessários para nenhum desses componentes. O Proxy OPC e o Publicador OPC usam somente as portas de saída 443, 5671 e 8883.
 
-As etapas neste artigo mostram como implantar um gateway usando o Docker no Windows ou Linux. O gateway permite conectividade com a solução pré-configurada de fábrica conectada.
+As etapas neste artigo mostram como implantar um gateway usando o Docker no [Windows](#windows-deployment) ou [Linux](#linux-deployment). O gateway permite conectividade com a solução pré-configurada de fábrica conectada.
 
 > [!NOTE]
 > O software do gateway que é executado no contêiner do Docker é o [Azure IoT Edge].
@@ -72,9 +72,9 @@ Você também pode executar essa etapa após a instalação do docker usando o m
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** é o nome a dar ao Publicador OPC UA no formato **publisher.&lt;seu nome de domínio totalmente qualificado&gt;**. Por exemplo, se sua rede de fábrica é chamada **myfactorynetwork.com**, o valor de **ApplicationName** é **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** é a cadeia de conexão **iothubowner** que você copiou na etapa anterior. Essa cadeia de conexão é usada apenas nessa etapa e você não precisará dela novamente.
+    * **&lt;IoTHubOwnerConnectionString&gt;** é a cadeia de conexão **iothubowner** que você copiou na etapa anterior. Essa cadeia de conexão é usada apenas nessa etapa e você não precisará dela nas próximas etapas:
 
-    A pasta D:\\docker (o argumento `-v`) mapeada é usada posteriormente para persistir os dois certificados X.509 usados pelos módulos de gateway.
+    Você usa a pasta D:\\docker mapeada (o argumento `-v`) posteriormente para persistir os dois certificados X.509 usados pelos módulos de gateway.
 
 ### <a name="run-the-gateway"></a>Executar o gateway
 
@@ -84,21 +84,21 @@ Você também pode executar essa etapa após a instalação do docker usando o m
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Por motivos de segurança, os dois certificados X.509 persistidos na pasta D:\\docker contêm a chave privada. O acesso a essa pasta deve ser limitado às credenciais (normalmente **Administradores**) usadas para executar o contêiner do Docker. Clique com o botão direito do mouse na pasta D:\\docker, escolha **Propriedades**, **Segurança** e, por fim, **Editar**. Dê aos **Administradores** controle total e remova todas as outras pessoas:
+1. Por motivos de segurança, os dois certificados X.509 persistidos na pasta D:\\docker contêm a chave privada. Limite o acesso a essa pasta às credenciais (normalmente **Administradores**) usadas para executar o contêiner do Docker. Clique com o botão direito do mouse na pasta D:\\docker, escolha **Propriedades**, **Segurança** e, por fim, **Editar**. Dê aos **Administradores** controle total e remova todas as outras pessoas:
 
     ![Conceder permissões ao compartilhamento do Docker][img-docker-share]
 
-1. Verifique a conectividade de rede. Tente executar ping no gateway. Em um prompt de comando, digite o comando `ping publisher.<your fully qualified domain name>`. Se o destino não estiver acessível, adicione o endereço IP e o nome do seu gateway ao arquivo de hosts no gateway. O arquivo de hosts está localizado na pasta "Windows\\System32\\drivers\\etc".
+1. Verifique a conectividade de rede. Em um prompt de comando, digite o comando `ping publisher.<your fully qualified domain name>` para efetuar ping no gateway. Se o destino não estiver acessível, adicione o endereço IP e o nome do seu gateway ao arquivo de hosts no gateway. O arquivo de hosts está localizado na pasta **Windows\\System32\\drivers\\etc**.
 
-1. Em seguida, tente se conectar ao publicador usando um cliente OPC UA local em execução no gateway. A URL do ponto de extremidade OPC UA é `opc.tcp://publisher.<your fully qualified domain name>:62222`. Caso não tenha um cliente OPC UA, você poderá baixar um [cliente OPC UA de software livre].
+1. Em seguida, tente se conectar ao publicador usando um cliente OPC UA local em execução no gateway. A URL do ponto de extremidade OPC UA é `opc.tcp://publisher.<your fully qualified domain name>:62222`. Caso não tenha um cliente OPC UA, você poderá baixar e usar um [cliente OPC UA de software livre].
 
-1. Quando tiver concluído com êxito esses testes locais, navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Insira a URL de ponto de extremidade do publicador (`tcp://publisher.<your fully qualified domain name>:62222`) e clique em **Conectar**. Você recebe um aviso de certificado. Clique em **Continuar.** Em seguida, você verá um erro informando que o publicador não confia no UA Web Client. Para resolver esse erro, copie o certificado **UA Web Client** da pasta "D:\\docker\\Rejected Certificates\\certs" para a pasta "D:\\docker\\UA Applications\\certs" no gateway. Não é preciso reiniciar o gateway. Repita esta etapa. Agora, é possível se conectar ao gateway da nuvem e você está pronto para adicionar servidores OPC UA à solução.
+1. Quando tiver concluído com êxito esses testes locais, navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Insira a URL de ponto de extremidade do publicador (`tcp://publisher.<your fully qualified domain name>:62222`) e clique em **Conectar**. Você recebe um aviso de certificado. Clique em **Continuar.** Em seguida, você verá um erro informando que o publicador não confia no UA Web Client. Para resolver esse erro, copie o certificado **UA Web Client** da pasta **D:\\docker\\Rejected Certificates\\certs** para a pasta **D:\\docker\\UA Applications\\certs** no gateway. Não é preciso reiniciar o gateway. Repita esta etapa. Agora, é possível se conectar ao gateway da nuvem e você está pronto para adicionar servidores OPC UA à solução.
 
 ### <a name="add-your-opc-ua-servers"></a>Adicionar os servidores OPC UA
 
 1. Navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Siga as mesmas etapas da seção anterior para estabelecer uma relação de confiança entre o portal da fábrica conectada e o servidor OPC UA. Esta etapa estabelece uma relação de confiança mútua dos certificados do portal da fábrica conectada e o servidor OPC UA e cria uma conexão.
 
-1. Procure a árvore de nós OPC UA do servidor OPC UA, clique com o botão direito do mouse nos nós OPC e selecione **publicar**. Para que a publicação funcione dessa maneira, o servidor OPC UA e o publicador devem estar na mesma rede. Em outras palavras, se o nome de domínio totalmente qualificado do publicador for **publicador.meudominio.com**, o nome de domínio totalmente qualificado do servidor OPC UA deverá ser, por exemplo, **meuservidoropcua.meudominio.com**. Se sua configuração for diferente, você poderá adicionar nós manualmente ao arquivo publishesnodes.json encontrado na pasta D:\\docker. O publishesnodes.json é gerado automaticamente na primeira publicação bem-sucedida de um nó OPC.
+1. Procure a árvore de nós OPC UA do servidor OPC UA, clique com o botão direito do mouse nos nós OPC e selecione **publicar**. Para que a publicação funcione dessa maneira, o servidor OPC UA e o publicador devem estar na mesma rede. Em outras palavras, se o nome de domínio totalmente qualificado do publicador for **publicador.meudominio.com**, o nome de domínio totalmente qualificado do servidor OPC UA deverá ser, por exemplo, **meuservidoropcua.meudominio.com**. Se sua configuração for diferente, você poderá adicionar nós manualmente ao arquivo publishesnodes.json encontrado na pasta **D:\\docker**. O arquivo publishesnodes.json é gerado automaticamente na primeira publicação bem-sucedida de um nó OPC.
 
 1. Agora, a telemetria flui do dispositivo de gateway. Você pode ver a telemetria na exibição **Locais de Fábrica** do portal de fábrica conectada em **Nova Fábrica**.
 
@@ -124,9 +124,9 @@ Você também pode executar essa etapa após a instalação do docker usando o m
     `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** é o nome do aplicativo OPC UA que o gateway cria no formato **publicador.&lt;seu nome de domínio totalmente qualificado&gt;**. Por exemplo, **publicador.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** é a cadeia de conexão **iothubowner** que você copiou na etapa anterior. Essa cadeia de conexão é usada apenas nessa etapa e você não precisará dela novamente.
+    * **&lt;IoTHubOwnerConnectionString&gt;** é a cadeia de conexão **iothubowner** que você copiou na etapa anterior. Essa cadeia de conexão é usada apenas nessa etapa e você não precisará dela nas próximas etapas:
 
-    A pasta /shared (o argumento `-v`) mapeada é usada posteriormente para persistir os dois certificados X.509 usados pelos módulos de gateway.
+    Você usa a pasta **/shared** mapeada (o argumento `-v`) posteriormente para persistir os dois certificados X.509 usados pelos módulos de gateway.
 
 ### <a name="run-the-gateway"></a>Executar o gateway
 
@@ -136,19 +136,19 @@ Você também pode executar essa etapa após a instalação do docker usando o m
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Por motivos de segurança, os dois certificados X.509 persistidos na pasta /shared contêm a chave privada. O acesso a essa pasta deve ser limitado às credenciais usadas para executar o contêiner do Docker. Para definir as permissões apenas para **raiz**, use o comando do shell `chmod` na pasta.
+1. Por motivos de segurança, os dois certificados X.509 persistidos na pasta **/shared** contêm a chave privada. Limite o acesso a essa pasta às credenciais usadas para executar o contêiner do Docker. Para definir as permissões apenas para **raiz**, use o comando do shell `chmod` na pasta.
 
-1. Verifique a conectividade de rede. Tente executar ping no gateway. Em um shell, digite o comando `ping publisher.<your fully qualified domain name>`. Se o destino não estiver acessível, adicione o endereço IP e o nome do seu gateway ao arquivo de hosts no gateway. O arquivo de hosts está localizado em /etc.
+1. Verifique a conectividade de rede. De um shell, digite o comando `ping publisher.<your fully qualified domain name>` para efetuar ping no gateway. Se o destino não estiver acessível, adicione o endereço IP e o nome do seu gateway ao arquivo de hosts no gateway. O arquivo de hosts está localizado na pasta **/etc**.
 
-1. Em seguida, tente se conectar ao publicador usando um cliente OPC UA local em execução no gateway. A URL do ponto de extremidade OPC UA é `opc.tcp://publisher.<your fully qualified domain name>:62222`. Caso não tenha um cliente OPC UA, você poderá baixar um [cliente OPC UA de software livre].
+1. Em seguida, tente se conectar ao publicador usando um cliente OPC UA local em execução no gateway. A URL do ponto de extremidade OPC UA é `opc.tcp://publisher.<your fully qualified domain name>:62222`. Caso não tenha um cliente OPC UA, você poderá baixar e usar um [cliente OPC UA de software livre].
 
-1. Quando tiver concluído com êxito esses testes locais, navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Insira a URL de ponto de extremidade do publicador (`tcp://publisher.<your fully qualified domain name>:62222`) e clique em **Conectar**. Você recebe um aviso de certificado. Clique em **Continuar.** Em seguida, você verá um erro informando que o publicador não confia no UA Web Client. Para resolver esse erro, copie o certificado **UA Web Client** da pasta "/shared/Rejected Certificates/certs" para a pasta "/shared/UA Applications/certs" no gateway. Não é preciso reiniciar o gateway. Repita esta etapa. Agora, é possível se conectar ao gateway da nuvem e você está pronto para adicionar servidores OPC UA à solução.
+1. Quando tiver concluído com êxito esses testes locais, navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Insira a URL de ponto de extremidade do publicador (`tcp://publisher.<your fully qualified domain name>:62222`) e clique em **Conectar**. Você recebe um aviso de certificado. Clique em **Continuar.** Em seguida, você verá um erro informando que o publicador não confia no UA Web Client. Para resolver esse erro, copie o certificado **UA Web Client** da pasta **/shared/Rejected Certificates/certs** para a pasta **/shared/UA Applications/certs** no gateway. Não é preciso reiniciar o gateway. Repita esta etapa. Agora, é possível se conectar ao gateway da nuvem e você está pronto para adicionar servidores OPC UA à solução.
 
 ### <a name="add-your-opc-ua-servers"></a>Adicionar os servidores OPC UA
 
 1. Navegue até a página **Conectar seu próprio Servidor OPC UA** no portal de solução de fábrica conectada. Siga as mesmas etapas da seção anterior para estabelecer uma relação de confiança entre o portal da fábrica conectada e o servidor OPC UA. Esta etapa estabelece uma relação de confiança mútua dos certificados do portal da fábrica conectada e o servidor OPC UA e cria uma conexão.
 
-1. Procure a árvore de nós OPC UA do servidor OPC UA, clique com o botão direito do mouse nos nós OPC e selecione **publicar**. Para que a publicação funcione dessa maneira, o servidor OPC UA e o publicador devem estar na mesma rede. Em outras palavras, se o nome de domínio totalmente qualificado do publicador for **publicador.meudominio.com**, o nome de domínio totalmente qualificado do servidor OPC UA deverá ser, por exemplo, **meuservidoropcua.meudominio.com**. Se sua configuração for diferente, você poderá adicionar nós manualmente ao arquivo publishesnodes.json encontrado na pasta /shared. O publishesnodes.json é gerado automaticamente na primeira publicação bem-sucedida de um nó OPC.
+1. Procure a árvore de nós OPC UA do servidor OPC UA, clique com o botão direito do mouse nos nós OPC e selecione **publicar**. Para que a publicação funcione dessa maneira, o servidor OPC UA e o publicador devem estar na mesma rede. Em outras palavras, se o nome de domínio totalmente qualificado do publicador for **publicador.meudominio.com**, o nome de domínio totalmente qualificado do servidor OPC UA deverá ser, por exemplo, **meuservidoropcua.meudominio.com**. Se sua configuração for diferente, você poderá adicionar nós manualmente ao arquivo publishesnodes.json encontrado na pasta **/shared**. O publishesnodes.json é gerado automaticamente na primeira publicação bem-sucedida de um nó OPC.
 
 1. Agora, a telemetria flui do dispositivo de gateway. Você pode ver a telemetria na exibição **Locais de Fábrica** do portal de fábrica conectada em **Nova Fábrica**.
 

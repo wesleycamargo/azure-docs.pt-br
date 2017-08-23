@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7055e207cfbcc9de02669be9f0e97045769ef217
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Processar mensagens do Hub IoT do dispositivo para nuvem (Java)
@@ -33,11 +32,11 @@ Este tutorial foi criado com base no código mostrado no tutorial [Introdução 
 Ao fim deste tutorial, você executará três aplicativos de console do Java:
 
 * **simulated-device**, uma versão modificada do aplicativo criado no tutorial [Introdução ao Hub IoT] , que envia mensagens de ponto de dados do dispositivo para a nuvem a cada segundo e mensagens interativas do dispositivo para a nuvem a cada 10 segundos. Este aplicativo usa o protocolo AMQP para se comunicar com o Hub IoT.
-* **read-d2c-messages** exibe a telemetria enviada pelo aplicativo de dispositivo simulado.
+* **read-d2c-messages**, que exibe a telemetria enviada pelo aplicativo de dispositivo.
 * **read-critical-queue** retira as mensagens críticas da fila do Barramento de Serviço conectada ao Hub IoT.
 
 > [!NOTE]
-> O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Para obter instruções sobre como substituir o dispositivo simulado neste tutorial por um dispositivo físico e como conectar dispositivos a um Hub IoT, confira o [Centro de desenvolvedores do Azure IoT].
+> O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Para obter instruções sobre como substituir o dispositivo neste tutorial por um dispositivo físico e como conectar dispositivos a um Hub IoT, confira o [Centro de Desenvolvedores do Azure IoT].
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -48,9 +47,8 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Enviar mensagens interativas de um aplicativo do dispositivo simulado
-
-Nesta seção, você modificará o aplicativo de dispositivo simulado criado no tutorial [Introdução ao Hub IoT] para enviar mensagens ocasionalmente que exigem processamento imediato.
+## <a name="send-interactive-messages-from-a-device-app"></a>Enviar mensagens interativas de um aplicativo de dispositivo
+Nesta seção, você modificará o aplicativo de dispositivo criado no tutorial [Introdução ao Hub IoT] para enviar ocasionalmente mensagens que exigem processamento imediato.
 
 1. Use um editor de texto para abrir o arquivo simulated-device\src\main\java\com\mycompany\app\App.java. Este arquivo contém o código do aplicativo **simulated-device** que você criou no tutorial [Introdução ao Hub IoT] .
 
@@ -101,11 +99,11 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado no 
         }
     }
     ```
-
-    Isso adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo simulado, que simula uma mensagem que exige ação imediata do back-end da solução. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
-
-    > [!NOTE]
-    > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
+   
+    Esse método adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
+   
+   > [!NOTE]
+   > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
 
 2. Salve e feche o arquivo simulated-device\src\main\java\com\mycompany\app\App.java.
 
@@ -205,7 +203,7 @@ Para saber mais sobre o roteamento de mensagens no Hub IoT, confira [Enviar e re
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Introdução ao Hub IoT]: iot-hub-java-java-getstarted.md
-[Centro de desenvolvedores do Azure IoT]: https://azure.microsoft.com/develop/iot
+[Centro de Desenvolvedores do Azure IoT]: https://azure.microsoft.com/develop/iot
 [Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->

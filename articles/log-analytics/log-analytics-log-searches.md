@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="find-data-using-log-searches"></a>Localizar dados usando pesquisas de logs
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados usando as pesquisas de logs no Log Analytics
+
+>[!NOTE]
+> Este artigo descreve pesquisas de logs usando a linguagem de consulta atual no Log Analytics.  Se o seu espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), você deverá consultar [Noções básicas sobre pesquisas de logs no Log Analytics (novo)](log-analytics-log-search-new.md).
+
 
 No núcleo do Log Analytics está o recurso de pesquisa de log que permite combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente. As soluções também são alimentadas pela pesquisa de log para fornecer métricas que giram em torno de uma área de problema específica.
 
@@ -135,6 +137,24 @@ Da mesma forma, a consulta a seguir retorna **% CPU Time** somente para os dois 
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>Tipos de campo
+Ao criar filtros, você deve entender as diferenças de trabalhar com tipos diferentes de campos retornados pelas pesquisas de log.
+
+**Campos de pesquisa** aparecem em azul nos resultados da pesquisa.  Você pode usar campos de pesquisa em condições de pesquisa específicas do campo, como as seguintes:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**Campos de pesquisa de texto livre** são mostrados em cinza nos resultados da pesquisa.  Eles não podem ser usados com os critérios de pesquisa específicos para o campo, como campos pesquisáveis.  Eles apenas são pesquisados ao executar uma consulta em todos os campos, como a seguir.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 
@@ -249,7 +269,7 @@ O comando SELECIONAR se comporta como Select-Object no PowerShell. Ele retorna r
 3. Selecione alguns deles explicitamente e a consulta muda para `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![pesquisar selecionar](./media/log-analytics-log-searches/oms-search-select.png)
 
-Esse comando é particularmente útil quando você deseja controlar a saída de pesquisa e escolher apenas as partes de dados que realmente importam para exploração, o que geralmente não é o registro completo. Isso também é útil quando os registros de tipos diferentes têm *algumas* propriedades em comum, mas não *todas*. Você pode gerar uma saída mais naturalmente parecida com uma tabela ou que funciona bem quando exportada para um arquivo CSV e processada no Excel.
+Esse comando é particularmente útil quando você deseja controlar a saída de pesquisa e escolher apenas as partes de dados que realmente importam para sua exploração, o que geralmente não é o registro completo. Isso também é útil quando os registros de tipos diferentes têm *algumas* propriedades em comum, mas não *todas*. Você pode gerar uma saída mais naturalmente parecida com uma tabela ou que funciona bem quando exportada para um arquivo CSV e processada no Excel.
 
 ## <a name="use-the-measure-command"></a>Usar o comando medir
 MEDIDA é um dos comandos mais versáteis em pesquisas do Log Analytics. Ele permite que você aplique *funções* estatísticas aos seus dados e agregue os resultados agrupados por um determinado campo. Há várias funções estatísticas que têm suporte de Medida.

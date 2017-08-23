@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Políticas personalizadas
@@ -41,7 +41,7 @@ Políticas personalizadas são arquivos de configuração que definem o comporta
 | Personalização de atributos | Atributos padrão e personalizados | Idêntico |
 |Gerenciamento de tokens e sessões | Token personalizado e opções de várias sessões | Idêntico |
 |Provedores de Identidade| **Hoje**: provedor social e local predefinido<br><br>**Futuro**: OIDC baseado em padrões, SAML, OAuth | **Hoje**: OIDC baseado em padrões, OAUTH, SAML<br><br>**Futuro**: WsFed |
-|Tarefas de identidade (exemplos) | Inscrever-se ou entrar com contas locais e várias contas sociais<br><br>Redefinição de senha<br><br>Edição de perfil<br><br>Cenários de Autenticação Multifator<br><br>Personalizar tokens e sessões<br><br>Acessar fluxos de token | Concluir as mesmas tarefas que as políticas internas usando provedores de identidade ou escopos personalizados<br><br>Provisionar um usuário em outro sistema no momento do registro<br><br>Enviar um email de boas-vindas usando seu próprio provedor de serviços de email<br><br>Usar um repositório de usuários fora do B2C<br><br>Validar as informações fornecidas pelo usuário com um sistema confiável por meio da API |
+|Tarefas de identidade (exemplos) | Inscrever-se ou entrar com contas locais e várias contas sociais<br><br>Redefinição de senha de autoatendimento<br><br>Edição de perfil<br><br>Cenários de Autenticação Multifator<br><br>Personalizar tokens e sessões<br><br>Acessar fluxos de token | Concluir as mesmas tarefas que as políticas internas usando provedores de identidade ou escopos personalizados<br><br>Provisionar um usuário em outro sistema no momento do registro<br><br>Enviar um email de boas-vindas usando seu próprio provedor de serviços de email<br><br>Usar um repositório de usuários fora do B2C<br><br>Validar as informações fornecidas pelo usuário com um sistema confiável por meio da API |
 
 ## <a name="policy-files"></a>Arquivos de política
 
@@ -97,7 +97,7 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 |---------------------|--------------------|-----------------|---------------|
 | BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Inclui o esquema principal de declarações, transformações de declarações, provedores de declarações e percursos do usuário configurados pela Microsoft<br><br>Fazer alterações mínimas nesse arquivo | Nenhum |
 | Extensão (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidar as alterações no arquivo BASE aqui<br><br>Provedores de declarações modificados<br><br>Percursos do usuário modificados<br><br>Suas próprias definições de esquema personalizadas | Arquivo BASE |
-| RP (Terceira Parte Confiável) | | | Arquivo de extensões |
+| RP (Terceira Parte Confiável) | B2C_1A_sign_up_sign_in.xml| Altere as configurações de forma e sessão do token aqui| Arquivo Extensions(EXT) |
 
 ### <a name="inheritance-model"></a>Modelo de herança
 

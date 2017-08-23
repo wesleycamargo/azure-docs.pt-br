@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
@@ -48,7 +47,7 @@ A tabela a seguir ilustra as garantias específicas que cada nível de consistê
 | Prefixo consistente | As atualizações retornadas são algum prefixo de todas as atualizações, sem intervalos |
 | Eventual  | Leituras fora de ordem |
 
-Você pode configurar o nível de consistência padrão na sua conta do Cosmos DB (e mais tarde, substituir a consistência em uma solicitação de leitura específica). Internamente, o nível de consistência padrão aplica-se aos dados nos conjuntos de partições que podem ser regiões de extensão. Cerca de 73% dos nossos locatários usam a consistência de sessão e 20% preferem desatualização limitada. Observamos que aproximadamente 3% de nossos clientes experimentam vários níveis de consistência inicialmente antes de escolherem uma opção de consistência específica para seu aplicativo. Também observamos que apenas 2% de nossos locatários substituem os níveis de consistência por solicitação. 
+Você pode configurar o nível de consistência padrão na sua conta do Cosmos DB (e mais tarde, substituir a consistência em uma solicitação de leitura específica). Internamente, o nível de consistência padrão aplica-se aos dados nos conjuntos de partições que podem abranger regiões. Cerca de 73% dos nossos locatários usam a consistência de sessão e 20% preferem desatualização limitada. Observamos que aproximadamente 3% de nossos clientes experimentam vários níveis de consistência inicialmente antes de escolherem uma opção de consistência específica para seu aplicativo. Também observamos que apenas 2% de nossos locatários substituem os níveis de consistência por solicitação. 
 
 No Cosmos DB, leituras que atuam em consistência de sessão, prefixo consistente e eventual são duas vezes mais econômicas que leituras com consistência forte ou de desatualização limitada. O Cosmos DB tem SLAs abrangente de 99,99% líderes do setor, incluindo garantias de consistência junto com disponibilidade, taxa de transferência e latência. Utilizamos um [verificador de transação atômica](http://dl.acm.org/citation.cfm?id=1806634), que opera continuamente em nossa telemetria do serviço e relata de maneira aberta quaisquer violações de consistência a você. Para desatualização limitada, monitoramos e relatamos quaisquer violações de limites k e t. Para todos os cinco níveis de consistência reduzida, podemos também relatar a [métrica probabilística de desatualização limitada](http://dl.acm.org/citation.cfm?id=2212359) diretamente a você.  
 

@@ -83,6 +83,7 @@
 ## [Habilitar a cobrança](active-directory-b2c-how-to-enable-billing.md)
 ## [Gerenciamento de ameaças](active-directory-b2c-reference-threat-management.md)
 ## [Problemas ao criar um diretório](active-directory-b2c-support-create-directory.md)
+## [Aplicativo das extensões](active-directory-b2c-reference-extensions-app.md)
 
 # Relacionados
 ## [Active Directory do Azure](../active-directory/active-directory-whatis.md)
