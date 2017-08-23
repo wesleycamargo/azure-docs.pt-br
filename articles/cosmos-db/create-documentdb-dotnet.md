@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Cosmos DB: compilar um aplicativo Web com o .NET e com a API do DocumentDB | Microsoft Docs'
 description: "Apresenta um exemplo de código .NET que pode ser usado para se conectar à API do DocumentDB do Azure Cosmos DB e consultá-la"
 services: cosmos-db
