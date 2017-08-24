@@ -72,18 +72,18 @@
 
 ## [Armazenamento](azure-operations-guide.md#azure-storage)
 
-### [Armazenamento de Blobs do Azure](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introdução ao armazenamento de Blobs do Azure usando o .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Como utilizar o Armazenamento de arquivos do Azure com Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introdução ao Armazenamento de tabelas do Azure](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introdução ao Armazenamento de filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Criar uma conta de armazenamento](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [Usando o PowerShell do Azure com o Armazenamento do Azure](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Usando a CLI do Azure com o Armazenamento do Azure.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Ferramentas de cliente do Armazenamento do Azure](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introdução ao armazenamento de Blobs do Azure usando o .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Como utilizar o Armazenamento de arquivos do Azure com Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introdução ao Armazenamento de tabelas do Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introdução ao Armazenamento de filas do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Usando o PowerShell do Azure com o Armazenamento do Azure](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Usando a CLI do Azure com o Armazenamento do Azure.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Ferramentas de cliente do Armazenamento do Azure](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Referência de API REST do Serviço de armazenamento do Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [Uso de assinaturas de acesso compartilhado](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Uso de assinaturas de acesso compartilhado](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 

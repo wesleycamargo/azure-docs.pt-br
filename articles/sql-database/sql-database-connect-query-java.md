@@ -135,7 +135,8 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();

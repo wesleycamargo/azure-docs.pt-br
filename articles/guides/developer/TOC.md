@@ -64,12 +64,12 @@
 ### [VM Linux de um modelo](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM Windows de um modelo](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Armazenar dados
-### [Blobs](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Compartilhamentos de arquivos](../../storage/storage-dotnet-how-to-use-files.md)
-### [Pares chave-valor](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Compartilhamentos de arquivos](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Pares chave-valor](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Documentos JSON](../../documentdb/documentdb-get-started.md)
 ### [Tabelas relacionais](../../sql-database/sql-database-get-started.md)
-### [Filas de mensagens](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Filas de mensagens](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Escala
 ### [Aplicativos Web e móveis](../../app-service-web/web-sites-scale.md)
