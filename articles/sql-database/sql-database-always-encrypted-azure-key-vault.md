@@ -22,7 +22,6 @@ ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Always Encrypted: proteger dados confidenciais no Banco de Dados SQL e armazenar suas chaves de criptografia no Cofre de Chaves do Azure
 
@@ -80,7 +79,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
 
 
     Login-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location

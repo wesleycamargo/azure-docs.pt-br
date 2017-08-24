@@ -17,9 +17,9 @@
 ### [Compilar e implantar um aplicativo Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Criar um aplicativo Web do Node.js usando o Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Armazenamento e Visual Studio
-#### [Armazenamento de blobs e serviços conectados](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Armazenamento em fila e serviços conectados](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Armazenamento de tabelas e serviços conectados](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Armazenamento de blobs e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Armazenamento em fila e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Armazenamento de tabelas e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurar pacotes para compilação e implantação contínuas
 #### [TFS e o Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurar regras de tráfego para uma função](cloud-services-enable-communication-role-instances.md)
