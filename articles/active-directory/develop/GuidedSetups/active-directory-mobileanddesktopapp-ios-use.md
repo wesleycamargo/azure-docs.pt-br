@@ -19,9 +19,7 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 81d5ae3775cca7cea5abf1922a25be0663a8a949
 ms.contentlocale: pt-br
 
-
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a MSAL (Biblioteca de Autenticação da Microsoft) para obter um token para a API do Microsoft Graph
 
 Abra `ViewController.swift` e substitua o código por:
