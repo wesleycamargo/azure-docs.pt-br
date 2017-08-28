@@ -4,7 +4,7 @@ description: "Este tópico mostra como configurar o codificador Elemental Live p
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única
@@ -74,7 +75,7 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-### <a name="a-idconfigureelementalrtpaconfigure-the-elemental-live-encoder"></a><a id=configure_elemental_rtp></a>Configurar o codificador do Elemental Live
+### <a id=configure_elemental_rtp></a>Configurar o codificador do Elemental Live
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -173,9 +174,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

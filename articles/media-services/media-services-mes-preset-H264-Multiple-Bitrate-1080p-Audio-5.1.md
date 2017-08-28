@@ -2,7 +2,7 @@
 title: "H264 Taxas de Bits Múltiplas 1080p Audio 5.1 | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 1080p Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

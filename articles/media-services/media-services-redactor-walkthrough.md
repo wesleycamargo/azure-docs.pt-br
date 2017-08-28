@@ -4,7 +4,7 @@ description: "Este tópico mostra instruções passo a passo sobre como executar
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
@@ -91,12 +91,12 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 
 ### <a name="set-up-the-tool"></a>Configurar a ferramenta
 
-1.    Baixe e compile toda a solução. 
+1.  Baixe e compile toda a solução. 
 
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.    Baixe FFMPEG [aqui](https://ffmpeg.org/download.html). Este projeto foi desenvolvido originalmente com a versão be1d324 (2016-10-04) e com vinculação estática. 
-3.    Copie ffmpeg.exe e ffprobe.exe na mesma pasta de saída que AzureMediaRedactor.exe. 
+2.  Baixe FFMPEG [aqui](https://ffmpeg.org/download.html). Este projeto foi desenvolvido originalmente com a versão be1d324 (2016-10-04) e com vinculação estática. 
+3.  Copie ffmpeg.exe e ffprobe.exe na mesma pasta de saída que AzureMediaRedactor.exe. 
 
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -114,13 +114,13 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
     
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.    O campo de texto inferior será atualizado com as IDs de face. Crie um arquivo chamado "idlist.txt" com essas IDs como uma lista delimitada por nova linha. 
+5.  O campo de texto inferior será atualizado com as IDs de face. Crie um arquivo chamado "idlist.txt" com essas IDs como uma lista delimitada por nova linha. 
 
     >[!NOTE]
     > O idlist.txt deve ser salvo em ANSI. É possível usar o bloco de notas para salvar em ANSI.
     
-6.    Carregue esse arquivo no ativo de saída da etapa 1. Carregue o vídeo original também nesse ativo e defina-o como ativo primário. 
-7.    Execute o trabalho de Edição nesse ativo com o modo de "Edição" para obter o último vídeo editado. 
+6.  Carregue esse arquivo no ativo de saída da etapa 1. Carregue o vídeo original também nesse ativo e defina-o como ativo primário. 
+7.  Execute o trabalho de Edição nesse ativo com o modo de "Edição" para obter o último vídeo editado. 
 
 ## <a name="next-steps"></a>Próximas etapas 
 

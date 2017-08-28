@@ -2,7 +2,7 @@
 title: "H264 Taxa de Bits Única 720p Audio 5.1 | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 720p Áudio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

@@ -2,7 +2,7 @@
 title: "H264 Taxas de Bits Múltiplas 16x9 SD | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 16x9 SD**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

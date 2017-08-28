@@ -2,7 +2,7 @@
 title: "264 Taxas de Bits Múltiplas 4K Audio 5.1 | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **264 Taxas de Bits Múltiplas 4K Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

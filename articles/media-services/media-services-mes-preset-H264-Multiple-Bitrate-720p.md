@@ -2,7 +2,7 @@
 title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Múltiplas 720p - Azure | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 720p**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

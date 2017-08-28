@@ -3,8 +3,8 @@ title: "Usando a Área de Trabalho Remota com funções do Azure | Microsoft Doc
 description: "Usando a Área de Trabalho Remota com as funções do Azure"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: kraigb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Usando a Área de Trabalho Remota com as funções do Azure

@@ -2,7 +2,7 @@
 title: "Desenvolver aplicativos de player de vídeo"
 description: "O tópico fornece links para as Estruturas do Player e plug-ins que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir a mídia de streaming dos Serviços de Mídia."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

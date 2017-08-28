@@ -4,7 +4,7 @@ description: "Este tópico demonstra como detectar os rostos e as emoções com 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services

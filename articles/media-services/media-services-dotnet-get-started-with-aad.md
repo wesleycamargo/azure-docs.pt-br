@@ -4,7 +4,7 @@ description: "Este tópico mostra como usar a autenticação do Azure AD (Azure 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 78ca7eceb31396c748c4c20763d5c74575bbc8f4
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/01/2017
-
 
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
