@@ -3,7 +3,7 @@ title: "Configurar o cluster do Azure Service Fabric autônomo | Microsoft Docs"
 description: "Aprenda a configurar seu cluster autônomo ou particular do Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Definições de configuração para o cluster autônomo no Windows
 Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo ***ClusterConfig.JSON***. Use esse arquivo para especificar informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster autônomo.
 
-Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado. O número de nós primários para esses clusters se baseia no [nível de confiabilidade](#reliability).
+Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado.
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção sem segurança, respectivamente. 
 2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
@@ -83,15 +82,7 @@ A seção **propriedades** no ClusterConfig.JSON é usada para configurar o clus
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>Confiabilidade
-A seção **reliabilityLevel** define o número de cópias de serviços do sistema que podem ser executadas nos nós primários do cluster. Isso aumenta a confiabilidade desses serviços e, portanto, do cluster. Você pode definir essa variável como *Bronze*, *Prata*, *Ouro* ou *Platina* para três, cinco, sete ou nove cópias desses serviços, respectivamente. Veja um exemplo abaixo.
-
-    "reliabilityLevel": "Bronze",
-
-Observe que, uma vez que um nó principal executa uma única cópia dos serviços do sistema, você precisaria de pelo menos três nós primários para os níveis de confiabilidade *Bronze*, cinco para *Prata*, sete para *Ouro* e nove para *Platina*.
-
-Se você não especificar a propriedade reliabilityLevel em seu clusterConfig.json, nosso sistema calculará a reliabilityLevel mais otimizada com base no número de nós "NodeType primário" existentes. Por exemplo, se você tiver quatro nós primários, o reliabilityLevel será definido como bronze; se você tiver cinco nós, o reliabilityLevel será definido como prata. Em breve, removeremos a opção de configurar o nível de confiabilidade, já que o cluster detectará e usará o nível de confiabilidade ideal automaticamente.
-
-O ReliabilityLevel pode ser atualizado. Você pode criar um clusterConfig.json v2 e aumentar e diminuir com uma [Atualização de configuração de cluster autônomo](service-fabric-cluster-upgrade-windows-server.md). Você também pode atualizar para um clusterConfig.json v2 sem reliabilityLevel especificado, para que o reliabilityLevel seja calculado automaticamente. 
+O conceito de **reliabilityLevel** define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema em tempo de criação e atualização de cluster.
 
 ### <a name="diagnostics"></a>Diagnostics
 A seção **diagnosticsStore** permite configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o trecho a seguir. 
@@ -150,7 +141,7 @@ A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos u
         "isPrimary": true
     }]
 
-O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo, atribua o nome amigável à variável **nodeTypeRef** para esse nó, conforme mencionado [acima](#clusternodes). Para cada tipo de nó, defina os pontos de extremidade de conexão que serão usados. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nós, haverá um ou mais nós primários (ou seja, **isPrimary** definido como *true*), dependendo do [**reliabilityLevel**](#reliability). Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para obter informações sobre os valores de **nodeTypes** e **reliabilityLevel**, bem como para saber quais são os tipos de nó primários e não primários. 
+O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo, atribua o nome amigável à variável **nodeTypeRef** para esse nó, conforme mencionado [acima](#clusternodes). Para cada tipo de nó, defina os pontos de extremidade de conexão que serão usados. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nós, haverá um ou mais nós primários (ou seja, **isPrimary** definido como *true*), dependendo do [**reliabilityLevel**](#reliability). Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para obter informações sobre **nodeTypes** e **reliabilityLevel**, bem como para saber quais são os tipos de nó primários e não primários. 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Pontos de extremidade usados para configurar os tipos de nó
 * *clientConnectionEndpointPort* é a porta usada pelo cliente para se conectar ao cluster, ao usar as APIs de cliente. 

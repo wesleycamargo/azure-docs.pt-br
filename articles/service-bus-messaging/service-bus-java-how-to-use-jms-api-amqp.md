@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: cfd4822820270dbaf44a25f3e0fe749492765df8
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
@@ -313,7 +312,7 @@ As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Ser
 * Apenas um **MessageProducer** ou **MessageConsumer** é permitido por **Sessão**. Se precisar criar vários **MessageProducers** ou **MessageConsumers** em um aplicativo, crie uma **Session** dedicada para cada um deles.
 * Assinaturas de tópico voláteis não são atualmente suportadas.
 * **MessageSelectors** não são atualmente suportados.
-* Destinos temporários como, por exemplo, **TemporaryQueue**, **TemporaryTopic** não têm suporte, juntamente com as APIs de **QueueRequestor** e **TopicRequestor** que os utilizam.
+* Os destinos temporários como, por exemplo, **TemporaryQueue**, **TemporaryTopic** não têm suporte no momento, juntamente com as APIs de **QueueRequestor** e **TopicRequestor** que os utilizam.
 * Não há suporte para as sessões transacionadas e transações distribuídas.
 
 ## <a name="summary"></a>Resumo

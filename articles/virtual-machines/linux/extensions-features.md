@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -34,13 +34,12 @@ Este documento fornece uma visão geral das extensões da VM, pré-requisitos pa
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado de Desejado do PowerShell a uma máquina virtual usando a extensão de DSC para Linux. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure o monitoramento de uma máquina virtual com a extensão de VM do Agente de Monitoramento da Microsoft. Para saber mais, confira [Habilitar ou desabilitar o monitoramento de VM](vm-monitoring.md).
+- Configure o monitoramento de uma máquina virtual com a extensão de VM do Agente de Monitoramento da Microsoft. Para saber mais, confira [Como monitorar uma VM Linux](tutorial-monitoring.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure um host do Docker em uma máquina virtual do Azure usando a extensão de VM do Docker. Para saber mais, confira [Extensão de VM do Docker](dockerextension.md).
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma máquina virtual. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](extensions-customscript.md).
 
-Para trabalhar em um exemplo no qual uma extensão de VM é usada em uma implantação de aplicativos de ponta a ponta, confira [Automatizar implantações de aplicativos em máquinas virtuais do Azure](../linux/dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,7 +130,7 @@ Para saber mais, confira o [Modelo completo do Resource Manager](https://github.
 }
 ```
 
-Para saber mais, confira [Criação de modelos do Azure Resource Manager com extensões de VM do Linux](../linux/extensions-authoring-templates.md).
+Para obter mais informações, confira [Criação de modelos do Azure Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Proteger dados de extensão da VM
 

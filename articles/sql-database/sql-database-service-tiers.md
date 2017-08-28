@@ -4,7 +4,7 @@ description: "Comparar os níveis de serviço e desempenho do Banco de Dados SQL
 keywords: "opções de banco de dados, desempenho do banco de dados"
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,18 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 68d55d2dd088ce6350bd65b79206f161f9d3d788
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
-<a id="what-performance-options-are-available-for-an-azure-sql-database" class="xliff"></a>
-
-# Quais opções de desempenho estão disponíveis para um Banco de Dados SQL do Azure
+# <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Quais opções de desempenho estão disponíveis para um Banco de Dados SQL do Azure
 
 O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece quatro níveis de serviço para bancos de dados individuais e [em pool](sql-database-elastic-pool.md). Esses níveis de serviço são: **Básica**, **Standard**, **Premium** e **Premium RS**. Dentro de cada nível de serviço estão vários níveis de desempenho ([DTUs](sql-database-what-is-a-dtu.md)) e opções de armazenamento para lidar com cargas de trabalho e tamanhos de dados diferentes. Os níveis de desempenho mais elevados fornecem recursos adicionais de computação e armazenamento projetados para oferecer taxa de transferência e capacidade cada vez maiores. Você pode alterar os níveis de serviço, os níveis de desempenho e o armazenamento sem tempo de inatividade. 
 - Os níveis serviço **Básico**, **Standard** e **Premium** têm um SLA de tempo de atividade de 99,99%, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. 
@@ -35,9 +32,7 @@ O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece quat
 > [!IMPORTANT]
 > Um Banco de Dados SQL do Azure obtém um conjunto garantido de recursos e as características de desempenho esperadas de seu banco de dados não são afetadas por outro banco de dados no Azure. 
 
-<a id="choosing-a-service-tier" class="xliff"></a>
-
-## Como escolher uma camada de serviço
+## <a name="choosing-a-service-tier"></a>Como escolher uma camada de serviço
 A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
 
 | Camada de serviço | Cargas de trabalho de destino |
@@ -80,16 +75,12 @@ Depois de determinar o nível de serviço apropriado, você estará pronto para 
 > Examine o tópico [Pools elásticos de SQL](sql-database-elastic-pool.md) para obter os detalhes sobre o agrupamento de bancos de dados nos pools elásticos de SQL para compartilhar recursos de computação e armazenamento. O restante deste tópico se concentra em níveis de serviço e níveis de desempenho para bancos de dados único.
 >
 
-<a id="single-database-service-tiers-and-performance-levels" class="xliff"></a>
-
-## Camadas de serviço e níveis de desempenho de banco de dados individual
+## <a name="single-database-service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho de banco de dados individual
 Para bancos de dados individuais, há vários níveis de desempenho e quantidades de armazenamento dentro de cada nível de serviço. 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-<a id="scaling-up-or-scaling-down-a-single-database" class="xliff"></a>
-
-## Escalar verticalmente ou reduzir um banco de dados
+## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalar verticalmente ou reduzir um banco de dados
 
 Depois de escolher inicialmente um nível de desempenho e da camada de serviço, você pode dimensionar um banco de dados para cima ou para baixo dinamicamente com base na experiência real.  
 
@@ -100,17 +91,20 @@ A alteração da camada de serviço e/ou nível de desempenho de um banco de dad
 
 A duração de todo o processo de expansão depende a camada tamanho e de serviço do banco de dados antes e após a alteração. Por exemplo, um banco de dados de 250 GB que está mudando para, de ou dentro de uma camada de serviço Standard deverá ser concluída dentro de 6 horas. Um banco de dados do mesmo tamanho cujos níveis de desempenho estão mudando dentro da camada de serviço Premium deverá ser concluído dentro de 3 horas.
 
+> [!TIP]
+> Para verificar o status de uma operação de colocação em escala de Banco de Dados SQL em andamento, use a seguinte consulta: ```select * from sys.dm_operation_status```.
+>
+
 * Se você estiver atualizando para um nível de serviço ou desempenho mais alto, o tamanho máximo do banco de dados não aumenta, a menos que você especifique explicitamente um tamanho máximo maior.
 * Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. 
-* Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, atualize seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário (orientação geral).
-* Ao fazer downgrade de um nível de serviço **Premium** para um nível de serviço inferior, primeiro você deve encerrar todos os relacionamentos de replicação geográfica. Você pode seguir as etapas descritas no tópico [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para interromper o processo de replicação entre os bancos de dados primários e secundários.
+* Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, atualize seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário (orientação geral). Ao atualizar para uma edição diferente ugrading banco de dados secundário primeiro é necessário. 
+* Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, faça downgrade de seus bancos de dados primários para o nível de desempenho desejado antes de fazer downgrade do banco de dados primário (orientação geral). Quando é necessário fazer o downgrade para uma edição diferente, fazer o downgrade do banco de dados primário pela primeira vez. 
+
 * As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se você estiver fazendo downgrade do nível **Básico**, você terá um período de retenção de backup inferior - confira [Backups de Banco de Dados SQL do Azure](sql-database-automated-backups.md).
 * As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
 
 
-<a id="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize" class="xliff"></a>
-
-## Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB
+## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB
 
 Há suporte para um tamanho máximo de 4 TB para banco de dados P11 e P15 em algumas regiões (conforme discutido anteriormente). As seguintes considerações e limitações se aplicam aos bancos de dados P11 e P15 com tamanho máximo de 4 TB:
 
@@ -125,9 +119,7 @@ Há suporte para um tamanho máximo de 4 TB para banco de dados P11 e P15 em alg
    - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo de 4 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Limitações de região para a opção de 4TB se aplicam (confira acima). Se o secundário estiver em uma região que não oferece suporte a 4 TB, o primário não será atualizado.
 - Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal" class="xliff"></a>
-
-## Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o Portal do Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o Portal do Azure
 
 Para definir ou alterar o nível de serviço, o nível de desempenho ou a quantidade de armazenamento para um banco de dados SQL do Azure novo ou existente usando o Portal do Azure, abra a janela **Configurar desempenho** para o banco de dados clicando em **Tipo de preço (DTUs de escala)** - conforme mostra a captura de tela a seguir. 
 
@@ -141,9 +133,7 @@ Para definir ou alterar o nível de serviço, o nível de desempenho ou a quanti
 > Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) ao selecionar um nível de serviço P11 ou P15.
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-powershell" class="xliff"></a>
-
-## Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o PowerShell
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-powershell"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o PowerShell
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando o PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -157,9 +147,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 > [!TIP]
 > Para um script do PowerShell de exemplo que monitora as métricas de desempenho de um banco de dados, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho, consulte [Monitorar e escalar um banco de dados SQL individual usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli" class="xliff"></a>
-
-## Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando a CLI do Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando a CLI do Azure
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando a CLI do Azure, use os seguintes cmdlets da [CLI do Azure do Banco de Dados SQL](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos de SQL, consulte [Pools elásticos](sql-database-elastic-pool.md).
 
@@ -173,12 +161,10 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 |[az sql db update](/cli/azure/sql/db#update)|Atualiza um banco de dados|
 
 > [!TIP]
-> Para um script de exemplo da CLI do Azure que dimensiona um Banco de Dados SQL do Azure individual para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados, confira [Usar CLI para monitorar e escalar um banco de dados SQL individual](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Para ver um script de exemplo da CLI do Azure que escala um único Banco de Dados SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados, consulte [Usar a CLI para monitorar e escalar um único Banco de Dados SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-transact-sql" class="xliff"></a>
-
-## Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando Transact-SQL
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-transact-sql"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando Transact-SQL
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure com Transact-SQL, use os seguintes comando T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. 
 
@@ -196,15 +182,11 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-<a id="manage-single-databases-using-the-rest-api" class="xliff"></a>
-
-## Gerenciar bancos de dados individuais usando a API REST
+## <a name="manage-single-databases-using-the-rest-api"></a>Gerenciar bancos de dados individuais usando a API REST
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando a API REST, confira [API REST do Banco de Dados SQL do Azure](/rest/api/sql/).
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [DTUs](sql-database-what-is-a-dtu.md).
 * Para saber mais sobre como monitorar o uso de DTU, consulte [Monitoramento e ajuste de desempenho](sql-database-troubleshoot-performance.md).

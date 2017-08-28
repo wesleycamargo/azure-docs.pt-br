@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0e945b5626a08fcb428131f2abb465c2c141011a
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Usar hubs de notificação para enviar notícias recentes
@@ -28,8 +29,11 @@ Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir 
 
 Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais *marcas* durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre marcas, consulte [Expressões de Marca e Roteamento dos Hubs de Notificação](notification-hubs-tags-segment-push-message.md).
 
+> [!NOTE]
+> Windows Store e a versão de projetos do Windows Phone 8.1 e versões anteriores não têm suporte no Visual Studio de 2017.  Para saber mais, confira [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
+
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, primeiro você deve concluir a [Introdução aos Hubs de Notificação][get-started].
+Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias ao aplicativo
 A primeira etapa é adicionar os elementos da interface do usuário na página principal existente que permitem ao usuário selecionar categorias para o registro. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
@@ -215,10 +219,10 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
     Saiba como expandir o aplicativo das últimas notícias para habilitar o envio de notificações localizadas.
 
 <!-- Anchors. -->
-[Adicionar a seleção de categorias ao aplicativo]: #adding-categories
-[Registrar-se para receber notificações]: #register
-[Enviar notificações de seu back-end]: #send
-[Executar o aplicativo e gerar notificações]: #test-app
+[Add category selection to the app]: #adding-categories
+[Register for notifications]: #register
+[Send notifications from your back-end]: #send
+[Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -232,18 +236,13 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
 [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users
-[Serviço Móvel]: /develop/mobile/tutorials/get-started/
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Mobile Service]: /develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 

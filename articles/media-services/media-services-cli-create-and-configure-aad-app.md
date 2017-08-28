@@ -4,7 +4,7 @@ description: "Este tópico mostra como usar a CLI 2.0 para criar um aplicativo d
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

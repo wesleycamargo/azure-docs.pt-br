@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e62b9742875512e70e5369978c1c90bdc9c6c1cb
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Particionamento no Azure Cosmos DB usando a API do DocumentDB
@@ -43,7 +42,10 @@ Para começar a codificar, baixe o projeto na [Amostra de Test Drive de Desempen
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## Chaves de partição Na API do DocumentDB, você especifica a definição de chave de partição no formulário de um caminho JSON. A tabela a seguir mostra exemplos de definições de chave de partição e os valores correspondentes a cada uma. A chave de partição é especificada como um caminho, por exemplo, `/department` representa o departamento de propriedade. 
+
+## <a name="partition-keys"></a>Chaves de partição
+
+Na API do DocumentDB, você especifica a definição da chave de partição na forma de um caminho JSON. A tabela a seguir mostra exemplos de definições de chave de partição e os valores correspondentes a cada uma. A chave de partição é especificada como um caminho, por exemplo, `/department` representa o departamento de propriedade. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -77,7 +79,7 @@ Para começar a codificar, baixe o projeto na [Amostra de Test Drive de Desempen
 
 Vamos analisar como a opção da chave de partição afeta o desempenho do aplicativo.
 
-## <a name="working-with-the-documentdb-sdks"></a>Como trabalhar com os SDKs do DocumentDB
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>Trabalhando com SDKs do Azure Cosmos DB
 O Azure Cosmos DB adicionou suporte ao particionamento automático na [API REST versão 2015-12-16](/rest/api/documentdb/). Para criar contêineres particionados, você deve baixar versões do SDK 1.6.0 ou mais novas em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Criando contêineres
@@ -207,7 +209,7 @@ Você pode gerenciar a execução de consulta paralela ajustando os seguintes pa
 * Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, ou seja, o número máximo de conexões de rede simultâneas às partições do contêiner. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK. Se o `MaxDegreeOfParallelism` não for especificado nem definido como 0, que é o valor padrão, haverá uma única conexão de rede às partições do contêiner.
 * Definindo `MaxBufferedItemCount`, você pode compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
 
-Dado o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem da execução serial. Ao executar uma consulta entre partições que inclui classificação (ORDER BY e/ou TOP), o SDK do Banco de Dados de Documentos emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
+Dado o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem da execução serial. Ao executar uma consulta entre partições que inclui classificação (ORDER BY e/ou TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
 
 ### <a name="executing-stored-procedures"></a>Executando procedimentos armazenados
 Você também poderá executar transações atômicas em documentos com a mesma ID de dispositivo, por exemplo, se estiver mantendo agregações ou o último estado de um dispositivo em um único item. 
@@ -222,9 +224,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Na próxima seção, examinaremos como é possível passar de contêineres de partição única para contêineres particionados.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, fornecemos uma visão geral de como trabalhar com o particionamento de contêineres do Cosmos DB com a API do DocumentDB. Consulte também [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
+Neste artigo, apresentamos uma visão geral de como trabalhar com o particionamento de contêineres do Azure Cosmos DB com a API do DocumentDB. Consulte também [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
 
-* Executar testes de desempenho e escala com o DB Cosmos. Consulte [Teste de desempenho e escala com o DB Cosmos do Azure](performance-testing.md) para obter um exemplo.
+* Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](performance-testing.md) para obter um exemplo.
 * Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/)
 * Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
 

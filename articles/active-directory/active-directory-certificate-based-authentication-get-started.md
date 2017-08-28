@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c32f2ca2c799332652d38d882a4d6337bade4f93
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
@@ -40,6 +40,8 @@ Este tópico:
 ## <a name="requirements"></a>Requisitos
 
 Para configurar a autenticação baseada em certificado, as seguintes afirmativas devem ser verdadeiras:  
+
+- A CBA (Autenticação Baseada em Certificado) tem suporte apenas em ambientes Federados para aplicativos de navegador ou clientes nativos que usam autenticação moderna (ADAL). A única exceção é o EAS (Exchange Active Sync) para EXO, que pode ser usado para contas federadas e gerenciadas. 
 
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.  
 

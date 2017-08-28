@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
-ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2ef879aa31c8ee44a2c6281438f24a8b94649b1b
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-error-and-other-issues"></a>Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas
@@ -40,14 +39,15 @@ A tabela a seguir aborda os códigos de erro de SQL para erros de perda de conex
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erros de conexão de banco de dados mais comuns e erros de falhas transitórias mais comuns
 O sistema Azure tem a capacidade de reconfigurar dinamicamente os servidores quando cargas de trabalho pesadas surgem no serviço do Banco de Dados SQL.  Este comportamento dinâmico pode fazer com que o programa cliente perca a conexão com o Banco de Dados SQL. Essa variante de condição de erro é chamada de uma *falha transitória*.
 
-Se o seu programa de cliente tiver uma lógica de repetição, ele poderá tentar restabelecer a conexão depois de fornecer o tempo de falha transitória para corrigir a si mesmo.  Recomendamos que você aguarde 5 segundos antes de sua primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deverá aumentar exponencialmente, até um máximo de 60 segundos.
+É altamente recomendável que seu programa cliente tem a lógica de repetição para que ele pôde restabelecer uma conexão após conceder, a hora de falhas transitórias para corrigir a mesmo.  É recomendável que você aguarde 5 segundos antes de sua primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deverá aumentar exponencialmente, até um máximo de 60 segundos.
 
 Erros de falhas transitórias normalmente se manifestam como uma das seguintes mensagens de erro de seus programas de cliente:
 
-* O banco de dados <db_name> no servidor <Azure_instance> não está disponível no momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão <session_id>
-* O banco de dados <db_name> no servidor <Azure_instance> não está disponível no momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão <session_id>. (Microsoft SQL Server, erro: 40613)
+* O banco de dados &lt;nome_do_bd&gt; no servidor &lt;instância_do_Azure&gt; não está disponível no momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da &lt;session_id&gt;
+* O banco de dados &lt;nome_do_bd&gt; no servidor &lt;instância_do_Azure&gt; não está disponível no momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da &lt;session_id&gt;. (Microsoft SQL Server, erro: 40613)
 * Uma conexão existente foi fechada à força pelo host remoto.
 * System.Data.Entity.Core.EntityCommandExecutionException: erro ao executar a definição de comando. Consulte a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor de Sessão, erro: 19 - a conexão física não é utilizável)
+* Uma tentativa de conexão para um banco de dados secundário falhou porque o banco de dados está em processo reconfguration e ele estiver ocupado aplicar novas páginas no meio de uma transação ativa no banco de dados primário. 
 
 Para obter exemplos de código de lógica de repetição, consulte:
 
@@ -68,6 +68,7 @@ Os erros a seguir são transitórios e devem ser repetidos na lógica do aplicat
 | 49918 |16 |Não é possível processar a solicitação. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado. Tente fazer novamente a solicitação. |
 | 49919 |16 |Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para obter as operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 | 49920 |16 |Não é possível processar a solicitação. Muitas operações em andamento para assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para essa assinatura. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para obter o status da operação. Espere até que as solicitações pendentes estejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
+| 4221 |16 |Falha de logon secundário de leitura devido a longa espera em 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. A réplica não está disponível para logon porque as versões de linha estão ausentes para as transações que estão em curso quando a réplica foi reciclada. O problema pode ser resolvido por reverter ou confirmar as transações ativas na réplica primária. Ocorrências dessa condição podem ser minimizadas, evitando transações de tempo de gravação no primário. |
 
 ## <a name="database-copy-errors"></a>Erros de cópia de banco de dados
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
@@ -210,7 +211,7 @@ Os erros a seguir não se enquadram em nenhuma categoria anterior.
 | 40651 |16 |Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada. |
 | 40652 |16 |Não é possível mover ou criar o servidor. A assinatura <subscription-id> ultrapassará a cota do servidor. |
 | 40671 |17 |Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde. |
-| 40852 |16 |Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no servidor FQDN – 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net. |
+| 40852 |16 |Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no servidor FQDN – 'server name'.database.windows.net deve ser modificado para 'server name'.database`secure`.windows.net. |
 | 45168 |16 |O sistema do SQL Azure está sob carga e está estabelecendo um limite superior para operações CRUD de BD simultâneas para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde. |
 | 45169 |16 |O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde. |
 

@@ -4,7 +4,7 @@ description: "Este artigo fornece uma breve visão geral do Gerenciador de Dados
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
 ms.service: media-services

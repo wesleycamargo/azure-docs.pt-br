@@ -4,7 +4,7 @@ description: "Este artigo fornece uma visão geral da proteção de conteúdo co
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services

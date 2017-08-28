@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 10ca10b2f644c29aad244abab720d2ce5586714f
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
@@ -64,7 +63,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 | Plataforma | Agente direto | Agente do Systems Center Operations Manager | As tabelas | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| As tabelas |![Não](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Não](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Sim](./media/log-analytics-azure-networking/oms-bullet-green.png) |![Não](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Não](./media/log-analytics-azure-networking/oms-bullet-red.png) |quando conectado |
+| As tabelas |  |  |&#8226; |  |  |quando conectado |
 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Solução de análise de Gateway de Aplicativo do Azure no Log Analytics

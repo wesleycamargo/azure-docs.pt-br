@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d920793926d8ab4c95882fb82170a8a3077b1187
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2a095b96a8c352abeca72640d37c0d629b447763
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificar as configurações de gateway de rede local usando o PowerShell
 
-Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. Este artigo mostra como modificar as configurações de gateway de rede local. Também é possível modificar essas configurações usando um método diferente selecionando uma opção diferente da lista a seguir:
+Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. Este artigo mostra como modificar as configurações de gateway de rede local. Também é possível modificar essas configurações usando um método diferente, selecionando uma opção diferente da lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -34,15 +33,15 @@ ms.lasthandoff: 06/20/2017
 >
 >
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before"></a>Antes de começar
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
-## <a name="modify-ip-address-prefixes"></a>Modificar os prefixos de endereço IP
+## <a name="ipaddprefix"></a>Modificar prefixos de endereço IP
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a>Modificar o endereço IP do gateway
+## <a name="gwip"></a>Modificar o endereço IP do gateway
 
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 

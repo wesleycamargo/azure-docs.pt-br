@@ -4,7 +4,7 @@ description: "Saiba mais sobre os conceitos e as etapas necessárias para usar o
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

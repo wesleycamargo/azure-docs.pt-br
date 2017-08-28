@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: aefc65d42e3c23e35793be8af1751bb48dfaa84f
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorar alertas para os backups das máquinas virtuais do Azure
@@ -194,8 +194,8 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre dos Serviços de Recuperação. Não é possível personalizar o alerta para um subconjunto de máquinas virtuais em um cofre dos Serviços de Recuperação.
-2. Esse recurso está na Visualização. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
-3. Os alertas são enviados de "alerts-noreply@mail.windowsazure.com". No momento, você não pode modificar o remetente do email.
+2. Esse recurso está na Visualização. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
+3. Os alertas são enviados de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
 ## <a name="next-steps"></a>Próximas etapas
 Os logs de eventos permitem um ótimo post-mortem e suporte de auditoria para as operações de backup. As seguintes operações são registradas:

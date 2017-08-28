@@ -2,7 +2,7 @@
 title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Única 16x9 – Azure | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 16x9 SD**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

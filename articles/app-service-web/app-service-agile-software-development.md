@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 452a50ef4a01ac328c4c2de8767181107eb57cd6
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure
@@ -40,7 +39,7 @@ A tabela a seguir é uma breve lista que mostra os requisitos associados ao dese
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-do"></a>O que você fará
-Você verá um fluxo de trabalho dev-test-stage-production típico para publicar novas alterações no aplicativo de exemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consiste em dois [aplicativos Web](/services/app-service/web/), sendo um front-end (FE) e um back-end (BE) da API Web e um [banco de dados SQL](/services/sql-database/). Você trabalhará com a arquitetura de implantação mostrada abaixo:
+Você verá um fluxo de trabalho dev-test-stage-production típico para publicar novas alterações no aplicativo de exemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consiste em dois [aplicativos Web](/services/app-service/web/), sendo um front-end (FE) e um back-end (BE) da API Web e um [banco de dados SQL](/services/sql-database/). Você trabalhará com a arquitetura de implantação a seguir:
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
@@ -59,12 +58,12 @@ Você também usará a estratégia de ramificação típica, com código movendo
 
 ![](./media/app-service-agile-software-development/what-2-branches.png) 
 
-## <a name="what-you-will-need"></a>O que será necessário
+## <a name="what-you-need"></a>O que você precisa
 * Uma conta do Azure
 * Uma conta do [GitHub](https://github.com/)
-* Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão 
-* Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
-* Noções básicas sobre:
+* Git Shell (instalado com o [GitHub para Windows](https://windows.github.com/)) - permite que você execute comandos do Git e do PowerShell na mesma sessão 
+* Bits do [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps) mais recentes
+* Noções básicas sobre as ferramentas a seguir:
   * Implantação do modelo do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) (consulte também [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
   * [Git](http://git-scm.com/documentation)
   * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
@@ -81,7 +80,7 @@ Você também usará a estratégia de ramificação típica, com código movendo
 
 ## <a name="set-up-your-production-environment"></a>Configurar seu ambiente de produção
 > [!NOTE]
-> O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web. 
+> O script usado neste tutorial configura automaticamente a publicação contínua de seu repositório GitHub. Isso exige que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web. 
 > 
 > Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com/) e [configure a implantação do GitHub](app-service-continuous-deployment.md). Você só precisa fazer isso uma vez. 
 > 
@@ -91,19 +90,19 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 1. Crie sua própria bifurcação do repositório [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) . Para obter informações sobre como criar a bifurcação, consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
    
-   ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Abra uma sessão do Git Shell. Se ainda não tiver o Git Shell, instale o [GitHub para Windows](https://windows.github.com/) agora.
 3. Crie um clone local de seu bifurcação executando o seguinte comando:
-   
-     git clone https://github.com/<your_fork>/ToDoApp.git 
+
+        git clone https://github.com/<your_fork>/ToDoApp.git 
 4. Depois que tiver o clone local, navegue até *&lt;repository_root>*\ARMTemplates e execute o script deploy.ps1 da seguinte maneira:
    
-     .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
+        .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 5. Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados.
    
    Você deverá ver o progresso de provisionamento de vários recursos do Azure. Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um aviso sonoro.
    
-   ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
+    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
    
    > [!TIP]
    > Dê uma olhada em *&lt;repository_root>*\ARMTemplates\Deploy.ps1 para ver como ele gera recursos com IDs exclusivas. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
@@ -111,15 +110,15 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
    > 
 6. De volta à sessão do Git Shell, execute:
    
-     .\swap –Name ToDoApp<unique_string>master
+        .\swap –Name ToDoApp<unique_string>master
    
-   ![](./media/app-service-agile-software-development/production-4-swap.png)
+    ![](./media/app-service-agile-software-development/production-4-swap.png)
 7. Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
 8. Faça logon no [Portal do Azure](https://portal.azure.com/) e veja o que foi criado.
    
-   Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;repository_root>*\ARMTemplates\ProdAndStage.json para ver como eles são configurados no modelo.
+   Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz_do_repositório>*\ARMTemplates\ProdAndStage.json para ver como eles são configurados no modelo.
    
-   ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
+    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
 Agora você configurou o ambiente de produção. Em seguida, você iniciará uma nova atualização para o aplicativo.
 
@@ -128,19 +127,23 @@ Agora que há um aplicativo complexo em execução em produção no Azure, você
 
 1. Crie o ambiente de teste primeiro. Na sessão do Git Shell, execute os seguintes comandos para criar o ambiente para uma nova ramificação chamada **NewUpdate**. 
    
-     git checkout -b NewUpdate   git push origin NewUpdate   .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
+        git checkout -b NewUpdate
+        git push origin NewUpdate 
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
 2. Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados. 
    
-   Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um bipe. Desse modo, você terá uma nova ramificação com ambiente de teste próprio. Dedique um momento para examinar algumas coisas sobre esse ambiente de teste:
+   Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um aviso sonoro. Agora você tem uma nova ramificação com ambiente de teste próprio. Dedique um momento para examinar algumas coisas sobre esse ambiente de teste:
    
    * Você pode criá-lo em qualquer assinatura do Azure. Isso significa que o ambiente de produção pode ser gerenciado separadamente do ambiente de teste.
    * Seu ambiente de teste está em execução em tempo real no Azure.
    * Seu ambiente de teste é idêntico ao ambiente de produção, exceto pelos slots de preparo e pelas configurações de escala. Isso pode ser observado porque essas são as únicas diferenças entre ProdandStage.json e Dev.json.
    * Você pode gerenciar o ambiente de teste em seu próprio plano do Serviço de Aplicativo, com uma faixa de preço diferente (como **Gratuito**).
-   * Excluir esse ambiente de teste é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
+   * A exclusão desse ambiente de teste é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
 3. Continue com a criação de uma ramificação de desenvolvimento. Para isso, execute os seguintes comandos:
    
-     git checkout -b Dev   git push origin Dev   .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
+        git checkout -b Dev
+        git push origin Dev
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
 4. Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados. 
    
    Dedique um momento para examinar algumas coisas sobre esse ambiente de desenvolvimento: 
@@ -151,7 +154,7 @@ Agora que há um aplicativo complexo em execução em produção no Azure, você
    * Excluir o ambiente de desenvolvimento é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
 
 > [!NOTE]
-> Quando houver vários desenvolvedores trabalhando na nova atualização, cada um deles poderá criar facilmente uma ramificação e um ambiente de desenvolvimento dedicado fazendo o seguinte:
+> Quando houver vários desenvolvedores trabalhando na nova atualização, cada um deles poderá criar facilmente uma ramificação e um ambiente de desenvolvimento dedicado com as seguintes etapas:
 > 
 > 1. Criar suas próprias bifurcações do repositório no GitHub (consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/)).
 > 2. Clonar a bifurcação na máquina local
@@ -168,7 +171,7 @@ E você deverá ter seis aplicativos Web (três conjuntos de dois) em três grup
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
 
 > [!NOTE]
-> Observe que ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard** , que é adequada para a escalabilidade do aplicativo de produção.
+> ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard** , que é adequada para a escalabilidade do aplicativo de produção.
 > 
 > 
 
@@ -177,42 +180,44 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 
 1. Certifique-se de que você está na ramificação de desenvolvimento do repositório local. Para fazer isso, execute o seguinte comando no Git Shell:
    
-     git checkout Dev
-2. Faça uma alteração simples na camada de interface do usuário do aplicativo alterando o código para usar listas de [inicialização](http://getbootstrap.com/components/) . Abra *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml e faça a alteração realçada abaixo:
+        git checkout Dev
+2. Faça uma alteração na camada de interface do usuário do aplicativo alterando o código para usar listas de [inicialização](http://getbootstrap.com/components/) . Abra *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml e faça a alteração realçada abaixo:
    
-   ![](./media/app-service-agile-software-development/commit-1-changes.png)
+    ![](./media/app-service-agile-software-development/commit-1-changes.png)
    
-   > [!NOTE]
-   > Se você não puder ler a imagem acima: 
-   > 
-   > * Na linha 18, altere `check-list` para `list-group`.
-   > * Na linha 19, altere `class="check-list-item"` para `class="list-group-item"`.
-   > 
-   > 
+    > [!NOTE]
+    > Se você não puder ler a imagem acima: 
+    > 
+    > * Na linha 18, altere `check-list` para `list-group`.
+    > * Na linha 19, altere `class="check-list-item"` para `class="list-group-item"`.
+    > 
+    > 
 3. Salve a alteração. De volta ao Git Shell, execute os seguintes comandos:
    
-     cd <repository_root> git add .
-     git commit -m "changed to bootstrap style" git push origin Dev
+        cd <repository_root>
+        git add .
+        git commit -m "changed to bootstrap style"
+        git push origin Dev
    
    Esses comandos git são semelhantes à "verificação em seu código" em outro sistema de controle de origem, como o TFS. Quando você executa `git push`, a nova confirmação dispara um envio de código por push automático ao Azure, que recompila o aplicativo para refletir a alteração no ambiente de desenvolvimento.
-4. Para verificar se esse código foi enviado por push ao ambiente de desenvolvimento, vá até a folha de aplicativo Web do ambiente de desenvolvimento e examine a parte **Implantação** . Você deverá ser capaz de ver a última mensagem de confirmação.
+4. Para verificar se esse código foi enviado por push ao ambiente de desenvolvimento, vá até a página do aplicativo Web do ambiente de desenvolvimento e examine a parte **Implantação** . Você deverá ser capaz de ver a última mensagem de confirmação.
    
-   ![](./media/app-service-agile-software-development/commit-2-deployed.png)
+    ![](./media/app-service-agile-software-development/commit-2-deployed.png)
 5. A partir dali, clique em **Procurar** para ver a nova alteração no aplicativo em tempo real no Azure.
    
-   ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
+    ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
    
-   Essa é uma alteração secundária no aplicativo. No entanto, muitas vezes, novas alterações em um aplicativo Web complexo têm efeitos colaterais não intencionais e indesejáveis. A capacidade de testar facilmente cada confirmação em compilações em tempo real permite capturar esses problemas antes que os clientes os vejam.
+   É uma alteração secundária no aplicativo. No entanto, muitas vezes, novas alterações em um aplicativo Web complexo têm efeitos colaterais não intencionais e indesejáveis. A capacidade de testar facilmente cada confirmação em compilações em tempo real permite capturar esses problemas antes que os clientes os vejam.
 
-Agora você já deve estar familiarizado com o conceito de que, como desenvolvedor do projeto **NewUpdate** , você poderá criar um ambiente de desenvolvimento para si mesmo com facilidade e, em seguida, compilar cada confirmação e testar cada compilação.
+Agora você já deve estar familiarizado com o conceito de que, como desenvolvedor do projeto **NewUpdate**, você pode criar um ambiente de desenvolvimento para si mesmo com facilidade e, depois, compilar cada confirmação e testar cada compilação.
 
 ## <a name="merge-code-into-test-environment"></a>Mesclar o código no ambiente de teste
 Quando você estiver pronto para enviar por push o seu código da ramificação de desenvolvimento para a ramificação NewUpdate, use o processo git padrão:
 
-1. Mescle todas as novas confirmações de NewUpdate na ramificação de desenvolvimento no GitHub, como confirmações criadas por outros desenvolvedores. Qualquer nova confirmação no GitHub disparará um push de código e uma compilação no ambiente de desenvolvimento. Em seguida, você poderá verificar se o código na ramificação de desenvolvimento ainda funciona com os bits mais recentes da ramificação NewUpdate.
+1. Mescle todas as novas confirmações de NewUpdate na ramificação de desenvolvimento no GitHub, como confirmações criadas por outros desenvolvedores. Qualquer confirmação nova no GitHub disparará um push de código e uma compilação no ambiente de desenvolvimento. Em seguida, você poderá verificar se o código na ramificação de desenvolvimento ainda funciona com os bits mais recentes da ramificação NewUpdate.
 2. Mescle todas as confirmações novas da ramificação de desenvolvimento na ramificação NewUpdate no GitHub. Essa ação aciona um push de código e uma compilação no ambiente de teste. 
 
-Mais uma vez, observe que, como a implantação contínua já está configurada com essas ramificações git, você não precisará realizar qualquer outra ação, como executar compilações de integração. Você só precisará executar as práticas de controle de origem padrão usando git, e o Azure executará todos os processos de compilação para você.
+Mais uma vez, observe que, como a implantação contínua já está configurada com essas ramificações git, você não precisará realizar qualquer outra ação, como executar compilações de integração. Você só precisa executar as práticas de controle de origem padrão usando git, e o Azure executará todos os processos de compilação para você.
 
 Agora, vamos enviar o código para a ramificação **NewUpdate** . No Git Shell, execute os seguintes comandos:
 
@@ -223,7 +228,7 @@ Agora, vamos enviar o código para a ramificação **NewUpdate** . No Git Shell,
 
 É isso! 
 
-Vá para a folha de aplicativo Web do ambiente de teste para ver a nova confirmação (mesclada na ramificação NewUpdate) ser enviada por push para o ambiente de teste. Em seguida, clique em **Procurar** para observar a alteração de estilo em execução em tempo real no Azure.
+Vá para a página do aplicativo Web do ambiente de teste para ver a nova confirmação (mesclada na ramificação NewUpdate) ser enviada por push para o ambiente de teste. Em seguida, clique em **Procurar** para observar a alteração de estilo em execução em tempo real no Azure.
 
 ## <a name="deploy-update-to-production"></a>Implantar a atualização na produção
 O envio de código por push para o ambiente de produção e preparo não deve ser diferente do envio de código por push para o ambiente de teste. É muito simples. 
@@ -235,21 +240,21 @@ No Git Shell, execute os seguintes comandos:
     git merge NewUpdate
     git push origin master
 
-Lembre-se de que, com base na maneira como o ambiente de produção e preparo é configurado no ProdandStage.json, seu novo código é enviado por push para o slot **Preparo** e executado lá. Se navegar para a URL do slot de preparo, você verá o novo código em execução lá. Para fazer isso, execute o cmdlet `Show-AzureWebsite` no Git Shell.
+Lembre-se de que, com base na maneira como o ambiente de produção e preparo é configurado no ProdandStage.json, seu novo código é enviado por push para o slot **Preparo** e executado lá. Se você navegar até a URL do slot de preparo, verá o novo código em execução. Para fazer isso, execute o seguinte cmdlet no Git Shell.
 
-    Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
+    Start-Process -FilePath "http://ToDoApp<unique_string>master-Staging.azurewebsites.net"
 
 Depois de verificar a atualização no slot de preparo, a única coisa que resta a fazer é trocá-lo na produção. No Git Shell, execute os seguintes comandos:
 
     cd <repository_root>\ARMTemplates
     .\swap.ps1 -Name ToDoApp<unique_string>master
 
-Parabéns! Você publicou com êxito uma nova atualização para o aplicativo Web de produção. E você já fez isso apenas criando facilmente os ambientes de teste/desenvolvimento e compilando/testando todas as confirmações. Esses são elementos fundamentais para o desenvolvimento de software Agile.
+Parabéns! Você publicou com êxito uma nova atualização para o aplicativo Web de produção. E isso foi feita criando facilmente os ambientes de teste/desenvolvimento e compilando/testando todas as confirmações. Esses são elementos fundamentais para o desenvolvimento de software Agile.
 
 <a name="delete"></a>
 
-## <a name="delete-dev-and-test-enviroments"></a>Excluir os ambientes de desenvolvimento e teste
-Como você projetou intencionalmente os ambientes de teste e desenvolvimento para serem grupos de recursos independentes, é muito fácil exclui-los. Para excluir os que você criou neste tutorial (as ramificações do GitHub e os artefatos do Azure), basta executar os seguintes comandos no Git Shell:
+## <a name="delete-dev-and-test-environments"></a>Excluir os ambientes de desenvolvimento e teste
+Como você projetou intencionalmente os ambientes de teste e desenvolvimento para serem grupos de recursos independentes, é fácil exclui-los. Para excluir os que você criou neste tutorial (as ramificações do GitHub e os artefatos do Azure), basta executar os seguintes comandos no Git Shell:
 
     git branch -d Dev
     git push origin :Dev

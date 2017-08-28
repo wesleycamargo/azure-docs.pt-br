@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
@@ -49,7 +48,7 @@ As VNets que você conecta podem estar em regiões e assinaturas diferentes. Voc
 
 ![Conexão VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Por que conectar redes virtuais?
+### <a name="why"></a>Por que conectar redes virtuais?
 
 Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
@@ -71,7 +70,7 @@ Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Cons
 
 Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
 
-## <a name="step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
+## <a name="plan"></a>Etapa 1 – Planejar os intervalos de endereços IP
 
 É importante decidir os intervalos que você usará para configurar as redes virtuais. Para esta configuração, você deve garantir que nenhum dos intervalos de VNet se sobreponham entre si ou aos das redes locais às quais se conectam.
 
@@ -86,7 +85,16 @@ A tabela a seguir mostra um exemplo de como definir as VNets. Use os intervalos 
 
 ## <a name="vnetvalues"></a>Etapa 2 – Criar as redes virtuais
 
-Crie duas redes virtuais no [portal do Azure](https://portal.azure.com). Para ver as etapas para criar redes virtuais clássicas, confira [Criar uma rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Se estiver usando este artigo como um exercício, você poderá usar os seguintes valores de exemplo:
+Crie duas redes virtuais no [portal do Azure](https://portal.azure.com). Para ver as etapas para criar redes virtuais clássicas, confira [Criar uma rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+Ao usar o portal para criar uma rede virtual clássica, navegue até a folha de rede virtual usando as etapas a seguir, caso contrário, a opção para criar uma rede virtual clássica não aparecerá:
+
+1. Clique no sinal “+” para abrir a folha “Novo”.
+2. No campo “Pesquisar no Marketplace”, digite “Rede Virtual”. Se você selecionar, em vez disso, Rede -> Rede Virtual, você não terá a opção de criar uma VNet clássica.
+3. Localize “Rede Virtual” na lista retornada e clique para abrir a folha Rede Virtual. 
+4. Na folha da rede virtual, selecione “Clássica” para criar uma VNet clássica. 
+
+Se estiver usando este artigo como um exercício, você poderá usar os seguintes valores de exemplo:
 
 **Valores para TestVNet1**
 
@@ -160,11 +168,11 @@ Cada rede virtual deve ter um gateway de rede virtual. O gateway de rede virtual
 6. Clique em **OK**.
 7. Na folha **Nova Conexão VPN**, clique em **OK** para começar a criar o gateway de rede virtual. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
-## <a name="step-5---configure-testvnet4-settings"></a>Etapa 5 – Definir as configurações de TestVNet4
+## <a name="vnet4settings"></a>Etapa 5 – Definir as configurações de TestVNet4
 
 Repita as etapas para [Criar um site local](#localsite) e [Criar o gateway de rede virtual](#gw) a fim de configurar TestVNet4, substituindo os valores quando necessário. Se você estiver fazendo isso como um exercício, use os [valores de exemplo](#vnetvalues).
 
-## <a name="step-6---update-the-local-sites"></a>Etapa 6 – Atualizar os sites locais
+## <a name="updatelocal"></a>Etapa 6 – Atualizar os sites locais
 
 Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets, você deverá ajustar os valores do **endereço IP do gateway de VPN** dos sites locais.
 
@@ -200,7 +208,7 @@ Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets,
 6. Feche as outras folhas.
 7. Repita essas etapas para TestVNet4.
 
-## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>Etapa 7 – Recuperar valores do arquivo de configuração de rede
+## <a name="getvalues"></a>Etapa 7 – Recuperar valores do arquivo de configuração de rede
 
 Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.
 
@@ -238,7 +246,7 @@ Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixa
   ```
 4. Abra o arquivo com um editor de texto e exiba os nomes dos sites e VNets. Esses serão os nomes usados na criação de suas conexões.<br>Os nomes de VNet são listados como **VirtualNetworkSite name =**<br>Os nomes de site são listados como **LocalNetworkSiteRef name =**
 
-## <a name="step-8---create-the-vpn-gateway-connections"></a>Etapa 8 – Criar as conexões do gateway de VPN
+## <a name="createconnections"></a>Etapa 8 – Criar as conexões do gateway de VPN
 
 Quando todas as etapas anteriores tiverem sido concluídas, você poderá definir as chaves pré-compartilhadas IPsec/IKE e criar a conexão. Esse conjunto de etapas usa o PowerShell. As conexões de VNet a VNet para o modelo de implantação clássico não podem ser configurados no portal do Azure.
 

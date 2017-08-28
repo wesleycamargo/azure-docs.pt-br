@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 91c747a4fbb3c3c3d799741e7d3b5d4646931136
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,7 +72,7 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
    ![Escolher “Portal do OMS”](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Na home page do OMS, escolha **Galeria de Soluções**.
+4. Na home page do OMS, se a faixa de atualização for exibida, escolha a faixa para que você atualizar seu espaço de trabalho do OMS primeiro. Então escolha **Galeria de Soluções**.
 
    ![Escolha "Galeria de Soluções"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -91,6 +91,11 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 1. Para exibir a contagem e o status das execuções de seu aplicativo lógico, acesse a página de visão geral de seu espaço de trabalho do OMS. Examine os detalhes no bloco **Gerenciamento de Aplicativos Lógicos**.
 
    ![Bloco de visão geral mostrando a contagem e o status da execução do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > Se esse cabeçalho de atualização é exibida em vez do bloco de lógica de gerenciamento de aplicativos, escolha a faixa para que você atualizar seu espaço de trabalho do OMS primeiro.
+  
+   > ![Atualizar "Espaço de Trabalho do OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Para exibir um resumo com mais detalhes sobre as execuções de seu aplicativo lógico, escolha o bloco **Gerenciamento de Aplicativos Lógicos**.
 

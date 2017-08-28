@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de monitoramento e gerenciamento de segurança do Azure
@@ -26,7 +26,7 @@ O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monito
 
 A segurança de seus serviços em nuvem da Microsoft é uma parceria e responsabilidade compartilhada entre você e a Microsoft. Responsabilidade compartilhada significa que a Microsoft é responsável pelo Microsoft Azure e pela segurança física de seus data centers (com o uso de proteções de segurança, como portas de entrada bloqueadas com acesso por crachá, grades e vigilância). Além disso, o Azure fornece fortes níveis de segurança de nuvem na camada de software que atendem às necessidades de segurança, privacidade e conformidade de seus clientes exigentes.
 
-Você é o proprietário de seus dados e identidades, tem a responsabilidade de protegê-los, além de ser responsável pela segurança de seus recursos locais e dos componentes de nuvem que estão sob seu controle. A Microsoft fornece controles de segurança e funcionalidades para ajudá-lo a proteger seus dados e aplicativos. Sua responsabilidade pela segurança é baseada no tipo de serviço de nuvem.
+Você é o proprietário de seus dados e identidades, tem a responsabilidade de protegê-los, além de ser responsável pela segurança de seus recursos locais e dos componentes de nuvem que estão sob seu controle. A Microsoft fornece controles de segurança e funcionalidades para ajudá-lo a proteger seus dados e aplicativos. Seu grau de responsabilidade pela segurança se baseia no tipo de serviço de nuvem.
 
 A tabela a seguir resume a proporção de responsabilidade assumida pela Microsoft e pelo cliente.
 
@@ -38,8 +38,8 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 
 * Controle de Acesso Baseado em Função
 * Antimalware
-* Multi-Factor Authentication
-* Rota Expressa
+* Autenticação Multifator
+* ExpressRoute
 * Gateways de rede virtual
 * Privileged Identity Management
 * Identity Protection
@@ -70,21 +70,21 @@ Saiba mais:
 * [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
-O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OATH de terceiros.
+## <a name="multi-factor-authentication"></a>Autenticação Multifator
+O MFA (Autenticação Multifator) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OATH de terceiros.
 
 Saiba mais:
 
 * [Autenticação multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Como funciona o Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+* [Como funciona a Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
-## <a name="expressroute"></a>Rota Expressa
-A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com a Rota Expressa, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões da Rota Expressa não passam pela Internet pública. Isso permite que as conexões da Rota Expressa ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
+## <a name="expressroute"></a>ExpressRoute
+O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões do Expresss Route não passam pela Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 
 Saiba mais:
 
-* [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
+* [Visão Geral Técnica do ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## <a name="virtual-network-gateways"></a>Gateways de rede virtual
 Os Gateways de VPN, também chamados de Gateways de Rede Virtual do Azure, são usados para enviar o tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure (VNet-to-VNet).  Os gateways de VPN fornecem conectividade segura entre instalações entre o Azure e sua infraestrutura.

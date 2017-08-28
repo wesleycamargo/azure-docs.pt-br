@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 08/12/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
-ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-ms.lasthandoff: 02/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Entre com seu telefone, não com sua senha
@@ -29,7 +30,7 @@ Esse recurso está disponível em dispositivos iOS e Android e funciona com cont
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Muitos de vocês usam o aplicativo Microsoft Authenticator para verificação em duas etapas quando você entrar em sua conta da Microsoft. Digite sua senha, e acesse o aplicativo para aprovar uma notificação ou obter um código de verificação. Com a entrada pelo telefone, você ignora a senha e faz toda a verificação de identidade em seu telefone. Isso ainda funciona como verificação em duas etapas que solicita uma coisa que você sabe e algo que você tem. O telefone ainda é algo que você tem, mas agora podemos pedir para você digitar o PIN ou a chave biométrica de seu telefone como a coisa que você sabe. 
+Muitos de vocês usam o aplicativo Microsoft Authenticator para verificação em duas etapas quando você entrar em sua conta da Microsoft. Digite sua senha, e acesse o aplicativo para aprovar uma notificação ou obter um código de verificação. Com a entrada pelo telefone, você ignora a senha e faz toda a verificação de identidade em seu telefone. Porque a entrada do telefone é um tipo de verificação em duas etapas, você ainda precisa fornecer uma coisa que você sabe e algo que você precisa verificar sua identidade. O telefone ainda é a coisa que você tem e PIN ou a chave biométrico seu telefone é a coisa que você sabe. 
 
 ## <a name="how-to-get-started"></a>Como começar
 
@@ -39,12 +40,12 @@ Para entrar em sua conta pessoal da Microsoft com seu telefone, siga estas etapa
 
   - Se você ainda não tiver o aplicativo Microsoft Authenticator, instale e adicione sua conta pessoal da Microsoft de acordo com as etapas na [Página do Microsoft Authenticator](microsoft-authenticator-app-how-to.md). Contas recém-adicionadas são habilitadas automaticamente, portanto você está pronto para começar.
 
-  - Se você já usa o Microsoft Authenticator para verificação em duas etapas, selecione sua conta na página inicial do aplicativo e selecione **Habilitar entrada pelo telefone no menu suspenso".
+  - Se você já usa o Microsoft Authenticator para verificação em duas etapas, selecione sua conta na página inicial do aplicativo e selecione **Habilitar entrada pelo telefone** no menu suspenso.
 
   >[!NOTE] 
   >Para proteger sua conta, exigimos um PIN ou bloqueio biométrico em seu dispositivo. Se você mantiver seu telefone desbloqueado, o aplicativo exibirá uma solicitação para que você configure um bloqueio antes de habilitar a entrada pelo telefone. 
 
-3. A maioria das páginas em que você normalmente digitaria sua senha de conta da Microsoft tem um link que diz **Usar um aplicativo**. Selecione esta opção para entrar com seu telefone. 
+3. A maioria das páginas em que você normalmente digitaria sua senha de conta da Microsoft tem um link que diz **Usar um aplicativo**. Selecione este link para entrar com seu telefone. 
 
 4. A Microsoft envia uma notificação para seu telefone. Aprove a notificação para entrar em sua conta.   
 
@@ -66,7 +67,7 @@ No momento, a entrada do telefone não pode ser usada para desbloquear um comput
 
 Às vezes. Estamos trabalhando na expansão do escopo da entrada pelo telefone, mas por enquanto ainda existem locais no ecossistema da Microsoft que não oferecem suporte a ele. Nesses locais, ainda estamos usando a verificação em duas etapas para entrada segura. Por esse motivo, não, você não deve desativar a verificação em duas etapas para a sua conta. 
  
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-will-i-have-to-approve-two-notifications"></a>Ok. Se eu mantiver a verificação em duas etapas ativa em minha conta, será preciso aprovar as duas notificações?
+### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Ok. Se eu mantiver a verificação em duas etapas ativa em minha conta, será preciso aprovar as duas notificações?
 
 Não, não será necessário. Entrar em sua conta da Microsoft com seu telefone conta como verificação em duas etapas. Em vez de digitar sua senha, ao aprovar uma notificação você comprova sua identidade por saber desbloquear seu telefone e, em seguida, aprovar uma notificação. Não enviaremos uma segunda notificação de aprovação.
 

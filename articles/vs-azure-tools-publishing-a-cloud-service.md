@@ -3,8 +3,8 @@ title: "Publicando um serviço de nuvem usando as ferramentas do Azure | Microso
 description: "Saiba mais sobre como publicar projetos de serviço de nuvem do Azure usando o Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
-
+ms.date: 8/14/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publicando um serviço de nuvem usando as ferramentas do Azure
@@ -62,7 +63,7 @@ Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes taref
    > Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
    > 
    > 
-4. (Opcional) Após ter iniciado as instâncias de função, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Serviços de Nuvem** no Gerenciador de Servidores. Daqui, você pode ver o status das instâncias de função individuais. Confira [Gerenciando recursos de Azure com o Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). A ilustração a seguir mostra as instâncias de função enquanto elas ainda estão no estado Inicializando:
+4. (Opcional) Após ter iniciado as instâncias de função, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Serviços de Nuvem** no Gerenciador de Servidores. Nele, você pode ver o status das instâncias de função individuais. Confira [Gerenciando recursos de Azure com o Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). A ilustração a seguir mostra as instâncias de função enquanto elas ainda estão no estado Inicializando:
    
     ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
@@ -147,10 +148,5 @@ Talvez seja necessário incluir arquivos específicos em seu pacote de serviço 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [Assistente de Publicação de Aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

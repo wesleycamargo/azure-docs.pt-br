@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens X12 para integração de empresas com aplicativos lógicos
@@ -272,6 +271,9 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 | Caractere de substituição |Insira um caractere de substituição usado para substituir todos os caracteres separadores dos dados de conteúdo ao gerar a mensagem X12 de saída. |
 | Terminador de segmento |Insira um único caractere para indicar o final de um segmento EDI. |
 | Suffix |Selecionar o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
+
+> [!TIP]
+> Para fornecer valores de caractere especial, edite o contrato como JSON e forneça o valor ASCII para o caractere especial.
 
 ### <a name="validation"></a>Validação
 

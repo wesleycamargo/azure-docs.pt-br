@@ -2,7 +2,7 @@
 title: "Visão geral do modelo de licença do PlayReady dos Serviços de Mídia"
 description: "Este tópico fornece uma visão geral de um modelo de licença do PlayReady usado para configurar as licenças do PlayReady."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
 ms.contentlocale: pt-br
 ms.lasthandoff: 01/13/2017
-
 
 ---
 # <a name="media-services-playready-license-template-overview"></a>Visão geral do modelo de licença do PlayReady dos Serviços de Mídia

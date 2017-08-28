@@ -1,5 +1,4 @@
 ---
-
 title: "Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção | Microsoft Docs"
 description: "Explorar e implementar rapidamente os cenários de Identidade e Gerenciamento de Acesso"
 services: active-directory
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
@@ -77,7 +75,7 @@ Aproximar o tempo para Concluir: uma hora para menos de 1.000 usuários PoC
 1. Examine as considerações de segurança de sincronização de hash de senha [aqui](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Se a sincronização de hash de senha para usuários de produção piloto definitivamente não for uma opção, considere as seguintes alternativas:
    * Crie usuários de teste no domínio de produção. Certifique-se de não sincronizar nenhuma outra conta
    * Mover para um ambiente de teste de aceitação do usuário
-2.    Se você quer buscar federação convém compreender que os custos associados a uma solução federada com Provedor de Identidade local excedem o POC e, calcule isso em relação aos benefícios que você está procurando:
+2.  Se você quer buscar federação convém compreender que os custos associados a uma solução federada com Provedor de Identidade local excedem o POC e, calcule isso em relação aos benefícios que você está procurando:
     * Ele está no caminho crítico, então é necessário projetar para alta disponibilidade
     * É um serviço local que você precisa para planejamento de capacidade
     * É um serviço local que é necessário monitorar/manter/aplicar patch
@@ -102,7 +100,7 @@ Tempo estimado para Conclusão: 15 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Vá para o Portal de Gerenciamento do Azure AD | [Portal de Gerenciamento do AD do Azure - Marca da Empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Carregue os ativos para a página de logon (logotipo Hero, logotipo pequeno, rótulos, etc.). Opcionalmente, se você tiver o AD FS alinhe os mesmos recursos com as páginas de logon do ADFS | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso:Elementos Personalizáveis ](active-directory-add-company-branding.md#customizable-elements) |
+| Carregue os ativos para a página de logon (logotipo Hero, logotipo pequeno, rótulos, etc.). Opcionalmente, se você tiver o AD FS alinhe os mesmos recursos com as páginas de logon do ADFS | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso:Elementos Personalizáveis ](active-directory-add-company-branding.md) |
 | Aguarde alguns minutos para que a alteração tenha pleno efeito |  |
 | Faça logon com as credenciais de usuário POC https://MyApps.microsoft.com |  |
 | Confirme a aparência no navegador | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso](active-directory-add-company-branding.md) |
@@ -487,7 +485,7 @@ Tempo estimado para Conclusão: 15 minutos
 | Observe que se GA2 nunca se inscreveu para MFA, o registro para o Azure MFA será necessário |  |
 | Volte à guia original na etapa 3 e clique no botão Atualizar no navegador. Observe que agora você tem acesso para alterar "Configurações de Usuário" | |
 | Opcionalmente, se seus administradores globais tiverem email habilitado, você poderá verificar a caixa de entrada do GA1 e do GA2 e ver a notificação da função que está sendo ativada |  |
-| 8    Verifique o histórico de auditoria e observe o relatório para confirmar se a elevação de GA2 é mostrada. | [O que é o Azure AD Privileged Identity Management?: Examinar a atividade da funçãol](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 Verifique o histórico de auditoria e observe o relatório para confirmar se a elevação de GA2 é mostrada. | [O que é o Azure AD Privileged Identity Management?: Examinar a atividade da funçãol](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Considerações
 

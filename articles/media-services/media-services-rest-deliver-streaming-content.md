@@ -2,7 +2,7 @@
 title: "Publicar conteúdo dos Serviços de Mídia do Azure usando o REST"
 description: "Saiba como criar um localizador que é usado para construir um URL de transmissão. O código usa a API REST."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST
@@ -37,6 +37,17 @@ Você também pode usar um localizador de streaming sob demanda para criar URLs 
 Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
 
 A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
+
+> [!NOTE]
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> 
+
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+
+Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming sob demanda
 Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
@@ -183,7 +194,9 @@ exemplo:
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
+[Visão geral da API REST das Operações dos Serviços de Mídia](media-services-rest-how-to-use.md)
+
 [Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
 
 

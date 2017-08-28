@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
@@ -76,7 +76,9 @@ Outras funções de lista têm formatos diferentes de retorno. Para ver o format
 
 ### <a name="remarks"></a>Comentários
 
-Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. Para determinar quais tipos de recursos têm uma operação de lista, use as seguintes opções:
+Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. No entanto, você não pode usar **lista** as operações que exigem valores no corpo da solicitação. Por exemplo, o [lista conta SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operação requer parâmetros de corpo de solicitação como *signedExpiry*, portanto, você não pode usá-lo em um modelo.
+
+Para determinar quais tipos de recursos têm uma operação de lista, use as seguintes opções:
 
 * Veja as [operações da API REST](/rest/api/) de um provedor de recursos e procure por operações de lista. Por exemplo, as contas de armazenamento têm a [operação listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Use o cmdlet do PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). O exemplo a seguir obtém todas as operações de lista de contas de armazenamento:
@@ -280,7 +282,7 @@ O exemplo anterior retorna um objeto no seguinte formato:
 }
 ```
 
-O exemplo a seguir faz referência a uma conta de armazenamento que não foi implantada no modelo, mas existe dentro do mesmo grupo de recursos.
+O exemplo a seguir faz referência a uma conta de armazenamento implantada nesse modelo. A conta de armazenamento já existe dentro do mesmo grupo de recursos.
 
 ```json
 {
@@ -425,7 +427,7 @@ Para obter a ID de recurso para um banco de dados em um grupo de recursos difere
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. A conta de armazenamento ou a rede virtual pode ser usada em vários grupos de recursos; portanto, você não deve excluí-los ao excluir um único grupo de recursos. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
+Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
 
 ```json
 {

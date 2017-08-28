@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2a718be9789aa4befdf2d3e1ac437fa69d6f33b8
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 05/04/2017
 
 ## <a name="runtime-apis"></a>APIs de tempo de execução
 
-Veja a seguir uma lista de todos os clientes de tempo de execução dos Hubs de Eventos do Azure disponíveis no momento. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um hub de eventos.
+Veja a seguir uma descrição de todos os clientes de tempo de execução dos Hubs de Eventos do Azure atualmente disponíveis. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um hub de eventos.
 
 Veja [informações adicionais](#additional-information) para obter mais detalhes sobre o status atual de cada biblioteca de tempo de execução.
 

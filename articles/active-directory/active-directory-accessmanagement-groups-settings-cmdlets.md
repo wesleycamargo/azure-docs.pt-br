@@ -1,6 +1,6 @@
 ---
 title: "Definir configurações de grupo usando cmdlets do Azure Active Directory | Microsoft Docs"
-description: "Como gerenciar as configurações de grupos usando cmdlets do Azure Active Directory."
+description: "Como gerenciar as configurações de grupos usando cmdlets do Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,35 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.date: 08/09/2017
+ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
 > [!IMPORTANT]
-> Este conteúdo se aplica apenas aos grupos Unificados, também conhecidos como grupos do Office 365. 
+> Este conteúdo se aplica apenas a grupos do Office 365. Para saber mais sobre como permitir que os usuários criem Grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
-As configurações de Grupos do Office 365 são definidas usando um objeto Settings e um SettingsTemplate. Inicialmente, você não verá objetos de Configurações em seu diretório. Isso significa que o diretório está configurado com as configurações padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir configurações de grupo para seu diretório, você usará o modelo chamado "Group.Unified". Para definir configurações de grupo em um único grupo, você usará o modelo chamado "Group.Unified.Guest". Esse modelo é usado para gerenciar o acesso de convidado a um grupo. 
+As configurações de Grupos do Office 365 são definidas usando um objeto Settings e um SettingsTemplate. Inicialmente, você não verá objetos Settings no seu diretório, pois o diretório foi configurado com as definições padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir as configuração de grupo do Office 365 para seu diretório, use o modelo chamado "Group.Unified". Para definir as configurações de grupo do Office 365 em um único grupo, use o modelo chamado "Group.Unified.Guest". Esse modelo é usado para gerenciar o acesso de convidado a um grupo do Office 365. 
 
-Os cmdlets fazem parte do Módulo do Azure Active Directory PowerShell V2. Para saber mais sobre este módulo e receber instruções sobre como baixar e instalar o módulo em seu computador, confira [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azuread/). Você pode instalar a versão 2 do módulo [daqui](https://www.powershellgallery.com/packages/AzureAD/).
+Os cmdlets fazem parte do Módulo do Azure Active Directory PowerShell V2. Para obter instruções de como baixar e instalar o módulo no seu computador, confira o artigo [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell Versão 2 do Azure Active Directory). Você pode instalar a versão 2 do módulo da [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="retrieve-a-specific-settings-value"></a>Recuperar um valor de configurações específico
-Se você souber o nome da configuração que você deseja recuperar, você poderá usar o cmdlet abaixo para recuperar o valor de configurações atual. Neste exemplo, recuperaremos o valor de uma configuração chamada "UsageGuidelinesUrl". Você pode ler que mais sobre configurações de diretório e seus nomes mais abaixo neste artigo.
+Se você souber o nome da configuração que deseja recuperar, será possível usar o cmdlet abaixo para recuperar o valor atual das configurações. Neste exemplo, recuperaremos o valor de uma configuração chamada "UsageGuidelinesUrl". Você pode ler que mais sobre configurações de diretório e seus nomes mais abaixo neste artigo.
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Criar configurações no nível do diretório
-Estas etapas criam configurações no nível do diretório, que se aplicam a todos os grupos Unificados no diretório.
+Estas etapas criam configurações no nível do diretório, que se aplicam a todos os grupos do Office 365 (Grupos unificados) no diretório.
 
-1. Nos cmdlets DirectorySettings, você precisará especificar a ID do SettingsTemplate que deseja usar. Se você não souber essa ID, esse cmdlet retornará a lista com todos os modelos de configurações:
+1. Nos cmdlets DirectorySettings, você precisa especificar a ID de SettingsTemplate que deseja usar. Se você não souber essa ID, esse cmdlet retornará a lista com todos os modelos de configurações:
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate

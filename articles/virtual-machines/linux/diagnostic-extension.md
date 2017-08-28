@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d1efdf9b6b005852e570491aeb723a5758a4c839
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
@@ -42,7 +42,7 @@ Você pode habilitar essa extensão usando os cmdlets do Azure PowerShell, os sc
 
 O Portal do Azure não pode ser usado para habilitar ou configurar o LAD 3.0. Em vez disso, ele instala e configura a versão 2.3. Os gráficos de portal e os alertas do Azure funcionam com dados de ambas as versões da extensão.
 
-Estas instruções de instalação e uma [configuração de amostra para download](https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configuram o LAD 3.0 para:
+Estas instruções de instalação e uma [configuração de amostra para download](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configuram o LAD 3.0 para:
 
 * capturar e armazenar as mesmas métricas fornecidas pelo LAD 2.3;
 * capturar um conjunto útil de métricas do sistema de arquivo, novos para o LAD 3.0;
@@ -55,7 +55,8 @@ A configuração para download é apenas um exemplo; modifique-a para atender à
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) para atualizá-la.
 * **CLI do Azure**. [Configurar o ambiente do CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* Uma conta de armazenamento existente para armazenar os dados e um token de SAS associado que concede os direitos de acesso necessários.
+* O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
+* Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
@@ -70,8 +71,11 @@ my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnos
 # Should login to Azure first before anything else
 az login
 
+# Select the subscription containing the storage account
+az account set --subscription <your_azure_subscription_id>
+
 # Download the sample Public settings. (You could also use curl or any web browser)
-wget https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
+wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
 # Build the VM resource ID. Replace storage account name and resource ID in the public settings.
 my_vm_resource_id=$(az vm show -g $my_resource_group -n $my_linux_vm --query "id" -o tsv)

@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/11/2017
 ms.author: raprasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup e restauração online automáticos com o Azure Cosmos DB
@@ -50,13 +49,16 @@ A imagem a seguir ilustra os backups completos periódicos de todas as entidades
 
 ![Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="retention-period-for-a-given-snapshot"></a>Período de retenção para um instantâneo específico
-Conforme descrito acima, podemos tirar instantâneos de seus dados a cada 4 horas e manter os últimos dois instantâneos por 30 dias. De acordo com nossas regulamentações de conformidade, os instantâneos são limpos após 90 dias.
+## <a name="backup-retention-period"></a>Período de retenção do backup
+Conforme descrito acima, o Azure Cosmos DB usa instantâneos dos seus dados a cada quatro horas e retém os últimos dois instantâneos de cada partição por 30 dias. De acordo com nossas regulamentações de conformidade, os instantâneos são limpos após 90 dias.
 
 Se você quiser manter seus próprios instantâneos, pode usar o opção Exportar para JSON na [ferramenta de Migração de Dados](import-data.md#export-to-json-file) do Azure Cosmos DB para agendar backups adicionais. 
 
-## <a name="restore-database-from-the-online-backup"></a>Restaurar o banco de dados do backup online
-Caso exclua seus dados acidentalmente, você pode [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [ligar para o suporte do Azure](https://azure.microsoft.com/support/options/) a fim de restaurar os dados usando o último backup automático. Para que um instantâneo específico do backup seja restaurado, o Cosmos DB exige que os dados estejam disponíveis para nós durante, no mínimo, o ciclo de backup do instantâneo.
+## <a name="restoring-a-database-from-an-online-backup"></a>Restauração de um banco de dados de um backup online
+Caso exclua seu banco de dados ou coleção acidentalmente, você pode [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [ligar para o suporte do Azure](https://azure.microsoft.com/support/options/) a fim de restaurar os dados usando o último backup automático. Se você precisar restaurar seu banco de dados devido a problema de corrupção de dados, veja [tratamento corrupção de dados](#handling-data-corruption) conforme necessário executar etapas adicionais para impedir que os dados corrompidos penetrem os backups. Para que um instantâneo específico do backup seja restaurado, o Cosmos DB exige que os dados estejam disponíveis durante o ciclo de backup do instantâneo.
+
+## <a name="handling-data-corruption"></a>Manipulação de dados corrompidos
+O Azure Cosmos DB retém os últimos dois backups de todas as partições no sistema. Esse modelo funciona muito bem quando um contêiner (coleção de documentos, grafo, tabela) ou um banco de dados forem excluído acidentalmente desde que uma das últimas versões pode ser restaurada. No entanto, no caso de quando os usuários podem apresentar um problema de corrupção de dados, o Azure Cosmos DB pode não estar ciente de que a corrupção de dados, e é possível que o dano pode entram os backups. Assim que estiver corrompido, você deve excluir o contêiner corrompido (coleção/grafo/tabela) para que os backups sejam protegidos sejam substituídos com dados corrompidos. Desde o último backup pode ser antiga de quatro horas, o usuário pode empregar [alterar feed](change-feed.md) para capturar e armazenar as últimas quatro horas vale a pena de dados antes de excluir o contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 
