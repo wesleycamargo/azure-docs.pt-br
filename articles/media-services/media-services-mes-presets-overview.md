@@ -2,7 +2,7 @@
 title: "Predefinições de tarefa para MES (Media Encoder Standard) | Microsoft Docs"
 description: "Este tópico apresenta uma visão geral das Predefinições de tarefa para MES (Media Encoder Standard)."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

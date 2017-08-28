@@ -2,7 +2,7 @@
 title: "H264 Taxas de Bits Múltiplas 16x9 para iOS | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 16x9 para iOS**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

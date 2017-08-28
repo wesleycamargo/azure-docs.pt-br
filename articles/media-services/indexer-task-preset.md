@@ -4,7 +4,7 @@ description: "Este tópico apresenta uma visão geral das tarefas predefinidas p
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media

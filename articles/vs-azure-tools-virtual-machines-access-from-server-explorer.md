@@ -3,8 +3,8 @@ title: "Acessando Máquinas Virtuais do Azure do Gerenciador de Servidores | Mic
 description: "Obtenha uma visão geral de como exibir e gerenciar máquinas virtuais (VMs) do Azure no Gerenciador de Servidores no Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores
@@ -51,10 +52,5 @@ Se tiver máquinas virtuais hospedadas pelo Azure, você pode acessá-las no Ger
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como usar funções do Azure no Visual Studio, consulte [usando a área de trabalho remota com funções do Azure](vs-azure-tools-remote-desktop-roles.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

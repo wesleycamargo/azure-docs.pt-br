@@ -4,7 +4,7 @@ description: "Este tópico lista os codificadores ativos locais que podem ser us
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 7c883c53fd3d151401173e4569818ee769505113
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits

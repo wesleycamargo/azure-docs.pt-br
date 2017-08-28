@@ -4,7 +4,7 @@ description: "Este tópico mostra como implementar um cenário de streaming de f
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
