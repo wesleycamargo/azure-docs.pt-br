@@ -37,7 +37,7 @@ Um aplicativo que aceita entradas de usuários de qualquer empresa ou organizaç
 
 Para habilitar a multilocação em seu aplicativo:
 - Defina a propriedade `Multi-Tenanted` como `Yes` nas informações do registro do aplicativo no [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por padrão, os aplicativos criados no Portal do Azure são configurados como *único locatário*)
-- Atualize seu código para enviar solicitações para o ponto de extremidade '`common`' (atualize o ponto de extremidade em *https://login.microsoftonline.com/ {seulocatario}* para *https://login.microsoftonline.com/common*)
+- Atualize seu código para enviar solicitações para o ponto de extremidade '`common`' (atualize o ponto de extremidade em *https://login.microsoftonline.com/{seulocatario}* para *https://login.microsoftonline.com/common*)
 - Para algumas plataformas, como o ASP.NET, você também precisa atualizar seu código para aceitar vários emissores
 
 Para saber mais sobre multilocação, confira: [Como conectar qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário](./active-directory-devhowto-multi-tenant-overview.md).
