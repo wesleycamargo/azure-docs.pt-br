@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solução Monitor de Desempenho de Rede no Azure Log Analytics
@@ -218,7 +217,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sim](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Sim](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Mensagens de handshakes TCP/ECO ICMP a cada 5 segundos, dados enviados a cada 3 minutos |
+| Windows | &#8226; | &#8226; |  |  |  |Mensagens de handshakes TCP/ECO ICMP a cada 5 segundos, dados enviados a cada 3 minutos |
 
 A solução usa transações sintéticas para avaliar a integridade da rede. Os agentes do OMS instalados em vários pontos da rede trocam pacotes TCP ou Eco ICMP (dependendo do protocolo selecionado para monitoramento) uns com os outros. No processo, os agentes aprendem qual é o tempo de ida e volta e a perda de pacotes, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para localizar todas as várias rotas da rede que deve ser testadas. Usando esses dados, os agentes podem deduzir a latência de rede e os valores de perda de pacotes. Os testes são repetidos a cada cinco segundos, e os dados são agregados por um período de três minutos pelos agentes antes de serem carregados no serviço Log Analytics.
 

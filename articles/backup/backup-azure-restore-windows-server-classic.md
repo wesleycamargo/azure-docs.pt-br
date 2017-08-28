@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e2eac02d194c8a3de653292664cb94a55aafc9b7
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do clásico
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/16/2017
 Este artigo explica como recuperar dados de um cofre de backup e restaurá-lod para um computador ou servidor. A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de backup.
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
 >- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >

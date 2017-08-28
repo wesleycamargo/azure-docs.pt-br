@@ -4,7 +4,7 @@ description: "Saiba como usar o Media Encoder Standard para codificar conteúdo 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 50cff5d8e2d88b855bb0297bef1d183ab1533801
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 4ec324d94717fa1f93eda6f24d9dbd9fc0cdc455
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
@@ -39,14 +39,22 @@ Cada trabalho pode ter uma ou mais tarefas, dependendo do tipo de processamento 
 * As tarefas podem ser definidas de forma embutida por meio da propriedade de navegação das Tarefas nas entidades de Trabalho.
 * Use o processamento em lotes OData.
 
-Recomendamos sempre codificar os arquivos de mezanino em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto no formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+Recomendamos sempre codificar os arquivos de origem em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto no formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 Se o ativo de saída tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
-> [!NOTE]
-> Antes de começar a fazer referência a processadores de mídia, verifique se você tem a ID do processador de mídia correta. Para obter mais informações, consulte [Obter processadores de mídia](media-services-rest-get-media-processor.md).
->
->
+## <a name="considerations"></a>Considerações
+
+Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+
+Antes de começar a fazer referência a processadores de mídia, verifique se você tem a ID do processador de mídia correta. Para obter mais informações, consulte [Obter processadores de mídia](media-services-rest-get-media-processor.md).
+
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+
+Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Criar um trabalho com uma única tarefa de codificação
 > [!NOTE]

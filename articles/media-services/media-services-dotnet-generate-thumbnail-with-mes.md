@@ -4,7 +4,7 @@ description: "Este tópico mostra como usar o .NET para codificar um ativo e ger
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services

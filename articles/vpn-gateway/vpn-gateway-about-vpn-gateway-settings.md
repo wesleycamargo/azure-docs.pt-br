@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6873f74168a4247cebb74e704f169f679a9aa180
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 07aa6946b9c3994c5afc5c88837f23567b95d8a5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
@@ -35,7 +35,7 @@ Cada rede virtual pode ter apenas um gateway de rede virtual de cada tipo. Quand
 Os valores disponíveis para o -GatewayType são:
 
 * Vpn
-* Rota Expressa
+* ExpressRoute
 
 Um gateway de VPN exige o `-GatewayType` *Vpn*.
 
@@ -67,7 +67,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="change-resize-a-gateway-sku"></a>Altere (redimensione) um SKU de gateway
+#### <a name="resize"></a>Alterar (redimensionar) uma SKU de gateway
 
 Se quiser atualizar seu SKU de gateway para um SKU mais avançado, use o cmdlet do PowerShell `Resize-AzureRmVirtualNetworkGateway`. Você também pode fazer o downgrade do tamanho do SKU de gateway usando esse cmdlet.
 
@@ -84,7 +84,7 @@ No modelo de implantação do Resource Manager, cada configuração exige um tip
 
 * IPsec
 * Vnet2Vnet
-* Rota Expressa
+* ExpressRoute
 * VPNClient
 
 No exemplo do PowerShell a seguir, criamos uma conexão S2S que exige o tipo de conexão *IPsec*.

@@ -4,7 +4,7 @@ description: "Este tópico fornece uma visão geral e uma comparação dos codif
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services

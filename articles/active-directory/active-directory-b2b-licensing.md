@@ -13,26 +13,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 972b37e0009b3096691784d785901b0a5585eb4c
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Diretrizes de licenciamento da colaboração B2B do Azure Active Directory
 
-Use a colaboração B2B para convidar usuários convidados em seu locatário do Azure AD para ter acesso a serviços e recursos do Azure AD que você disponibilizar.  
+Você pode usar os recursos de colaboração B2B do Azure AD para chamar usuários convidados em seu locatário do Azure AD a fim de permitir que eles acessem serviços do Azure AD e outros recursos em sua organização. Se quiser fornecer acesso a recursos pagos do Azure AD, os usuários convidados da colaboração B2B deverão ser licenciados com licenças apropriadas do Azure AD. 
 
-Não há nenhum custo para convidar usuários B2B e atribuí-los a um aplicativo no Azure AD. Até 10 aplicativos por usuário convidado e 3 relatórios básicos também são gratuitos para usuários de colaboração B2B. Se o usuário convidado tiver licenças relevantes atribuídas no locatário do Azure AD do parceiro, elas também estarão licenciadas no seu.
+Especificamente:
+* Os recursos do Azure AD Gratuito estão disponíveis para usuários convidados sem licenciamento adicional.
+* Se quiser fornecer acesso a recursos pagos do Azure AD aos usuários B2B, você deverá ter licenças suficientes para dar suporte a esses usuários convidados B2B.
+* Um locatário que está convidando com uma licença paga do Azure AD tem direitos de uso da colaboração B2B para cinco usuários convidados adicionais B2B convidados para o locatário.
+* O cliente que possui o locatário que está convidando será aquele que determinará quantos usuários de colaboração B2B precisam de recursos pagos do Azure AD. Dependendo dos recursos pagos do Azure AD que quer para os usuários convidados, você deverá ter licenças pagas do Azure AD suficientes para cobrir os usuários da colaboração B2B na mesma proporção de 5:1.
 
-Se você desejar fornecer acesso a recursos pagos do Azure AD, os usuários convidados B2B deverão ser licenciados com licenças adequadas do Azure AD. Um locatário que está convidando com uma licença paga do Azure AD pode atribuir direitos de usuário de colaboração B2B a outros cinco usuários convidados adicionais para o locatário. 
+Um usuário convidado da colaboração B2B é adicionado como um usuário de uma empresa parceira, não como um funcionário da sua organização nem como um funcionário de outra empresa do seu conglomerado. Um usuário convidado B2B pode entrar com credenciais externas ou pertencentes à sua organização, conforme descrito neste artigo. 
+
+Em outras palavras, o licenciamento B2B é definido não pelo modo que o usuário se autentica, mas pela relação que ele tem com sua organização. Se os usuários não forem parceiros, eles serão tratados de modo diferente nos termos do licenciamento. Eles não serão considerados como um usuário da colaboração B2B para fins de licenciamento, mesmo que seu UserType esteja marcado como "Convidado". Eles devem ser licenciados normalmente, com uma licença por usuário. Esses usuários incluem:
+* Seus funcionários
+* Equipe que se conecta usando identidades externas
+* Um funcionário de outra empresa em seu conglomerado
+
 
 ## <a name="licensing-examples"></a>Exemplos de licenciamento
 - Um cliente deseja convidar 100 usuários de colaboração B2B para seu locatário do Azure AD. O cliente atribui o gerenciamento de acesso e o provisionamento de todos os usuários, mas 50 usuários também exigem a MFA e o acesso condicional. Esse cliente deve comprar 10 licenças do Azure AD Basic e 10 licenças do Azure AD Premium P1 para cobrir esses usuários B2B corretamente. Se o cliente planejar usar recursos de proteção de identidade com usuários B2B, eles deverão ter licenças do Azure AD Premium P2 para cobrir os usuários convidados na mesma proporção de 5:1.
@@ -52,7 +61,7 @@ O cliente que possui o locatário que está convidando será aquele que determin
 Um usuário convidado B2B é aquele que é convidado de uma organização parceira para trabalhar com a organização anfitriã. Normalmente, nenhum outro caso além desse é qualificado como B2B, embora use recursos B2B. Vejamos dois casos em particular:
 
 1. Se um anfitrião convida um funcionário usando um endereço de consumidor
-  1. Este cenário não está em conformidade com nossas políticas de licenciamento e não é recomendado.
+  * Este cenário não está em conformidade com nossas políticas de licenciamento e não é recomendado.
 
 2. Se uma organização anfitriã adiciona um usuário de outra organização de conglomerado
   1. Nesse caso, o usuário é convidado usando APIs de B2B, mas neste caso, não é tradicionalmente B2B. Idealmente, deveríamos dispor a essas organizações convidar os usuários de outras organizações como membros (nossa API permite isso). Nesse caso, as licenças devem ser atribuídas a esses membros para que acessem os recursos na organização emissora do convite.

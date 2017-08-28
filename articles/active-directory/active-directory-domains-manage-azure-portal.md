@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/10/2017
 ms.author: curtand;jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 402c1be07b8ee885ee5341128fb3f419611b924d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no Azure Active Directory
 Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: ele é parte de um nome de usuário ou endereço de email para um usuário, parte do endereço para um grupo e pode ser parte do URI da ID do aplicativo para um aplicativo. Um recurso no Azure AD (Azure Active Directory) pode incluir um nome de domínio já verificado como pertencente ao diretório que contém o recurso. Somente um administrador global pode executar tarefas de gerenciamento de domínio no Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Definir o nome de domínio primário para o diretório do Azure AD
-Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicrosoft.com', também é o nome de domínio primário. O domínio primário é o nome de domínio padrão para um novo usuário quando você cria um novo usuário. Isso simplifica o processo de criação de novos usuários no portal por um administrador. Para alterar o nome de domínio primário:
+Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicrosoft.com', também é o nome de domínio primário. O domínio primário é o nome de domínio padrão para um novo usuário quando você cria um novo usuário. Configurar um nome de domínio primário simplifica o processo de criação de novos usuários no portal por um administrador. Para alterar o nome de domínio primário:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Azure Active Directory** na caixa de texto e selecione **Enter**.
@@ -34,14 +33,14 @@ Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicro
    ![Abrir o gerenciamento de usuários](./media/active-directory-domains-add-azure-portal/user-management.png)
 3. Na folha ***nome do diretório***, escolha **Nomes de domínio**.
 4. Na folha ***directory-name* - Nomes de domínio**, selecione o nome de domínio que você deseja tornar o nome de domínio primário.
-5. Na folha ***nomedomínio*** (ou seja, a folha que é aberta com o novo nome de domínio no título), selecione o comando **Tornar primário**. Confirme sua escolha quando solicitado.
+5. Na folha ***nome de domínio*** (ou seja, a folha que é aberta com o novo nome de domínio no título), selecione o comando **Tornar primário**. Confirme sua escolha quando solicitado.
    
    ![Tornar primário um nome de domínio](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
 Você pode alterar o nome de domínio primário para o seu diretório para qualquer domínio personalizado verificado não federado. Alterar o domínio primário para o seu diretório não alterará os nomes de usuário para usuários existentes.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Adicionar nomes de domínio personalizados ao Azure AD
-Você pode adicionar até 900 nomes de domínio personalizados para cada diretório do Azure AD. O processo para [adicionar um nome de domínio personalizado adicional](active-directory-domains-add-azure-portal.md) é o mesmo para o primeiro nome de domínio personalizado.
+Você pode adicionar até 900 nomes de domínio personalizados para cada diretório do Azure AD. O processo para [adicionar um nome de domínio personalizado adicional](add-custom-domain.md) é o mesmo para o primeiro nome de domínio personalizado.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 Se você quiser adicionar um nome de domínio de terceiro nível como 'europe.contoso.com' ao seu diretório, deverá primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio será verificado automaticamente pelo Azure AD. Para conferir se o subdomínio que você acabou de adicionar foi verificado, atualize no navegador a página que lista os domínios.
@@ -67,6 +66,6 @@ A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Di
 * [Como usar a API do Graph para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar nomes de domínio personalizados](active-directory-domains-add-azure-portal.md)
+* [Adicionar nomes de domínio personalizados](add-custom-domain.md)
 
 

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -58,7 +58,7 @@ Service Fabric suporta especificação de [Plugins de volume Docker ](https://do
 </ApplicationManifest>
 ```
 
-No exemplo anterior, a `Source` marca para `Volume` refere-se à pasta de origem. A pasta de origem pode ser uma pasta na VM que hospeda os contêineres ou um armazenamento remoto persistente. A marca `Destination` é o local onde `Source` está mapeado no contêiner em execução. 
+No exemplo anterior, a `Source` marca para `Volume` refere-se à pasta de origem. A pasta de origem pode ser uma pasta na VM que hospeda os contêineres ou um armazenamento remoto persistente. A marca `Destination` é o local para onde `Source` será mapeado no contêiner em execução. 
 
 Ao especificar um plug-in do volume, o Service Fabric cria automaticamente o volume usando os parâmetros especificados. A marca `Source` é o nome do volume e a marca `Driver` especifica o plug-in do driver do volume. As opções podem ser especificadas usando a marca `DriverOption` conforme mostrado no trecho a seguir:
 
@@ -72,8 +72,7 @@ Se um driver de log docker for especificado, será necessário implantar agentes
 
 Consulte os seguintes artigos para implantar contêineres em um cluster do Service Fabric:
 
-[Implantar um contêiner do Windows no Service Fabric no Windows Server 2016](service-fabric-deploy-container.md)
 
-[Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-deploy-container-linux.md)
+[Implantar um contêiner no Service Fabric](service-fabric-deploy-container.md)
 
 

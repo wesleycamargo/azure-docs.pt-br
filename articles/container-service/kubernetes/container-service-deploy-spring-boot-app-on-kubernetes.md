@@ -1,24 +1,25 @@
 ---
 title: "Implantar um aplicativo Spring Boot no Kubernetes no Serviço de Contêiner do Azure | Microsoft Docs"
 description: "Este tutorial orienta você pelas etapas de implantação de um aplicativo Spring Boot em um cluster Kubernetes no Microsoft Azure."
-services: 
+services: container-service
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: container-service
 ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 824eaf3362243763c8e24080c351e5c43d319ad7
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -298,10 +299,7 @@ Este tutorial implanta o aplicativo usando `kubectl` e depois permite que você 
 Para saber mais sobre como usar o Spring Boot no Azure, confira os seguintes artigos:
 
 * [Implantar um aplicativo Spring Boot no Serviço de Aplicativo do Azure](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
-* [Executar um aplicativo Spring Boot no Linux no Serviço de Contêiner do Azure](container-service-deploy-spring-boot-app-on-linux.md)
-
-## <a name="additional-resources"></a>Recursos adicionais
+* [Implantar um aplicativo Spring Boot no Linux no Serviço de Contêiner do Azure](container-service-deploy-spring-boot-app-on-linux.md)
 
 Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
 

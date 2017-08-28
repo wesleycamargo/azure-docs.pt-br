@@ -21,7 +21,6 @@ ms.openlocfilehash: 7ad48d42f8cc847ece199a2372c20430c4c8424e
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>Usar a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux
 
@@ -46,11 +45,11 @@ Você pode verificar a [documentação do arquivo de processos](http://pm2.keyme
 
         {
           "name"        : "worker",
-          "script"      : "/bin/server.js",
+          "script"      : "./bin/server.js",
           "instances"   : 1,
           "merge_logs"  : true,
           "log_date_format" : "YYYY-MM-DD HH:mm Z",
-          "watch": ["/bin/server.js", "foo.txt"],
+          "watch": ["./bin/server.js", "foo.txt"],
           "watch_options": {
             "followSymlinks": true,
             "usePolling"   : true,

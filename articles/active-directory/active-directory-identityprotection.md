@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -122,7 +122,8 @@ As seções a seguir fornecerão mais detalhes e as etapas que estão relacionad
 
 ## <a name="risky-sign-ins"></a>Entradas de risco
 
-O Azure Active Directory detecta alguns [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real. Todos os eventos de risco em tempo real que foram detectados durante a entrada de um usuário contribuem para um conceito lógico chamado *entrada de risco*. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário. O ciclo de vida de uma entrada de risco termina quando um usuário sai.
+O Azure Active Directory detecta [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que tiver sido detectado para a entrada de um usuário contribui para um conceito lógico chamado entrada de risco. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário.
+
 
 ### <a name="sign-in-risk-level"></a>Nível de risco de entrada
 
@@ -212,7 +213,7 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 ## <a name="users-flagged-for-risk"></a>Usuários sinalizados por risco
 
-Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado *usuários sinalizados como de risco*. Um *usuário sinalizado como de risco* ou um *usuário arriscado* é um indicador de uma conta de usuário que pode ter sido comprometida.   
+Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) ativos que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado risco de usuário. Um usuários sinalizado como de risco é um indicador de que uma conta de usuário pode ter sido comprometida.
 
 ![Usuários sinalizados por risco](./media/active-directory-identityprotection/1200.png)
 

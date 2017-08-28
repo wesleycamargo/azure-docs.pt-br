@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5a0092481cb461f26ba463f4c9bbaf114ecb1248
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0e06d21bd0b6ef807f38e41dcd50c9cd715607a3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre as Máquinas Virtuais Linux
@@ -52,10 +51,10 @@ As duas novas regiões, Central do Canadá e Leste do Canadá, não são registr
 Sim, agora isso é possível. Primeiro, a VM precisa ser parada e desalocada. Em seguida, é possível adicionar ou remover uma NIC (a menos que ela seja a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome do computador?
-Sim. O nome do computador pode ter, no máximo, 64 caracteres. Consulte [Diretrizes de nomenclatura de infraestrutura](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como nomear seus recursos.
+Sim. O nome do computador pode ter, no máximo, 64 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como nomear recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
-Sim. O nome do grupo de recursos pode ter, no máximo, 90 caracteres. Consulte as [Diretrizes de grupo de recursos de infraestrutura](infrastructure-resource-groups-guidelines.md) para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter, no máximo, 90 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de usuário ao criar uma VM?
 Os nomes de usuário devem ter de 1 a 64 caracteres.

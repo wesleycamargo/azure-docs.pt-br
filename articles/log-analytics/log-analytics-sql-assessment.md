@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do SQL Server com a solução de Avaliação de SQL da Log Analytics
@@ -66,7 +66,7 @@ A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Não](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Não](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 dias |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 dias |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
 O Log Analytics no OMS usa o grupo de gerenciamento e o agente do Operations Manager para coletar e enviar dados para o serviço do OMS. O OMS é criado com base nos pacotes de gerenciamento para cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga de trabalho para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de domínio. Você precisa fornecer informações de credenciais configurando uma conta Executar como do Operations Manager.

@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 85723eeb9c030dc51bdad47ea8e0996ff7868336
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a09e965b6fc9b89023c09092860fcf79773a4518
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD ao SAP Business Object Cloud, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do SAP Business Object Cloud
+- Uma assinatura do SAP Business Object Cloud habilitada para logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -45,7 +46,7 @@ Para configurar a integração do Azure AD ao SAP Business Object Cloud, você p
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -111,9 +112,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.projectorca.cloud/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: 
+    | |
+    |-|-|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<sub-domain>.projectorca.cloud`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    | |
+    |-|-|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Cliente SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html) para obter a URL de logon e obter o identificador ao baixar os metadados do SAP Business Object Cloud do console do administrador que é explicado posteriormente no tutorial. 
@@ -195,8 +204,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-an-sap-business-object-cloud-test-user"></a>Criar um usuário de teste do SAP Business Object Cloud
 
-Para permitir que os usuários do Azure AD façam logon no SAP Business Object Cloud, eles devem ser provisionados no SAP Business Object Cloud.  
-No caso do SAP Business Object Cloud, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no SAP Business Object Cloud, eles devem ser provisionados no SAP Business Object Cloud. No caso do SAP Business Object Cloud, o provisionamento é uma tarefa manual.
 
 **Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
@@ -210,7 +218,7 @@ No caso do SAP Business Object Cloud, o provisionamento é uma tarefa manual.
 
     ![Convidar Pessoas](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
-    a. Na caixa de texto **ID DE USUÁRIO**, digite a ID de usuário, como a de Brenda.
+    a. Na caixa de texto **ID DE USUÁRIO**, digite a ID de usuário, por exemplo, Brenda.
 
     b. Na caixa de texto **NOME**, digite o nome do usuário, como Brenda.
 

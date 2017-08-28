@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/11/2017
 ms.author: trinadhk; jimpark;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: c6f00c51456ebf5b2a0c2464272bffcec2959266
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Restaurar máquinas virtuais no Azure
@@ -33,7 +32,7 @@ ms.lasthandoff: 06/16/2017
 Com as etapas a seguir, restaure uma máquina virtual em uma nova VM a partir de backups armazenados no cofre de backup do Azure.
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
 >- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >

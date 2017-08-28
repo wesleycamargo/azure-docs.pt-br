@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/21/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
@@ -34,7 +34,7 @@ O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o
 >
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **A partir de 1º de novembro de 2017**:
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
 >- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >

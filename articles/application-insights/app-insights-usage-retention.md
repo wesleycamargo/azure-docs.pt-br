@@ -11,22 +11,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de usuários para aplicativos Web com o Application Insights
 
-A folha de retenção no [Azure Application Insights](app-insights-overview.md) ajuda a analisar quantos usuários retornam ao seu aplicativo e com que frequência eles executam determinadas tarefas ou atingem metas. Por exemplo, caso gerencie um site de jogos, você pode comparar o número de usuários que retornam ao site após perder um jogo com o número de usuários que retornam após vencer. Esse conhecimento pode ajudar a melhorar a experiência do usuário e sua estratégia de negócios.
+O recurso de retenção no [Azure Application Insights](app-insights-overview.md) ajuda a analisar quantos usuários retornam ao seu aplicativo e com que frequência eles executam determinadas tarefas ou atingem metas. Por exemplo, caso gerencie um site de jogos, você pode comparar o número de usuários que retornam ao site após perder um jogo com o número de usuários que retornam após vencer. Esse conhecimento pode ajudar a melhorar a experiência do usuário e sua estratégia de negócios.
 
 ## <a name="get-started"></a>Introdução
 
-Caso ainda não veja dados na folha de retenção do portal do Application Insights, [veja como começar a usar as ferramentas de uso](app-insights-usage-overview.md).
+Caso ainda não veja dados na ferramenta de retenção do portal do Application Insights, [saiba como começar a usar as ferramentas de uso](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>A ferramenta de retenção
 
@@ -39,6 +39,9 @@ Caso ainda não veja dados na folha de retenção do portal do Application Insig
 5. A grade mostra o número de usuários retidos de acordo com o construtor de consultas no nº 2. Cada linha representa um coorte de usuários que realizaram qualquer evento no período mostrado. Cada célula na linha mostra quantas pessoas desse coorte retornaram pelo menos uma vez em um período posterior. Alguns usuários podem retornar em mais de um período. 
 6. Os cartões de informações mostram os cinco principais eventos de início e os cinco eventos principais retornados para dar aos usuários uma ideia melhor sobre seus relatórios de retenção. 
 
+![Foco de mouse de retenção](./media/app-insights-usage-retention/hover.png)
+
+Os usuários podem focalize células sobre a ferramenta de retenção para acessar as dicas de ferramenta e o botão de análise explicando o que significa que a célula. Botão análise leva o usuário para a ferramenta de análise com uma consulta preenchida previamente para gerar os usuários da célula. 
 
 ## <a name="use-business-events-to-track-retention"></a>Usar eventos de negócios para monitorar a retenção
 
@@ -66,6 +69,9 @@ Ou no código de servidor do ASP.NET:
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md)
     - [Funis](usage-funnels.md)
+    - [Fluxos de Usuário](app-insights-usage-flows.md)
     - [Pastas de trabalho](app-insights-usage-workbooks.md)
     - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
+
+
 

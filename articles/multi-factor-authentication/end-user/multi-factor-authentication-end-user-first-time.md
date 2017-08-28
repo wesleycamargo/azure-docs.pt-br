@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
@@ -44,7 +44,7 @@ A primeira pergunta no processo de registro é como você deseja que entremos em
 
 | Método de contato | Descrição |
 | --- | --- |
-| [Aplicativo móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações para verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.<br>- **Use o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na interface de entrada.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Aplicativo móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações para verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.<br>- **Use o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na interface de entrada.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | [Chamada telefônica ou SMS de celular](#use-your-mobile-phone-as-the-contact-method) |- **Chamada telefônica** faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar.<br>- **SMS** envia para o usuário uma mensagem de texto contendo um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada. |
 | [Ligação Para Telefone Comercial](#use-your-office-phone-as-the-contact-method) |Faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. |
 

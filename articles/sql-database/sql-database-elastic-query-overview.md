@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 6c066599cc8fcff6344aaba5f0d2ad01acc71b5a
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do Banco de Dados SQL do Azure (visualização)
@@ -97,12 +97,14 @@ As seguintes etapas configuram consultas de banco de dados elástico para cenár
 Depois de executar as instruções DDL, você pode acessar a tabela remota “mytable” como se ela fosse uma tabela local. O Banco de Dados SQL do Azure automaticamente abre uma conexão com o banco de dados remoto, processa a solicitação no banco de dados remoto e retorna os resultados.
 
 ## <a name="horizontal-partitioning---sharding"></a>Particionamento horizontal - fragmentação
-O uso de uma consulta elástica para executar tarefas de relatórios em uma camada de dados fragmentados, ou seja, particionados horizontalmente requer um [mapa de fragmentos de banco de dados elástico](sql-database-elastic-scale-shard-map-management.md) para representar os bancos de dados da camada de dados. Normalmente, apenas um único mapa de fragmentos é usado neste cenário, e um banco de dados dedicado com recursos de consulta elástica serve como o ponto de entrada para consultas de relatórios. Somente este banco de dados dedicado precisa ter acesso ao mapa de fragmentos. A Figura 4 ilustra essa topologia e sua configuração com o banco de dados de consulta elástica e o mapa de fragmentos. Os bancos de dados na camada de dados podem ser de qualquer versão ou edição do Banco de Dados SQL do Azure. Para obter mais informações sobre a biblioteca de clientes do banco de dados elástico e sobre como criar mapas de fragmentos, veja [Gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+O uso de uma consulta elástica para executar tarefas de relatórios em uma camada de dados fragmentados, ou seja, particionados horizontalmente requer um [mapa de fragmentos de banco de dados elástico](sql-database-elastic-scale-shard-map-management.md) para representar os bancos de dados da camada de dados. Normalmente, apenas um único mapa de fragmentos é usado neste cenário, e um banco de dados dedicado com recursos de consulta elástica (nó de cabeçalho) serve como o ponto de entrada para consultas de relatórios. Somente este banco de dados dedicado precisa ter acesso ao mapa de fragmentos. A Figura 4 ilustra essa topologia e sua configuração com o banco de dados de consulta elástica e o mapa de fragmentos. Os bancos de dados na camada de dados podem ser de qualquer versão ou edição do Banco de Dados SQL do Azure. Para obter mais informações sobre a biblioteca de clientes do banco de dados elástico e sobre como criar mapas de fragmentos, veja [Gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 
 **Figura 4** Particionamento horizontal - Usando a consulta elástica para relatórios de camadas de dados fragmentados
 
 ![Particionamento horizontal - Usando a consulta elástica para relatórios de camadas de dados fragmentados][5]
 
+> [!NOTE]
+> Consulta de banco de dados Elástico (nó principal) pode ser separado do banco de dados, ou pode ser o mesmo banco de dados que hospeda o mapa do fragmento. Qualquer configuração que você escolher, verifique se essa camada de serviço e o desempenho do banco de dados for alta o suficiente para lidar com o valor esperado de solicitações de logon/consulta.
 
 As seguintes etapas configuram consultas de banco de dados elástico para cenários de particionamento horizontal que exigem o acesso a um conjunto de tabelas que estão localizadas (normalmente) em vários Bancos de Dados SQL remotos:
 

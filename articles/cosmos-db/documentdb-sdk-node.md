@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js do Azure Cosmos DB: Notas de versão e recursos
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="1.12.2"/>1.12.2</a>
+*   documentação do npm corrigida.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Correção de um bug no executeStoredProcedure, em que documentos envolvidos tinham caracteres especiais Unicode (LS, PS).
+* Correção de um bug no tratamento de documentos com caracteres Unicode na chave de partição.
+* Suporte corrigido para criar coleções com a mídia de nome. Problema nº 114 do Github.
+* Suporte fixo para o token de autorização de permissão. Problema nº 178 do Github.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* Foi adicionado suporte ao recurso [Unidade de Solicitação por Minuto (RU/m)](../cosmos-db/request-units-per-minute.md).
 * Foi adicionado suporte a um novo [nível de consistência](consistency-levels.md) chamado ConsistentPrefix.
 * Foi adicionado suporte para UriFactory.
-* Foi corrigido um bug de suporte a Unicode. (Problema nº 171 do GitHub)
+* Correção de um bug de suporte ao Unicode. Problema nº 171 do Github.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Adição do suporte para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
 * Adição da opção para controlar o grau de paralelismo em consultas de partição cruzada.
 * Adição da opção para desabilitar a verificação do SSL quando executada no Emulador do Azure Cosmos DB.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
-* Correção do bug de token de continuação para a coleta de partição única (GitHub nº 107).
-* Correção do bug executeStoredProcedure na manipulação de 0 como parâmetro único (GitHub nº 155).
+* Correção do bug de token de continuação para a coleta de partição única. Problema nº 107 do Github.
+* Correção do bug executeStoredProcedure no tratamento de 0 como parâmetro único. Problema nº 155 do Github.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Cabeçalho de agente do usuário fixo para incluir a versão do SDK.
@@ -89,8 +97,8 @@ ms.lasthandoff: 07/25/2017
 * Adição de suporte a consultas TOP/ORDER BY de coleções particionadas.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o Azure Cosmos DB tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Este tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
-* O Cosmos DB agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para indicar a contagem de repetições de restrição e o tempo cumulativo que a solicitação aguardou entre as tentativas.
+* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o Azure Cosmos DB tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Esse tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
+* O Cosmos DB agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para indicar a contagem de repetições restritas e o tempo cumulativo que a solicitação aguardou entre as tentativas.
 * A classe RetryOptions foi adicionada, expondo a propriedade RetryOptions na classe ConnectionPolicy, que pode ser usada para substituir algumas das opções de repetição padrão.
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -160,16 +168,18 @@ ms.lasthandoff: 07/25/2017
 * SDK DO GA.
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento e desativação
-A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
+A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
-Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
+Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, é recomendável atualizar sempre que possível para a versão do SDK mais recente.
 
-Qualquer solicitação feita ao Cosmos DB usando um SDK desativado será rejeitada pelo serviço.
+Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é rejeitada pelo serviço.
 
 <br/>
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |10 de agosto de 2017 |--- |
+| [1.12.1](#1.12.1) |10 de agosto de 2017 |--- |
 | [1.12.0](#1.12.0) |10 de maio de 2017 |--- |
 | [1.11.0](#1.11.0) |16 de março de 2017 |--- |
 | [1.10.2](#1.10.2) |27 de janeiro de 2017 |--- |

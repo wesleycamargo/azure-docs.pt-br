@@ -4,7 +4,7 @@ description: "Saiba como usar o Azure WebHooks para monitorar as notificações 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services

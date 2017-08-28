@@ -1,10 +1,10 @@
 ---
-title: "Saiba mais sobre o Node.js — Tutorial do Node.js para Azure Cosmos DB | Microsoft Docs"
-description: Saiba mais sobre o Node.js! O tutorial explica como usar o BD Cosmos do Microsoft Azure para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado em sites do Azure.
-keywords: Desenvolvimento de aplicativos, tutorial de banco de dados, aprender node.js, tutorial do node.js, banco de dados de documentos, azure, Microsoft azure
+title: Compilar um aplicativo Web do Node.js para o banco de dados do Azure Cosmos DB | Microsoft Docs
+description: Este tutorial do Node.js explora como usar o Microsoft Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado em sites do Azure.
+keywords: Desenvolvimento de aplicativos, tutorial de banco de dados, aprender node.js, tutorial do node.js
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 511c9e4d6f68b3e063559acb5996111acd3c653f
+ms.date: 08/14/2017
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="_Toc395783175"></a>Compilar um aplicativo Web Node.js usando o Azure Cosmos DB
@@ -34,7 +33,7 @@ ms.lasthandoff: 05/31/2017
 
 Este tutorial do Node.js mostra como usar o Azure Cosmos DB e a API do DocumentDB para armazenar e acessar dados de um aplicativo Express do Node.js hospedado nos Sites do Azure. Você cria um aplicativo simples de gerenciamento de tarefas baseado na Web, um aplicativo ToDo, que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. Este tutorial o orienta durante a criação e a implantação do aplicativo e explica o que está acontecendo em cada trecho de código.
 
-![Captura de tela do aplicativo Minha lista de tarefas pendentes criado neste tutorial](./media/documentdb-nodejs-application/image1.png)
+![Captura de tela do aplicativo Minha lista de tarefas pendentes criado neste tutorial](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completo da [GitHub][GitHub]. Leia o arquivo [Leiame](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) para obter instruções sobre como executar o aplicativo.
 
@@ -50,7 +49,7 @@ Antes de seguir as instruções deste artigo, verifique se você possui o seguin
 
    OU
 
-   Uma instalação local do [Emulador do Azure Cosmos DB](local-emulator.md).
+   Uma instalação local do [Emulador do Azure Cosmos DB](local-emulator.md) (Somente no Windows).
 * [Node.js][Node.js] versão v0.10.29 ou superior.
 * [Gerador expresso](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 * [Git][Git].
@@ -62,7 +61,7 @@ Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma cont
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Etapa 2: Aprender a criar um novo aplicativo Node.js
+## <a name="_Toc395783178"></a>Etapa 2: criar um novo aplicativo do Node.js
 Agora vamos aprender a criar um projeto Hello World Node.js básico usando a estrutura [Express](http://expressjs.com/) .
 
 1. Abra seu terminal favorito, como o prompt de comando do Node.js.
@@ -79,17 +78,17 @@ Agora vamos aprender a criar um projeto Hello World Node.js básico usando a est
         npm start
 6. Veja seu novo aplicativo navegando em seu navegador até [http://localhost:3000/](http://localhost:3000).
    
-    ![Saiba mais sobre o Node.js — captura de tela do aplicativo Hello World em uma janela do navegador](./media/documentdb-nodejs-application/image12.png)
+    ![Saiba mais sobre o Node.js — captura de tela do aplicativo Hello World em uma janela do navegador](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     Em seguida, para interromper o aplicativo, pressione CTRL+C na janela do terminal e clique em **y** para finalizar o trabalho em lotes.
 
 ## <a name="_Toc395783179"></a>Etapa 3: Instalar módulos adicionais
-O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse arquivo contém uma lista dos módulos adicionais que são necessários para seu aplicativo do Node.js. Posteriormente, ao implantar esse aplicativo em um site do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao seu aplicativo. Ainda precisamos instalar mais dois pacotes para este tutorial.
+O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse arquivo contém uma lista dos módulos adicionais que são necessários para seu aplicativo do Node.js. Posteriormente, ao implantar esse aplicativo em sites do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao seu aplicativo. Ainda precisamos instalar mais dois pacotes para este tutorial.
 
 1. De volta ao terminal, instale o módulo **async** via npm.
    
         npm install async --save
-2. Instale o módulo **documentdb** via npm. Esse é o módulo em que toda a mágica do Banco de Dados de Documentos acontece.
+2. Instale o módulo **documentdb** via npm. Este é o módulo em que toda a mágica do Azure Cosmos DB acontece.
    
         npm install documentdb --save
 3. Uma verificação rápida do arquivo **package.json** do aplicativo deve mostrar os módulos adicionais. Esse arquivo informará ao Azure quais pacotes para baixar e instalar ao executar seu aplicativo. Ele deve se parecer com o exemplo a seguir.
@@ -191,12 +190,6 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection aceita um parâmetro de requestOptions opcional que pode ser usado para especificar o Tipo de Oferta para a Coleção. Se nenhum valor de requestOptions.offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão.
-   > 
-   > Para saber mais sobre os tipos de oferta do Azure Cosmos DB, consulte [Níveis de desempenho no Azure Cosmos DB](performance-levels.md) 
-   > 
-   > 
 5. Salve e feche o arquivo **docdbUtils.js** .
 6. No início do arquivo **taskDao.js**, adicione o seguinte código para fazer referência a **DocumentDBClient** e **docdbUtils.js** criados anteriormente:
    
@@ -391,8 +384,8 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
@@ -435,22 +428,25 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
 2. Abra o arquivo **layout.jade** encontrado na pasta **views** e substitua o conteúdo pelo seguinte:
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     Isso instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content**, em que podemos fornecer o layout para nossas páginas de conteúdo.
+
     Salve e feche o arquivo **layout.jade** .
 
 3. Agora, abra o arquivo **index.jade** , o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte:
@@ -482,49 +478,33 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
                      td #{month + "/" + day + "/" + year}
                      td
                        input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
+             button.btn.btn-primary(type="submit") Update tasks
            hr
            form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
              br
              button.btn(type="submit") Add item
    
-    Isso estende o layout e fornece conteúdo para o espaço reservado **content** que vimos no arquivo **layout.jade** anteriormente.
+
+Isso estende o layout e fornece conteúdo para o espaço reservado **content** que vimos no arquivo **layout.jade** anteriormente.
    
-    Nesse layout criamos dois formulários HTML. 
-    O primeiro formulário contém uma tabela para nossos dados e um botão que permite atualizar itens pelo lançamento do método **/completetask** de nosso controlador.
-    O segundo formulário contém dois campos de entrada e um botão que nos permite criar um novo item ao ser lançado o método **/addtask** do nosso controlador.
-   
-    Isso deve ser tudo o que precisamos para que nosso aplicativo funcione.
-4. Abra o arquivo **style.css** no diretório **public\stylesheets** e substitua o código pelo seguinte:
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Salve e feche esse arquivo **style.css** .
+Nesse layout criamos dois formulários HTML.
+
+O primeiro formulário contém uma tabela para nossos dados e um botão que permite atualizar itens pelo lançamento do método **/completetask** de nosso controlador.
+    
+O segundo formulário contém dois campos de entrada e um botão que nos permite criar um novo item ao ser lançado o método **/addtask** do nosso controlador.
+
+Isso deve ser tudo o que precisamos para que nosso aplicativo funcione.
 
 ## <a name="_Toc395783181"></a>Etapa 6: Execute o seu aplicativo localmente
 1. Para testar o aplicativo no computador local, execute `npm start` no terminal para iniciar o aplicativo e atualize a página do navegador [http://localhost:3000](http://localhost:3000). Agora a página deve ser semelhante à seguinte imagem:
    
-    ![Captura de tela do aplicativo MyTodo List em uma janela do navegador](./media/documentdb-nodejs-application/image18.png)
+    ![Captura de tela do aplicativo MyTodo List em uma janela do navegador](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > Se receber um erro sobre o recuo no arquivo layout.jade ou o arquivo index.jade, verifique se as duas primeiras linhas em ambos os arquivos estão justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-os, salve os dois arquivos e atualize a janela do navegador. 
@@ -532,7 +512,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 2. Use os campos Item, Nome do Item e Categoria para inserir uma nova tarefa e clique em **Adicionar Item**. Isso cria um documento no Azure Cosmos DB com essas propriedades. 
 3. A página deverá ser atualizada para exibir o item recém-criado na lista de Tarefas Pendentes.
    
-    ![Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes](./media/documentdb-nodejs-application/image19.png)
+    ![Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. Para concluir uma tarefa, basta marcar a caixa de seleção na coluna Concluir e clicar em **Atualizar tarefas**. Isso atualiza o documento que você já criou.
 
 5. Para interromper o aplicativo, pressione CTRL+C na janela do terminal e clique em **Y** para finalizar o trabalho em lotes.

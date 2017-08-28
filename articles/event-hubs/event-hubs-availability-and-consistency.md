@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: bbc81a89f3be7b04c7a9e347ac1dae007515b042
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/16/2017
 ## <a name="overview"></a>Visão geral
 Os Hubs de Eventos do Azure usam um [modelo de particionamento](event-hubs-features.md#partitions) para melhorar a disponibilidade e a paralelização dentro de um único hub de eventos. Por exemplo, se um hub de eventos tiver quatro partições e uma delas estiver sendo movida de um servidor para outro em uma operação de balanceamento de carga, você ainda poderá enviar e receber das outras três partições. Além disso, ter mais partições permite que você tenha mais leitores simultâneos processando seus dados, melhorando sua taxa de transferência agregada. Noções básicas sobre as implicações de particionamento e ordenação em um sistema distribuído é um aspecto fundamental do design de soluções.
 
-Para ajudar a explicar a compensação entre ordenação e disponibilidade, consulte o [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância a partição.
+Para ajudar a explicar a compensação entre ordenação e disponibilidade, confira o [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância a partição.
 
 O teorema de Brewer define a consistência e a disponibilidade como a seguir:
 * Tolerância a partição: a capacidade de um sistema de processamento de dados continuar processando dados mesmo que ocorra uma falha de partição.

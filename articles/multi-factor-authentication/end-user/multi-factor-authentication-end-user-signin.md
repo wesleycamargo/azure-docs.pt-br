@@ -1,12 +1,11 @@
 ---
-title: "Experiência de conexão de MFA do Azure com a verificação em duas etapas | Microsoft Docs"
+title: "Experiência de entrada no Azure MFA com a verificação em duas etapas | Microsoft Docs"
 description: "Esta página fornecerá orientações sobre onde você deve procurar os vários métodos de conexão disponíveis com o MFA do Azure."
 keywords: "autenticação do usuário, experiência de conexão, conectar com telefone celular, conectar com telefone do escritório"
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: pblachar
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: e972446ea92e8fd31406c9ccff7832b7441f3a2a
-ms.lasthandoff: 03/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de conexão com a Autenticação Multifator do Microsoft Azure
 > [!NOTE]
 > A finalidade deste artigo é examinar uma experiência de conexão típica. Para obter ajuda com a conexão ou resolver problemas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md).
@@ -43,15 +45,13 @@ As informações a seguir descrevem a experiência de verificação em duas etap
 1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.  
 2. A Microsoft liga para você.  
 3. Atenda o telefone e pressione a tecla #.  
-4. Agora você deve estar conectado.  
 
 ## <a name="signing-in-with-a-text-message"></a>Conectando com uma mensagem de texto
 As seguintes informações descrevem a experiência de verificação em duas etapas com uma mensagem de texto para seu telefone celular:
 
 1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha. 
-2. A Microsoft envia para você uma mensagem de texto que contém um código numérico. 
+2. A Microsoft envia para você uma mensagem de texto com um código numérico. 
 3. Insira o código na caixa fornecida na página de conexão. 
-4. Agora você deve estar conectado. 
 
 ## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Entrando com o aplicativo Microsoft Authenticator 
 As informações a seguir descrevem a experiência do uso do aplicativo Microsoft Authenticator para verificações em duas etapas. Há duas maneiras diferentes de usar o aplicativo. Você pode receber notificações por push no seu dispositivo ou abrir o aplicativo para obter um código de verificação.
@@ -75,17 +75,15 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
   ![Inserir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra o aplicativo Microsoft Authenticator em seu telefone e digite o código na caixa de conexão.
-4. Agora você deve estar conectado.
 
 ## <a name="signing-in-with-an-alternate-method"></a>Conectando-se com um método alternativo
 Às vezes, pode ser que o telefone ou dispositivo que você tem não seja o seu método de verificação de preferência. É por isso que recomendamos que faça o backup da conta. A seção a seguir mostra como se conectar com um método alternativo quando o método primário não está disponível.
 
 1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
 2. Selecione **Usar uma opção de verificação diferente**. Você verá opções de verificação diferentes, de acordo com a quantidade configurada.
+3. Escolha um método alternativo e conecte-se.
 
   ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
-
-3. Escolha um método alternativo e conecte-se.
 
 ## <a name="next-steps"></a>Próximas etapas
 

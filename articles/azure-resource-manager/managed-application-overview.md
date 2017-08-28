@@ -1,6 +1,6 @@
 ---
-title: "Visão geral de aplicativo gerenciado do Azure | Microsoft Docs"
-description: Descreve os conceitos de aplicativo gerenciado do Azure
+title: "Visão geral de aplicativos gerenciados do Azure | Microsoft Docs"
+description: Descreve os conceitos de aplicativos gerenciados do Azure
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -8,63 +8,77 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/24/2017
+ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
+
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
-Atualmente, o Azure fornece um Marketplace sólido em que ISVs e empresas emergentes podem oferecer suas soluções para clientes em todo o mundo. O Azure Marketplace é uma galeria que consiste em centenas de modelos complexos com vários recursos, tanto próprios quanto de terceiros. Os clientes podem, em minutos, implantar e começar a usar aplicativos PaaS e SaaS. Embora ele forneça uma ótima maneira de implantar uma oferta rapidamente, o cliente ainda é responsável por manter e atualizar a solução. Para fornecedores, não é possível cobrar os clientes pelo uso de um aplicativo além da cobrança de imagem de máquina virtual. Além disso, os fornecedores não têm nenhuma maneira de impedir que os clientes modifiquem recursos de aplicativos essenciais ou de bloquear o acesso à propriedade intelectual que compõe um aplicativo. Os aplicativos gerenciados do Azure fornecem uma solução para esses problemas. 
+Os fornecedores que usam Azure podem oferecer soluções para clientes no mundo todo. O Azure Marketplace é uma galeria composta por centenas de modelos complexos com vários recursos próprios e de terceiros. Em questão de minutos, os clientes podem implantar e começar a usar aplicativos PaaS (plataforma como serviço) e SaaS (software como serviço). 
+
+Embora o Marketplace forneça uma ótima maneira para os clientes implantarem uma oferta rapidamente, o cliente ainda é responsável por manter e atualizar a solução. Os fornecedores não podem cobrar os clientes pelo uso de um aplicativo, além da cobrança de imagem de máquina virtual. Além disso, os fornecedores não podem impedir os clientes de modificar recursos essenciais de aplicativos. Os fornecedores também não podem bloquear o acesso à propriedade intelectual que compõe um aplicativo. Os aplicativos gerenciados do Azure fornecem soluções para esses problemas. 
+
+Um aplicativo gerenciado é semelhante a um modelo de solução no Marketplace, com uma diferença importante. Em um aplicativo gerenciado, os recursos são provisionados para um grupo de recursos gerenciado pelo fornecedor. O grupo de recursos está presente na assinatura do cliente, mas uma identidade no locatário do fornecedor tem acesso ao grupo de recursos.
 
 ## <a name="advantages-of-managed-applications"></a>Vantagens dos aplicativos gerenciados
 
-Os aplicativos gerenciados do Azure oferecem um ecossistema que permite aos fornecedores disponibilizar serviços de PaaS ou SaaS como aplicativos independentes. Os clientes implantam aplicativos gerenciados em suas assinaturas, mas os fornecedores podem gerenciá-los. Ele permite que os fornecedores cobrem os clientes que usam o sistema de cobrança do Azure e usem modelos para gerenciar o ciclo de vida dos aplicativos implantados. Por outro lado, ele permite que os clientes adquiram atualizações automaticamente e paguem pela manutenção e pelo suporte. Eles não precisam manter ou atualizar o aplicativo por conta própria ou diagnosticar e corrigir problemas quando o aplicativo falha.
+MSPs (Provedores de serviço gerenciado), ISVs e equipes de TI centrais corporativas podem usar aplicativos gerenciados para fornecer soluções por meio do Marketplace ou do Catálogo de Serviços. Embora os clientes implantem esses aplicativos gerenciados em suas assinaturas, eles não precisam fazer a manutenção, atualizar nem repará-las. Como os fornecedores gerenciam e dão suporte aos aplicativos, os clientes não precisam desenvolver um conhecimento de domínio específico ao aplicativo para gerenciar esses aplicativos. Os clientes podem adquirir automaticamente atualizações do aplicativo sem precisar se preocupar com solução de problemas e diagnóstico problemas com o aplicativo.
 
-Um ecossistema assim no Azure não apenas beneficiaria fornecedores de PaaS e SaaS, mas também as equipes de plataforma central corporativas e integradores de sistema que desejem empacotar e revender suas soluções.
+Para fornecedores e provedores, os aplicativos gerenciados criam um canal para vender infraestrutura e software por meio do Marketplace. Os aplicativos gerenciados também fornecem uma maneira de agregar serviços e suporte operacional aos clientes do Azure. Os fornecedores podem cobrar os clientes usando o sistema de cobrança do Azure. Eles podem usar modelos para gerenciar o ciclo de vida dos aplicativos implantados. Essas soluções são independentes e seladas para o cliente de modo que os fornecedores possam fornecer serviço de alta qualidade. Essa abordagem beneficia fornecedores de PaaS e SaaS. Ela também ajuda as equipes de plataforma central corporativa e SIs (integradores de sistema) que desejam empacotar e revender suas soluções.
 
-## <a name="how-managed-applications-work"></a>Como funcionam os aplicativos gerenciados
-Há duas experiências ao se trabalhar com aplicativos gerenciados:
+## <a name="managed-application-types"></a>Tipos de aplicativos gerenciados
+Os aplicativos gerenciados do Azure vêm em dois tipos: Catálogo de Serviços e Marketplace.
+ 
+### <a name="service-catalog"></a>Catálogo de Serviços  
 
-1. O fornecedor ou ISV (fornecedor de software independente) que cria um aplicativo gerenciado e o torna disponível para uso mais amplo. 
-2. O cliente ou consumidor que deseja criar e usar o aplicativo publicado. 
+Com o Catálogo de Serviços, os clientes podem criar um catálogo de soluções aprovadas para o Azure a fim de serem usadas por pessoas na organização. Manter esse catálogo de soluções é útil para as equipes de TI centrais em empresas. Elas podem usar o catálogo para assegurar a conformidade com certos padrões organizacionais enquanto oferecerem soluções excelentes para suas organizações. Elas podem controlar, atualizar e realizar a manutenção desses aplicativos. Os funcionários podem usar o catálogo para descobrir facilmente um conjunto sofisticado de aplicativos recomendados e aprovados pelo departamento de TI. Os clientes veem os aplicativos gerenciados do Catálogo de Serviços que criaram. Eles também podem ver os aplicativos gerenciados que outras pessoas na organização compartilham com eles.
+ 
+Para obter informações sobre como publicar um aplicativo gerenciado do Catálogo de Serviços, consulte [Criar e publicar um aplicativo gerenciado do Catálogo de Serviços](managed-application-publishing.md).
+ 
+Para obter informações sobre como consumir um aplicativo gerenciado do Catálogo de Serviços, consulte [Consumir um aplicativo gerenciado do Catálogo de Serviços](managed-application-consumption.md).
+ 
+### <a name="marketplace"></a>Marketplace
 
-Este artigo fornece uma visão geral de ambas as experiências. Primeiro, vamos entender como funciona um aplicativo gerenciado. 
+Aplicativos gerenciados estão disponíveis por meio do Marketplace no portal do Azure. Após o fornecedor publicar esses aplicativos, eles ficam disponíveis para todos de dentro e fora da organização. Com essa abordagem, os MSPs, ISVs e SIs (integradores de sistema) podem oferecer suas soluções a todos os clientes do Azure. Os clientes se beneficiam do uso dessas soluções complexas sem necessidade de investir na compreensão e na manutenção das soluções. 
 
-Um aplicativo gerenciado é semelhante a um modelo de solução do mercado, com uma diferença importante. Em um aplicativo gerenciado, os recursos são provisionados em um grupo de recursos que é gerenciado pelo ISV/fornecedor. O grupo de recursos está presente na assinatura do cliente, mas um usuário, grupo de usuários ou aplicativo no locatário do ISV tem acesso ao grupo de recursos. Para gerenciar e atender às necessidades do aplicativo, a identidade do fornecedor é adicionada à função Proprietário, Colaborador, Leitor ou outra função interna. 
+Atualmente, os publicadores podem disponibilizar suas ofertas como um aplicativo gerenciado ou um modelo de solução não gerenciado. Os principais componentes da publicação de um aplicativo gerenciado incluem o arquivo de modelo e o arquivo de definição de interface do usuário. O arquivo de modelo descreve os recursos provisionados. O arquivo de definição de interface do usuário descreve como as entradas necessárias para provisionar esses recursos são exibidas no portal. Os arquivos necessários são empacotados em um arquivo .zip e carregados por meio do portal de publicação.
+ 
+Para saber mais sobre como publicar um aplicativo gerenciado no Marketplace, consulte [Aplicativos gerenciados do Azure no Marketplace](managed-application-author-marketplace.md).
 
-Para saber mais sobre a experiência de fornecedor, confira [Criar e publicar um aplicativo gerenciado do Azure](managed-application-publishing.md).
-
-Para saber mais sobre a experiência do usuário, confira [Consumir um aplicativo gerenciado do Azure](managed-application-consumption.md).
+Para obter informações sobre como consumir um aplicativo gerenciado do Marketplace, consulte [Consumir aplicativos gerenciados pelo Azure no Marketplace](managed-application-consume-marketplace.md).
 
 ## <a name="key-concepts"></a>Principais conceitos
 
 ### <a name="managed-resource-group"></a>Grupo de recursos gerenciado
-O grupo de recursos onde todos os recursos do Azure provisionados no modelo são criados. Por exemplo, se o dispositivo está criando uma conta de armazenamento, esse grupo de recursos contém o recurso de conta de armazenamento. Ele não contém o recurso de dispositivo.
+O grupo de recursos gerenciado é onde todos os recursos do Azure provisionados no modelo são criados. Por exemplo, se o dispositivo for usado para criar uma conta de armazenamento, esse grupo de recursos conterá o recurso de conta de armazenamento. Ele não contém o recurso de dispositivo.
 
 ### <a name="appliance-package"></a>Pacote de dispositivo
 O editor cria um pacote que contém os arquivos de modelo e o arquivo createUIDefinition. Especificamente, ele contém os seguintes arquivos:
 
-- **applianceMainTemplate.json** - o arquivo de modelo que define todos os recursos que são provisionados pelo dispositivo. Esse arquivo é um arquivo de modelo regular usado para a criação de recursos.
+- **applianceMainTemplate.json**: esse arquivo de modelo define todos os recursos que são provisionados pelo dispositivo. Esse arquivo é um arquivo de modelo regular usado para a criação de recursos.
 
-- **MainTemplate.json** - arquivo de modelo que define o recurso de dispositivo (Microsoft.Solutions/appliances). Uma propriedade essencial definida neste recurso é o ManagedResourceGroupId. Essa propriedade indica qual grupo de recursos é usado para hospedar recursos reais definidos em applianceMainTemplate.json.
+- **MainTemplate.json**: esse arquivo de modelo define o recurso de dispositivo (Microsoft.Solutions/appliances). Uma propriedade essencial definida neste recurso é o ManagedResourceGroupId. Essa propriedade indica qual grupo de recursos é usado para hospedar recursos reais definidos em applianceMainTemplate.json.
 
-- **createUIDefinition.json** - esse arquivo descreve como a interface do usuário necessária para os parâmetros definidos no modelo é processada.
+- **applianceCreateUIDefinition.json**: esse arquivo descreve como a interface do usuário necessária para os parâmetros definidos no modelo é processada.
 
 ### <a name="authorization"></a>Autorização
-O editor precisa especificar as permissões exigidas pelo fornecedor para gerenciar os recursos em nome do cliente. Essa permissão se aplica ao grupo de recursos gerenciado. Defina os seguintes valores:
+O publicador precisa especificar as permissões exigidas pelo fornecedor para gerenciar os recursos em nome do cliente. Essa permissão se aplica ao grupo de recursos gerenciado. Defina os seguintes valores:
 
-- **PrincipalID** - o identificador do Azure AD para o usuário, grupo ou aplicativo que é usado para conceder acesso ao grupo de recursos gerenciado. Esse identificador pertence ao locatário do editor.
+- **PrincipalID**: o identificador do Azure AD (Azure Active Directory) para o usuário, grupo ou aplicativo que é usado para conceder acesso ao grupo de recursos gerenciado. Esse identificador pertence ao locatário do editor.
 
-- **RoleDefinitionID** - o identificador do Azure AD da função atribuída à ID da entidade anterior. Pode ser qualquer uma das funções RBAC internas no locatário do editor.
+- **RoleDefinitionID**: o identificador do Azure AD da função atribuída à ID da entidade anterior. Pode ser qualquer uma das funções internas de Controle de acesso baseado em função no locatário do publicador. Para saber mais, consulte [Funções internas para Controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para entender a experiência de fornecedor, consulte [Criar e publicar um aplicativo gerenciado do Azure](managed-application-publishing.md).
-* Para entender a experiência do usuário, consulte [Consumir um aplicativo gerenciado do Azure](managed-application-consumption.md).
+* Para saber mais sobre como publicar aplicativos gerenciados para o Marketplace, consulte [Aplicativos Gerenciados do Azure no Marketplace](managed-application-author-marketplace.md).
+* Para obter informações sobre como consumir um aplicativo gerenciado do Marketplace, consulte [Consumir aplicativos gerenciados pelo Azure no Marketplace](managed-application-consume-marketplace.md).
+* Para obter informações sobre como publicar um aplicativo gerenciado do Catálogo de Serviços, consulte [Criar e publicar um aplicativo gerenciado do Catálogo de Serviços](managed-application-publishing.md).
+* Para obter informações sobre como consumir um aplicativo gerenciado do Catálogo de Serviços, consulte [Consumir um aplicativo gerenciado do Catálogo de Serviços](managed-application-consumption.md).
 * Para criar um arquivo de definição de interface do usuário, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+

@@ -2,7 +2,7 @@
 title: "Esquema de metadados de entrada dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "O tópico oferece uma visão geral do estema de metadados de entrada dos Serviços de Mídia do Azure."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

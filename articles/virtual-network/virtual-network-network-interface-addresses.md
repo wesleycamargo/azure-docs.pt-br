@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6722365e5a5e4c58d91dd178de264a403d53c02
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -63,7 +63,7 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 |Ferramenta|Command|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>Alterar configurações de endereço IP
 
@@ -84,7 +84,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 |Ferramenta|Command|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>Remover endereços IP
 
@@ -102,7 +102,7 @@ Você pode remover endereços IP [privados](#private) e [públicos ](#public) de
 |Ferramenta|Command|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>Configurações de IP
 
@@ -113,7 +113,7 @@ Os endereços IP [privados](#private) e (opcionalmente) [públicos](#public) sã
 Cada adaptador de rede recebe uma configuração de IP primário. Uma configuração de IP primário:
 
 - Tem um endereço [privado](#private) [IPv4](#ipv4) atribuído a ela. Não é possível atribuir um endereço [IPv6](#ipv6) privado a uma configuração de IP primário.
-- Também pode ter tem um endereço IPv4 [público](#public) atribuído a ela. Não é possível atribuir um endereço IPv6 público a uma configuração de IP secundário. No entanto, você pode atribuir um endereço IPv6 público a um balanceador de carga do Azure, que pode equilibrar o tráfego para o endereço IPv6 privado de uma máquina virtual. Veja [detalhes e limitações do IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations) para saber mais.
+- Também pode ter tem um endereço IPv4 [público](#public) atribuído a ela. Não é possível atribuir um endereço IPv6 público a uma configuração de IP secundário. No entanto, você pode atribuir um endereço IPv6 público a um balanceador de carga do Azure, que pode equilibrar o tráfego para o endereço IPv6 privado de uma máquina virtual. Para saber mais, confira [detalhes e limitações do IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
 ### <a name="secondary"></a>Secundário
 
@@ -142,13 +142,13 @@ Por padrão, os servidores DHCP do Azure atribuem o endereço IPv4 privado à [c
 
 Há cenários nos quais é necessário definir manualmente o endereço IP de um adaptador de rede no sistema operacional da máquina virtual. Por exemplo, você deve definir manualmente os endereços IP primários e secundários de um sistema operacional Windows ao adicionar vários endereços IP a uma máquina virtual do Azure. Para uma máquina virtual Linux, talvez você só precise definir manualmente os endereços IP secundários. Confira [Adicionar endereços IP a um sistema operacional de VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter detalhes. Quando você define manualmente o endereço IP dentro do sistema operacional, é recomendável sempre atribuir os endereços à configuração de IP de um adaptador de rede usando o método estático (em vez de dinâmico) de atribuição. A atribuição do endereço usando o método estático assegura que o endereço não mude no Azure. Se algum dia você precisar alterar o endereço atribuído a uma configuração de IP, é recomendável que você:
 
-1. Altere a atribuição do endereço IP novamente para DHCP dentro do sistema operacional, e reinicie a máquina virtual, a fim de garantir que a máquina virtual receba um endereço de servidores DHCP do Azure.
+1. A fim de garantir que a máquina virtual receba um endereço de servidores DHCP do Azure, altere a atribuição do endereço IP novamente para DHCP dentro do sistema operacional e reinicie a máquina virtual.
 2. Interrompa (desaloque) a máquina virtual.
 3. Altere o endereço IP da configuração de IP no Azure.
 4. Iniciar a máquina virtual.
 5. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) os endereços IP secundários dentro do sistema operacional (e também o endereço IP primário no Windows) para corresponder com o que você definiu no Azure.
  
-Com as etapas anteriores, o endereço IP atribuído ao adaptador de rede no Azure, e no sistema de operacional de uma máquina virtual, não será diferente. Para controlar em quais máquinas virtuais dentro de sua assinatura você definiu manualmente os endereços IP dentro de um sistema operacional, considere a adição de uma [marca](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) do Azure às máquinas virtuais. Você pode usar "Atribuição de endereço IP: estático", por exemplo. Dessa forma, você pode localizar facilmente, dentro de sua assinatura, as máquinas virtuais para as quais você definiu manualmente o endereço IP para dentro do sistema operacional.
+Com as etapas anteriores, o endereço IP atribuído ao adaptador de rede no Azure, e no sistema de operacional de uma máquina virtual. Para controlar em quais máquinas virtuais dentro de sua assinatura você definiu manualmente os endereços IP dentro de um sistema operacional, considere a adição de uma [marca](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) do Azure às máquinas virtuais. Você pode usar "Atribuição de endereço IP: estático", por exemplo. Dessa forma, você pode localizar facilmente, dentro de sua assinatura, as máquinas virtuais para as quais você definiu manualmente o endereço IP para dentro do sistema operacional.
 
 Além de permitir que uma máquina virtual se comunique com outros recursos na mesma rede, ou em redes virtuais conectadas, um endereço IP privado também permite que uma máquina virtual se comunique externamente com a Internet. Conexões de saída são endereços de rede de origem convertidos pelo Azure em um endereço IP público imprevisível. Para saber mais sobre a conectividade de Internet de saída do Azure, leia o artigo [Conectividade de Internet de saída do Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você não pode realizar comunicação de entrada com o endereço IP privado de uma máquina virtual pela Internet.
 
@@ -186,14 +186,12 @@ Cada adaptador de rede deve ter uma configuração de IP [primário](#primary) c
 Você pode atribuir um ou nenhum endereço [IPv6](#ipv6) privado a uma configuração de IP secundário de um adaptador de rede. O adaptador de rede não pode ter configurações de IP secundário. Não é possível adicionar uma configuração de IP com um endereço IPv6 usando o portal. Use o PowerShell ou a CLI para adicionar uma configuração de IP com um endereço IPv6 privado a um adaptador de rede existente. O adaptador de rede não pode ser conectado a uma VM existente.
 
 > [!NOTE]
-> Embora seja possível criar um adaptador de rede com um endereço IPv6 usando o portal, não é possível criar uma máquina virtual com um endereço IPv6 privado, nem conectar um adaptador de rede ao criar uma máquina virtual, usando o portal. Você deve usar o PowerShell ou a CLI 2.0 do Azure para criar um adaptador de rede com um endereço IPv6 privado, e depois anexá-lo ao criar uma máquina virtual. Não é possível anexar um adaptador de rede, com um endereço IPv6 privado atribuído a ele, a uma máquina virtual existente. Você não pode adicionar um endereço IPv6 privado a uma configuração de IP de qualquer adaptador de rede conectado a uma máquina virtual usando quaisquer ferramentas (portal, CLI ou PowerShell).
+> Embora você possa criar uma interface de rede com um endereço IPv6 usando o portal, você não pode adicionar uma interface de rede existente para uma máquina virtual nova ou existente, usando o portal. Use o PowerShell ou a CLI 2.0 do Azure para criar um adaptador de rede com um endereço IPv6 privado, e depois anexá-lo ao criar uma máquina virtual. Não é possível anexar um adaptador de rede, com um endereço IPv6 privado atribuído a ele, a uma máquina virtual existente. Você não pode adicionar um endereço IPv6 privado a uma configuração de IP de qualquer adaptador de rede conectado a uma máquina virtual usando quaisquer ferramentas (portal, CLI ou PowerShell).
 
 Não é possível atribuir um endereço IPv6 público a uma configuração de IP secundário.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para criar uma máquina virtual com diferentes configurações de IP, leia os seguintes artigos:
-
-**Comandos**
 
 |Tarefa|Ferramenta|
 |---|---|

@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Tutorial do Node.js: aplicativo de console Node.js do DocumentDB
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Tutorial do Node.js: usar a API do DocumentDB no Azure Cosmos DB para criar um aplicativo de console Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -61,11 +61,11 @@ Certifique-se que você tem o seguinte:
 * [Node.js](https://nodejs.org/) versão v0.10.29 ou superior.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
-Vamos criar uma conta do Azure Cosmos DB. Se você já tiver uma conta que deseja usar, poderá pular para [Configurar seu aplicativo Node.js](#SetupNode). Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar seu aplicativo Node.js](#SetupNode).
+Vamos criar uma conta do Azure Cosmos DB. Caso tenha uma conta que queira usar, você poderá pular para [Configurar seu aplicativo Node.js](#SetupNode). Se estiver usando o Emulador do Azure Cosmos DB, siga as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar seu aplicativo Node.js](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Etapa 2: configurar o aplicativo Node.js
+## <a id="SetupNode"></a>Etapa 2: Configurar seu aplicativo Node.js
 1. Abra seu terminal favorito.
 2. Localize a pasta ou o diretório em que você deseja salvar o aplicativo do Node.js.
 3. Crie dois arquivos JavaScript vazios com os seguintes comandos:
@@ -83,9 +83,9 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tiver uma conta que desej
 ## <a id="Config"></a>Etapa 3: definir as configurações do aplicativo
 Abra ```config.js``` em seu editor de texto favorito.
 
-Então, copie e cole o trecho de código a seguir e defina as propriedades ```config.endpoint``` e ```config.primaryKey``` para o uri do ponto de extremidade do Azure Cosmos DB e a chave primária. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
+Então, copie e cole o trecho de código a seguir e defina as propriedades ```config.endpoint``` e ```config.primaryKey``` para o uri do ponto de extremidade do Azure Cosmos DB e a chave primária. Ambas as configurações podem ser encontradas no [portal do Azure](https://portal.azure.com).
 
-![Tutorial do Node.js ‒ captura de tela do Portal do Azure mostrando uma conta do Azure Cosmos DB com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Azure Cosmos DB e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves ‒ banco de dados do Nó][keys]
+![Tutorial do Node.js ‒ captura de tela do portal do Azure mostrando uma conta do Azure Cosmos DB com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Azure Cosmos DB e os valores de URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados na folha Chaves ‒ banco de dados Nó][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -367,7 +367,7 @@ No terminal, localize o arquivo ```app.js``` e execute o comando: ```node app.js
 
 Parabéns! Você criou um documento do Azure Cosmos DB com êxito.
 
-![Tutorial do Node.js ‒ diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Tutorial do Node.js ‒ diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Etapa 8: Consultar recursos do Azure Cosmos DB
 O Azure Cosmos DB tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em sua coleção.

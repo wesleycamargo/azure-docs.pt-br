@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: bc6c77deb02b145cd412e18ba31d724f2b71e4d1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
@@ -131,7 +130,7 @@ Quando você usa a opção **Troca com visualização** (consulte [Trocar slots 
 - Quando você conclui a troca: move o slot de origem pré-preparado para o slot de destino. O slot de destino é movido para o slot de origem como em uma troca manual.
 - Quando você cancela a troca: reaplica os elementos de configuração do slot de origem ao slot de origem.
 
-Você pode visualizar exatamente como o aplicativo se comportará com a configuração do slot de destino. Após a conclusão da validação, você pode completar a troca em uma etapa separada. Essa etapa tem a vantagem adicional de que o slot de origem já está preparado com a configuração desejada, e os clientes não enfrentarão qualquer tempo de inatividade.  
+Você pode visualizar exatamente como o aplicativo se comportará com a configuração do slot de destino. Após a conclusão da validação, você poderá completar a troca em outra etapa. Essa etapa tem a vantagem adicional de que o slot de origem já está preparado com a configuração desejada, e os clientes não enfrentarão qualquer tempo de inatividade.  
 
 Exemplos de cmdlets do Azure PowerShell disponíveis para permuta multifase são incluídos nos cmdlets do Azure PowerShell para a seção de slots de implantação.
 

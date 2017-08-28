@@ -4,7 +4,7 @@ description: "Saiba como usar o PowerShell para criar um aplicativo do Azure AD 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

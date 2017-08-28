@@ -4,7 +4,7 @@ description: "Este tópico oferece uma visão geral dos conceitos de Serviços d
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services

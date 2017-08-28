@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: ebe57f497a007c5219c3b7f543ffb3bae9d161a8
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as configurações de gateway de rede local usando o portal do Azure
@@ -35,13 +34,13 @@ ms.lasthandoff: 06/20/2017
 >
 
 
-## <a name="modify-ip-address-prefixes"></a>Modificar os prefixos de endereço IP
+## <a name="ipaddprefix"></a>Modificar os prefixos de endereço IP
 
 Quando você modifica os prefixos de endereço IP, as etapas a que seguir dependem se o gateway de rede local tem uma conexão.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a>Modificar o endereço IP do gateway
+## <a name="gwip"></a>Modificar o endereço IP do gateway
 
 Se o dispositivo VPN ao qual você deseja se conectar mudou seu endereço IP público, você precisará modificar o gateway de rede local para refletir essa alteração. Quando você altera o endereço IP público, as etapas a seguir dependem se o gateway de rede local possui uma conexão.
 

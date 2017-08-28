@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 78778e2601ca91c1921a5d987ec7845332c8e27a
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -32,7 +32,7 @@ O Log Analytics coleta dados de recursos gerenciados, incluindo uma tabela de ar
 
 Quando o OMS for configurado, você terá acesso a um *espaço de trabalho de OMS* específico, de onde os dados poderão ser consultados ou visualizados em painéis.
 
-Depois que dados são recebidos pelo Log Analytics, o OMS tem várias *Soluções de Gerenciamento*, que são soluções pré-empacotados para monitorar dados de entrada, personalizados para vários cenários. Isso inclui uma solução de *Análise do Service Fabric* e uma solução de *Contêineres*, que são as duas mais relevantes para diagnóstico e monitoramento ao usar clusters do Service Fabric. Também há várias outras que vale a pena explorar, e o OMS também permite a criação de soluções personalizadas, sobre as quais você pode ler mais [aqui](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions). Cada solução que você optar por usar um cluster será configurada no mesmo espaço de trabalho de OMS, juntamente com o Log Analytics. Os espaços de trabalho permitem painéis personalizados e visualização de dados e modificações nos dados que você deseja coletar, processar e analisar.
+Depois que dados são recebidos pelo Log Analytics, o OMS tem várias *Soluções de Gerenciamento*, que são soluções pré-empacotados para monitorar dados de entrada, personalizados para vários cenários. Isso inclui uma solução de *Análise do Service Fabric* e uma solução de *Contêineres*, que são as duas mais relevantes para diagnóstico e monitoramento ao usar clusters do Service Fabric. Também há várias outras que vale a pena explorar, e o OMS também permite a criação de soluções personalizadas, sobre as quais você pode ler mais [aqui](../operations-management-suite/operations-management-suite-solutions.md). Cada solução que você optar por usar um cluster será configurada no mesmo espaço de trabalho de OMS, juntamente com o Log Analytics. Os espaços de trabalho permitem painéis personalizados e visualização de dados e modificações nos dados que você deseja coletar, processar e analisar.
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Configuração de um espaço de trabalho de OMS com a solução do Service Fabric
 
@@ -61,9 +61,9 @@ Clicar em **Criar** solicitará um espaço de trabalho do OMS. Clique em **Selec
 
 ## <a name="using-the-oms-agent"></a>Uso do Agente do OMS
 
-É recomendado usar EventFlow e WAD como soluções de agregação, pois permitem uma abordagem mais modular para diagnósticos e monitoramento. Por exemplo, se você quiser alterar as saídas de EventFlow, não será preciso alterar a instrumentação real, apenas fazer uma modificação simples no arquivo de configuração. No entanto, se você decidir investir no uso do OMS e quiser continuar a usá-lo para análise de eventos (não precisa ser a única plataforma que você usa, mas será pelo menos uma das plataformas), recomendamos que você explore a configuração do [agente OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
+É recomendado usar EventFlow e WAD como soluções de agregação, pois permitem uma abordagem mais modular para diagnósticos e monitoramento. Por exemplo, se você quiser alterar as saídas de EventFlow, não será preciso alterar a instrumentação real, apenas fazer uma modificação simples no arquivo de configuração. No entanto, se você decidir investir no uso do OMS e quiser continuar a usá-lo para análise de eventos (não precisa ser a única plataforma que você usa, mas será pelo menos uma das plataformas), recomendamos que você explore a configuração do [agente OMS](../log-analytics/log-analytics-windows-agents.md). Você também deve usar o agente do OMS ao implantar contêineres ao seu cluster, conforme discutido abaixo.
 
-O processo para fazer isso é relativamente fácil, pois você só precisa adicionar o agente como uma extensão de conjunto de dimensionamento de máquinas virtuais para o modelo do Resource Manager, garantindo que ele seja instalado em cada um dos nós. Um modelo do Resource Manager que implanta o espaço de trabalho do OMS com a solução do Service Fabric (como acima) e adiciona o agente para os nós pode ser encontrado [aqui](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample).
+O processo para fazer isso é relativamente fácil, pois você só precisa adicionar o agente como uma extensão de conjunto de dimensionamento de máquinas virtuais para o modelo do Resource Manager, garantindo que ele seja instalado em cada um dos nós. Um modelo do Resource Manager que implanta o espaço de trabalho do OMS com a solução do Service Fabric (como acima) e adiciona o agente para os nós pode ser encontrado para clusters que executam o [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) ou [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 As vantagens são as seguintes:
 

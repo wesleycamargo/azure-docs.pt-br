@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
@@ -28,13 +28,13 @@ ms.lasthandoff: 07/06/2017
 
 Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
-Instale a solução para atualizar o tipo de agente já instalado. Alterações em software e serviços do Windows instalados e daemons do Linux em servidores monitorados são lidas e, em seguida, os dados são enviados para o serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+Instale a solução para atualizar o tipo de agente já instalado. Alterações de software instalado, serviços do Windows e Linux daemons nos servidores monitorados são lidos. Em seguida, os dados são enviados para o serviço de análise de Log na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
 * Você deve ter um agente do [Windows](log-analytics-windows-agents.md), do [Operations Manager](log-analytics-om-agents.md) ou do [Linux](log-analytics-linux-agents.md) em cada computador no qual deseja controlar as alterações.
-* Adicione a solução de Controle de Alterações do seu espaço de trabalho do OMS do [marketplace do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+* Adicionar a solução de controle de alterações ao seu espaço de trabalho do OMS a [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Ou, você pode adicionar a solução usando as informações em [soluções de análise de Log adicionar da Galeria de soluções](log-analytics-add-solutions.md). Nenhuma configuração adicional é necessária.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle
 Use as etapas a seguir para configurar arquivos para controle em computadores Linux.
@@ -43,7 +43,7 @@ Use as etapas a seguir para configurar arquivos para controle em computadores Li
 2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Controle de Arquivos do Linux**.
 3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/*.conf”
 4. Clique em **Salvar**.  
-  
+
 > [!NOTE]
 > O controle de arquivos do Linux tem funcionalidades adicionais, incluindo controle de diretórios, recursão por diretórios e controle de curingas.
 
@@ -72,16 +72,16 @@ Use as etapas a seguir para configurar as chaves do Registro para rastrear em co
 2. **Links** (manipulação de referências de symlink do Linux para outros arquivos ou diretórios)
    * **Ignorar** (ignore os symlinks durante as recursões para não incluir os arquivos/diretórios referenciados)
    * **Seguir** (siga os symlinks durante a recursão para incluir também os arquivos/diretórios referenciados)
-   * **Gerenciar** (siga os symlinks e altere o tratamento do conteúdo retornado) 
-   
+   * **Gerenciar** (siga os symlinks e altere o tratamento do conteúdo retornado)
+
    > [!NOTE]   
-   > A opção de links “Gerenciar” não é recomendável, porque, no momento, não há suporte para a recuperação de conteúdo do arquivo.
-   
+   > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
+
 3. **Realizar recursão** (realize recursão nos níveis de pasta e controle todos os arquivos que atendem à instrução de caminho)
 4. **Sudo** (habilite o acesso a arquivos ou diretórios que exigem privilégios do sudo)
 
 ### <a name="limitations"></a>Limitações
-A solução de Controle de Alterações atualmente não suporta o seguinte:
+A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
 * Pastas (diretórios) para o Controle de Arquivos do Windows
 * Recursão para o Controle de Arquivos do Windows
@@ -102,9 +102,9 @@ O Controle de Alterações coletará inventário de software e metadados do serv
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Controle de Alterações.
 
-| plataforma | Agente direto | Agente SCOM | Agente do Linux | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente direto | Agente do Operations Manager | Agente do Linux | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) | 5 minutos para 50 minutos, dependendo do tipo de alteração. Consulte abaixo para obter mais informações. |
+| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutos para 50 minutos, dependendo do tipo de alteração. Confira a tabela a seguir para saber mais. |
 
 
 A tabela a seguir mostra a frequência da coleta de dados para os tipos de alterações.
@@ -128,7 +128,7 @@ O Log Analytics realiza o monitoramento e rastreamento de chaves do Registro do 
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitora scripts que são executados no desligamento.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Monitora as chaves que são carregadas antes de o usuário entrar na sua conta do Windows para programas de 32 bits executados em computadores de 64 bits.
+    - Monitora as chaves que são carregadas antes da usuário se autentica em suas contas do Windows. A chave é usada para programas de 32 bits em execução em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Monitora as alterações às configurações do aplicativo.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -142,9 +142,9 @@ O Log Analytics realiza o monitoramento e rastreamento de chaves do Registro do 
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits executados em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora novos plugins de objeto auxiliar de navegador do Internet Explorer, que podem ser usados para acessar o DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação.
+    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora novos plugins de objeto auxiliar de navegador do Internet Explorer, que podem ser usados para acessar o DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação de programas de 32 bits em execução em computadores de 64 bits.
+    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação para programas de 32 bits em execução em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitora novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões da barra de ferramentas personalizada.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions

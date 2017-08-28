@@ -2,7 +2,7 @@
 title: "Visão geral do empacotamento dinâmico dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "O tópico apresenta uma visão geral do empacotamento dinâmico."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

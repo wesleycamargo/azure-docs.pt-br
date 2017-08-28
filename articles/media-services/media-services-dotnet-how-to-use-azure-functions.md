@@ -4,7 +4,7 @@ description: "Este tópico mostra como começar a desenvolver o Azure Functions 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
 ms.service: media-services
@@ -14,20 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: e5103bf2c0bc1fb29e75407a901fdc3e371acb8c
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
 
-Este tópico aborda como começar a desenvolver o Azure Functions com os Serviços de Mídia usando o portal do Azure. 
-
-Você também pode implantar o [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) existentes pressionando o botão **Implantar no Azure**. Esse repositório contém exemplos do Azure Functions que usam os Serviços de Mídia do Azure para mostrar os fluxos de trabalho relativos à ingestão de conteúdo diretamente do armazenamento de blobs, à codificação e à gravação do conteúdo de volta no armazenamento de blobs. Ele também inclui exemplos de como monitorar as notificações de trabalho por meio de Webhooks e Filas do Azure. Você também pode desenvolver as Funções com base em exemplos do repositório [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). 
-
 Este tópico mostra como começar a criação de Azure Functions que usam os Serviços de Mídia. A Azure Function definida neste tópico monitora um contêiner de conta de armazenamento chamado **input** para novos arquivos MP4. Depois que um arquivo for solto no contêiner de armazenamento, o gatilho de blob executará a função.
+
+Se você quiser explorar e implantar as Azure Functions existentes que usam o Serviços de Mídia do Azure, confira [Azure Functions dos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Esse repositório contém exemplosque usam os Serviços de Mídia para mostrar os fluxos de trabalho relativos à ingestão de conteúdo diretamente do armazenamento de blobs, à codificação e à gravação do conteúdo de volta no armazenamento de blobs. Ele também inclui exemplos de como monitorar as notificações de trabalho por meio de Webhooks e Filas do Azure. Você também pode desenvolver as Funções com base em exemplos do repositório [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implantar as funções, pressione o botão **Implantar no Azure**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

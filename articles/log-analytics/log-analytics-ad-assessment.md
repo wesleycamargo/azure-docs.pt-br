@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Avaliação do Active Directory no Log Analytics
@@ -73,7 +73,7 @@ A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Não](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Não](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 dias |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 dias |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Compreendendo como as recomendações são priorizadas
 Cada recomendação feita recebe um valor de ponderação que identifica a importância relativa da recomendação. Somente as 10 recomendações mais importantes são mostradas.
@@ -176,13 +176,6 @@ Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, 
 *Quanto tempo leva para os dados serem coletados?*
 
 * A coleta de dados real no servidor leva aproximadamente 1 hora. Pode levar mais tempo em servidores que têm um grande número de servidores do Active Directory.
-
-*Que tipo de dados é coletado?*
-
-* Os seguintes tipos de dados são coletados:
-  * WMI
-  * Registro
-  * Contadores de desempenho
 
 *Há uma maneira de configurar quando os dados são coletados?*
 

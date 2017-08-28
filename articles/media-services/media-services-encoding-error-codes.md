@@ -4,7 +4,7 @@ description: "Este tópico lista os códigos de erro que podem ser retornados ca
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services

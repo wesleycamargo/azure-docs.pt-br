@@ -2,7 +2,7 @@
 title: "Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET | Microsoft Docs"
 description: "Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

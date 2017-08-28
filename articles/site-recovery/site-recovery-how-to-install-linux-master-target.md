@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
@@ -50,6 +50,15 @@ Crie o destino mestre de acordo com as seguintes diretrizes de dimensionamento:
 - **Tamanho do disco do sistema operacional**: 100 GB ou mais (para instalar o CentOS6.6)
 - **Tamanho de disco adicional para a unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
+
+Há suporte para os kernels do Ubuntu a seguir.
+
+
+|Série de Kernel  |Suporte até  |
+|---------|---------|
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Implantar o servidor de destino mestre
@@ -198,9 +207,9 @@ Para habilitar esse parâmetro, use as seguintes etapas:
 
 #### <a name="disable-kernel-upgrades"></a>Desabilitar atualizações de kernel
 
-Como o servidor de destino mestre do Azure Site Recovery requer uma versão muito específica do Ubuntu, verifique se as atualizações de kernel estão desabilitadas para a máquina virtual.
+O servidor de destino mestre do Azure Site Recovery requer uma versão muito específica do Ubuntu, verifique se as atualizações de kernel estão desabilitadas para a máquina virtual.
 
- Se as atualizações de kernel estiverem habilitadas, todas as atualizações regulares farão com que o servidor de destino mestre não funcione corretamente.
+Se as atualizações de kernel estiverem habilitadas, todas as atualizações regulares farão com que o servidor de destino mestre não funcione corretamente.
 
 #### <a name="download-and-install-additional-packages"></a>Baixar e instalar pacotes adicionais
 
