@@ -56,9 +56,12 @@
 ## [Políticas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guias
 ### [Introdução](active-directory-b2c-get-started-custom.md)
-### Configurar provedores de OIDC
+### Configurar provedores OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Conta da Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configurar provedores de SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrar APIs RESTful
 #### [Validar entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Coletar logs usando o Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referência
 ### [Notas de versão](active-directory-b2c-developer-notes-custom.md)
-
+### [Definição da Estrutura Confiável](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossário

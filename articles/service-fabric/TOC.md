@@ -18,7 +18,9 @@
 # Exemplos
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [CLI do Azure](samples-cli.md)
+## [CLI do Service Fabric](samples-cli.md)
+### [Exemplo de implantação](scripts/cli-deploy-application.md)
+### [Remover exemplo](scripts/cli-remove-application.md)
 # Conceitos
 ## [Entender os microsserviços](service-fabric-overview-microservices.md)
 ## [Visão global](service-fabric-content-roadmap.md)
@@ -176,11 +178,14 @@
 #### Introdução
 ##### [C# em Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java no Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Ator Java no Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Enviar notificações](service-fabric-reliable-actors-events.md)
 #### [Definir lembretes e temporizadores](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configurar KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Definir as configurações da comunicação](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configurar ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrar o antigo aplicativo Java para dar suporte a Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configurar o proxy reverso para comunicação segura](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -218,7 +223,7 @@
 ### Implantar ou remover aplicativos
 #### [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [CLI 2.0 do Azure](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -253,6 +258,7 @@
 #### [Atualizar](service-fabric-cluster-upgrade.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-fabric-settings.md)
+#### [Abrir uma porta no balanceador de carga](create-load-balancer-rule.md)
 #### [Gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Excluir](service-fabric-cluster-delete.md)
 
@@ -272,8 +278,7 @@
 ### [Visualizar um cluster](service-fabric-visualizing-your-cluster.md)
 ### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
 
-### [Gerenciar um cluster usando a CLI do XPlat](service-fabric-azure-cli.md)
-### [Gerenciar um cluster usando os comandos da CLI do Azure versão 2.0](service-fabric-azure-cli-2-0.md)
+### [Gerenciar um cluster usando a CLI do Service Fabric](service-fabric-cli.md)
 ### [Nós de cluster de patch](service-fabric-patch-orchestration-application.md)
 
 ### Gerenciar e orquestrar recursos do cluster

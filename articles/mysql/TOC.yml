@@ -29,6 +29,8 @@
           href: connect-cpp.md
         - name: Go
           href: connect-go.md
+        - name: Workbench do MySQL
+          href: connect-workbench.md
 - name: Tutoriais
   items:
     - name: 1 - Criar um banco de dados
