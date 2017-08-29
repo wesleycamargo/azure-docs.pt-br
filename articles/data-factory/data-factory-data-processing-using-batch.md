@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9defbf7a6a515740fa3b3cb1c67a2f5f9d9baa01
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
@@ -83,7 +82,7 @@ A solução de exemplo é intencionalmente simples e serve para mostrar como usa
 Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo usa o armazenamento de blobs.
+Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
 Crie uma conta do Azure Batch usando o [Portal do Azure](http://manage.windowsazure.com/). Consulte [Criar e gerenciar uma conta do Lote do Azure](../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote do Azure. Você também pode usar o cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para criar uma conta do Lote do Azure. Consulte [Introdução aos cmdlets do PowerShell do Lote do Azure](../batch/batch-powershell-cmdlets-get-started.md) para obter instruções detalhadas sobre como usar esse cmdlet.
@@ -374,7 +373,7 @@ O método tem alguns componentes principais que você precisa entender.
 #### <a name="execute-method"></a>Método Execute
 Esta seção fornece mais detalhes e observações sobre o código no método Execute.
 
-1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) . A iteração através da coleção de blobs requer o uso da classe **BlobContinuationToken** . Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Para obter mais informações, consulte o artigo sobre [Como usar o armazenamento de blobs do .NET](../storage/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
+1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) . A iteração através da coleção de blobs requer o uso da classe **BlobContinuationToken** . Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Para obter mais informações, consulte o artigo sobre [Como usar o armazenamento de blobs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
 
     ```csharp
     // Initialize the continuation token.
@@ -513,7 +512,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 
    ![](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Substitua o **nome da conta** pelo nome da conta do Armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do Armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#manage-your-storage-account).
+3. Substitua o **nome da conta** pelo nome da conta do Armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do Armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
 4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 

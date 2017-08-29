@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 7679aa86aa24396d9cd7cf84a8cafe7950ad6d62
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -75,7 +76,7 @@ Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras:
 - **Conta de armazenamento compartilhado da cadeia de conexão de assinatura**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter a lista e permissões de leitura nos contêineres (tabelas neste caso) e objetos (linhas de tabela).
 -  **Assinatura de acesso compartilhado da tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
 
-Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Se você usar credenciais de assinaturas de acesso compartilhado, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais de assinatura de acesso compartilhado expirarem, o indexador falha com uma mensagem de erro semelhante a "Credenciais fornecidas na cadeia de conexão são inválidas ou expiraram."  

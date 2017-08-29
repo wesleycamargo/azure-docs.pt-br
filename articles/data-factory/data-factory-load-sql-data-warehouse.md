@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f1f01b660c4eb780e178a68036327fafa9ba6
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
@@ -43,7 +43,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Dados do [TPC-H](http://www.tpc.org/tpch/): usaremos o TPC-H como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, o que ajuda você a gerar o conjunto de dados.  Você pode baixar código-fonte para `dbgen` de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou então baixar o binário compilado de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Execute dbgen.exe com os comandos a seguir para gerar um arquivo simples de 1 TB para a tabela `lineitem` dividido em 10 arquivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -77,7 +77,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 
     Este experimento carrega dados no Azure SQL Data Warehouse usando a classe de recurso `xlargerc`.
 
-    Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um usuário do SQL Data Warehouse pertencente à classe de recurso `xlargerc`.  Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
+    Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um usuário do SQL Data Warehouse pertencente à classe de recurso `xlargerc`.  Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).  
 * Crie um esquema de tabela de destino no banco de dados do Azure SQL Data Warehouse executando a instrução DDL a seguir:
 
     ```SQL  

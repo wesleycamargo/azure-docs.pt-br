@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 069e662ce70f1ec78d796c29d8b5331fc8a5a3e7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21d8c1ee0877df8d317d5a14131dc574fa5303c4
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Criar vários modelos do Aprendizado de Máquina e pontos de extremidade de serviço Web com base em um teste usando o PowerShell
@@ -97,7 +97,7 @@ Agora, já criamos 10 pontos de extremidade e todos eles contêm o mesmo modelo 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Atualizar os pontos de extremidade para usar conjuntos de dados de treinamento separados usando o PowerShell
 A próxima etapa é atualizar os pontos de extremidade com modelos treinados exclusivamente nos dados individuais de cada cliente. Mas primeiro, precisamos produzir esses modelos com base no serviço Web **Treinamento do Aluguel de Bicicletas** . Vamos voltar ao serviço Web **Treinamento do Aluguel de Bicicletas** . Precisamos chamar seu ponto de extremidade BES 10 vezes com 10 conjuntos de dados de treinamento diferentes para produzir 10 modelos diferentes. Usaremos o cmdlet **InovkeAmlWebServiceBESEndpoint** do PowerShell para fazer isso.
 
-Você também precisará fornecer credenciais para sua conta de armazenamento de blobs em `$configContent`, ou seja, nos campos `AccountName`, `AccountKey` e `RelativeLocation`. O `AccountName` pode ser um de seus nomes de conta, como mostrado no **Portal de Gerenciamento do Azure Clássico** (guia*Armazenamento* ). Quando você clica em uma conta de armazenamento, seu `AccountKey` pode ser encontrado pressionando o botão **Gerenciar Chaves de Acesso** na parte inferior e copiando a *Chave de Acesso Primária*. O `RelativeLocation` é o caminho relativo ao seu armazenamento em que um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` no script abaixo aponta para um contêiner chamado `hai`, e `/retrain/bike_rental/` são subpastas. Atualmente, não é possível criar subpastas por meio da interface do usuário do portal, mas há [vários Gerenciadores de Armazenamento do Azure](../storage/storage-explorers.md) que permitem que você faça isso. É recomendável que você crie um novo contêiner no armazenamento para armazenar os novos modelos treinados (arquivos .ilearner) da seguinte maneira: na página do armazenamento, clique no botão **Adicionar** na parte inferior e nomeie-o como `retrain`. Em resumo, as alterações necessárias para o script a seguir referem-se a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Você também precisará fornecer credenciais para sua conta de armazenamento de blobs em `$configContent`, ou seja, nos campos `AccountName`, `AccountKey` e `RelativeLocation`. O `AccountName` pode ser um de seus nomes de conta, como mostrado no **Portal de Gerenciamento do Azure Clássico** (guia*Armazenamento* ). Quando você clica em uma conta de armazenamento, seu `AccountKey` pode ser encontrado pressionando o botão **Gerenciar Chaves de Acesso** na parte inferior e copiando a *Chave de Acesso Primária*. O `RelativeLocation` é o caminho relativo ao seu armazenamento em que um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` no script abaixo aponta para um contêiner chamado `hai`, e `/retrain/bike_rental/` são subpastas. Atualmente, não é possível criar subpastas por meio da interface do usuário do portal, mas há [vários Gerenciadores de Armazenamento do Azure](../storage/common/storage-explorers.md) que permitem que você faça isso. É recomendável que você crie um novo contêiner no armazenamento para armazenar os novos modelos treinados (arquivos .ilearner) da seguinte maneira: na página do armazenamento, clique no botão **Adicionar** na parte inferior e nomeie-o como `retrain`. Em resumo, as alterações necessárias para o script a seguir referem-se a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

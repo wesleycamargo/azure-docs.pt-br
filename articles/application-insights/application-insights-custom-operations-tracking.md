@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/31/2017
 ms.author: sergkanz
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0c4ddfe4533dc232047f0b1a0af270e7f9372c84
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -203,7 +203,7 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Fila de Armazenamento do Azure
-O exemplo a seguir mostra como acompanhar operações da [fila de Armazenamento do Azure](../storage/storage-dotnet-how-to-use-queues.md) e correlacionar telemetria entre o produtor, o consumidor e o Armazenamento do Azure. 
+O exemplo a seguir mostra como acompanhar operações da [fila de Armazenamento do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar telemetria entre o produtor, o consumidor e o Armazenamento do Azure. 
 
 A fila de Armazenamento tem uma API HTTP. Todas as chamadas à fila são rastreadas pelo coletor de dependência do Application Insights para solicitações HTTP.
 Certifique-se de que `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` esteja em `applicationInsights.config`. Se você não tem, adicione-o programaticamente, conforme descrito em [Filtragem e pré-processamento no SDK do Azure Application Insights](app-insights-api-filtering-sampling.md).
@@ -221,7 +221,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-Também convém correlacionar a ID da operação do Application Insights à ID de solicitação de Armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de Armazenamento e uma ID de solicitação do servidor, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Também convém correlacionar a ID da operação do Application Insights à ID de solicitação de Armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de Armazenamento e uma ID de solicitação do servidor, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Enfileirar
 Como as filas de Armazenamento do Azure dão suporte a API HTTP, todas as operações com a fila automaticamente são acompanhadas pelo Application Insights. Em muitos casos, essa instrumentação deve ser suficiente. No entanto, para correlacionar rastreamentos no lado do consumidor com rastreamentos de produtor, você deve passar algum contexto de correlação de forma similar a como fazemos em Protocolo HTTP para Correlação. 

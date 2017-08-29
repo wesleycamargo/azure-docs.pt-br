@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Replicar entre máquinas virtuais Hyper-V no local e o Azure (sem VMM) com o Azure Site Recovery
@@ -51,7 +51,7 @@ As organizações precisam de uma estratégia de BCDR que determine como os apli
 
 ## <a name="azure-prerequisites"></a>Pré-requisitos do Azure
 * Você precisa de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Você precisa de uma conta de armazenamento do Azure para armazenar os dados replicados. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md). Observe que não há suporte para a movimentação de contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+* Você precisa de uma conta de armazenamento do Azure para armazenar os dados replicados. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/common/storage-introduction.md). Observe que não há suporte para a movimentação de contas de armazenamento criadas usando o [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
 * Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
 
 ## <a name="hyper-v-prerequisites"></a>Pré-requisitos do Hyper-V
@@ -127,7 +127,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
     ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
 7. Após a instalação continue para registrar o servidor no cofre.
-8. Na página **Configurações do Cofre**, clique em **Procurar**  para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+8. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
     ![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 9. Na página **Conexão com a Internet** , especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
@@ -167,7 +167,7 @@ Em que os parâmetros incluem:
     ![Criar Conta de Armazenamento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos.
+> 1. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre os grupos de recursos.
 > 2. [Migração de contas de armazenamento](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 >
 

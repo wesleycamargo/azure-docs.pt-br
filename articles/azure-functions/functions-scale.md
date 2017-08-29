@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 70e77e09b2e2116153159167af61776398904a3c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Consumo do Azure Functions e planos de Serviço de Aplicativo 
@@ -81,7 +80,7 @@ A opção Sempre ativo está disponível apenas em um plano do Serviço de Aplic
 
 Em um plano de Consumo ou plano do Serviço de Aplicativo, um aplicativo de funções exige uma conta de Armazenamento do Azure com suporte ao armazenamento de Blobs, Filas e Tabelas do Azure. Internamente, o Azure Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob (incluindo o armazenamento premium) e contas de armazenamento de uso geral com a replicação de armazenamento com redundância de zona. Essas contas são filtradas na folha **Conta de Armazenamento** durante a criação de um aplicativo de Funções.
 
-Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 

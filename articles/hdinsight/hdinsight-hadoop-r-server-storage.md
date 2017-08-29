@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Soluções de Armazenamento do Azure para R Server no HDInsight
@@ -37,9 +37,9 @@ Ao criar um cluster Hadoop no HDInsight, você especifica uma conta de **Armazen
 - [Usar o Armazenamento do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md)
 - [Usar o Data Lake Store com clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). 
 
-Para obter mais informações sobre as soluções de Armazenamento do Azure, consulte: [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md). 
+Para obter mais informações sobre as soluções de Armazenamento do Azure, consulte: [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md). 
 
-Para obter diretrizes sobre como selecionar a opção de armazenamento mais apropriada para usar em seu cenário, consulte [Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos de Dados do Azure](../storage/storage-decide-blobs-files-disks.md) 
+Para obter diretrizes sobre como selecionar a opção de armazenamento mais apropriada para usar em seu cenário, consulte [Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos de Dados do Azure](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Usar várias contas de Armazenamento de Blobs do Azure com o R Server
@@ -188,8 +188,8 @@ Também há uma opção de armazenamento de dados conveniente para uso no nó de
 
 Uma grande vantagem dos Arquivos do Azure é que os compartilhamentos de arquivos podem ser montados e usados por qualquer sistema que tenha um sistema operacional com suporte, como Windows ou Linux. Por exemplo, ele pode ser usado por outro cluster do HDInsight que você ou alguém em sua equipe tenha, por uma VM do Azure ou até mesmo por um sistema local. Para obter mais informações, confira:
 
-- [Como utilizar o Armazenamento de Arquivos do Azure com Linux](../storage/storage-how-to-use-files-linux.md)
-- [Como utilizar o Armazenamento de Arquivos do Azure no Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [Como utilizar o Armazenamento de Arquivos do Azure com Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [Como utilizar o Armazenamento de Arquivos do Azure no Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

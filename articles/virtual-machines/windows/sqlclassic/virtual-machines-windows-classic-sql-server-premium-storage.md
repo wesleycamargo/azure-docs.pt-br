@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
 ## <a name="overview"></a>Visão geral
-[Armazenamento Premium do Azure](../../../storage/storage-premium-storage.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)do SQL Server no IaaS.
+[Armazenamento Premium do Azure](../../../storage/common/storage-premium-storage.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)do SQL Server no IaaS.
 
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
@@ -144,7 +144,7 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Largura de banda de armazenamento de VM e taxa de transferência de armazenamento de VHD
 O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números específicos da largura de banda, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e Tipos de Disco](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e Tipos de Disco](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
 
 Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
@@ -1097,7 +1097,7 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Armazenamento Premium do Azure](../../../storage/storage-premium-storage.md)
+* [Armazenamento Premium do Azure](../../../storage/common/storage-premium-storage.md)
 * [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

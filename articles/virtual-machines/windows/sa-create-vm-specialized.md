@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: c5fa164c1095a343402d28142efb92a832441d23
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado em uma conta de armazenamento
@@ -120,7 +119,7 @@ Você pode copiar um VHD para outra conta de armazenamento para usar ao criar um
 Lembre-se de:
 
 * Ter as informações sobre as **contas de armazenamento de origem e destino**. Para a VM de origem, você precisa ter os nomes da conta de armazenamento e do contêiner. Normalmente, o nome do contêiner será **vhds**. Você também precisa ter uma conta de armazenamento de destino. Se não tiver uma, você poderá criá-la usando o portal (**Mais serviços** > Contas de armazenamento > Adicionar) ou usando o cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
-* Baixar e instalar a [ferramenta AzCopy](../../storage/storage-use-azcopy.md). 
+* Baixar e instalar a [ferramenta AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Desalocar a VM
 Desaloque a VM para liberar o VHD a ser copiado. 
@@ -147,7 +146,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Obter as chaves de acesso de armazenamento
-Localize as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [Sobre as contas de armazenamento do Azure](../../storage/storage-create-storage-account.md).
+Localize as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Clique em **Mais serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Chaves de acesso**. Copie a chave rotulada como **key1**.
 * **PowerShell**: Use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave rotulada como **key1**.

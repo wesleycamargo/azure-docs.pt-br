@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copie os dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
@@ -168,7 +167,7 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs do Azure. Neste passo a passo, os armazenamentos de dados de origem e de destino do tipo: Armazenamento de Blobs do Azure. O pipeline neste passo a passo copia os dados de uma pasta para outra no mesmo contêiner de blobs. Este passo a passo é intencionalmente simples para mostrar configurações ou propriedades ao usar o Armazenamento de Blobs como uma fonte ou um coletor. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Crie uma **Conta de Armazenamento do Azure** de uso geral caso não tenha uma. Neste passo a passo, o armazenamento de blobs é usado como um armazenamento de dados de **origem** e de **destino**. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
+1. Crie uma **Conta de Armazenamento do Azure** de uso geral caso não tenha uma. Neste passo a passo, o armazenamento de blobs é usado como um armazenamento de dados de **origem** e de **destino**. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
 2. Crie um contêiner de blobs chamado **adfblobconnector** na conta de armazenamento. 
 4. Crie uma pasta chamada **input** no contêiner **adfblobconnector**.
 5. Crie um arquivo chamado **emp.txt** com o seguinte conteúdo e carregue-o para a pasta **input** usando ferramentas como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/)
@@ -263,8 +262,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
 ### <a name="monitor-the-pipeline-copy-task"></a>Monitorar o pipeline (tarefa de cópia)
 
 1. Clique no link `Click here to monitor copy pipeline` na página **Implantação**. 
-2. Você deverá ver o **aplicativo Monitorar e Gerenciar** em uma guia separada. 
-    ![Aplicativo Monitorar e Gerenciar](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. Você deverá ver o **aplicativo Monitorar e Gerenciar** em uma guia separada.  ![Aplicativo Monitorar e Gerenciar](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. Altere a hora de **início** na parte superior para `04/19/2017` e a hora de **término** para `04/27/2017` e, em seguida, clique em **Aplicar**. 
 4. Você deverá ver cinco janelas de atividades na lista **JANELAS DE ATIVIDADES**. As horas de **WindowStart** devem abranger todos os dias desde a hora de início até a hora de término do pipeline. 
 5. Clique no botão **Atualizar** da lista **JANELAS DE ATIVIDADES** algumas vezes até ver que o status de todas as janelas de atividades está definido como Pronto. 

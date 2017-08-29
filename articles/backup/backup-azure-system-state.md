@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 7f758d0730e5e503658a264e1e752d9ab912eb7b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
@@ -88,7 +88,7 @@ Quando você criar um cofre de Serviços de Recuperação, certifique-se de que 
 
     ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) nesta [Visão geral de redundância de armazenamento](../storage/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que você criou um cofre, configure-o para fazer backup do Estado do Sistema do Windows.
 
@@ -242,7 +242,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 5. Se você fizer backup de Arquivos e Pastas no servidor, além de estado do sistema Windows Server, o assistente Fazer Backup agora fará backup somente de arquivos. Para executar um backup ad hoc do estado do sistema, use o seguinte comando do PowerShell:
 
     ```
-    PS C:\> Start -OBSystemStateBackup
+    PS C:\> Start-OBSystemStateBackup
     ```
 
   Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.

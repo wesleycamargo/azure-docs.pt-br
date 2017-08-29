@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -39,7 +39,7 @@ Anunciamos um Contrato de Nível de Serviço de máquina virtual de única inst�
 
 Os Managed Disks trata da criação da conta de Armazenamento do Azure e do gerenciamento em segundo plano para você, além de garantir que você não tenha que se preocupar com os limites de escalabilidade da conta de armazenamento. Basta especificar o tamanho do disco e o nível de desempenho (Standard ou Premium) e o Azure cria e gerencia o disco para você. Mesmo que você adicione discos ou dimensione a VM para cima e para baixo, não é preciso se preocupar com o armazenamento que está sendo usado. Se estiver criando novas VMs, [use a CLI 2.0 do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o portal do Azure para criar VMs com discos de dados e SO gerenciados. Caso tenha VMs com discos não gerenciados, você poderá [convertê-las para que tenham suporte do Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Você também pode gerenciar suas imagens personalizadas em uma conta de armazenamento por região do Azure e usá-las para criar centenas de VMs na mesma assinatura. Para saber mais sobre Managed Disks, veja a [Managed Disks Overview](../../storage/storage-managed-disks-overview.md) (Visão geral do Managed Disks).
+Você também pode gerenciar suas imagens personalizadas em uma conta de armazenamento por região do Azure e usá-las para criar centenas de VMs na mesma assinatura. Para saber mais sobre Managed Disks, veja a [Managed Disks Overview](../windows/managed-disks-overview.md) (Visão geral do Managed Disks).
 
 ## <a name="azure-virtual-machines--instances"></a>Máquinas Virtuais e instâncias do Azure
 O Microsoft Azure dá suporte à execução de várias distribuições populares do Linux fornecidas e mantidas por diversos parceiros.  Você encontrará distribuições como Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD e muito mais no Azure Marketplace. Trabalhamos ativamente com várias comunidades do Linux para adicionar ainda mais opções à lista de [Distribuições do Linux endossadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -60,7 +60,7 @@ Aqui estão algumas diretrizes básicas para selecionar um tamanho de VM de uma 
 
 Observação: as VMs da série DS e da série GS têm acesso ao Armazenamento Premium: nosso armazenamento de alto desempenho e baixa latência com suporte de SSD para cargas de trabalho com uso intensivo de E/S. O Armazenamento Premium está disponível em determinadas regiões. Para obter mais informações, consulte:
 
-* [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure](../../storage/storage-premium-storage.md)
+* [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>Automação
 Para obter uma cultura apropriada do DevOps, toda a infraestrutura deve ser codificada.  Quando todos a infraestrutura residir no código, será fácil recriar (Servidores Phoenix).  O Azure funciona com as principais ferramentas de automação, como a Ansible, Chef, SaltStack e Puppet.  O Azure também tem suas próprias ferramentas de automação:
@@ -120,7 +120,7 @@ Agora, a VM está em execução no Azure e você está pronto para fazer logon. 
 
 ## <a name="related-azure-components"></a>Componentes relacionados do Azure
 ## <a name="storage"></a>Armazenamento
-* [Introdução ao Armazenamento do Microsoft Azure](../../storage/storage-introduction.md)
+* [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
 * [Adicionar um disco a uma VM do Linux usando a CLI do Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Como anexar um disco de dados a uma VM Linux no Portal do Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

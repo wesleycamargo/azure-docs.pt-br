@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3fe2a44d7e05538bdc3341110a517e7e9bdf3e7d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
@@ -32,7 +33,7 @@ Para usar as definições automatizadas de configuração de armazenamento, sua 
 
 * Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Deve usar o [Modelo de implantação do Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Deve usar o [Armazenamento Premium](../../../storage/storage-premium-storage.md).
+* Deve usar o [Armazenamento Premium](../../../storage/common/storage-premium-storage.md).
 
 ## <a name="new-vms"></a>Novas VMs
 As seções a seguir descrevem como configurar o armazenamento para novas máquinas virtuais do SQL Server.
@@ -104,7 +105,7 @@ Esta seção fornece uma referência para as alterações de configuração de a
 
 * Se você tiver selecionado menos de dois TBs de armazenamento para sua VM, o Azure não criará um pool de armazenamento.
 * Se você tiver selecionado pelo menos de dois TBs de armazenamento para sua VM, o Azure configurará um pool de armazenamento. A próxima seção deste tópico fornece os detalhes sobre a configuração do pool de armazenamento.
-* A configuração de armazenamento automática sempre usa discos de dados P30 do [armazenamento premium](../../../storage/storage-premium-storage.md) . Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
+* A configuração de armazenamento automática sempre usa discos de dados P30 do [armazenamento premium](../../../storage/common/storage-premium-storage.md) . Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
 
 Para saber mais sobre preços, consulte a página [Preços de armazenamento](https://azure.microsoft.com/pricing/details/storage) na guia **Armazenamento em disco** .
 
@@ -143,9 +144,4 @@ A tabela a seguir descreve as três opções de tipo de carga de trabalho dispon
 
 ## <a name="next-steps"></a>Próximas etapas
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

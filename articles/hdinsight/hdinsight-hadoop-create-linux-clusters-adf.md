@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters Hadoop sob demanda usando o Azure Data Factory
@@ -175,7 +175,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-Se você precisar de ajuda com o script do PowerShell, confira [Como usar o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md). Se quiser usar a CLI do Azure em vez disso, confira a seção [Apêndice](#appendix) do script da CLI do Azure.
+Se você precisar de ajuda com o script do PowerShell, confira [Como usar o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md). Se quiser usar a CLI do Azure em vez disso, confira a seção [Apêndice](#appendix) do script da CLI do Azure.
 
 **Para examinar a conta de armazenamento e o conteúdo**
 
@@ -595,5 +595,5 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-O nome do contêiner é *adfgetstarted*. Mantenha-o como está. Caso contrário, é necessário atualizar o modelo do Resource Manager. Se você precisar de ajuda com esse script da CLI, confira [Como usar a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md).
+O nome do contêiner é *adfgetstarted*. Mantenha-o como está. Caso contrário, é necessário atualizar o modelo do Resource Manager. Se você precisar de ajuda com esse script da CLI, confira [Como usar a CLI do Azure com o Armazenamento do Azure](../storage/common/storage-azure-cli.md).
 

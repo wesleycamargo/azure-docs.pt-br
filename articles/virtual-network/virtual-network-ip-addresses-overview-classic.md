@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
@@ -34,7 +33,7 @@ Endereços IP privados são usados para comunicação em uma VNet (rede virtual)
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o Gerenciador de Recursos. Saiba mais sobre endereços IP no Gerenciador de Recursos lendo o artigo [endereços IP](virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="public-ip-addresses"></a>Endereços IP públicos
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/storage-introduction.md).
+Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/common/storage-introduction.md).
 
 Um endereço IP público é associado aos seguintes tipos de recursos:
 

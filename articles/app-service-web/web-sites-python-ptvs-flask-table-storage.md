@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e1bc8eebd0b67b965cc70ac4b5dfe03c4720ddf
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>Flask e Tabela de Armazenamento do Azure com Ferramentas Python 2.2 para Visual Studio
@@ -172,8 +172,8 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 <!--Link references-->
 [Python Developer Center]: /develop/python/
 [Serviços de Nuvem do Azure]: ../cloud-services/cloud-services-python-ptvs.md
-[documentação]: ../storage/storage-python-how-to-use-table-storage.md
-[Como usar o serviço de armazenamento de tabela por meio do Python]: ../storage/storage-python-how-to-use-table-storage.md
+[documentação]:../cosmos-db/table-storage-how-to-use-python.md
+[Como usar o serviço de armazenamento de tabela por meio do Python]:../cosmos-db/table-storage-how-to-use-python.md
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: df22c7315cc55df0e7963bc03a215ab09589b25b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos MapReduce com Hadoop no HDInsight usando REST
@@ -97,7 +97,7 @@ Saiba como usar a API REST do WebHCat para executar trabalhos MapReduce em um Ha
 
 4. Depois que o estado do trabalho for alterado para `SUCCEEDED`, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída. Neste exemplo, o local é `/example/curl`. Esse endereço armazena a saída do trabalho no armazenamento padrão de clusters em `/example/curl`.
 
-Você pode listar e baixar esses arquivos usando a [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs na CLI do Azure, consulte o documento [Usar a CLI 2.0 do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md#create-and-manage-blobs).
+Você pode listar e baixar esses arquivos usando a [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs na CLI do Azure, consulte o documento [Usar a CLI 2.0 do Azure com o Armazenamento do Azure](../storage/common/storage-azure-cli.md#create-and-manage-blobs).
 
 ## <a id="nextsteps"></a>Próximas etapas
 

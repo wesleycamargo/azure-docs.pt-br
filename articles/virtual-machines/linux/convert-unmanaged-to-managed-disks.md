@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94f8e3330fb2d6547811315fcfdb8ced338e0247
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não gerenciados em Managed Disks
 
-Se você tiver VMs (máquinas virtuais) Linux existentes que usam discos não gerenciados, é possível converter as VMs para usar os discos gerenciados por meio do serviço [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
+Se você tiver VMs (máquinas virtuais) Linux existentes que usam discos não gerenciados, é possível converter as VMs para usar os discos gerenciados por meio do serviço [Azure Managed Disks](../windows/managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
 
 Este artigo mostra como converter VMs usando a CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). 
 
@@ -98,5 +98,5 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as opções de armazenamento, confira a [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
+Para saber mais sobre as opções de armazenamento, confira a [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).
 

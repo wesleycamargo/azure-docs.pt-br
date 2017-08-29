@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 83a88df8c20c89a72047884b69c52e12adf1549b
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -25,33 +25,8 @@ ms.lasthandoff: 07/13/2017
 
 O recurso de conectividade do Observador de Rede fornece a capacidade de verificar uma conexão TCP direta de uma máquina virtual a uma VM (máquina virtual), FQDN (nome de domínio totalmente qualificado), URI ou endereço IPv4. Os cenários de rede são complexos, são implementados usando Grupos de Segurança de Rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a solução de problemas de conectividade desafiadora. O Observador de Rede ajuda a reduzir a quantidade de tempo para localizar e detectar problemas de conectividade. Os resultados retornados podem fornecer informações sobre se um problema de conectividade é devido a uma plataforma ou um problema de configuração do usuário. A conectividade pode ser verificada com o [PowerShell](network-watcher-connectivity-powershell.md), a [CLI do Azure](network-watcher-connectivity-cli.md) e a [API REST](network-watcher-connectivity-rest.md).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização
-
-A verificação de conectividade está atualmente em visualização pública; para usar esse recurso, ele precisa ser registrado. Para fazer isso, execute a seguinte amostra do PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Para verificar se o registro foi bem-sucedido, execute a seguinte amostra do Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
 
 ## <a name="response"></a>Resposta
 

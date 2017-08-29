@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher os serviços de nuvem ou algo mais?
@@ -43,7 +42,7 @@ Implanta e hospeda o aplicativo automaticamente por IIS.
 * **Função de trabalho**  
 Não usa IIS e executa o aplicativo de modo autônomo.
 
-Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função web para lidar com solicitações de entrada de usuários, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/storage-introduction.md)).
+Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função web para lidar com solicitações de entrada de usuários, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/common/storage-introduction.md)).
 
 Como a figura anterior sugere, todas as VMs em um único aplicativo executado no mesmo serviço de nuvem. Os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma [dimensiona e implanta](cloud-services-how-to-scale.md) as VMs em um aplicativo de Serviços de Nuvem de uma maneira que evita um único ponto de falha de hardware.
 

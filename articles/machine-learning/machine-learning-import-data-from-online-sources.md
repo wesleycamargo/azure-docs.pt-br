@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a102b5f5ea04169d1992cad6d53c0a45de69b645
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 16d4586d82ed256a90d8eb6be4aab927aed1200a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar os dados para o Azure Machine Learning Studio de diferentes fontes de dados online com o módulo Importar Dados
@@ -56,7 +56,7 @@ Observe que, como os dados deste treinamento são acessados enquanto seu experim
 > De modo geral, as contas de armazenamento do Azure que você possa ter criado antes de essa opção se tornar disponível não deverão ser afetadas. 
 > Se precisar criar uma nova conta, escolha **Clássico** para o modelo de Implantação, ou use o Gerenciador de Recursos e selecione **Objetivo Geral**, em vez de **Armazenamento de Blobs**, para **Tipo de conta**. 
 > 
-> Para saber mais, confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../storage/storage-blob-storage-tiers.md).
+> Para saber mais, confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../storage/blobs/storage-blob-storage-tiers.md).
 > 
 > 
 

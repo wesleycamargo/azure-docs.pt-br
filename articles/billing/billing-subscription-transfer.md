@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8a856c39eb11546f35cb4e8c21e6bdcce98857a8
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
@@ -74,7 +74,7 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
    
    * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md)
    
-   * Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../storage/storage-create-storage-account.md)
+   * Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)
    
    * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure. 
 
@@ -115,7 +115,7 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
   Se a assinatura for transferida para outro locatário, os usuários associados ao locatário anterior perderão o acesso à assinatura. Mesmo que um usuário não seja mais um Administrador ou Coadministrador de Serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança, que incluem:
 
   * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md).
-  * Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
+  * Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
   * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
  Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:

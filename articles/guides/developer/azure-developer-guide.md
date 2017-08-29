@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -123,7 +123,7 @@ A maioria dos aplicativos deve armazenar dados, portanto, independentemente de c
 
     >**Quando utilizar**: quando seu aplicativo armazena dados não relacionais, como pares chave-valor (tabelas), blobs, compartilhamentos de arquivos ou mensagens (filas).
 
-    >**Introdução**: Escolher entre um desses tipos de armazenamento: [blobs](../../storage/storage-dotnet-how-to-use-blobs.md), [tabelas](../../storage/storage-dotnet-how-to-use-tables.md),     [filas](../../storage/storage-dotnet-how-to-use-queues.md) ou [arquivos](../../storage/storage-dotnet-how-to-use-files.md).
+    >**Introdução**: Escolher entre um desses tipos de armazenamento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelas](../../cosmos-db/table-storage-how-to-use-dotnet.md),     [filas](../../storage/queues/storage-dotnet-how-to-use-queues.md) ou [arquivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Azure DocumentDB**: um serviço do banco de dados NoSQL totalmente gerenciado e escalonável que possui consultas SQL sobre dados de objeto. É possível acessar o DocumentDB utilizando drivers do MongoDB existentes.
     >**Quando utilizar:** quando o aplicativo precisar executar consultas SQL sobre documentos JSON ou se você estiver utilizando MongoDB.

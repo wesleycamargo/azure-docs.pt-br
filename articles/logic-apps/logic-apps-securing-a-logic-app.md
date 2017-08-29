@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +38,7 @@ Ao trabalhar com um aplicativo lógico que é acionado em uma solicitação HTTP
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 
-Cada ponto de extremidade de solicitação para um aplicativo lógico inclui uma [Assinatura de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte da URL. Cada URL contém um parâmetro de consulta `sp`, `sv`, e `sig`. As permissões são especificadas por `sp`e correspondem aos métodos HTTP permitidos, `sv` é a versão usada para gerar e `sig` é usado para autenticar o acesso para disparar. A assinatura é gerada usando o algoritmo SHA256 com uma chave secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta e publicada e é mantida criptografada e armazenada como parte do aplicativo lógico. Seu aplicativo lógico somente autoriza gatilhos que contêm uma assinatura válida criada com a chave secreta.
+Cada ponto de extremidade de solicitação para um aplicativo lógico inclui uma [Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte da URL. Cada URL contém um parâmetro de consulta `sp`, `sv`, e `sig`. As permissões são especificadas por `sp`e correspondem aos métodos HTTP permitidos, `sv` é a versão usada para gerar e `sig` é usado para autenticar o acesso para disparar. A assinatura é gerada usando o algoritmo SHA256 com uma chave secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta e publicada e é mantida criptografada e armazenada como parte do aplicativo lógico. Seu aplicativo lógico somente autoriza gatilhos que contêm uma assinatura válida criada com a chave secreta.
 
 #### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 

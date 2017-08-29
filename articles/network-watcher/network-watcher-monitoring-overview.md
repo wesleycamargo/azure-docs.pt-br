@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ O Observador de Rede tem atualmente os seguintes recursos:
 
 O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
 
-|Resource| Permission| | |---|---| | |Microsoft.
-|Microsoft.Storage/ |Read| | |Microsoft.Authorization/| Read| | |Microsoft.Resources/subscriptions/resourceGroups/| Read| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Action| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Action| | |Microsoft.Storage/storageAccounts/listKeys/ | Action| | |Microsoft.Compute/virtualMachines/ |Read| | |Microsoft.Compute/virtualMachines/ |Write| | |Microsoft.Compute/virtualMachineScaleSets/ |Read| | |Microsoft.Compute/virtualMachineScaleSets/ |Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Read| | |Microsoft.Network/networkWatchers/packetCaptures/| Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Delete| | |Microsoft.Network/networkWatchers/ |Write| | |Microsoft.Network/networkWatchers/| Read| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
+|Recurso| Permissão|
+|---|---| 
+|Microsoft.Storage/ |Ler|
+|Microsoft.Authorization/| Ler| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Ler|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Ação|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Ação|
+|Microsoft.Storage/storageAccounts/listKeys/ | Ação|
+|Microsoft.Compute/virtualMachines/ |Ler|
+|Microsoft.Compute/virtualMachines/ |Gravar|
+|Microsoft.Compute/virtualMachineScaleSets/ |Ler|
+|Microsoft.Compute/virtualMachineScaleSets/ |Gravar|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Ler|
+|Microsoft.Network/networkWatchers/packetCaptures/| Gravar|
+|Microsoft.Network/networkWatchers/packetCaptures/| Excluir|
+|Microsoft.Network/networkWatchers/ |Gravar |
+|Microsoft.Network/networkWatchers/| Ler |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>Limites de assinatura da rede
 

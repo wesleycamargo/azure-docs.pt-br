@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2ef2acfea2372ac7fd52d099a2b4203ee2242d81
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Criar recursos para dados de armazenamento de blob do Azure usando o Panda
@@ -29,7 +29,7 @@ Este documento mostra como criar recursos para os dados armazenados no contêine
 Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você criou uma conta de armazenamento de blobs do Azure e armazenou os dados lá. Se você precisar de instruções para configurar uma conta, confira [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+Este artigo pressupõe que você criou uma conta de armazenamento de blobs do Azure e armazenou os dados lá. Se você precisar de instruções para configurar uma conta, confira [Criar uma conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados em um quadro de dados Pandas
 Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:

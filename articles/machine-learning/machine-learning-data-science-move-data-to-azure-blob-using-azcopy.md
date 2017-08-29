@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
-ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a41ccdd5739a5b10cef201910abd639ae3126c02
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy
 O AzCopy é um utilitário de linha de comando projetado para carregar, baixar e copiar dados do/para o armazenamento de blobs, arquivos e tabelas do Microsoft Azure.
 
-Para obter instruções sobre como instalar o AzCopy e informações adicionais sobre como usá-lo com a plataforma do Azure, consulte [Introdução ao utilitário de linha de comando AzCopy](../storage/storage-use-azcopy.md).
+Para obter instruções sobre como instalar o AzCopy e informações adicionais sobre como usá-lo com a plataforma do Azure, consulte [Introdução ao utilitário de linha de comando AzCopy](../storage/common/storage-use-azcopy.md).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -32,7 +32,7 @@ Para obter instruções sobre como instalar o AzCopy e informações adicionais 
 > Se você estiver usando a VM que foi configurada com os scripts fornecidos pelas [Máquinas virtuais de ciência de dados no Azure](machine-learning-data-science-virtual-machines.md), o AzCopy já estará instalado na VM.
 > 
 > [!NOTE]
-> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Blob do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
@@ -40,7 +40,7 @@ Para obter instruções sobre como instalar o AzCopy e informações adicionais 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 * Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
+* Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/common/storage-create-storage-account.md).
 
 ## <a name="run-azcopy-commands"></a>Executar comandos do AzCopy
 Para executar comandos do AzCopy, abra uma janela de comando e navegue até o diretório de instalação do AzCopy no computador, no qual o executável AzCopy.exe está localizado. 

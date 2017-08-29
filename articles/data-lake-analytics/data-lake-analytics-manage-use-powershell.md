@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: b79f6dd20d2e8e298b8d1824b70ff9f0d0fde9aa
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -173,7 +173,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 No momento, o Azure Data Lake Analytics dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Armazenamento do Azure](../storage/storage-introduction.md)
+* [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 Ao criar uma conta do Analytics, você deve indicar uma conta do Data Lake Store como a fonte de dados padrão. A conta padrão do Repositório Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Após criar uma conta do Data Lake Analytics, você pode adicionar outras contas do Data Lake Store e/ou contas de Armazenamento. 
 

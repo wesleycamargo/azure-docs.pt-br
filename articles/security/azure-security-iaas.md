@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b05ab20087c9bb391be7317b47d6dc2565206947
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -146,7 +144,7 @@ O [Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encry
 
 Para saber mais, confira [Azure Disk Encryption em VMs IaaS com Windows e Linux](azure-security-disk-encryption.md).
 
-A [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) ajuda a proteger seus dados em repouso. Ela é habilitada no nível da conta de armazenamento. Ela criptografa os dados conforme eles são gravados em nossos data centers e eles são descriptografados automaticamente quando você a acessa. Ele oferece suporte para os seguintes cenários:
+A [Criptografia do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md) ajuda a proteger seus dados em repouso. Ela é habilitada no nível da conta de armazenamento. Ela criptografa os dados conforme eles são gravados em nossos data centers e eles são descriptografados automaticamente quando você a acessa. Ele oferece suporte para os seguintes cenários:
 
 - Criptografia de blobs de bloco, blobs de acréscimo e blobs de páginas
 - Criptografia de VHDs arquivados e modelos colocados no Azure localmente

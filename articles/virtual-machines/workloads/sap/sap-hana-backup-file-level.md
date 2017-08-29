@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -37,9 +37,9 @@ Esta figura mostra a caixa de diálogo do item de menu de backup no SAP HANA Stu
 
 Embora essa opção pareça simples e direta, há algumas considerações. Conforme mencionado anteriormente, uma VM do Azure tem uma limitação no número de discos de dados que podem ser anexados. Talvez não haja capacidade para armazenar arquivos de backup do SAP HANA em sistemas de arquivos da VM, dependendo do tamanho do banco de dados e dos requisitos de taxa de transferência no disco, o que pode envolver o RAID de software usando a distribuição em vários discos de dados. Posteriormente, este artigo fornece várias opções para mover esses arquivos de backup e gerenciar as restrições de tamanho de arquivo e desempenho ao lidar com terabytes de dados.
 
-Outra opção, que oferece mais liberdade com relação à capacidade total, é o Armazenamento de Blobs do Azure. Embora um único blob também esteja restrito a 1 TB, a capacidade total de um único contêiner de blob é atualmente de 500 TB. Além disso, ele oferece aos clientes a opção de selecionar o chamado armazenamento de blobs &quot;estático&quot;, que tem um bom custo-benefício. Confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/storage-blob-storage-tiers.md) para obter detalhes sobre o armazenamento de blobs frio.
+Outra opção, que oferece mais liberdade com relação à capacidade total, é o Armazenamento de Blobs do Azure. Embora um único blob também esteja restrito a 1 TB, a capacidade total de um único contêiner de blob é atualmente de 500 TB. Além disso, ele oferece aos clientes a opção de selecionar o chamado armazenamento de blobs &quot;estático&quot;, que tem um bom custo-benefício. Confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md) para obter detalhes sobre o armazenamento de blobs frio.
 
-Para obter mais segurança, use uma conta de armazenamento com replicação geográfica para armazenar os backups do SAP HANA. Confira [Replicação de Armazenamento do Azure](../../../storage/storage-redundancy.md) para obter mais detalhes sobre a replicação da conta de armazenamento.
+Para obter mais segurança, use uma conta de armazenamento com replicação geográfica para armazenar os backups do SAP HANA. Confira [Replicação de Armazenamento do Azure](../../../storage/common/storage-redundancy.md) para obter mais detalhes sobre a replicação da conta de armazenamento.
 
 É possível colocar VHDs dedicados para backups do SAP HANA em uma conta de armazenamento de backup dedicada com replicação geográfica. Ou é possível copiar os VHDs que armazenam os backups do SAP HANA em uma conta de armazenamento com replicação geográfica ou para uma conta de armazenamento em uma região diferente.
 
@@ -51,7 +51,7 @@ Uma solução alternativa é copiar primeiro os arquivos de backup do SAP HANA p
 
 ## <a name="azure-blobxfer-utility-details"></a>Detalhes do utilitário blobxfer do Azure
 
-Para armazenar diretórios e arquivos no armazenamento do Azure, é possível usar a CLI ou o PowerShell, ou desenvolver uma ferramenta usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/). Também há um utilitário pronto para uso, o AzCopy, para copiar dados no armazenamento do Azure, mas ele é compatível apenas com o Windows (confira [Transferir dados com o utilitário de linha de comando AzCopy](../../../storage/storage-use-azcopy.md)).
+Para armazenar diretórios e arquivos no armazenamento do Azure, é possível usar a CLI ou o PowerShell, ou desenvolver uma ferramenta usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/). Também há um utilitário pronto para uso, o AzCopy, para copiar dados no armazenamento do Azure, mas ele é compatível apenas com o Windows (confira [Transferir dados com o utilitário de linha de comando AzCopy](../../../storage/common/storage-use-azcopy.md)).
 
 Portanto, o blobxfer foi usado para copiar arquivos de backup do SAP HANA. Ele é um software livre, usado por muitos clientes em ambientes de produção e disponível no [GitHub](https://github.com/Azure/blobxfer). Essa ferramenta permite a cópia dos dados diretamente no Armazenamento de Blobs do Azure ou no compartilhamento de arquivos do Azure. Ele também oferece vários recursos úteis, como o hash md5 ou o paralelismo automático ao copiar um diretório com vários arquivos.
 
@@ -71,7 +71,7 @@ A repetição do mesmo backup no RAID de software com distribuição nos cinco d
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiar arquivos de backup do SAP HANA para o Armazenamento de Blobs do Azure
 
-Desde dezembro de 2016, a melhor opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, o suficiente para a maioria dos sistemas SAP HANA, executados em uma VM GS5 no Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção de armazenamento de blobs &quot;dinâmico&quot; e &quot;estático&quot; (confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/storage-blob-storage-tiers.md)).
+Desde dezembro de 2016, a melhor opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, o suficiente para a maioria dos sistemas SAP HANA, executados em uma VM GS5 no Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção de armazenamento de blobs &quot;dinâmico&quot; e &quot;estático&quot; (confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Com a ferramenta blobxfer, é fácil copiar os arquivos de backup do SAP HANA diretamente no Armazenamento de Blobs do Azure.
 
@@ -139,7 +139,7 @@ Funciona, mas o desempenho não foi bom para o teste de backup de 230 GB. Ficari
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copiar arquivos de backup do SAP HANA para o serviço de arquivo do Azure
 
-É possível montar um compartilhamento de arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
+É possível montar um compartilhamento de arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de arquivos do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/common/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
 
 Os testes mostraram, no entanto, que o backup do SAP HANA não funciona diretamente no momento com esse tipo de montagem de CIFS. Também está declarado na [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) que o CIFS não é recomendado.
 

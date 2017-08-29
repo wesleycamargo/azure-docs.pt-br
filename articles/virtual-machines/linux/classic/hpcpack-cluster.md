@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
@@ -186,7 +186,7 @@ Você tem várias opções para mover dados entre nós Linux e o nó principal d
 ### <a name="azure-file-storage"></a>Armazenamento de arquivos do Azure
 O serviço [Arquivo do Azure](https://azure.microsoft.com/services/storage/files/) expõe os compartilhamentos de arquivos usando o protocolo SMB 2.1 padrão. As VMs e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivos. 
 
-Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/storage-file-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 No exemplo a seguir, crie um compartilhamento de arquivos do Azure em uma conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
 

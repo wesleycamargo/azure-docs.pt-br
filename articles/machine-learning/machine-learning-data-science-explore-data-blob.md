@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e1b33b17270122a38228484a56c8324c5b4505a0
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
@@ -31,8 +31,8 @@ Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferram
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
-* Armazenar seus dados em uma conta de armazenamento de blob do Azure. Se você precisar de instruções, consulte [Movimentação de dados de e para o Armazenamento do Azure](../storage/storage-moving-data.md)
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Armazenar seus dados em uma conta de armazenamento de blob do Azure. Se você precisar de instruções, consulte [Movimentação de dados de e para o Armazenamento do Azure](../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados em um DataFrame Pandas
 Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um DataFrame Pandas. Aqui estão as etapas para este procedimento:

@@ -16,10 +16,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8bacd408e49eb5f6eeb4b8f7eb10feac21830bb0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -175,7 +175,7 @@ Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise d
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-De acordo com as opções que você deseja configurar, primeiro [crie uma conta de armazenamento do Azure](../storage/storage-create-storage-account.md) ou [crie um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, selecione as opções do local para o qual deseja enviar os dados de diagnóstico:
+De acordo com as opções que você deseja configurar, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) ou [crie um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, selecione as opções do local para o qual deseja enviar os dados de diagnóstico:
 
 ![Enviar dados para uma conta de armazenamento do Azure ou um hub de eventos](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 

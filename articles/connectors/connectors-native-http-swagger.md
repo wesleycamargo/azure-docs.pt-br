@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a881336bcb2384aaa57a75483c0e6fcd97096905
-ms.lasthandoff: 04/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introdução à ação de HTTP + Swagger
@@ -56,7 +56,7 @@ Talvez você queira fazer referência a um documento do Swagger que não esteja 
 
 Veja as etapas para criar, configurar e armazenar documentos do Swagger no Armazenamento do Azure:
 
-1. [Crie uma conta de armazenamento do Azure com o armazenamento de Blobs do Azure](../storage/storage-create-storage-account.md). Para realizar essa etapa, defina as permissões como **Acesso Público**.
+1. [Crie uma conta de armazenamento do Azure com o armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md). Para realizar essa etapa, defina as permissões como **Acesso Público**.
 
 2. Habilite o CORS no blob. 
 

@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 53681c58ca1eff394d6a3db2d6a026845ac03df1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54afcf1e37f696979bfe270a473c72aedf20dc43
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não gerenciados em Managed Disks
 
-Se você tiver VMs (máquinas virtuais) do Windows existentes que usam discos não gerenciados, será possível converter as VMs para usar Managed Disks por meio do serviço [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
+Se você tiver VMs (máquinas virtuais) do Windows existentes que usam discos não gerenciados, será possível converter as VMs para usar Managed Disks por meio do serviço [Azure Managed Disks](managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
 
 Este artigo mostra como converter VMs usando o Azure PowerShell. Se você precisa instalá-lo ou atualizá-lo, confira [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
@@ -99,47 +99,14 @@ Se as VMs que você deseja converter em discos gerenciados estão em um conjunto
   ```
 
 
-## <a name="convert-standard-managed-disks-to-premium"></a>Converter Managed Disks Standard para Premium
-Depois de converter sua VM em Managed Disks, você pode alternar entre os tipos de armazenamento. Você também pode ter uma combinação de discos que usam o armazenamento Standard e Premium. 
-
-No exemplo a seguir, mostramos como alternar do armazenamento Standard para o Premium. Para usar Managed Disks Premium, sua VM deve usar um [tamanho da VM](sizes.md) que dá suporte a armazenamento Premium. Este exemplo também pode mudar para um tamanho que dá suporte a armazenamento Premium.
-
-```powershell
-$rgName = 'myResourceGroup'
-$vmName = 'YourVM'
-$size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
-
-# Stop and deallocate the VM before changing the size
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-
-# Change the VM size to a size that supports premium storage
-$vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
-
-# Get all disks in the resource group of the VM
-$vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
-
-# For disks that belong to the selected VM, convert to premium storage
-foreach ($disk in $vmDisks)
-{
-    if ($disk.OwnerId -eq $vm.Id)
-    {
-        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
-        Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-        -DiskName $disk.Name
-    }
-}
-
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-```
-
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 Se houver um erro durante a conversão ou se uma VM estiver em um estado de falha devido a problemas em uma conversão anterior, execute o cmdlet `ConvertTo-AzureRmVMManagedDisk` novamente. Normalmente, uma repetição simples desbloqueia a situação.
 
 
 ## <a name="next-steps"></a>Próximas etapas
+
+[Converter Managed Disks padrão em premium](convert-disk-storage.md)
 
 Faça uma cópia somente leitura de uma VM usando [instantâneos](snapshot-copy-managed-disk.md).
 

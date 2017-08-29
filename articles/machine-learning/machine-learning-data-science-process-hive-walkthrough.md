@@ -1,7 +1,4 @@
 ---
-
-
-
 title: Explorar dados em um cluster Hadoop e criar modelos no Azure Machine Learning | Microsoft Docs
 description: "Usando o Processo de Ciência de Dados de Equipe para um cenário completo que emprega um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados publicamente disponível."
 services: machine-learning,hdinsight
@@ -17,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
-ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e48d59ca467e3e7fd772389e6e48a2d81726f859
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
@@ -30,7 +28,7 @@ Para ver um passo a passo que mostra como manipular um conjunto de dados maior (
 
 Também é possível usar um bloco de anotações iPython para executar as tarefas apresentadas passo a passo usando o conjunto de dados de 1 TB. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
+## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
 Os dados de Viagens de Táxi em NYC são cerca de 20 GB de arquivos compactados em valores separados por vírgulas (CSV) (cerca de 48 GB descompactados), que incluem mais de 173 milhões de viagens individuais e a tarifa paga por cada viagem. Cada registro de corrida inclui o local e horário de saída e chegada, número da carteira de motorista de taxista anônima e o número do medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. Os arquivos CSV “trip_data” contêm detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e extensão da corrida. Aqui estão alguns exemplos de registros:
@@ -56,11 +54,11 @@ Para obter todos os detalhes relevantes para uma corrida em particular, é sufic
 
 Descreveremos mais detalhes dos dados quando os armazenarmos em tabelas Hive em breve.
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
+## <a name="mltasks"></a>Exemplos de tarefas de previsão
 Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na sua análise ajuda a esclarecer as tarefas que você precisará incluir em seu processo.
 Aqui estão três exemplos de problemas de previsão que abordados neste passo a passo cuja formulação se baseia no *tip\_amount*:
 
-1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$&0; é um exemplo positivo, enquanto um *tip\_amount* de US$&0; é um exemplo negativo.
+1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0
@@ -73,7 +71,7 @@ Aqui estão três exemplos de problemas de previsão que abordados neste passo a
         Class 4 : tip_amount > $20
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
-## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
+## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -81,14 +79,14 @@ Aqui estão três exemplos de problemas de previsão que abordados neste passo a
 
 Você pode configurar um ambiente do Azure para análises avançadas que empregue um cluster HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
+1. [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
 2. [Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada](machine-learning-data-science-customize-hadoop-cluster.md). Esta etapa cria um cluster do Hadoop do Azure HDInsight com Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes a serem lembradas durante a personalização de seu cluster HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight ao criá-lo. Essa conta de armazenamento é usada para acessar dados que são processados no cluster.
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Navegue até a guia **Configuração** e clique em **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
 3. [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md): esse espaço de trabalho Aprendizado de Máquina do Azure é usado para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma análise inicial e redução de dados usando o cluster HDInsight.
 
-## <a name="a-namegetdataaget-the-data-from-a-public-source"></a><a name="getdata"></a>Obter os dados de uma fonte de pública
+## <a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -96,7 +94,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
 
 Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/) do seu local público, você pode usar qualquer um dos métodos descritos em [Mover dados bidirecionalmente no Armazenamento de Blobs do Azure](machine-learning-data-science-move-azure-blob.md) para copiar os dados para o seu computador.
 
-Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando do AzCopy](../storage/storage-use-azcopy.md).
+Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando do AzCopy](../storage/common/storage-use-azcopy.md).
 
 1. Em uma janela de Prompt de Comando, execute os seguintes comandos do AzCopy, substituindo *<path_to_data_folder>* pelo destino desejado:
 
@@ -104,7 +102,7 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 1. Quando a cópia for concluída, um total de 24 arquivos compactados estarão na pasta de dados escolhida. Descompacte os arquivos baixados para o mesmo diretório em seu computador local. Tome nota da pasta em que os arquivos descompactados estão. Essa pasta, que será chamada de *<path\_to\_unzipped_data\_files\>*, é o que se segue.
 
-## <a name="a-nameuploadaupload-the-data-to-the-default-container-of-azure-hdinsight-hadoop-cluster"></a><a name="upload"></a>Carregar os dados para o contêiner padrão do cluster do Hadoop do Azure HDInsight
+## <a name="upload"></a>Carregar os dados para o contêiner padrão do cluster do Hadoop do Azure HDInsight
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -129,7 +127,7 @@ Este comando carrega os dados de tarifa para o diretório ***nyctaxifareraw*** n
 
 Os dados agora devem estar no armazenamento de Blob do Azure e prontos para serem consumidos dentro do cluster HDInsight.
 
-## <a name="a-namedownload-hql-filesalog-into-the-head-node-of-hadoop-cluster-and-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Faça logon no nó principal do cluster Hadoop e prepare-se para análise exploratória de dados
+## <a name="#download-hql-files"></a>Faça logon no nó principal do cluster Hadoop e prepare-se para análise exploratória de dados
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -147,7 +145,7 @@ Para preparar o cluster para análise exploratória de dados, podemos baixar os 
 
 Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\temp&#92;*** no nó principal.
 
-## <a name="a-namehive-db-tablesacreate-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
+## <a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -215,7 +213,7 @@ Esse script do Hive cria duas tabelas:
 
 Se precisar de qualquer assistência adicional com esses procedimentos ou desejar investigar procedimentos alternativos, veja a seção [Enviar consultas Hive diretamente da Linha de Comando do Hadoop ](machine-learning-data-science-move-hive-tables.md#submit).
 
-## <a name="a-nameload-dataaload-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Carregar dados para tabelas Hive de partições
+## <a name="#load-data"></a>Carregar dados para tabelas Hive de partições
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -232,12 +230,12 @@ O arquivo *sample\_hive\_load\_data\_by\_partitions.hql* contém os seguintes co
 
 Observe que várias consultas de Hive que usamos aqui no processo de exploração envolvem a pesquisa em uma única partição ou em apenas algumas das partições. Mas essas consultas podem ser executadas em todos os dados.
 
-### <a name="a-nameshow-dbashow-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Mostra os bancos de dados no cluster do Hadoop do HDInsight
+### <a name="#show-db"></a>Mostra os bancos de dados no cluster do Hadoop do HDInsight
 Para mostrar os bancos de dados criados no cluster do Hadoop do HDInsight dentro da janela de Linha de Comando do Hadoop, execute o seguinte comando na Linha de Comando do Hadoop:
 
     hive -e "show databases;"
 
-### <a name="a-nameshow-tablesashow-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Mostrar as tabelas no banco de dados nyctaxidb
+### <a name="#show-tables"></a>Mostrar as tabelas no banco de dados nyctaxidb
 Para mostrar as tabelas no banco de dados nyctaxidb, execute o seguinte comando na Linha de Comando do Hadoop:
 
     hive -e "show tables in nyctaxidb;"
@@ -282,7 +280,7 @@ A saída esperada é mostrada abaixo:
     month=9
     Time taken: 1.887 seconds, Fetched: 12 row(s)
 
-## <a name="a-nameexplore-hiveadata-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Exploração de dados e engenharia de recursos no Hive
+## <a name="#explore-hive"></a>Exploração de dados e engenharia de recursos no Hive
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -575,7 +573,7 @@ Assim, para ver o conteúdo de um determinado arquivo, digamos, 000000\_0, usamo
 
 A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Azure Machine Learning usando o módulo [Importar Dados][import-data].
 
-## <a name="a-namedownsampleadown-sample-data-and-build-models-in-azure-machine-learning"></a><a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
+## <a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -757,7 +755,7 @@ Observe que, uma vez que nossos dados reduzidos residem no contêiner padrão, a
 
 O conjunto de dados agora pode ser usado como o ponto de partida para criar modelos de Aprendizado de Máquina.
 
-### <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
+### <a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Aprendizado de Máquina do Azure](https://studio.azureml.net). Os dados estão prontos para uso para resolver os problemas de previsão identificados acima:
 
 **1. Classificação binária**: prever se uma gorjeta foi ou não paga em uma corrida.
@@ -839,9 +837,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
