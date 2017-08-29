@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Conjuntos de dimensionamento de VMs do Azure e discos gerenciados
@@ -45,7 +45,7 @@ Como alternativa, você pode procurar as pastas no [repositório GitHub de Model
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre discos gerenciados em geral, confira [este artigo](../storage/storage-managed-disks-overview.md).
+Para obter mais informações sobre discos gerenciados em geral, confira [este artigo](../virtual-machines/windows/managed-disks-overview.md).
 
 Para ver como converter um modelo do Resource Manager para provisionar conjuntos de dimensionamento com discos gerenciados, consulte [este artigo](./virtual-machine-scale-sets-convert-template-to-md.md). As mesmas modificações nos modelos do Resource Manager também se aplicam à API REST do Azure.
 

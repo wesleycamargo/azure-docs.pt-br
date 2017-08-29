@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lição 13: implantar
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/19/2017
 
 Nesta lição, você configura as propriedades de implantação especificando um servidor do Azure Analysis Services para implantar e um nome para o modelo. Em seguida, você implanta o modelo para essa instância. Após o modelo ser implantado, os usuários podem se conectar a ele usando um aplicativo cliente de relatório. Para saber mais, confira [Implantar no Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Tempo estimado para a conclusão desta lição: **Cinco minutos**  
+Tempo estimado para conclusão desta lição: **5 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

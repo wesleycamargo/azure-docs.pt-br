@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
@@ -102,7 +101,7 @@ Quando um usuário carrega uma imagem, o front-end sendo executado em uma funç�
 
 Você está executando o aplicativo totalmente em seu computador local sem conexão com a nuvem. O emulador de armazenamento guarda os dados de fila e do Blob em um banco de dados LocalDB do SQL Server Express e o aplicativo armazena os dados do anúncio em outro banco de dados LocalDB. O Entity Framework Code First criou automaticamente o banco de dados de anúncio na primeira vez que o aplicativo Web tentou acessá-lo.
 
-Na seção a seguir você configurará a solução para usar os recursos de nuvem do Azure em filas, blobs, e o banco de dados do aplicativo quando ele for executado na nuvem. Se você quisesse continuar a executar localmente, mas usa os recursos de armazenamento e banco de dados de nuvem, isso seria possível. É apenas questão de definir as cadeias de conexão, que você verá como fazer.
+Na seção a seguir você configurará a solução para usar os recursos de nuvem do Azure em filas, blobs, e o banco de dados do aplicativo quando ele for executado na nuvem. Se você preferisse continuar a executar localmente, porém usando os recursos de armazenamento e banco de dados de nuvem, isso seria possível. É apenas questão de definir as cadeias de conexão, que você verá como fazer.
 
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
@@ -172,7 +171,7 @@ Em um aplicativo do mundo real, geralmente você cria contas separadas para dado
 
 4. Defina a lista suspensa **Replicação** para **Armazenamento com redundância local**.
 
-    Quando a replicação geográfica está habilitada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para habilitar o failover caso ocorra um grande desastre no local principal. A replicação geográfica pode incorrer em custos adicionais. Para contas de teste e desenvolvimento, geralmente, você não deseja pagar pela replicação geográfica. Para saber mais, confira [Criar, gerenciar ou excluir uma conta de armazenamento](../storage/storage-create-storage-account.md).
+    Quando a replicação geográfica está habilitada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para habilitar o failover caso ocorra um grande desastre no local principal. A replicação geográfica pode incorrer em custos adicionais. Para contas de teste e desenvolvimento, geralmente, você não deseja pagar pela replicação geográfica. Para saber mais, confira [Criar, gerenciar ou excluir uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
 
 5. No **Grupo de recursos**, clique em **Usar existente** e selecione o grupo de recursos usado no serviço de nuvem.
 6. Defina a lista suspensa **Local** como a mesma região escolhida para o serviço de nuvem.
@@ -351,7 +350,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 2. Na parte superior da janela, selecione **Atualizações**.
 3. Procure o pacote *WindowsAzure.Storage* e, se ele estiver na lista, selecione-o e selecione os projetos da Web e de trabalho em que ele será atualizado e clique em **Atualizar**.
 
-    A biblioteca de armazenamento do cliente é atualizada com mais frequência que os modelos de projetos do Visual Studio, por isso, você descobrirá com frequência a versão em um projeto que acabou de ser criado precisa ser atualizada.
+    A biblioteca de armazenamento do cliente é atualizada com mais frequência que os modelos de projetos do Visual Studio, por isso, você descobrirá com frequência que a versão em um projeto que acabou de ser criado precisa ser atualizada.
 4. Na parte superior da janela, selecione **Procurar**.
 5. Encontre o pacote NuGet do *EntityFramework* e instale-o em todos os três projetos.
 6. Encontre o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o no projeto de função de trabalho.
@@ -664,7 +663,7 @@ var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionS
 db = new ContosoAdsContext(dbConnString);
 ```
 
-Após, o método obtém uma referência para a conta de armazenamento e cria a fila e o contêiner do blob, se eles não existirem. O código para isso é semelhante àquele já visto no método da função Web `Application_Start` .
+Depois disso, o método obtém uma referência para a conta de armazenamento e cria a fila e o contêiner do blob, se eles não existirem. O código para isso é semelhante àquele já visto no método da função Web `Application_Start` .
 
 ### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Método de execução
 O método `Run` é chamado quando o método `OnStart` conclui seu trabalho de inicialização. O método executa um loop infinito que procura novas mensagens na fila e as processa quando chegam.

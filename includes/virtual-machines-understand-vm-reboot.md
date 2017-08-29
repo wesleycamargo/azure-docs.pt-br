@@ -85,7 +85,7 @@ A duração do desligamento pode demorar mais de cinco minutos, mas também pode
 
 As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento de disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou o espaço de armazenamento na VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
-Limites de IOPS maiores estão disponíveis no armazenamento Premium do Azure com até 80.000 IOPS. Para obter mais informações, consulte [Armazenamento Premium de alto desempenho](../articles/storage/storage-premium-storage.md).
+Limites de IOPS maiores estão disponíveis no armazenamento Premium do Azure com até 80.000 IOPS. Para obter mais informações, consulte [Armazenamento Premium de alto desempenho](../articles/storage/common/storage-premium-storage.md).
 
 ### <a name="other-incidents"></a>Outros incidentes
 Em raras circunstâncias, um problema mais amplo pode afetar vários servidores em um data center do Azure. Se esse problema ocorrer, a equipe do Azure envia notificações por email para assinaturas afetadas. Você pode verificar o [painel de integridade do serviço Azure](https://azure.microsoft.com/status/) e o portal do Azure para ver o status de interrupções e incidentes passados.

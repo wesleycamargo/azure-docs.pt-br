@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)
@@ -42,7 +42,7 @@ O Kafka fornece as seguintes funcionalidades:
 
 * Integração com os Azure Managed Disks: os discos gerenciados fornecem maior escala e taxa de transferência para os discos usados pelas máquinas virtuais no cluster HDInsight.
 
-    Os discos gerenciados são habilitados por padrão para o Kafka no HDInsight e o número de discos usados por nó pode ser configurado durante a criação do HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+    Os discos gerenciados são habilitados por padrão para o Kafka no HDInsight e o número de discos usados por nó pode ser configurado durante a criação do HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Para saber mais sobre como configurar discos gerenciados com o Kafka no HDInsight, veja [Aumentar a escalabilidade do Kafka no HDInsight](hdinsight-apache-kafka-scalability.md).
 

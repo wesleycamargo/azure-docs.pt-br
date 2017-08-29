@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replicar máquinas virtuais Hyper-V em nuvens VMM para o Azure
@@ -52,7 +51,7 @@ Veja o que será necessário no Azure.
 | **Pré-requisito** | **Detalhes** |
 | --- | --- |
 | **Conta do Azure** |Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. |
-| **Armazenamento do Azure** |Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de uma [conta de armazenamento com redundância geográfica standard](../storage/storage-redundancy.md#geo-redundant-storage). A conta deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que a replicação para contas de armazenamento premium atualmente não tem suporte e não deve ser usada.<br/><br/>[Leia sobre o](../storage/storage-introduction.md) armazenamento do Azure. |
+| **Armazenamento do Azure** |Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de uma [conta de armazenamento com redundância geográfica standard](../storage/common/storage-redundancy.md#geo-redundant-storage). A conta deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que a replicação para contas de armazenamento premium atualmente não tem suporte e não deve ser usada.<br/><br/>[Leia sobre o](../storage/common/storage-introduction.md) armazenamento do Azure. |
 | **Rede do Azure** |Você precisará de uma rede virtual do Azure com a qual as máquinas virtuais do Azure se conectarão quando ocorrer failover. A rede virtual do Azure deve estar na mesma região que o cofre de Recuperação de Site. |
 
 ## <a name="on-premises-prerequisites"></a>Pré-requisitos do local
