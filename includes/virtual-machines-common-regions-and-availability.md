@@ -59,7 +59,7 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 | Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
 Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar.
@@ -75,7 +75,7 @@ Os preços variam dependendo do tipo de armazenamento e da disponibilidade que v
 Consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preços para diferentes opções de tipos de armazenamento e de disponibilidade.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/storage-premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. 
+Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/common/storage-premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. 
 
 Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização).
 
@@ -90,7 +90,7 @@ Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilh
 Um domínio de atualização é um grupo lógico de hardwares subjacentes que podem passar por manutenção ou ser reinicializados ao mesmo tempo. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de atualização. Essa abordagem garante que pelo menos uma instância do aplicativo sempre permaneça em execução enquanto a plataforma Windows Azure passar por manutenção periódica. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
 ### <a name="managed-disk-fault-domains"></a>Domínios de falha de Disco Gerenciado
-Para VMs que usam [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região.
+Para VMs que usam [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região.
 
 ![FDs de disco gerenciado](./media/virtual-machines-common-manage-availability/md-fd.png)
 
