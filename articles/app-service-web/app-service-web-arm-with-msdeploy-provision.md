@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Implantar um aplicativo Web com o MSDeploy, um nome de host personalizado e um certificado SSL
@@ -123,7 +122,7 @@ Agora você observará que o recurso do MSDeploy obtém uma propriedade **packag
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Essa **packageUri** obtém o uri da conta de armazenamento que aponta para a conta de armazenamento para onde você carregará o pacote compactado. O Gerenciador de Recursos do Azure aproveitará as [Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) para obter o pacote localmente da conta de armazenamento durante a implantação do modelo. Este processo será automatizado por meio de um script do PowerShell que carregará o pacote e chamará a API de Gerenciamento do Azure para criar as chaves necessárias e passá-las para o modelo como parâmetros (*_artifactsLocation* e *_artifactsLocationSasToken*). Será necessário definir parâmetros para a pasta em que o pacote será carregado no contêiner de armazenamento e para o nome de arquivo desse pacote.
+Essa **packageUri** obtém o uri da conta de armazenamento que aponta para a conta de armazenamento para onde você carregará o pacote compactado. O Gerenciador de Recursos do Azure aproveitará as [Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para obter o pacote localmente da conta de armazenamento durante a implantação do modelo. Este processo será automatizado por meio de um script do PowerShell que carregará o pacote e chamará a API de Gerenciamento do Azure para criar as chaves necessárias e passá-las para o modelo como parâmetros (*_artifactsLocation* e *_artifactsLocationSasToken*). Será necessário definir parâmetros para a pasta em que o pacote será carregado no contêiner de armazenamento e para o nome de arquivo desse pacote.
 
 Em seguida, adicione outro recurso aninhado para configurar as associações de nome de host para aproveitar um domínio personalizado. Primeiro, você precisará garantir que você possui o nome de host e configurá-lo para que o Azure verifique você o possui - consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md). Depois disso, você poderá adicionar o seguinte ao seu modelo na seção do recurso Microsoft.Web/sites:
 

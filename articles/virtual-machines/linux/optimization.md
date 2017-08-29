@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cdc3aad210418463368cc8b93459f2075bc413c2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
@@ -33,7 +33,7 @@ Este tópico pressupõe que você já tenha uma Assinatura do Azure ativa ([insc
 Depois de criar uma VM Linux no Azure, ela terá dois discos associados. **/dev/sda** é o disco do sistema operacional, **/dev/sdb** é o disco temporário.  Use o disco do sistema operacional principal (**/dev/sda**) somente para o sistema operacional, pois ele é otimizado para um tempo de inicialização rápido da VM e não fornece bom desempenho para suas cargas de trabalho. Você deseja anexar um ou mais discos à sua VM para obter um armazenamento persistente e otimizado para seus dados. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adicionando discos para metas de desempenho e tamanho
-Com base no tamanho da VM, é possível anexar até 16 discos adicionais em um computador da série A, 32 discos em uma da série D e 64 discos em uma da série G, cada uma com até 1 TB de tamanho. Adicione discos adicionais conforme necessário para seus requisitos de IOps e espaço. Cada disco tem uma meta de desempenho de 500 IOps para o Armazenamento Standard e até 5000 IOps por disco para Armazenamento Premium.  Para saber mais sobre os discos de Armazenamento Premium, consulte [Armazenamento Premium: Armazenamento de Alto Desempenho para VMs do Azure](../../storage/storage-premium-storage.md)
+Com base no tamanho da VM, é possível anexar até 16 discos adicionais em um computador da série A, 32 discos em uma da série D e 64 discos em uma da série G, cada uma com até 1 TB de tamanho. Adicione discos adicionais conforme necessário para seus requisitos de IOps e espaço. Cada disco tem uma meta de desempenho de 500 IOps para o Armazenamento Standard e até 5000 IOps por disco para Armazenamento Premium.  Para saber mais sobre os discos de Armazenamento Premium, consulte [Armazenamento Premium: Armazenamento de Alto Desempenho para VMs do Azure](../../storage/common/storage-premium-storage.md)
 
 Para atingir os IOps mais altos nos discos de Armazenamento Premium com configuração de cache definidas como **ReadOnly** ou **None**, você deve desabilitar as **barreiras** durante a montagem do sistema de arquivos no Linux. Você não precisa de barreiras, pois as gravações em discos de backup do Armazenamento Premium são duráveis para essas configurações de cache.
 
@@ -42,7 +42,7 @@ Para atingir os IOps mais altos nos discos de Armazenamento Premium com configur
 * Se você usar **XFS**, desabilite as barreiras usando a opção de montagem `nobarrier` (para habilitar as barreiras, use a opção `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações sobre a conta de armazenamento não gerenciado
-A ação padrão ao criar uma VM com a CLI do Azure 2.0 é usar o Azure Managed Disks.  Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento.  Os discos não gerenciados exigem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md).  A seção a seguir descreve as considerações de desempenho somente quando você usa os discos não gerenciados.  Novamente, o padrão e a solução de armazenamento recomendada é usar discos gerenciados.
+A ação padrão ao criar uma VM com a CLI do Azure 2.0 é usar o Azure Managed Disks.  Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento.  Os discos não gerenciados exigem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).  A seção a seguir descreve as considerações de desempenho somente quando você usa os discos não gerenciados.  Novamente, o padrão e a solução de armazenamento recomendada é usar discos gerenciados.
 
 Se você criar uma VM com discos não gerenciados, certifique-se de anexar discos de contas de armazenamento que residam na mesma região que sua VM para garantir a proximidade e minimizar a latência de rede.  Cada conta de Armazenamento Standard tem um máximo de 20k IOps e uma capacidade de tamanho de 500 TB.  Este limite funciona para aproximadamente 40 discos muito usados, incluindo o disco do sistema operacional e os discos de dados que você criar. Para contas de Armazenamento Premium, não há nenhum limite máximo de IOps, mas há um limite de tamanho de 32 TB. 
 
@@ -132,7 +132,7 @@ Lembre-se de que, como com todas as discussões de otimização, você precisar�
 
 Alguns links úteis para recursos adicionais: 
 
-* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](../../storage/storage-premium-storage.md)
+* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](../../storage/common/storage-premium-storage.md)
 * [Guia do usuário do agente Linux para o Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Otimizando o desempenho do MySQL nas VMs Linux do Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurar RAID de software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

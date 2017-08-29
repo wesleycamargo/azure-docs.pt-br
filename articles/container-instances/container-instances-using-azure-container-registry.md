@@ -18,10 +18,10 @@ ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: cdac6362f0d51b3144024efd28af09eb6d97515f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -34,10 +34,10 @@ O Registro de Contêiner do Azure é um registro privado baseado no Azure para i
 A CLI do Azure inclui comandos para criar e gerenciar contêineres nas Instâncias de Contêiner do Azure. Se você especificar uma imagem privada no comando `create`, também poderá especificar a senha do registro da imagem, necessária para autenticar com o registro de contêiner.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-O comando `create` também dá suporte à especificação de `image-registry-login-server` e `image-registry-username`. No entanto, o servidor de logon do Registro de Contêiner do Azure é sempre *registryname*.azurecr.io e o nome de usuário é *registryname*, portanto, esses valores são inferidos do nome da imagem, caso não sejam explicitamente fornecidos.
+O comando `create` também dá suporte à especificação de `registry-login-server` e `registry-username`. No entanto, o servidor de logon do Registro de Contêiner do Azure é sempre *registryname*.azurecr.io e o nome de usuário é *registryname*, portanto, esses valores são inferidos do nome da imagem, caso não sejam explicitamente fornecidos.
 
 ## <a name="using-an-azure-resource-manager-template"></a>Usando um modelo do Azure Resource Manager
 
@@ -91,3 +91,4 @@ Saiba como criar contêineres, enviá-los por push a um registro de contêiner p
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
 
 [aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+

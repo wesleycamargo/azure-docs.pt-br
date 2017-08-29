@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -374,7 +374,7 @@ Por fim, assim como acontece com o gerenciamento de qualquer sistema de computad
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
-O Armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece armazenamento redundante, escalonável e durável. Usando qualquer método de implantação de recursos, você pode adicionar uma conta de Armazenamento do Azure como um recurso para qualquer grupo de recursos. O Azure inclui quatro tipos de armazenamento: Armazenamento de Blobs, Armazenamento de Arquivos, Armazenamento de Tabelas e Armazenamento de Filas. Ao implantar uma conta de armazenamento, dois tipos de conta estão disponíveis: de uso geral e de armazenamento de blobs. Uma conta de armazenamento de uso geral fornece acesso a todos os quatro tipos de armazenamento. Contas de armazenamento de blobs são semelhantes às contas para uso geral, mas contêm blobs especializados que incluem as camadas de acesso quentes e frias. Para obter mais informações, consulte [Armazenamento de Blobs do Azure](../../storage/storage-blob-storage-tiers.md).
+O Armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece armazenamento redundante, escalonável e durável. Usando qualquer método de implantação de recursos, você pode adicionar uma conta de Armazenamento do Azure como um recurso para qualquer grupo de recursos. O Azure inclui quatro tipos de armazenamento: Armazenamento de Blobs, Armazenamento de Arquivos, Armazenamento de Tabelas e Armazenamento de Filas. Ao implantar uma conta de armazenamento, dois tipos de conta estão disponíveis: de uso geral e de armazenamento de blobs. Uma conta de armazenamento de uso geral fornece acesso a todos os quatro tipos de armazenamento. Contas de armazenamento de blobs são semelhantes às contas para uso geral, mas contêm blobs especializados que incluem as camadas de acesso quentes e frias. Para obter mais informações, consulte [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Contas de armazenamento do Azure podem ser configuradas com diferentes níveis de redundância:
 
@@ -400,7 +400,7 @@ O Armazenamento do Azure dá suporte a três tipos de blobs:
 
 -   **Blobs de acréscimo** consistem de blocos semelhantes aos blobs de blocos, mas são otimizados para operações de acréscimo. Eles são usados com frequência para registro de informações de uma ou mais fontes no mesmo Blob. Por exemplo, você pode escrever todo o log de rastreamento no mesmo blob de acréscimo para um aplicativo que está sendo executado em várias VMs. Um único blob de acréscimo pode ter até 195 GB.
 
-Para obter mais informações, consulte [Introdução ao Armazenamento de Blobs do Azure usando o .NET](../../storage/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações, consulte [Introdução ao Armazenamento de Blobs do Azure usando o .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 **Armazenamento de arquivos**
 
@@ -408,7 +408,7 @@ O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamento
 
 Já que um compartilhamento do Armazenamento de arquivos é um compartilhamento de arquivos SMB padrão, os aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs de E/S do sistema de arquivos. Os desenvolvedores podem, portanto, utilizar os códigos e habilidades existentes deles para migrar aplicativos existentes. Os profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure.
 
-Para obter mais informações, consulte [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/storage-file-how-to-use-files-windows.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../storage/storage-how-to-use-files-linux.md).
+Para obter mais informações, consulte [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/files/storage-how-to-use-files-windows.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Armazenamento de tabelas**
 
@@ -416,13 +416,13 @@ O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estr
 
 Você pode usar o armazenamento de tabela para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos e qualquer outro tipo de metadados que o serviço requeira. Você pode armazenar qualquer número de entidades em uma tabela. Uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
 
-Para obter mais informações, consulte [Introdução ao Armazenamento de Tabelas do Azure](../../storage/storage-dotnet-how-to-use-tables.md).
+Para obter mais informações, consulte [Introdução ao Armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 **Armazenamento de filas**
 
 O armazenamento de filas do Azure fornece mensagens na nuvem entre os componentes do aplicativo. Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados para que possam ser dimensionados independentemente. O armazenamento de filas fornece mensagens assíncronas para a comunicação entre os componentes do aplicativo, estando eles em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O Armazenamento de fila também oferece suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
 
-Para obter mais informações, consulte [Introdução ao Armazenamento de Filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md).
+Para obter mais informações, consulte [Introdução ao Armazenamento de Filas do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### <a name="deploying-a-storage-account"></a>Implantar uma conta de armazenamento
 
@@ -430,19 +430,19 @@ Há várias opções para a implantação de uma conta de armazenamento.
 
 **Portal**
 
-Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/storage-create-storage-account.md#create-a-storage-account).
+Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo, incluindo quaisquer contas de armazenamento. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Implantar uma conta de armazenamento do Azure usando o PowerShell permite a automação da implantação completa da conta de armazenamento. Para obter mais informações, consulte [Usar o Azure PowerShell com o Armazenamento do Azure](../../storage/storage-powershell-guide-full.md).
+Implantar uma conta de armazenamento do Azure usando o PowerShell permite a automação da implantação completa da conta de armazenamento. Para obter mais informações, consulte [Usar o Azure PowerShell com o Armazenamento do Azure](../../storage/common/storage-powershell-guide-full.md).
 
 Além de implantar recursos do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **CLI (Interface da linha de comando)**
 
-Assim como acontece com o módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Você pode usar o comando **storage account create** da CLI do Azure para criar uma conta de armazenamento. Para obter mais informações, consulte [Usando a CLI do Azure com o Armazenamento do Azure](../../storage/storage-azure-cli.md).
+Assim como acontece com o módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Você pode usar o comando **storage account create** da CLI do Azure para criar uma conta de armazenamento. Para obter mais informações, consulte [Usando a CLI do Azure com o Armazenamento do Azure](../../storage/common/storage-azure-cli.md).
 
 Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../resource-group-template-deploy-cli.md).
 
@@ -452,11 +452,11 @@ O Armazenamento do Azure é acessado de várias maneiras, incluindo o Portal do 
 
 **Discos de máquina virtual**
 
-Quando você estiver implantando uma máquina virtual, você também precisará criar uma conta de armazenamento para manter o disco do sistema operacional da máquina virtual e quaisquer discos de dados adicionais. Você pode selecionar uma conta de armazenamento existente ou criar uma nova. Como o tamanho máximo de um blob é 1.024 GB, um único disco de VM tem um tamanho máximo de 1.023 GB. Para configurar um disco de dados maior, você pode apresentar vários discos de dados para a máquina virtual e agrupá-los em pool como um único disco lógico. Para obter mais informações, consulte "Diretrizes de infraestrutura de armazenamento" para [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) e [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+Quando você estiver implantando uma máquina virtual, você também precisará criar uma conta de armazenamento para manter o disco do sistema operacional da máquina virtual e quaisquer discos de dados adicionais. Você pode selecionar uma conta de armazenamento existente ou criar uma nova. Como o tamanho máximo de um blob é 1.024 GB, um único disco de VM tem um tamanho máximo de 1.023 GB. Para configurar um disco de dados maior, você pode apresentar vários discos de dados para a máquina virtual e agrupá-los em pool como um único disco lógico. Para saber mais, veja "Gerenciar discos do Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Ferramentas de armazenamento**
 
-Contas de armazenamento do Azure podem ser acessadas por meio de vários gerenciadores de armazenamento diferentes, assim como o Visual Studio Cloud Explorer. Essas ferramentas permitem navegar pelas contas de armazenamento e os dados. Para obter mais informações e uma lista de gerenciadores de armazenamento disponíveis, consulte [Ferramentas de cliente do Armazenamento do Azure](../../storage/storage-explorers.md).
+Contas de armazenamento do Azure podem ser acessadas por meio de vários gerenciadores de armazenamento diferentes, assim como o Visual Studio Cloud Explorer. Essas ferramentas permitem navegar pelas contas de armazenamento e os dados. Para obter mais informações e uma lista de gerenciadores de armazenamento disponíveis, consulte [Ferramentas de cliente do Armazenamento do Azure](../../storage/common/storage-explorers.md).
 
 **API de Armazenamento**
 
@@ -468,7 +468,7 @@ Cada conta de armazenamento tem duas chaves de autenticação, uma principal e u
 
 **Assinaturas de acesso compartilhado**
 
-Se você precisa permitir que os usuários tenham acesso controlado a seus recursos de armazenamento, você pode criar uma assinatura de acesso compartilhado. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um recurso de armazenamento. Qualquer pessoa que tenha o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da sua validade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](../../storage/storage-dotnet-shared-access-signature-part-1.md).
+Se você precisa permitir que os usuários tenham acesso controlado a seus recursos de armazenamento, você pode criar uma assinatura de acesso compartilhado. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um recurso de armazenamento. Qualquer pessoa que tenha o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da sua validade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 

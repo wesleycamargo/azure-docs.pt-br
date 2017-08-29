@@ -1,6 +1,6 @@
 ---
-title: "Indexação do Armazenamento de Blobs do Azure com a Pesquisa do Azure"
-description: Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com a Pesquisa do Azure
+title: "Indexação do Armazenamento de Blobs do Azure com o Azure Search"
+description: Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com o Azure Search
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,18 +12,18 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
-Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
+# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
+Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
 
 ## <a name="supported-document-formats"></a>Formatos de documento com suporte
 O indexador de blob pode extrair o texto dos seguintes formatos de documento:
@@ -35,12 +35,12 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 * ZIP
 * EML
 * RTF
-* Arquivos de texto sem formatação
-* JSON (consulte a versão prévia do recurso [Indexando blobs JSON](search-howto-index-json-blobs.md))
+* Arquivos de texto sem formatação (consulte também [Como indexar texto sem formatação](#IndexingPlainText))
+* JSON (consulte [Como indexar blobs JSON](search-howto-index-json-blobs.md))
 * CSV (consulte a versão prévia do recurso [Indexando blobs CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2015-02-28-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
+> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2016-09-01-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 >
 >
 
@@ -89,10 +89,10 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras:
 
 - **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
-- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. As SAS devem ter as permissões de lista e leitura nos contêineres e objetos (blobs neste caso).
--  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. As SAS devem ter a lista e permissões de leitura no contêiner.
+- Cadeia de conexão da SAS **(assinatura de acesso compartilhado) da conta de armazenamento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` o SAS deve ter a lista e permissões de leitura para os contêineres e objetos (blobs, neste caso).
+-  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` a SAS deve ter a lista e permissões de leitura para o contêiner.
 
-Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Se você usar credenciais SAS, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais SAS expirarem, o indexador irá falhar com uma mensagem de erro semelhante à `Credentials provided in the connection string are invalid or have expired.`.  
@@ -170,7 +170,7 @@ Não é necessário definir os campos para todas as propriedades acima em seu í
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>Definir chaves de documento e mapeamentos de campo
-Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).  
+No Azure Search, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).  
 
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
@@ -239,7 +239,7 @@ Você pode excluir os blobs com extensões do nome de arquivo específicas da in
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, a Pesquisa do Azure primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
+Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, o Azure Search primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
 
 ### <a name="dealing-with-unsupported-content-types"></a>Lidando com tipos de conteúdo sem suporte
 
@@ -268,7 +268,7 @@ A lógica de extração de documento do Azure Search não é perfeita e às veze
 
 Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores:
 
-* `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/storage-properties-metadata.md) são indexados.
+* `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/blobs/storage-properties-metadata.md) são indexados.
 * `allMetadata` – especifica que os metadados de armazenamento e os [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraídos do conteúdo do blob são indexados.
 * `contentAndMetadata` – especifica que todos os metadados e conteúdo textual extraídos do blob são indexados. Esse é o valor padrão.
 
@@ -340,17 +340,39 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
 
 - Crie um indexador correspondente para cada fonte de dados. Todos os indexadores podem apontar para o mesmo índice de pesquisa de destino.  
 
+- Uma unidade de pesquisa em seu serviço pode executar um indexador a qualquer momento. Criar vários indexadores conforme descrito acima será útil somente se eles realmente forem executados em paralelo. Para executar vários indexadores em paralelo, escale horizontalmente seu serviço de pesquisa criando um número apropriado de partições e réplicas. Por exemplo, se o serviço de pesquisa tiver seis unidades de pesquisa (por exemplo, 2 partições x 3 réplicas), seis indexadores poderão ser executados simultaneamente, resultando em um aumento de seis vezes a taxa de transferência da indexação. Para saber mais sobre o planejamento de capacidade e colocação em escala, consulte [Escalar níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search](search-capacity-planning.md).
+
 ## <a name="indexing-documents-along-with-related-data"></a>Indexação de documentos junto com os dados relacionados
 
-Seus documentos podem ter metadados associados – por exemplo, o departamento que criou o documento – que são armazenados como dados estruturados em um dos locais a seguir.
--   Em um armazenamento de dados separado, como o Banco de Dados SQL ou o Azure Cosmos DB.
--   Anexado diretamente a cada documento no Armazenamento de Blobs do Azure como metadados personalizados. (Para obter mais informações, consulte [Configurando e recuperando as propriedades e metadados para recursos de blob](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
+Talvez você queira "montar" documentos de várias fontes em seu índice. Por exemplo, convém mesclar texto de blobs com outros metadados armazenados no Cosmos DB. Você pode até usar a API de indexação por push junto a vários indexadores para criar documentos de pesquisa de várias partes. 
 
-Você pode indexar os documentos junto com seus metadados, atribuindo o mesmo valor de chave exclusivo para cada documento e seus metadados e especificando a ação `mergeOrUpload` para cada indexador. Para obter uma descrição detalhada desta solução, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter instruções passo a passo detalhadas, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>Indexação de texto sem formatação 
+
+Se todos os seus blobs contiverem texto sem formatação na mesma codificação, você poderá melhorar significativamente o desempenho de indexação usando o **modo de análise de texto**. Para usar o modo de análise de texto, defina a propriedade de configuração `parsingMode` como `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+Por padrão, a codificação `UTF-8` será assumida. Para especificar uma codificação diferente, use a propriedade de configuração `encoding`: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicas ao tipo de conteúdo
-A tabela a seguir resume o processo executado para cada formato de documento, e descreve as propriedades dos metadados extraídos pela Pesquisa do Azure.
+A tabela a seguir resume o processo executado para cada formato de documento, e descreve as propriedades dos metadados extraídos pelo Azure Search.
 
 | Formato de documento/tipo de conteúdo | Propriedades de metadados específicas do tipo de conteúdo | Detalhes do processamento |
 | --- | --- | --- |
@@ -371,6 +393,6 @@ A tabela a seguir resume o processo executado para cada formato de documento, e 
 | Texto sem formatação (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrair texto|
 
 
-## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
+## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar o Azure Search
 Caso você tenha solicitações de recursos ou ideias para melhorias, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

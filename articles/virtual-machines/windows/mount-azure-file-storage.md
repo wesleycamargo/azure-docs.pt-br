@@ -13,12 +13,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e5ebc1bf370b655d320f726a2792453218898006
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,5 +75,5 @@ Esta seção pressupõe que você já tenha um compartilhamento de arquivos ao q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar e gerenciar compartilhamentos de arquivos usando o PowerShell. Para obter mais informações, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/storage-dotnet-how-to-use-files.md).
+Você também pode criar e gerenciar compartilhamentos de arquivos usando o PowerShell. Para obter mais informações, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
 

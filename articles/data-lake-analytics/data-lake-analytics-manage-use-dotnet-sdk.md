@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 058601f416ee9ae50d90149764c3991cc1f2923b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
@@ -223,7 +223,7 @@ if (adlaClient.Account.Exists(rg, adla))
 No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Conta de Armazenamento do Azure](../storage/storage-introduction.md)
+* [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Vincular a uma conta de armazenamento do Azure
 

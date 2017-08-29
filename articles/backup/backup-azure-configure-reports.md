@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
@@ -32,7 +32,7 @@ Este artigo aborda as etapas para configurar relatórios para o Backup do Azure 
 4. A frequência de atualização agendada para os relatórios é de 24 horas no Power BI. Você também pode executar uma atualização local dos relatórios no Power BI, nos quais os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Criar uma [conta de armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
+1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
 2. [Criar uma conta do Power BI](https://powerbi.microsoft.com/landing/signin/) para exibir, personalizar e criar seus próprios relatórios usando o portal do Power BI.
 3. Registrar o provedor de recursos **Microsoft.insights** se já não estiver registrado, com a assinatura da conta de armazenamento e também com a assinatura do cofre de Serviços de Recuperação para habilitar os dados de relatório e analisar o fluxo para a conta de armazenamento. Para fazer o mesmo, você deve ir ao portal do Azure > Assinatura > Provedores de recursos e verificar se há esse provedor para registrá-lo. 
 
@@ -82,7 +82,7 @@ Depois de configurar a conta de armazenamento para relatórios usando o cofre de
 4. Insira o nome da conta de armazenamento configurada na etapa 5 acima e clique no botão **Avançar**.
 
     ![Insira o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Insira a chave de conta de armazenamento para esta conta de armazenamento. Você pode [exibir e copiar as chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#manage-your-storage-account) navegando para sua conta de armazenamento no portal do Azure. 
+5. Insira a chave de conta de armazenamento para esta conta de armazenamento. Você pode [exibir e copiar as chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-account) navegando para sua conta de armazenamento no portal do Azure. 
 
      ![Insira a conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Armazenamento de VM do Linux e do Azure
@@ -26,15 +26,15 @@ O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativ
 
 ## <a name="managed-disks"></a>Managed Disks
 
-As VMs do Azure agora estão disponíveis usando [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), que permite que você crie suas VMs sem criar ou gerenciar quaisquer [contas do Armazenamento do Azure](../../storage/storage-introduction.md) por conta própria. Você especifica se deseja armazenamento Premium ou Standard e o tamanho máximo do disco, e o Azure cria os discos da VM para você. As máquinas virtuais com Managed Disks têm vários recursos importantes, incluindo:
+As VMs do Azure agora estão disponíveis usando [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), que permite que você crie suas VMs sem criar ou gerenciar quaisquer [contas do Armazenamento do Azure](../../storage/common/storage-introduction.md) por conta própria. Você especifica se deseja armazenamento Premium ou Standard e o tamanho máximo do disco, e o Azure cria os discos da VM para você. As máquinas virtuais com Managed Disks têm vários recursos importantes, incluindo:
 
 - Suporte de dimensionamento automático. O Azure cria os discos e gerencia o armazenamento subjacente para dar suporte a até 10.000 discos por assinatura.
 - Maior confiabilidade com Conjuntos de Disponibilidade. O Azure garante que os discos de VM sejam isolados automaticamente uns dos outros em Conjuntos de Disponibilidade.
 - Maior controle de acesso. Os Managed Disks expõem uma variedade de operações controladas pelo [RBAC (Controle de Acesso Baseado em Função do Azure)](../../active-directory/role-based-access-control-what-is.md).
 
-Os preços dos Managed Disks são diferentes dos discos não gerenciados. Para obter essas informações, veja [Preços e cobrança para Managed Disks](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+Os preços dos Managed Disks são diferentes dos discos não gerenciados. Para obter essas informações, veja [Preços e cobrança para Managed Disks](../windows/managed-disks-overview.md#pricing-and-billing).
 
-Você pode converter máquinas virtuais existentes que usam discos não gerenciados para usar discos gerenciados com [az vm convert](/cli/azure/vm#convert). Para saber mais, veja [Como converter uma VM Linux de discos não gerenciados em Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você não pode converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado está em uma conta de armazenamento que está, ou esteve, [criptografada usando criptografia de serviço de armazenamento (SSE) do Azure](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como converter discos não gerenciados que estão, ou estiveram, em uma conta de armazenamento criptografada:
+Você pode converter máquinas virtuais existentes que usam discos não gerenciados para usar discos gerenciados com [az vm convert](/cli/azure/vm#convert). Para saber mais, veja [Como converter uma VM Linux de discos não gerenciados em Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você não pode converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado está em uma conta de armazenamento que está, ou esteve, [criptografada usando criptografia de serviço de armazenamento (SSE) do Azure](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como converter discos não gerenciados que estão, ou estiveram, em uma conta de armazenamento criptografada:
 
 - Copie o VHD (disco rígido virtual) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca foi habilitada para a Criptografia do Serviço de Armazenamento do Azure.
 - Crie uma VM que usa discos gerenciados e especifique este arquivo VHD durante a criação com [az vm create](/cli/azure/vm#create), ou
@@ -92,7 +92,7 @@ Recursos de Armazenamento Premium:
 * Discos de Armazenamento Premium: o Armazenamento Premium do Azure dá suporte a discos de VM que podem ser anexados a VMs do Azure das séries DS, DSv2 ou GS.
 * Blob de Páginas Premium: o Armazenamento Premium dá suporte a Blobs de Páginas do Azure, que são usados para manter discos persistentes para VMs (Máquinas Virtuais) do Azure.
 * Armazenamento com Redundância Local Premium: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação e mantém três cópias de dados em uma única região.
-* [Armazenamento Premium](../../storage/storage-premium-storage.md)
+* [Armazenamento Premium](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>VMs com suporte do Armazenamento Premium
 O Armazenamento Premium oferece suporte às VMs (Máquinas Virtuais) do Azure das séries DS, DSv2, GS e Fs. Você pode usar discos de armazenamento Standard e Premium com VMs que têm suporte do Armazenamento Premium. Mas não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
@@ -115,7 +115,7 @@ O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nu
 
 O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Filas e, portanto, o Armazenamento de arquivos oferece a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure. Para obter detalhes os destinos e os limites do desempenho do Armazenamento de arquivos, veja Escalabilidade e metas de desempenho do Armazenamento do Azure.
 
-* [Como utilizar o Armazenamento de Arquivos do Azure com Linux](../../storage/storage-how-to-use-files-linux.md)
+* [Como utilizar o Armazenamento de Arquivos do Azure com Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>Armazenamento Dinâmico
 A camada de armazenamento dinâmica do Azure é otimizada para armazenar dados acessados com frequência.  O armazenamento dinâmico é o tipo de armazenamento padrão para repositórios de blob.
@@ -155,7 +155,7 @@ O RA-GRS (armazenamento com redundância geográfica de acesso de leitura) maxim
 
 Para se aprofundar em redundância de armazenamento do Azure, consulte:
 
-* [Replicação de Armazenamento do Azure](../../storage/storage-redundancy.md)
+* [Replicação de Armazenamento do Azure](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>Escalabilidade
 O Armazenamento do Azure é extremamente escalonável para que você possa armazenar e processar centenas de terabytes de dados para oferecer suporte a cenários de big data, necessários para análise científica e financeira e aplicativos de mídia. Ou você pode armazenar pequenas quantidades de dados necessários para um site de pequena empresa. Quaisquer que sejam suas necessidades, você paga apenas pelos dados que está armazenando. O Armazenamento do Azure atualmente armazena dezenas de trilhões de objetos exclusivos de clientes e manipula milhões de solicitações por segundo em média.
@@ -197,7 +197,7 @@ Esta seção ensina a proteger os dados quando você os transfere para dentro ou
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é possível habilitá-la em uma conta de armazenamento, resultando na criptografia automática dos blobs de blocos, dos blobs de páginas e dos blobs de acréscimo quando gravados no Armazenamento do Azure. Também veremos como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption em relação ao SSE e à Criptografia do cliente. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
 
-* [Guia de segurança do Armazenamento do Azure](../../storage/storage-security-guide.md)
+* [Guia de segurança do Armazenamento do Azure](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disco temporário
 Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante a reinicialização padrão da VM, os dados na unidade temporária deverão permanecer.

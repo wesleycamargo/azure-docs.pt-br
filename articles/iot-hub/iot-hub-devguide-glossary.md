@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
@@ -56,7 +56,7 @@ O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 O [Barramento de Serviço](../service-bus/index.md) fornece a comunicação habilitada para nuvem com mensagens corporativas e comunicações retransmitidas que o ajudam a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT utilizam [filas](../service-bus-messaging/service-bus-messaging-overview.md) do Barramento de Serviço.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
-O [Armazenamento do Azure](../storage/storage-introduction.md) é uma solução de armazenamento de nuvem. Ele inclui o serviço Armazenamento de Blobs que você pode usar para armazenar dados de objetos não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de blobs.
+O [Armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento de nuvem. Ele inclui o serviço Armazenamento de Blobs que você pode usar para armazenar dados de objetos não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de blobs.
 
 ## <a name="back-end-app"></a>Aplicativo de back-end
 No contexto do [Hub IoT](#iot-hub), um aplicativo de back-end é um aplicativo que se conecta a um dos pontos de extremidade voltados para o serviço em um hub IoT. Por exemplo, um aplicativo de back-end pode recuperar mensagens do [dispositivo para nuvem](#device-to-cloud) ou gerenciar o [registro de identidade](#identity-registry). Normalmente, um aplicativo de back-end é executado na nuvem, mas em muitos dos tutoriais dos aplicativos de back-end há aplicativos de console em execução no seu computador de desenvolvimento local.

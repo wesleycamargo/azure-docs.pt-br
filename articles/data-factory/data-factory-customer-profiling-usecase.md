@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4ee4c3a979a3cdd7ec793d12f812e5b126a2ce94
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
@@ -32,7 +32,7 @@ O objetivo da Contoso é identificar oportunidades de venda/venda cruzada com ba
 Nesta solução, a Contoso deseja avaliar a eficiência de uma campanha de marketing lançada recentemente. Vamos começar com os logs de jogos brutos, processando e enriquecendo-os com os dados de localização geográfica, associando-os aos dados de referência de publicidade, por fim, copiando-os para um Banco de Dados SQL do Azure para analisar o impacto da campanha.
 
 ## <a name="deploy-solution"></a>Implantar Solução
-Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [Conta de Armazenamento de Blobs do Azure](../storage/storage-create-storage-account.md#create-a-storage-account) e um [Banco de Dados SQL do Azure](../sql-database/sql-database-get-started.md). Implante o pipeline de criação de perfil do cliente do bloco **Pipelines de exemplo** na página inicial de sua fábrica de dados.
+Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [Conta de Armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) e um [Banco de Dados SQL do Azure](../sql-database/sql-database-get-started.md). Implante o pipeline de criação de perfil do cliente do bloco **Pipelines de exemplo** na página inicial de sua fábrica de dados.
 
 1. Crie uma data factory ou abra uma existente. Consulte [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter as etapas para criar um data factory.
 2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo**.

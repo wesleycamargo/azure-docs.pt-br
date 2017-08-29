@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 006123a4ab7d1c0208a7e5f33b6f05f9374511fc
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---                    
                
@@ -53,7 +53,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 Para copiar uma máquina virtual, você deve criar uma cópia do disco rígido virtual subjacente. Por meio desse processo, você cria uma VHD especializada que contém a mesma configuração e definições que a VM de origem.
 
-Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../../storage/storage-managed-disks-overview.md). 
+Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md). 
 
 1.  Lista cada VM e o nome do disco do sistema operacional com [az vm list](/cli/azure/vm#list). O exemplo a seguir lista todas as VMs no grupo de recursos denominado **myResourceGroup**:
     

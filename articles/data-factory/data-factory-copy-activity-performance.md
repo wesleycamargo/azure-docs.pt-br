@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2779655aee3af3a351b30f18b4c9d9918e9f2210
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
@@ -40,22 +39,19 @@ Este artigo descreve:
 > [!NOTE]
 > Se você não estiver familiarizado com a Atividade de Cópia em geral, consulte [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md) antes de ler este artigo.
 >
->
 
 ## <a name="performance-reference"></a>Referência de desempenho
+
+Como uma referência, a tabela abaixo mostra o número da taxa de transferência de cópia em MBps para a origem específica e os pares de coletores com base nos testes internos. Para comparação, ela também demonstra como as diferentes configurações das [unidades de movimentação de dados na nuvem](#cloud-data-movement-units) ou da [escalabilidade do Gateway de Gerenciamento de Dados](data-factory-data-management-gateway-high-availability-scalability.md) (vários nós de gateway) podem ajudar no desempenho da cópia.
+
 ![Matriz de desempenho](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> Você pode obter uma maior taxa de transferência aproveitando mais DMUs (unidades de movimentação de dados) do que o padrão máximo, que é 32 para a execução de uma atividade de cópia de nuvem para nuvem. Por exemplo, com 100 DMUs, é possível copiar dados do Blob do Azure para o Azure Data Lake Store a **1 GBps**. Confira a seção [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units) para obter detalhes sobre esse recurso e o cenário com suporte. Entre em contato com [suporte do Azure](https://azure.microsoft.com/support/) para solicitar mais DMUs.
->
->
 
 **Pontos a serem observados:**
 * A taxa de transferência é calculada usando a seguinte fórmula: [tamanho dos dados lidos na origem]/[duração da execução da Atividade de Cópia].
 * Os números de referência de desempenho na tabela foram medidos usando o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) em uma execução de atividade de cópia única.
-* Para copiar entre os armazenamentos de dados de nuvem, defina **cloudDataMovementUnits** para 1 e 4 (ou 8) para ter uma comparação. **parallelCopies** não é especificado. Consulte a seção [Cópia paralela](#parallel-copy) para obter detalhes sobre esses recursos.
 * Nos armazenamentos de dados do Azure, a origem e o coletor estão na mesma região do Azure.
-* Para a movimentação de dados híbrida (local para a nuvem ou nuvem para o local), uma única instância do gateway estava em execução em um computador separado do armazenamento de dados local. A configuração está listada na tabela a seguir. Quando uma única atividade foi executada no gateway, a operação de cópia consumiu apenas uma pequena parte da CPU, da memória ou da largura de banda do computador de teste.
+* Para a cópia híbrida entre o armazenamento de dados local e na nuvem, cada nó de gateway foi executado em um computador que foi separado do armazenamento de dados local com a especificação abaixo. Quando uma única atividade foi executada no gateway, a operação de cópia consumiu apenas uma pequena parte da CPU, da memória ou da largura de banda do computador de teste. Saiba mais em [Considerações do Gateway de Gerenciamento de Dados](#considerations-for-data-management-gateway).
     <table>
     <tr>
         <td>CPU</td>
@@ -70,6 +66,10 @@ Este artigo descreve:
         <td>Interface da Internet: 10 Gbps; Interface da intranet: 40 Gbps</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> Você pode obter uma maior taxa de transferência aproveitando mais DMUs (unidades de movimentação de dados) do que o padrão máximo, que é 32 para a execução de uma atividade de cópia de nuvem para nuvem. Por exemplo, com 100 DMUs, é possível copiar dados do Blob do Azure para o Azure Data Lake Store a **1 GBps**. Confira a seção [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units) para obter detalhes sobre esse recurso e o cenário com suporte. Entre em contato com [suporte do Azure](https://azure.microsoft.com/support/) para solicitar mais DMUs.
 
 ## <a name="parallel-copy"></a>Cópia paralela
 Você pode ler os dados na origem ou gravar os dados no destino **em paralelo dentro de uma execução da Atividade de Cópia**. Esse recurso melhora a taxa de transferência de uma operação de cópia e reduz o tempo que leva para mover os dados.
@@ -115,7 +115,6 @@ Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são: 1 
 
 > [!NOTE]
 > Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). A configuração de 8 e superior atualmente funciona apenas quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Store/Amazon S3/FTP na nuvem/SFTP na nuvem para Armazenamento de Blobs/Data Lake Store/Banco de Dados SQL do Azure**.
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
    * Recursos de desempenho:
      * [Cópia paralela](#parallel-copy)
      * [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units)
-     * [Cópia em etapas](#staged-copy)   
+     * [Cópia em etapas](#staged-copy)
+     * [Escalabilidade do Gateway de Gerenciamento de Dados](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [Gateway de gerenciamento de dados](#considerations-for-data-management-gateway)
    * [Fonte](#considerations-for-the-source)
    * [Coletor](#considerations-for-the-sink)
    * [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
    * [Compactação](#considerations-for-compression)
    * [Mapeamento de coluna](#considerations-for-column-mapping)
-   * [Gateway de gerenciamento de dados](#considerations-for-data-management-gateway)
    * [Outras considerações](#other-considerations)
 3. **Expanda a configuração para todo o conjunto de dados**. Quando você estiver satisfeito com os resultados e o desempenho da execução, poderá expandir a definição e o período ativo do pipeline para cobrir todo o conjunto de dados.
+
+## <a name="considerations-for-data-management-gateway"></a>Considerações do Gateway de Gerenciamento de Dados
+**Configuração do gateway**: é recomendável usar um computador dedicado para hospedar o Gateway de Gerenciamento de Dados. Confira [Considerações para o uso do Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+
+**Monitoramento e escala vertical/horizontal do gateway**: um único gateway lógico com um ou mais nós de gateway pode atender a várias execuções de Atividade de Cópia ao mesmo tempo. Você pode exibir um instantâneo quase em tempo real da utilização de recursos (CPU, memória, rede (entrada/saída) etc). em um computador de gateway, bem como o número de trabalhos simultâneos em execução versus o limite no portal do Azure, confira [Monitorar o gateway no portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Caso haja uma grande necessidade de movimentação de dados híbrida, seja com um grande número de execuções simultâneas da atividade de cópia, seja com um grande volume de dados a serem copiados, considere a [escala vertical ou horizontal do gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) de modo a melhor utilizar seus recursos ou provisionar mais recursos a fim de fortalecer a cópia. 
 
 ## <a name="considerations-for-the-source"></a>Considerações para a origem
 ### <a name="general"></a>Geral
@@ -342,13 +347,6 @@ Você pode definir a propriedade **columnMappings** na Atividade de Cópia para 
 
 Se o armazenamento de dados de origem for de consulta, por exemplo, for um armazenamento relacional como o Banco de Dados SQL ou o SQL Server, ou se for um armazenamento NoSQL, como o Armazenamento de tabelas ou o Azure Cosmos DB, considere enviar a filtragem da coluna por push e reordenar a lógica para a propriedade **query**, em vez de usar o mapeamento de coluna. Dessa forma, a projeção ocorrerá enquanto o serviço de movimentação de dados lê os dados no armazenamento de dados de origem, onde é muito mais eficiente.
 
-## <a name="considerations-for-data-management-gateway"></a>Considerações do Gateway de Gerenciamento de Dados
-Para obter recomendações de configuração do Gateway, consulte [Considerações para usar o Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md#considerations-for-using-gateway).
-
-**Ambiente de máquina do Gateway:**é recomendável que você use um computador dedicado para hospedar o Gateway de Gerenciamento de Dados. Use ferramentas como o PerfMon para examinar o uso da CPU, memória e largura de banda durante uma operação de cópia em seu computador de Gateway. Troque para um computador mais potente se a CPU, memória ou largura de banda da rede se tornar um afunilamento.
-
-**Execuções simultâneas da Atividade de Cópia**: uma única instância do Gateway de Gerenciamento de Dados pode servir a várias execuções da Atividade de Cópia ao mesmo tempo ou simultaneamente. O número máximo de trabalhos simultâneos é calculado com base na configuração de hardware do computador de Gateway. Os trabalhos de cópia adicionais são colocados na fila até que sejam capturados pelo Gateway ou que o trabalho expire. Para evitar a contenção de recursos no computador de Gateway, você pode preparar o agendamento da Atividade de Cópia para reduzir o número de trabalhos de cópia na fila de uma só vez ou considerar dividir a carga em vários computadores de Gateway.
-
 ## <a name="other-considerations"></a>Outras considerações
 Se o tamanho dos dados que você deseja copiar for grande, você poderá ajustar sua lógica de negócios para particionar ainda mais os dados usando o mecanismo de divisão no Data Factory. Em seguida, agende a Atividade de Cópia para ser executada com mais frequência para reduzir o tamanho dos dados para cada execução da Atividade.
 
@@ -404,7 +402,7 @@ Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipel
 ## <a name="reference"></a>Referência
 Aqui estão as referências de monitoramento e ajuste do desempenho para alguns dos armazenamentos de dados com suporte:
 
-* Armazenamento do Azure (incluindo o armazenamento de Blobs e o armazenamento de Tabelas): [metas de escalabilidade do Armazenamento do Azure](../storage/storage-scalability-targets.md) e [Lista de verificação de escalabilidade e desempenho do Armazenamento do Azure](../storage/storage-performance-checklist.md)
+* Armazenamento do Azure (incluindo o armazenamento de Blobs e o armazenamento de Tabelas): [metas de escalabilidade do Armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [Lista de verificação de escalabilidade e desempenho do Armazenamento do Azure](../storage/common/storage-performance-checklist.md)
 * Banco de dados SQL do Azure: é possível [monitorar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar o percentual DTU (unidade de transação do banco de dados)
 * SQL Data Warehouse do Azure: Sua capacidade é medida em unidades de data warehouse (DWUs); consulte [Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6da9a8e3f9f8ac851c2a8deb861ac1d0b3ec5874
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Ciência de dados na Máquina Virtual da Ciência de Dados do Linux
@@ -44,7 +44,7 @@ O conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/sp
 >
 >
 
-Se você precisar de mais espaço de armazenamento, poderá criar discos adicionais e anexá-los à sua VM. Esses discos usam o armazenamento persistente do Azure para que seus dados sejam preservados mesmo quando o servidor é provisionado novamente devido ao redimensionamento ou é desligado. Para adicionar um disco e anexá-lo à sua VM, siga as instruções em [Adicionar um disco a uma VM do Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam a Interface de Linha de Comando do Azure (Azure CLI), que já está instalada na DSVM. Então, esses procedimentos podem ser feitos inteiramente na própria VM. Outra opção para aumentar o armazenamento é usar os [arquivos do Azure](../storage/storage-how-to-use-files-linux.md).
+Se você precisar de mais espaço de armazenamento, poderá criar discos adicionais e anexá-los à sua VM. Esses discos usam o armazenamento persistente do Azure para que seus dados sejam preservados mesmo quando o servidor é provisionado novamente devido ao redimensionamento ou é desligado. Para adicionar um disco e anexá-lo à sua VM, siga as instruções em [Adicionar um disco a uma VM do Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam a Interface de Linha de Comando do Azure (Azure CLI), que já está instalada na DSVM. Então, esses procedimentos podem ser feitos inteiramente na própria VM. Outra opção para aumentar o armazenamento é usar os [arquivos do Azure](../storage/files/storage-how-to-use-files-linux.md).
 
 Para baixar os dados, abra uma janela do terminal e execute este comando:
 

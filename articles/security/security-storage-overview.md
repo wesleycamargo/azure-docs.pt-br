@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral da segurança do armazenamento do Azure
@@ -31,7 +31,7 @@ O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativ
 * O acesso delegado aos objetos de dados no Armazenamento do Azure pode ser concedido usando Assinaturas de Acesso Compartilhado.
 * O método de autenticação usado por alguém ao acessar o armazenamento pode ser acompanhado usando a análise de Armazenamento.
 
-Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, confira o [Guia de segurança do Armazenamento do Azure](../storage/storage-security-guide.md). Este guia fornece uma visão aprofundada dos recursos de segurança do Armazenamento do Azure, como chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
+Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, confira o [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia fornece uma visão aprofundada dos recursos de segurança do Armazenamento do Azure, como chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
 
 Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que apresentam detalhes de cada recurso para que você possa saber mais sobre eles.
 
@@ -56,15 +56,15 @@ Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recurso
 
 Saiba mais:
 
-* [Noções básicas sobre o modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Criar e usar um SAS com o armazenamento de Blobs](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Noções básicas sobre o modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Criar e usar um SAS com o armazenamento de Blobs](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o Armazenamento do Azure, você pode proteger dados usando:
 
-* [Criptografia de nível de transporte](../storage/storage-security-guide.md#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
-* [Criptografia na transmissão](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
-* [Criptografia do cliente](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
+* [Criptografia de nível de transporte](../storage/common/storage-security-guide.md#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
+* [Criptografia na transmissão](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
+* [Criptografia do cliente](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
 Saiba mais sobre a criptografia do cliente:
 
@@ -74,14 +74,14 @@ Saiba mais sobre a criptografia do cliente:
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
 
-* [Criptografia do Serviço de Armazenamento](../storage/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
-* [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
-* [Azure Disk Encryption](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+* [Criptografia do Serviço de Armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
+* [Client-side Encryption](../storage/common/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
+* [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
 Saiba mais sobre a Criptografia do Serviço de Armazenamento:
 
 * A [Criptografia do Serviço Azure Storage](https://azure.microsoft.com/services/storage/) está disponível para [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Para obter detalhes sobre outros tipos de armazenamento do Azure, confira [Arquivo](https://azure.microsoft.com/services/storage/files/), [Disco (Armazenamento Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [Tabela](https://azure.microsoft.com/services/storage/tables/) e [Fila](https://azure.microsoft.com/services/storage/queues/).
-* [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/storage-service-encryption.md)
+* [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
 O Azure Disk Encryption para VMs (Máquinas Virtuais) o ajuda a atender aos requisitos de conformidade e segurança organizacionais criptografando os discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas no [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/).

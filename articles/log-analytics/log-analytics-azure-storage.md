@@ -16,10 +16,10 @@ ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 79122493a8639dba1c1d6c92072dd682dae040a7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Coletar logs e as métricas do serviço do Azure para uso no Log Analytics
@@ -71,7 +71,7 @@ Muitos recursos do Azure são capazes de gravar logs de diagnóstico e métricas
 Os recursos do Azure que dão suporte ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pode enviar os logs e métricas diretamente para o Log Analytics.
 
 * Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs).
+* Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Habilitar diagnóstico com PowerShell
 Você precisa da versão de novembro de 2016 (v2.3.0) ou posterior do [Azure PowerShell](/powershell/azure/overview).

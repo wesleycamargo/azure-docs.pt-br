@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Tecnologias e serviços de segurança do Azure
@@ -36,12 +36,12 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 * [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Segurança do Armazenamento do Azure
-* [Criptografia do serviço de armazenamento do Azure](../storage/storage-service-encryption.md)
+* [Criptografia do serviço de armazenamento do Azure](../storage/common/storage-service-encryption.md)
 * [Armazenamento híbrido criptografado StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Criptografia do lado do cliente do Azure](../storage/storage-client-side-encryption.md)
-* [Assinaturas de Acesso Compartilhado do Armazenamento do Azure](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Chaves de conta de armazenamento do Azure](../storage/storage-create-storage-account.md)
-* [Compartilhamentos de arquivos do Azure com criptografia SMB 3.0](../storage/storage-dotnet-how-to-use-files.md)
+* [Criptografia do lado do cliente do Azure](../storage/common/storage-client-side-encryption.md)
+* [Assinaturas de Acesso Compartilhado do Armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Chaves de conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
+* [Compartilhamentos de arquivos do Azure com criptografia SMB 3.0](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Análise do Armazenamento do Azure](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Segurança de banco de dados do Azure

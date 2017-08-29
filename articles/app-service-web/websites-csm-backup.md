@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ad2911f809a17e4a6c0f2fe9087e1d9eb2da39e
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c1b8fc3be3af46279bf35bddbc82acf1827b9eb9
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo
@@ -58,7 +58,7 @@ Para fazer backup de um aplicativo imediatamente, envie uma solicitação **POST
 
 Esta é a aparência da URL quando usamos nosso site de exemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-Forneça um objeto JSON no corpo da solicitação para especificar qual conta de armazenamento deve ser usada para armazenar o backup. O objeto JSON deve ter uma propriedade chamada **storageAccountUrl**, que mantém uma [URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) concedendo acesso de gravação ao contêiner de Armazenamento do Azure que armazena o blob de backup. Se você quiser fazer backup de seus bancos de dados, também deverá fornecer uma lista contendo os nomes, tipos e cadeias de conexão dos bancos de dados a ser copiado em backup.
+Forneça um objeto JSON no corpo da solicitação para especificar qual conta de armazenamento deve ser usada para armazenar o backup. O objeto JSON deve ter uma propriedade chamada **storageAccountUrl**, que mantém uma [URL SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) concedendo acesso de gravação ao contêiner de Armazenamento do Azure que armazena o blob de backup. Se você quiser fazer backup de seus bancos de dados, também deverá fornecer uma lista contendo os nomes, tipos e cadeias de conexão dos bancos de dados a ser copiado em backup.
 
 ```
 {
@@ -183,13 +183,13 @@ O corpo da resposta contém um objeto JSON parecido com este exemplo.
 O status de um backup é um tipo enumerado. Veja abaixo cada estado possível.
 
 * 0 – InProgress: o backup foi iniciado, mas ainda não foi concluído.
-* 1 – Failed: o backup não foi bem-sucedido.
+* 1 – Failed: o backup foi malsucedido.
 * 2 – Succeeded: o backup foi concluído com êxito.
 * 3 – TimedOut: o backup não foi concluído dentro do prazo e foi cancelado.
 * 4 – Created: a solicitação de backup está na fila, mas ele não foi iniciado.
-* 5 – Skipped: o backup não prosseguiu devido a uma agenda que disparou muitos backups.
-* 6 – PartiallySucceeded: o backup foi bem-sucedido, mas alguns arquivos não foram copiados no backup, pois não puderam ser lidos. Isso geralmente ocorre devido a um bloqueio exclusivo dos arquivos.
-* 7 – DeleteInProgress: a exclusão do backup foi solicitada, mas ele ainda não foi excluído.
+* 5 – Skipped: o backup não continuou devido a um cronograma iniciando muitos backups.
+* 6 – PartiallySucceeded: o backup foi bem-sucedido, mas alguns arquivos não foram copiados porque não puderam ser lidos. Isso geralmente ocorre porque havia um bloqueio exclusivo nos arquivos.
+* 7 – DeleteInProgress: foi solicitada uma exclusão do backup, mas este ainda não foi excluído.
 * 8 - DeleteFailed: não foi possível excluir o backup. Isso pode acontecer porque a URL do SAS usada para criar o backup expirou.
 * 9 – Deleted: o backup foi excluído com êxito.
 

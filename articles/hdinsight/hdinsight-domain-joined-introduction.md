@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio (visualização)
@@ -52,7 +51,7 @@ Uma prática recomendada, seguida pela maioria das empresas, é que nem todos os
 Além de proteger os recursos de cluster do HDInsight contra usuários não autorizados e proteger os dados, é necessário fazer a auditoria de todo o acesso a recursos de cluster e a dados para rastrear acesso não autorizado ou não intencional aos recursos. Com essa visualização, o administrador pode exibir e relatar todo o acesso aos recursos de cluster do HDInsight e dados. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso feitas nos pontos de extremidade do Apache Ranger com suporte. Um cluster HDInsight associado a um domínio usa a interface do usuário familiar do Apache Ranger para pesquisar logs de auditoria. No back-end, o Ranger usa o [Apache Solr](http://hortonworks.com/apache/solr/) para armazenar e pesquisar os logs.
 
 ### <a name="encryption"></a>Criptografia
-A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../storage/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em capacidade em repouso.
+A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em capacidade em repouso.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](hdinsight-domain-joined-configure.md).

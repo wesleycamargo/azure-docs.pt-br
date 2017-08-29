@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a7370598dd6570d2e124ed2a10d92cfcd1d5087a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="download-a-windows-vhd-from-azure"></a>Baixar um VHD do Windows Azure
 
-Neste artigo, você aprenderá a baixar um arquivo [VHD (disco rígido virtual do Windows)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do Azure usando o portal do Azure. 
+Neste artigo, você aprenderá a baixar um arquivo [VHD (disco rígido virtual do Windows)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do Azure usando o portal do Azure. 
 
-As VMs (máquinas virtuais) do Azure usam [discos](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como locais para armazenar um sistema operacional, aplicativos e dados. Todas as VMs do Azure têm, pelo menos, dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é inicialmente criado com base em uma imagem, e tanto o disco do sistema operacional quanto a imagem são VHDs armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs.
+As VMs (máquinas virtuais) do Azure usam [discos](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como locais para armazenar um sistema operacional, aplicativos e dados. Todas as VMs do Azure têm, pelo menos, dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é inicialmente criado com base em uma imagem, e tanto o disco do sistema operacional quanto a imagem são VHDs armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs.
 
 ## <a name="stop-the-vm"></a>Pare a VM.
 
@@ -52,7 +52,7 @@ Para usar o VHD como um disco de uma nova instância de uma VM existente ou um d
 
 ## <a name="generate-sas-url"></a>Gerar a URL de SAS
 
-Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de acesso compartilhado)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando a URL é gerada, uma hora de expiração é atribuída à URL.
+Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando a URL é gerada, uma hora de expiração é atribuída à URL.
 
 1.  No menu da folha da VM, clique em **Discos**.
 2.  Selecione o disco do sistema operacional da VM e clique em **Exportar**.
@@ -79,7 +79,7 @@ Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de ac
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [carregar um arquivo VHD no Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Criar discos gerenciados de discos não gerenciados em uma conta de armazenamento](create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Criar discos gerenciados de discos não gerenciados em uma conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Gerenciar discos do Azure com o PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Usar o PowerShell para fazer backup e restaurar aplicativos do Serviço de Aplicativo
@@ -34,7 +33,7 @@ Saiba como usar o Azure PowerShell para fazer backup e restaurar [aplicativos do
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o PowerShell para gerenciar os backups do seu aplicativo, você precisa do seguinte:
 
-* **Um URL de SAS** que permite o acesso de leitura e gravação a um contêiner do Armazenamento do Azure. Consulte [Noções básicas do modelo de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) para ver uma explicação sobre URLs SAS. Consulte [Usar o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md) para obter exemplos de gerenciamento do Armazenamento do Azure usando o PowerShell.
+* **Um URL de SAS** que permite o acesso de leitura e gravação a um contêiner do Armazenamento do Azure. Consulte [Noções básicas do modelo de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para ver uma explicação sobre URLs SAS. Consulte [Usar o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) para obter exemplos de gerenciamento do Armazenamento do Azure usando o PowerShell.
 * **Uma cadeia de conexão de banco de dados** se você quiser fazer backup de um banco de dados junto com seu aplicativo Web.
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Como gerar uma URL SAS para usar com os cmdlets do backup do aplicativo Web

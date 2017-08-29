@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -46,7 +46,7 @@ Poste comentários no final do artigo ou faça perguntas técnicas no [Fórum do
 **Conta do Azure** | Uma conta do [Microsoft Azure](http://azure.microsoft.com/) .<br/><br/> Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 **Serviço do Site Recovery** | Para obter mais informações sobre os preços do Site Recovery, consulte [Preços do Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/). É recomendável que você crie um cofre de serviços de recuperação na região de destino do Azure que você deseja usar como um local de recuperação de desastres. Por exemplo, se sua fonte de VMs está sendo executada no Leste dos EUA, e você deseja replicar para o centro dos EUA, recomendamos que você crie o cofre no centro dos EUA.|
 **Capacidade do Azure** | Para o destino de uma região do Azure que você deseja usar como o local de recuperação de desastres, você precisa ter uma assinatura com capacidade suficiente para máquinas virtuais, contas de armazenamento e componentes de rede. Você pode contatar o suporte para aumentar a capacidade.
-**Diretrizes de armazenamento** | Certifique-se de que você siga as [diretrizes de armazenamento](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) para as suas máquinas virtuais do Azure de origem a fim de evitar quaisquer problemas de desempenho. Se você seguir as configurações padrão, a recuperação de Site cria as contas de armazenamento necessárias com base na configuração de fonte. Se você personalizar e selecionar suas próprias configurações, certifique-se de que você siga os [destinos de escalabilidade para discos de máquina virtual](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Diretrizes de armazenamento** | Certifique-se de que você siga as [diretrizes de armazenamento](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) para as suas máquinas virtuais do Azure de origem a fim de evitar quaisquer problemas de desempenho. Se você seguir as configurações padrão, a recuperação de Site cria as contas de armazenamento necessárias com base na configuração de fonte. Se você personalizar e selecionar suas próprias configurações, certifique-se de que você siga os [destinos de escalabilidade para discos de máquina virtual](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 **Diretrizes de rede** | Você precisa permitir a conectividade de saída da sua VM do Azure para intervalos de IP ou URLs específicas. Para obter mais informações, consulte o artigo [Diretrizes de rede para replicação de máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md).
 **VM do Azure** | Certifique-se de que todos os certificados raiz mais recentes estão presentes na VM do Linux ou Windows. Se os certificados raiz mais recentes não estiverem presentes, a VM não poderá ser registrada para a recuperação de Site devido a restrições de segurança.
 

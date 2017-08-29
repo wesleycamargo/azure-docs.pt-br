@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a91122759bea12631fb83d631b21728d5a8f7403
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa90a1d017af5f477407ab33f0580904472f412b
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>Provisionar uma máquina virtual SQL Server usando o Azure PowerShell (Gerenciador de Recursos)
@@ -69,7 +68,7 @@ Modifique conforme desejado e, em seguida, execute os seguintes cmdlets para ini
 ### <a name="storage-properties"></a>Propriedades de armazenamento
 Use as seguintes variáveis para definir a conta de armazenamento e o tipo de armazenamento a ser usado pela máquina virtual.
 
-Modifique conforme desejado e, em seguida, execute o seguinte cmdlet para inicializar essas variáveis. Observe que, neste exemplo estamos usando o [Armazenamento Premium](../../../storage/storage-premium-storage.md), que é recomendado para cargas de trabalho de produção. Para obter detalhes sobre essas diretrizes e outras recomendações, confira [Melhores práticas para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
+Modifique conforme desejado e, em seguida, execute o seguinte cmdlet para inicializar essas variáveis. Observe que, neste exemplo estamos usando o [Armazenamento Premium](../../../storage/common/storage-premium-storage.md), que é recomendado para cargas de trabalho de produção. Para obter detalhes sobre essas diretrizes e outras recomendações, confira [Melhores práticas para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageSku = "Premium_LRS"

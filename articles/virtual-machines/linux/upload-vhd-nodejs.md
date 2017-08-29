@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Carregar e criar uma VM Linux com base em uma imagem de disco personalizada usando a CLI 1.0 do Azure
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-As VMs são armazenadas como blobs de páginas em uma conta de armazenamento. Leia mais sobre o [armazenamento de blobs do Azure aqui](../../storage/storage-introduction.md#blob-storage). Você cria uma conta de armazenamento para suas VMs e imagem de disco personalizadas. Todas as VMs criadas com base na imagem de disco personalizada precisam estar na mesma conta de armazenamento que a imagem.
+As VMs são armazenadas como blobs de páginas em uma conta de armazenamento. Leia mais sobre o [armazenamento de blobs do Azure aqui](../../storage/common/storage-introduction.md#blob-storage). Você cria uma conta de armazenamento para suas VMs e imagem de disco personalizadas. Todas as VMs criadas com base na imagem de disco personalizada precisam estar na mesma conta de armazenamento que a imagem.
 
 O exemplo a seguir cria uma conta de armazenamento denominada `mystorageaccount` no grupo de recursos criado anteriormente:
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>Listar chaves da conta de armazenamento
-O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas durante a autenticação na conta de armazenamento, por exemplo, para executar operações de gravação. Leia mais sobre [como gerenciar o acesso ao armazenamento aqui](../../storage/storage-create-storage-account.md#manage-your-storage-account). É possível exibir as chaves de acesso com o comando `azure storage account keys list` .
+O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas durante a autenticação na conta de armazenamento, por exemplo, para executar operações de gravação. Leia mais sobre [como gerenciar o acesso ao armazenamento aqui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). É possível exibir as chaves de acesso com o comando `azure storage account keys list` .
 
 Veja as chaves de acesso da conta de armazenamento que você criou:
 

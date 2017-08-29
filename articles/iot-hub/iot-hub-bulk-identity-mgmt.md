@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
@@ -72,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
-Use o método **ExportDevicesAsync** para exportar todo o registro de identidade de um Hub IoT para um contêiner de blobs do [Armazenamento do Azure](../storage/index.md) usando uma [Assinatura de Acesso Compartilhado](../storage/storage-security-guide.md#data-plane-security).
+Use o método **ExportDevicesAsync** para exportar todo o registro de identidade de um Hub IoT para um contêiner de blobs do [Armazenamento do Azure](../storage/index.md) usando uma [Assinatura de Acesso Compartilhado](../storage/common/storage-security-guide.md#data-plane-security).
 
 Esse método permite criar backups confiáveis das informações do dispositivo em um contêiner de blobs controlado por você.
 
@@ -372,7 +371,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contêiner
 
-O exemplo de código a seguir mostra como gerar um [URI SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) com as permissões de leitura, gravação e exclusão para um contêiner de blobs:
+O exemplo de código a seguir mostra como gerar um [URI SAS](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) com as permissões de leitura, gravação e exclusão para um contêiner de blobs:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

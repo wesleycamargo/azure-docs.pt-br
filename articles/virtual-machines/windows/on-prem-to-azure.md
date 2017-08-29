@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 24ee84bdd1c795d6354bb5cb8fe397b078e7c51f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 685c35dbd4265ca6852de6db2e5a30fc2a611d7c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -50,9 +49,9 @@ Você pode carregar VHDs especializados e generalizados.
 
 O Azure Managed Disks simplifica o gerenciamento de VM, eliminando a necessidade de gerenciar contas de armazenamento. O Managed Disks também fornece melhor confiabilidade de VMs em um conjunto de disponibilidade. Isso garante que discos de VMs diferentes em um conjunto de disponibilidade são suficientemente isolados uns dos outros a fim de evitar pontos de falhas. Ele coloca automaticamente os discos de VMs diferentes em um conjunto de disponibilidade em unidades de escala (carimbos) de armazenamentos diferentes, o que limita o impacto de falhas em uma única unidade de escala de armazenamento causadas por falhas de hardware e de software. Com base em suas necessidades, você pode escolher entre dois tipos de opções de armazenamento: 
  
-- Os [Managed Disks Premium](../../storage/storage-premium-storage.md) são uma mídia de armazenamento com base em unidade de estado sólido (SSD), que fornece alto desempenho, suporte a disco de baixa latência para máquinas virtuais com cargas de trabalho de E/S intensas. Você pode aproveitar a velocidade e do desempenho desses discos migrando para os Managed Disks Premium.  
+- Os [Managed Disks Premium](../../storage/common/storage-premium-storage.md) são uma mídia de armazenamento com base em unidade de estado sólido (SSD), que fornece alto desempenho, suporte a disco de baixa latência para máquinas virtuais com cargas de trabalho de E/S intensas. Você pode aproveitar a velocidade e do desempenho desses discos migrando para os Managed Disks Premium.  
 
-- Os [Managed Disks Standard](../../storage/storage-standard-storage.md) usam mídia de armazenamento com base em unidade de disco rígido (HDD) e são apropriados para desenvolvimento/teste e outras cargas de trabalho de acesso infrequente menos sensíveis à variabilidade de desempenho.  
+- Os [Managed Disks Standard](../../storage/common/storage-standard-storage.md) usam mídia de armazenamento com base em unidade de disco rígido (HDD) e são apropriados para desenvolvimento/teste e outras cargas de trabalho de acesso infrequente menos sensíveis à variabilidade de desempenho.  
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Como planejar a migração para os Managed Disks
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -500,7 +500,7 @@ Muitos aspectos da implantação devem ser considerados ao decidir sobre um tama
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Máquinas virtuais podem ter um ou mais [discos de dados](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que são armazenados como VHDs.
+Máquinas virtuais podem ter um ou mais [discos de dados](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que são armazenados como VHDs.
 
 1. Para adicionar um disco de dados à máquina virtual, adicione essa função após as variáveis no arquivo .py: 
 

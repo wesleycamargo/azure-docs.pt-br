@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -164,7 +164,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.  
 
-1. Adicione armazenamento à máquina virtual. Para obter informações detalhadas, confira [adicionar armazenamento](../../../storage/storage-premium-storage.md).
+1. Adicione armazenamento à máquina virtual. Para obter informações detalhadas, confira [adicionar armazenamento](../../../storage/common/storage-premium-storage.md).
 
    As duas máquinas virtuais precisam de pelo menos dois discos de dados.
 

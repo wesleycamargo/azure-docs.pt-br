@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +38,7 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
     As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Ao executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de quatro núcleos), você poderá escalar verticalmente outras implantações de serviço de nuvem na sua assinatura pelos 16 núcleos restantes. Para saber mais sobre os tamanhos, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
 
-* Você deve criar uma fila e associá-la a uma função antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](../storage/storage-dotnet-how-to-use-queues.md)(a página pode estar em inglês).
+* Você deve criar uma fila e associá-la a uma função antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](../storage/queues/storage-dotnet-how-to-use-queues.md)(a página pode estar em inglês).
 
 * Você pode dimensionar recursos vinculados ao seu serviço de nuvem. Para obter mais informações sobre a vinculação de recursos, consulte [Como vincular um recurso a um serviço de nuvem](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 

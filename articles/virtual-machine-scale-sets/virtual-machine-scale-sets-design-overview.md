@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6dbd4f22e3e949e19565030f5a10f545b89a0a3c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
@@ -51,7 +51,7 @@ Por outro lado, alguns recursos só estão disponíveis em VMs (pelo menos por e
 ## <a name="storage"></a>Armazenamento
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de dimensionamento com Azure Managed Disks
-Conjuntos de dimensionamento podem ser criados com [Azure Managed Disks](../storage/storage-managed-disks-overview.md), em vez de contas de armazenamento do Azure tradicionais. Os Managed Disks oferecem os seguintes benefícios:
+Conjuntos de dimensionamento podem ser criados com [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), em vez de contas de armazenamento do Azure tradicionais. Os Managed Disks oferecem os seguintes benefícios:
 - Você não precisa criar previamente um conjunto de contas de armazenamento do Azure para VMs de conjunto de dimensionamento.
 - Você pode definir [discos de dados anexados](virtual-machine-scale-sets-attached-disks.md) para as VMs no seu conjunto de dimensionamento.
 - Conjuntos de dimensionamento podem ser configurados para [oferecer suporte a até 1.000 VMs em um conjunto](virtual-machine-scale-sets-placement-groups.md). 

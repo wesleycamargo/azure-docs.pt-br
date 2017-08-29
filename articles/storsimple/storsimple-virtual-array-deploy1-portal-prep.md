@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
@@ -144,7 +144,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 Esta é uma etapa opcional e deve ser executada somente se você não habilitou a criação automática de uma conta de armazenamento com seu serviço.
 
-Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para obter instruções passo a passo.
+Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para obter instruções passo a passo.
 
 Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na página do serviço Gerenciador de Dispositivos StorSimple para adicionar uma conta de armazenamento do Microsoft Azure existente.
 

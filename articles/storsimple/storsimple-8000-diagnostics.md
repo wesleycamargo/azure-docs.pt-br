@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
@@ -389,7 +388,7 @@ Para usar essa ferramenta, siga as seguintes etapas:
 
     Se as latências de leitura/gravação relatadas pela ferramenta de diagnóstico forem altas:
 
-    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/storage-enable-and-view-metrics-classic-portal.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
+    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/common/storage-enable-and-view-metrics.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
 
     2. Se as latências da conta de armazenamento forem baixas, entre em contato com o administrador de rede para investigar problemas de latência na sua rede.
 
