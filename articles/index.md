@@ -4,10 +4,10 @@ hide_bc: true
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 745c7bdc2898d20ac361f4d0fb92b4c1313a89f1
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 <div id="main" class="v2">
@@ -499,7 +499,7 @@ ms.lasthandoff: 08/02/2017
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>Rota Expressa</p>
+                                                <p>ExpressRoute</p>
                                             </a>
                                         </li>
                                         <li>
@@ -699,6 +699,30 @@ ms.lasthandoff: 08/02/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                <p>Armazenamento de Blob</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Discos</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>Armazenamento de arquivo</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>Armazenamento de Filas</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
@@ -721,7 +745,7 @@ ms.lasthandoff: 08/02/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Dados e Análises</h3>
                                     <ul>
@@ -919,7 +943,7 @@ ms.lasthandoff: 08/02/2017
                                         <li>
                                             <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Engajamento Móvel</p>
+                                                <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1040,6 +1064,12 @@ ms.lasthandoff: 08/02/2017
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Gerenciador de Recursos do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Grade de Eventos do Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1176,7 +1206,7 @@ ms.lasthandoff: 08/02/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Executar trabalhos de computação usando contêineres</p>
+                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1440,6 +1470,82 @@ ms.lasthandoff: 08/02/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Armazenamento de Blob</h3>
+                                                    <p>Armazenamento de objetos extremamente escalonável para dados não estruturados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Discos</h3>
+                                                    <p>Armazenamento de discos para VMs</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Armazenamento de arquivo</h3>
+                                                    <p>Sistema de arquivos simples, distribuído e de plataforma cruzada</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/queues/storage-queues-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Armazenamento de Filas</h3>
+                                                    <p>Filas duráveis para serviços de nuvem em grande volume</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1514,7 +1620,7 @@ ms.lasthandoff: 08/02/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -1664,7 +1770,7 @@ ms.lasthandoff: 08/02/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Engajamento Móvel</h3>
+                                                    <h3>Mobile Engagement</h3>
                                                     <p>Aumentar o uso do aplicativo e a retenção do usuário</p>
                                                 </div>
                                             </div>
@@ -1784,7 +1890,7 @@ ms.lasthandoff: 08/02/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Executar trabalhos de computação usando contêineres</p>
+                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3060,6 +3166,25 @@ ms.lasthandoff: 08/02/2017
                                                 <div class="cardText">
                                                     <h3>Gerenciador de Recursos do Azure</h3>
                                                     <p>Implantar e gerenciar os recursos do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Grade de Eventos do Azure</h3>
+                                                    <p>Obter uma entrega de eventos confiável em grande escala</p>
                                                 </div>
                                             </div>
                                         </div>
