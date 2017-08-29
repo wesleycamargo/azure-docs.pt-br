@@ -1,5 +1,5 @@
 ---
-title: Configurar o ambiente de desenvolvimento no Mac OS X | Microsoft Docs
+title: Configurar o ambiente de desenvolvimento no Mac OS X para funcionar com o Azure Service Fabric | Microsoft Docs
 description: "Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Mac OS X."
 services: service-fabric
 documentationcenter: java
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
@@ -51,7 +51,6 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
     ```
     Essas etapas trazem o arquivo `Vagrantfile` que contém a configuração da VM juntamente com o local de onde a VM é baixada.
 
-
 2. Navegue até o clone local do repositório
 
     ```bash
@@ -75,24 +74,46 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
 
     ![A configuração do cluster começa após o provisionamento da VM][cluster-setup-script]
 
->[!TIP]
-> Se o download da VM está demorando muito, você pode baixá-la usando wget ou curl, ou, em um navegador, acessando o link especificado por **config.vm.box_url** no arquivo `Vagrantfile`. Depois de baixá-lo localmente, edite `Vagrantfile` para apontar para o caminho local onde você baixou a imagem. Por exemplo se você baixou a imagem /home/users/test/azureservicefabric.tp8.box, em seguida, defina **config.vm.box_url** para esse caminho.
->
+    >[!TIP]
+    > Se o download da VM está demorando muito, você pode baixá-la usando wget ou curl, ou, em um navegador, acessando o link especificado por **config.vm.box_url** no arquivo `Vagrantfile`. Depois de baixá-lo localmente, edite `Vagrantfile` para apontar para o caminho local onde você baixou a imagem. Por exemplo se você baixou a imagem /home/users/test/azureservicefabric.tp8.box, em seguida, defina **config.vm.box_url** para esse caminho.
+    >
 
 5. Teste se o cluster foi configurado corretamente navegando até o Service Fabric Explorer em http://192.168.50.50:19080/Explorer (supondo que você manteve o IP da rede privada padrão).
 
     ![Service Fabric Explorer exibido a partir do Mac de host][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Criar um aplicativo Mac usando Yeoman
+O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo do Service Fabric no terminal usando gerador de modelos Yeoman. Execute as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric funcionando em seu computador.
+
+1. Node.js e NPM precisam estar instalados em seu mac. Se não for possível instalar o Node.js e o NPM usando Homebrew, faça o seguinte. Para verificar as versões do Node.js e do NPM instaladas em seu Mac, use a opção ``-v``.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) em seu computador a partir do NPM
+
+  ```bash
+  npm install -g yo
+  ```
+3. Instale o gerador do Yeoman que você deseja usar, executando as etapas na [documentação](service-fabric-get-started-linux.md) do guia de introdução. Para criar Aplicativos do Service Fabric usando Yeoman, execute as etapas -
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Para compilar um aplicativo Java do Service Fabric no Mac, você precisaria do JDK 1.8 e Gradle instalado no computador.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalar o plug-in do Service Fabric para o Eclipse Neon
 
 O Service Fabric fornece um plug-in para o **Eclipse Neon para Java IDE** que pode simplificar o processo de criação e implantação dos serviços Java. Você pode seguir as etapas de instalação mencionadas nesta [documentação](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) geral sobre como instalar ou atualizar o plug-in Eclipse do Service Fabric.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Uso do plug-in Eclipse do Service Fabric no Mac
-
-Verifique se você passou por todas as etapas mencionadas na [documentação do plug-in Eclipse do Service Fabric](service-fabric-get-started-eclipse.md). As etapas para criar, desenvolver e implantar aplicativos Java do Service Fabric usando o contêiner vagrant-guest em um host do Mac geralmente são iguais às da documentação geral, exceto os itens abaixo:
-
-* Como as bibliotecas do Service Fabric são exigidas para seu aplicativo Java do Service Fabric, o projeto do eclipse deve ser criado em um caminho compartilhado. Por padrão, o conteúdo no caminho no seu host onde o ``Vagrantfile`` existe é compartilhado com o caminho do ``/vagrant`` no convidado.
-* Se você tiver o ``Vagrantfile`` em um caminho, digamos, ``~/home/john/allprojects/``, precisará criar seu projeto do Service Fabric ``MyActor`` no local ``~/home/john/allprojects/MyActor`` e o caminho para que seu espaço de trabalho do eclipse seja ``~/home/john/allprojects``.
+>[!TIP]
+> Por padrão, oferecemos suporte a IP padrão, conforme mencionado no ``Vagrantfile`` no ``Local.json`` do aplicativo gerado. No caso de você alterá-lo e implantar o Vagrant com um IP diferente, atualize o IP correspondente no ``Local.json`` de seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 <!-- Links -->

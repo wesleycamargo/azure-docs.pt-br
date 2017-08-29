@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
-Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Você aprenderá a usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
+Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Saiba como usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
@@ -74,7 +74,7 @@ Seu serviço de nuvem pode conter funções implementadas em diferentes idiomas.
 
 O principal problema com os scripts de instalação é que eles não instalam o python. Primeiro, defina duas [tarefas de inicialização](cloud-services-startup-tasks.md) no arquivo [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). A primeira tarefa (**PrepPython.ps1**) baixa e instala o tempo de execução do Python. A segunda tarefa (**PipInstaller.ps1**) executa o pip para instalar todas as dependências que possam existir.
 
-Os scripts abaixo foram escritos para o Python 3.5. Se você quiser usar a versão 2. x do python, defina o arquivo da variável **PYTHON2** como **ativado** para as duas tarefas de inicialização e a tarefa de tempo de execução: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+Os scripts a seguir foram escritos para o Python 3.5. Se você quiser usar a versão 2. x do python, defina o arquivo da variável **PYTHON2** como **ativado** para as duas tarefas de inicialização e a tarefa de tempo de execução: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -305,7 +305,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 ## <a name="run-locally"></a>Executar localmente
 Se você configurar seu projeto de serviço de nuvem como o projeto de inicialização e pressionar F5, o serviço de nuvem será executado no emulador do Azure local.
 
-Embora o PTVS ofereça suporte à inicialização no emulador, a depuração (por exemplo, pontos de interrupção) não funcionará.
+Embora o PTVS ofereça suporte à inicialização no emulador, a depuração (por exemplo, pontos de interrupção) não funciona.
 
 Para depurar suas funções Web e de Trabalho, você pode configurar o projeto de funções como o projeto de inicialização e depurá-lo.  Você também pode definir vários projetos de inicialização.  Clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**.
 
@@ -320,21 +320,21 @@ Siga o assistente. Se for necessário, habilite a área de trabalho remota. A á
 
 Quando tiver concluído os ajustes de configurações, clique em **Publicar**.
 
-Algum progresso aparecerá na janela de saída e, então, você verá a janela Log de atividade do Microsoft Azure.
+Algum progresso aparece na janela de saída e, então, você verá a janela Log de Atividades do Microsoft Azure.
 
 ![Janela Log de atividade do Microsoft Azure](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-A implantação levará alguns minutos para ser concluída; em seguida, suas funções Web e/ou de Trabalho serão executadas no Azure!
+A implantação levará alguns minutos para ser concluída; em seguida, suas funções Web e/ou de trabalho serão executadas no Azure!
 
 ### <a name="investigate-logs"></a>Investigar os logs
-Depois que a máquina virtual do serviço de nuvem for iniciada e instalar o Python, você poderá examinar os logs para encontrar alguma mensagem de falha. Esses logs estão localizados na pasta **C:\Resources\Directory\\{função}\LogFiles**. **PrepPython.err.txt** terá pelo menos um erro de quando o script tenta detectar se o Python está instalado e **PipInstaller.err.txt** pode reclamar sobre uma versão desatualizada do pip.
+Depois que a máquina virtual do serviço de nuvem for iniciada e instalar o Python, você poderá examinar os logs para encontrar alguma mensagem de falha. Esses logs estão localizados na pasta **C:\Resources\Directory\\{função}\LogFiles**. **PrepPython.err.txt** tem pelo menos um erro de quando o script tenta detectar se o Python está instalado e **PipInstaller.err.txt** pode reclamar sobre uma versão desatualizada do pip.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações mais detalhadas sobre como usar funções Web e de trabalho nas Ferramentas Python para Visual Studio, consulte a documentação do PTVS:
 
 * [Projetos do Serviço de Nuvem][Cloud Service Projects]
 
-Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funções Web e de trabalho, como o uso do Armazenamento ou Barramento de Serviço do Azure, consulte os artigos a seguir.
+Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funções Web e de trabalho, como o uso do Armazenamento ou Barramento de Serviço do Azure, consulte os artigos a seguir:
 
 * [Serviço Blob][Blob Service]
 * [Serviço Tabela][Table Service]
@@ -350,9 +350,9 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
