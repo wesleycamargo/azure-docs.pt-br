@@ -4,7 +4,7 @@ description: Entenda como usar gatilhos de temporizador no Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"

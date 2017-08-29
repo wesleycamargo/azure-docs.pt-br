@@ -4,7 +4,7 @@ description: Saiba como criar bibliotecas de classes do .NET para uso com o Azur
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"

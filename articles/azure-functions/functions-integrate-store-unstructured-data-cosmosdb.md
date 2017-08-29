@@ -4,7 +4,7 @@ description: "Armazenar dados não estruturados usando o Azure Functions e o Cos
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, Cosmos DB, computação dinâmica, arquitetura sem servidor"

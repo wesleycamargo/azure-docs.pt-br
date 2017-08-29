@@ -4,7 +4,7 @@ description: "Aprenda a criar um modelo do Azure Resource Manager que implanta o
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, arquitetura sem servidores, infraestrutura como código, azure resource manager"

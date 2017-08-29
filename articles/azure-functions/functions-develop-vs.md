@@ -4,7 +4,7 @@ description: Saiba como desenvolver e testar o Azure Functions usando as Ferrame
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: functions
 ms.workload: na

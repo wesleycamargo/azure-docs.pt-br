@@ -4,7 +4,7 @@ description: "Use o Azure Functions para criar uma função sem servidor que é 
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded

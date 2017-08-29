@@ -4,7 +4,7 @@ description: "Entenda como usar gatilhos e associações do Armazenamento do Azu
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"

@@ -4,7 +4,7 @@ description: "Compreenda como usar o Azure Functions para otimizar cargas de tra
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
