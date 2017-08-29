@@ -4,7 +4,7 @@ description: "Saiba como codificar e testar o Azure Functions no computador loca
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions

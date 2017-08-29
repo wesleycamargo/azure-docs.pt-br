@@ -5,14 +5,14 @@ services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,8 +22,7 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 05/20/2017
 
 ---
-# Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
-<a id="azure-ad-self-service-password-reset-for-the-it-professional" class="xliff"></a>
+# <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
 
 "Autoatendimento" é um jargão usado em vários departamentos de TI em todo o mundo, mas com significados diferentes. O mercado está repleto de produtos que permitem o gerenciamento de grupos locais, senhas ou perfis de usuário na nuvem ou no local.
 
@@ -37,8 +36,7 @@ A SSPR (Redefinição de senha de autoatendimento) do Azure AD (Azure Active Dir
 
 Se você estiver pronto, comece com o Azure AD SSPR usando nosso [guia de início rápido](active-directory-passwords-getting-started.md) e faça com que seus usuários redefinam rapidamente suas próprias senhas.
 
-## O que é possível
-<a id="what-is-possible" class="xliff"></a>
+## <a name="what-is-possible"></a>O que é possível
 
 * **Alteração de senha por autoatendimento** permite que os usuários finais ou os administradores alterem suas senhas sem a assistência de um administrador
 * **Desbloqueio de conta por autoatendimento** permite aos usuários finais desbloqueiem suas próprias contas sem assistência do administrador
@@ -47,15 +45,13 @@ Se você estiver pronto, comece com o Azure AD SSPR usando nosso [guia de iníci
 * **Relatórios de atividade de gerenciamento de senha** fornecem aos administradores percepções sobre as atividades de registro e de redefinição de senha que ocorrem em suas organizações - [Relatórios de gerenciamento](active-directory-passwords-reporting.md)
 * **Write-back de senha** permite o gerenciamento de senhas locais na nuvem, de modo que todos os cenários acima possam ser executados por, ou em nome de, usuários federados ou sincronizados por senha. O Write-back de Senha exige o [Azure AD Premium](active-directory-get-started-premium.md).
 
-## Por que escolher a redefinição da senha por autoatendimento do Azure AD
-<a id="why-choose-azure-ad-self-service-password-reset" class="xliff"></a>
+## <a name="why-choose-azure-ad-self-service-password-reset"></a>Por que escolher a redefinição da senha por autoatendimento do Azure AD
 
 * **Reduzir os custos**, pois a redefinição de senha com auxílio do suporte ou da assistência técnica representa normalmente 20% dos gastos da organização de TI
 * **Aprimorar as experiências do usuário final** e **reduzir o volume da assistência técnica** fornecendo aos usuários finais a capacidade de resolver seus próprios problemas de senha, sem ligar para a assistência técnica ou abrir uma solicitação de suporte.
 * **Gerar mobilidade**, pois os usuários podem redefinir suas senhas onde quer que estejam.
 
-## Disponibilidade da redefinição da senha por autoatendimento do Azure AD
-<a id="azure-ad-self-service-password-reset-availability" class="xliff"></a>
+## <a name="azure-ad-self-service-password-reset-availability"></a>Disponibilidade da redefinição da senha por autoatendimento do Azure AD
 
 A redefinição de senha por autoatendimento do Azure AD está disponível em três camadas, dependendo de sua assinatura.
 
@@ -63,8 +59,7 @@ A redefinição de senha por autoatendimento do Azure AD está disponível em tr
 * **Azure AD Básico** ou qualquer **assinatura paga do O365**: usuários somente de nuvem e administradores somente de nuvem podem redefinir suas próprias senhas
 * **Azure AD Premium**: qualquer usuário ou administrador, incluindo somente nuvem, federado ou usuários com sincronização de senha, pode redefinir sua própria senha. As senhas locais exigem a habilitação do write-back de senha.
 
-## Redefinição de senha por autoatendimento do Azure AD, uma soma das partes
-<a id="azure-ad-self-service-password-reset-a-sum-of-the-parts" class="xliff"></a>
+## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Redefinição de senha por autoatendimento do Azure AD, uma soma das partes
 
 A redefinição de senha por autoatendimento no Azure AD é composta pelos seguintes componentes:
 
@@ -75,8 +70,7 @@ A redefinição de senha por autoatendimento no Azure AD é composta pelos segui
 * **Relatórios de gerenciamento de senha**, onde os administradores podem ver e analisar os relatórios de atividade de senhas de seus locatários no Portal do Azure
 * **Write-back de senha no local usando o Azure Connect AD** permite habilitar da nuvem o gerenciamento de usuários locais, federados ou sincronizados por senha
 
-## Preços do Azure AD, SLA, atualizações e roteiro
-<a id="azure-ad-pricing-sla-updates-and-roadmap" class="xliff"></a>
+## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Preços do Azure AD, SLA, atualizações e roteiro
 
 Encontre mais detalhes sobre esses tópicos nas páginas a seguir
 
@@ -87,8 +81,7 @@ Encontre mais detalhes sobre esses tópicos nas páginas a seguir
 * [**Atualizações do Azure**](https://azure.microsoft.com/updates/)
 * [**Roteiro do Azure**](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
