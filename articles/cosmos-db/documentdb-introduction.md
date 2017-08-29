@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introdução ao Azure Cosmos DB: API do DocumentDB
@@ -48,6 +48,8 @@ O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por me
 * **Aberto pelo design:** comece a usar o Banco de Dados de Documentos rapidamente, com habilidades e ferramentas já existentes. A programação da API do DocumentDB é simples, acessível e não requer a adoção de novas ferramentas nem a adesão de extensões personalizadas para JSON ou JavaScript. Você pode acessar toda a funcionalidade do banco de dados, incluindo CRUD, consulta e processamento do JavaScript em uma interface HTTP RESTful simples. A API do DocumentDB engloba formatos, linguagens e padrões existentes, além de oferecer recursos de banco de dados de alto valor.
 
 * **Indexação automática:** por padrão, o Azure Cosmos DB indexa automaticamente todos os documentos no banco de dados e não espera nem exige qualquer esquema ou criação de índices secundários. Não deseja indexar tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](indexing-policies.md) .
+
+* **Suporte ao feed de alterações:** o feed de alterações fornece uma lista classificada de documentos em uma coleção do Azure Cosmos DB na ordem em que eles foram modificados. Este feed pode ser usado para escutar as modificações nos dados para replicar dados, disparar chamadas de API ou executar o processamento de fluxo em atualizações. O feed de alterações é habilitado automaticamente e fácil de usar: [saiba mais sobre o feed de alterações](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>Como gerenciar dados com a API do DocumentDB?
 A API do DocumentDB ajuda a gerenciar os dados JSON por meio de recursos do banco de dados bem-definidos. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. A API do DocumentDB oferece um modelo de programação RESTful baseado em HTTP simples para todos os recursos. 

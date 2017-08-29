@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
@@ -28,7 +28,7 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
-**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure (https://manage.windowsazure.com)?**
+**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure?**
 
 **R:** para acessar o portal clássico do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
 
@@ -212,5 +212,5 @@ Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento d
 - - -
 **P: posso configurar uma conexão LDAP segura com o Azure AD?**
 
-**R:**  Não.  O Azure AD não dá suporte ao protocolo LDAP.
+**R:**  Não. O Azure AD não dá suporte ao protocolo LDAP.
 

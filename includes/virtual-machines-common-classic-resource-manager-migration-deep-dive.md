@@ -1,14 +1,16 @@
-## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>Significado da migração de recursos de IaaS do clássico para o Gerenciador de Recursos
+## <a name="meaning-of-migration-of-iaas-resources-from-the-classic-deployment-model-to-resource-manager"></a>Significado da migração de recursos de IaaS do modelo de implantação clássico para o Gerenciador de Recursos
 Antes de analisarmos os detalhes, vamos ver a diferença entre as operações do plano de dados e do plano de gerenciamento dos recursos de IaaS.
 
 * O *Plano de Gerenciamento/Controle* descreve as chamadas que vão para o plano de gerenciamento/controle ou para a API para modificar recursos. Por exemplo, operações como a criação de uma VM, reinicialização de uma VM e atualização de uma rede virtual com uma nova sub-rede para gerenciar os recursos em execução. Elas não afetam diretamente a conexão com as instâncias.
 * *plano de dados* (aplicativo) descreve o tempo de execução do próprio aplicativo e envolve a interação com instâncias que não passam pela API do Azure. Acessar seu site ou efetuar pull de dados de uma instância do SQL Server ou servidor MongoDB em execução seriam considerados um plano de dados ou uma interação com o aplicativo. Copiar um blob de uma conta de armazenamento e acessar um endereço IP público para RDP ou SSH na máquina virtual também são planos de dados. Essas operações mantêm o aplicativo em execução entre computação, rede e armazenamento.
 
+Nos bastidores, o plano de dados é o mesmo entre o modelo de implantação Clássico e a pilha do Gerenciador de Recursos. Durante o processo de migração, convertemos a representação dos recursos do modelo de implantação Clássico para aquela da pilha do Gerenciador de Recursos. Como resultado, você precisará usar novas ferramentas, APIs, SDKs para gerenciar seus recursos na pilha do Gerenciador de Recursos.
+
 ![A captura de tela que ilustra a diferença entre o plano de gerenciamento/controle e o plano de dados](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+
 
 > [!NOTE]
 > Em alguns cenários de migração, a plataforma Azure interrompe, desaloca e reinicia as máquinas virtuais. Isso acarreta um curto tempo de inatividade do plano de dados.
->
 >
 
 ## <a name="the-migration-experience"></a>A experiência de migração
@@ -31,25 +33,40 @@ O fluxo de trabalho de migração está descrito a seguir
 >
 
 ### <a name="validate"></a>Validar
-A operação de validação é a primeira etapa do processo de migração. O objetivo desta etapa é analisar os dados em segundo plano para os recursos em migração e retornará êxito/falha caso eles possam fazer a migração.
+A operação de validação é a primeira etapa do processo de migração. O objetivo desta etapa é analisar o estado dos recursos que você deseja migrar no modelo de implantação clássico e retornar sucesso/falha caso eles possam fazer a migração.
 
-Você seleciona a rede virtual ou o serviço hospedado (se não for uma rede virtual) que deseja preparar para a validação.
+Você seleciona a rede virtual ou o serviço de nuvem (se não for em uma rede virtual) que deseja validar para a migração.
 
 * Se o recurso não for capaz de fazer a migração, a plataforma Azure listará todos os motivos pelos quais não há suporte para a migração.
 
-Ao validar serviços de armazenamento, você encontrará a conta migrada em um grupo de recursos com o mesmo nome da sua conta de armazenamento com "-Migrados" acrescentado ao nome.  Por exemplo, se sua conta de armazenamento é chamada de "mystorage", você encontrará o recurso Azure Resource Manager habilitado em um grupo de recursos denominado "mystorage-Migrado" e ele conterá uma conta de armazenamento denominada "mystorage".
+#### <a name="checks-not-done-in-validate"></a>Verificações não realizadas em Validar
+
+Validar operação apenas analisa o estado dos recursos no modelo de implantação clássico. Ela pode verificar todas as falhas e cenários sem suporte devido a diferentes configurações no modelo de implantação clássico. Não é possível verificar todos os problemas que a pilha do Azure Resource Manager pode causar nos recursos durante a migração. Esses problemas são verificados apenas quando os recursos são submetidos à transformação na próxima etapa da migração, ou seja, Preparar. A tabela a seguir lista todos os problemas que não são verificados em Validar.
+
+
+|Verificações de rede que não estão em Validar|
+|-|
+|Uma Rede Virtual com gateways ER e VPN|
+|Uma conexão de gateway de Rede Virtual em estado desconectado|
+|Todos os circuitos ER são pré-migrados para a pilha do Azure Resource Manager|
+|Verificações de cota do Azure Resource Manager para recursos de Rede, ou seja, IP Público Estático, IPs Públicos Dinâmicos, Balanceador de Carga, Grupos de Segurança de Rede, Tabelas de Rotas, Interfaces de Rede |
+| Verifique se todas as regras de balanceador de carga são válidas para a implantação/rede virtual |
+| Verificação de IPs privados em conflito entre a VMs paradas e desalocadas na mesma rede virtual |
 
 ### <a name="prepare"></a>Preparar
-A operação de preparação é a segunda etapa do processo de migração. O objetivo dessa etapa é simular a transformação dos recursos de IaaS do clássico para os recursos do Gerenciador de Recursos e apresentar isso lado a lado para sua visualização.
+A operação de preparação é a segunda etapa do processo de migração. O objetivo dessa etapa é simular a transformação dos recursos de IaaS do modelo de implantação clássico para os recursos do Resource Manager e apresentar isso lado a lado para sua visualização.
 
-Você seleciona a rede virtual ou o serviço hospedado (se não for uma rede virtual) que deseja preparar para a migração.
+> [!NOTE] 
+> Os recursos para Clássico não são modificados durante esta etapa. Portanto, é uma etapa segura a ser executada se você estiver experimentando fazer uma migração. 
+
+Você seleciona a rede virtual ou o serviço de nuvem (se não for uma rede virtual) que deseja preparar para a migração.
 
 * Se o recurso não for capaz de migração, a plataforma Azure interrompe o processo de migração e lista o motivo pelo qual a operação de preparação falhou.
 * Se o recurso for capaz de fazer migração, primeiro a plataforma Azure bloqueará as operações do plano de gerenciamento para os recursos em migração. Por exemplo, você não pode adicionar um disco de dados a uma VM em migração.
 
-Em seguida, a plataforma Azure inicia a migração de metadados do clássico para o Resource Manager para os recursos em migração.
+Em seguida, a plataforma Azure inicia a migração de metadados do modelo de implantação clássico para o Resource Manager para os recursos em migração.
 
-Assim que a operação de preparação for concluída, você tem a opção de visualizar os recursos no clássico e no Resource Manager. Para todos os serviços de nuvem no modelo de implantação clássica, a plataforma Azure cria um nome de grupo de recursos com o padrão `cloud-service-name>-Migrated`.
+Assim que a operação de preparação for concluída, você tem a opção de visualizar os recursos no modelo de implantação clássico e no Resource Manager. Para todos os serviços de nuvem no modelo de implantação clássica, a plataforma Azure cria um nome de grupo de recursos com o padrão `cloud-service-name>-Migrated`.
 
 > [!NOTE]
 > Não é possível selecionar o nome do Grupo de Recursos criado para recursos migrados (por exemplo, “-Migrated”); porém, depois que a migração for concluída, é possível usar o recurso de movimentação do Azure Resource Manager para mover recursos para qualquer Grupo de Recursos desejado. Para ler mais sobre isso, consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../articles/resource-group-move-resources.md)
@@ -60,9 +77,12 @@ Estas são duas telas que mostram o resultado após uma operação de Preparaç�
 
 ![Captura de tela que mostra os recursos do Azure Resource Manager no Portal em Preparação](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
+Aqui damos uma olhada nos bastidores dos seus recursos após a conclusão da fase de preparação. Observe que o recurso e o plano de dados é o mesmo. Ele é representado no plano de gerenciamento (modelo de implantação clássico) e no plano de controle (Resource Manager).
+
+![Bastidores da fase de Preparação](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
 > [!NOTE]
-> Máquinas Virtuais que não estão em uma Rede Virtual clássica são interrompidas e desalocadas nesta fase da migração.
->
+> As Máquinas Virtuais que não estão em uma Rede Virtual clássica são interrompidas e desalocadas nesta fase da migração.
 >
 
 ### <a name="check-manual-or-scripted"></a>Verificação (manual ou com scripts)
@@ -77,27 +97,33 @@ Não haverá uma janela de tempo definida antes da qual você precisará confirm
 Caso encontre problemas, sempre será possível anular a migração e voltar para o modelo de implantação clássica. Depois que você voltar, a plataforma Azure abrirá as operações do plano de gerenciamento nos recursos, para que você possa retomar as operações normais nessas VMs no modelo de implantação clássico.
 
 ### <a name="abort"></a>Anular
-Anulação é uma etapa opcional que pode ser usada para reverter as alterações para o modelo de implantação clássico e interromper a migração.
+Anulação é uma etapa opcional que pode ser usada para reverter as alterações para o modelo de implantação clássico e interromper a migração. Essa operação exclui os metadados do Resource Manager para os recursos que foram criados na etapa de Preparação anterior. 
+
+![Bastidores da fase Anular](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+
 
 > [!NOTE]
 > Essa operação não pode ser executada depois que a operação de confirmação é disparada.     
 >
->
 
 ### <a name="commit"></a>Confirmar
-Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecem mais no clássico e estão disponíveis apenas no modelo de implantação do Resource Manager. Os recursos migrados só podem ser gerenciados no novo portal.
+Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecerão mais no modelo de implantação clássico e estão disponíveis apenas no modelo de implantação do Resource Manager. Os recursos migrados só podem ser gerenciados no novo portal.
 
 > [!NOTE]
 > Esta é uma operação idempotente. Se falhar, é recomendável que você repita a operação. Se a falha persistir, crie um tíquete de suporte ou uma postagem no fórum com uma marcação ClassicIaaSMigration em nosso [fórum sobre VMs](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
-<br>
-Este é um fluxograma das etapas durante um processo de migração
+
+![Bastidores da fase Confirmar](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+
+## <a name="where-to-begin-migration"></a>Onde começar a migração?
+
+Aqui está um fluxograma que mostra como proceder com a migração
 
 ![Captura de tela que mostra as etapas de migração](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-classic-to-azure-resource-manager-resources"></a>Tradução do clássico para recursos do Azure Resource Manager
-Você pode encontrar as representações do clássico e do Gerenciador de Recursos dos recursos na tabela abaixo. Atualmente, não há suporte para outros recursos e funcionalidades.
+## <a name="translation-of-classic-deployment-model-to-azure-resource-manager-resources"></a>Tradução do modelo de implantação clássico para recursos do Azure Resource Manager
+Você pode encontrar o modelo de implantação clássico e representações do Resource Manager dos recursos na tabela a seguir. Atualmente, não há suporte para outros recursos e funcionalidades.
 
 | Representação do clássico | Representação do Gerenciador de Recursos | Anotações detalhadas |
 | --- | --- | --- |
