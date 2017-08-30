@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
@@ -188,20 +187,16 @@ $ gradle
 
 Isso produzirá um pacote de aplicativos do Service Fabric que poderá ser implantado usando ferramentas de CLI do Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Implantar com a CLI XPlat
+### <a name="deploy-service-fabric-cli"></a>Implantar a CLI do Service Fabric
 
-Se estiver usando a CLI XPlat, o script install.sh conterá os comandos da CLI do Azure necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
+O script install.sh contém os comandos da CLI do Service Fabric (sfctl) necessários para implantar o pacote de aplicativos.
+Execute o script install.sh para implantar o aplicativo.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Implantar com a CLI do Azure 2.0
+## <a name="next-steps"></a>Próximas etapas
 
-Se estiver usando a CLI do Azure 2.0, consulte o documento de referência sobre como gerenciar um [ciclo de vida do aplicativo usando a CLI do Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Artigos relacionados
-
-* [Introdução ao Service Fabric e a CLI do Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introdução à CLI XPlat do Service Fabric](service-fabric-azure-cli.md)
+* [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
@@ -166,22 +165,17 @@ O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scr
 $ gradle
 ```
 
-Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric do Azure.
+Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Implantar com a CLI XPlat
+### <a name="deploy-with-service-fabric-cli"></a>Implantar com a CLI do Service Fabric
 
-Se estiver usando a CLI XPlat, o script install.sh conterá os comandos da CLI do Azure necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
+O script install.sh contém os comandos da CLI do Service Fabric necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Implantar com a CLI 2.0 do Azure
+## <a name="next-steps"></a>Próximas etapas
 
-Se estiver usando a CLI 2.0 do Azure, confira o documento de referência sobre como gerenciar um [ciclo de vida do aplicativo usando a CLI 2.0 do Azure](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Artigos relacionados
-
-* [Introdução ao Service Fabric e à CLI 2.0 do Azure](service-fabric-azure-cli-2-0.md)
-* [Introdução à CLI XPlat do Service Fabric](service-fabric-azure-cli.md)
+* [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 

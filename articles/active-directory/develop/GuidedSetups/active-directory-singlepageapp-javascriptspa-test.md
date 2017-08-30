@@ -1,24 +1,52 @@
+---
+title: "Instalação guiada do JS SPA no Azure AD v2 – teste | Microsoft Docs"
+description: Como aplicativos JavaScript SPA podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: c559c80781da3631a783d96539622c4c89fe7e17
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/19/2017
 
+---
 ## <a name="test-your-code"></a>Testar seu código
 
-Se você estiver usando o Visual Studio, pressione `F5` para executar seu projeto. O navegador será aberto e direcionará você para *http://localhost:{porta}*, em que você verá o botão *Chamar API do Microsoft Graph*.
+> ### <a name="testing-with-visual-studio"></a>Testes com o Visual Studio
+> Se estiver usando o Visual Studio, pressione `F5` para executar o projeto: o navegador abrirá e direcionará você para *http://localhost:{porta}*, no qual você vê o botão *Chamar a API do Microsoft Graph*.
 
-Se você não estiver usando o Visual Studio, certifique-se de que seu servidor Web foi iniciado e de que a pasta que contém o aplicativo Web JavaScript foi configurada no seu servidor Web. Abra o navegador e digite *http://localhost: {porta}/caminho* – em que *porta* corresponde à porta que o servidor Web está escutando e *caminho* é o caminho para o index.html.
+<p/><!-- -->
 
-Clique no botão *Chamar a API do Microsoft Graph*. Se esta for a primeira vez, uma janela pop-up será exibida solicitando que o usuário entre.
+> ### <a name="testing-with-python-or-another-web-server"></a>Testando com Python ou outro servidor Web
+> Se não estiver usando o Visual Studio, certifique-se de que seu servidor Web tenha sido iniciado e de que esteja configurado para escutar uma porta TCP baseada na parte que contém seu arquivo *index.html*. Para o Python, você pode começar a escutar a porta executando o prompt de comando/ terminal, na pasta do aplicativo:
+> 
+> ```bash
+> python -m http.server 8080
+> ```
+>  Em seguida, abra o navegador e digite *http://localhost:8080* ou *http://localhost:{porta}*, em que *porta* corresponde à porta que o servidor Web está escutando. Você deve ver o conteúdo da página index.html com o botão *Chamar a API do Microsoft Graph*.
+
+## <a name="test-your-application"></a>Teste seu aplicativo
+
+Após o navegador carregar seu *index.html*, clique no botão *Chamar a API do Microsoft Graph*. Se esta for a primeira vez, o navegador o redirecionará para o ponto de extremidade do Microsoft Azure Active Directory v2, em que você precisará entrar.
  
 ![Captura de tela de exemplo](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
 
 
 ### <a name="consent"></a>Consentimento
-Na primeira vez que você entrar no aplicativo, será apresentada uma tela de consentimento semelhante à tela abaixo, que você precisará aceitar explicitamente:
+Na primeira vez que você entrar no aplicativo, será apresentada uma tela de consentimento semelhante à tela abaixo, na qual você precisa aceitar:
 
  ![Tela de consentimento](media/active-directory-singlepageapp-javascriptspa-test/javascriptspaconsent.png)
 
-Como você está consultando a API do Microsoft Graph, talvez você veja outra página de consentimento. Isso ocorre devido ao *consentimento dinâmico* – em que um consentimento é necessário para cada escopo solicitado pelo aplicativo. Para o aplicativo de exemplo gerado por este guia, o escopo *user.read* é fornecido e, portanto, é necessário dar consentimento para que esse aplicativo leia o perfil do usuário.
-
-> [!IMPORTANT]
-> No momento, devido a um problema conhecido com o javascript *msal*, é necessário desabilitar o bloqueador de pop-up em navegadores como o Chrome e o Firefox para que a tela *consentimento dinâmico* possa funcionar adequadamente. É necessário desabilitar o bloqueador de pop-up na primeira vez em que um usuário chama a API do Microsoft Graph usando `acquireTokenPopup`.
 
 ### <a name="expected-results"></a>Resultados esperados
 Você deverá ver as informações de perfil do usuário retornadas pela resposta à chamada à API do Microsoft Graph.
@@ -32,6 +60,7 @@ Você também verá informações básicas sobre o token adquirido nas caixas *T
 
 A API do Microsoft Graph requer o escopo `user.read` para ler o perfil do usuário. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado em nosso portal de registro. Algumas outras APIs do Microsoft Graph, bem como APIs personalizadas do servidor de back-end, podem exigir escopos adicionais. Por exemplo, para o Microsoft Graph, o escopo `Calendars.Read` é necessário para listar os calendários do usuário. Para acessar o calendário do usuário no contexto de um aplicativo, é necessário adicionar a permissão delegada `Calendars.Read` às informações de registro do aplicativo e, em seguida, adicionar o escopo `Calendars.Read` à chamada `acquireTokenSilent`. Talvez o usuário precise fornecer consentimentos adicionais à medida que o número de escopos aumentar.
 
-Se uma API de back-end não exigir um escopo (não recomendado), será possível usar o `clientId` como o escopo nas chamadas `acquireTokenSilent` e/ou `acquireTokenPopup`.
+Se uma API de back-end não exigir um escopo (não recomendado), será possível usar o `clientId` como o escopo nas chamadas `acquireTokenSilent` e/ou `acquireTokenRedirect`.
 
 <!--end-collapse-->
+

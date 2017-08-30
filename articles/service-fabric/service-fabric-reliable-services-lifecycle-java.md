@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -60,7 +60,7 @@ Ao desligar um serviço sem estado, o mesmo padrão é seguido, porém na ordem 
 
 1. Em paralelo
     - Todos os ouvintes abertos são Fechados (`CommunicationListener.closeAsync()` é chamado em cada ouvinte)
-    - O token de cancelamento passado para `runAsync()` é cancelado (verificar a propriedade `isCancelled` do token de cancelamento retornará true e se o método `throwIfCancellationRequested` do token chamado retornar um `CancellationException`)
+    - O token de cancelamento passado para `runAsync()` é cancelado (verificar a propriedade `isCancelled` do token de cancelamento retornará true e, se chamado, o método `throwIfCancellationRequested` do token retornará um `CancellationException`)
 2. Uma vez que `closeAsync()` é concluído em cada ouvinte e `runAsync()` também é finalizado, o método `StatelessService.onCloseAsync()` do serviço é chamado, se existir (novamente, essa é uma substituição incomum).
 3. Depois da conclusão de `StatelessService.onCloseAsync()`, o objeto de serviço é destruído
 

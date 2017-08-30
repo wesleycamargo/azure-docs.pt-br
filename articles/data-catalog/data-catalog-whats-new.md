@@ -13,17 +13,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 08/22/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4d818112d8b6cc07a73d2521ef229c90e0d5884b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
+
+## <a name="whats-new-for-august-2017"></a>Novidades para agosto de 2017 
+Em agosto de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+
+*   Um novo exemplo de desenvolvedor está disponível para criar e gerenciar metadados de relação usando a API REST do Catálogo de Dados. O exemplo *Importar informações de relação para o Catálogo de Dados* está disponível na [Página de exemplos de código do Catálogo de Dados](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
+* Suporte para extrair metadados de relação de união de fontes de dados de Teradata ao registrar tabelas relacionados usando a ferramenta de registro de fonte de dados.
+* Suporte para objetos TVF (função com valor de tabela) do SQL Server ao registrar fontes de dados do SQL Server usando a ferramenta de registro da fonte de dados.
+* Várias atualizações e aprimoramentos para melhorar o desempenho e a usabilidade do portal do Catálogo de Dados.
+
+## <a name="whats-new-for-july-2017"></a>Novidades para julho de 2017 
+Em julho de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+*   Suporte para um controle mais granular de operações de metadados permitidas, incluindo:
+    - Os administradores do Catálogo podem restringir a capacidade dos usuários de contribuir com marcas e metadados relacionados para o catálogo, habilitando o acesso somente leitura ao catálogo.
+    - Os administradores do Catálogo podem restringir a capacidade dos usuários de registrar novas fontes de dados no catálogo.
+    - Os administradores do Catálogo podem restringir a capacidade dos usuários de assumir a propriedade de metadados de ativos de dados no catálogo.
+    - Permissões podem ser concedidas a usuários e grupos de segurança do Azure Active Directory para facilitar o gerenciamento de permissões.
+* Suporte para relações entre ativos de dados registrados e descoberta de ativos de dados relacionados no portal do Catálogo de Dados, incluindo:
+    - Extração de metadados de relação de fontes de dados do SQL Server (incluindo o Banco de Dados SQL do Azure), Oracle e MySQL ao usar a ferramenta de registro de fontes de dados do Catálogo de Dados.
+    - Descoberta de ativos de dados relacionados ao exibir metadados de ativos no portal do Catálogo de Dados.
+    - Operações para definir, descobrir e gerenciar relações entre ativos de dados usando a API REST do Catálogo de Dados.
+
+Para obter detalhes adicionais sobre como gerenciar permissões no Catálogo de Dados, consulte [Como proteger o acesso ao catálogo de dados e ativos de dados](data-catalog-how-to-secure-catalog.md).
+Para obter detalhes adicionais sobre relacionamentos no Catálogo de Dados, consulte [Como exibir ativos de dados relacionados no Catálogo de Dados do Azure](data-catalog-how-to-view-related-data-assets.md).
 
 ## <a name="whats-new-for-june-2017"></a>Novidades para junho de 2017 
 Em junho de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:

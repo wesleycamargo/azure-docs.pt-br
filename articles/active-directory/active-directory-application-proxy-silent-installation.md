@@ -1,27 +1,28 @@
 ---
-title: "Instalação silenciosa do Conector de Proxy do Aplicativo do Azure AD | Microsoft Docs"
+title: "Instalação silenciosa do conector de Proxy do Aplicativo Azure AD | Microsoft Docs"
 description: "Aborda como realizar a instalação autônoma do Conector de roxy de Aplicativo do Azure AD para fornecer acesso remoto seguro aos seus aplicativos locais."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Faça uma instalação silenciosa do Conector de Proxy de Aplicativo do Azure AD
 Você deseja conseguir enviar um script de instalação para vários servidores do Windows ou para os servidores do Windows que não têm uma interface de usuário ativada. Este tópico ajuda você a criar um script do Windows PowerShell que permite a instalação autônoma e registro para o Conector de Proxy de Aplicativo do Azure AD.
 
@@ -32,13 +33,13 @@ Esse recurso é útil quando você deseja:
 * Integrar a instalação e o registro do conector como parte de outro procedimento.
 * Criar uma imagem de servidor padrão que contém bits do conector, mas que não está registrada.
 
-O Proxy de Aplicativo funciona por meio da instalação de um serviço leve do Windows Server chamado Conector dentro de sua rede. Para o Conector do proxy de aplicativo funcionar, ele deve ser registrado com o diretório do Azure AD usando uma senha e um administrador global. Normalmente, essa informação é inserida durante a instalação do Conector em uma caixa de diálogo pop-up. Porém, você ainda pode usar o Windows PowerShell para criar um objeto de credencial para inserir suas informações de registro ou criar seu próprio token e usá-lo para inserir suas informações de registro.
+O Proxy de Aplicativo funciona por meio da instalação de um serviço leve do Windows Server chamado Conector dentro de sua rede. Para o Conector do proxy de aplicativo funcionar, ele deve ser registrado com o diretório do Azure AD usando uma senha e um administrador global. Normalmente, essa informação é inserida durante a instalação do Conector em uma caixa de diálogo pop-up. No entanto, você pode usar o Windows PowerShell para criar um objeto de credencial para inserir suas informações de registro. Ou você pode criar seu próprio token e usá-lo para inserir suas informações de registro.
 
 ## <a name="install-the-connector"></a>Instalar o conector
 Instale o MSIs do Conector sem registrar o Conector, da seguinte maneira:
 
 1. Abra um prompt de comando.
-2. Execute o seguinte comando no qual /q significa instalação silenciosa - a instalação não solicitará que você aceite o Contrato de Licença de Usuário Final.
+2. Execute o seguinte comando no qual /q significa instalação silenciosa – a instalação não solicita que você aceite os termos de licença.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -49,7 +50,7 @@ Há dois métodos que você pode usar para registrar o conector:
 * Registrar o conector usando um token criado offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrar o conector usando um objeto de credencial do Windows PowerShell
-1. Crie o objeto de Credenciais do Windows PowerShell executando o comando a seguir. Substitua *\<nome de usuário\>* e *\<senha\>* pelo nome de usuário e a senha para seu diretório:
+1. Crie o objeto de Credenciais do Windows PowerShell executando este comando. Substitua *\<nome de usuário\>* e *\<senha\>* pelo nome de usuário e a senha para seu diretório:
    
         $User = "<username>"
         $PlainPassword = '<password>'

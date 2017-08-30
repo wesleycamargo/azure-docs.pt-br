@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>Carregar um aplicativo Web Java personalizado no Azure
@@ -201,7 +201,7 @@ Usando o Liferay 6.1.2 Community Edition GA3 empacotado com o Tomcat, os seguint
 **Server.xml**
 
 * Altere a porta de desligamento para -1.
-* Altere o conector HTTP para       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Altere o conector HTTP para `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * Comente o conector AJP.
 
 Na pasta **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes**, crie um arquivo chamado **portal-ext.properties**. Esse arquivo deve conter uma linha, como mostrado aqui:
@@ -241,7 +241,7 @@ Depois de fazer essas alterações, reinicie o aplicativo Web executando o Lifer
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Liferay, consulte [http://www.liferay.com](http://www.liferay.com).
 
-Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+Para obter mais informações sobre o Java, consulte [Azure para desenvolvedores Java](/java/azure).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

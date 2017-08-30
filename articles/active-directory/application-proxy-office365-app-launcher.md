@@ -11,32 +11,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
-Este artigo descreve como configurar aplicativos para direcionar os usuários para uma página inicial personalizada quando eles acessarem os aplicativos do painel de acesso do Azure Active Directory (Azure AD) e o iniciador do aplicativo do Office 365.
+Este artigo descreve como configurar aplicativos para direcionar os usuários para uma página inicial personalizada. Ao publicar um aplicativo com o Proxy do aplicativo, você define uma URL interna, mas, às vezes, essa não é a página que os usuários devem ver primeiro. Defina uma página inicial personalizada para que os usuários acessem a página correta quando acessarem os aplicativos do Painel de acesso do Azure Active Directory ou do iniciador de aplicativos do Office 365.
 
-Quando os usuários iniciam o aplicativo, são direcionados por padrão para a URL de domínio raiz do aplicativo publicado. A página de aterrissagem é normalmente definida como a URL da home page. Por exemplo, para o aplicativo de back-end, http://ExpenseApp, a URL é publicada como *https://expenseApp-contoso.msappproxy.net*. Por padrão, a URL da home page é definida como *https://expenseApp-contoso.msappproxy.net*.
+Quando os usuários iniciam o aplicativo, são direcionados por padrão para a URL de domínio raiz do aplicativo publicado. A página de aterrissagem é normalmente definida como a URL da home page. Use o módulo do PowerShell do Azure AD para definir URLs de página inicial personalizada quando desejar que os usuários do aplicativo acessem uma página específica no aplicativo. 
 
-Usando o módulo do PowerShell do Azure AD, você pode definir URLs de home page personalizadas para instâncias quando quiser que os usuários cheguem em uma página específica no aplicativo (*por exemplo, https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
+Por exemplo:
+- Dentro da rede corporativa, os usuários usam a URL *https://ExpenseApp/login/login.aspx* para entrar e acessar seu aplicativo.
+- Como você tem outros ativos como imagens que o Proxy do aplicativo precisa acessar no nível superior da estrutura de pasta, você publica o aplicativo com *https://ExpenseApp* como a URL interna.
+- A URL externa padrão é *https://ExpenseApp-contoso.msappproxy.net*, que não leva os usuários até a página de entrada.  
+- Defina *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* como a URL da página inicial para dar aos usuários uma experiência contínua. 
 
 >[!NOTE]
 >Quando você conceder aos usuários acesso a aplicativos publicados, os aplicativos são exibidos no [painel de acesso do Azure AD](active-directory-saas-access-panel-introduction.md) e [lançador de aplicativo do Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de definir a URL da home page, tenha em mente o seguinte:
+Antes de definir a URL da página inicial, tenha em mente os seguintes requisitos:
 
 * Garanta que o caminho especificado seja um caminho de subdomínio da URL raiz do domínio.
 
@@ -50,20 +54,23 @@ Antes de definir a URL da home page, tenha em mente o seguinte:
 2. Navegue até **Azure Active Directory** > **Registros do aplicativo** e escolha o seu aplicativo na lista. 
 3. Selecione **Propriedades** entre as configurações.
 4. Atualize o campo **URL da Home page** com o novo caminho. 
+
+   ![Forneça a nova URL da página inicial](./media/application-proxy-office365-app-launcher/homepage.png)
+
 5. Selecione **Salvar**
 
 ## <a name="change-the-home-page-with-powershell"></a>Alterar a home page com o PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do Powershell do Azure AD
 
-Antes de definir uma URL personalizada de home page usando o PowerShell, instale um pacote não padrão do módulo PowerShell do Azure AD. Baixe esse pacote da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), que usa o ponto de extremidade de API do Graph. 
+Antes de definir uma URL personalizada de página inicial usando o PowerShell, instale o módulo PowerShell do Azure AD. Baixe esse pacote da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), que usa o ponto de extremidade de API do Graph. 
 
 Para instalar o pacote, siga estas etapas:
 
 1. Abra uma janela padrão do PowerShell e, em seguida, execute o seguinte comando:
 
     ```
-     Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
+     Install-Module -Name AzureAD
     ```
     Se você estiver executando o comando como um não administrador, use a opção `-scope currentuser`.
 2. Durante a instalação, selecione **Y** para instalar dois pacotes do Nuget.org. Ambos os pacotes são necessários. 
@@ -98,9 +105,9 @@ Obtenha o ID do objeto do aplicativo e, em seguida, procure o aplicativo por sua
 
 ### <a name="update-the-home-page-url"></a>Atualizar a URL da home page
 
-No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
+No mesmo módulo do PowerShell que você usou para a etapa 1, realize as seguintes etapas:
 
-1. Confirme que você tenha o aplicativo correto e substitua *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* com o GUID (ObjectID) que você copiou na etapa anterior.
+1. Confirme se você tem o aplicativo correto e substitua *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* pelo ObjectID que você copiou na etapa anterior.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -108,16 +115,13 @@ No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
 
  Agora que você confirmou o aplicativo, está pronto para atualizar a home page da seguinte maneira.
 
-2. Crie um objeto de aplicativo em branco para armazenar as alterações que você deseja fazer.  
-
- >[!NOTE]
- >Isso é apenas uma variável para armazenar os valores que você quer atualizar, portanto nada foi realmente criado.
+2. Crie um objeto de aplicativo em branco para armazenar as alterações que você deseja fazer. Essa variável contém os valores que você deseja atualizar. Nada é criado nesta etapa.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Defina a URL da home page como o valor desejado. O valor deve ser um caminho de subdomínio do aplicativo publicado. Por exemplo, se você alterar a URL da home page de *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os usuários do aplicativo serão levados diretamente para a home page personalizada.
+3. Defina a URL da home page como o valor desejado. O valor deve ser um caminho de subdomínio do aplicativo publicado. Por exemplo, se você alterar a URL da página inicial de *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os usuários do aplicativo serão levados diretamente para a página inicial personalizada.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
@@ -134,7 +138,7 @@ No mesmo módulo do PowerShell que você usou para a etapa 1, faça o seguinte:
     ```
 
 >[!NOTE]
->Todas as alterações que você fizer no aplicativo poderão redefinir a URL da home page. Se isso acontecer, repita a etapa 2.
+>Todas as alterações que você fizer no aplicativo poderão redefinir a URL da home page. Se a URL da página inicial for redefinida, repita a etapa 2.
 
 ## <a name="next-steps"></a>Próximas etapas
 

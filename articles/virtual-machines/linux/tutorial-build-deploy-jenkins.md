@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -255,7 +255,7 @@ Neste tutorial, você automatizou a implantação de um aplicativo no Azure usan
 > * Criar um grupo de implantação para máquinas virtuais do Azure
 > * Criar uma definição de versão que configura as VMs e implanta o aplicativo
 
-Siga este link para ver exemplos de script de máquina virtual predefinido.
+Avance para o próximo tutorial para saber mais sobre como implantar uma pilha LAMP (Linux, Apache, MySQL e PHP).
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de máquina virtual do Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [Implantar a pilha LAMP](tutorial-lamp-stack.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20a720833842f9579fd4fccaa39e964def48197e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -26,16 +26,16 @@ ms.lasthandoff: 03/30/2017
 
 A Ferramenta de Importação/Exportação do Azure (WAImportExport.exe) é usada para criar e gerenciar trabalhos do serviço de Importação/Exportação do Azure, permitindo a transferência de grandes quantidades de dados para dentro ou fora do Armazenamento de Blobs do Azure.
 
-Esta documentação refere-se à versão mais recente da Ferramenta de Importação/Exportação do Azure. Para obter informações sobre como usar a ferramenta v1, consulte [Using the Azure Import/Export Tool v1](storage-import-export-tool-how-to-v1.md) (Usando a Ferramenta de Importação/Exportação do Azure v1).
+Esta documentação refere-se à versão mais recente da Ferramenta de Importação/Exportação do Azure. Para obter informações sobre o uso do modelo de implantação clássico, consulte [Usando a Ferramenta de Importação/Exportação do Azure – v1](storage-import-export-tool-how-to-v1.md).
 
-Nesses artigos, você verá como usar a ferramenta para fazer o seguinte:  
+Os artigos a seguir mostram como:  
 
-- Instalar e configurar a Ferramenta de Importação/Exportação.
+- Instalar e configurar a Ferramenta de Importação/Exportação do Azure.
 - Preparar os discos rígidos para um trabalho em que os dados são importados das unidades para o Armazenamento de Blobs do Azure.
 - Examinar o status de um trabalho com Arquivos de Log de Cópia. 
 - Reparar um trabalho de importação. 
 - Reparar um trabalho de exportação. 
-- Solucionar problemas da Ferramenta de Importação/Exportação do Azure, caso você teve um problema durante o processo. 
+- Solucionar problemas da Ferramenta de Importação/Exportação do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
