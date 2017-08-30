@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3be341bcb897a1481f145825429a1a94dfaae3b0
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrando aplicativos com o Active Directory do Azure
@@ -64,7 +64,7 @@ Por exemplo, se um aplicativo cliente da Web precisar ler informações de calen
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o AD do Azure permite criar muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor, ou um aplicativo Web, assim como obter acesso aos recursos necessários.
 
-Para saber mais sobre a estrutura de consentimento, consulte [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md), e para obter informações sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, consulte [Autenticação de aplicativos com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Para saber mais sobre a estrutura de consentimento, consulte [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md) e para obter informações sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, consulte [Autenticação de aplicativos com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exemplo da experiência de consentimento
 As etapas a seguir mostrarão como funciona a experiência de consentimento para o desenvolvedor e o usuário do aplicativo.

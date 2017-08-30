@@ -12,20 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>Configurando credenciais de autenticação nomeadas
-Para publicar um aplicativo no Azure do Visual Studio ou para monitorar um serviço de nuvem existente, você deve fornecer credenciais que o Visual Studio pode usar para autenticar solicitações no Azure. Existem diversos lugares no Visual Studio nos quais você pode entrar para fornecer essas credenciais. Por exemplo, no Gerenciador de Servidores, você pode abrir o menu de atalho do nó do **Azure** e escolher **Conectar ao Azure**. Quando você entra, as informações de assinatura associadas à sua conta do Azure estão disponíveis no Visual Studio e não é necessário fazer mais nada.
+Para publicar um aplicativo no Azure do Visual Studio ou para monitorar um serviço de nuvem existente, você deve fornecer credenciais que o Visual Studio pode usar para autenticar solicitações no Azure. Existem diversos lugares no Visual Studio nos quais você pode entrar para fornecer essas credenciais. Por exemplo, no Gerenciador de Servidores, você pode abrir o menu de atalho do nó do **Azure** e escolher **Conectar-se à Assinatura do Microsoft Azure...**. Quando você entra, as informações de assinatura associadas à sua conta do Azure estão disponíveis no Visual Studio e não é necessário fazer mais nada.
 
 As Ferramentas do Azure também dão suporte a uma maneira mais antiga de fornecer credenciais, usando o arquivo de assinatura (arquivo .publishsettings). Este tópico descreve esse método, que ainda tem suporte no Azure SDK 2.2.
 
-Os itens a seguir são necessários para autenticação no Azure.
+Os itens a seguir são necessários para autenticação no Azure:
 
 * Sua ID de assinatura
 * Um certificado X.509 v3 válido
@@ -49,7 +50,7 @@ Se você deseja criar um certificado por conta própria, pode consultar as instr
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modificar ou exportar credenciais de autenticação no Visual Studio
 Você também pode configurar, modificar ou exportar suas credenciais de autenticação na nova caixa de diálogo **Assinatura** que aparece se você realizar uma das seguintes ações:
 
-* Em **Gerenciador de Servidores**, abra o menu de atalho para o nó do **Azure**, escolha **Gerenciar Assinaturas**, escolha a guia **Certificados** e escolha o botão **Novo** ou **Editar**.
+* Em **Gerenciador de Servidores**, abra o menu de atalho para o nó do **Azure**, escolha **Gerenciar e Filtrar Assinaturas...**, escolha a guia **Certificados** e escolha **Importar**, **Novo** ou **Editar**.
 * Quando você publica um serviço de nuvem do Azure por meio do assistente **Publicar Aplicativo do Azure**, escolha **Gerenciar** na lista **Escolher sua Assinatura**, depois a guia Certificados e, em seguida, o botão **Novo** ou **Editar**.
 
 O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** está aberta.
@@ -73,9 +74,4 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
        A página do serviço se abre.
    4. Na guia **Certificados**, escolha o botão **Carregar**.
    5. Cole o caminho completo do arquivo .cer que você acabou de criar e, em seguida, digite a senha que especificou.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

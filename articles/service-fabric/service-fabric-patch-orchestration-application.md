@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
-O aplicativo de orquestração de patch é um aplicativo do Service Fabric que automatiza a aplicação de patches do sistema operacional em um cluster do Service Fabric no Azure sem tempo de inatividade.
+O aplicativo de orquestração de patch é um aplicativo do Azure Service Fabric que automatiza a aplicação de patches do sistema operacional em um cluster do Service Fabric no Azure sem tempo de inatividade.
 
 O aplicativo de orquestração de patch fornece o seguinte:
 
@@ -60,7 +59,7 @@ O aplicativo de orquestração de patch é composto dos seguintes subcomponentes
 #### <a name="azure-clusters"></a>Clusters do Azure
 O aplicativo de orquestração de patch deve ser executado nos clusters do Azure que têm a versão de tempo de execução v5.5 ou posterior do Service Fabric.
 
-#### <a name="standalone-on-premise-clusters"></a>Clusters locais autônomos
+#### <a name="standalone-on-premises-clusters"></a>Clusters locais autônomos
 O aplicativo de orquestração de patch deve ser executado nos clusters autônomos que têm a versão de tempo de execução v5.6 ou posterior do Service Fabric.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilite o serviço do gerenciador de reparo (se ainda não estiver em execução)
@@ -71,9 +70,14 @@ O aplicativo de orquestração de patch exige que o serviço do sistema do geren
 
 Clusters do Azure na camada de durabilidade prata têm o serviço do gerenciador de reparo habilitado por padrão. Clusters do Azure na camada de durabilidade ouro podem ou não ter o serviço do gerenciador de reparo habilitado, dependendo de quando esses clusters foram criados. Cluster do Azure na camada de durabilidade bronze, por padrão, não têm o serviço do gerenciador de reparo habilitado. Se o serviço já está habilitado, você pode ver ele em execução na seção de serviços do sistema no Service Fabric Explorer.
 
-Você pode usar o [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar o serviço do gerenciador de reparo em clusters novos e existentes do Service Fabric. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo do Resource Manager personalizado. 
+##### <a name="azure-portal"></a>Portal do Azure
+Você pode habilitar o Gerenciador de reparo do portal do Azure no momento da configuração do cluster. Selecione a opção `Include Repair Manager` em `Add on features` no momento da configuração de Cluster.
+![Imagem do Gerenciador de reparo de habilitação do portal do Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-Para habilitar o serviço do gerenciador de reparo:
+##### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+Como alternativa, você pode usar o [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar o serviço do gerenciador de reparo em clusters novos e existentes do Service Fabric. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo do Resource Manager personalizado. 
+
+Para habilitar o serviço de Gerenciador de reparo usando [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
 1. Primeiro, verifique se a `apiversion` está definida como `2017-07-01-preview` para o recurso `Microsoft.ServiceFabric/clusters`, conforme mostrado no trecho a seguir. Se for diferente, você precisará atualizar a `apiVersion` para o valor `2017-07-01-preview`:
 
@@ -128,7 +132,7 @@ Para habilitar o serviço do gerenciador de reparo:
         ],
     ```
 
-3. Atualize o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [faça upgrade da configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Com o cluster em execução com o manifesto do cluster atualizado, agora você poderá ver o serviço do sistema do gerenciador de reparo em execução no seu cluster, que é chamado de `fabric:/System/RepairManagerService`, sob a seção de serviços do sistema no Service Fabric Explorer.
+3. Atualize o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualize a configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Com o cluster em execução com o manifesto do cluster atualizado, agora você poderá ver o serviço do sistema do gerenciador de reparo em execução no seu cluster, que é chamado de `fabric:/System/RepairManagerService`, sob a seção de serviços do sistema no Service Fabric Explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Desabilite o Windows Update automático em todos os nós
 
@@ -136,9 +140,11 @@ As atualizações automáticas do Windows podem causar a perda de disponibilidad
 
 ### <a name="optional-enable-azure-diagnostics"></a>Opcional: habilitar o Diagnóstico do Microsoft Azure
 
-Os los do aplicativo de orquestração de patch coletam localmente em cada um dos nós de cluster. Além disso, para clusters que executam a versão de tempo de execução do Service Fabric `5.6.220.9494` e posterior, os los serão coletados como parte dos logs do Service Fabric.
+Clusters que executam a versão de tempo de execução do Service Fabric `5.6.220.9494` e acima de logs de aplicativo de orquestração patch coletar como parte da malha do serviço de logs.
+Você pode ignorar esta etapa se o cluster está em execução na versão de tempo de execução do Service Fabric `5.6.220.9494` e acima.
 
-Para clusters que executam a versão de tempo de execução do Service Fabric anteriores à `5.6.220.9494`, recomendamos que você configure o Diagnóstico do Microsoft Azure para fazer upload dos logs de todos os nós em um local central.
+Para clusters que executam a versão de tempo de execução do Service Fabric menor `5.6.220.9494`, logs do aplicativo de orquestração de patch são coletados localmente em cada um de nós do cluster.
+É recomendável que você configure o diagnóstico do Azure para carregar os logs de todos os nós em um local central.
 
 Para obter mais informações sobre o Diagnóstico do Microsoft Azure, consulte [Coletar logs usando o Diagnóstico do Microsoft Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -149,10 +155,9 @@ Os logs para o aplicativo de orquestração de patch serão gerados nas seguinte
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Dentro da seção `WadCfg` no modelo do Resource Manager, adicione a seção a seguir: 
+No modelo do Resource Manager acesse a seção `EtwEventSourceProviderConfiguration` em `WadCfg` e adicione as seguintes entradas:
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -180,8 +185,7 @@ Dentro da seção `WadCfg` no modelo do Resource Manager, adicione a seção a s
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]
@@ -297,7 +301,7 @@ Para clusters que executam a versão de tempo de execução do Service Fabric an
 
 #### <a name="locally-on-each-node"></a>Localmente em cada nó
 
-Os logs são coletados localmente em cada nó de cluster do Service Fabric. O local para acessar os logs é \[Service Fabric\_Instalação\_Unidade\]:\\PatchOrchestrationApplication\\logs.
+Logs são coletados localmente em cada nó de cluster do Service Fabric se a versão de tempo de execução do Service Fabric é menor que `5.6.220.9494`. O local para acessar os logs é \[Service Fabric\_Instalação\_Unidade\]:\\PatchOrchestrationApplication\\logs.
 
 Por exemplo, se o Service Fabric for instalado na unidade D, o caminho será D:\\PatchOrchestrationApplication\\logs.
 
@@ -357,6 +361,10 @@ R. O tempo que o aplicativo de orquestração de patch leva depende principalmen
 - O tempo médio necessário para baixar e instalar uma atualização, que não deve exceder alguma horas.
 - O desempenho da VM e largura da banda de rede.
 
+P. **Por que vejo algumas atualizações no Windows Update resultados obtidos por meio da api REST, mas não sob o histórico do Windows Update no computador?**
+
+R. Algumas atualizações de produto precisam ser verificadas no seu respectivo histórico de atualização/aplicação de patch. Por exemplo: Atualizações do Windows Defender não aparecem no histórico do Windows Update no Windows Server 2016.
+
 ## <a name="disclaimers"></a>Avisos de Isenção de Responsabilidade
 
 - O aplicativo de orquestração de patch aceita o Contrato de licença do usuário final do Windows Update em nome do usuário. A definição opcionalmente pode ser desativada na configuração do aplicativo.
@@ -394,4 +402,18 @@ Nesse caso, será gerado um relatório de integridade no nível de aviso em rela
 Uma atualização do Windows com falha pode reduzir a integridade de um aplicativo ou cluster em um nó ou domínio de atualização específico. O aplicativo de orquestração de patch interrompe qualquer operação subsequente do Windows Update até que o cluster esteja íntegro novamente.
 
 Um administrador deve intervir e determinar por que o aplicativo ou cluster se tornou não íntegro devido ao Windows Update.
+
+## <a name="release-notes-"></a>Notas de Versão:
+
+### <a name="version-110"></a>Version 1.1.0
+- Versão pública
+
+### <a name="version-111"></a>Versão 1.1.1
+- Correção de bug no SetupEntryPoint de NodeAgentService que impediu a instalação de NodeAgentNTService.
+
+### <a name="version-120-latest"></a>Versão 1.2.0 (mais recente)
+
+- Correções de bugs em torno do fluxo de trabalho de reinício do sistema.
+- Correção de bug na criação de tarefas RM devido à qual integridade seleção durante a preparação de tarefas de reparo não estava acontecendo conforme o esperado.
+- Alterado o modo de inicialização para o serviço windows POANodeSvc de auto para delayed-auto.
 

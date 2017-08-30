@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas do STORM – Azure HDInsight | Microsoft Docs"
-description: Use as perguntas frequentes sobre o Storm para obter respostas a perguntas comuns sobre Storm na plataforma do Azure HDInsight.
+title: Solucionar problemas do Storm usando o Azure HDInsight | Microsoft Docs
+description: Obtenha respostas para perguntas comuns sobre o uso do Apache Storm com o Azure HDInsight.
 keywords: "Azure HDInsight, Storm, perguntas frequentes, guia de solução de problemas, problemas comuns"
 services: Azure HDInsight
 documentationcenter: na
@@ -16,172 +16,142 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: raviperi
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: b52462096ce977b94ff9514df650607b05e17030
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="storm-troubleshooting"></a>Solução de problemas do STORM
+# <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Solucionar problemas do Storm usando o Azure HDInsight
 
-Este artigo descreve os principais problemas e suas resoluções para trabalhar com conteúdo do Storm no Apache Ambari.
+Saiba mais sobre os principais problemas e suas soluções para trabalhar com cargas de Apache Storm no Apache Ambari.
 
-## <a name="how-do-i-access-storm-ui-on-a-cluster"></a>Como fazer para acessar a interface do usuário do Storm em um cluster
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Como fazer para acessar a interface do usuário do Storm em um cluster
+Você tem duas opções para acessar a interface do usuário do Storm em um navegador:
 
-### <a name="issue"></a>Problema:
-Há duas maneiras de acessar a interface do usuário do Storm em um navegador:
+### <a name="ambari-ui"></a>Interface do usuário do Ambari
+1. Vá até o painel do Ambari.
+2. Na lista de serviços, selecione **Storm**.
+3. No menu **Links Rápidos**, selecione **Interface do Usuário do Storm**.
 
-#### <a name="ambari-ui"></a>Interface do usuário do Ambari
-1. Navegar para o Painel do Ambari
-1. Selecione Storm na Lista de serviços à esquerda
-1. Selecione a opção interface do usuário do Storm no menu suspenso de Links rápidos
+### <a name="direct-link"></a>Link direto
+Você pode acessar a interface do usuário do Storm na seguinte URL:
 
-#### <a name="direct-link"></a>Link direto
-A interface do usuário do Storm está acessível da URL:
+https://\<nome DNS do cluster\>/stormui
 
-https://\<ClusterDnsName\>/stormui
+Exemplo:
 
-exemplo: https://stormcluster.azurehdinsight.net/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-eventhub-spout-checkpoint-information-from-one-topology-to-another"></a>Como fazer para transferir informações do ponto de verificação do spout Storm eventhub de uma topologia para outra
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Como fazer para transferir informações de ponto de verificação de spout no hub de eventos Storm de uma topologia para outra
 
-### <a name="issue"></a>Problema:
-Ao desenvolver topologias que leem de hubs de evento usando o jar do spout Storm eventhub do HDInsight, como é possível implantar uma topologia com o mesmo nome em um novo cluster, mas manter os dados do ponto de verificação confirmados no zookeeper no cluster antigo?
+Quando desenvolve topologias que leem os Hubs de Eventos do Azure usando o arquivo .jar do spout do hub de eventos Storm no HDInsight, você precisa implantar uma topologia que tenha o mesmo nome em um novo cluster. No entanto, você precisa reter os dados de ponto de verificação que foram confirmados no ZooKeeper do Apache no cluster antigo.
 
-#### <a name="where-is-checkpoint-data-stored"></a>O local em que os dados de ponto de verificação são armazenados
-Dados de ponto de verificação para deslocamentos são armazenados pelo spout do EventHub no Zookeeper em dois caminhos raiz:
-- Pontos de verificação spout não transacionais são armazenados em: /eventhubspout
-- Dados de ponto de verificação de spout da transação são armazenados em: /transational
+### <a name="where-checkpoint-data-is-stored"></a>O local em que os dados de ponto de verificação são armazenados
+Os dados de ponto de verificação para deslocamentos são armazenados pelo spout do hub de eventos no ZooKeeper em dois caminhos raiz:
+- Pontos de verificação de spout não transacionais são armazenados em /eventhubspout.
+- Dados de pontos de verificação de spout transacionais são armazenados em /transactional.
 
-#### <a name="how-to-restore"></a>Como restaurar
-Os scripts e as bibliotecas para exportar dados do zookeeper e importá-los de volta com um novo nome podem ser encontrados em: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0
+### <a name="how-to-restore"></a>Como restaurar
+Para fazer com que os scripts e bibliotecas que você usa exportem dados para fora do ZooKeeper e, em seguida, importar os dados de volta para o ZooKeeper com um novo nome, consulte [Exemplos de Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
 
-A pasta lib tem arquivos Jar que contêm a implementação para a operação de importação/exportação.
-A pasta bash tem um script de exemplo sobre como exportar dados do servidor do Zookeeper no cluster antigo e importá-lo de volta para o servidor do zookeeper no novo cluster.
+A pasta lib tem arquivos .jar que contêm a implementação para a operação de exportação/importação. A pasta bash tem um script de exemplo que demonstra como exportar dados do servidor do ZooKeeper no cluster antigo e importá-los de volta para o servidor do ZooKeeper no novo cluster.
 
-O script [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) precisa ser executado dos nós do Zookeeper para importar/exportar dados.
-O script precisa ser atualizado para corrigir a cadeia de caracteres de versão HDP nele.
-(O HDInsight está trabalhando para tornar esses scripts genéricos, para que eles possam ser executados de qualquer nó no cluster sem necessidade de modificações pelo usuário final).
+Execute o script [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) nos nós do ZooKeeper para exportar e, em seguida, importar dados. Atualize o script para a versão correta da HDP (Hortonworks Data Platform). (Estamos trabalhando para tornar esses scripts genéricos no HDInsight. Scripts genéricos podem ser executados em qualquer nó no cluster sem modificações pelo usuário.)
 
-O comando de exportação gravará os metadados em um Caminho HDFS (repositório de ADLS ou BLOB) no local especificado.
+O comando de exportação grava os metadados em um caminho de HDFS (Sistema de Arquivos Distribuído) do Apache Hadoop (em um repositório do Armazenamento de Blobs do Azure ou do Azure Data Lake Store) em um local que você definir.
 
 ### <a name="examples"></a>Exemplos
 
-##### <a name="export-offset-metadata"></a>Exportação de metadados de Deslocamento:
-1. SSH no cluster zookeeper no cluster antigo do qual o deslocamento do ponto de verificação precisa ser exportado.
-1. Execute o comando abaixo (depois de atualizar a cadeia de caracteres de versão hdp) exportar dados de deslocamento do zookeeper para o caminho HDFS /stormmetadata/zkdata.
+#### <a name="export-offset-metadata"></a>Exportar metadados de deslocamento
+1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
+2. Execute o seguinte comando (depois de atualizar a cadeia de caracteres de versão do HDP) para exportar dados de deslocamento do ZooKeeper para o caminho do HDFS /stormmetadata/zkdata:
 
-```apache   
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
-```
+    ```apache   
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
+    ```
 
-##### <a name="import-offset-metadata"></a>Importar metadados de deslocamento
-1. SSH no cluster zookeeper no cluster antigo do qual o deslocamento do ponto de verificação precisa ser exportado.
-1. Execute o comando abaixo (depois de atualizar a cadeia de caracteres de versão hdp) para importar dados de deslocamento zookeeper do caminho HDFS /stormmetadata/zkdata para o servidor Zookeeper no cluster de destino).
+#### <a name="import-offset-metadata"></a>Importar metadados de deslocamento
+1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
+2. Execute o seguinte comando (depois de atualizar a cadeia de caracteres de versão do HDP) para importar dados de deslocamento do ZooKeeper do caminho do HDFS /stormmetadata/zkdata para o servidor do ZooKeeper no cluster de destino:
 
-```apache
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
-```
+    ```apache
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
+    ```
    
-##### <a name="delete-offset-metadata-so-topologies-can-start-processing-data-from-either-beginning-or-timestamp-of-user-choice"></a>Exclua metadados de Deslocamento para que as topologias possam começar a processar dados do (início ou carimbo de data/hora de preferência do usuário)
-1. SSH no cluster zookeeper no cluster antigo do qual o deslocamento do ponto de verificação precisa ser exportado.
-1. Execute o comando abaixo (depois de atualizar a cadeia de caracteres de versão hdp) para excluir todos os dados de deslocamento do zookeeper para o cluster atual.
+#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Exclua metadados de deslocamento para que as topologias possam começar a processar dados desde o início ou desde um carimbo de data/hora escolhido pelo usuário
+1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
+2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para excluir todos os dados de deslocamento do ZooKeeper no cluster atual:
 
-```apache
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
-```
+    ```apache
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
+    ```
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Como fazer para localizar binários do Storm em um cluster
-
-### <a name="issue"></a>Problema:
- Local conhecido de binários para serviços do Storm no cluster do HDInsight
-
-### <a name="resolution-steps"></a>Etapas de Resolução:
-
-Binários do Storm para a Pilha HDP atual podem ser encontrados em: /usr/hdp/current/storm-client
-
-Esse local é o mesmo para Headnodes, bem como nós de trabalho.
+Binários do Storm para a pilha do HDP atual estão em /usr/hdp/current/storm-client. O local é o mesmo para nós de cabeçalho e para nós de trabalho.
  
-Pode haver vários binários específicos da versão HDP localizados em /usr/hdp (exemplo: /usr/hdp/2.5.0.1233/storm)
+Pode haver vários binários para versões específicas do HDP em /usr/hdp (por exemplo, /usr/hdp/2.5.0.1233/storm). A pasta /usr/hdp/current/storm-client está vinculada simbolicamente à versão mais recente em execução no cluster.
 
-Porém, o /usr/hdp/current/storm-client está vinculado ao sym para a versão mais recente executada no cluster.
-
-### <a name="further-reading"></a>Leitura Adicional:
- [Conecte-se ao cluster do HDInsight usando SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) [Storm](http://storm.apache.org/)
+Para obter mais informações, consulte [Conectar-se a um cluster HDInsight usando SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Como fazer para determinar a topologia de implantação de um cluster do Storm
+Primeiro, identifique todos os componentes instalados com o HDInsight Storm. Um cluster do Storm consiste em quatro categorias de nó:
+
+* Nós de gateway
+* Nós de cabeçalho
+* Nós do ZooKeeper
+* Nós de trabalho
  
-### <a name="issue"></a>Problema:
+### <a name="gateway-nodes"></a>Nós de gateway
+Um nó de gateway é um serviço de proxy reverso e de gateway que habilita o acesso público a um serviço de gerenciamento do Ambari ativo. Ele também lida com a seleção de líder do Ambari.
  
-Identifique todos os componentes instalados com o HDInsight Storm.
- 
-O cluster do Storm consiste em quatro categorias de nó
-1. Gateway
-1. Nós de cabeçalho
-1. Nós do Zookeeper
-1. Nós de trabalho
- 
-#### <a name="gateway-nodes"></a>Nós de gateway
-É um serviço de proxy reverso e gateway que habilita o acesso público ao serviço de gerenciamento do Ambari ativo, lida com a eleição do Líder do Ambari.
- 
-#### <a name="zookeeper-nodes"></a>Nós do Zookeeper
-O HDInsight vem com um quorum do Zookeeper de três nós.
-O tamanho do quorum é fixo e não é configurável.
- 
-Serviços de Storm no cluster são configurados para usar o quorum ZK automaticamente.
- 
-#### <a name="head-nodes"></a>Nós de cabeçalho
+### <a name="head-nodes"></a>Nós de cabeçalho
 Nós de cabeçalho do Storm executam os seguintes serviços:
-1. Nimbus
-1. Servidor Ambari
-1. Servidor de Métricas do Ambari
-1. Coletor de Métricas do Ambari
+* Nimbus
+* Servidor Ambari
+* Servidor de Métricas do Ambari
+* Coletor de Métricas do Ambari
  
-#### <a name="worker-nodes"></a>Nós de trabalho
- Nós de trabalho do Storm executam os seguintes serviços:
-1. Supervisor
-1. JVMs de trabalho para topologias em execução
-1. Agente do Ambari
+### <a name="zookeeper-nodes"></a>Nós do ZooKeeper
+O HDInsight tem um quorum do ZooKeeper de três nós. O tamanho do quorum é fixo e não é configurável.
  
-## <a name="how-do-i-locate-storm-eventhub-spout-binaries-for-development"></a>Como fazer para localizar binários Storm-EventHub-Spout para desenvolvimento
+Serviços do Storm no cluster são configurados para usar o quorum do ZooKeeper automaticamente.
  
-### <a name="issue"></a>Problema:
-Como possa saber mais sobre o uso de jars do spout Storm eventhub com a minha topologia.
+### <a name="worker-nodes"></a>Nós de trabalho
+Nós de trabalho do Storm executam os seguintes serviços:
+* Supervisor
+* JVMs (máquinas virtuais Java) de trabalho, para executar topologias
+* Agente do Ambari
  
-#### <a name="msdn-articles-on-how-to"></a>Artigos de instruções do MSDN
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Como fazer para localizar binários de spout do hub de eventos Storm para desenvolvimento
  
-##### <a name="java-based-topology"></a>Topologia baseada em Java
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology
+Para obter mais informações sobre como usar arquivos .jar de spout do hub de eventos do Storm com sua topologia, consulte os seguintes recursos.
  
-##### <a name="c-based-topology-using-mono-on-hdi-34-linux-storm-clusters"></a>Topologia baseada em C# (usando Mono em clusters HDI 3.4+ Linux Storm)
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology
+### <a name="java-based-topology"></a>Topologia baseada em Java
+[Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
-##### <a name="latest-storm-eventhub-spout-binaries-for-hdi35-linux-storm-clusters"></a>Binários do spout Storm EventHub mais recentes para clusters HDI3.5+ Linux Storm
-Examine https://github.com/hdinsight/mvn-repo/blob/master/README.md sobre como usar o spout Storm eventhub mais recente que funciona com clusters do HDI3.5+ Linux Storm.
+### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologia baseada em C# (Mono em clusters Storm Linux no HDInsight 3.4+)
+[Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
-##### <a name="source-code-examples"></a>Exemplos de código-fonte:
-https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
+### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Binários de spout do hub de eventos Storm mais recentes para clusters Storm Linux no HDInsight 3.5+
+Para saber como usar o spout de hub de eventos do Storm mais recente que funciona com clusters Storm Linux do HDInsight 3.5+, consulte o [arquivo Leiame](https://github.com/hdinsight/mvn-repo/blob/master/README.md) do repositório de mvn.
+ 
+### <a name="source-code-examples"></a>Exemplos de código-fonte
+Veja [exemplos](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) de ler e gravar no Hub de Eventos do Azure usando uma topologia do Apache Storm (escrita em Java) em um cluster do Azure HDInsight.
  
 ## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Como fazer para localizar arquivos de configuração do Storm Log4J nos clusters
  
-### <a name="issue"></a>Problema:
+Para identificar arquivos de configuração do Apache Log4J para serviços do Storm.
  
-Identificar arquivos de configuração Log4J para serviços do Storm.
+### <a name="on-head-nodes"></a>Em nós de cabeçalho
+A configuração de Log4J Nimbus é lida de /usr/hdp/\<versão de HDP\>/storm/log4j2/cluster.xml.
  
-#### <a name="on-headnodes"></a>Em HeadNodes:
-A configuração de Log4J Nimbus é lida de: /usr/hdp/<HDPVersion>/storm/log4j2/cluster.xml
+### <a name="on-worker-nodes"></a>Em nós de trabalho
+A configuração de Log4J de supervisor é lida de /usr/hdp/\<versão de HDP\>/storm/log4j2/cluster.xml.
  
-#### <a name="worker-nodes"></a>Nós de trabalho
-A configuração de Log4J do Supervisor é lida de: /usr/hdp/<HDPVersion>/storm/log4j2/cluster.xml
+O arquivo de configuração de Log4J de trabalho é lido de /usr/hdp/\<versão de HDP\>/storm/log4j2/worker.xml.
  
-O arquivo de configuração do Log4J de trabalho é lido de: /usr.hdp/<HDPVersion>/storm/log4j2/worker.xml
- 
-Exemplo: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
-
-
-
-
-
+Exemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
 

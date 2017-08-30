@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 31eeaa3df41065b65d6202f00c01ad2f706e230a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5f482a92b8fcd71a1b767fcc5741bc57605997ea
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas do Azure Disk Encryption
@@ -31,8 +31,8 @@ A criptografia de disco do SO Linux deve desmontar a unidade do SO antes de exec
 
 Isso é muito provável quando a criptografia de disco do SO for tentada em um ambiente de VM de destino modificado ou alterado a partir da imagem da galeria de estoque com suporte.  Exemplos de desvios da imagem com suporte, que podem interferir com a capacidade da extensão de desmontar a unidade do SO incluem:
 - Imagens personalizadas que não correspondem mais a um sistema de arquivos com suporte e/ou esquema de particionamento.
-- Quando aplicativos grandes como SAP, MongoDB ou Apache Cassandra estão instalados e em execução no SO antes da criptografia.  A extensão não pode desligá-los corretamente e se, mantiverem os identificadores de arquivo abertos na unidade do SO, a unidade não poderá ser desmontada, causando falha.
-- Quando os scripts personalizados estão sendo executados muito próximos à criptografia que está sendo habilitada ou, se qualquer outra alteração estiver sendo feita na VM durante o processo de criptografia.   Isso pode acontecer quando um modelo do Resource Manager define múltiplas extensões para executar simultaneamente, ou quando uma extensão de script personalizada ou outra ação é executada simultaneamente para criptografia de disco.   Serializar e isolar tais etapas pode resolver o problema.
+- Imagens personalizadas com aplicativos como antivírus, Docker, SAP, MongoDB ou Apache Cassandra em execução no sistema operacional antes da criptografia.  Esses aplicativos são difíceis de serem encerrados e, quando eles retêm identificadores de arquivos abertos para a unidade do sistema operacional, a unidade não pode ser desmontada, causando falha.
+- Os scripts personalizados que são executados em momento próximo ao da etapa de criptografia podem interferir e causar essa falha. Isso pode acontecer quando um modelo do Resource Manager define múltiplas extensões para executar simultaneamente, ou quando uma extensão de script personalizada ou outra ação é executada simultaneamente para criptografia de disco.   Serializar e isolar tais etapas pode resolver o problema.
 - Quando o SELinux não tiver sido desabilitado antes de habilitar a criptografia, a etapa de desmontagem falhará.  O SELinux pode ser novamente habilitado após a conclusão da criptografia.
 - Quando o disco do SO estiver usando um esquema de LVM (embora o suporte limitado ao disco de dados de LVM esteja disponível, o disco do SO do LVM não está)
 - Quando os requisitos mínimos de memória não são atendidos (7 GB é sugerido para criptografia de disco do SO)
@@ -41,7 +41,7 @@ Isso é muito provável quando a criptografia de disco do SO for tentada em um a
 
 ## <a name="unable-to-encrypt"></a>Não será possível criptografar
 
-Em alguns casos, a criptografia de disco do Linux parece estar paralisada na "criptografia de disco do OS iniciada" e o SSH está desabilitado. Esse processo pode demorar de 3 a 16 horas para ser concluído e pode exigir mais tempo.  A sequência de criptografia de disco do SO Linux desmonta temporariamente a unidade do SO e executa a criptografia de bloco a bloco de todo o disco do SO, antes de remontar em seu estado criptografado.   Ao contrário do Azure Disk Encryption no Windows, o Linux Disk Encryption não permite o uso simultâneo da VM enquanto a criptografia está em andamento.  As características de desempenho da VM, incluindo o tamanho do disco, e se a conta de armazenamento tem suporte pelo armazenamento padrão ou premium (SSD), podem influenciar muito o tempo necessário para concluir a criptografia.
+Em alguns casos, a criptografia de disco do Linux parece estar paralisada na "criptografia de disco do OS iniciada" e o SSH está desabilitado. Esse processo pode levar entre 3 e 16 horas para ser concluído em uma imagem da galeria de estoque.  Se discos de dados de diversos TB de tamanho são adicionados, o processo pode levar dias. A sequência de criptografia de disco do SO Linux desmonta temporariamente a unidade do SO e executa a criptografia bloco a bloco de todo o disco do SO, antes de remontar em seu estado criptografado.   Ao contrário do Azure Disk Encryption no Windows, o Linux Disk Encryption não permite o uso simultâneo da VM enquanto a criptografia está em andamento.  As características de desempenho da VM, incluindo o tamanho do disco, e se a conta de armazenamento tem suporte pelo armazenamento padrão ou premium (SSD), podem influenciar muito o tempo necessário para concluir a criptografia.
 
 Para verificar o status, o campo ProgressMessage retornado do comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) pode ser sondado.   Enquanto a unidade do SO está sendo criptografada, a VM entra em um estado de manutenção e o SSH também é desabilitado para evitar qualquer interrupção no processo em andamento.  EncryptionInProgress será relatado pela maior parte do tempo enquanto a criptografia estiver em andamento, seguido várias horas depois com uma mensagem VMRestartPending solicitando a reinicialização da VM.  Por exemplo:
 
@@ -76,9 +76,42 @@ A VM deve poder acessar cofre de chaves. Consulte as diretrizes sobre o acesso a
 ### <a name="linux-package-management-behind-firewall"></a>Gerenciamento de pacotes Linux por trás do firewall
 Em tempo de execução, o Azure Disk Encryption para Linux depende do sistema de gerenciamento de pacotes da distribuição de destino para instalar os pré-requisitos necessários antes de habilitar a criptografia.  Se as configurações do firewall impedem que a VM seja capaz de baixar e instalar esses componentes, então, falhas subsequentes são esperadas.    As etapas para configurar isso podem variar de acordo com a distribuição.  No Red Hat, quando um proxy é necessário, é vital garantir que o subscription-manager e o yum estejam configurados corretamente.  Consulte [este](https://access.redhat.com/solutions/189533) artigo de suporte do Red Hat sobre esse tópico.  
 
+## <a name="troubleshooting-windows-server-2016-server-core"></a>Solução de problemas de Server Core do Windows Server 2016
+
+No Server Core do Windows Server 2016, o componente bdehdcfg não está disponível por padrão. Esse componente é exigido pelo Azure Disk Encryption.
+
+Para solucionar esse problema, copie os quatro arquivos a seguir de uma VM Data Center do Windows Server 2016 para a pasta c:\windows\system32 da imagem do Server Core:
+
+```
+bdehdcfg.exe
+bdehdcfglib.dll
+bdehdcfglib.dll.mui
+bdehdcfg.exe.mui
+```
+
+Em seguida, execute o seguinte comando:
+
+```
+bdehdcfg.exe -target default
+```
+
+Isso criará uma partição de sistema de 550 MB e, em seguida, após uma reinicialização, você poderá usar o Diskpart para verificar os volumes e continuar.  
+
+Por exemplo:
+
+```
+DISKPART> list vol
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    126 GB  Healthy    Boot
+  Volume 1                      NTFS   Partition    550 MB  Healthy    System
+  Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
+```
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucionar problemas. Para obter mais informações sobre esse serviço e sua capacidade, leia:
 
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Criptografar uma Máquina Virtual do Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Criptografia de dados em repouso no Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+

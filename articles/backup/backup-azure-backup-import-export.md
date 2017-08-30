@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 4f5e58713d925d2f7477dc072ecec455dec70792
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. O Backup do Azure compacta os backups inicias. O processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup iniciais compactados de forma offline no Azure.  
 
-O processo de propagação offline do Backup do Azure está totalmente integrado com o [serviço Importação/Exportação do Azure](../storage/storage-import-export-service.md) , que permite transferir dados para o Azure usando discos. Se você tiver terabytes (TBs) de dados de backup iniciais que precisam ser transferidos por meio de uma rede de alta latência e baixa largura de banda, pode usar o fluxo de trabalho de propagação offline para enviar a cópia de backup inicial em um ou mais discos rígidos para um data center do Azure. Este artigo fornece uma visão geral das etapas que concluem este fluxo de trabalho.
+O processo de propagação offline do Backup do Azure está totalmente integrado com o [serviço Importação/Exportação do Azure](../storage/common/storage-import-export-service.md) , que permite transferir dados para o Azure usando discos. Se você tiver terabytes (TBs) de dados de backup iniciais que precisam ser transferidos por meio de uma rede de alta latência e baixa largura de banda, pode usar o fluxo de trabalho de propagação offline para enviar a cópia de backup inicial em um ou mais discos rígidos para um data center do Azure. Este artigo fornece uma visão geral das etapas que concluem este fluxo de trabalho.
 
 ## <a name="overview"></a>Visão geral
 Com a capacidade de propagação offline do Backup do Azure e a Importação/Exportação do Azure, é simples carregar os dados offline no Azure usando discos. Em vez de transferir a cópia completa inicial através da rede, os dados de backup são gravados em um *local de preparo*. Depois da cópia para o local de preparo ser concluída usando a ferramenta Importação/Exportação do Azure, esses dados são gravados para uma ou mais unidades SATA, dependendo da quantidade de dados. Essas unidades eventualmente são enviadas para o data center do Azure mais próximo.
@@ -42,19 +42,19 @@ Depois que o upload dos dados de backup no Azure for concluído, o Backup do Azu
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Familiarize-se com o fluxo de trabalho de Importação/Exportação do Azure](../storage/storage-import-export-service.md).
+* [Familiarize-se com o fluxo de trabalho de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md).
 * Antes de iniciar o fluxo de trabalho, verifique o seguinte:
   * Um cofre de Backup do Azure foi criado.
   * As credenciais do cofre foram baixadas.
   * O agente de Backup do Azure foi instalado no Windows Server/cliente do Windows ou no servidor do System Center Data Protection Manager e o computador é registrado no Cofre de Backup do Azure.
 * [Baixe as configurações do arquivo de publicação do Azure](https://manage.windowsazure.com/publishsettings) no computador por meio do qual você planeja fazer backup dos nossos dados.
 * Configure um local de preparo, que pode ser um compartilhamento de rede ou um disco adicional no computador. O local de preparo é um “armazenamento provisório” e é usado temporariamente durante esse fluxo de trabalho. Certifique-se de que o local de preparo tenha espaço em disco suficiente para armazenar sua cópia inicial. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB. (Um valor menor é usado devido à compactação).
-* Verifique se você está usando uma unidade com suporte. Somente discos rígidos internos SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/storage-import-export-service.md#hard-disk-drives) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
+* Verifique se você está usando uma unidade com suporte. Somente discos rígidos internos SSD de 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-service.md#hard-disk-drives) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
 * Habilite o BitLocker no computador ao qual o gravador de unidade SATA está conectado.
 * [Baixe a ferramenta de Importação/Exportação](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) para o computador ao qual o gravador de unidade SATA está conectado. Esta etapa não será necessária se você tiver baixado e instalado a atualização de agosto de 2016 do Backup do Azure (ou posterior).
 
 ## <a name="workflow"></a>Fluxo de trabalho
-As informações desta seção ajudam você a concluir o fluxo de trabalho de backup offline para que os dados possam ser entregues em um datacenter do Azure e carregados no Armazenamento do Azure. Se você tem dúvidas sobre o serviço de Importação ou qualquer aspecto do processo, confira a documentação sobre a [Visão geral do serviço de importação](../storage/storage-import-export-service.md) indicada anteriormente.
+As informações desta seção ajudam você a concluir o fluxo de trabalho de backup offline para que os dados possam ser entregues em um datacenter do Azure e carregados no Armazenamento do Azure. Se você tem dúvidas sobre o serviço de Importação ou qualquer aspecto do processo, confira a documentação sobre a [Visão geral do serviço de importação](../storage/common/storage-import-export-service.md) indicada anteriormente.
 
 ### <a name="initiate-offline-backup"></a>Iniciar o backup offline
 1. Quando você agenda um backup, vê a tela a seguir (no Windows Server, no cliente do Windows ou no System Center Data Protection Manager).
@@ -208,6 +208,6 @@ Após a conclusão da importação, os dados de backup inicias estarão disponí
 Depois que os dados de backup iniciais estão disponíveis em sua conta de armazenamento, o agente dos Serviços de Recuperação do Microsoft Azure copia o conteúdo dos dados dessa conta para o cofre de Backup ou para o cofre dos Serviços de Recuperação, dependendo do caso. No próximo horário de backup agendado, o agente de Backup do Azure executará o backup incremental sobre a cópia de backup inicial.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/storage-import-export-service.md).
+* Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/common/storage-import-export-service.md).
 * Consulte a seção sobre o backup offline das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho.
 

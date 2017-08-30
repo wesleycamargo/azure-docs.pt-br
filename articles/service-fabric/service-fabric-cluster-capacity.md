@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
@@ -54,7 +54,6 @@ Para um cluster com vários tipos de nó, você precisa escolher um deles como p
 * O **tamanho mínimo de VMs** para o tipo de nó primário é determinado pela **camada de durabilidade** que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.  
 * O **número mínimo de VMs** para o tipo de nó primário é determinado pela **camada de confiabilidade** que você escolhe. O padrão para a camada de confiabilidade é Prata. Role para baixo para obter detalhes sobre o que é a camada de confiabilidade e os valores que ela pode ter. 
 
- 
 
 * Os serviços do sistema do Service Fabric (por exemplo, o serviço Gerenciador de Cluster ou o Serviço de Armazenamento de Imagens) são colocados no tipo de nó primário. Assim, a confiabilidade e a durabilidade do cluster são determinadas pelos valores de camadas de confiabilidade e durabilidade selecionados para o tipo de nó primário.
 
@@ -73,7 +72,11 @@ Esse privilégio é expresso nos seguintes valores:
 
 * Ouro – os Trabalhos de infraestrutura podem permanecer em pausa por duas horas por UD. A durabilidade ouro pode ser habilitada apenas em skus de VM de nó completo como D15_V2, G5 etc.
 * Prata – os Trabalhos de infraestrutura podem permanecer em pausa por um período de dez minutos por UD e estão disponíveis em todas as VMs padrão de núcleo único e superior.
-* Bronze - sem privilégios. Este é o padrão e é recomendado se você estiver executando apenas cargas de trabalho sem estado no cluster.
+* Bronze - sem privilégios. Esse é o padrão. Use esse nível de durabilidade somente para Tipos de nós que executam _somente_ cargas de trabalho sem estado. 
+
+> [!WARNING]
+> NodeTypes executados com durabilidade Bronze não têm _nenhum privilégio_. Isso significa que trabalhos de infraestrutura que afetam sus cargas de trabalho sem estado não serão interrompidas ou atrasadas. É possível que tais trabalhos ainda possam afetar suas cargas de trabalho, causando tempo de inatividade ou outros problemas. Para qualquer tipo de carga de trabalho de produção, é recomendável a execução com pelo menos o nível Prata. 
+> 
 
 É preciso escolher o nível de durabilidade de cada um dos tipos de nós. Você pode escolher o nível de durabilidade Ouro ou Prata para um tipo de nó e Bronze para outro no mesmo cluster.**Você deve manter um número mínimo de 5 nós de qualquer tipo de nó que tem uma durabilidade de ouro e prata**. 
 
@@ -87,8 +90,6 @@ Esse privilégio é expresso nos seguintes valores:
 1. As implantações no Conjunto de Dimensionamento de Máquinas Virtuais e nos outros recursos do Azure relacionados podem ser atrasadas, podem atingir o tempo limite ou podem ser bloqueadas inteiramente por problemas no cluster ou no nível de infraestrutura. 
 2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, trocas primárias) devido às desativações de nós automatizadas durante as operações de infraestrutura do Azure.
 
-
-
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações de quando usar os níveis de durabilidade Prata ou Ouro
 
 Use a durabilidade Prata ou Ouro para todos os tipos de nós que hospedam serviços com estado que você pretende reduzir horizontalmente (reduzir a contagem de instâncias de VM) com frequência, mas prefere que as operações de implantação sejam atrasadas para simplificar essas operações de redução horizontal. Os cenários de escalabilidade horizontal (adicionar instâncias de VMs) não fazem parte das opções da camada de durabilidade, somente os de redução horizontal.
@@ -99,6 +100,12 @@ Use a durabilidade Prata ou Ouro para todos os tipos de nós que hospedam servi�
 2. Adotar modos mais seguros de fazer uma alteração de SKU de VM (escalar verticalmente/horizontalmente): a alteração da SKU de VM de um Conjunto de Dimensionamento de Máquinas Virtuais é inerentemente uma operação não segura e portanto deve ser evitada, se possível. Veja o processo que você pode seguir para evitar problemas comuns.
     - **Para tipos de nós não primários:** é recomendado criar um novo Conjunto de Dimensionamento de Máquinas Virtuais, modificar a restrição de posicionamento do serviço para incluir o novo Conjunto de Dimensionamento de Máquinas Virtuais/tipo de nó e, em seguida, reduzir a contagem antiga de instâncias do Conjunto de Dimensionamento de Máquinas Virtuais para 0, um nó de cada vez (isso deve ser feito para garantir que a remoção dos nós não afete a confiabilidade do cluster).
     - **Para o tipo de nó primário**: recomendamos não alterar a SKU de VM do tipo de nó primário. Se o motivo da nova SKU for capacidade, recomendamos adicionar mais instâncias ou, se possível, criar um novo cluster. Se você não tiver outra opção, modifique a definição do Modelo do Conjunto de Dimensionamento de Máquinas Virtuais para refletir a nova SKU. Se o seu cluster tiver apenas um tipo de nó, verifique se todos os aplicativos com estado respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como quando a réplica sendo compilada está paralisada) de maneira oportuna e se a duração da recompilação da réplica do serviço dura menos de cinco minutos (para o nível de durabilidade Prata). 
+
+
+> [!WARNING]
+> Alterar o Tamanho de SKU da VM para Conjuntos de Dimensionamento de VMs que não executam pelo menos a durabilidade Prata não é recomendado. Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem ter pelo menos alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação cause perda de dados para serviços com estado ou outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. 
+> 
+    
 3. Mantenha uma contagem mínima de cinco nós para qualquer Conjunto de Dimensionamento de Máquinas Virtuais com MR habilitado
 4. Não exclua instâncias de VM aleatórias; sempre reduza verticalmente o recurso Conjunto de Dimensionamento de Máquinas Virtuais. A exclusão de instâncias de VM aleatórias tem o potencial de criar desequilíbrios na difusão das instâncias de VM por UD e FD. Esse desequilíbrio pode afetar de maneira negativa a capacidade dos sistemas de executar um balanceamento de carga adequado entre as instâncias do serviço/réplicas do Serviço.
 6. Se usar o Dimensionamento Automático, defina as regras de modo que a redução horizontal (remoção de instâncias de VM) seja executada em um nó de cada vez. Redução de mais de uma instância em um momento não é segura.

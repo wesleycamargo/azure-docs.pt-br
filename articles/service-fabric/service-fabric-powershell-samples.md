@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: bedf52a2a9b9ffc1c2546f25a09c0b1639a6e210
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b109d1f3082fa3017f34bed685fd008ff3630394
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
@@ -35,5 +35,7 @@ A tabela a seguir contém links para exemplos de scripts do PowerShell que criam
 | [Adicionar um certificado de aplicativo](./scripts/service-fabric-powershell-add-application-certificate.md)| Adiciona um certificado X.509 de aplicativo a todos os nós em um cluster. |
 | **Gerenciar aplicativos** ||
 | [Implantar um aplicativo](./scripts/service-fabric-powershell-deploy-application.md)| Implantar um aplicativo em um cluster.|
+| [Atualizar um aplicativo](./scripts/service-fabric-powershell-upgrade-application.md)| Atualizar um aplicativo |
 | [Remover um aplicativo](./scripts/service-fabric-powershell-remove-application.md)| Remover um aplicativo de um cluster.|
+| [Abrir uma porta no balanceador de carga](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Abra uma porta de aplicativo no Azure Load Balancer. |
 

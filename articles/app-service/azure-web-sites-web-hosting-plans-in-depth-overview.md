@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 07d5056fdea9d4975fe91a5b842a9208385e779e
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Visão geral detalhada de planos de serviço de aplicativo do Azure
@@ -33,7 +33,7 @@ Os Planos do Serviço de Aplicativo definem:
 - Tamanha da instância (Pequena, Média, Grande)
 - SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
 
-Aplicativos Web, Aplicativos Móveis, Aplicativos de API, Aplicativos de Funções (ou Funções) no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) todos executados em um plano do Serviço de Aplicativo.  Aplicativos na mesma assinatura, região e grupo de recursos podem compartilhar um Plano do Serviço de Aplicativo. 
+Aplicativos Web, Aplicativos Móveis, Aplicativos de API, Aplicativos de Funções (ou Funções) no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) todos executados em um plano do Serviço de Aplicativo.  Aplicativos na mesma assinatura e região podem compartilhar um Plano do Serviço de Aplicativo. 
 
 Todos os aplicativos atribuídos a um **Plano do Serviço de Aplicativos** compartilham os recursos definidos pelo plano. Esse compartilhamento economiza dinheiro ao hospedar vários aplicativos em um único plano do Serviço de Aplicativo.
 

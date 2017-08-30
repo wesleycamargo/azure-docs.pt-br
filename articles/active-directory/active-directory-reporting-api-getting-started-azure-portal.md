@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b0ff68902f671518ff53772b1956272a7f6e1614
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatório do Azure Active Directory
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/20/2017
 O Azure Active Directory fornece vários relatórios. Os dados desses relatórios podem ser muito úteis para seus aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. As APIs de relatório do Azure AD fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
 
 Este artigo fornece as informações necessárias para começar com as APIs de relatório do Azure AD.
-Na próxima seção, você encontrará mais detalhes sobre como usar as APIs de auditoria e de entrada. Para todas as outras APIs, consulte o artigo [Eventos e relatórios do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview).
+Na próxima seção, você encontrará mais detalhes sobre como usar as APIs de auditoria e de entrada. 
 
 Para ver perguntas frequentes, leia nossas [Perguntas Frequentes](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). Para solucionar problemas, [registre um tíquete de suporte](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
 
@@ -43,6 +43,6 @@ Para ver perguntas frequentes, leia nossas [Perguntas Frequentes](https://docs.m
    * [Usar a referência da API de relatório de atividade de entrada](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se estiver curioso para ver todos os pontos de extremidade disponíveis da API do Graph do Azure AD, navegue até [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
+Se estiver curioso para ver todos os pontos de extremidade disponíveis da API do Graph do Azure AD, use este link [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 
 

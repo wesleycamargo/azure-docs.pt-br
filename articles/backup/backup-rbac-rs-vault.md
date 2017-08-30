@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -46,7 +46,7 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Criar cofre de Serviços de Recuperação | Colaborador no Grupo de recursos do cofre |
 | Habilitar backup de VMs do Azure | Operador de Backup no cofre, Colaborador de máquina virtual em VMs |
 | Backup sob demanda de VM | Operador de backup |
-| Restaurar VM | Operador de backup, Colaborador do grupo de recursos|no qual a VM e as redes virtuais serão implantadas |
+| Restaurar VM | Operador de backup, colaborador do grupo de recursos no qual VM e Vnets serão implantadas |
 | Restaurar discos, arquivos individuais do backup da VM | Operador de backup |
 | Criar política de backup para backup da VM do Azure | Colaborador de backup |
 | Modificar a política de backup da VM do Azure | Colaborador de backup |

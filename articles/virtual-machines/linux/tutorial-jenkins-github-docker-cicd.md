@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 ## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
 Em um tutorial anterior sobre [Como personalizar uma máquina virtual do Linux na primeira inicialização](tutorial-automate-vm-deployment.md), você aprendeu a automatizar a personalização de VM com a inicialização de nuvem. Este tutorial usa um arquivo de inicialização de nuvem para instalar o Jenkins e o Docker em uma VM. 
 
-Crie um arquivo de inicialização de nuvem chamado *cloud-init-jenkins.txt* e cole o seguinte conteúdo:
+No shell atual, crie um arquivo chamado *cloud-init.txt* e cole a configuração a seguir. Por exemplo, crie o arquivo no Cloud Shell e não em seu computador local. Insira `sensible-editor cloud-init-jenkins.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -115,6 +115,8 @@ Exiba o `initialAdminPassword` para sua instalação do Jenkins e copie-o:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+Se o arquivo ainda não está disponível, aguarde alguns minutos para a nuvem-init concluir a instalação Jenkins e o Docker.
+
 Agora, abra um navegador da Web e vá para `http://<publicIps>:8080`. Conclua a configuração inicial do Jenkins da seguinte maneira:
 
 - Insira a *initialAdminPassword* obtida da VM na etapa anterior.
@@ -143,11 +145,11 @@ Para o Jenkins responder a um evento no GitHub, tal como confirmação de códig
 
 No seu site do Jenkins, clique em **Criar novos trabalhos** na home page:
 
-- Insira *HelloWorld* como nome do trabalho. Selecione **Projeto Freestyle** e, em seguida, clique em **OK**.
+- Insira *HelloWorld* como nome do trabalho. Escolha **Projeto Freestyle** e selecione **OK**.
 - Na seção **Geral**, selecione o projeto do **GitHub** e insira a URL do repositório bifurcado, por exemplo, *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Na seção **Gerenciamento de código-fonte**, selecione **Git** e insira a URL *.git* do repositório bifurcado, por exemplo, *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**.
-- Na seção **Compilar**, clique em **Adicionar etapa de build**. Selecione **Executar shell** e, em seguida, digite `echo "Testing"` na janela de comando.
+- Na seção **Compilar**, clique em **Adicionar etapa de compilação**. Selecione **Executar shell** e, em seguida, digite `echo "Testing"` na janela de comando.
 - Na parte inferior da janela de trabalhos, clique em **Salvar**.
 
 
@@ -157,7 +159,7 @@ Para testar a integração do GitHub com o Jenkins, confirme uma alteração em 
 De volta à interface do usuário da Web do GitHub, selecione o repositório bifurcado e, em seguida, clique no arquivo **index.js**. Clique no ícone de lápis para editar esse arquivo, de modo que a linha 6 fique assim:
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 Para confirmar suas alterações, clique no botão **Confirmar alterações** na parte inferior.
@@ -174,7 +176,7 @@ Da conexão do SSH para a VM, altere para o diretório de espaço de trabalho do
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Crie um arquivo chamado `Dockerfile` neste diretório de espaço de trabalho e cole o seguinte conteúdo:
+Crie um arquivo com esse diretório de espaço de trabalho com `sudo sensible-editor Dockerfile` nese cole o conteúdo a seguir. Certifique-se de que o Dockerfile inteiro foi copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 FROM node:alpine
@@ -197,7 +199,7 @@ Em sua instância do Jenkins, selecione o trabalho que você criou em uma etapa 
 
 - Remova sua etapa de build `echo "Test"` existente. Clique na cruz vermelha no canto superior direito da caixa da etapa de build existente.
 - Clique em **Adicionar etapa de build** e, em seguida, selecione **Executar shell**
-- Na caixa **Comando**, insira os comandos do Docker a seguir:
+- Na caixa **Comando**, insira os comandos do Docker a seguir e então selecione **Salvar**:
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -237,7 +239,7 @@ Neste tutorial, você configurou o GitHub para executar um trabalho de build do 
 > * Criar uma imagem de Docker para o aplicativo
 > * Verificar se as confirmações do GitHub compilam a nova imagem do Docker e atualizam o aplicativo em execução
 
-Siga este link para ver exemplos de script de máquina virtual predefinido.
+Avance para o próximo tutorial para saber mais sobre como integrar o Jenkins com o Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de máquina virtual do Linux](./cli-samples.md)
+> [Implantar aplicativos com Jenkins e Team Services](tutorial-build-deploy-jenkins.md)

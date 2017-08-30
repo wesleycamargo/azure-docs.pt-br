@@ -9,54 +9,68 @@ editor:
 ms.assetid: 
 ms.service: storage
 ms.devlang: multiple
-ms.topic: release-notes
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3525661bd55aead07ce8d97464ba16393d28c04c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63a24f6b153390533bba0888fd1051508c65bf6e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.8.15 (Visualização), além das notas de versão para versões anteriores.
+Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia), além das notas de versão para versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
 
-## <a name="version-0815-preview"></a>Versão 0.8.15 (Visualização)
-7/13/2017
+## <a name="version-0816-preview"></a>Versão 0.8.16 (Versão Prévia)
+8/21/2017
 
-### <a name="download-azure-storage-explorer-0815-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.8.15 (Visualização)
-- [Gerenciador de Armazenamento do Azure 0.8.15 (Visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 0.8.15 (Visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 0.8.15 (Visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-0816-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia)
+- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
+* Quando você abre um blob, o Gerenciador de Armazenamento solicitará que você carregue o arquivo baixado, se uma mudança for detectada
+* Experiência de aprimorada de conexão no Azure Stack
+* Melhoria no desempenho de upload/download de muitos arquivos pequenos ao mesmo tempo
 
-* Desempenho aprimorado de carregamento e download de blob.
-* Experiência com arquivos conflitantes aprimorada para carregamento e download de blob.
-* Exibição aprimorada de erros no Log de atividades durante o carregamento e download de blob.
-* Aumento do tamanho máximo de carregamentos e downloads de blob para 8 TB para blobs de página e aproximadamente 4,7 TB para blobs de bloco.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="fixes"></a>Correções
+* Para alguns tipos de blob, escolher "substituir" durante um conflito de upload às vezes resultava no reinício do upload. 
+* Na versão 0.8.15, os uploads às vezes paralisavam em 99%.
+* Ao carregar arquivos em um compartilhamento de arquivos, se você optasse por carregar em um diretório que não ainda não existia, o upload falhava.
+* O Gerenciador de Armazenamento estava gerando incorretamente os carimbos de data/hora para assinaturas de acesso compartilhadas e consultas de tabela.
 
-* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Esta é uma [limitação da biblioteca de Nós de Armazenamento do Azure](https://github.com/Azure/azure-storage-node/issues/317).
-* Depois de concluir o carregamento de um blob, a guia que iniciou o carregamento é atualizada. Isso é uma alteração do comportamento anterior, e também levará você de volta à raiz do contêiner no qual você está. 
-* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar o Gerenciador de Armazenamento para que ele esqueça dessa decisão.
-* Talvez o painel de configurações da conta mostre que você precisa reinserir as credenciais a fim de filtrar as assinaturas.
+
+Problemas conhecidos
+* Usar uma cadeia de conexão de nome e chave não funciona atualmente. Isso será corrigido na próxima versão. Até lá, você pode usar anexar com o nome e chave.
+* Se você tentar abrir um arquivo com um nome de arquivo inválido do Windows, o download resultará em um erro de Arquivo não encontrado.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Esta é uma limitação da biblioteca de Nós de Armazenamento do Azure.
+* Depois de concluir o carregamento de um blob, a guia que iniciou o carregamento é atualizada. Isso é uma alteração do comportamento anterior, e também levará você de volta à raiz do contêiner no qual você está.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* O painel de configurações de conta pode mostrar que você precisa reinserir as credenciais para filtrar as assinaturas.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
-* A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade: 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
-* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador: 
-    * sudo apt-get install libgconf-2-4
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0814-preview"></a>Versão 0.8.14 (Visualização)
 06/22/2017
@@ -82,10 +96,16 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
 * A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+
+
 
 ## <a name="previous-releases"></a>Versões anteriores
 
@@ -104,6 +124,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 * [Versão 0.7.20160129.1](#version-07201601291)
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
+
 
 ### <a name="version-0813"></a>Versão 0.8.13
 05/12/2017
@@ -131,10 +152,14 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
 * A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-0812--0811--0810"></a>Versão 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
@@ -170,10 +195,14 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
 * A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-089--088"></a>Versão 0.8.9 / 0.8.8
 02/23/2017
