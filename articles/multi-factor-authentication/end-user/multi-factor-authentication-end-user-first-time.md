@@ -4,7 +4,7 @@ description: "Quando sua empresa configura a Autenticação Multifator do Azure,
 services: multi-factor-authentication
 keywords: como usar o directory do azure, active directory na nuvem, tutorial do active directory
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
@@ -36,7 +36,7 @@ Quando o departamento de TI exigir que você comece a usar a verificação em du
 
 Para começar, selecione **Configurar agora.**
 
-Se você não vir uma tela assim ao entrar, siga as instruções em [Gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) para localizar a página de configurações, em que você pode gerenciar as opções de verificação. 
+Se você não vir uma tela assim ao entrar, siga as instruções em [Gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) para localizar a página de configurações, em que você pode gerenciar as opções de verificação.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decida como você deseja verificar suas entradas
 

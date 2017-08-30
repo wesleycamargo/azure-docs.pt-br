@@ -48,9 +48,9 @@ Siga as etapas abaixo para acessar a redefinição de senha de autoatendimento d
 
    > [!NOTE]
    > Se sua equipe de TI não tiver habilitado essa funcionalidade, um link "entre em contato com seu administrador" será exibido para que sua equipe de TI possa ajudar, por email ou por um portal da Web próprio.
-   > 
+   >
    > Se você precisar desbloquear sua conta, neste momento escolha a opção "Sei minha senha, mas ainda não consigo entrar".
-   > 
+   >
 
 3. Dependendo de como a equipe de TI configurou o SSPR, você poderá ver uma ou mais das seguintes opções. Você ou sua equipe de TI preencheu algumas dessas informações antes de usar o artigo [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
 

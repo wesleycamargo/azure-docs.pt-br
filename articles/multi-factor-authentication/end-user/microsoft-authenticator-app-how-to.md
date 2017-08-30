@@ -3,7 +3,7 @@ title: Aplicativo Microsoft Authenticator para telefones celulares | Microsoft D
 description: "Saiba como atualizar para a versão mais recente do Azure Authenticator."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
 ms.translationtype: HT
@@ -28,20 +28,20 @@ O aplicativo Microsoft Authenticator fornece um nível adicional de segurança e
 
 O aplicativo funciona de uma das duas maneiras:
 
-* **Notificação**. O aplicativo pode ajudar a evitar o acesso não autorizado a contas e interromper transações fraudulentas enviando uma notificação para seu smartphone ou tablet. Basta ver a notificação e se ela for legítima, selecione **Verificar**. Caso contrário, você pode selecionar **Negar**. 
+* **Notificação**. O aplicativo pode ajudar a evitar o acesso não autorizado a contas e interromper transações fraudulentas enviando uma notificação para seu smartphone ou tablet. Basta ver a notificação e se ela for legítima, selecione **Verificar**. Caso contrário, você pode selecionar **Negar**.
 * **Código de verificação**. O aplicativo pode ser usado como um token de software para gerar um código de verificação OAuth. Depois de inserir o nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de entrada. O código de verificação oferece uma segunda forma de autenticação.
 
 O aplicativo Microsoft Authenticator substitui o aplicativo Azure Authenticator. O aplicativo Azure Authenticator ainda está funcionando, mas se você decidir ir para o novo aplicativo Microsoft Authenticator, este artigo poderá ajudar.  
 
 ## <a name="opt-in-for-two-step-verification"></a>Aceitar a verificação em duas etapas
 
-O aplicativo Microsoft Authenticator não funciona por si só. Configure cada uma das suas contas para solicitarem a você um segundo método de verificação após você entrar com seu nome de usuário e senha. 
+O aplicativo Microsoft Authenticator não funciona por si só. Configure cada uma das suas contas para solicitarem a você um segundo método de verificação após você entrar com seu nome de usuário e senha.
 
 Para uma conta corporativa ou de estudante, geralmente você não pode escolher esse recurso. Em vez disso, um administrador de segurança aceita em seu nome e o notifica para registrar os métodos de verificação para sua conta. Se esta situação se aplica a você, saiba mais em [A Autenticação Multifator do Azure significa para mim](multi-factor-authentication-end-user.md).
 
-Para uma conta pessoal, você precisa configurar a verificação em duas etapas por conta própria. Se você tem uma conta da Microsoft, essas etapas estão disponíveis em [Sobre a verificação em duas etapas](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
+Para uma conta pessoal, você precisa configurar a verificação em duas etapas por conta própria. Se você tem uma conta da Microsoft, essas etapas estão disponíveis em [Sobre a verificação em duas etapas](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-Você também pode usar o Microsoft Authenticator com contas não Microsoft. Eles podem chamar o recurso de algo diferente de verificação em duas etapas, mas você poderá encontrá-lo nas configurações de segurança ou de conexão. 
+Você também pode usar o Microsoft Authenticator com contas não Microsoft. Eles podem chamar o recurso de algo diferente de verificação em duas etapas, mas você poderá encontrá-lo nas configurações de segurança ou de conexão.
 
 ## <a name="install-the-app"></a>Instalar o aplicativo
 O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
@@ -67,7 +67,7 @@ Para ter uma conta pessoal da Microsoft (aquela que você usa para entrar no Out
 
     Se a câmera não estiver funcionando corretamente, [insira o código QR e a URL manualmente](#add-an-account-to-the-app-manually).
 
-5. Quando o aplicativo mostrar o nome de sua conta com um código de seis dígitos abaixo dela, você terá concluído. 
+5. Quando o aplicativo mostrar o nome de sua conta com um código de seis dígitos abaixo dela, você terá concluído.
 
     ![Tela de contas](./media/authenticator-app-how-to/accounts.png)
 
@@ -109,3 +109,4 @@ Desse ponto em diante, quando você precisar verificar sua entrada, selecionará
 Depois que sua conta for adicionada ao aplicativo, você precisará fazer uma verificação de teste para verificar se tudo foi configurado corretamente. Depois disso, você terminou! Você não precisa fazer mais nada até a próxima vez que entrar.
 
 Se você optar por usar códigos de verificação no aplicativo, começará a vê-los na home page. Eles são alterados a cada 30 segundos para que você sempre tenha um novo código quando precisar de um. Mas você não precisa fazer nada com eles até que você entre e seja solicitado que você insira um código de verificação.  
+
