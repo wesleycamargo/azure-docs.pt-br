@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: b4074c67c7a8214f8e103385d5aea75f019d2da6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -232,7 +232,7 @@ Neste tutorial, você criou um aplicativo Web ASP.NET no Team Services e configu
 > * Criar uma definição de versão para publicar novos pacotes de implantação Web no IIS
 > * Testar o pipeline de CI/CD
 
-Siga este link para ver exemplos de script de máquina virtual predefinido.
+Vá para o próximo tutorial para saber como proteger um servidor Web com certificados SSL.
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de máquina virtual do Windows](./powershell-samples.md)
+> [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)

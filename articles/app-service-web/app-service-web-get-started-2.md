@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Adicionar funcionalidade ao seu primeiro aplicativo Web
@@ -57,8 +57,8 @@ Agora, vamos ver como é fácil adicionar autenticação ao seu aplicativo (leia
     ![Autenticar - conectado](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
     Dessa forma, se agora você abrir uma sessão não autenticada em um navegador diferente, verá uma tela de logon ao navegar até a mesma URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
-    Se você nunca tiver feito nada com o Azure Active Directory, talvez seu diretório padrão não tenha usuários do Azure AD. Nesse caso, provavelmente a única conta aqui será a conta da Microsoft com sua assinatura do Azure. É por isso que você foi conectado automaticamente ao aplicativo no mesmo navegador antes.
-   Você pode usar essa mesma conta da Microsoft para fazer logon nessa página de logon.
+    Se você nunca fez nada com o Azure Active Directory, talvez seu diretório padrão não tenha usuários do Azure AD. Nesse caso, provavelmente a única conta aqui será a conta da Microsoft com sua assinatura do Azure. É por isso que você foi conectado automaticamente ao aplicativo no mesmo navegador antes.
+    Você pode usar essa mesma conta da Microsoft para fazer logon nessa página de logon.
 
 Parabéns, você está autenticando todo o tráfego para seu aplicativo Web.
 
@@ -150,8 +150,8 @@ Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parc
 * [Acessar recursos locais](web-sites-hybrid-connection-get-started.md) - acesse um banco de dados local existente ou um sistema CRM.
 * [Fazer backup de seu aplicativo](web-sites-backup.md) – configure o backup e a restauração para seu aplicativo Web. Prepare-se para falhas inesperadas e recupere-se delas.
 * [Habilitar logs de diagnóstico](web-sites-enable-diagnostic-log.md) - leia os logs do IIS do Azure ou de rastreamentos de aplicativo. Leia-os em um fluxo, baixe-os ou porte-os para o [Application Insights](../application-insights/app-insights-overview.md) para análise turn key.
-* [Verificar seu aplicativo quanto às vulnerabilidades](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
-  Verificar seu aplicativo Web quanto às ameaças modernas usando o serviço fornecido pelo [Tinfoil Security](https://www.tinfoilsecurity.com/).
+* [Verificar seu aplicativo em busca de vulnerabilidades](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+  Verificar seu aplicativo Web em busca de ameaças modernas usando o serviço fornecido pelo [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Executar trabalhos em segundo plano](../azure-functions/functions-overview.md) - execute trabalhos de processamento de dados, relatórios, etc.
 * [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md)
 

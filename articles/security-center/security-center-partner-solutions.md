@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/17/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5ffc3253cf07018ad6fe9f0112c75c2e1495e5df
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2ebb930e877c5027f4d7b0a316a7f5ebe84471b1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="monitoring-partner-solutions-with-azure-security-center"></a>Monitoramento de soluções de parceiros com a Central de Segurança do Azure
 Este documento orienta sobre como monitorar o status de integridade de suas soluções de parceiro na Central de Segurança do Azure.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> Este documento apresenta o serviço usando uma implantação de exemplo. Este documento não é um guia passo a passo.
 >
 >
 
@@ -49,7 +48,7 @@ Para exibir a integridade das soluções de seu parceiro:
    * Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
    * Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
    * Status de proteção desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha.
-   * Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se ele foi conectado e ainda está sendo implantado
+   * Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se tiver sido conectada recentemente e ainda estiver sendo implantada.
 
 2. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **Qualys**.  Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
 
@@ -59,7 +58,7 @@ Para exibir a integridade das soluções de seu parceiro:
    ![Vincular recursos à solução de parceiro][5]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
+Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.

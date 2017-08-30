@@ -4,23 +4,23 @@ description: "Use o Azure Functions para criar uma função sem servidor que é 
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
@@ -39,7 +39,7 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
  
 1. Expanda seu aplicativo de funções e sua função.
 
-2. Selecione **Integrar** e **+ Nova saída**, selecione **Armazenamento de filas do Azure** e selecione **Selecionar**.
+2. Selecione **Integrar** e **+ Nova saída**, escolha **Armazenamento de filas do Azure** e escolha **Selecionar**.
     
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +51,7 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
     | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
-    | **Nome do parâmetro de mensagem** | outQueueItem | O nome do parâmetro de associação de saída. | 
+    | **Nome do parâmetro de mensagem** | outputQueueItem | O nome do parâmetro de associação de saída. | 
 
 4. Clique em **Salvar** para adicionar a associação.
  
@@ -61,11 +61,11 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
 
 1. Selecione sua função para exibir o código de função no editor. 
 
-2. Para uma função C#, atualize sua definição de função como demonstrado a seguir para adicionar o parâmetro de associação de armazenamento **outQueueItem**. Ignore esta etapa para uma função JavaScript.
+2. Para uma função C#, atualize sua definição de função como demonstrado a seguir para adicionar o parâmetro de associação de armazenamento **outputQueueItem**. Ignore esta etapa para uma função JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
 3. Adicione o código a seguir à função logo antes do método retornar. Use o trecho de código apropriado para a linguagem de programação de sua função.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Selecione **Salvar** para salvar as alterações.
@@ -100,7 +100,7 @@ Em seguida, você pode se conectar à sua conta de armazenamento para verificar 
 
 Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de Armazenamento e o conectado à sua conta de armazenamento.    
 
-1. Em sua função, selecione **Integrar** e na nova associação de saída **Armazenamento de Filas do Azure**, em seguida, expanda **Documentação**. Copie o **Nome da conta** e a **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento.
+1. Em sua função, escolha **Integrar** e na nova associação de saída **Armazenamento de Filas do Azure**, em seguida, expanda **Documentação**. Copie o **Nome da conta** e a **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento.
  
     ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +112,7 @@ Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de A
   
     ![Cole as credenciais de armazenamento e conecte-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Filas** e verifique se uma fila chamada **myqueue-items** existe. Você também deverá ver uma mensagem já presente na fila.  
+4. Expanda a conta de armazenamento anexada, expanda **Filas** e verifique a existência de uma fila chamada **myqueue-items**. Você também deverá ver uma mensagem já presente na fila.  
  
     ![Crie uma fila de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

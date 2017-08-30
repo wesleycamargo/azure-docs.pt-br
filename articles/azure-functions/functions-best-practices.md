@@ -4,7 +4,7 @@ description: "Aprenda as práticas recomendadas e padrões para o Azure Function
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, padrões, práticas recomendadas, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -88,9 +87,9 @@ Não use o log detalhado no código de produção. Ele tem um impacto negativo n
 
 
 
-## <a name="use-async-code-but-avoid-taskresult"></a>Use o código assíncrono, mas evite Task.Result
+## <a name="use-async-code-but-avoid-blocking-calls"></a>Usar o código assíncrono, mas evitar chamadas de bloqueio
 
-A programação assíncrona é uma prática recomendada. No entanto, evite referenciar sempre a propriedade `Task.Result`. Essa abordagem pode levar ao esgotamento de thread.
+A programação assíncrona é uma prática recomendada. No entanto, sempre evite fazer referência à propriedade `Result` ou chamar o método `Wait` em um instância `Task`. Essa abordagem pode levar ao esgotamento de thread.
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Portal do Azure](active-directory-conditional-access-azure-portal.md)
-> * [Portal clássico do Azure](active-directory-conditional-access.md)
 
 Em um mundo móvel e em nuvem, o Azure Active Directory permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Com a proliferação de dispositivos (incluindo BYOD), trabalho fora de redes corporativas e aplicativos de SaaS de terceiros, os profissionais de TI têm duas metas opostas:
 
@@ -73,11 +69,11 @@ A implementação atual do Azure Active Directory permite que você configure os
 
 - **Autenticação Multifator** - você pode exigir autenticação forte por meio da autenticação multifator. Como o provedor, você pode usar a Autenticação Multifator do Azure ou um provedor de autenticação multifator local, combinados com os serviços de Federação do Active Directory (AD FS). Usar a autenticação multifator ajuda a proteger recursos para impedir que sejam acessados por um usuário não autorizado que obteve acesso às credenciais de um usuário válido.
 
-- **Dispositivo compatível** - você pode definir políticas de acesso condicional no nível do dispositivo. Você pode configurar uma política para habilitar somente os computadores compatíveis ou dispositivos móveis registrados em um aplicativo de gerenciamento de dispositivo móvel possam acessar os recursos de sua organização. Por exemplo, você pode usar o Intune para verificar a conformidade do dispositivo e relatá-lo ao Azure AD para imposição quando o usuário tenta acessar um aplicativo. Para obter diretrizes detalhadas sobre como usar o Intune para proteger aplicativos e dados, confira Proteger os aplicativos e dados com o Microsoft Intune. Você também pode usar o Intune para aplicar a proteção de dados a dispositivos perdidos ou roubados. Para saber mais, confira Ajudar a proteger seus dados com apagamento completo ou seletivo usando o Microsoft Intune.
+- **Dispositivo compatível** - você pode definir políticas de acesso condicional no nível do dispositivo. Você pode configurar uma política para permitir que somente os computadores em conformidade ou dispositivos móveis registrados em um gerenciamento de dispositivo móvel acessem os recursos de sua organização. Por exemplo, você pode usar o Intune para verificar a conformidade do dispositivo e relatá-lo ao Azure AD para imposição quando o usuário tenta acessar um aplicativo. Para obter orientações detalhadas sobre como usar o Intune para proteger aplicativos e dados, confira [Proteger os aplicativos e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). Você também pode usar o Intune para aplicar a proteção de dados a dispositivos perdidos ou roubados. Para saber mais, confira [Ajudar a proteger seus dados com apagamento completo ou seletivo usando o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-- **Dispositivo ingressado no domínio** – você pode exigir que o dispositivo que você usou para se conectar ao Azure Active Directory seja um dispositivo ingressado no domínio. Essa política se aplica a desktops Windows, laptops e tablets empresariais. Para saber mais sobre como configurar o registro automático de dispositivos ingressados no domínio com o Azure AD, confira [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows](active-directory-conditional-access-automatic-device-registration.md).
+- **Dispositivo adicionado ao domínio** – você pode exigir que o dispositivo que usou para se conectar ao Azure Active Directory seja adicionado ao domínio no seu AD (Active Directory) local. Essa política se aplica a desktops Windows, laptops e tablets empresariais. 
 
-Se você tiver mais de um requisito selecionado na política de acesso condicional, também poderá configurar os requisitos para aplicá-las. Você optar por exigir todos os controles selecionados ou um deles.
+Se você tiver vários controles selecionados, também será possível configurar se todos eles serão obrigatórios quando sua política for processada.
 
 ![Controle](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -137,10 +133,19 @@ Você pode usar o nível de risco de conexão calculado como uma condição em u
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-A plataforma do dispositivo é caracterizada pelo sistema operacional em execução no seu dispositivo (Android, iOS, Windows Phone, Windows). Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
-Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
+A plataforma de dispositivo é caracterizada pelo sistema operacional que está em execução no seu dispositivo:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS (versão prévia). 
 
 ![Condições](./media/active-directory-conditional-access-azure-portal/02.png)
+
+Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
+Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
+
 
 ### <a name="locations"></a>Locais
 
@@ -198,4 +203,4 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 
 Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-Para obter mais detalhes sobre o que você deve saber e o que você deve evitar fazer ao configurar políticas de acesso condicional, consulte 
+Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

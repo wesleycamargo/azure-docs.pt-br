@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Criar e carregar um VHD FreeBSD para o Azure
@@ -128,7 +127,7 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
    * No campo **URL** , digite um nome de subdomínio para usar na URL da conta de armazenamento. A entrada pode conter de três a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL usada para tratar os recursos de armazenamento do Armazenamento de Blobs do Azure, do Armazenamento de Filas do Azure ou dos recursos do Armazenamento de Tabelas da assinatura.
    * No menu suspenso **Local/Grupo de Afinidades**, escolha o **local ou um grupo de afinidades** para a conta de armazenamento. Um grupo de afinidades permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
-   * No campo **Replicação**, decida se quer usar a replicação com **Redundância Geográfica** para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Encontre mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento aqui: [Replicação do Armazenamento do Azure](../../../storage/storage-redundancy.md).
+   * No campo **Replicação**, decida se quer usar a replicação com **Redundância Geográfica** para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Encontre mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento aqui: [Replicação do Armazenamento do Azure](../../../storage/common/storage-redundancy.md).
 
      ![Insira os detalhes da conta de armazenamento](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Escolha **Criar Conta de Armazenamento**. A conta aparece agora em **armazenamento**.
@@ -164,12 +163,12 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usar o método de certificado para carregar um arquivo .vhd
 1. Abra o console do PowerShell do Azure.
-2. Digite:  `Get-AzurePublishSettingsFile`.
+2. Digite: `Get-AzurePublishSettingsFile`.
 3. Uma janela de navegador será aberta e baixará automaticamente o arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
 
     ![Procurar página de download](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Salve o arquivo .publishsettings.
-5. Digite:  `Import-AzurePublishSettingsFile <PathToFile>`, em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
+5. Digite: `Import-AzurePublishSettingsFile <PathToFile>`, em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
    Para obter mais informações, consulte [Introdução aos cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
