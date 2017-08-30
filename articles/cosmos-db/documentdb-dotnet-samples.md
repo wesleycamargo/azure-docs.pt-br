@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 196be1e8185a08394944b0f334fcf21f237464dd
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 5f0a7f59c114ab65a19617a62d39dcfa93a25c00
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="documentdb-net-examples"></a>Exemplos de .NET do Banco de Dados de Documentos
+# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: exemplos do .NET para a API do DocumentDB
 > [!div class="op_single_selector"]
 > * [Exemplos do .NET](documentdb-dotnet-samples.md)
 > * [Exemplos do Node.js](documentdb-nodejs-samples.md)
@@ -101,7 +100,7 @@ O método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/e
 | [Usar índices de intervalo em cadeias de caracteres](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Executar uma transformação de índice](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-Para saber mais sobre indexação, veja [Políticas de indexação do Banco de Dados de Documentos](indexing-policies.md).
+Para obter mais informações sobre indexação, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
 ## <a name="geospatial-examples"></a>Exemplos geoespaciais
 O arquivo geoespacial de exemplo, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), mostra como realizar as tarefas a seguir.  
@@ -137,7 +136,17 @@ O arquivo do documento de consulta, [azure-documentdb-dotnet/samples/code-sample
 | [Consultar coleções particionadas paralelamente](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Consultar com Order by para coleções particionadas](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-Para obter mais informações sobre como escrever consultas, veja [Consulta SQL no Banco de Dados de Documentos](documentdb-sql-query.md).
+Para obter mais informações sobre como escrever consultas, confia [Consulta SQL no Azure Cosmos DB](documentdb-sql-query.md).
+
+## <a name="change-feed-examples"></a>Exemplos de feed de alteração 
+O exemplo de feed de alteração, [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como realizar as tarefas a seguir. 
+
+| Tarefa | Referência de API |
+| --- | --- |
+| [Ler feed de alteração](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
+| [Ler intervalos de chaves de partição](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
+
+O exemplo de processador de feed de alteração: [Ferramenta de migração de feed de alteração](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) demonstra como usar a bibilioteca de processadores de feed de alteração para replicar dados para outra coleção do Cosmos DB.   
 
 ## <a name="server-side-programming-examples"></a>Exemplos de programação do lado do servidor
 O arquivo de programação do servidor, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como realizar as tarefas a seguir.

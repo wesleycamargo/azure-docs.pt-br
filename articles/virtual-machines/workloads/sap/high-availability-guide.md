@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a5cec02045e7db70dffbe8089c44e8c3a2b37cd4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -378,14 +378,14 @@ ms.lasthandoff: 04/03/2017
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -633,8 +633,8 @@ _**Figura 7:** exemplo de um DBMS SAP de alta disponibilidade com o Always On do
 
 Para saber mais sobre o clustering do SQL Server no Azure usando o modelo de implantação do Azure Resource Manager, confira estes artigos:
 
-* [Configure o grupo de disponibilidade Always On em Máquinas Virtuais do Azure manualmente usando o Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
-* [Configurar um balanceador interno de carga do Azure para um grupo de disponibilidade Always On no Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure usando o Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configurar um balanceador de carga interno do Azure para um grupo de disponibilidade AlwaysOn no Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> Cenários de implantação de alta disponibilidade de ponta a ponta
 
@@ -834,7 +834,7 @@ O modelo de banco de dados implanta uma ou duas máquinas virtuais que você pod
 
 Para configurar o modelo de vários SID de banco de dados, no [modelo de vários SID de banco de dados][sap-templates-3-tier-multisid-db-marketplace-image], insira valores para os seguintes parâmetros:
 
-  -  **ID do sistema SAP**. Insira a ID do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
+  -  **ID do sistema SAP**. Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
   -  **Tipo de sistema operacional**. Selecione o sistema operacional das máquinas virtuais.
   -  **Dbtype**. Selecione o tipo do banco de dados que você deseja instalar no cluster. Selecione **SQL** se você deseja instalar o Microsoft SQL Server. Selecione **HANA** se você planeja instalar SAP HANA nas máquinas virtuais. Selecione o tipo de sistema operacional correto: **Windows** para SQL e uma distribuição Linux para HANA. O Azure Load Balancer que está conectado às máquinas virtuais será configurado para suporte ao tipo de banco de dados selecionado:
     * **SQL**. O balanceador de carga balanceará a carga da porta 1433. Use essa porta para a instalação do SQL Server Always On.
@@ -851,7 +851,7 @@ O modelo de servidores de aplicativo implanta duas ou mais máquinas virtuais qu
 
 Para configurar o modelo de vários SID de servidores de aplicativos, no [modelo de vários SID de servidores de aplicativos][sap-templates-3-tier-multisid-apps-marketplace-image], insira valores para os seguintes parâmetros:
 
-  -  **ID do sistema SAP**. Insira a ID do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
+  -  **ID do sistema SAP**. Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
   -  **Tipo de sistema operacional**. Selecione o sistema operacional das máquinas virtuais.
   -  **Tamanho do Sistema SAP**. O número de SAPS que o novo sistema fornecerá. Se você não tiver certeza de quantos SAPs o sistema precisará, pergunte ao seu Parceiro de Tecnologia SAP ou Integrador de Sistemas.
   -  **Disponibilidade do Sistema**. Selecione **HA**.
@@ -1392,7 +1392,7 @@ Não descreveremos a instalação DBMS porque as configurações variam dependen
 Não existem considerações especiais quando diferentes serviços DBMS interagem com esse tipo de configuração de SAP ASCS/SCS clusterizada no Azure.
 
 > [!NOTE]
-> O procedimento de instalação dos sistemas ABAP, sistemas Java e sistemas ABAP+Java do SAP NetWeaver é quase idêntico. A diferença mais significativa é que um sistema SAP ABAP tem uma instância ASCS. O sistema SAP Java tem uma instância SCS. O sistema ABAP+Java do SAP tem uma instância SCS e uma instância ABAP+Java em execução no mesmo grupo de cluster de failover da Microsoft. As diferenças de instalação para cada pilha de instalação do SAP NetWeaver serão explicitamente mencionadas. Você pode assumir que todas as outras partes são as mesmas.  
+> O procedimento de instalação dos sistemas ABAP, sistemas Java e sistemas ABAP+Java do SAP NetWeaver é quase idêntico. A diferença mais significativa é que um sistema SAP ABAP tem uma instância ASCS. O sistema SAP Java tem uma instância SCS. O sistema ABAP+Java do SAP tem uma instância ASCS e uma instância ABAP+Java em execução no mesmo grupo de cluster de failover da Microsoft. As diferenças de instalação para cada pilha de instalação do SAP NetWeaver serão explicitamente mencionadas. Você pode assumir que todas as outras partes são as mesmas.  
 >
 >
 
@@ -1600,7 +1600,7 @@ Instalar a instância <*SID*>-di-0 do PAS (Servidor de Aplicativos primário) na
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalar o servidor de aplicativos SAP adicional
 
-Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, em <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
+Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, de <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Isso conclui a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, continue com o teste de failover.

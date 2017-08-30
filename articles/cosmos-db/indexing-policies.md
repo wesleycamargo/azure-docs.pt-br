@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
@@ -59,6 +59,10 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
 > Por padrão, o Azure Cosmos DB indexa todas as propriedades de cadeia de caracteres nos documentos de forma consistente com um índice de Hash e as propriedades numéricas com um índice de Intervalo.  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalização da política de indexação usando o portal
+
+Você pode alterar a política de indexação de uma coleção usando o portal do Azure. Abra sua conta do Azure Cosmos DB no portal do Azure, selecione a coleção na menu de navegação à esquerda, clique em **Configurações** e então clique em **Política de Indexação**. Na folha **Política de Indexação**, altere sua política de indexação e, em seguida, clique em **OK** para salvar suas alterações. 
 
 ### <a id="indexing-modes"></a>Modos de indexação do banco de dados
 O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Azure Cosmos DB – Consistente, Lento e Nenhum.

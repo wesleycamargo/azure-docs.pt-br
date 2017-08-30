@@ -4,23 +4,23 @@ description: "Crie um novo aplicativo de funções no Serviço de Aplicativo do 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: f9f1b95ade5f397fa1a3bcdc4165c81c1c9628c0
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 85a88c537415cd6f2b6bc005cc18e3baaa29e9a4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
@@ -52,7 +52,7 @@ Ao criar um aplicativo de funções no Serviço de Aplicativo, é necessário cr
 >[!NOTE]
 >Ao usar o plano de hospedagem de Consumo, o código da função e os arquivos de configuração da associação são armazenados no armazenamento de Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
 
-Para saber mais sobre tipos de conta de armazenamento, consulte [Introduzindo os Serviços de Armazenamento do Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos serviços de Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

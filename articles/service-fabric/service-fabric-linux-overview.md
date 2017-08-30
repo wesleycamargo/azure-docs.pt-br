@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: ad20216374306d8b5035140f3d8e107c595b623e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric no Linux
@@ -40,13 +40,14 @@ A visualização limitada oferece suporte à criação de clusters de desenvolvi
 
 
 ## <a name="supported-tooling"></a>Ferramentas com suporte
-A preview dá suporte à interação com o cluster por meio da CLI do Azure. Para desenvolvedores Java, a integração com o Eclipse e o Yeoman é fornecida com o Eclipse com suporte no Linux e no OSX. A integração OSX usa uma VM do Linux nos bastidores por meio do Vagrant. Para desenvolvedores C#, a integração com o Yeoman é fornecida para gerar modelos de aplicativos.
+A versão prévia dá suporte à interação com o cluster por meio da CLI do Service Fabric. Para desenvolvedores Java, a integração com o Eclipse e o Yeoman é fornecida com o Eclipse com suporte no Linux e no OSX. A integração OSX usa uma VM do Linux nos bastidores por meio do Vagrant. Para desenvolvedores C#, a integração com o Yeoman é fornecida para gerar modelos de aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
-1. Familiarize-se com as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md).
-2. [Preparar seu ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
-3. [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
-4. [Criar seu primeiro aplicativo do Java do Service Fabric no Linux](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Configurar a implantação e integração contínua do Service Fabric com Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Diferenças Windows/Linux do Service Fabric](service-fabric-linux-windows-differences.md)
+
+* Familiarize-se com as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [Preparar seu ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
+* [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
+* [Criar seu primeiro aplicativo do Java do Service Fabric no Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Configurar a implantação e integração contínua do Service Fabric com Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Diferenças Windows/Linux do Service Fabric](service-fabric-linux-windows-differences.md)
 

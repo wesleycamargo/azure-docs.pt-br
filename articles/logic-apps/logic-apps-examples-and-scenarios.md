@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Exemplos e cenários comuns para Aplicativos Lógicos do Azure
@@ -31,7 +31,7 @@ O Aplicativo Lógico do Azure fornece orquestração e integração resiliente p
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Responder a gatilhos e estender ações
 
-Cada aplicativo lógico começa com um gatilho. Por exemplo, seu fluxo de trabalho pode começar com um evento de agendamento, uma invocação manual ou um evento de um sistema externo, como o gatilho "quando um arquivo for adicionado a um servidor FTP". No momento, o Aplicativo Lógico do Azure oferece suporte a mais de 100 conectores prontos para uso, desde SAP local até Serviços Cognitivos do Azure. Para sistemas e serviços que talvez não tenham conectores publicados, também é possível estender os aplicativos lógicos.
+Cada aplicativo lógico começa com um gatilho. Por exemplo, seu fluxo de trabalho pode começar com um evento de agendamento, uma invocação manual ou um evento de um sistema externo, como o gatilho "quando um arquivo for adicionado a um servidor FTP". No momento, o Aplicativo Lógico do Azure oferece suporte a mais de 100 conectores prontos para uso, desde SAP local até Serviços Cognitivos da Microsoft. Para sistemas e serviços que talvez não tenham conectores publicados, também é possível estender os aplicativos lógicos.
 
 * [Criar gatilhos ou ações personalizadas](../logic-apps/logic-apps-create-api-app.md)
 * [Configurar ações de longa execução para execução de fluxo de trabalho](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Os aplicativos lógicos também oferecem integração com muitos serviços, como
 * [Chamar o Azure Functions de aplicativos lógicos](../logic-apps/logic-apps-azure-functions.md)
 * [Cenário: Disparar aplicativos lógicos com o Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Chamar pontos de extremidade SOAP de aplicativos lógicos](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## <a name="end-to-end-scenarios"></a>Cenários de ponta a ponta
+
+* [White paper: Gerenciamento de casos completos de integração empresarial com serviços do Azure, como Aplicativos Lógicos](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="next-steps"></a>Próximas etapas
 

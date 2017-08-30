@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c9df4e1f7677b2ed10684f6f3c981f2abf64f171
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Instalando o Python e o SDK
@@ -50,7 +50,7 @@ Existem várias maneiras de obter o CPython:
 A menos que você tenha uma necessidade específica, recomendamos as duas primeiras opções.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Instalação do SDK no Windows, Linux e MacOS (apenas bibliotecas de cliente)
-Se já tiver o Python instalado, você poderá usar pip para instalar um pacote de todas as bibliotecas de cliente em seu ambiente Python 2.7 ou Python 3.3+ existente. Isso baixará os pacotes do [Índice de Pacotes do Python][Python Package Index] (PyPI).
+Se já tiver o Python instalado, você poderá usar pip para instalar um pacote de todas as bibliotecas de cliente em seu ambiente Python 2.7 ou Python 3.3+ existente. Isso baixa os pacotes do [Índice de Pacotes do Python][Python Package Index] (PyPI).
 
 Você pode precisar de direitos de administrador:
 
@@ -67,13 +67,13 @@ Você pode instalar cada biblioteca individualmente para cada serviço do Azure:
 Pacotes de preview podem ser instalados usando o sinalizador `--pre` :
 
 ```console
-   $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
+   $ pip install --pre azure-mgmt-compute # installs only the latest Compute Management library
 ```
 
 Você também pode instalar um conjunto de bibliotecas do Azure em uma única linha usando o pacote meta `azure` . Como nem todos os pacotes neste pacote meta estão publicados como estáveis, o pacote meta `azure` ainda está em preview.
 No entanto, os pacotes essenciais podem ser considerados "estáveis" no momento do ponto de vista da integridade e da qualidade do código.
 
-* Ela será oficialmente rotulada como tal em sincronia com outras linguagens assim que possível.
+* Ela é oficialmente rotulada como tal em sincronia com outras linguagens assim que possível.
   Não planejamos outras alterações importantes até então.
 
 Como se trata de uma versão de preview, você precisa usar o sinalizador `--pre` :
@@ -109,13 +109,13 @@ Para Linux ou MacOS, os principais cenários do Azure têm suporte:
 2. Executando o seu aplicativo em uma VM com Linux
 3. Desenvolver e publicar sites do Azure usando Git
 
-O primeiro cenário permite que você crie aplicativos Web avançados que aproveitam recursos do Azure PaaS como [armazenamento de blobs](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [armazenamento de filas](storage/storage-python-how-to-use-queue-storage.md), [armazenamento de tabelas](storage/storage-python-how-to-use-table-storage.md), etc., por meio de wrappers do Pythonic para as APIs REST do Azure. Eles funcionam de forma idêntica no Windows, Mac e Linux.  Você também pode usar essas bibliotecas cliente de sua máquina de desenvolvimento local ou em uma VM do Linux em execução no Azure.
+O primeiro cenário permite que você crie aplicativos Web avançados que aproveitam recursos do Azure PaaS como [armazenamento de blobs](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [armazenamento de filas](storage/queues/storage-python-how-to-use-queue-storage.md), [armazenamento de tabelas](cosmos-db/table-storage-how-to-use-python.md), etc., por meio de wrappers do Pythonic para as APIs REST do Azure. Eles funcionam de forma idêntica no Windows, no Mac e no Linux.  Você também pode usar essas bibliotecas cliente de sua máquina de desenvolvimento local ou em uma VM do Linux em execução no Azure.
 
 Para o cenário da VM, basta iniciar uma VM com Linux de sua escolha (Ubuntu, CentOS, Suse) e executar/gerenciar os itens desejados.  Por exemplo, você pode executar [IPython][IPython] REPL/notebook no seu computador com Windows/Mac/Linux e apontar o navegador para uma VM com Linux ou Windows de proc múltiplo que esteja executando o IPython Engine no Azure.
 
-Para obter informações sobre como configurar uma VM do Linux, consulte o tutorial [Criar uma Máquina Virtual Executando o Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para saber mais sobre como configurar uma VM do Linux, veja o tutorial [Criar uma Máquina Virtual Executando o Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Usando a implantação do Git, você pode desenvolver um aplicativo da Web Python e publicá-lo em um site do Azure de qualquer sistema operacional.  Quando você envia seu repositório para o Azure, ele criará automaticamente um ambiente virtual e o pip instalará os pacotes necessários.
+Usando a implantação do Git, você pode desenvolver um aplicativo da Web Python e publicá-lo em um site do Azure de qualquer sistema operacional.  Quando você envia seu repositório para o Azure, ele cria automaticamente um ambiente virtual e o pip instalará os pacotes necessários.
 
 Para obter mais informações sobre como desenvolver e publicar Sites do Azure, consulte os tutoriais [Criando Sites com Django](app-service-web/web-sites-python-create-deploy-django-app.md), [Criando Sites com Bottle](app-service-web/web-sites-python-create-deploy-bottle-app.md) e [Criando sites com Flash](app-service-web/web-sites-python-create-deploy-flask-app.md). Para obter mais informações gerais sobre como usar qualquer estrutura compatível com WSGI, consulte [Configurando Python com os Sites do Azure](app-service-web/web-sites-python-configure.md).
 
@@ -162,5 +162,5 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [Configuring Python with Azure Websites]: web-sites-python-configure.md
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
+[blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
 

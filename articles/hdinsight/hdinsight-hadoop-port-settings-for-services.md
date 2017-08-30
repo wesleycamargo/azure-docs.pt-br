@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Hadoop em execução no HDInsight
@@ -75,13 +75,19 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 > [!NOTE]
 > Alguns serviços só estão disponíveis em tipos de cluster específicos. Por exemplo, HBase só está disponível em tipos de cluster HBase.
 
+> [!IMPORTANT]
+> Alguns serviços são executados somente em um nó de cabeçalho por vez. Se você tentar se conectar ao serviço em um nó de cabeçalho primário e receber um erro 404, tente novamente usando o nó de cabeçalho secundário.
+
 ### <a name="ambari"></a>Ambari
 
-| O Barramento de | Nós | Porta | Caminho | Protocolo | 
+| O Barramento de | Nós | Porta | Caminho da URL | Protocolo | 
 | --- | --- | --- | --- | --- |
 | Interface do usuário da Web do Ambari | Nós de cabeçalho | 8080 | / | HTTP |
 | API REST do Ambari | Nós de cabeçalho | 8080 | /api/v1 | HTTP |
 
+Exemplos:
+
+* API REST do Ambari: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Portas HDFS
 
@@ -161,6 +167,11 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 
 ### <a name="spark-ports"></a>Portas do Spark
 
-| O Barramento de | Nós | Port | Protocolo | Descrição |
-| --- | --- | --- | --- | --- |
-| Servidores Thrift Spark |Nós de cabeçalho |10002 |Thrift |Serviço para conexão ao Spark SQL (Thrift/JDBC) |
+| O Barramento de | Nós | Port | Protocolo | Caminho da URL | Descrição |
+| --- | --- | --- | --- | --- | --- |
+| Servidores Thrift Spark |Nós de cabeçalho |10002 |Thrift | &nbsp; | Serviço para conexão ao Spark SQL (Thrift/JDBC) |
+| Servidor Livy | Nós de cabeçalho | 8998 | HTTP | /batches | Serviço para executar instruções, trabalhos e aplicativos |
+
+Exemplos:
+
+* Livy: `curl "http://10.0.0.11:8998/batches"`. Nesse exemplo, `10.0.0.11` é o endereço IP do nó de cabeçalho que hospeda o serviço Livy.

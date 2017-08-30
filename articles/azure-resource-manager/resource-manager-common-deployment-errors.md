@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/17/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: aa204efcdc1a3fce5093abd7c9e94566ba6dd259
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 30adc10d01290f14a3e116813b19916fa36ab0bc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
@@ -63,7 +63,25 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) não está disponível para o local escolhido. Para resolver esse problema, você precisa determinar quais SKUs estão disponíveis em uma região. Você pode usar o portal ou uma operação REST para localizar SKUs disponíveis.
+Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) não está disponível para o local escolhido. Para resolver esse problema, você precisa determinar quais SKUs estão disponíveis em uma região. Você pode usar o PowerShell, o portal ou uma operação REST para localizar SKUs disponíveis.
+
+- Para o PowerShell, use [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) e filtre por localização. Você deve ter a versão mais recente do PowerShell para esse comando.
+
+  ```powershell
+  Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+  ```
+
+  Os resultados incluem uma lista de SKUs para o local e as restrições desse SKU.
+
+  ```powershell
+  ResourceType                Name      Locations Restriction                      Capability Value
+  ------------                ----      --------- -----------                      ---------- -----
+  availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
+  availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
+  virtualMachines      Standard_A0 southcentralus
+  virtualMachines      Standard_A1 southcentralus
+  virtualMachines      Standard_A2 southcentralus
+  ```
 
 - Para usar o [portal](https://portal.azure.com), faça logon no portal e adicionar um recurso por meio da interface. Ao definir os valores, verá os SKUs disponíveis para esse recurso. Não é necessário concluir a implantação.
 

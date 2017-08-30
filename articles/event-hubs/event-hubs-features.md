@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: d790eec30b669469a0837ccdc14b771d1953829b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -151,7 +151,7 @@ A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades
 * Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro)
 * Saída: até 2 MB por segundo
 
-Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
+Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
 
 As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
 
@@ -169,8 +169,8 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-* [Aplicativos de exemplo que usam Hub de Eventos][]
+* [Exemplos de Hubs de Eventos][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[Aplicativos de exemplo que usam Hub de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Exemplos de Hubs de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 

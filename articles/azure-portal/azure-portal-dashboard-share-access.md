@@ -1,6 +1,6 @@
 ---
-title: Acesso ao painel do portal do Azure | Microsoft Docs
-description: Este artigo explica como compartilhar o acesso a um painel no portal do Azure.
+title: "Compartilhar painéis do Portal do Azure usando RBAC | Microsoft Docs"
+description: "Este artigo explica como compartilhar um painel no Portal do Azure usando o controle de acesso baseado em função."
 services: azure-portal
 documentationcenter: 
 author: tfitzmac
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a2f3252aa271c0ec6750c38c6d5060dbfe73a0e2
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="sharing-azure-dashboards"></a>Compartilhando painéis do Azure
-Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permitir que outras pessoas acessem seu painel usando o [Controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md)do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 
+# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o controle de acesso baseado em função
+Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permita que outras pessoas vejam seu painel usando o [Controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 
 
 Todos os painéis publicados são implementados como recursos do Azure, o que significa que eles existem como itens gerenciáveis dentro de sua assinatura e estão contidos em um grupo de recursos.  Do ponto de vista do controle de acesso, os painéis não são diferentes de outros recursos, como uma máquina virtual ou uma conta de armazenamento.
 
@@ -76,10 +77,5 @@ Seu painel agora foi publicado. Se as permissões herdadas da assinatura são ad
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma lista de funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
 * Para saber sobre como gerenciar recursos, consulte [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

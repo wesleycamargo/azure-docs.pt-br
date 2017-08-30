@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Implantação contínua com o Aplicativo Web do Azure no Linux
@@ -32,7 +32,13 @@ Neste tutorial, você configura a implantação contínua para uma imagem de con
 
 Entrar no Portal do Azure em http://portal.azure.com
 
-## <a name="step-2---enable-docker-hub-continuous-deployment"></a>Etapa 2 – Habilitar a implantação contínua do Hub do Docker
+## <a name="step-2---enable-container-continuous-deployment-feature"></a>Etapa 2 – Habilitar recurso de implantação contínua do contêiner
+
+Você pode habilitar o recurso de implantação contínua usando a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) e executando o seguinte comando
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 No  **[portal do Azure](https://portal.azure.com/)**, clique a opção **Serviço de Aplicativo** à esquerda da página.
 
@@ -43,6 +49,12 @@ Nas **Configurações do aplicativo**, adicione uma configuração de aplicativo
 ![inserir imagem da configuração de aplicativo](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>Etapa 3 – preparar a URL do Webhook
+
+Você pode obter a URL do Webhook usando a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) e executando o seguinte comando
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 Para a URL do Webhook, você precisa ter o seguinte ponto de extremidade: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
@@ -83,6 +95,7 @@ Quando a imagem é atualizada, o aplicativo Web é atualizado automaticamente co
 * [Usando Ruby no Aplicativo Web do Azure no Linux](app-service-linux-ruby-get-started.md)
 * [Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux](./app-service-linux-using-custom-docker-image.md)
 * [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](./app-service-linux-faq.md) 
+* [Gerenciar o aplicativo Web no Linux usando a CLI do Azure 2.0](./app-service-linux-cli.md)
 
 
 

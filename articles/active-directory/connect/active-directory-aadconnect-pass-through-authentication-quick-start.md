@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: e5fb323090d8c3a533199b396047a1c63b5ae9f4
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -125,6 +125,9 @@ Se você planeja implantar autenticação de passagem em um ambiente de produç�
 ![Centro de administração do Azure Active Directory - botão de Baixar Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Centro de administração do Azure Active Directory - folha para Baixar Agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>Você também pode baixar o Agente de Autenticação [aqui](https://aka.ms/getauthagent). Certifique-se de ler e aceitar os [Termos de Serviço](https://aka.ms/authagenteula) do Agente de Autenticação _antes_ de instalá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.

@@ -1,10 +1,10 @@
 ---
-title: "Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS"
+title: "Como criptografar seu conteúdo com a criptografia de armazenamento usando a API REST do AMS"
 description: "Saiba como criptografar seu conteúdo com criptografia de armazenamento usando as APIs REST do AMS."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: bc7e49c49e9b1b3cd919e665cd0f012c33f312f6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 17cf10fe1edd46d84806ac4fe09b757c75730356
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS
+# <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento
+
 Recomendamos que você criptografe seu conteúdo localmente usando a criptografia AES de 256 bits e, em seguida, o carregue no armazenamento do Azure no qual ele será armazenado e criptografado em repouso.
 
 Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e mostra como carregar o conteúdo de armazenamento criptografado:
@@ -33,17 +34,18 @@ Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e m
 * Vincular a chave de conteúdo ao ativo.  
 * Defina os parâmetros relacionados à criptografia nas entidades AssetFile.
 
-> [!NOTE]
-> Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md)(Configurando as Políticas de Entrega de Ativos).
-> 
-> [!NOTE]
-> Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
-> 
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
-> 
-> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI. Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-> 
-> 
+## <a name="considerations"></a>Considerações 
+
+Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md)(Configurando as Políticas de Entrega de Ativos).
+
+Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). 
+
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+
+Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="storage-encryption-overview"></a>Visão geral da criptografia de armazenamento
 A criptografia de armazenamento do AMS aplica a criptografia do modo **AES-CTR** no arquivo inteiro.  O modo AES-CTR é uma codificação de bloco que pode criptografar dados de comprimento arbitrário sem necessidade de preenchimento. Ela funciona criptografando um bloco de contador com o algoritmo AES e aplicando XOR à saída do AES com os dados para criptografar ou descriptografar.  O bloco de contador usado é construído copiando o valor do InitializationVector para bytes de 0 a 7 do valor do contador e 8 a 15 do valor do contador são definidos como zero. Do bloco de contador de 16 bytes, os bytes de 8 a 15 (ou seja, os bytes menos significativos) são usados como um inteiro sem sinal de 64 bits simples que é incrementado em um para cada bloco subsequente de dados processados e é mantido em ordem de byte da rede. Observe que, se esse número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), incrementá-lo redefinirá o contador de bloco para zero (bytes 8 a 15) sem afetar os 64 bits do contador (ou seja, bytes de 0 a 7).   Para manter a segurança de criptografia do modo AES-CTR, o valor do InitializationVector de um determinado Identificador Chave para cada conteúdo deve ser exclusivo para cada arquivo e os arquivos devem ser menores do que 2^64 blocos em comprimento.  Isso serve para garantir que um valor de contador jamais seja reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, confira [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo da wiki usa o termo "Nonce" em vez de "InitializationVector").
