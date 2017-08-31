@@ -2,8 +2,8 @@
 title: "Documentação do Azure Data Lake Analytics - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre a análise de big data com o Data Lake Analytics. Os tutoriais mostram como executar as análises em lote, em tempo real e interativas, e como escrever consultas U-SQL."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

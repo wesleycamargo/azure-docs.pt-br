@@ -3,7 +3,7 @@ title: "Proteger APIs usando a autenticação de certificado do cliente no Geren
 description: "Saiba como proteger o acesso às APIs usando certificados do cliente"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

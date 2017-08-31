@@ -2,7 +2,7 @@
 title: "Documentação da Cobrança do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Aprenda a compreender sua cobrança do Azure, bem como gerenciar e monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Documentação do Power BI Embedded do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como incorporar relatórios interativos e visualizações de dados do Power BI em aplicativos. Tutoriais, referências de API e outras documentações."
 services: power-bi-embedded
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
 ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/09/2017
 
 ---

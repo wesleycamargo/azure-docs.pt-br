@@ -2,7 +2,7 @@
 title: "Documentação da Análise de Séries Temporais do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como executar a análise da IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

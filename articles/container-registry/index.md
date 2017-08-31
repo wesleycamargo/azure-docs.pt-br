@@ -2,7 +2,7 @@
 title: "Documentação do Registro de Contêiner do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como criar e manter registros de contêiner para armazenar suas imagens de implantação com um serviço gerenciado de registro do Docker. Tutoriais, referência de API e muito mais."
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ Saiba mais sobre como usar o Registro de Contêiner para armazenar e gerenciar i
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

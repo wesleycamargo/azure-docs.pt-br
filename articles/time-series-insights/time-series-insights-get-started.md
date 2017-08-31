@@ -8,16 +8,17 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/26/2017
 
 ---
@@ -30,23 +31,23 @@ O ambiente de Análise de Séries Temporais é um recurso do Azure com capacidad
 
 Execute estas etapas para criar o seu ambiente:
 
-1.    Entre no [Portal do Azure](https://portal.azure.com).
-2.    Clique no sinal de adição ("+") no canto superior esquerdo.
-3.    Pesquise "Análises de Séries Temporais" na caixa de pesquisa.
+1.  Entre no [Portal do Azure](https://portal.azure.com).
+2.  Clique no sinal de adição ("+") no canto superior esquerdo.
+3.  Pesquise "Análises de Séries Temporais" na caixa de pesquisa.
 
   ![Criar o ambiente de Análise de Séries Temporais](media/get-started/getstarted-create-environment1.png)
 
-4.    Selecione "Análise de Séries Temporais", clique em "Criar".
+4.  Selecione "Análise de Séries Temporais", clique em "Criar".
 
   ![Criar o grupo de recursos de Análise de Séries Temporais](media/get-started/getstarted-create-environment2.png)
 
-5.    Especifique o nome do ambiente. Esse nome representará o ambiente no [gerenciador das séries temporais](https://insights.timeseries.azure.com).
-6.    Selecione uma assinatura. Escolha uma que contenha a sua fonte de eventos. A Análise das Séries Temporais podem detectar automaticamente o Hub IoT do Azure e os recursos de Hub de Eventos existentes na mesma assinatura.
-7.    Selecione ou crie um grupo de recursos. Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos.
-8.    Selecione um local de hospedagem. Para evitar a movimentação de dados entre data centers, escolha o local que contém a origem do evento.
-9.    Selecione um tipo de preço.
-10.    Selecione a capacidade. Você pode alterar a capacidade de um ambiente após a criação.
-11.    Crie seu ambiente. Você também pode fixar o seu ambiente no painel para acesso fácil sempre que você entrar.
+5.  Especifique o nome do ambiente. Esse nome representará o ambiente no [gerenciador das séries temporais](https://insights.timeseries.azure.com).
+6.  Selecione uma assinatura. Escolha uma que contenha a sua fonte de eventos. A Análise das Séries Temporais podem detectar automaticamente o Hub IoT do Azure e os recursos de Hub de Eventos existentes na mesma assinatura.
+7.  Selecione ou crie um grupo de recursos. Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos.
+8.  Selecione um local de hospedagem. Para evitar a movimentação de dados entre data centers, escolha o local que contém a origem do evento.
+9.  Selecione um tipo de preço.
+10. Selecione a capacidade. Você pode alterar a capacidade de um ambiente após a criação.
+11. Crie seu ambiente. Você também pode fixar o seu ambiente no painel para acesso fácil sempre que você entrar.
 
   ![Criar uma marcação para Análise de Séries Temporais no painel](media/get-started/getstarted-create-environment3.png)
 
