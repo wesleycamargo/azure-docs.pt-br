@@ -53,7 +53,7 @@ Você pode criar uma política de IPsec/IKE e aplicar a uma conexão nova ou exi
 
 ## <a name="ipsecike-policy-faq"></a>FAQ sobre a política de IPsec/IKE
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>Próximas etapas
