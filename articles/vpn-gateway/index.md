@@ -2,7 +2,7 @@
 title: "Documentação do Gateway de VPN do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Aprenda a configurar os gateways de rede virtual privada (VPN) para gerenciar o tráfego entre redes virtuais da nuvem e locais ou entre redes virtuais da nuvem."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

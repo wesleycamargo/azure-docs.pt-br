@@ -2,7 +2,7 @@
 title: "Documentação dos conjuntos de dimensionamento de máquinas virtuais - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para criar VMs do Windows ou do Linux de dimensionamento automático para computação de grande porte, big data e soluções contidas."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/12/2017
 
 ---

@@ -3,7 +3,7 @@ title: Perguntas frequentes sobre Gerenciamento de API do Azure | Microsoft Docs
 description: "Conheça as respostas a perguntas comuns, padrões e práticas recomendadas no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23

@@ -3,7 +3,7 @@ title: "Lição 9 do tutorial do Azure Analysis Services: criar hierarquias | Mi
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

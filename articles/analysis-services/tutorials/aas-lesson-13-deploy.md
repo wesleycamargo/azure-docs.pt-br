@@ -3,7 +3,7 @@ title: "Lição 13 do tutorial do Azure Analysis Services: implantar | Microsoft
 description: Descreve como implantar o projeto do tutorial do Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -6,7 +6,7 @@ metadata:
   title: 'Documentação do Azure Cosmos DB - Tutoriais, Referência de API'
   description: 'Saiba como usar o Banco de Dados do Azure Cosmos para criar bancos de dados de vários modelos distribuídos globalmente. Os tutoriais mostram como criar e consultar documentos, chave/valor e bancos de dados do gráfico.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

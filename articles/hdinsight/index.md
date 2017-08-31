@@ -2,7 +2,7 @@
 title: "Documentação do Azure HDInsight - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre o Hadoop no HDInsight. A documentação mostra como usar o Hadoop, o Spark, o HBase, o Servidor R e muito mais para processar, analisar e obter informações de big data."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
