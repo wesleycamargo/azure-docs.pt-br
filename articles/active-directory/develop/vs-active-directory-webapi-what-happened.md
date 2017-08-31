@@ -3,8 +3,8 @@ title: "Alterações feitas em um projeto WebApi quando você se conecta ao Azur
 description: "Descreve o que acontece ao seu projeto WebApi quando você se conecta ao Azure AD usando o Visual Studio"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
 ms.contentlocale: pt-br
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
