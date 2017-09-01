@@ -27,7 +27,7 @@ ms.lasthandoff: 07/26/2017
 
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
-Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais e adotar um serviço de nível superior. 
+Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais e adotar um serviço de nível superior.
 
 As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa operar em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêiner completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
 
