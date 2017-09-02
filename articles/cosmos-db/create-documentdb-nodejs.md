@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: criar um aplicativo com o Node.js e com a API do DocumentDB | Microsoft Docs'
-description: "Apresenta um exemplo de código Node.js que pode ser usado para se conectar e consultar a API do DocumentDB do Azure Cosmos DB"
+title: 'BD Cosmos do Azure: criar um aplicativo com o Node.js e com a API do DocumentDB | Microsoft Docs'
+description: "Apresenta um exemplo de código Node.js que pode ser usado para se conectar e consultar a API do DocumentDB do BD Cosmos do Azure"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -12,7 +12,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
@@ -21,13 +21,12 @@ ms.openlocfilehash: 5a23f76a27c33bf3ba35e1959faf3e4d18d10683
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/31/2017
 
-
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: criar um aplicativo de API do DocumentDB com o Node.js e com o portal do Azure
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>BD Cosmos do Azure: criar um aplicativo de API do DocumentDB com o Node.js e com o portal do Azure
 
-O Azure Cosmos DB é um serviço de banco de dados  multimodelo, globalmente distribuído da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
 
-Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console criado na [API do Node.js do DocumentDB](documentdb-sdk-node.md).
+Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console criado na [API do Node.js do DocumentDB](documentdb-sdk-node.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +58,7 @@ Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, defina a cadei
 
 ## <a name="review-the-code"></a>Examine o código
 
-Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo `app.js` e veja que essas linhas de código criam os recursos do Azure Cosmos DB. 
+Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo `app.js` e veja que essas linhas de código criam os recursos do BD Cosmos do Azure. 
 
 * O `documentClient` é inicializado.
 
@@ -117,7 +116,7 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `config.js` na próxima etapa.
+1. No [Portal do Azure](http://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `config.js` na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet/keys.png)
 
@@ -127,7 +126,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `config.primaryKey` em `config.js`. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `config.primaryKey` em `config.js`. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
 
     `config.primaryKey "FILLME"`
     
@@ -151,10 +150,10 @@ Se você não continuar usando este aplicativo, exclua todos os recursos criados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB.  
+Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no Azure Cosmos DB](import-data.md)
+> [Importar dados no BD Cosmos do Azure](import-data.md)
 
 
 
