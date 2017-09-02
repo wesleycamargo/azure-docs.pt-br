@@ -1,4 +1,4 @@
-﻿---
+---
 title: Criar um banco de dados de documentos do Azure Cosmos DB com Java | Microsoft Docs | Microsoft Docs
 description: "Apresenta um exemplo de código Java que pode ser usado para se conectar à API do DocumentDB do Azure Cosmos DB e consultá-la"
 services: cosmos-db
@@ -12,7 +12,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/02/2017
 ms.author: mimig
 ms.translationtype: HT
