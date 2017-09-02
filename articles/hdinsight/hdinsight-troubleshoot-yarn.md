@@ -1,7 +1,7 @@
 ---
-title: "Solução de problemas do YARN – Azure HDInsight | Microsoft Docs"
-description: Use as perguntas frequentes sobre o Yarn para obter respostas a perguntas comuns sobre o Yarn na plataforma do Azure HDInsight.
-keywords: "Azure HDInsight, Yarn, perguntas frequentes, guia de solução de problemas, perguntas comuns"
+title: Solucionar problemas de YARN usando o Azure HDInsight | Microsoft Docs
+description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Hadoop YARN e o Azure HDInsight.
+keywords: "Azure HDInsight, YARN, perguntas frequentes, guia de solução de problemas, perguntas comuns"
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
@@ -16,138 +16,133 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 576d6bfe9697d2abd6f84824960dad62e9ed3c11
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="yarn-troubleshooting"></a>Solução de problemas do YARN
+# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Solucionar problemas de YARN usando o Azure HDInsight
 
-Este artigo descreve os principais problemas e suas resoluções para trabalhar com conteúdo do YARN no Apache Ambari.
+Saiba mais sobre os principais problemas e suas soluções ao trabalhar com cargas de Apache Hadoop YARN no Apache Ambari.
 
-## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Como fazer para criar uma nova fila do Yarn em um cluster
+## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Como fazer para criar uma nova fila do YARN em um cluster
 
-### <a name="issue"></a>Problema:
 
-Criar uma nova fila do Yarn com alocação de capacidade no cluster do HDInsight.  
+### <a name="resolution-steps"></a>Etapas de resolução 
 
-### <a name="resolution-steps"></a>Etapas de Resolução: 
+Use as etapas a seguir por meio do Ambari para criar uma nova fila do YARN e equilibrar a alocação de capacidade entre todas as filas. 
 
-Use as etapas a seguir por meio do Ambari para criar uma nova fila do Yarn e equilibrar a alocação de capacidade entre todas as filas. 
-
-Neste exemplo, duas filas existentes (padrão e thriftsvr) são alteradas de uma sobre capacidade de 50% para uma capacidade de 25% que permite que a nova fila (Spark) tenha uma capacidade de 50%.
-| Fila | Capacidade | Máx. Capacidade |
+Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
+| Fila | Capacidade | Capacidade máxima |
 | --- | --- | --- | --- |
 | padrão | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
-1. Clique no ícone de Exibições do Abari, o padrão de grade e escolha **Gerenciador de filas do Yarn**.
 
-    ![Clique no ícone Exibições do Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
-1. Selecione a fila **padrão**.
+1. Selecione o ícone **Exibições do Ambari** e então selecione o padrão de grade. Em seguida, selecione **Gerenciador de Filas do YARN**.
 
-    ![Selecione a fila padrão](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
-1. Altere a **Capacidade** de 50% para 25% para a fila **padrão** e altere também para 25% para a fila **thriftsvr**.
+    ![Selecione o ícone Exibições do Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+2. Selecione a fila **padrão**.
 
-    ![Alterar a Capacidade para 25% para as filas padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
-1. Clique em **Adicionar Fila** para criar uma nova fila.
+    ![Selecionar a fila padrão](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr**, altere a **capacidade** para 25%.
 
-    ![Clique em Adicionar Fila](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
-1. Dê um nome à nova fila.
+    ![Alterar a capacidade para 25% para as filas padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+4. Para criar uma nova fila, selecione **Adicionar Fila**.
+
+    ![Selecionar Adicionar Fila](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+
+5. Dê um nome à nova fila.
 
     ![Dê à fila o nome Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
-1. Deixe os valores de **Capacidade** em 50% e clique no botão **Ações**.
 
-    ![Clique no botão Ações](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
-1. Escolha **Salvar e Atualizar filas**.
+6. Deixe os valores de **capacidade** em 50% e então selecione o botão **Ações**.
 
-    ![Escolha Salvar e Atualizar filas](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selecionar o botão Ações](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+7. Escolha **Salvar e Atualizar Filas**.
 
-Essas alterações estarão visíveis imediatamente na interface do usuário do Agendador do Yarn.
+    ![Escolha Salvar e Atualizar Filas](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
-### <a name="further-reading"></a>Leitura Adicional:
+Essas alterações estarão visíveis imediatamente na interface do usuário do Agendador do YARN.
 
-- [Agendador de capacidade yarn](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+### <a name="additional-reading"></a>Leitura adicional
+
+- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como fazer para baixar logs do Yarn de um cluster
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como fazer para baixar logs do YARN de um cluster
 
-#### <a name="issue"></a>Problema:
 
-Necessário baixar o mestre de aplicativo Yarn e outros logs de contêiner do cluster do HDInsight.  
+### <a name="resolution-steps"></a>Etapas de resolução 
 
-#### <a name="resolution-steps"></a>Etapas de Resolução: 
+1. Conecte-se ao cluster HDInsight com um cliente SSH (Secure Shell). Para saber mais, veja [Leituras adicionais](#additional-reading-2).
 
-1. Conecte-se ao cluster do HDInsight com um cliente SSH (Secure Shell) (consulte a seção Leitura adicional abaixo).
-1. Liste todas as IDs de aplicativo dos aplicativos Yarn em execução no momento com o seguinte comando:
+2. Para listar todas as IDs de aplicativo dos aplicativos YARN em execução no momento, execute este comando:
 
-```apache
-yarn top
-```
-As IDs são listadas na coluna `APPLICATIONID`, cujos logs devem ser baixados.
+    ```apache
+    yarn top
+    ```
+    As IDs são listadas na coluna **APPLICATIONID**. Você pode baixar os logs da coluna **APPLICATIONID**.
 
-```apache
-YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
-NodeManager(s): 4 total, 4 active, 0 unhealthy, 0 decommissioned, 0 lost, 0 rebooted
-Queue(s) Applications: 2 running, 10 submitted, 0 pending, 8 completed, 0 killed, 0 failed
-Queue(s) Mem(GB): 97 available, 3 allocated, 0 pending, 0 reserved
-Queue(s) VCores: 58 available, 2 allocated, 0 pending, 0 reserved
-Queue(s) Containers: 2 allocated, 0 pending, 0 reserved
+    ```apache
+    YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
+    NodeManager(s): 4 total, 4 active, 0 unhealthy, 0 decommissioned, 0 lost, 0 rebooted
+    Queue(s) Applications: 2 running, 10 submitted, 0 pending, 8 completed, 0 killed, 0 failed
+    Queue(s) Mem(GB): 97 available, 3 allocated, 0 pending, 0 reserved
+    Queue(s) VCores: 58 available, 2 allocated, 0 pending, 0 reserved
+    Queue(s) Containers: 2 allocated, 0 pending, 0 reserved
 
-                  APPLICATIONID USER             TYPE      QUEUE   #CONT  #RCONT  VCORES RVCORES     MEM    RMEM  VCORESECS    MEMSECS %PROGR       TIME NAME
- application_1490377567345_0007 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628407    2442611  10.00   18:20:20 Thrift JDBC/ODBC Server
- application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
-```
+                      APPLICATIONID USER             TYPE      QUEUE   #CONT  #RCONT  VCORES RVCORES     MEM    RMEM  VCORESECS    MEMSECS %PROGR       TIME NAME
+     application_1490377567345_0007 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628407    2442611  10.00   18:20:20 Thrift JDBC/ODBC Server
+     application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
+    ```
 
-Baixe os logs de contêineres do Yarn para todos os mestres de aplicativo com o seguinte comando:
+3. Para baixar os logs de contêineres do YARN para todos os mestres de aplicativo, use este comando:
    
-```apache
-yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
-```
+    ```apache
+    yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
+    ```
 
-Isso criará o arquivo de log chamado `amlogs.txt` no formato de texto. 
+    Este comando cria um arquivo de log chamado amlogs.txt. 
 
-Baixe os logs do contêiner do Yarn apenas para o mestre aplicativo mais recente com o seguinte comando:
+4. Para baixar os logs do contêiner do YARN somente para o aplicativo mestre mais recente, use este comando:
 
-```apache
-yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
-```
+    ```apache
+    yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
+    ```
 
-Isso criará o arquivo de log chamado `latestamlogs.txt` no formato de texto. 
+    Este comando cria um arquivo de log chamado latestamlogs.txt. 
 
-Baixe os logs do contêiner do YARN para os dois primeiros mestres de aplicativo com o seguinte comando:
+4. Para baixar os logs do contêiner do YARN para os dois primeiros mestres de aplicativo, use este comando:
 
-```apache
-yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
-```
+    ```apache
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    ```
 
-Isso criará o arquivo de log chamado `first2amlogs.txt` no formato de texto. 
+    Este comando cria um arquivo de log chamado first2amlogs.txt. 
 
-Baixe todos os logs do contêiner do Yarn com o seguinte comando:
+5. Para baixar todos os logs do contêiner do YARN, use este comando:
 
-```apache
-yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
-```
+    ```apache
+    yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
+    ```
 
-Isso criará o arquivo de log chamado `logs.txt` no formato de texto. 
+    Este comando cria um arquivo de log chamado logs.txt. 
 
-Baixe o log do contêiner yarn para um contêiner específico com o seguinte comando:
+6. Para baixar o log do contêiner YARN para um contêiner específico, use o seguinte comando:
 
-```apache
-yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
-```
+    ```apache
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    ```
 
-Isso criará o arquivo de log chamado `containerlogs.txt` no formato de texto.
+    Este comando cria um arquivo de log chamado containerlogs.txt.
 
-#### <a name="further-readings"></a>Leituras Adicionais:
+### <a name="additional-reading-2"></a>Leitura adicional
 
-- [Conectar-se ao cluster do HDInsight usando SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-
-- [Aplicativos e conceitos do Apache Hadoop Yarn](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
-
+- [Conectar ao HDInsight (Hadoop) usando SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Aplicativos e conceitos do Apache Hadoop YARN](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
 
