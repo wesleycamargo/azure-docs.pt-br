@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 26768aba560e13a92431c4e40c3ae354b6b55acf
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do Criador de Modos de Exibição do Log Analytics
@@ -30,7 +30,7 @@ Outros artigos disponíveis para o Designer de Modos de Exibição são:
 * [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas.
 
 >[!NOTE]
-> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
 A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de Modos de Exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 

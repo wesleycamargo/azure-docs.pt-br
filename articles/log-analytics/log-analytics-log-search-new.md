@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dd65f47a6125d5b5fe068ef6908557c679beedbc
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Compreendendo as pesquisas de logs no Log Analytics
@@ -33,7 +33,7 @@ Você precisará de uma pesquisa de logs para recuperar quaisquer dados do Log A
 
 As diferentes maneiras que serão utilizadas nas pesquisas de logs no Log Analytics incluem o seguinte:
 
-- **Portais.** É possível realizar análises de dados interativas no repositório com o [Portal da Pesquisa de Logs](log-analytics-log-search-log-search-portal.md) ou no [Portal de Análise Avançada](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  A maioria das consultas criadas será iniciada em um dos portais e, depois, copiada quando você verificar se ela está funcionando conforme esperado.
+- **Portais.** É possível realizar análises de dados interativas no repositório com o [Portal da Pesquisa de Logs](log-analytics-log-search-log-search-portal.md) ou no [Portal de Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  A maioria das consultas criadas será iniciada em um dos portais e, depois, copiada quando você verificar se ela está funcionando conforme esperado.
 - **Regras de alerta** As [Regras de alerta](log-analytics-alerts.md) identificam proativamente os problemas dos dados no espaço de trabalho.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](log-analytics-view-designer.md).  As pequisas de logs fornecem os dados utilizados por [blocos](log-analytics-view-designer-tiles.md) e [blocos de visualização](log-analytics-view-designer-parts.md) em cada exibição.  É possível fazer busca detalhada dos blocos de visualização no portal da Pesquisa de Logs para realizar análises adicionais nos dados.
 - **Exportação.**  Ao exportar dados do espaço de trabalho do Log Analytics para o Excel ou [Power BI](log-analytics-powerbi.md), você cria uma pesquisa de logs para definir os dados a serem exportados.
@@ -83,5 +83,5 @@ Para obter a documentação completa sobre a linguagem de consulta do Azure Log 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [portais utilizados para criar e editar pesquisas de logs](log-analytics-log-search-portals.md).
-- Confira um [tutorial sobre como escrever consultas](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) utilizando a nova linguagem de consulta.
+- Confira um [tutorial sobre como escrever consultas](https://go.microsoft.com/fwlink/?linkid=856078) utilizando a nova linguagem de consulta.
 

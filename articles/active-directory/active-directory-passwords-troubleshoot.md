@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 4bbfbbe41eb3f70c27f0721a6b35a8f7f1831af4
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -32,14 +32,14 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 
 | Erro | Detalhes | Detalhes técnicos |
 | --- | --- | --- |
-| TenantSSPRFlagDisabled = 9 | Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador desabilitou a redefinição de senha para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite a habilitação deste recurso. Para saber mais, leia [Preciso de ajuda, esqueci a minha senha do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: detectamos que a redefinição de senha não foi habilitada pelo administrador. Entre em contato com o seu administrador e solicite a habilitação da redefinição de senha para a sua organização. |
-| WritebackNotEnabled = 10 |Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador não habilitou um serviço necessário para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a verificação da configuração da sua organização. Para saber mais sobre este serviço necessário, leia [Como configurar o write-back de senha](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: detectamos que o write-back de senha não foi habilitado. Entre em contato com o seu administrador e solicite a habilitação do write-back de senha. |
-| SsprNotEnabledInUserPolicy = 11 | Desculpe,  <br> você não pode redefinir sua senha neste momento porque o administrador não configurou a redefinição de senha para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a configuração da redefinição de senha. Para saber mais sobre a configuração de redefinição de senha, leia o artigo [Início rápido: redefinição da senha de autoatendimento do Azure AD ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: sua organização não tem uma política de redefinição de senha definida. Entre em contato com seu administrador e solicite a implantação de uma política de redefinição de senha. |
-| UserNotLicensed = 12 | Desculpe, <br> você não pode redefinir sua senha neste momento porque a sua organização não tem as licenças necessárias. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite que verifique a atribuição de licença. Para ler mais sobre requisitos de licenciamento, veja o artigo [Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: a sua organização não tem as licenças necessárias para executar a redefinição de senha. Entre em contato com seu administrador e solicite que revise as atribuições de licença. |
-| UserNotMemberOfScopedAccessGroup = 13 | Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador não configurou sua conta para usar a redefinição de senha. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite a configuração da sua conta para redefinição de senha. Para saber mais sobre a configuração de conta para redefinição de senha, leia o artigo [Como executar a redefinição de senha para usuários](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: você não é um membro de um grupo habilitado para redefinição de senha. Entre em contato com o administrador e peça para ser adicionado ao grupo. |
-| UserNotProperlyConfigured = 14 | Desculpe, <br> você não pode redefinir sua senha neste momento porque a sua conta não tem as informações necessárias. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a redefinição da sua senha. Depois de ter acesso à sua conta novamente, registre as informações necessárias seguindo as etapas do artigo [Como inscrever-se na redefinição de senha de autoatendimento](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: para redefinir a sua senha, são necessárias informações de segurança adicionais. Para continuar, entre em contato com o seu administrador e solicite a redefinição da sua senha. Depois que ter acesso à sua conta, registre as informações de segurança adicionais em https://aka.ms/ssprsetup. O administrador pode adicionar informações de segurança adicionais à sua conta seguindo as etapas em [Configuração e leitura de dados de autenticação para redefinição de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
-| OnPremisesAdminActionRequired = 29 | Desculpe, <br> não é possível redefinir a sua senha no momento devido a um problema com a configuração de redefinição de senha da sua organização. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite uma investigação. Para saber mais sobre o possível problema em potencial, leia o artigo [Solução de problemas de write-back de senha](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: não é possível redefinir sua senha devido a um erro em sua configuração local. Entre em contato com seu administrador e solicite uma investigação. |
-| OnPremisesConnectivityError = 30 | Desculpe, <br> não é possível redefinir a sua senha no momento devido a problemas de conectividade para a sua organização. Não há nenhuma ação a ser executada no momento, mas o problema pode ser resolvido se você tentar novamente mais tarde. Se o problema persistir, entre em contato com o seu administrador e solicite uma investigação. Para saber mais sobre problemas de conectividade, leia [Solução de problemas de conectividade de write-back de senha](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: não é possível redefinir a sua senha devido a uma conexão ruim com seu ambiente local. Entre em contato com seu administrador e solicite uma investigação.|
+| TenantSSPRFlagDisabled = 9 | Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador desabilitou a redefinição de senha para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite a habilitação deste recurso. Para saber mais, leia [Preciso de ajuda, esqueci a minha senha do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: detectamos que a redefinição de senha não foi habilitada pelo administrador. Entre em contato com o seu administrador e solicite a habilitação da redefinição de senha para a sua organização. |
+| WritebackNotEnabled = 10 |Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador não habilitou um serviço necessário para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a verificação da configuração da sua organização. Para saber mais sobre este serviço necessário, leia [Como configurar o write-back de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: detectamos que o write-back de senha não foi habilitado. Entre em contato com o seu administrador e solicite a habilitação do write-back de senha. |
+| SsprNotEnabledInUserPolicy = 11 | Desculpe,  <br> você não pode redefinir sua senha neste momento porque o administrador não configurou a redefinição de senha para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a configuração da redefinição de senha. Para saber mais sobre a configuração de redefinição de senha, leia o artigo [Início rápido: redefinição da senha de autoatendimento do Azure AD ](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: sua organização não tem uma política de redefinição de senha definida. Entre em contato com seu administrador e solicite a implantação de uma política de redefinição de senha. |
+| UserNotLicensed = 12 | Desculpe, <br> você não pode redefinir sua senha neste momento porque a sua organização não tem as licenças necessárias. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite que verifique a atribuição de licença. Para ler mais sobre requisitos de licenciamento, veja o artigo [Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: a sua organização não tem as licenças necessárias para executar a redefinição de senha. Entre em contato com seu administrador e solicite que revise as atribuições de licença. |
+| UserNotMemberOfScopedAccessGroup = 13 | Desculpe, <br> você não pode redefinir sua senha neste momento porque o administrador não configurou sua conta para usar a redefinição de senha. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite a configuração da sua conta para redefinição de senha. Para saber mais sobre a configuração de conta para redefinição de senha, leia o artigo [Como executar a redefinição de senha para usuários](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: você não é um membro de um grupo habilitado para redefinição de senha. Entre em contato com o administrador e peça para ser adicionado ao grupo. |
+| UserNotProperlyConfigured = 14 | Desculpe, <br> você não pode redefinir sua senha neste momento porque a sua conta não tem as informações necessárias. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a redefinição da sua senha. Depois de ter acesso à sua conta novamente, registre as informações necessárias seguindo as etapas do artigo [Como inscrever-se na redefinição de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: para redefinir a sua senha, são necessárias informações de segurança adicionais. Para continuar, entre em contato com o seu administrador e solicite a redefinição da sua senha. Depois que ter acesso à sua conta, registre as informações de segurança adicionais em https://aka.ms/ssprsetup. O administrador pode adicionar informações de segurança adicionais à sua conta seguindo as etapas em [Configuração e leitura de dados de autenticação para redefinição de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
+| OnPremisesAdminActionRequired = 29 | Desculpe, <br> não é possível redefinir a sua senha no momento devido a um problema com a configuração de redefinição de senha da sua organização. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite uma investigação. Para saber mais sobre o possível problema em potencial, leia o artigo [Solução de problemas de write-back de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: não é possível redefinir sua senha devido a um erro em sua configuração local. Entre em contato com seu administrador e solicite uma investigação. |
+| OnPremisesConnectivityError = 30 | Desculpe, <br> não é possível redefinir a sua senha no momento devido a problemas de conectividade para a sua organização. Não há nenhuma ação a ser executada no momento, mas o problema pode ser resolvido se você tentar novamente mais tarde. Se o problema persistir, entre em contato com o seu administrador e solicite uma investigação. Para saber mais sobre problemas de conectividade, leia [Solução de problemas de conectividade de write-back de senha](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: não é possível redefinir a sua senha devido a uma conexão ruim com seu ambiente local. Entre em contato com seu administrador e solicite uma investigação.|
 
 
 ## <a name="troubleshoot-password-reset-configuration-in-the-azure-portal"></a>Solução de problemas de configuração de redefinição de senha no portal do Azure
@@ -213,24 +213,24 @@ Essas etapas restabelecerão a conexão com nosso serviço de nuvem e resolverã
 
 Se a instalação da última versão do servidor Azure AD Connect não resolver o problema, recomendamos que você tente desabilitar e habilitar novamente o Write-back de Senha como uma etapa final depois de instalar a última versão.
 
-## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Verificar se o Azure AD Connect tem a permissão necessária para write-back de senha 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Verificar se o Azure AD Connect tem a permissão necessária para write-back de senha
 O Azure AD Connect requer a permissão para **Redefinir Senha** do AD a fim de executar o write-back de senha. Para descobrir se o Azure AD Connect tem a permissão para uma determinada conta de Usuário do AD local, você pode usar o recurso de Permissão Efetiva do Windows:
 
 1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** (Iniciar → Serviço de Sincronização).
 2. Na guia **Conectores**, selecione o **Conector AD** local e clique em **Propriedades**.  
 ![Permissão Efetiva – Etapa 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
 3. Na caixa de diálogo pop-up, selecione a guia **Conectar-se à Floresta do Active Directory** e anote a propriedade **Nome de usuário**. Essa é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório. Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para Redefinir Senha.  
-![Permissão Efetiva – Etapa 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+![Permissão Efetiva – Etapa 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
 4. Faça logon no Controlador de Domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
 5. Clique em **Exibir** e certifique-se de que a opção **Recursos Avançados** esteja habilitada.  
-![Permissão Efetiva – Etapa 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+![Permissão Efetiva – Etapa 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
 6. Procure a conta de Usuário do AD que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
-![Permissão Efetiva – Etapa 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+![Permissão Efetiva – Etapa 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 7. Na caixa de diálogo pop-up, vá até a guia **Segurança** e clique em **Avançado**.  
-![Permissão Efetiva – Etapa 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+![Permissão Efetiva – Etapa 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
 8. Na caixa de diálogo pop-up Configurações de Segurança Avançadas, vá até a guia **Acesso Efetivo**.
 9. Clique em **Selecionar um usuário** e selecione a conta do AD DS usada pelo Azure AD Connect (consulte a etapa 3). Em seguida, clique em **Exibir acesso efetivo**.  
-![Permissão Efetiva – Etapa 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+![Permissão Efetiva – Etapa 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
 10. Role para baixo e procure **Redefinir senha**. Se a entrada estiver marcada, isso significa que a conta do AD DS tem permissão para redefinir a senha da conta de Usuário do AD selecionada.  
 ![Permissão Efetiva – Etapa 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -246,7 +246,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 * **Descrição geral do erro** – Qual é o erro? Qual foi o comportamento observado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possíveis.
 * **Página** – Em qual página você estava quando observou o erro? Se possível, inclua a URL e uma captura de tela.
-* **Código de suporte** – Qual foi o código de suporte gerado quando o usuário viu o erro? 
+* **Código de suporte** – Qual foi o código de suporte gerado quando o usuário viu o erro?
     * Para encontrá-lo, reproduza o erro, clique no link Código de Suporte na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
     ![Localizar o código de suporte na parte inferior da tela][Support Code]
     * Se você estiver em uma página sem um código de suporte na parte inferior, pressione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
@@ -258,7 +258,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 * **Licenciamento** – O usuário possuía uma licença do Azure AD Premium ou Azure AD Básico atribuída?
 * **Log de eventos do aplicativo** – se você estiver usando o write-back de senha e o erro estiver na infraestrutura local, inclua uma cópia compactada do log de eventos do aplicativo por meio do servidor Azure AD Connect ao contatar o suporte.
 
-    
+
 
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reiniciar o serviço Azure AD Sync"
 [Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O Código de Suporte está localizado no canto inferior direito da janela"
@@ -267,7 +267,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
 * [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
 * [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui

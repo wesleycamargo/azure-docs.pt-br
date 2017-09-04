@@ -2,7 +2,7 @@
 title: "Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia"
 description: "Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
@@ -38,8 +38,7 @@ Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obter uma referência de ativo
-Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como obter uma referência de ativo da coleção de ativos no objeto de contexto do servidor, com base em uma ID de ativo.
-O exemplo de código a seguir usa uma consulta Linq para obter uma referência a um objeto IAsset existente.
+Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como obter uma referência de ativo da coleção de ativos no objeto de contexto do servidor, com base em uma ID de ativo. O exemplo de código a seguir usa uma consulta Linq para obter uma referência a um objeto IAsset existente.
 
     static IAsset GetAsset(string assetId)
     {

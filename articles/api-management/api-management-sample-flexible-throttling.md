@@ -3,7 +3,7 @@ title: "Limitação de solicitação avançada com o Gerenciamento de API do Azu
 description: "Saiba como criar e aplicar políticas flexíveis de limitação de cota e de taxa com o Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
-
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de solicitação avançada com o Gerenciamento de API do Azure
@@ -82,10 +83,5 @@ Para saber mais sobre as políticas de [limite de taxa por chave](https://msdn.m
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
