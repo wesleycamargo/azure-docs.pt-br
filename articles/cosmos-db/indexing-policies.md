@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
@@ -77,8 +77,6 @@ O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser config
 > A configuração da política de indexação com “Nenhum” tem o efeito colateral de remover qualquer índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
 > 
 > 
-
-A amostra a seguir explica como criar uma coleção do Azure Cosmos DB usando o SDK do .NET com indexação automática consistente em todas as inserções de documentos.
 
 A tabela a seguir mostra a consistência para as consultas baseadas no modo de indexação (Consistente e Lento) configurado para a coleção e o nível de consistência especificado para a solicitação de consulta. Isso se aplica a consultas criadas com qualquer interface - API REST, SDKs ou de dentro de procedimentos armazenados e de gatilhos. 
 

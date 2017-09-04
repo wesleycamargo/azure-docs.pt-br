@@ -4,7 +4,7 @@ description: "Funções definidas pelo usuário da Linguagem de Máquina no Stre
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: df60686e7eeb4902bb9df045e28442ade2ad2cb7
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d0771509dfa6ca4fc005edfdbc7c0a9cb5ca0e9e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Aprendizado de Máquina ao Stream Analytics
@@ -196,7 +196,7 @@ Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

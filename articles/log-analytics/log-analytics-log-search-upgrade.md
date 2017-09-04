@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9fc2380dd5db816144995fcb61cd1ac356540b36
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Atualizar seu espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs
 
 > [!NOTE]
-> A atualização para a nova linguagem de consulta do Log Analytics é atualmente opcional, dando tempo a você para [familiarizar-se com a nova linguagem](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  
+> A atualização para a nova linguagem de consulta do Log Analytics é atualmente opcional, dando tempo a você para [familiarizar-se com a nova linguagem](https://go.microsoft.com/fwlink/?linkid=856078).  
 
 A nova linguagem de consulta do Log Analytics chegou e você precisa atualizar seu espaço de trabalho para tirar proveito dela.  Este artigo descreve as vantagens da nova linguagem e diz como converter seu espaço de trabalho.  Se você não optar por atualizar agora, seu espaço de trabalho continuará a funcionar exatamente como sempre, mas ele será convertido automaticamente em uma data posterior.  Você receberá a devida notificação e um tempo significativo quando essa data for definida.
 
@@ -71,7 +71,7 @@ Quando você vir a roxa faixa na parte superior do portal, você poderá atualiz
 Se você encontrar um problema que cause falha na atualização, você poderá ir para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e postar sua pergunta ou [criar uma solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md) do Portal do Azure.
 
 ## <a name="how-do-i-learn-the-new-language"></a>Como fazer para aprender a nova linguagem?
-Já que ela é usada por vários serviços, criamos um [site externo para hospedar a documentação](https://docs.loganalytics.io/) da nova linguagem.  Isso inclui uma referência completa para ajudá-lo a aprender, além de exemplos e tutoriais. Você pode percorrer um tutorial da nova linguagem em [Introdução a Consultas](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) e acessar a referência da linguagem em [Linguagem de consulta do Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).  
+Já que ela é usada por vários serviços, criamos um [site externo para hospedar a documentação](https://docs.loganalytics.io/) da nova linguagem.  Isso inclui uma referência completa para ajudá-lo a aprender, além de exemplos e tutoriais. Você pode percorrer um tutorial da nova linguagem em [Introdução a Consultas](https://go.microsoft.com/fwlink/?linkid=856078) e acessar a referência da linguagem em [Linguagem de consulta do Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
 
 No entanto, se você já está familiarizado com a linguagem de consulta do Log Analytics herdada, você pode usar o conversor de idioma que é adicionado ao seu espaço de trabalho como parte da atualização.
 
@@ -81,7 +81,7 @@ Basta digitar sua consulta herdada e, em seguida, clique em **Converter** para v
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Confira um [tutorial sobre a nova linguagem](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).
+- Confira um [tutorial sobre a nova linguagem](https://go.microsoft.com/fwlink/?linkid=856078).
 - Percorra um [tutorial sobre como usar o portal de Pesquisa de Logs](log-analytics-log-search-log-search-portal.md) com a nova linguagem de consulta.
-- Obtenha uma introdução ao novo [portal Análise Avançada](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).
+- Obtenha uma introdução ao novo [portal Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587).
 

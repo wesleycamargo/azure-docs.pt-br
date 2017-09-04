@@ -4,7 +4,7 @@ description: "Saiba como um conjunto de serviços do Azure pode interoperar para
 keywords: "processamento em tempo real, processamento de eventos, arquitetura de referência"
 services: stream-analytics,event-hubs,storage,sql-database
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: 
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 5160d1c092103f4e7d2bf73c08c2ad5085d7d7a0
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: a5206f74e61c3cfd210ff80654e31f466ce08977
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure
@@ -53,7 +52,7 @@ O Microsoft Azure oferece um catálogo abrangente de tecnologias de análise que
 **Download:** [Processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

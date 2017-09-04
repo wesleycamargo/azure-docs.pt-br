@@ -2,7 +2,7 @@
 title: "Visão geral do modelo de licença do Widevine | Microsoft Docs"
 description: "Este tópico fornece uma visão geral de um modelo de licença do Widevine usado para configurar as licenças do Widevine."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Suporte de SSH para o Aplicativo Web do Azure no Linux
@@ -111,7 +111,6 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os links a seguir para obter mais informações sobre o Aplicativo Web no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Criando Aplicativos no Aplicativo Web do Azure no Linux](app-service-linux-how-to-create-web-app.md)
 * [Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux](app-service-linux-using-custom-docker-image.md)
 * [Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux](app-service-linux-using-nodejs-pm2.md)
 * [Usando o .NET Core no Aplicativo Web do Azure no Linux](app-service-linux-using-dotnetcore.md)

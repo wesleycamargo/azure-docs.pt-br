@@ -2,7 +2,7 @@
 title: "Esquema de metadados de saída dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este tópico oferece uma visão geral do esquema de metadados de saída dos Serviços de Mídia do Azure."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c3c5a3ee123fe021444370583c7f37737a03edce
-ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
 ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -98,7 +98,7 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de vídeo. **Observação:** isso não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
-| **FourCC**<br/><br/> Obrigatório |**xs:string** |Codec de vídeo código FourCC. |
+| **FourCC**<br/><br/> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
 | **Perfil** |**xs:string** |Perfil H264 (aplicável somente ao codec H264). |
 | **Level** |**xs:string** |Nível H264 (aplicável somente ao codec H264). |
 | **Width**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Largura do vídeo codificado em pixels. |

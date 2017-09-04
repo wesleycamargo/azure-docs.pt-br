@@ -4,7 +4,7 @@ description: "Padrões de consulta comuns do Azure Stream Analytics"
 keywords: exemplos de consulta
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jenniehubbard
 editor: cgronlun
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
-ms.author: jenniehubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: bdaaf8fe6d18ba9dcb533864e691f11272dc9f9f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
@@ -507,7 +507,7 @@ Por exemplo, gere um evento a cada 5 segundos que relatam o ponto de dados visto
 **Explicação**: esta consulta gera eventos a cada 5 segundos e mostra o último evento recebido anteriormente. A [janela Salto](https://msdn.microsoft.com/library/dn835041.aspx "janela de Salto – Azure Stream Analytics") determina o quanto no passado a consulta buscará para localizar o evento mais recente (300 segundos neste exemplo).
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

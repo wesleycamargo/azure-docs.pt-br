@@ -3,7 +3,7 @@ title: Processamento em tempo real do Stream Analytics para Azure Functions | Mi
 description: "Saiba como usar uma função do Azure conectada a uma Fila do Barramento de Serviço para preencher um Cache Redis do Azure da saída de um trabalho do Stream Analytics."
 keywords: "transmissão de dados, cache redis, fila do barramento de serviço"
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>Como armazenar dados do Stream Analytics do Azure em um Cache Redis do Azure usando o Azure Functions
@@ -189,7 +188,7 @@ Estamos empolgados sobre as novas coisas que o Azure Functions e o Stream Analyt
 
 Se for novo no Microsoft Azure, convidamos você para testá-lo se inscrevendo com uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Se for novo no Stream Analytics, convidamos você para [criar seu primeiro trabalho do Stream Analytics](stream-analytics-create-a-job.md).
 
-Caso precise de ajuda ou se tiver dúvidas, poste-as nos fóruns do [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) ou do [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Caso precise de ajuda ou se tiver dúvidas, poste-as nos fóruns do [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ou do [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 Você também pode ver os seguintes recursos:
 

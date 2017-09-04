@@ -4,7 +4,7 @@ description: "Saiba como usar a Stream Analytics para análise de sentimento Twi
 keywords: "análise de tendência do twitter em tempo real, análise de sentimento, análise de mídia social, exemplo de análise de tendência"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 67951a5afbd0dcdda327abf4a88bb9f169f4134f
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -83,17 +83,17 @@ Antes que um processo possa enviar dados para um hub de eventos, o hub de evento
 2.  Na folha de Hub de Eventos, clique em **Políticas de acesso compartilhado** e depois em **+&nbsp;Adicionar**.
 
     >[!NOTE]
-    >Verifique se você estiver trabalhando com o hub de eventos, não com o namespace de hub de eventos.
+    >Verifique se você está trabalhando com o hub de eventos, não com o namespace de hub de eventos.
 
-3.  Adicionar uma política chamada `socialtwitter-access` e para **Declaração**, selecione **Gerenciar**.
+3.  Adicione uma política chamada `socialtwitter-access` e para **Declaração**, selecione **Gerenciar**.
 
     ![Folha para a criação de uma nova política de acesso de hub de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
 4.  Clique em **Criar**.
 
-5.  Depois que a política for implantada, clique na lista de políticas de acesso compartilhado.
+5.  Depois que a política for implementada, clique na lista de políticas de acesso compartilhado.
 
-6.  Ache a caixa rotulada **CHAVE PRIMÁRIA DA CADEIA DE CONEXÃO** e clique no botão de cópia próximo à cadeia de conexão. 
+6.  Localize a caixa rotulada **CHAVE PRIMÁRIA DA CADEIA DE CONEXÃO** e clique no botão de cópia próximo à cadeia de conexão. 
     
     ![Copiando a chave de cadeia de cadeia de conexão primária da política de acesso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
@@ -226,8 +226,8 @@ Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitte
     * **Origem**: Selecione **Hub de Eventos**.
     * **Opção de importação**: Selecione **Usar hub de evento da assinatura atual**. 
     * **Namespace de barramento de serviço**: Selecione o namespace de hub de eventos que você criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
-    * **Hub de eventos**: selecione o hub de eventos que você criou anteriormente (`socialtwitter-eh`).
-    * **Nome de política do hub de eventos**: selecione a política de acesso que você criou anteriormente (`socialtwitter-access`).
+    * **Hub de eventos**: Selecione o hub de eventos que você criou anteriormente (`socialtwitter-eh`).
+    * **Nome de política do hub de eventos**: Selecione a política de acesso que você criou anteriormente (`socialtwitter-access`).
 
     ![Criar nova entrada para o trabalho de Streaming Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -252,11 +252,11 @@ Para comparar o número de menções entre tópicos, você pode usar uma [Janela
 
     Isso abrirá uma folha que permite que você especifique quantos dados de exemplo obter definido em termos de quanto tempo necessário para ler o fluxo de entrada.
 
-4. Definir **Minutos** para 3 e, em seguida, clique em **Ok**. 
+4. Defina **Minutos** para 3 e, em seguida, clique em **Ok**. 
     
     ![Opções de amostragem de fluxo de entrada, com "3 minutos" selecionados.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
 
-    O Azure prova dados do fluxo de entrada de 3 minutos e te notifica quando os dados de exemplo estão prontos. (Isso pode levar um tempo.) 
+    O Azure prova dados do fluxo de entrada de 3 minutos e notifica quando os dados de exemplo estão prontos. (Isso pode levar um tempo.) 
 
     Os dados de exemplo são armazenados temporariamente e estão disponíveis enquanto a janela de consulta estiver aberta. Se você fechar a janela de consulta, os dados de exemplo serão descartados e você terá que criar um novo conjunto de dados de exemplo. 
 
@@ -302,15 +302,15 @@ Neste tutorial, você gravou os eventos de tweets agregados de nossa consulta de
 
 1. Na seção **Trabalho de Topologia**, clique na caixa **Saída**. 
 
-2. Na folha **Entradas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
+2. Na folha **Saídas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
 
     * **Alias de saída**: Use o nome `TwitterStream-Output`. 
     * **Coletor**: selecione **Armazenamento de blobs**.
     * **Opções de importação**: Selecione **Usar armazenamento de blobs da assinatura atual**.
     * **Conta de armazenamento**. Selecione **Criar uma nova conta de armazenamento.**
-    * **Conta de armazenamento** (segunda caixa). Digite `YOURNAMEsa`, onde `YOURNAME` está o seu nome ou outra cadeia de caracteres exclusiva. O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
+    * **Conta de armazenamento** (segunda caixa). Digite `YOURNAMEsa`, onde `YOURNAME` é o seu nome ou outra cadeia de caracteres exclusiva. O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
     * **Contêiner**. Digite `socialtwitter`.
-    O nome da conta de armazenamento e o nome do contêiner são usados juntos para fornecer um URI para o armazenamento de blob, como este: 
+    O nome da conta de armazenamento e o nome do contêiner são usados juntos para fornecer um URI para o armazenamento de blobs, como este: 
 
     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
@@ -377,7 +377,7 @@ Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais d
 
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
