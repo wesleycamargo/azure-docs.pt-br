@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido - cluster do Modo Docker Swarm do Azure para Linux | Microsoft Docs"
-description: "Aprenda rapidamente a criar um cluster do Modo Docker Swarm para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure."
+title: "Guia de início rápido - cluster do Docker CE do Azure para Linux | Microsoft Docs"
+description: "Aprenda rapidamente a criar um cluster do Docker CE para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 3f49e72fa647d2b6c854123c271a88e1a8ff3cf8
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 7b8336e3865e7032e3ee0d5e4ee712bcb95aa4b5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="deploy-docker-swarm-mode-cluster"></a>Implantar um cluster do Modo Docker Swarm
+# <a name="deploy-docker-ce-cluster"></a>Implantar um cluster do Docker CE
 
-Neste início rápido, um cluster do Modo Docker Swarm é implantado usando a CLI do Azure. Em seguida, um aplicativo com vários contêineres, composto por um front-end na Web e uma instância Redis, é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
+Neste guia de início rápido, um cluster do Docker CE é implantado usando a CLI do Azure. Em seguida, um aplicativo com vários contêineres, composto por um front-end na Web e uma instância Redis, é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
 
-O modo Docker Swarm no Serviço de Contêiner do Azure está na versão prévia e **não deve ser usado para cargas de trabalho de produção**.
+O Docker CE no Serviço de Contêiner do Azure está na versão prévia e **não deve ser usado para cargas de trabalho de produção**.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -62,7 +62,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster do Modo Docker Swarm no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#create). 
+Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#create). 
 
 O exemplo a seguir cria um cluster chamado *mySwarmCluster* com um nó mestre do Linux e três nós de agente do Linux.
 

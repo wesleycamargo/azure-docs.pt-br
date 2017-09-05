@@ -52,8 +52,8 @@ ACU: 160 a 180
 | Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Desempenho de rede esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64ms  | 64   | 1792        | 2.048           | 32             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
+| Standard_M64s  | 64   | 1024        | 2.048           | 32             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
 | Standard_M128s** | 128  | 2.048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 25000          |
-
 
 
 *A tecnologia Intel® Hyper-Threading da VM série M

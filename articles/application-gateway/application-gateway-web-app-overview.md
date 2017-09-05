@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fe2d13fd18de28864a4b3f00b0eb2e02c0867616
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,4 +40,5 @@ Com essa funcionalidade, os clientes especificam as opções de configuração a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar um gateway de aplicativo com um aplicativo Web como um membro do pool de back-end visitando: [Configurar aplicativos Web com o Gateway de Aplicativo](application-gateway-web-app-powershell.md)
+Saiba como configurar um gateway de aplicativo com um aplicativo Web como um membro do pool de back-end visitando: [Configurar aplicativos Web do Serviço de Aplicativos com o Gateway de Aplicativo](application-gateway-web-app-powershell.md)
+

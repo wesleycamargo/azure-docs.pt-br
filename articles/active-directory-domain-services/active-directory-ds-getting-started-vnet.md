@@ -12,31 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c0d3f90c0f15fbb7aad00fe24c2946738e24ffd8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Criar ou selecionar uma rede virtual para o Azure Active Directory Domain Services
 
-# Criar ou selecionar uma rede virtual para o Azure Active Directory Domain Services
-<a id="before-you-begin" class="xliff"></a>
+> [!IMPORTANT]
+> A experiência do portal clássico do Azure para habilitar o Azure AD Domain Services mostrado neste artigo será removida em breve. Para novas implantações, [ **use a nova experiência do portal do Azure (versão prévia)**](active-directory-ds-getting-started.md).
+>
 
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 Consulte as [Considerações de rede para o Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
-<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
-
-## Tarefa 2: criar uma rede virtual do Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Tarefa 2: criar uma rede virtual do Azure
 A próxima tarefa de configuração é criar uma rede virtual do Azure e uma sub-rede dentro dela. Você pode habilitar o Azure Active Directory Domain Services nessa sub-rede dentro de sua rede virtual. Se você tem uma rede virtual preferida, pode ignorar esta etapa.
 
 > [!NOTE]
-> Verifique se a rede virtual do Azure que você criar ou escolher usar com o Azure Active Directory Domain Services pertença a uma região do Azure com suporte pelo Azure Active Directory Domain Services. Para conhecer as regiões do Azure nas quais o Azure Active Directory Domain Services está disponível, confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/).
+> Verifique se a rede virtual do Azure que você criar ou escolher usar com o Azure Active Directory Domain Services pertença a uma região do Azure com suporte pelo Azure Active Directory Domain Services. Para ver as regiões do Azure nas quais o Azure Active Directory Domain Services está disponível, confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/).
 >
 >Anote o nome da rede virtual para selecionar a rede virtual correta ao habilitar o Azure Active Directory Domain Services em uma etapa de configuração subsequente.
 
@@ -74,8 +72,6 @@ Para criar uma rede virtual do Azure no qual você deseja habilitar o Azure Acti
 11. Para criar a sub-rede, clique em **Salvar**.
 
 
-<a id="next-step" class="xliff"></a>
-
-## Próxima etapa
+## <a name="next-step"></a>Próxima etapa
 [Tarefa 3: habilitar o Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
 

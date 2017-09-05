@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Arquitetura do Barramento de Serviço
@@ -28,9 +27,9 @@ Este artigo descreve a arquitetura de processamento de mensagens do Barramento d
 ## <a name="service-bus-scale-units"></a>Unidades de escala do Barramento de Serviço
 O Barramento de Serviço é organizado por *unidades de escala*. Uma unidade de escala é uma unidade de implantação que contém todos os componentes necessários para executar o serviço. Cada região implanta uma ou mais unidades de escala do Barramento de Serviço.
 
-Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A unidade de escala manipula todos os tipos de entidades do Barramento de Serviço: retransmissões e entidades do sistema de mensagens agenciado (filas, tópicos, assinaturas). Uma unidade de escala do Barramento de Serviço consiste nos seguintes componentes:
+Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A unidade de escala trata todos os tipos de entidade do Barramento de Serviço (filas, tópicos, assinaturas). Uma unidade de escala do Barramento de Serviço consiste nos seguintes componentes:
 
-* **Um conjunto de nós de gateway.** Os nós de gateway autenticam as solicitações de entrada e manipulam as solicitações de retransmissão. Cada nó de gateway tem um endereço IP público.
+* **Um conjunto de nós de gateway.** Os nós de gateway autenticam solicitações de entrada. Cada nó de gateway tem um endereço IP público.
 * **Um conjunto de nós do agente de mensagens.** Os nós do agente de mensagens processam solicitações referentes às entidades de mensagens.
 * **Um repositório de gateway.** O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
 * **Múltiplos repositórios de mensagens.** Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento de entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md)do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
@@ -43,18 +42,10 @@ Quando um cliente envia uma solicitação ao Barramento de Serviço, o balancead
 
 ![Processamento de mensagens de solicitações de entrada](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Processamento de mensagens de solicitações de retransmissão
-Quando um cliente envia uma solicitação ao Serviço [Azure Relay](/azure/service-bus-relay/), o balanceador de carga do Azure direciona para qualquer um dos nós do gateway. Se a solicitação for uma solicitação de escuta, o nó do gateway cria uma nova retransmissão. Se a solicitação for uma solicitação de conexão com uma retransmissão específica, o nó do gateway encaminha a solicitação de conexão para o nó do gateway que tem a retransmissão. O nó do gateway que tem a retransmissão envia uma solicitação de encontro ao cliente de escuta, pedindo ao ouvinte para criar um canal temporário para o nó do gateway que recebeu a solicitação de conexão.
-
-Quando a conexão de retransmissão é estabelecida, os clientes podem trocar mensagens por meio do nó do gateway usado para o encontro.
-
-![Processamento de mensagens de solicitações de retransmissão WCF](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você leu uma visão geral da arquitetura do Barramento de Serviço, consulte os seguintes links para obter mais informações:
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Visão geral da Retransmissão do Azure](../service-bus-relay/relay-what-is-it.md)
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
