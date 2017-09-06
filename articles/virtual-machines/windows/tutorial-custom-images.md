@@ -65,13 +65,13 @@ Para criar uma imagem, a VM precisa ser desalocada e marcada como generalizada n
 Desaloque a VM usando [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 Defina o status da máquina virtual como `-Generalized` usando [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
    
 ```powershell
-Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
+Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
 
@@ -82,7 +82,7 @@ Agora, você pode criar uma imagem da VM usando [New-AzureRmImageConfig](/powers
 Obtenha a máquina virtual. 
 
 ```powershell
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
+$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 Crie a configuração de imagem.
@@ -94,8 +94,8 @@ $image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID
 Crie a imagem.
 
 ```powershell
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroupImages
-```    
+New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+``` 
 
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs por meio da imagem
@@ -164,7 +164,7 @@ $vmConfig = New-AzureRmVMConfig `
 # Here is where we create a variable to store information about the image 
 $image = Get-AzureRmImage `
     -ImageName myImage `
-    -ResourceGroupName myResourceGroupImages
+    -ResourceGroupName myResourceGroup
 
 # Here is where we specify that we want to create the VM from and image and provide the image ID
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
