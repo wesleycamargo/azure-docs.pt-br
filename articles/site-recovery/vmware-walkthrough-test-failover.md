@@ -86,7 +86,7 @@ Depois de configurar tudo, execute um failover de teste para conferir se tudo es
 - Obtenha uma rápida visão geral em vídeo antes de começar:
 
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
 Agora, execute um failover:

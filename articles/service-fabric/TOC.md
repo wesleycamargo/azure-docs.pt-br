@@ -19,8 +19,6 @@
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [CLI do Service Fabric](samples-cli.md)
-### [Exemplo de implantação](scripts/cli-deploy-application.md)
-### [Remover exemplo](scripts/cli-remove-application.md)
 # Conceitos
 ## [Entender os microsserviços](service-fabric-overview-microservices.md)
 ## [Visão global](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [Limitação](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrar com o Gerenciamento de API](service-fabric-api-management-overview.md)
+
 ## Monitorar e diagnosticar
 ### [Visão geral](service-fabric-diagnostics-overview.md)
 ### [Modelo de integridade](service-fabric-health-introduction.md)
 ### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Contadores de desempenho para o Serviço Remoto Confiável](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Guias de instruções
 ## Configurar seu ambiente de desenvolvimento
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Compilar um aplicativo
+### [Criar seu primeiro aplicativo C# no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Compilar um serviço executável convidado
 #### [Hospedar um aplicativo Node.js no Windows](quickstart-guest-app.md)
 #### [Implantar um executável convidado](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [Depurar um serviço Java no Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrar com o Gerenciamento de API
-### [Visão geral](service-fabric-api-management-overview.md)
-### [Início rápido](service-fabric-api-management-quick-start.md)
+## [Implantar o Gerenciamento de API e o Service Fabric no Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrar dos Serviços de Nuvem
 ### [Comparar os Serviços de Nuvem com o Service Fabric](service-fabric-cloud-services-migration-differences.md)

@@ -3,7 +3,7 @@ title: "Elemento de interface do usuário FileUpload de aplicativo gerenciado do
 description: "Descreve o elemento Microsoft.Common.FileUpload da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 217e9e63eb7cd198f70cee42b418867df9f1f993
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload

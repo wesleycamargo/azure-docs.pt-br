@@ -57,14 +57,11 @@
 ### [Usar DataFu com Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clusters sob demanda](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Enviar trabalhos do Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Usar Servidor R
-### [Opções de armazenamento](hdinsight-hadoop-r-server-storage.md)
-### [Instalar RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Contextos de computação](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usar o Spark para processamento na memória
+### Introdução - desenvolvedor do Spark
+#### [Criar um aplicativo independente](hdinsight-apache-spark-create-standalone-application.md)
+#### [Trabalhos remotos com Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Com Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Criar um aplicativo independente](hdinsight-apache-spark-create-standalone-application.md)
 ### [Criar aplicativos usando o Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Criar aplicativos usando IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Processar eventos de streaming](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Usar pacotes externos com Jupyter usando a mágica da célula](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Usar pacotes externos com Jupyter usando a ação de script](hdinsight-apache-spark-python-package-installation.md)
 ### [Usar um Jupyter notebook local](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Trabalhos remotos com Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Depurar trabalhos remotamente com o IntelliJ por meio de VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Problemas conhecidos](hdinsight-apache-spark-known-issues.md)
+## Usar Servidor R
+### [Opções de armazenamento](hdinsight-hadoop-r-server-storage.md)
+### [Instalar RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Contextos de computação](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usar HBase
 ### [Usar Phoenix e SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analisar tweets em tempo real](hdinsight-hbase-analyze-twitter-sentiment.md)

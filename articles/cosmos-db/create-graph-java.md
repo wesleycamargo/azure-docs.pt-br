@@ -12,21 +12,21 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/07/2017
+ms.topic: quickstart
+ms.date: 08/24/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de gráfico usando o Java e o portal do Azure
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido cria um banco de dados de gráfico usando as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados de gráfico com o driver [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) do OSS. As instruções neste guia rápido podem ser seguidas em qualquer sistema operacional capaz de executar o Java. Ao concluir este início rápido, você estará familiarizado com a criação e a modificação dos recursos do gráfico na IU ou programaticamente, o que for sua preferência. 
+Este início rápido cria um banco de dados de gráfico usando as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados de gráfico com o driver [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) do OSS. As instruções neste guia rápido podem ser seguidas em qualquer sistema operacional capaz de executar o Java. Este guia de início rápido mostra a você a criação e a modificação dos recursos do grafo na IU ou programaticamente, o que for sua preferência. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ Antes de criar um banco de dados de gráfico, você precisa criar uma conta do b
 Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de gráfico. 
 
 1. No Portal do Azure, no menu de navegação à esquerda, clique em **Data Explorer (Versão prévia)**. 
-2. Na folha **Data Explorer (Versão prévia)**, clique em **Novo Gráfico**, então, preencha a página usando as seguintes informações.
+2. Na folha **Data Explorer (Versão prévia)**, clique em **Novo Grafo**, então, preencha a página usando as seguintes informações:
 
     ![Data Explorer no Portal do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
@@ -61,7 +61,6 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     ID do Gráfico|gráfico de exemplo|A ID do novo gráfico. Os nomes de Gráfico possuem os mesmos requisitos de caractere que os ids de banco de dados.
     Capacidade de Armazenamento| 10 GB|Mantenha o valor padrão. Essa é a capacidade de armazenamento do banco de dados.
     Taxa de transferência|400 RUs|Mantenha o valor padrão. Você pode escalar verticalmente a taxa de transferência mais tarde se desejar reduzir a latência.
-    RU/m|Desativar|Mantenha o valor padrão.
     Chave de partição|Deixar em branco|Para este início rápido, deixe a chave de partição em branco.
 
 3. Quando o formulário estiver preenchido, clique em **OK**.
