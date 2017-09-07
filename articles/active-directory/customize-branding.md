@@ -3,7 +3,7 @@ title: "Personalizar a página de entrada do Azure Active Directory | Microsoft 
 description: "Saiba como adicionar uma identidade visual à página de entrada do Azure"
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD
@@ -62,7 +63,7 @@ Essa opção aparece na parte inferior do formulário de entrada e pode ser usad
 ### <a name="sign-in-page-image"></a>Imagem da página de entrada  
 Descrição | Restrições | Recomendações
 ------- | ------- | ----------
-Essa opção aparece na tela de fundo da página de entrada, ela está ancorada no centro do espaço visível e irá ser dimensionada e cortada para preencher a janela do navegador.    <br>Em telas estreitas, como celulares, a imagem não é mostrada.<br>Uma máscara preta com opacidade de 0.55 será aplicada sobre essa imagem pelo nosso código quando a página for carregada. | JPG ou PNG<br>Dimensões da imagem: 1920 x 1080 px<br>Tamanho do arquivo: &gt; 300 KB | <br>Use imagens que não possuam um foco forte no assunto. O formulário de entrada opaco aparece sobre o centro da imagem e pode abranger qualquer parte da imagem, dependendo do tamanho da janela do navegador.<br>Mantenha o tamanho do arquivo o menor possível para garantir tempos de carregamento rápido. 
+Essa opção aparece na tela de fundo da página de entrada, ela está ancorada no centro do espaço visível e irá ser dimensionada e cortada para preencher a janela do navegador.    <br>Em telas estreitas, como celulares, a imagem não é mostrada.<br>Uma máscara preta com opacidade de 0.55 será aplicada sobre essa imagem pelo nosso código quando a página for carregada. | JPG ou PNG<br>Dimensões da imagem: 1920 x 1080 px<br>Tamanho do arquivo: &lt; 300 KB | <br>Use imagens que não possuam um foco forte no assunto. O formulário de entrada opaco aparece sobre o centro da imagem e pode abranger qualquer parte da imagem, dependendo do tamanho da janela do navegador.<br>Mantenha o tamanho do arquivo o menor possível para garantir tempos de carregamento rápido. 
 
 ### <a name="background-color"></a>Cor da tela de fundo
 Descrição | Restrições | Recomendações
