@@ -6,11 +6,13 @@
 ## [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
 ## [Atalhos do teclado](azure-portal-keyboard-shortcuts.md)
 ## [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)
+## [Estrutura de Painéis do Azure](azure-portal-dashboards-structure.md)
 # Guias de instruções
 ## Implantar
 ### [Criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Implantar com o modelo do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Criar e compartilhar painéis do Azure](azure-portal-dashboards.md)
+### [Criar de maneira programática Painéis do Azure](azure-portal-dashboards-create-programmatically.md)
 ## Gerenciar
 ### [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)
 ### [Use o portal para gerenciar recursos](../azure-resource-manager/resource-group-portal.md)

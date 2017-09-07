@@ -3,7 +3,7 @@ title: Gerenciar capturas de pacotes com o Observador de Rede do Azure - API RES
 description: "Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando a API REST do Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 49ec20802a252258d8493eb26510270b925e851a

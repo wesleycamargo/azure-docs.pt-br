@@ -3,7 +3,7 @@ title: "Visualização de logs de fluxo do grupo de segurança de rede do Azure 
 description: "Esta página descreve como visualizar logs de fluxo NSG com o Power BI."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -64,7 +65,7 @@ Você também deve ter o cliente de desktop do Power BI instalado no seu computa
 
     ![chave de acesso 2][4]
 
-4.    Depois de baixar e analisar os logs, você pode utilizar os visuais criados previamente.
+4.  Depois de baixar e analisar os logs, você pode utilizar os visuais criados previamente.
 
 ## <a name="understanding-the-visuals"></a>Noções básicas sobre os elementos visuais
 

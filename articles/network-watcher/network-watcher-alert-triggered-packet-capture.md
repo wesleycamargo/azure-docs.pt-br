@@ -3,7 +3,7 @@ title: Usar a captura de pacote para fazer o monitoramento de rede proativo com 
 description: Este artigo descreve como criar uma captura de pacotes disparada por alertas com o Observador de Rede do Azure
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b813172fc1fc1cc683f463f05370c95bfec10f8d
