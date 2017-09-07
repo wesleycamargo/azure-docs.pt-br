@@ -1,113 +1,151 @@
 ---
-title: "Use agentes de VM do Azure para a integração contínua com Jenkins."
-description: "Agentes de VM do Azure como Jenkins secundários."
+title: "Dimensione implantações do Jenkins com agentes de VM do Azure."
+description: "Adicione capacidade adicional aos pipelines do Jenkins usando máquinas virtuais do Azure com o plug-in de Agente de VM do Azure do Jenkins."
 services: multiple
 documentationcenter: 
-author: mlearned
-manager: douge
-editor: 
-ms.assetid: 
+author: rloutlaw
+manager: justhe
 ms.service: multiple
 ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 6/7/2017
+ms.topic: article
+ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 5f2df414b4d0e8798b7ed6d90d0ea0fb79d42fc2
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: a3bfa3a17f0d7300f9d1ceb529410bbbb7bb2fee
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Use agentes de VM do Azure para a integração contínua com Jenkins.
 
-Este guia de início rápido mostra como usar o plug-in de agentes de VM do Azure do Jenkins para criar um agente do Linux (Ubuntu) sob demanda no Azure.
+# <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar implantações do Jenkins para atender à demanda com agentes de VM do Azure
+
+Este tutorial mostra como usar o [plug-in de Agentes de VM do Azure](https://plugins.jenkins.io/azure-vm-agents) do Jenkins para adicionar capacidade sob demanda com máquinas virtuais Linux em execução no Azure.
+
+Neste tutorial, você irá:
+
+> [!div class="checklist"]
+> * Instalar o plug-in de Agentes de VM do Azure
+> * Configurar o plug-in para criar recursos em sua assinatura do Azure
+> * Definir os recursos de computação disponíveis para cada agente
+> * Definir o sistema operacional e as ferramentas instaladas em cada agente
+> * Criar um novo trabalho freestyle do Jenkins
+> * Executar o trabalho em um agente de VM do Azure
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido:
+* Uma assinatura do Azure
+* Um servidor mestre do Jenkins. Se você não tiver um, exiba o [guia de início rápido](install-jenkins-solution-template.md) para configurar um no Azure.
 
-* Se você ainda não tiver um Jenkins mestre, você pode iniciar com o [modelo de solução](install-jenkins-solution-template.md) 
-* Confira [Como criar uma entidade de serviço do Azure com a CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) se você ainda não tiver uma entidade de serviço do Azure.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="install-azure-vm-agents-plugin"></a>Instale o plug-in de agentes da VM do Azure
 
-Se você iniciar a partir do [modelo de solução](install-jenkins-solution-template.md), o plug-in do agente de VM do Azure estará instalado no Jenkins mestre.
+> [!TIP]
+> Se você implantou o Jenkins no Azure usando o [modelo de solução](install-jenkins-solution-template.md), o plug-in de Agente de VM do Azure já está instalado.
 
-Caso contrário, instale o plug-in do **agentes de VM do Azure**de dentro do painel do Jenkins.
+1. No painel do Jenkins, selecione **Gerenciar o Jenkins** e, em seguida, selecione **Gerenciar Plug-ins**.
+2. Selecione a guia **Disponível** e, em seguida, pesquise **Agentes de VM do Azure**. Selecione a caixa de seleção ao lado da entrada do plug-in e selecione **Instalar sem reinicialização** na parte inferior do painel.
 
-## <a name="configure-the-plugin"></a>Configuração do plug-in
+## <a name="configure-the-azure-vm-agents-plugin"></a>Configurar o plug-in de Agentes de VM do Azure
 
-* No painel do Jenkins, clique em **Gerenciar Jenkins -> Configurar o sistema ->**. Role até a parte inferior da página e localize a seção com a lista suspensa **Adicionar nova nuvem**. No menu, selecione **Agentes de VM do Microsoft Azure**
-* Selecione uma conta existente na lista suspensa de credenciais do Azure.  Para adicionar uma nova **entidade de serviço do Microsoft Azure**, insira os seguintes valores: ID de assinatura, ID do cliente, o segredo de cliente e ponto de extremidade do token OAuth 2.0.
+1. No painel do Jenkins, selecione **Gerenciar o Jenkins** e, em seguida, **Configurar Sistema**.
+2. Role até a parte inferior da página e encontre a seção **Nuvem** com a lista suspensa **Adicionar nova nuvem** e escolha **Agentes de VM do Microsoft Azure**.
+3. Selecione uma entidade de serviço existente na lista suspensa **Adicionar**, na seção **Credenciais do Azure**. Se nenhuma estiver listada, execute as seguintes etapas para [criar uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) para sua conta do Azure e adicioná-la à configuração do Jenkins:   
 
-![Credenciais do Azure](./media/jenkins-azure-vm-agents/service-principal.png)
+    a. Selecione **Adicionar** ao lado de **Credenciais do Azure** e escolha **Jenkins**.   
+    b. Na caixa de diálogo **Adicionar Credenciais**, selecione **Entidade de Serviço do Microsoft Azure** na lista suspensa **Tipo**.   
+    c. Crie uma Entidade de serviço do Active Directory por meio da CLI do Azure ou do [Cloud Shell](/azure/cloud-shell/overview).
+    
+    ```azurecli-interactive
+    az ad sp create-for-rbac --name jenkins_sp --password secure_password
+    ```
 
-* Clique em **Verificar configurações** para certificar-se de que a configuração do perfil esteja correta.
-* Salve a configuração e continue para a próxima etapa.
+    ```json
+    {
+        "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBB",
+        "displayName": "jenkins_sp",
+        "name": "http://jenkins_sp",
+        "password": "secure_password",
+        "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
+    }
+    ```
+    d. Insira as credenciais da entidade de serviço na caixa de diálogo **Adicionar credenciais**. Se você não souber sua ID de assinatura do Azure, consulte-a na CLI:
+     
+     ```azurecli-interactive
+     az account list
+     ```
 
-## <a name="template-configuration"></a>Configuração do modelo
+     ```json
+        {
+            "cloudName": "AzureCloud",
+            "id": "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA",
+            "isDefault": true,
+            "name": "Visual Studio Enterprise",
+            "state": "Enabled",
+            "tenantId": "CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCC",
+            "user": {
+            "name": "raisa@fabrikam.com",
+            "type": "user"
+            }
+     ```
 
-### <a name="general-configuration"></a>Configuração geral
-Em seguida, configure um modelo e use- o para definir um agente de VM do Azure. 
+    A entidade de serviço concluída deve usar o campo `id` em **ID da Assinatura**, o valor `appId` em **ID do Cliente**, `password` em **Segredo do Cliente** e uma URL em **Ponto de Extremidade do Token OAuth 2.0** de `https://login.windows.net/<tenant_value>`. Selecione **Adicionar** para adicionar a entidade de serviço e, em seguida, configure o plug-in para usar a credencial recém-criada.
 
-* Clique em **Adicionar** para adicionar um modelo. 
-* Forneça um nome para o seu novo modelo. 
-* Para o rótulo, insira "ubuntu." Esse rótulo é usado durante a configuração de trabalho.
-* Selecione a região desejada na caixa de combinação.
-* Selecione o tamanho da VM desejada.
-* Especifique o nome da conta de armazenamento do Azure ou deixe em branco para usar o nome-padrão "jenkinsarmst."
-* Especifique o tempo de retenção em minutos. Essa configuração define o número de minutos que Jenkins pode aguardar antes de excluir automaticamente um agente ocioso. Especifique 0 se não quiser que os agentes ociosos sejam excluídos automaticamente.
+    ![Configurar uma entidade de serviço do Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
-![Configuração geral](./media/jenkins-azure-vm-agents/general-config.png)
+    
 
-### <a name="image-configuration"></a>Configuração de imagem
+4. Na seção **Nome do Grupo de Recursos**, deixe a opção **Criar novo** marcada e insira `myJenkinsAgentGroup`.
+5. Selecione **Verificar configuração** para se conectar ao Azure para testar as configurações de perfil.
+6. Selecione **Aplicar** para atualizar a configuração de plug-in.
 
-Para criar um agente do Linux (Ubuntu), selecione **Referência da imagem** e use a configuração a seguir como exemplo. Consulte [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) para as últimas imagens suportadas no Azure.
+## <a name="configure-agent-resources"></a>Configurar recursos do agente
 
-* Publicador de imagem: Canonical
-* Oferta de imagem: UbuntuServer
-* Sku de imagem: 14.04.5-LTS
-* Versão da imagem: mais recente
-* Tipo de sistema operacional: Linux
-* Inicie o método: SSH
-* Forneça credenciais de administrador
-* Para o script de inicialização de VM, digite:
-```
-# Install Java
-sudo apt-get -y update
-sudo apt-get install -y openjdk-7-jdk
-sudo apt-get -y update --fix-missing
-sudo apt-get install -y openjdk-7-jdk
-```
-![Configuração de imagem](./media/jenkins-azure-vm-agents/image-config.png)
+Configure um modelo para usar na definição de um agente de VM do Azure. Esse modelo define os recursos de computação que cada agente tem quando é criado.
 
-* Clique em **Verificar modelo** para verificar a configuração.
-* Clique em **Salvar**.
+1. Selecione **Adicionar** ao lado de **Adicionar Modelo de Máquina Virtual do Azure**.
+2. Insira `defaulttemplate` no **Nome**
+3. Insira `ubuntu` no **Rótulo**
+4. Selecione a [região do Azure](https://azure.microsoft.com/regions/) desejada na caixa de combinação.
+5. Selecione um [tamanho de VM](/azure/virtual-machines/linux/sizes) na lista suspensa em **Tamanho da Máquina Virtual**. Um tamanho `Standard_DS1_v2` de uso geral é suficiente para este tutorial.   
+6. Deixe a opção **Tempo de retenção** como `60`. Essa configuração define o número de minutos que o Jenkins pode aguardar antes de desalocar agentes ociosos. Especifique 0 se não desejar que os agentes ociosos sejam removidos automaticamente.
+
+   ![Configuração geral da VM](./media/jenkins-azure-vm-agents/general-config.png)
+
+## <a name="configure-agent-operating-system-and-tools"></a>Configurar o sistema operacional e as ferramentas do agente
+
+Na seção **Configuração de Imagem** da configuração de plug-in, selecione **Ubuntu 16.04 LTS**. Marque as caixas de seleção ao lado de **Instalar o Git (Último)**, **Instalar o Maven (V3.5.0)** e **Instalar o Docker** para instalar essas ferramentas nos agentes recém-criados.
+
+![Configurar o sistema operacional e as ferramentas da VM](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
+
+Selecione **Adicionar** ao lado de **Credenciais de Administrador** e, em seguida, selecione **Jenkins**. Insira um nome de usuário e a senha usada para fazer logon nos agentes, verificando se eles atendem à [política de senha e de nome de usuário](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) para contas administrativas em VMs do Azure.
+
+Selecione **Confirmar Modelo** para confirmar a configuração e, em seguida, selecione **Salvar** para salvar as alterações e retornar ao painel do Jenkins.
 
 ## <a name="create-a-job-in-jenkins"></a>Crie um trabalho no Jenkins
 
-* No painel do Jenkins, clique em **Novo Item**. 
-* Insira um nome e selecione **Projeto Freestyle** e clique em **Ok**.
-* Na guia **geral** , selecione "Restringir onde o projeto pode ser executado" e digite "ubuntu" na expressão de rótulo. Agora, você verá "ubuntu" na lista suspensa.
-* Clique em **Salvar**.
+1. No painel do Jenkins, clique em **Novo Item**. 
+2. Insira `demoproject1` no nome e selecione **Projeto Freestyle** e, em seguida, selecione **OK**.
+3. Na guia **Geral**, escolha **Restringir o local em que o projeto pode ser executado** e digite `ubuntu` na **Expressão de Rótulo**. Você verá uma mensagem confirmando que o rótulo é atendido pela configuração de nuvem criada na etapa anterior. 
+   ![Configurar o trabalho](./media/jenkins-azure-vm-agents/job-config.png)
+4. Na guia **Gerenciamento de Código-Fonte**, selecione **Git** e adicione a seguinte URL ao campo **URL do Repositório**: `https://github.com/spring-projects/spring-petclinic.git`
+5. Na guia **Compilar**, selecione **Adicionar etapa de build** e, em seguida, **Invocar destinos de nível superior do Maven**. Insira `package` no campo **Metas**.
+6. Selecione **Salvar** para salvar a definição de trabalho.
 
-![Configure o trabalho](./media/jenkins-azure-vm-agents/job-config.png)
+## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Compilar o novo trabalho em um agente de VM do Azure
 
-## <a name="build-your-new-project"></a>Compile o seu novo projeto
-
-* Volte para o painel do Jenkins.
-* Clique o botão direito do mouse no novo trabalho que você criou e clique em **Compilar agora**. Uma compilação é iniciada. 
-* Quando a compilação estiver concluída, vá para **Saída do Console**. Você verá que a compilação foi executada remotamente no Azure.
+1. Volte para o painel do Jenkins.
+2. Selecione o trabalho criado na etapa anterior e, em seguida, clique em **Compilar agora**. Um novo build será colocado na fila, mas não será iniciado até que uma VM do agente seja criada em sua assinatura do Azure.
+3. Quando a compilação estiver concluída, vá para **Saída do Console**. Você verá que o build foi executado remotamente em um agente do Azure.
 
 ![Saída do console](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="reference"></a>Referência
+## <a name="next-steps"></a>Próximas etapas
 
-* Vídeo de sexta-feira do Azure: [Integração contínua com Jenkins usando agentes de VM do Azure](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
-* Opções de configuração e as informações de suporte: [Wiki de plug-in do Jenkins de agente de VM do Azure](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
-
+> [!div class="nextstepaction"]
+> [CI/CD no Serviço de Aplicativo do Azure](deploy-jenkins-app-service-plugin.md)
 

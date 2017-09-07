@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 9f341438fc0bf239f47ae87db70b067862652786
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -65,7 +65,7 @@ O BD Cosmos usa o particionamento baseado em hash. Quando você grava um item, o
 Os contêineres do BD Cosmos do Azure podem ser criados como "fixos" ou "ilimitados". Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Algumas APIs permitem que a chave de partição seja omitida para contêineres de tamanho fixo. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 2.500 RU/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Particionamento e produtividade provisionada
-O BD Cosmos foi projetado para ter um desempenho previsível. Quando cria um contêiner, você reserva a taxa de transferência em termos de **[RUs](request-units.md) (unidades de solicitação) por segundo, com um complemento potencial de RUs por minuto**. A cada solicitação é atribuído um custo de unidade de solicitação, que é proporcional à quantidade de recursos do sistema, como CPU, memória e E/S consumida pela operação. Uma leitura de um documento de 1 KB com consistência de sessão consome uma unidade de solicitação. Uma leitura é 1 RU, independentemente do número de itens armazenados ou do número de solicitações simultâneas em execução ao mesmo tempo. Itens maiores exigem mais unidades de solicitação, dependendo do tamanho. Se você souber o tamanho de suas entidades e o número de leituras de que precisa para dar suporte para o seu aplicativo, poderá provisionar a quantidade exata produtividade necessária para as necessidades de leitura do seu aplicativo. 
+O BD Cosmos foi projetado para ter um desempenho previsível. Ao criar um contêiner, você reserva a produtividade em termos de **[RUs](request-units.md) (unidades de solicitação) por segundo**. A cada solicitação é atribuído um custo de unidade de solicitação, que é proporcional à quantidade de recursos do sistema, como CPU, memória e E/S consumida pela operação. Uma leitura de um documento de 1 KB com consistência de sessão consome uma unidade de solicitação. Uma leitura é 1 RU, independentemente do número de itens armazenados ou do número de solicitações simultâneas em execução ao mesmo tempo. Itens maiores exigem mais unidades de solicitação, dependendo do tamanho. Se você souber o tamanho de suas entidades e o número de leituras de que precisa para dar suporte para o seu aplicativo, poderá provisionar a quantidade exata produtividade necessária para as necessidades de leitura do seu aplicativo. 
 
 > [!NOTE]
 > Para atingir a taxa de transferência total do contêiner, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre alguns valores diferentes de chave de partição.

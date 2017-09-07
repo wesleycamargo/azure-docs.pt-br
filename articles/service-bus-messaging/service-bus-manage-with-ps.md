@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
@@ -29,7 +29,7 @@ Também é possível gerenciar entidades do Barramento de Serviço usando modelo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisará do seguinte:
+Antes de começar, você precisará atender aos seguintes pré-requisitos:
 
 * Uma assinatura do Azure. Para saber mais sobre como adquirir uma assinatura, confira [Opções de compra][purchase options], [ofertas para membros][member offers] ou [conta gratuita][free account].
 * Um computador com o PowerShell do Azure. Para obter instruções, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps).
@@ -46,7 +46,7 @@ Ao trabalhar com namespaces do Barramento de Serviço, você pode usar os cmdlet
 Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
 * `$Namespace` é o nome do namespace do Barramento de Serviço com o qual queremos trabalhar.
-* `$Location` identifica o datacenter em que iremos provisionar o namespace.
+* `$Location` identifica o data center no qual provisionamos o namespace.
 * `$CurrentNamespace` armazena o namespace de referência que recuperamos (ou criamos).
 
 Em um script real, `$Namespace` e `$Location` podem ser passados como parâmetros.

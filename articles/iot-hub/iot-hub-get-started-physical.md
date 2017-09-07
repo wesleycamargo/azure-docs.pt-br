@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 08/22/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f21984b4680eff78cd87b53561a604b49683705e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f4128b6b049aa876e170c56dcf2e40720644dc3d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Tutoriais de introdução aos dispositivos físicos no Hub IoT do Azure
@@ -27,7 +27,7 @@ Estes tutoriais apresentam a você o Hub IoT do Azure e os SDKs do dispositivo. 
 
 | Dispositivo IoT                       | Linguagem de programação |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]           |
+| Raspberry Pi                    | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | Kit de Desenvolvimento da IoT                      | [Arduino no VSCode][DevKit]     |
 | Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |

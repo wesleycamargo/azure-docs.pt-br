@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
+
 O modelo de segurança dos Hubs de Eventos do Azure atende aos seguintes requisitos:
 
 * Somente clientes que apresentam credenciais válidas podem enviar dados para um hub de eventos.
@@ -30,6 +30,7 @@ O modelo de segurança dos Hubs de Eventos do Azure atende aos seguintes requisi
 * Um cliente invasor pode ser impedido de enviar dados para um hub de eventos.
 
 ## <a name="client-authentication"></a>Autenticação de cliente
+
 O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um hub de eventos. O editor só pode ser usado para enviar mensagens a um hub de eventos. Não é possível receber mensagens de um editor.
 
 Normalmente, um hub de eventos emprega um editor por cliente. Todas as mensagens enviadas a um dos publicadores de um hub de eventos são enfileiradas nesse hub de eventos. Os editores habilitam o controle de acesso detalhado e a limitação.
@@ -42,7 +43,7 @@ Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens s
 
 ### <a name="create-the-sas-key"></a>Criar a chave SAS
 
-Ao criar um namespace de Hubs de Eventos, o serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você também pode criar chaves adicionais. É recomendável que você crie uma chave que concede permissões de envio para o hub de eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave como **EventHubSendKey**.
+Ao criar um namespace de Hubs de Eventos, o serviço gera automaticamente uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa regra tem um par associado de chaves primárias e secundárias que permitem enviar, escutar e gerenciar os direitos para o namespace. Você também pode criar chaves adicionais. É recomendável que você crie uma chave que concede permissões de envio para o hub de eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave como **EventHubSendKey**.
 
 O exemplo a seguir cria uma chave somente de envio ao criar o hub de eventos:
 
@@ -89,11 +90,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 Normalmente, os tokens têm um tempo de vida semelhante a superior ao tempo de vida do cliente. Se o cliente tiver a capacidade de obter um novo token, tokens com um tempo de vida mais curto podem ser usados.
 
 ### <a name="sending-data"></a>Enviar dados
+
 Depois que os tokens são criados, cada cliente é configurado com seu próprio token exclusivo.
 
 Quando o cliente envia dados a um hub de eventos, ele marca a solicitação de envio com o token. Para evitar que um invasor intercepte e roube o token, a comunicação entre o cliente e o hub de eventos deve ocorrer em um canal criptografado.
 
 ### <a name="blacklisting-clients"></a>Colocando clientes na lista de bloqueio
+
 Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. Colocar um cliente na lista de bloqueio o inutilizará até ele receber um novo token que usa um outro editor.
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticação de aplicativos back-end
@@ -105,6 +108,7 @@ A versão atual do Barramento de Serviço não dá suporte a regras SAS para ass
 Na ausência de autenticação SAS para grupos de consumidores individuais, você pode utilizar chaves SAS para proteger todos os grupos de consumidores com uma chave comum. Essa abordagem permite que um aplicativo consuma dados de qualquer grupo de consumidores de um hub de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 * [Visão Geral dos Hubs de Eventos]

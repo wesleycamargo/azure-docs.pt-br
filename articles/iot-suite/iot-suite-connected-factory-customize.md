@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução de fábrica conectada exibe dados dos servidores OPC UA
 
 ## <a name="introduction"></a>Introdução
 
-A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para saber mais informações sobre UA OPC, confira as [Perguntas Frequentes][lnk-faq].
+A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre a fábrica conectada](iot-suite-faq-cf.md).
 
 Exemplos de dados agregados na solução incluem a OEE (Eficiência Geral de Equipamentos) e os KPIs (Indicadores Chave de Desempenho) que podem ser exibidos no painel nos níveis da fábrica, da linha e da estação. A captura de tela a seguir mostra os valores de OEE e KPI da estação **Assembly** na **Linha de produção 1**, na fábrica de **Munique**:
 
@@ -175,6 +175,7 @@ Saiba mais sobre a solução pré-configurada de fábrica conectada lendo os seg
 * [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
 * [Implantar um gateway para a fábrica conectada][lnk-connect-cf]
 * [Permissões no site azureiotsuite.com][lnk-permissions]
+* [Perguntas frequentes do factory conectado](iot-suite-faq-cf.md)
 * [Perguntas frequentes][lnk-faq]
 
 

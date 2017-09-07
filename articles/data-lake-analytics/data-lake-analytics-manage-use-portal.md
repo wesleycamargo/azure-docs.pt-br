@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
@@ -102,11 +102,11 @@ Você pode usar o **Assistente para Adicionar Usuário** para provisionar facilm
 Como outros serviços do Azure, você pode usar o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
 
 As funções padrão do RBAC têm os seguintes recursos:
-* **Proprietário**: pode enviar trabalhos, monitorar trabalhos, cancelar trabalhos de qualquer usuário e configurar a conta.
-* **Colaborador**: pode enviar trabalhos, monitorar de trabalhos, cancelar trabalhos de qualquer usuário e configurar a conta.
+* **Proprietário**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
+* **Colaborador**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
 * **Leitor**: pode monitorar trabalhos.
 
-Use a função de desenvolvedor do Data Lake Analytics para permitir que os desenvolvedores de U-SQL usar o serviço do Data Lake Analytics. Você pode usar a função de desenvolvedor do Data Lake Analytics:
+Use a função de desenvolvedor do Data Lake Analytics para permitir que os desenvolvedores de U-SQL usem o serviço do Data Lake Analytics. Você pode usar a função de desenvolvedor do Data Lake Analytics:
 * Enviar trabalhos.
 * Monitorar o status do trabalho e o andamento dos trabalhos enviados por qualquer usuário.
 * Consultar os scripts de U-SQL de trabalhos enviados por qualquer usuário.
@@ -144,8 +144,26 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 ### <a name="monitor-jobs"></a>Monitorar trabalhos
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
-2. Clique em **Exibir Todos os Trabalhos**. É mostrada uma lista de todos os trabalhos ativos e concluídos recentemente na conta.
+2. Clique em **Exibir Todos os Trabalhos**. Uma lista de todos os trabalhos ativos e concluídos recentemente é exibida.
 3. Opcionalmente, clique em **Filtrar** para ajudá-lo a localizar os trabalhos por valores de **Intervalo de Tempo**, **Nome do Trabalho** e **Autor**. 
+
+### <a name="monitoring-pipeline-jobs"></a>Monitorando trabalhos de pipeline
+Trabalhos que fazem parte de um pipeline trabalham juntos, geralmente em sequência, para realizar um cenário específico. Por exemplo, você pode ter um pipeline que limpa, extrai, transforma, agrega o uso de Customer Insights. Trabalhos do pipeline são identificados usando a propriedade "Pipeline" quando o trabalho foi enviado. Trabalhos agendados usando o ADF V2 terão, automaticamente, essa propriedade populada. 
+
+Para exibir uma lista de trabalhos de U-SQL que fazem parte dos pipelines: 
+
+1. No portal do Azure, acesse sua conta do Data Lake Analytics.
+2. Clique em **Insights de trabalho**. A guia "Todos os trabalhos" será padronizada, mostrando trabalhos em execução, na fila e encerrados.
+3. Clique na guia **Trabalhos de pipeline**. Uma lista de trabalhos do pipeline será mostrada juntamente com estatísticas agregadas para cada pipeline.
+
+### <a name="monitoring-recurring-jobs"></a>Monitorando trabalhos recorrentes
+Um trabalho recorrente é aquele que tem a mesma lógica de negócios, mas usa dados de entrada diferentes toda vez que é executado. Idealmente, trabalhos recorrentes devem sempre ter êxito e ter um tempo de execução relativamente estável. O monitoramento desses comportamentos ajuda a garantir que o trabalho tenha integridade. Trabalhos recorrentes são identificados usando a propriedade "Recorrente". Trabalhos agendados usando o ADF V2 terão, automaticamente, essa propriedade populada.
+
+Para exibir uma lista de trabalhos de U-SQL que são recorrentes: 
+
+1. No portal do Azure, acesse sua conta do Data Lake Analytics.
+2. Clique em **Insights de trabalho**. A guia "Todos os trabalhos" será padronizada, mostrando trabalhos em execução, na fila e encerrados.
+3. Clique na guia **Trabalhos recorrentes**. Uma lista de trabalhos recorrentes será mostrada juntamente com estatísticas agregadas para cada trabalho recorrente.
 
 ## <a name="manage-policies"></a>Gerenciar políticas
 
@@ -174,7 +192,7 @@ Para alterar o número de trabalhos que podem ser executadas simultaneamente:
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **Propriedades**.
-3. Em **Número máximo de trabalhos em execução**, mova o controle deslizante para selecionar um valor ou insira o valor na caixa de texto. 
+3. Em **Número Máximo de Trabalhos em Execução**, mova o controle deslizante para selecionar um valor ou insira o valor na caixa de texto. 
 4. Clique em **Salvar**.
 
 > [!NOTE]
@@ -213,7 +231,7 @@ Há uma política padrão definida em cada conta. A política padrão aplica-se 
     1. **Nome da Política de Computação**: insira um nome de política para lembrá-lo da finalidade da política.
     2. **Selecionar Usuário ou Grupo**: selecione o usuário ou o grupo ao qual essa política se aplica.
     3. **Definir o Limite de AUs de Trabalho**: defina o limite de AUs que se aplica ao usuário ou ao grupo selecionado.
-    4. **Definir o Limite de Prioridade**: defina o limite de prioridade que se aplica a o usuário ou ao grupo selecionado.
+    4. **Definir o Limite de Prioridade**: defina o limite de prioridade que se aplica ao usuário ou ao grupo selecionado.
 
 4. Clique em **OK**.
 

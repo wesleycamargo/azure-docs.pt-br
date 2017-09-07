@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2017
+ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 88ca437b84298d0c008076f78e0699d36c1a23c2
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
@@ -92,7 +91,7 @@ Use a replicação geográfica ativa e os grupos de failover automático (em ver
 Neste cenário, estas são as opções de recuperação.
 
 ### <a name="perform-a-point-in-time-restore"></a>Executar uma recuperação pontual
-Você pode usar os backups automatizados para recuperar uma cópia do banco de dados para um momento adequado e conhecido, desde que este momento esteja dentro do período de retenção do banco de dados. Depois que o banco de dados for restaurado, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários dos dados restaurados para o banco de dados original. Se o banco de dados usar a replicação geográfica ativa, será recomendável copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, você precisará reconfigurar e ressincronizar a replicação geográfica ativa (o que poderá levar algum tempo em um banco de dados grande).
+Você pode usar os backups automatizados para recuperar uma cópia do banco de dados para um momento adequado e conhecido, desde que este momento esteja dentro do período de retenção do banco de dados. Depois que o banco de dados for restaurado, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários dos dados restaurados para o banco de dados original. Se o banco de dados usar a replicação geográfica ativa, será recomendável copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, você precisará reconfigurar e ressincronizar a replicação geográfica ativa (o que poderá levar algum tempo em um banco de dados grande). Embora isso restaure um banco de dados para o último ponto disponível no tempo, atualmente, não há suporte para a restauração do geográfico secundário em qualquer ponto no tempo.
 
 Para obter mais informações e as etapas detalhadas para restaurar um banco de dados para determinado momento usando o Portal do Azure ou o PowerShell, confira [Recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore). Você não pode recuperar usando o Transact-SQL.
 
@@ -138,7 +137,7 @@ Se você estiver usando a replicação geográfica ativa e os grupos de failover
 > 
 
 ### <a name="perform-a-geo-restore"></a>Executar uma restauração geográfica
-Se você estiver usando backups automatizados com a replicação de armazenamento com redundância geográfica como o mecanismo de recuperação, [inicie uma recuperação de banco de dados usando a restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente ocorre em 12 horas, com perda de dados de até uma hora determinada pela ocasião em que o último backup diferencial ocorreu e foi replicado. Até que a recuperação seja concluída, o banco de dados não poderá registrar nenhuma transação ou responder a qualquer consulta.
+Se você estiver usando backups automatizados com a replicação de armazenamento com redundância geográfica como o mecanismo de recuperação, [inicie uma recuperação de banco de dados usando a restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente ocorre em 12 horas, com perda de dados de até uma hora determinada pela ocasião em que o último backup diferencial ocorreu e foi replicado. Até que a recuperação seja concluída, o banco de dados não poderá registrar nenhuma transação ou responder a qualquer consulta. Embora isso restaure um banco de dados para o último ponto disponível no tempo, atualmente, não há suporte para a restauração do geográfico secundário em qualquer ponto no tempo.
 
 > [!NOTE]
 > Se o data center voltar a ficar online antes de você transferir seu aplicativo para o banco de dados recuperado, você poderá cancelar a recuperação.  

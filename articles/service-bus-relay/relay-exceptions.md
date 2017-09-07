@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: a0414648dc6cecf4a502f7efa75adbcb1456a8b4
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de Retransmissão do Azure
@@ -77,7 +76,8 @@ Para a Retransmissão, você poderá receber exceções de tempo limite ao abrir
 Exemplo:
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### <a name="common-causes"></a>Causas comuns
@@ -88,7 +88,7 @@ Há duas causas comuns para esse erro:
     O tempo limite da operação pode ser muito pequeno para a condição operacional. O valor padrão para o tempo limite da operação no SDK do cliente é de 60 segundos. Verifique se o valor em seu código está definido para um nível pequeno demais. Observe que o uso da CPU e a condição da rede podem afetar o tempo necessário para a conclusão de uma operação. É uma boa ideia não definir o tempo limite da operação para um valor muito pequeno.
 *   **Erro de serviço transitório**
 
-    Ocasionalmente, a Retransmissão pode sofrer atrasos no processamento de solicitações. Isso pode acontecer, por exemplo, durante períodos de tráfego intenso. Nesses casos, repita a operação após um atraso até que a operação seja bem-sucedida. Se a mesma operação continuar a falhar após várias tentativas, verifique o [Site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há interrupções de serviço conhecidas.
+    Ocasionalmente, o serviço Retransmissão pode sofrer atrasos no processamento de solicitações. Isso pode acontecer, por exemplo, durante períodos de tráfego intenso. Nesses casos, repita a operação após um atraso até que a operação seja bem-sucedida. Se a mesma operação continuar a falhar após várias tentativas, verifique o [Site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há interrupções de serviço conhecidas.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Perguntas frequentes sobre Retransmissão do Azure](relay-faq.md)

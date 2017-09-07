@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um ambiente do Serviço de Aplicativo #
@@ -104,13 +104,13 @@ Além das dependências funcionais do ASE, há alguns itens adicionais relaciona
 
 -   Trabalhos da Web
 -   Funções
--   Logstream
+-   Streaming de log
 -   Kudu
 -   Extensões
 -   Gerenciador de Processos
 -   Console
 
-Quando você usa uma ASE ILB, o site SCM não é acessível pela Internet de fora da VNet. Quando seu aplicativo é hospedado em uma ASE ILB, os recursos que não podem acessar o site SCM estão esmaecidos no portal do Azure.
+Quando você usa uma ASE ILB, o site SCM não é acessível pela Internet de fora da VNet. Quando o aplicativo estiver hospedado em um ILB ASE, algumas funcionalidades não funcionarão no portal.  
 
 Muitos desses recursos que dependem do site do SCM também estão disponíveis diretamente no console Kudu. Você pode se conectar a ele diretamente, em vez de por meio do portal. Se o seu aplicativo estiver hospedado em um ASE ILB, use suas credenciais de publicação para entrar. A URL para acessar o site do SCM de um aplicativo hospedado em um ASE ILB tem o seguinte formato: 
 
@@ -120,9 +120,13 @@ Muitos desses recursos que dependem do site do SCM também estão disponíveis d
 
 Se seu ASE ILB for o nome de domínio *contoso.net* e o nome do aplicativo for *testapp*, o aplicativo será alcançado em *testapp.contoso.net*. O site SCM que o acompanha é alcançado em *testapp.scm.contoso.net*.
 
+## <a name="functions-and-web-jobs"></a>Funções e trabalhos Web ##
+
+As Funções e os trabalhos Web dependem do site do SCM, mas há suporte para eles para uso no portal, mesmo que os aplicativos estiverem em um ILB ASE, desde que o navegador possa acessar o site do SCM.  Se você estiver usando um certificado autoassinado com o ILB ASE, precisará habilitar o navegador para que ele confie no certificado.  Para o IE e o Edge, isso significa que o certificado deve estar no repositório de confiança do computador.  Se você estiver usando o Chrome, isso significa que você aceitou o certificado no navegador anteriormente supostamente visitando o site do SCM diretamente.  A melhor solução é usar um certificado comercial que está na cadeia de confiança do navegador.  
+
 ## <a name="ase-ip-addresses"></a>Endereços IP do ASE ##
 
-Um ASE precisa conhecer alguns endereços IP. Eles são:
+Um ASE tem alguns endereços IP para reconhecer. Eles são:
 
 - **Endereço IP público de entrada**: usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
 - **IP público de saída**: usado como o IP “de” das conexões de saída do ASE que saem da VNet, que não são roteadas por uma VPN.
@@ -187,8 +191,7 @@ Se você fizer essas duas alterações, tráfego destinado à Internet provenien
 > [!IMPORTANT]
 > As rotas definidas em uma UDR devem ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior usa o intervalo de endereços amplo 0.0.0.0/0. É possível que ele seja acidentalmente substituído pelos anúncios de rota que usam intervalos de endereços mais específicos.
 >
-
-Não há suporte para ASEs com configurações do ExpressRoute que façam anúncio cruzado de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado. Configurações do ExpressRoute com emparelhamento público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços forem anunciados de modo cruzado no caminho de emparelhamento privado, todos os pacotes de rede de saída da sub-rede do ASE serão enviados em túnel de modo forçado a uma infraestrutura de rede local do cliente. No momento, não há suporte para esse fluxo de rede com ASEs. Uma solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento privado.
+> Não há suporte para ASEs com configurações do ExpressRoute que façam anúncio cruzado de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado. Configurações do ExpressRoute com emparelhamento público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços forem anunciados de modo cruzado no caminho de emparelhamento privado, todos os pacotes de rede de saída da sub-rede do ASE serão enviados em túnel de modo forçado a uma infraestrutura de rede local do cliente. No momento, não há suporte para esse fluxo de rede com ASEs. Uma solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento privado.
 
 Para criar UDR, siga estas etapas:
 

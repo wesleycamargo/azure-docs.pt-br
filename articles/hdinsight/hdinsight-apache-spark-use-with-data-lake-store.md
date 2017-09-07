@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -30,15 +29,15 @@ Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+* Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [Criar um cluster HDInsight com o Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     
 ## <a name="prepare-the-data"></a>Preparar os dados
 
 > [!NOTE]
-> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Store como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Store, especificados durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Store como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Store especificada durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 >
 >
 
@@ -58,7 +57,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
    > Verifique se os nomes de arquivo e caminho estão com a capitalização apropriada.
    >
    >
-3. Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
+3. Você deverá inserir as credenciais da assinatura do Azure vinculadas à sua conta do Data Lake Store. Você verá um resultado semelhante ao seguinte trecho:
 
         Initializing Copy.
         Copy Started.

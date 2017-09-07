@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -78,9 +78,9 @@ Depois de habilitar as configurações de diagnóstico, retorne à folha __Logs 
 
 3. Clique no link **Download** para uma entrada de log para baixar o log.
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Use a conta de Armazenamento do Azure Data Lake que contém dados de log
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Use a conta de Armazenamento do Azure que contém dados de log
 
-1. Abra a folha da conta de Armazenamento do Azure Data Lake associada ao Data Lake Analytics para registro em log e clique em __Blobs__. A folha **serviço Blob** lista dois contêineres.
+1. Abra a folha Conta de Armazenamento do Azure associada ao Data Lake Analytics para registro em log e clique em __Blobs__. A folha **serviço Blob** lista dois contêineres.
 
     ![Exibir logs de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
 

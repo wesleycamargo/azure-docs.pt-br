@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 97414ee55663662fb40a91b930d61634c83e30fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight
@@ -74,12 +74,12 @@ Para obter instruções de instalação, confira [Instalação do Kit de Ferrame
 
 1. Inicie o IDEA do IntelliJ e crie um projeto. Na caixa de diálogo **Novo Projeto** , faça o seguinte: 
 
-   a. Selecione **HDInsight** > **Spark em HDInsight (Scala)**.
+   a. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
 
-   b. Na lista **Ferramenta de compilação**, selecione uma das seguintes opções, de acordo com suas necessidades:
+   b. Na lista **Ferramenta de build**, selecione uma das seguintes opções, de acordo com suas necessidades:
 
-      * **Maven**, para obter suporte ao assistente de criação de projeto Scala
-      * **SBT**, para gerenciamento das dependências e compilação no projeto Scala
+      * **Maven**, para obter suporte ao assistente de criação de projetos Scala
+      * **SBT**, para gerenciar as dependências e a compilação no projeto Scala
 
     ![A caixa de diálogo Novo Projeto](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
@@ -101,7 +101,7 @@ Para obter instruções de instalação, confira [Instalação do Kit de Ferrame
 
    b. Na lista suspensa **SDK do Projeto**, selecione **Java 1.8** para o cluster Spark 2.x ou selecione **Java 1.7** para o cluster Spark 1.x.
 
-   c. Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão apropriada do SDK do Spark e do SDK do Scala. Se a versão de cluster do Spark for inferior a 2.0, escolha o **Spark 1.x**. Caso contrário, selecione **Spark 2.x**. Esse exemplo usa o **Spark 2.0.2 (Scala 2.11.8)**.
+   c. Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão apropriada do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark 2.x**. Esse exemplo usa o **Spark 2.0.2 (Scala 2.11.8)**.
 
 6. Selecione **Concluir**.
 
@@ -172,15 +172,6 @@ Para obter instruções de instalação, confira [Instalação do Kit de Ferrame
 ## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Executar ou depurar um aplicativo Scala Spark em um cluster Spark do HDInsight
 Também recomendamos outra forma de enviar o aplicativo Spark ao cluster. Você pode fazer isso definido os parâmetros no IDE **Executar/Depurar configurações**. Para saber mais, confira [Depurar aplicativos Spark remotamente em um cluster HDInsight com o kit de ferramentas do Azure para IntelliJ por meio do SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
-## <a name="choose-azure-data-lake-store-as-spark-scala-application-storage"></a>Escolha o Azure Data Lake Store como armazenamento do aplicativo Spark Scala
-Para enviar um aplicativo ao Azure Data Lake Store, escolha o modo **Interativo** durante o processo de entrada no Azure. 
-
-![Opção interativa na entrada](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-Se você selecionar o modo **Automatizado**, obterá o seguinte erro:
-
-![Erro de entrada](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
-
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Acessar e gerenciar clusters Spark do HDInsight usando o Kit de Ferramentas do Azure para IntelliJ
 Você pode executar várias operações usando o Kit de Ferramentas do Azure para IntelliJ.
 
@@ -237,10 +228,10 @@ Para resolver esse erro, [baixe o executável](http://public-repo-1.hortonworks.
    
     a. Escolha **HDInsight** > **Exemplo de Execução Local do Spark no HDInsight (Scala)**.
 
-    b. Na lista **Ferramenta de compilação**, selecione uma das seguintes opções, de acordo com suas necessidades:
+    b. Na lista **Ferramenta de build**, selecione uma das seguintes opções, de acordo com suas necessidades:
 
-      * **Maven**, para obter suporte ao assistente de criação de projeto Scala
-      * **SBT**, para gerenciamento das dependências e compilação no projeto Scala
+      * **Maven**, para obter suporte ao assistente de criação de projetos Scala
+      * **SBT**, para gerenciar as dependências e a compilação no projeto Scala
 
     ![A caixa de diálogo Novo Projeto](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -306,6 +297,13 @@ Esses erros acontecem porque o tamanho do heap não é grande o suficiente para 
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
 ![Adicionando opções à caixa "Opções de VM" no IntelliJ](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
+## <a name="faq"></a>Perguntas frequentes
+Para enviar um aplicativo ao Azure Data Lake Store, escolha o modo **Interativo** durante o processo de entrada no Azure. Se você selecionar o modo **Automatizado**, obterá um erro.
+
+![interative-signin](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
+
+Isso já está resolvido. Você pode escolher um Cluster do Azure Data Lake para enviar seu aplicativo com qualquer método de entrada.
 
 ## <a name="feedback-and-known-issues"></a>Comentários e problemas conhecidos
 Atualmente, não há suporte para exibir saídas do Spark diretamente.
