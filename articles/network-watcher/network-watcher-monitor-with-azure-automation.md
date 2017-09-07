@@ -3,7 +3,7 @@ title: "Monitorar os gateways de VPN com a solução de problemas do Observador 
 description: "Este artigo descreve como diagnosticar a conectividade local com a Automação e o Observador de Rede do Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111

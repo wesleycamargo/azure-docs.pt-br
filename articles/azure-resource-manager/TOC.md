@@ -6,8 +6,8 @@
 ## [Aplicativos gerenciados](managed-application-overview.md)
 
 # Introdução
-## [Exportar modelo](resource-manager-export-template.md)
 ## [Criar e implantar modelo](resource-manager-create-first-template.md)
+## [Extensão do Código VS para modelos](resource-manager-vscode-extension.md)
 ## [Visual Studio com o Gerenciador de Recursos](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Exemplos
@@ -20,8 +20,8 @@
 
 # Como
 ## Criar modelos
-### [Práticas recomendadas para modelos](resource-manager-template-best-practices.md)
 ### [Seções do modelo](resource-group-authoring-templates.md)
+### [Práticas recomendadas para modelos](resource-manager-template-best-practices.md)
 ### [Vincular a outros modelos](resource-group-linked-templates.md)
 ### [Definir dependência entre recursos](resource-group-define-dependencies.md)
 ### [Criar múltiplas instâncias](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Compartilhar estado entre modelos vinculados](best-practices-resource-manager-state.md)
 ### [Padrões para projetar modelos](best-practices-resource-manager-design-templates.md)
 
+
 ## Implantar
 ### PowerShell
 #### [Implantar modelo](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Implantar modelo](resource-group-template-deploy-cli.md)
 #### [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md)
 #### [Exportar modelo e reimplantar](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Implantar recursos](resource-group-template-deploy-portal.md)
+#### [Exportar modelo](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Implantação entre grupos de recursos](resource-manager-cross-resource-group-deployment.md)
 ### [Integração contínua com o Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
