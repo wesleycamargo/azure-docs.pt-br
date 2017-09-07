@@ -4,20 +4,19 @@ description: "Referência de associações do SendGrid no Azure Functions"
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
@@ -35,14 +34,16 @@ O Azure Functions fornece uma associação de saída para o SendGrid. A associa�
 
 A associação do SendGrid dá suporte às seguintes propriedades:
 
-- `name`: obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. 
-- `type`: obrigatório – deve ser definido como “sendGrid”.
-- `direction`: obrigatório – deve ser definido como “out”.
-- `apiKey`: obrigatório – deve ser definido com o nome da chave de API armazenado nas configurações de aplicativo do Aplicativo de Funções.
-- `to`: o endereço de email do destinatário.
-- `from`: o endereço de email do remetente.
-- `subject`: o assunto do email.
-- `text`: o conteúdo do email.
+|Propriedade  |Descrição  |
+|---------|---------|
+|**name**| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. |
+|**tipo**| Obrigatório – deve ser definido como `sendGrid`.|
+|**direction**| Obrigatório – deve ser definido como `out`.|
+|**apiKey**| Obrigatório – deve ser definido com o nome da chave de API armazenado nas configurações de aplicativo do Aplicativo de funções. |
+|**to**| o endereço de email do destinatário. |
+|**from**| o endereço de email do remetente. |
+|**subject**| o assunto do email. |
+|**text**| o conteúdo do email. |
 
 Exemplo de **function.json**:
 

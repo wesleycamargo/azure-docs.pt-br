@@ -11,20 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
-A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar verificação por chamada telefônica, SMS ou aplicativo ao fluxo de autenticação existente sem a necessidade de instalar, configurar e manter novos servidores. 
+A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar verificação por chamada telefônica, mensagem de texto ou aplicativo ao fluxo de autenticação existente sem a necessidade de instalar, configurar e manter novos servidores. 
 
 Esta extensão foi criada para organizações que desejam proteger conexões VPN sem implantar o Servidor do Azure MFA. A extensão NPS atua como um adaptador entre RADIUS e Azure MFA baseado em nuvem para fornecer um segundo fator de autenticação para usuários federados ou sincronizados.
 
@@ -43,7 +43,7 @@ O diagrama a seguir ilustra esse fluxo de solicitação de autenticação de alt
 
 A extensão NPS controla automaticamente a redundância, de maneira que você não precisa de uma configuração especial.
 
-Você pode criar tantos servidores NPS habilitados para a Autenticação Multifator do Azure quanto necessário. Se você instalar vários servidores, use um certificado de cliente diferente para cada um deles. Ao criar um certificado para cada servidor, você pode atualizar cada certificado individualmente e não se preocupar com tempo de inatividade em todos eles.
+Você pode criar quantos servidores NPS habilitados para o Azure MFA conforme necessário. Se você instalar vários servidores, use um certificado de cliente diferente para cada um deles. Ao criar um certificado para cada servidor, você pode atualizar cada certificado individualmente e não se preocupar com tempo de inatividade em todos eles.
 
 Os servidores VPN encaminham as solicitações de autenticação, portanto precisam estar cientes dos novos servidores NPS habilitados para a MFA do Azure.
 
@@ -67,7 +67,7 @@ Essas bibliotecas são instaladas automaticamente com a extensão.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Todos que usam a extensão do NPS devem estar sincronizados com o Azure Active Directory usando o Azure AD Connect e devem estar habilitados para MFA.
+Todos que usam a extensão do NPS devem estar sincronizados com o Azure Active Directory usando o Azure AD Connect e devem estar registrados para MFA.
 
 Ao instalar a extensão, você precisa das credenciais de administrador e a ID de diretório para seu locatário do Azure AD. Você pode encontrar a ID de diretório no [Portal do Azure](https://portal.azure.com). Entre como administrador, selecione o ícone **Azure Active Directory** à esquerda e selecione **Propriedades**. Copie o GUID na caixa **ID do diretório** e salve-o. Você usará esse GUID como a ID de locatário ao instalar a extensão NPS.
 
@@ -174,7 +174,7 @@ Esta seção inclui considerações sobre o design e sugestões para implantaç�
 ### <a name="configuration-limitations"></a>Limitações de configuração
 
 - A extensão NPS para a MFA do Azure não inclui ferramentas para migrar usuários e configurações do Servidor MFA para a nuvem. Por esse motivo, é aconselhável usar a extensão para novas implantações, em vez da implantação existente. Se você usar a extensão em uma implantação existente, os usuários terão que executar a verificação novamente para preencher os detalhes de MFA na nuvem.  
-- A extensão do NPS usa o UPN do Active Directory local para identificar o usuário no Azure MFA para realizar a autenticação secundária. A extensão não pode ser configurada para usar um identificador diferente, como a ID de logon alternativa ou campo personalizado do AD que não seja o UPN.  
+- A extensão do NPS usa o UPN do Active Directory local para identificar o usuário no Azure MFA para realizar a autenticação secundária. A extensão pode ser configurada para usar um identificador diferente, como a ID de logon alternativa ou um campo personalizado do Active Directory que não seja o UPN. Consulte [Opções de configuração avançadas da extensão NPS para a Autenticação Multifator](multi-factor-authentication-advanced-vpn-configurations.md) para obter mais informações.
 - Nem todos os protocolos de criptografia dão suporte a todos os métodos de verificação.
    - O **PAP** dá suporte a chamadas telefônicas, mensagens de texto unidirecionais, notificações de aplicativo móvel e códigos de verificação de aplicativo móvel
    - **CHAPV2** e **EAP** dão suporte a chamada telefônica e notificação do aplicativo móvel
@@ -244,6 +244,8 @@ Verifique se o link https://adnotifications.windowsazure.com pode ser acessado p
 ## <a name="next-steps"></a>Próximas etapas
 
 - Configurar IDs alternativos para logon ou configurar uma lista de exceções para IPs que não devem executar a verificação em duas etapas nas [Opções de configuração avançadas para a extensão do NPS para autenticação multifator](nps-extension-advanced-configuration.md)
+
+- Saiba como integrar o [Gateway de Área de Trabalho Remota](nps-extension-remote-desktop-gateway.md) e os [servidores VPN](nps-extension-vpn.md) usando a extensão NPS
 
 - [Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure](multi-factor-authentication-nps-errors.md)
 

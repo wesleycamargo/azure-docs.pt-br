@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
@@ -136,7 +136,7 @@ No trabalho do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**
    1. Arraste **EventEnqueuedUtcTime** para **eixo** sobre o **visualizações** painel.
    1. Arraste **temperatura** para **Valores**.
 
-      Agora, um gráfico de linhas é criado. O eixo x do gráfico exibe a data e hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
+      Agora, um gráfico de linhas é criado. O eixo x exibe a data e a hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
 
       ![Adicionar um gráfico de linhas para a temperatura a um relatório do Microsoft Power BI](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 

@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: c10471425fa1202ddb7fe35d0adf4ef33509f268
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3e67ab865a68867a3f76fe4cce51685f9ea98dd
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters Hadoop no HDInsight usando o SDK do .NET
@@ -39,76 +38,80 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 Você precisa dos seguintes pacotes NuGet:
 
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
+```
+Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+Install-Package Microsoft.Azure.Management.HDInsight
+```
 
 O exemplo de código a seguir mostra como se conectar ao Azure antes que você possa administrar clusters do HDInsight em sua assinatura do Azure.
 
-    using System;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.HDInsight;
-    using Microsoft.Azure.Management.HDInsight.Models;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
+```csharp
+using System;
+using Microsoft.Azure;
+using Microsoft.Azure.Management.HDInsight;
+using Microsoft.Azure.Management.HDInsight.Models;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
 
-    namespace HDInsightManagement
+namespace HDInsightManagement
+{
+    class Program
     {
-        class Program
+        private static HDInsightManagementClient _hdiManagementClient;
+        // Replace with your AAD tenant ID if necessary
+        private const string TenantId = UserTokenProvider.CommonTenantId; 
+        private const string SubscriptionId = "<Your Azure Subscription ID>";
+        // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+        private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+
+        static void Main(string[] args)
         {
-            private static HDInsightManagementClient _hdiManagementClient;
-            // Replace with your AAD tenant ID if necessary
-            private const string TenantId = UserTokenProvider.CommonTenantId; 
-            private const string SubscriptionId = "<Your Azure Subscription ID>";
-            // This is the GUID for the PowerShell client. Used for interactive logins in this example.
-            private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+            // Authenticate and get a token
+            var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+            // Flag subscription for HDInsight, if it isn't already.
+            EnableHDInsight(authToken);
+            // Get an HDInsight management client
+            _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-            static void Main(string[] args)
-            {
-                // Authenticate and get a token
-                var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
-                // Flag subscription for HDInsight, if it isn't already.
-                EnableHDInsight(authToken);
-                // Get an HDInsight management client
-                _hdiManagementClient = new HDInsightManagementClient(authToken);
+            // insert code here
 
-                // insert code here
+            System.Console.WriteLine("Press ENTER to continue");
+            System.Console.ReadLine();
+        }
 
-                System.Console.WriteLine("Press ENTER to continue");
-                System.Console.ReadLine();
-            }
-
-            /// <summary>
-            /// Authenticate to an Azure subscription and retrieve an authentication token
-            /// </summary>
-            static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
-            {
-                var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
-                    ClientId, 
-                    new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
-                    UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
-            }
-            /// <summary>
-            /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
-            /// </summary>
-            /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
-            /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
-            /// <param name="authToken">An authentication token for your Azure subscription</param>
-            static void EnableHDInsight(TokenCloudCredentials authToken)
-            {
-                // Create a client for the Resource manager and set the subscription ID
-                var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
-                resourceManagementClient.SubscriptionId = SubscriptionId;
-                // Register the HDInsight provider
-                var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-            }
+        /// <summary>
+        /// Authenticate to an Azure subscription and retrieve an authentication token
+        /// </summary>
+        static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
+        {
+            var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
+            var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                ClientId, 
+                new Uri("urn:ietf:wg:oauth:2.0:oob"), 
+                PromptBehavior.Always, 
+                UserIdentifier.AnyUser);
+            return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+        }
+        /// <summary>
+        /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+        /// </summary>
+        /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+        /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+        /// <param name="authToken">An authentication token for your Azure subscription</param>
+        static void EnableHDInsight(TokenCloudCredentials authToken)
+        {
+            // Create a client for the Resource manager and set the subscription ID
+            var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
+            resourceManagementClient.SubscriptionId = SubscriptionId;
+            // Register the HDInsight provider
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
     }
+}
+```
 
 Você deverá ver um aviso ao executar este programa.  Se não desejar ver o aviso, confira [Criar aplicativos .NET do HDInsight com autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
@@ -118,19 +121,23 @@ Veja [Criar clusters baseados em Linux no HDInsight usando o SDK do .NET](hdinsi
 ## <a name="list-clusters"></a>Listar clusters
 O trecho de código a seguir lista os clusters e algumas propriedades:
 
-    var results = _hdiManagementClient.Clusters.List();
-    foreach (var name in results.Clusters) {
-        Console.WriteLine("Cluster Name: " + name.Name);
-        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-        Console.WriteLine("\t Cluster location: " + name.Location);
-        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.List();
+foreach (var name in results.Clusters) {
+    Console.WriteLine("Cluster Name: " + name.Name);
+    Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+    Console.WriteLine("\t Cluster location: " + name.Location);
+    Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+}
+```
 
 ## <a name="delete-clusters"></a>Excluir clusters
 Use o seguinte trecho de código para excluir um cluster de forma síncrona ou assíncrona: 
 
-    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
-    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```csharp
+_hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+_hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```
 
 ## <a name="scale-clusters"></a>Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
@@ -151,9 +158,11 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
   
     Você pode adicionar ou remover diretamente nós do cluster HBase enquanto ele é executado. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode equilibrar manualmente os servidores regionais fazendo logon no nó de cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
   
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 * Storm
   
     Você pode adicionar ou remover nós de dados continuamente para seu cluster Strom enquanto ele é executado. Mas, após a conclusão bem-sucedida da operação de dimensionamento, você precisará redistribuir a topologia.
@@ -171,16 +180,19 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
     
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
     
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 O trecho de código a seguir mostra como redimensionar um cluster de forma síncrona ou assíncrona:
 
-    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-
+```csharp
+_hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+_hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```
 
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
@@ -193,24 +205,27 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 
 Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso. Para revogar:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = false,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = false,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 Para conceder:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = enable,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
-
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = enable,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 > [!NOTE]
 > Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
@@ -225,12 +240,13 @@ Isso também pode ser feito por meio do Portal. Consulte [Administrar o HDInsigh
 ## <a name="find-the-default-storage-account"></a>Encontrar a conta de armazenamento padrão
 O trecho de código a seguir demonstra como obter o nome da conta de armazenamento padrão e a chave da conta de armazenamento padrão de um cluster.
 
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
-
+```csharp
+var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+foreach (var key in results.Configuration.Keys)
+{
+    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+}
+```
 
 ## <a name="submit-jobs"></a>Enviar trabalhos
 **Enviar trabalhos MapReduce**

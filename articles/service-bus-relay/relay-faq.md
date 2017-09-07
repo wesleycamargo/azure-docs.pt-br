@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: cc44d59100104253447e474a49254d8b6bd68d8c
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
@@ -37,10 +36,10 @@ Um [namespace](relay-create-namespace-portal.md) é um contêiner de escopo que 
 O serviço antigamente chamado de Retransmissão do Barramento de Serviço agora se chama Retransmissão do WCF. Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos Serviços BizTalk do Azure. Ainda há suporte para Retransmissão do WCF e Conexões Híbridas.
 
 ## <a name="pricing"></a>Preços
-Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode ver [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais de preço do Azure. Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode ver [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais de preço do Azure. Para obter informações completas sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como são cobradas as Conexões Híbridas e a Retransmissão do WCF?
-Para obter informações completas sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, indicados naquela página, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
+Para obter informações completas sobre os preços da Retransmissão, consulte a tabela [Conexões Híbridas e Retransmissões do WCF][Pricing overview] na página de detalhes de preços do Barramento de Serviço. Além dos preços mencionados, indicados naquela página, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Como sou cobrado por Conexões Híbridas?
 Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
@@ -63,7 +62,7 @@ Observe que os preços usados nos exemplos são aplicáveis somente durante o pe
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para Retransmissão?
 
-A Retransmissão do WCF está disponível apenas nos namespaces da camada Standard. Preços e [cotas de conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões não mudaram em outros aspectos. Isso significa que as retransmissões continuarão sendo cobradas sobre o número de mensagens (não de operações) e horas de retransmissão. Para obter mais informações, consulte a tabela [Conexões Híbridas e Retransmissões do WCF](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
+A Retransmissão do WCF está disponível apenas nos namespaces da camada Standard. Preços e [cotas de conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões não mudaram em outros aspectos. Isso significa que as retransmissões continuarão sendo cobradas sobre o número de mensagens (não de operações) e horas de retransmissão. Para obter mais informações, consulte a tabela [“Conexões Híbridas e Retransmissões do WCF”](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>E se eu tiver mais de um ouvinte conectado a uma retransmissão específica?
 Em alguns casos, uma única retransmissão pode ter vários ouvintes conectados. Uma retransmissão é considerada aberta quando pelo menos um ouvinte de retransmissão está conectado a ela. Adicionar ouvintes a uma retransmissão aberta resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que invocam ou enviam mensagens para retransmissões) conectados a uma retransmissão não afeta o cálculo de horas de retransmissão.
@@ -73,9 +72,9 @@ Em alguns casos, uma única retransmissão pode ter vários ouvintes conectados.
 
 Em geral, mensagens cobráveis para retransmissões são calculadas usando o mesmo método usado para entidades agenciadas (filas, tópicos e assinaturas) descrito anteriormente. No entanto, há algumas diferenças importantes.
 
-Enviar uma mensagem para uma retransmissão do Barramento de Serviço é tratado como um envio de "passagem completa" ao ouvinte da retransmissão que recebe a mensagem. *Não* é tratado como um envio para a retransmissão do Barramento de Serviço seguido por uma entrega ao ouvinte da retransmissão. Uma invocação de serviço do tipo solicitação-resposta (de até 64 KB) em relação a um ouvinte resulta em duas mensagens cobráveis: uma mensagem cobrável para a solicitação e uma mensagem cobrável para a resposta (supondo que a resposta também tenha 64 KB ou menos). Isso é diferente de usar uma fila para fazer a mediação entre um cliente e um serviço. Se você usar uma fila para mediar entre um cliente e um serviço, o mesmo padrão de solicitação-resposta exigirá que uma solicitação seja enviada à fila, seguida por uma remoção da fila/entrega da fila ao serviço. Isso é seguido pelo envio de uma resposta a outra fila e uma remoção da fila/entrega dessa fila ao cliente. Usando as mesmas suposições de tamanho (até 64 KB) em todo o processo, o padrão de fila mediada resultaria em quatro mensagens cobráveis. Você seria cobrado por duas vezes o número de mensagens para implementar o mesmo padrão que você obtém usando retransmissão. É claro que há vantagens em usar filas para atingir esse padrão, como durabilidade e nivelamento de carga. Essas vantagens podem justificar a despesa adicional.
+Enviar uma mensagem para uma retransmissão do Barramento de Serviço é tratado como um envio de "passagem completa" ao ouvinte da retransmissão que recebe a mensagem. Não é tratado como uma operação de envio para a retransmissão do Barramento de Serviço, seguido por uma entrega ao ouvinte da retransmissão. Uma invocação de serviço do tipo solicitação-resposta (de até 64 KB) em relação a um ouvinte resulta em duas mensagens cobráveis: uma mensagem cobrável para a solicitação e uma mensagem cobrável para a resposta (supondo que a resposta também tenha 64 KB ou menos). Isso é diferente de usar uma fila para fazer a mediação entre um cliente e um serviço. Se você usar uma fila para mediar entre um cliente e um serviço, o mesmo padrão de solicitação-resposta exigirá que uma solicitação seja enviada à fila, seguida por uma remoção da fila/entrega da fila ao serviço. Isso é seguido pelo envio de uma resposta a outra fila e uma remoção da fila/entrega dessa fila ao cliente. Usando as mesmas suposições de tamanho (até 64 KB), o padrão de fila mediado resulta em 4 mensagens cobráveis. Você seria cobrado por duas vezes o número de mensagens para implementar o mesmo padrão que você obtém usando retransmissão. É claro que há vantagens em usar filas para atingir esse padrão, como durabilidade e nivelamento de carga. Essas vantagens podem justificar a despesa adicional.
 
-As retransmissões abertas usando a associação WCF (Windows Communication Foundation) netTCPRelay tratam as mensagens não como mensagens individuais, mas como um fluxo de dados que percorre o sistema. Ao usar essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação netTCPRelay, todos os dados são tratados como um fluxo para o cálculo das mensagens cobráveis. Nesse caso, o Barramento de Serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual por 5 minutos. Em seguida, ele divide essa quantidade total de dados por 64 KB para determinar o número de mensagens faturáveis para a retransmissão durante o período.
+As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam as mensagens não como mensagens individuais, mas como um fluxo de dados que flui pelo sistema. Ao usar essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay**, todos os dados são tratados como um fluxo para o cálculo das mensagens cobráveis. Nesse caso, o Barramento de Serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual por 5 minutos. Em seguida, ele divide essa quantidade total de dados por 64 KB para determinar o número de mensagens faturáveis para a retransmissão durante o período.
 
 ## <a name="quotas"></a>Cotas
 | Nome da cota | Escopo | Tipo | Comportamento quando excedido | Valor |
@@ -88,12 +87,12 @@ As retransmissões abertas usando a associação WCF (Windows Communication Foun
 | Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Todo o sistema |estático |- |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>A retransmissão tem alguma cota de uso?
-Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada calculada em todas as assinaturas de um cliente. Sabemos que, às vezes, suas necessidades podem exceder esses limites. Você pode contatar o atendimento ao cliente a qualquer momento para que possamos compreender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas totais de uso são:
+Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada para todas as assinaturas de um cliente. Sabemos que, às vezes, suas necessidades podem exceder esses limites. Você pode contatar o atendimento ao cliente a qualquer momento para que possamos compreender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas totais de uso são:
 
 * 5 bilhões de mensagens
 * 2 milhões de horas de retransmissão
 
-Embora reservemos o direito de desabilitar uma conta de cliente que tenha excedido suas cotas de uso mensais, enviamos uma notificação por email e fazemos várias tentativas de contatar o cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis pelas respectivas cobranças.
+Embora reservemos o direito de desabilitar uma conta que tenha excedido suas cotas de uso mensais, fornecemos uma notificação por email e fazemos várias tentativas de contatar o cliente antes de tomar qualquer medida. Os clientes que excedem essas cotas ainda são responsáveis por encargos em excesso.
 
 ### <a name="naming-restrictions"></a>Restrições de nomenclatura
 Um nome de namespace de Retransmissão deve ter entre 6 e 50 caracteres.
@@ -127,7 +126,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 Para obter uma descrição de exceções comuns e ações sugeridas que você executar, consulte [Exceções de retransmissão][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
-As Assinaturas de acesso compartilhado são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node, PHP, Java, C e C#, consulte [Autenticação do Barramento de Serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
+As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node, PHP, Java, C e C#, consulte [Autenticação do Barramento de Serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível colocar pontos de extremidade de retransmissão em uma lista de permissões?
 Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que dão suporte à lista de permissões de DNS.

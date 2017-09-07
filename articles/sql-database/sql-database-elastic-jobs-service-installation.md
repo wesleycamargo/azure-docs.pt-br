@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
@@ -95,7 +94,7 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornece o objetivo de nível de serviço para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro de S0/S1/S2/S3 são aceitos, o que faz com que o Banco de Dados SQL do Azure use o respectivo SLO. Para obter mais informações sobre SLOs do Banco de Dados SQL, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o objetivo de nível de serviço para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro S0/S1/S2/S3/S4/S6/S9/S12 são aceitos, o que faz com que o Banco de Dados SQL do Azure use o respectivo SLO. Para obter mais informações sobre SLOs do Banco de Dados SQL, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

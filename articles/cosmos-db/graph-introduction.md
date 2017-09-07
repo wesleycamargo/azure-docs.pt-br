@@ -10,21 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/21/2017
+ms.date: 08/29/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 4ee52c2665d5856cb0022365edf0485458b629fe
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: af4c67accf43c2f4f1498e3cafad6e9087a923af
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao BD Cosmos do Azure: API do Graph
 
-O [BD Cosmos do Azure](introduction.md) é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft para aplicativos de missão crítica. O BD Cosmos do Azure fornece com tudo incluído[ distribuição global](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partition-data.md) mundialmente, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e dá suporte a modelos de dados de colunas, gráficos, chave-valor e documentos.
+O [BD Cosmos do Azure](introduction.md) é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft para aplicativos de missão crítica. O BD Cosmos do Azure fornece com tudo incluído[ distribuição global](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partition-data.md) mundialmente, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e suporta modelos de dados de colunas, gráficos, valores-chave e documentos.
 
-![Gremlin, gráfico e o BD Cosmos do Azure](./media/graph-introduction/graph-gremlin.png)
+É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra como começar a usar os gráficos do Azure Cosmos DB.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
+> 
+> 
 O BD Cosmos do Azure API do Graph fornece:
 
 - Modelagem de gráfico

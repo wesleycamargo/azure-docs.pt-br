@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 70e77e09b2e2116153159167af61776398904a3c
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Consumo do Azure Functions e planos de Serviço de Aplicativo 
@@ -60,9 +60,10 @@ No Plano do Serviço de Aplicativo, seus aplicativos de funções são executado
 
 Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
-- Você espera que seus aplicativos de função executem de forma contínua, ou quase contínua.
+- Você espera que seus aplicativos de função executem de forma contínua, ou quase contínua. Nesse caso, um Plano de Serviço de Aplicativo pode ser mais econômico.
 - Você precisa de mais opções de CPU ou memória do que é fornecido no plano de Consumo.
 - Você precisa executar por mais tempo do que o tempo de execução máximo permitido no plano de Consumo.
+- Você precisa de recursos que estão disponíveis somente em um Plano do Serviço de Aplicativo, como suporte para o Ambiente de Serviço de Aplicativo, conectividade VPN/VNET e tamanhos de VM maiores. 
 
 Uma VM separa o custo do tempo de execução e do tamanho da memória. Como resultado, você não paga mais do que o custo da instância da VM alocada. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

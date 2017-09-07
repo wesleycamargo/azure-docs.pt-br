@@ -4,7 +4,7 @@ description: "Entenda como usar associações do Banco de Dados Cosmo do Azure n
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Associações do Banco de Dados Cosmos do Azure Functions
@@ -39,16 +39,18 @@ A associação de entrada da API do DocumentDB recupera um documento do Banco de
 
 A associação de entrada da API do DocumentDB tem as seguintes propriedades em *function.json*:
 
-- `name` : nome do Identificador usado no código de função para o documento
-- `type` : deve ser definido como "documentdb"
-- `databaseName` : O banco de dados que contém o documento
-- `collectionName` : A coleção que contém o documento
-- `id` : a ID do documento a ser recuperado. Essa propriedade oferece suporte a parâmetros de associações; consulte [Associar a propriedades personalizadas de entrada em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) no artigo [Conceitos de associações e gatilhos de funções do Azure](functions-triggers-bindings.md).
-- `sqlQuery`: uma consulta SQL do Banco de Dados Cosmos usada para recuperar vários documentos. A consulta oferece suporte a associações de tempo de execução. Por exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
-- `direction` : deve ser definido como `"in"`.
+|Propriedade  |Descrição  |
+|---------|---------|
+|**name**     | Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | Deve ser definido como `documentdb`.        |
+|**databaseName** | O banco de dados que contém o documento.        |
+|**collectionName**  | O nome da coleção que contém o documento. |
+|**ID**     | A ID do documento a ser recuperado. Essa propriedade dá suporte a parâmetros de associações. Para saber mais, consulte [Associar propriedades personalizadas de entrada em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
+|**sqlQuery**     | Uma consulta SQL do Cosmos DB usada para recuperar vários documentos. A consulta dá suporte a associações de tempo de execução, como no exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Cosmos DB.        |
+|**direction**     | Deve ser definido como `in`.         |
 
-As propriedades `id` e `sqlQuery` não podem ser especificadas. Se `id` nem `sqlQuery` estiver definido, toda a coleção é recuperada.
+Não é possível definir ambas as propriedades **id** e **sqlQuery**. Se nenhuma estiver definida, toda a coleção será recuperada.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>Utilizar uma associação de entrada de API do DocumentDB
 
@@ -180,18 +182,20 @@ module.exports = function (context, input) {
 ## <a id="docdboutput"></a>Associação de saída da API do DocumentDB
 A associação de saída da API do DocumentDB permite que você escreva um novo documento em um banco de dados do Banco de Dados Cosmos do Azure. O *function.json* especifica as propriedades a seguir:
 
-- `name` : nome do Identificador usado no código de função para o novo documento
-- `type` : deve ser definido como `"documentdb"`
-- `databaseName` : o banco de dados que contém a coleção na qual o novo documento será criado.
-- `collectionName` : a coleção na qual o novo documento será criado.
-- `createIfNotExists` : é um valor booliano para indicar se a coleção será criada se ela não existir. O padrão é *false*. O motivo para isso é que as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
-- `direction` : deve ser definido como `"out"`
+|Propriedade  |Descrição  |
+|---------|---------|
+|**name**     | Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | Deve ser definido como `documentdb`.        |
+|**databaseName** | O banco de dados que contém a coleção na qual o documento será criado.     |
+|**collectionName**  | O nome da coleção na qual o documento será criado. |
+|**createIfNotExists**     | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false*. Isso ocorre porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Cosmos DB.        |
+|**direction**     | Deve ser definido como `out`.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Usar uma associação de saída de API do DocumentDB
 Esta seção mostra como usar a associação de saída da API do DocumentDB em seu código da função.
 
-Quando você grava para o parâmetro de saída em sua função, por padrão um novo documento é gerado no banco de dados, com um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do documento de saída, especificando a propriedade `id` JSON no parâmetro de saída. 
+Por padrão, quando você grava no parâmetro de saída em sua função, um documento é criado no banco de dados. Este documento contém um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do document de saída especificando a propriedade `id` no objeto JSON no parâmetro de saída. 
 
 >[!Note]  
 >Ao especificar a ID de um documento existente, ela é substituída pelo novo documento de saída. 

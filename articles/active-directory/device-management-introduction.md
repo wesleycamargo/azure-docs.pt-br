@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c8b8408f76534a808fd60e331282f8191905df58
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
@@ -31,7 +31,9 @@ Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Ac
 
 Por meio de dispositivos, os usuários têm acesso aos ativos corporativos. Para proteger os ativos corporativos, como um administrador de TI, você quer ter controle sobre esses dispositivos. Desse modo, você tem a certeza de que os usuários estão acessando os recursos de dispositivos que atendem aos padrões de segurança e conformidade. 
 
-Este tópico explica como o gerenciamento de dispositivos no Azure AD ajuda a atingir essa meta.
+O gerenciamento de dispositivo também é a base para [acesso condicional com base no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional com base no dispositivo, você pode garantir que o acesso a recursos em seu ambiente somente seja possível com dispositivos confiáveis.   
+
+Este tópico explica como funciona o gerenciamento de dispositivo no Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Colocando dispositivos sob controle do Azure AD
 
@@ -145,9 +147,14 @@ Como uma regra prática, você deve usar:
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para obter uma visão geral de como gerenciar dispositivos no portal do Azure, consulte [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)
+
 - Para saber mais sobre o acesso condicional baseado em dispositivo, confira [Configurar as políticas de acesso condicional com base em dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-- Para configurar dispositivos adicionados ao Azure AD híbrido, confira [How to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md) (Como configurar dispositivos adicionados ao Azure Active Directory híbrido).
+- Para configurar:
+    - Dispositivos Windows 10 registrados Azure Active Directory, consulte [Como configurar dispositivos Windows 10 registrados no Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md)
+    - Dispositivos adicionados ao Azure Active Directory, consulte [Como configurar dispositivos adicionados ao Azure Active Directory](device-management-azuread-joined-devices-setup.md)
+    - Dispositivos adicionados ao Azure AD híbrido, consulte [Como configurar dispositivos adicionados ao Azure Active Directory híbrido](device-management-hybrid-azuread-joined-devices-setup.md).
 
 
 

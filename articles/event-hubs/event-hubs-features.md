@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: d790eec30b669469a0837ccdc14b771d1953829b
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -54,7 +54,7 @@ Você não precisa criar nomes de editor com antecedência, mas eles devem coinc
 
 ## <a name="capture"></a>Captura
 
-A [Captura dos hubs de evento](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de eventos e arquive-os em uma conta de armazenamento de blobs de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. Ao usar a Captura de Hubs de Eventos, você especifica sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
+A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de Eventos e salve-os em uma conta de armazenamento de blobs ou em uma conta de serviço do Azure Data Lake de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. A Captura de Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner, ou conta de serviço do Azure Data Lake, que será usada para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
 ## <a name="partitions"></a>Partições
 

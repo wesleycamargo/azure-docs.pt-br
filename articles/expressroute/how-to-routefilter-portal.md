@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: def88b869b82d2d675ef7e071ee58b08278321d7
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>Configurar os filtros de rota para o emparelhamento da Microsoft
@@ -133,17 +133,17 @@ Você pode atualizar a lista de valores de comunidade BGP anexada a um circuito 
 
 ## <a name="detach"></a>Para desanexar um filtro de rota de um circuito de ExpressRoute
 
-**Esta operação só pode ser executada no PowerShell.**
+Para desanexar um circuito do filtro de rota, clique com o botão direito do mouse no circuito e clique em “Desassociar”.
 
-Depois que um filtro de rota é desanexado do circuito de ExpressRoute, nenhum prefixo é anunciado através da sessão de BGP. Você pode desanexar um filtro de rota de um circuito de ExpressRoute usando o seguinte comando:
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![Criar um filtro de rota](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>Para excluir um filtro de rota
 
 Você pode excluir um filtro de rota selecionando o botão de exclusão. 
 
 ![Criar um filtro de rota](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

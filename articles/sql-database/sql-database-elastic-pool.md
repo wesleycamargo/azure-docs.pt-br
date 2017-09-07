@@ -1,5 +1,5 @@
 ---
-title: "O que são pools elásticos? Gerenciar vários Bancos de Dados SQL – Azure | Microsoft Docs"
+title: "Gerenciar vários bancos de dados SQL com pools elásticos – Azure | Microsoft Docs"
 description: "Gerenciar e dimensionar vários Bancos de Dados SQL – centenas de milhares – usando pools elásticos. Um preço para os recursos que você pode distribuir quando necessário."
 keywords: "vários bancos de dados, recursos de banco de dados, desempenho de banco de dados"
 services: sql-database
@@ -11,25 +11,25 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 07/31/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 2e0d9067cd942fccf9eeb2750cff1d1f3b478eba
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 4e4483ce7473070591128375960daa2b2c26a55d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>Pools elásticos ajudam você a gerenciar e dimensionar vários Bancos de Dados SQL
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
-Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor de Banco de Dados SQL do Azure e compartilham um número definido de recursos ([Unidades de transação de banco de dados Elástico](sql-database-what-is-a-dtu.md) (eDTUs)) por um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados.   
+Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor de Banco de Dados SQL do Azure e compartilham um número definido de recursos ([Unidades de transação de banco de dados Elástico](sql-database-what-is-a-dtu.md) (eDTUs)) por um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados. 
 
 > [!NOTE]
-> Os pools elásticos têm uma disponibilidade geral (DG) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão no modo de visualização.  A GA dos pools elásticos nessa região ocorrerá assim que possível.
+> Os pools elásticos têm uma disponibilidade geral (DG) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão no modo de visualização. A GA dos pools elásticos nessa região ocorrerá assim que possível.
 >
 
 ## <a name="what-are-sql-elastic-pools"></a>O que são pools elásticos SQL? 
@@ -48,13 +48,11 @@ Os pools permitem ao desenvolvedor comprar eDTUs [(Unidades de Transação de Ba
 
 Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais eDTUs para atender à demanda. Bancos de dados sob cargas leves consumem menos e bancos de dados sem carga não consomem nenhum eDTU. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool. As eDTUs adicionais podem ser adicionadas a um pool existente sem tempo de inatividade do banco de dados, exceto que os bancos de dados podem precisar ser movidos para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se eDTUs extras não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento. E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
 
-Você pode criar e gerenciar um pool elástico usando o [Portal do Azure](sql-database-elastic-pool-manage-portal.md), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), o [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [C#](sql-database-elastic-pool-manage-csharp.md)e a API REST. 
-
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado?
 
 Pools também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes.
 
-Quanto mais bancos de dados você conseguir adicionar a um pool, maior será a sua economia. Dependendo de seu padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3.  
+Quanto mais bancos de dados você conseguir adicionar a um pool, maior será a sua economia. Dependendo de seu padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3. 
 
 As seções a seguir ajudam a compreender como avaliar se sua coleção específica de bancos de dados se beneficia de estar em um pool. Os exemplos usam pools Standard, mas os mesmos princípios também se aplicam aos pools Basic e Premium.
 
@@ -72,23 +70,23 @@ Considerando ainda o exemplo anterior, suponha que há outros bancos de dados co
 
    ![quatro bancos de dados com um padrão de utilização adequado para um pool](./media/sql-database-elastic-pool/four-databases.png)
 
-  ![vinte bancos de dados com um padrão de utilização adequado para um pool](./media/sql-database-elastic-pool/twenty-databases.png)
+   ![vinte bancos de dados com um padrão de utilização adequado para um pool](./media/sql-database-elastic-pool/twenty-databases.png)
 
 A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela linha preta na figura anterior. Ela mostra que a utilização de DTU agregada nunca excede 100 DTUs e indica que os 20 bancos de dados podem compartilhar 100 eDTUs durante esse período de tempo. Isso resulta em uma redução de 20x em DTUs e em uma redução de 13x no preço quando comparado à colocação de cada um dos bancos de dados nos níveis de desempenho S3 para bancos de dados individuais.
 
 Este exemplo é ideal pelas seguintes razões:
 
-* Há grandes diferenças entre o pico de utilização e a utilização média por banco de dados.  
+* Há grandes diferenças entre o pico de utilização e a utilização média por banco de dados. 
 * O pico de utilização de cada banco de dados ocorre em diferentes momentos.
 * eDTUs são compartilhados entre vários bancos de dados.
 
-O preço de um pool é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.  
+O preço de um pool é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer. 
 
 As seguintes regras básicas relacionadas à contagem e utilização de banco de dados ajudam a garantir que um pool ofereça um custo reduzido em comparação ao uso de níveis de desempenho de bancos de dados individuais.
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bancos de dados
 
-Se a soma das DTUs dos níveis de desempenho para bancos de dados individuais for maior que 1,5x as eDTUs necessárias para o pool, um pool elástico será mais econômico. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+Se a soma das DTUs dos níveis de desempenho para bancos de dados individuais for maior que 1,5x as eDTUs necessárias para o pool, um pool elástico será mais econômico. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 ***Exemplo***<br>
 pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico do que o uso de níveis de desempenho para bancos de dados individuais.
@@ -115,7 +113,7 @@ O melhor tamanho de um pool depende das eDTUs e recursos de armazenamento agrega
 * DTUs máximo utilizadas por todos os bancos de dados no pool.
 * Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
-Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](#what-are-the-resource-limits-for-elastic-pools).
+Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, confira [Monitorar, gerenciar e dimensionar um pool elástico](sql-database-elastic-pool-manage-portal.md).
 
@@ -125,36 +123,10 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
    MAX (<*Número total de bancos de dados* X *utilização média de DTU por banco de dados*>,<br>
    <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
-2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, confira [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)(Limites de armazenamento e eDTU para pools elásticos e bancos de dados elásticos).
+2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, confira [eDTU and storage limits for elastic pools and elastic databases](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)(Limites de armazenamento e eDTU para pools elásticos e bancos de dados elásticos).
 3. Escolha a maior entre as estimativas de eDTU das etapas 1 e 2.
 4. Consulte a [Página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor pool de eDTU que seja maior que a estimativa da Etapa 3.
 5. Compare o preço do pool da Etapa 5 com o preço de usar os níveis de desempenho adequados para bancos de dados individuais.
-
-### <a name="changing-elastic-pool-resources"></a>Alterando os recursos do pool elástico
-
-É possível aumentar ou diminuir os recursos disponíveis para um pool elástico com base nas necessidades de recursos.
-
-* Normalmente, a alteração das eDTUs mínimas ou das eDTUs máximas por banco de dados é um processo concluído em cinco minutos ou menos.
-* A alteração do limite de eDTUs por pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar os eDTUs do pool será de 3 horas por pool ou menos.
-
-## <a name="what-are-the-resource-limits-for-elastic-pools"></a>Quais são os limites de recurso para pools elásticos?
-
-As tabelas a seguir descrevem os limites de recursos dos pools elásticos.  Observe que os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço.  Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120.  Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
-
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas.  O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.
-
-### <a name="database-properties-for-pooled-databases"></a>Propriedades do banco de dados para bancos de dados em pool
-
-A tabela a seguir descreve as propriedades dos bancos de dados em pool.
-
-| Propriedade | Descrição |
-|:--- |:--- |
-| Máximo de eDTUs por banco de dados |O número máximo de eDTUs que qualquer banco de dados no pool pode usar, se disponível, com base na utilização por outros bancos de dados no pool.  O máximo de eDTUs por banco de dados não é uma garantia de recursos para um banco de dados.  Essa configuração é uma configuração global que se aplica a todos os bancos de dados no pool. Defina um valor para o máximo de eDTUs por banco de dados que seja alto o suficiente para lidar com picos de utilização do banco de dados. Espera-se um grau de sobrecarga, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente. Por exemplo, suponha que o pico de utilização por banco de dados seja de 20 eDTUs e apenas 20% dos 100 bancos de dados no pool atinjam o pico simultaneamente.  Se o máximo de eDTUs por banco de dados for definido para 20 eDTUs, será razoável sobrecarregar o pool em 5 vezes e definir os eDTUs por pool como 400. |
-| Mínimo de eDTUs por banco de dados |O número mínimo de eDTUs garantido para qualquer banco de dados no pool.  Essa configuração é uma configuração global que se aplica a todos os bancos de dados no pool. O mínimo de eDTUs por banco de dados pode ser definido como 0 e também é o valor padrão. Essa propriedade é definida entre 0 e a utilização média de eDTUs por banco de dados. O produto do número de bancos de dados no pool e o mínimo de eDTUs por banco de dados não pode exceder os eDTUs por pool.  Por exemplo, se um pool tiver 20 bancos de dados e o mínimo de eDTUs por banco de dados for definido como 10 eDTUs, os eDTUs por pool deverão ser de pelo menos 200 eDTUs. |
-| Armazenamento máximo de dados por banco de dados |O armazenamento máximo para um banco de dados em um pool. Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante e o armazenamento máximo por banco de dados. O armazenamento máximo por banco de dados refere-se ao tamanho máximo de armazenamento dos arquivos de dados e não inclui o espaço usado pelos arquivos de log. |
-|||
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Usando outros recursos de Banco de Dados SQL com pools elásticos
 
@@ -167,25 +139,25 @@ Para saber mais sobre outras ferramentas de banco de dados para trabalhar com v�
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opções de continuidade dos negócios para bancos de dados em um pool elástico
 Os bancos de dados elásticos normalmente dão suporte aos mesmos [recursos de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para bancos de dados individuais.
 
-- **Recuperação pontual**: a restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um momento pontual. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Recuperação pontual**: a recuperação pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto no tempo específico. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - **Restauração geográfica**: a restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região em que ele está hospedado. Confira [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md)
 
 - **Replicação geográfica ativa**: para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-portal"></a>Gerenciar pools elásticos de Banco de Dados SQL usando o Portal do Azure
+## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Gerenciar pools elásticos e bancos de dados usando o portal do Azure
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Criar um novo pool elástico de um Banco de Dados SQL usando o Portal do Azure
 
 Há duas maneiras de criar um pool elástico no Portal do Azure. É possível fazer isso do zero, se você souber a configuração de pool que deseja, ou começar com uma recomendação do serviço. O banco de dados SQL possui inteligência interna que recomenda uma configuração de um pool elástico, caso seja mais econômico com base na telemetria de uso anterior de seus bancos de dados. 
 
-Criar um pool elástico de uma folha de **servidor** existente no portal é a maneira mais fácil de mover os bancos de dados existentes para um pool elástico. Você também pode criar um pool elástico pesquisando sobre **pool elástico do SQL** no **Marketplace** ou clicando em **+ Adicionar** na folha de procura de **pools elásticos do SQL**. Você pode especificar um servidor novo ou existente por este fluxo de trabalho de provisionamento de pool.
+A criação de um pool elástico com base em uma página de servidor existente no portal é a maneira mais fácil de mover os bancos de dados existentes para um pool elástico. Também crie um pool elástico pesquisando **pool elástico do SQL** no **Marketplace** ou clicando em **+Adicionar** na página de pools elásticos do SQL. Você pode especificar um servidor novo ou existente por este fluxo de trabalho de provisionamento de pool.
 
 > [!NOTE]
 > Você pode criar vários pools em um servidor, mas não pode adicionar bancos de dados de servidores diferentes ao mesmo pool.
->  
+> 
 
-O tipo de preço do pool determina os recursos disponíveis para os elásticos no pool, o número máximo de eDTUs (MÁX DE eDTUs) e o armazenamento (GBs) disponível para cada banco de dados. Para obter detalhes, consulte [Camadas de serviço](#edtu-and-storage-limits-for-elastic-pools).
+O tipo de preço do pool determina os recursos disponíveis para os elásticos no pool, o número máximo de eDTUs (MÁX DE eDTUs) e o armazenamento (GBs) disponível para cada banco de dados. Para obter detalhes, consulte [Limites de recursos para pools elásticos](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 Para alterar o tipo de preço do pool, clique em **Tipo de preço**, clique no tipo desejado e em **Selecionar**.
 
@@ -197,7 +169,7 @@ Se os bancos de dados nos quais você está trabalhando tiverem telemetria de us
 
 O serviço do Banco de Dados SQL avalia o histórico de uso e recomenda um ou mais pools quando essa alternativa for mais econômica do que usar bancos de dados individuais. Cada recomendação é configurada com um subconjunto exclusivo de bancos de dados do servidor que melhor se enquadram no pool.
 
-![pool recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![pool recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 A recomendação de pool inclui:
 
@@ -212,7 +184,7 @@ A recomendação de pool inclui:
 
 O serviço avalia os recursos necessários e o custo-benefício de mover os bancos de dados individuais em cada camada de serviço para os pools na mesma camada. Por exemplo, todos os bancos de dados padrão em um servidor são avaliados para sua adaptação em um pool elástico Standard. Isso significa que o serviço não faz recomendações entre camadas diferentes, como mover um banco de dados Standard para um pool Premium.
 
-Depois de adicionar os bancos de dados ao pool, as recomendações são geradas dinamicamente com base no uso histórico dos bancos de dados selecionados. Essas recomendações são mostradas no gráfico de uso de GB e de eDTU e em uma faixa de recomendação na parte superior da folha **Configurar pool**. Essas recomendações devem ajudar na criação de um pool elástico otimizado para bancos de dados específicos.
+Depois de adicionar os bancos de dados ao pool, as recomendações são geradas dinamicamente com base no uso histórico dos bancos de dados selecionados. Essas recomendações são mostradas no gráfico de uso de eDTU e GB e em uma faixa de recomendação na parte superior da página **Configurar pool**. Essas recomendações devem ajudar na criação de um pool elástico otimizado para bancos de dados específicos.
 
 ![Recomendações dinâmicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -222,10 +194,10 @@ No Portal do Azure, é possível monitorar a utilização de um pool elástico e
 
 O gráfico a seguir mostra um exemplo de pool elástico. A exibição inclui:
 
-*  Gráficos para monitorar o uso do recurso de pool elástico e os bancos de dados contidos no pool.
-*  O botão do pool **Configurar** para fazer alterações ao pool elástico.
-*  O botão **Criar banco de dados**, que cria um banco de dados e o adiciona ao pool elástico atual.
-*  Trabalhos elásticos que ajudam a gerenciar muitos bancos de dados executando scripts Transact SQL em todos os bancos de dados em uma lista.
+* Gráficos para monitorar o uso do recurso de pool elástico e os bancos de dados contidos no pool.
+* O botão do pool **Configurar** para fazer alterações ao pool elástico.
+* O botão **Criar banco de dados**, que cria um banco de dados e o adiciona ao pool elástico atual.
+* Trabalhos elásticos que ajudam a gerenciar muitos bancos de dados executando scripts Transact SQL em todos os bancos de dados em uma lista.
 
 ![Exibição de pool](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -233,11 +205,11 @@ Você pode ir para um determinado pool para ver sua utilização de recursos. Po
 
 ![Monitoramento de pool elástico](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-![Lâmina Métrica](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![Página Métrica](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### <a name="to-customize-the-chart-display"></a>Para personalizar a exibição do gráfico
 
-Você pode editar o gráfico e a folha de métrica para exibir outras métricas como percentual da CPU, percentual de E/S de dados e percentual de E/S de log usado.
+Edite o gráfico e a página de métrica para exibir outras métricas como percentual da CPU, percentual de E/S de dados e percentual de E/S de log usado.
 
 ![Clique em editar](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
@@ -247,7 +219,7 @@ No formulário **Editar Gráfico**, selecione um intervalo de tempo (última hor
 > Somente as métricas com a mesma unidade de medida podem ser exibidas no gráfico ao mesmo tempo. Por exemplo, caso selecione "percentual de eDTU", você só pode selecionar outras métricas com porcentagem como a unidade de medida.
 >
 
-[Clique em Editar](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+![Clique em editar](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 ### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Gerenciamento e monitoração de bancos de dados um pool elástico
 
@@ -255,9 +227,9 @@ Bancos de dados individuais também podem ser monitorados para identificar poten
 
 ![Monitoramento de pool elástico](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-Clique em **Uso de eDTU para bancos de dados na última hora** em **Monitoramento de banco de dados elástico**. Isso abre **Utilização de Recursos de Banco de Dados** e fornece uma exibição detalhada do uso do banco de dados no pool. Usando a grade na parte inferior da folha, você pode selecionar bancos de dados no pool para exibir seu uso no gráfico (até 5 bancos de dados). Você também pode personalizar a janela de métricas e tempo exibida no gráfico clicando em **Editar gráfico**.
+Clique em **Uso de eDTU para bancos de dados na última hora** em **Monitoramento de banco de dados elástico**. Isso abre **Utilização de Recursos de Banco de Dados** e fornece uma exibição detalhada do uso do banco de dados no pool. Usando a grade na parte inferior da página, você pode selecionar bancos de dados no pool para exibir seu uso no gráfico (até 5 bancos de dados). Você também pode personalizar a janela de métricas e tempo exibida no gráfico clicando em **Editar gráfico**.
 
-![Folha Utilização de Recursos do Banco de Dados](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Página Utilização de recursos do banco de dados](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-view"></a>Para personalizar a exibição
 
@@ -273,7 +245,7 @@ Você também pode clicar na lista suspensa **Comparar bancos de dados** para se
 
 ### <a name="to-select-databases-to-monitor"></a>Para selecionar os bancos de dados a serem monitorados
 
-Na lista de banco de dados da folha **Utilização de Recursos do Banco de Dados** , você pode localizar bancos de dados específicos examinando as páginas na lista ou digitando o nome de um banco de dados. Use a caixa de seleção para escolher o banco de dados.
+Na lista de banco de dados da página **Utilização de Recursos do Banco de Dados**, encontre bancos de dados específicos examinando as páginas na lista ou digitando o nome de um banco de dados. Use a caixa de seleção para escolher o banco de dados.
 
 ![Pesquisar por bandos de dados a serem monitorados](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
@@ -284,11 +256,11 @@ Você pode adicionar regras a um pool elástico para enviar emails para pessoas 
 
 **Para adicionar um alerta a qualquer recurso:**
 
-1. Clique no gráfico **Utilização de recursos** para abrir a folha **Métrica**, clique em **Adicionar alerta** e preencha as informações na folha **Adicionar uma regra de alerta** (**Recurso** é configurado automaticamente para ser o pool com o qual você está trabalhando).
+1. Clique no gráfico **Utilização de recursos** para abrir a página **Métrica**, clique em **Adicionar alerta** e, em seguida, preencha as informações na página **Adicionar uma regra de alerta** (**Recurso** é configurado automaticamente para ser o pool com o qual você está trabalhando).
 2. Digite um **Nome** e uma **Descrição** que identifiquem o alerta para você e os destinatários.
 3. Escolha na lista uma **Métrica** para a qual deseja o alerta.
 
-    O gráfico mostra dinamicamente a utilização de recursos para a métrica para ajudá-lo a escolher um limite.
+   O gráfico mostra dinamicamente a utilização de recursos para a métrica para ajudá-lo a escolher um limite.
 
 4. Escolha uma **Condição** (maior que, menor que, etc.) e um **Limite**.
 5. Escolha um **Período** durante o qual a regra de métrica deve ser atendida antes que o alerta seja disparado.
@@ -314,12 +286,6 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
 ![lista de bancos de dados](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
-![lista de bancos de dados](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
-
-![visualização de adição ou remoção de banco de dados](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
-
-![Clique em Salvar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
 ### <a name="change-performance-settings-of-an-elastic-pool"></a>Alterar as configurações de desempenho de um pool elástico
 
 À medida que monitora a utilização de recursos de um pool elástico, você pode perceber que alguns ajustes são necessários. Talvez o pool precise de uma alteração nos limites de armazenamento ou de desempenho. Pode ser útil alterar as configurações de banco de dados no pool. Você pode alterar a configuração do pool a qualquer momento para obter o melhor equilíbrio entre desempenho e custo. Veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool.md) para saber mais.
@@ -328,9 +294,7 @@ Para alterar as eDTUs ou os limites de armazenamento por pool e as eDTUs por ban
 
 ![Utilização de recursos de pool elástico](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-![Atualização de um pool elástico e o novo custo mensal](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
-
-## <a name="manage-sql-database-elastic-pools-using-powershell"></a>Gerenciar pools elásticos do Banco de Dados SQL usando o PowerShell
+## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Gerenciar pools elásticos e bancos de dados usando o PowerShell
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Para criar e gerenciar bancos de dados, servidores e regras de firewall, consulte [Criar e gerenciar servidores de Banco de Dados SQL do Microsoft Azure e bancos de dados usando o PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
 
@@ -342,7 +306,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com o Azure PowerS
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um pool de banco de dados elástico em um SQL Server lógico.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém pools elásticos e seus valores de propriedade em um SQL Server lógico.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um pool de banco de dados elástico em um SQL Server lógico.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um pool de banco de dados elástico em um SQL Server lógico. Por exemplo, use a propriedade **StorageMB** para modificar o armazenamento máximo de um pool elástico.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Exclui um pool de banco de dados elástico de um SQL Server lógico.|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtém o status de operações em um pool elástico em um SQL Server lógico.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria um novo banco de dados em um pool existente ou como um Banco de Dados Individual. |
@@ -350,11 +314,12 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com o Azure PowerS
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para um banco de dados ou move um banco de dados existente para um pool elástico, para fora dele ou entre pools elásticos.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Remove um banco de dados.|
 
+
 > [!TIP]
 > A criação de muitos bancos de dados em um pool elástico pode levar tempo quando feito usando o portal ou cmdlets do PowerShell que criam apenas um banco de dados individual por vez. Para automatizar a criação em um pool elástico, consulte [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 >
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-cli"></a>Gerenciar pools elásticos de Banco de Dados SQL usando a CLI do Azure
+## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Gerenciar pools elásticos e bancos de dados usando a CLI do Azure
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azure](/cli/azure/overview), use os seguintes comandos do [Banco de Dados SQL da CLI do Azure](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. 
 
@@ -371,7 +336,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azur
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Atualiza um pool elástico.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Excluir o pool elástico.|
 
-## <a name="manage-sql-database-elastic-pools-using-transact-sql"></a>Gerenciar pools elásticos de Banco de Dados SQL usando Transact-SQL
+## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Gerenciar bancos de dados em pools elásticos usando o Transact-SQL
 
 Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. Para criar e gerenciar bancos de dados, servidores e regras de firewall, consulte [Criar e gerenciar servidores de Banco de Dados SQL do Microsoft Azure e bancos de dados usando o Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
 
@@ -387,9 +352,30 @@ Para criar e mover bancos de dados dentro de pools elásticos existentes ou para
 |[sys.elastic_pool_resource_stats (Banco de Dados SQL do Microsoft Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retorna estatísticas de uso de recursos de todos os pools de banco de dados elástico em um servidor lógico. Para cada pool de banco de dados elástico, há uma linha para cada janela de relatórios de 15 segundos (quatro linhas por minuto). Isso inclui a utilização de CPU, E/S, log, consumo de armazenamento e solicitações/sessões simultâneas de todos os bancos de dados no pool.|
 |[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (nível de serviço), o objetivo do serviço (tipo de preço) e o nome do pool elástico, se houver um, para um Banco de Dados SQL do Azure ou um SQL Data Warehouse do Azure. Se estiver conectado ao banco de dados mestre em um servidor de Banco de Dados SQL do Azure, retornará informações sobre todos os bancos de dados. Para o SQL Data Warehouse do Azure, você deve estar conectado ao banco de dados mestre.|
 
-## <a name="manage-sql-database-elastic-pools-using-the-rest-api"></a>Gerenciar pools elásticos de Banco de Dados SQL usando a API REST
+## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Gerenciar pools elásticos e bancos de dados usando a API REST
 
-Para criar e gerenciar pools elásticos do Banco de Dados SQL usando a API REST, consulte [API REST do Banco de Dados SQL do Azure](/rest/api/sql/).
+Para criar e gerenciar pools elásticos do Banco de Dados SQL, use estas solicitações da API REST.
+
+| Command | Descrição |
+| --- | --- |
+|[Pools Elásticos – Criar ou Atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
+|[Pools Elásticos – Excluir](/rest/api/sql/elasticpools/delete)|Excluir o pool elástico.|
+|[Pools Elásticos – Obter](/rest/api/sql/elasticpools/get)|Obtém um pool elástico.|
+|[Pools Elásticos – Listar por Servidor](/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
+|[Pools Elásticos – Atualizar](/rest/api/sql/elasticpools/update)|Atualiza um pool elástico existente.|
+|[Pools Elásticos Recomendados – Obter](/rest/api/sql/recommendedelasticpools/get)|Obtém um pool elástico recomendado.|
+|[Pools Elásticos Recomendados – Listar por Servidor](/rest/api/sql/recommendedelasticpools/listbyserver)|Retorna os pools elásticos recomendados.|
+|[Pools Elásticos Recomendados – Listar Métricas](/rest/api/sql/recommendedelasticpools/listmetrics)|Retorna as métricas do pool elástico recomendado.|
+|[Atividades do Pool Elástico](/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
+|[Atividades do Banco de Dados de Pool Elástico](/rest/api/sql/elasticpooldatabaseactivities)|Retorna as atividades nos bancos de dados dentro de um pool elástico.|
+|[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
+|[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
+|[Bancos de Dados – Obter por Pool Elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém um banco de dados dentro de um pool elástico.|
+|[Bancos de Dados – Obter por Pool Elástico Recomendado](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém um banco de dados dentro de um pool elástico recomendado.|
+|[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
+|[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
+|[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
+|[Bancos de Dados – Atualizar](/api/sql/databases/update)|Atualiza um banco de dados existente.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

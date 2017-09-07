@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
@@ -152,7 +152,7 @@ O mesmo cálculo se aplica a classes de recursos estáticos.
 ## <a name="concurrency-slot-consumption"></a>Consumo de slot de simultaneidade  
 O SQL Data Warehouse concede mais memória para consultas em execução em classes de recursos mais elevadas. A memória é um recurso fixo.  Portanto, quanto mais memória for alocada por consulta, menos consultas simultâneas poderão ser executadas. A tabela a seguir reitera todos os conceitos anteriores em uma única exibição que mostra o número de slots de simultaneidade disponíveis por DWU, bem como os slots consumidos por cada classe de recurso.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>Alocação e consumo de slots de simultaneidade  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Alocação e consumo de slots de simultaneidade para classes de recursos dinâmicos  
 | DWU | Máximo de consultas simultâneas | Slots de simultaneidade alocados | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ O SQL Data Warehouse concede mais memória para consultas em execução em class
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Alocação e consumo de slots de simultaneidade para classes de recursos estáticos
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Alocação e consumo de slots de simultaneidade para classes de recursos estáticos  
 | DWU | Máximo de consultas simultâneas | Slots de simultaneidade alocados |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |

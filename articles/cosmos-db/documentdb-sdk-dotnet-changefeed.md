@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/29/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET no DocumentDB: download e notas de versão
@@ -48,6 +48,10 @@ ms.lasthandoff: 08/15/2017
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Corrige um problema com o cálculo da estimativa de trabalho restante quando o feed de alterações estava vazio ou nenhum trabalho estava pendente.
+* Compatível com o [SDK do .NET para DocumentDB](documentdb-sdk-dotnet.md) versões 1.13.2 e superiores.
+
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Adição de um método para obter uma estimativa do trabalho restante a ser processado no Feed de Alterações.
 * Compatível com o [SDK do .NET para DocumentDB](documentdb-sdk-dotnet.md) versões 1.13.2 e superiores.
@@ -67,6 +71,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |29 de agosto de 2017 |--- |
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |
 | [1.0.0](#1.0.0) |07 de julho de 2017 |--- |
 

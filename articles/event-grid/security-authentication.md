@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b6e1c7587c0b47d04862b4850741aaa3b7d191a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -38,6 +38,28 @@ Quando você registra seu próprio ponto de extremidade de WebHook com a Grade d
 * O evento contém um valor de cabeçalho "Event-Type: Validação".
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * Os dados do evento incluem uma propriedade "validation_code" com uma cadeia de caracteres gerada aleatoriamente, por exemplo, "ValidationCode: acb13…".
+
+Um SubscriptionValidationEvent de exemplo é mostrado abaixo.
+```json
+[{
+  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "Subject": "",
+  "Data": {
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  },
+  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
+  "EventTime": "2017-08-06T22:09:30.740323Z"
+}]
+```
+
+Para provar a propriedade do ponto de extremidade, retorne o código de validação, por exemplo, “validation_response: acb13…”, como na amostra apresentada abaixo.
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
 
 Para provar a propriedade do ponto de extremidade, retorne o código de validação como eco, por exemplo "ValidationResponse: acb13...".
 
@@ -176,7 +198,7 @@ Veja a seguir as definições de função da Grade de Eventos de exemplo que per
   ] 
 }
 ```
- 
+
 **EventGridContributorRole.json**: permitir todas as ações da grade de eventos.  
 ```json
 { 

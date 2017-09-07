@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9bf02ff15d973ea2c9f00815558507c66c049159
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-direct-methods-netnode"></a>Usar métodos diretos para (.NET/Node)
@@ -157,7 +156,7 @@ Agora você está pronto para executar os aplicativos.
     ```
     node SimulatedDevice.js
     ```
-   Aguarde o dispositivo simulado abrir:  ![][7]
+   Aguarde a abertura do dispositivo simulado: ![][7]
 3. Agora que o dispositivo está conectado e aguardando chamadas de método, execute o aplicativo **CallMethodOnDevice** .NET para chamar o método no aplicativo do dispositivo simulado. Você deve ver a resposta do dispositivo escrita no console.
    
     ![][8]
