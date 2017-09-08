@@ -13,20 +13,32 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2017
+ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 72c5c2efe2c8a60f13d18b595062448e6a0d1816
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar imagens de VMs Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como usar a CLI do Azure 2.0 para localizar imagens de VM no Azure Marketplace. Use essas informações para especificar uma imagem do Marketplace quando você criar uma VM Linux.
 
 Verifique se você instalou a [CLI do Azure 2.0](/cli/azure/install-az-cli2) mais recente e conectou-se a uma conta do Azure (`az login`).
+
+## <a name="terminology"></a>Terminologia
+
+As imagens do Marketplace são identificadas na CLI e em outras ferramentas do Azure de acordo com uma hierarquia:
+
+* **Publicador**: a organização que criou a imagem. Exemplo: Canonical
+* **Oferta**: um grupo de imagens relacionadas criadas por um publicador. Exemplo: servidor Ubuntu
+* **SKU**: uma instância de uma oferta, como uma versão principal de uma distribuição. Exemplo: 16.04-LTS
+* **Versão**: o número de versão de uma imagem de SKU. Ao especificar a imagem, substitua o número de versão por "mais recente", o que seleciona a versão mais recente da distribuição.
+
+Para especificar uma imagem do Marketplace, você normalmente usa o *URN* da a imagem. O URN combina esses valores, separados pelo caractere de dois pontos (:): *Publicador*:*Oferta*:*Sku*:*Versão*. 
+
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
@@ -36,7 +48,7 @@ Execute o comando [az vm image list](/cli/azure/vm/image#list) sem a opção `--
 az vm image list --output table
 ```
 
-A saída inclui o URN (o valor da coluna *Urn*), que tem o formato *Editor*:*Oferta*:*Sku*:*Versão*. Use esse valor para especificar uma imagem ao criar uma VM com `az vm create`. Ao criar uma VM com uma das imagens de VM populares, você poderá especificar o alias do URN, por exemplo, *UbuntuLTS*.
+A saída inclui o URN (o valor na coluna *Urn*), que você pode usar para especificar a imagem. Ao criar uma VM com uma das imagens populares do Marketplace, você poderá especificar o alias do URN, como *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -49,42 +61,21 @@ openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
-WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+...
 ```
-
-## <a name="list-all-current-images"></a>Listar todas as imagens atuais
-
-Para obter a lista atual de todas as imagens de VM no Marketplace, use o comando `az vm image list` com a opção `--all`. Esta versão do comando leva algum tempo para concluir:
-
-
-```azurecli
-az vm image list --all
-```
-
-Se você não especificar um local específico com a opção `--location`, os valores para `westus` serão retornados por padrão. (Defina um local diferente do padrão executando `az configure --defaults location=<location>`.)
-
-
-Se você pretende investigar interativamente, direcione a saída para um arquivo local. Por exemplo:
-
-```azurecli
-az vm image list --all > allImages.json
-```
-
-
-
 
 ## <a name="find-specific-images"></a>Localizar imagens específicas
 
-Use `az vm image list` com opções adicionais para restringir sua pesquisa a um local, oferta, editor publicador ou SKU específico. O exemplo a seguir exibe todas as ofertas para Debian (lembre-se de que sem a opção `--all`, ele pesquisa apenas no cache local de imagens comuns):
+Para localizar uma imagem de VM específica no mercado, use o comando `az vm image list` com a opção `--all`. Essa versão do comando leva algum tempo para concluir e pode retornar uma saída longa, portanto, você geralmente filtra a lista por `--publisher` ou outro parâmetro. 
+
+O exemplo a seguir exibe todas as ofertas para Debian (lembre-se de que sem a opção `--all`, ele pesquisa apenas no cache local de imagens comuns):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
+
 ```
 
-A saída pode ser uma longa lista, então ela é truncada aqui: 
+Resultado parcial: 
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
@@ -95,11 +86,26 @@ Debian   credativ     7                  credativ:Debian:7:7.0.201604200        
 Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
 Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
 Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
 ...
 ```
 
-
 Aplique filtros semelhantes com as opções `--location`, `--publisher` e `--sku`. Você pode até mesmo executar correspondências parciais em um filtro, assim como procurar por `--offer Deb` para localizar todas as imagens do Debian.
+
+Se você não especificar um local específico com a opção `--location`, os valores para `westus` serão retornados por padrão. (Defina um local diferente do padrão executando `az configure --defaults location=<location>`.)
 
 Por exemplo, o comando a seguir lista todos os SKUs do Debian 8 em `westeurope`:
 
@@ -107,7 +113,7 @@ Por exemplo, o comando a seguir lista todos os SKUs do Debian 8 em `westeurope`:
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-Saída:
+Resultado parcial:
 
 ```
 Offer    Publisher    Sku                Urn                                              Version
@@ -128,7 +134,6 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-
 ## <a name="navigate-the-images"></a>Navegar pelas imagens 
 Outra maneira de localizar uma imagem em um local é executar os comandos [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](/cli/azure/vm/image#list-offers) e [az vm image list-skus](/cli/azure/vm/image#list-skus) em sequência. Com esses comandos, você determina estes valores:
 
@@ -143,11 +148,12 @@ Por exemplo, o comando a seguir lista os editores de imagem na localização Oes
 az vm image list-publishers --location westus --output table
 ```
 
-Saída:
+Resultado parcial:
 
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      1e
 westus      4psa
 westus      7isolutions
 westus      a10networks
@@ -161,7 +167,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Essas listas podem ser longas, portanto, essa saída de exemplo é apenas um trecho de código. Use essas informações para encontrar as ofertas do editor específico. Por exemplo, se Canonical for um editor de imagem na localização Oeste dos EUA, localize as ofertas dele executando `azure vm image list-offers`. Passe a localização e o editor como no exemplo a seguir:
+Use essas informações para encontrar as ofertas do editor específico. Por exemplo, se Canonical for um editor de imagem na localização Oeste dos EUA, localize as ofertas dele executando `azure vm image list-offers`. Passe a localização e o editor como no exemplo a seguir:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -214,7 +220,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Por fim, use o comando `az vm image list` para encontrar uma versão específica do SKU desejado, por exemplo, **14.04-LTS**:
+Por fim, use o comando `az vm image list` para encontrar uma versão específica do SKU desejado, por exemplo, **16.04-LTS**:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -245,7 +251,12 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Ao especificar a imagem, você pode, opcionalmente, substituir o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da distribuição. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, consulte [Criar uma VM Linux usando a CLI do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Passe esse valor com o parâmetro `--image` quando criar uma VM com o comando [az vm create](/cli/azure/vm#create). Lembre-se de que é possível substituir, como opção, o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da distribuição. Para criar uma máquina virtual rapidamente usando as informações de URN, confira [Criar e gerenciar VMs do Linux usando a CLI do Azure](tutorial-manage-vm.md).
 

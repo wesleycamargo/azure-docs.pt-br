@@ -1,6 +1,6 @@
 ---
 title: "Configurar o descarregamento SSL – Gateway de Aplicativo do Azure – CLI do Azure 2.0 | Microsoft Docs"
-description: "Esta página fornece instruções para criar um Gateway de Aplicativo com descarregamento SSL usando a CLI do Azure 2.0"
+description: "Este artigo fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando a CLI do Azure 2.0"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configurar um Gateway de Aplicativo para descarregamento SSL usando a CLI do Azure 2.0
@@ -25,30 +25,32 @@ ms.lasthandoff: 08/04/2017
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-ssl-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [PowerShell clássico do Azure](application-gateway-ssl.md)
 > * [CLI 2.0 do Azure](application-gateway-ssl-cli.md)
 
 O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica o gerenciamento de certificado no servidor de front-end.
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Pré-requisito: instalar a CLI do Azure 2.0
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Para executar as etapas deste artigo, será necessário [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="required-components"></a>Componentes necessários
 
-* **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-* **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS; essas configurações diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
+* **Pool de servidores back-end**: a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um endereço IP ou VIP (endereço IP virtual).
+* **Configurações do pool de servidores back-end**: cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+* **Porta front-end**: essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+* **Ouvinte**: o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS; essas configurações diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
+* **Regra**: a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end direcionar o tráfego quando ele atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
 
 **Observações adicionais sobre a configuração**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCertificate** é adicionado ao **HttpListener** com o valor da variável configurado para o certificado SSL. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). Adicione o elemento **SslCertificate** ao **HttpListener** com o valor da variável configurado para o certificado SSL. A porta front-end deve ser atualizada para **443**.
 
-**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Este cenário é concluído pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**Para habilitar a afinidade baseada em cookie**: você pode configurar um gateway de aplicativo para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Para isso, insira um cookie de sessão que permita ao gateway direcionar o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
 
 ## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Configurar o descarregamento SSL em um Gateway de Aplicativo existente
+
+Insira os seguintes comandos para configurar o descarregamento SSL em um gateway de aplicativo existente:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -105,9 +107,9 @@ az network application-gateway rule create \
 
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a>Criar um Gateway de Aplicativo com descarregamento SSL
+## <a name="create-an-application-gateway-with-ssl-offload"></a>Criar um gateway de aplicativo com descarregamento SSL
 
-O exemplo a seguir cria um Gateway de Aplicativo com descarregamento SSL.  O certificado e a senha do certificado devem ser atualizados para uma chave privada válida.
+O exemplo a seguir cria um Gateway de Aplicativo com descarregamento SSL. O certificado e a senha do certificado devem ser atualizados para uma chave privada válida.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -136,9 +138,11 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
+## <a name="get-an-application-gateway-dns-name"></a>Obter um nome DNS do gateway de aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para configurar um alias, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+Depois de criar o gateway, a próxima etapa é configurar o front-end para comunicação.  O Gateway de Aplicativo requer um nome DNS atribuído dinamicamente ao usar um IP público, o que não é amigável. Para garantir que os usuários finais possam acessar o gateway de aplicativo, você poderá usar um registro CNAME para apontar para o ponto de extremidade público do gateway de aplicativo. Para saber mais, confira [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+
+Para configurar um alias, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento **PublicIPAddress** anexado ao gateway de aplicativo. Use o nome DNS do gateway de aplicativo para criar um registro CNAME que aponte os dois aplicativos Web para esse nome DNS. Não recomendamos o uso de registros A, pois o VIP pode ser alterado no reinício do gateway de aplicativo.
 
 
 ```azurecli-interactive
@@ -183,9 +187,9 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno (ILB), veja [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Se quiser configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um balanceador de carga interno](application-gateway-ilb.md).
 
-Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
+Para saber mais sobre opções de balanceamento de carga no geral, confira:
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)

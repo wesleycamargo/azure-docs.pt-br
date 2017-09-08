@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 851ce819b9a1a0d917981223cc54e959b3306709
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -62,10 +62,10 @@ Dentro do diretório clonado está o código-fonte do aplicativo, um arquivo Doc
 
 O [Docker Compose](https://docs.docker.com/compose/) pode ser utilizado para automatizar a compilação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
 
-Execute o arquivo docker-compose.yaml para criar a imagem de contêiner, baixe a imagem Redis e inicie o aplicativo.
+Execute o arquivo docker-compose.yml para criar a imagem de contêiner, baixe a imagem Redis e inicie o aplicativo.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
 Quando completado, use o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para ver as imagens criadas.
@@ -110,13 +110,13 @@ Agora que a funcionalidade do aplicativo foi validada, os contêineres em execu�
 Execute o seguinte para interromper os contêineres em execução.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
 Exclua os contêineres com o comando a seguir.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
 Ao concluir, você terá uma imagem de contêiner que contém o aplicativo Azure Vote.

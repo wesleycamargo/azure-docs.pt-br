@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalho com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
@@ -39,7 +39,7 @@ Você pode configurar o ADFS para aplicativos com reconhecimento de declaraçõe
 
 ### <a name="option-1-custom-domains"></a>Opção 1: Domínios personalizados
 
-Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmente qualificados (FQDNs), você poderá configurar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para seus aplicativos. Use os domínios personalizados para criar URLs externas que são iguais às URLs internas. Com essa configuração, os redirecionamentos criados pelo STS funcionam da mesma forma para os usuários locais ou remotos. 
+Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmente qualificados (FQDNs), você poderá configurar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para seus aplicativos. Use os domínios personalizados para criar URLs externas que são iguais às URLs internas. Quando suas URLs externas corresponderem às URLs internas, os redirecionamentos de STS funcionarão se os usuários estiverem no local ou remotos. 
 
 ### <a name="option-2-ws-federation"></a>Opção 2: especificação Web Services Federation
 

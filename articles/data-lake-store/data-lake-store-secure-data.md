@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protegendo os dados armazenados no repositório Azure Data Lake
 A proteção de dados no repositório Azure Data Lake é uma abordagem de três etapas.
 
-1. Comece criando grupos de segurança no Active Directory do Azure (AAD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função (RBAC) no Portal do Azure. Para saber mais, consulte [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+1. Comece criando grupos de segurança no Active Directory do Azure (AAD). Esses grupos de segurança são usados para implementar o RBAC (controle de acesso baseado em função) no portal do Azure. Para saber mais, confira [Controle de Acesso Baseado em Função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 2. Atribua os grupos de segurança do AAD à conta do repositório Azure Data Lake. Isso controla o acesso à conta do repositório Data Lake a partir das operações de portal e de gerenciamento do portal ou das APIs.
 3. Atribua os grupos de segurança do AAD como listas de controle de acesso (ACLs) no sistema de arquivos do repositório Data Lake.
 4. Além disso, você também pode definir um intervalo de endereços IP para clientes que podem acessar os dados no armazenamento do Data Lake.

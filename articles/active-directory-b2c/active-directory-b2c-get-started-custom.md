@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1cc36d1fd40121fed23ab6a84429a303690c2726
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introdução às políticas personalizadas
@@ -31,7 +31,8 @@ Depois que você concluir as etapas descritas neste artigo, a política personal
 
 Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que é um contêiner para todos os seus usuários, aplicativos, políticas e muito mais. Se você ainda não tiver um, será necessário [criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md). Recomendamos que todos os desenvolvedores concluam os passo a passos de política interna do Azure AD B2C e configurem seus aplicativos com políticas internas antes de continuar. Seus aplicativos funcionarão com dois tipos de políticas assim que você fizer uma simples alteração no nome da política para invocar a política personalizada.
 
-Para acessar a edição da política personalizada você precisa de uma assinatura válida do Azure vinculada ao seu locatário.
+>[!NOTE]
+>Para acessar a edição da política personalizada você precisa de uma assinatura válida do Azure vinculada ao seu locatário. Se você não [vinculou seu locatário do Azure AD B2C a uma assinatura do Azure](active-directory-b2c-how-to-enable-billing.md), ou se sua assinatura do Azure está desabilitada, o botão Estrutura de Experiência de Identidade não estará disponível.
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Adicionar chaves de criptografia e de assinatura ao seu locatário do B2C para serem usadas por políticas personalizadas
 
@@ -83,8 +84,8 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
    * Para a **URL de Entrada**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o nome de domínio do seu locatário do Azure AD B2C.
 5. Selecione **Criar**.
 6. Depois de concluir, selecione o aplicativo recém-criado **IdentityExperienceFramework**.<br>
-   a. Selecione **Propriedades**.<br>
-   b. Copie a ID do aplicativo e salve-a para mais tarde.
+   * Selecione **Propriedades**.<br>
+   * Copie a ID do aplicativo e salve-a para mais tarde.
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Criar o aplicativo ProxyIdentityExperienceFramework
 
@@ -95,8 +96,8 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
    * Para a **URI de Redirecionamento**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o seu locatário do Azure AD B2C.
 1. Selecione **Criar**.
 1. Depois de ele ter sido criado, selecione o aplicativo **ProxyIdentityExperienceFramework**.<br>
-   a. Selecione **Propriedades**. <br>
-   b. Copie a ID do aplicativo e salve-a para mais tarde.
+   * Selecione **Propriedades**. <br>
+   * Copie a ID do aplicativo e salve-a para mais tarde.
 1. Selecione **Permissões necessárias**.
 1. Selecione **Adicionar**.
 1. Selecione **Selecionar uma API**.
@@ -117,10 +118,10 @@ Cada pacote de início contém:
 
 * O [arquivo base](active-directory-b2c-overview-custom.md#policy-files) da política. São necessárias algumas modificações na base.
 * O [arquivo de extensão](active-directory-b2c-overview-custom.md#policy-files) da política.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
-* [Arquivos de terceira parte confiável](active-directory-b2c-overview-custom.md#policy-files). Estes são arquivos específicos de tarefa, chamados pelo seu aplicativo.
+* [Arquivos de terceira parte confiável](active-directory-b2c-overview-custom.md#policy-files) são os arquivos específicos de tarefa, chamados pelo aplicativo.
 
 >[!NOTE]
->Caso seu editor de XML dê suporte à validação, valide os arquivos em relação ao arquivo de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd, localizado no diretório raiz do pacote de início. A validação de esquema XML identifica erros antes do upload.
+>Caso seu editor de XML dê suporte à validação, valide os arquivos em relação ao esquema XML TrustFrameworkPolicy_0.3.0.0.xsd, localizado no diretório raiz do pacote de início. A validação de esquema XML identifica erros antes do upload.
 
  Vamos começar:
 
@@ -143,7 +144,7 @@ Cada pacote de início contém:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` é o nome da política que você verá no portal e o nome pelo qual este arquivo de política será referenciado por outros arquivos de política.
+   >`PolicyId` é o nome da política que você vê no portal e o nome pelo qual este arquivo de política é referenciado por outros arquivos de política.
 
 5. Salve o arquivo.
 6. Abra o TrustFrameworkExtensions.xml. Faça as mesmas duas alterações, substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C. Faça a mesma substituição no elemento `<TenantId>` para um total de três alterações. Salve o arquivo.
@@ -166,7 +167,7 @@ Adicione as IDs de aplicativo ao arquivo de extensões (`TrustFrameworkExtension
 
 1. No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra a folha do **Azure AD B2C**.
 2. Selecione **Estrutura de Experiência de Identidade**.
-3. Selecione **Carregar Política** para carregar arquivos de política.
+3. Selecione **Carregar Política**.
 
     >[!WARNING]
     >Os arquivos da política personalizada devem ser carregados na seguinte ordem:

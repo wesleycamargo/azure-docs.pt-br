@@ -4,7 +4,7 @@ description: "Aprenda a dimensionar trabalhos do Stream Analytics configurando p
 keywords: "streaming de dados, processamento de dados de streaming, ajuste de análise"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9a2b16fc6dff687e2a1fa03c9194d50711f53476
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade do processamento de dados do fluxo
@@ -32,7 +31,7 @@ Uma definição de trabalho de Stream Analytics inclui entradas, consulta e saí
 Um trabalho requer pelo menos uma fonte de entrada para streaming de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um Hub de eventos do Barramento de Serviço do Azure ou um armazenamento de Blobs do Azure. Para saber mais, veja [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md) e [Começar a usar o Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md).
 
 ## <a name="partitions-in-event-hubs-and-azure-storage"></a>Partições em Hubs de evento ou armazenamento do Azure
-Dimensionamento de um trabalho do Stream Analytics tira proveito de partições na entrada ou saída. Particionamento permite que você divida dados em subconjuntos com base em uma chave de partição. Um processo que consome os dados (como um trabalho de Streaming Analytics) pode consumir e gravar diferentes partições em paralelo, o que aumenta a taxa de transferência. Quando você trabalha com Streaming Analytics, você pode tirar proveito do particionamento em Hubs de eventos e em armazenamento de Blobs. 
+Dimensionamento de um trabalho do Stream Analytics tira proveito de partições na entrada ou saída. Particionamento permite que você divida dados em subconjuntos com base em uma chave de partição. Um processo que consome os dados (como um trabalho de Streaming Analytics) pode consumir e gravar diferentes partições em paralelo, o que aumenta a taxa de transferência. Quando você trabalha com o Stream Analytics, você pode tirar proveito do particionamento em Hubs de eventos e em armazenamento de Blobs. 
 
 Para obter mais informações sobre partições, consulte os seguintes artigos:
 
@@ -66,7 +65,7 @@ As seções a seguir discutem alguns cenários de exemplo que são embaraçosame
 ### <a name="simple-query"></a>Consulta simples
 
 * Entrada: Hub de eventos com 8 partições
-* Entrada: Hub de eventos com 8 partições
+* Saída: Hub de eventos com 8 partições
 
 Consulta:
 
@@ -339,7 +338,7 @@ E o gráfico a seguir mostra uma visualização da relação entre SUs e taxa de
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ffeca6670521fe2b43c4ac47cac26fd2ad30f968
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -71,7 +71,7 @@ Para se conectar ao servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 6.   Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
 
     > [!NOTE]
-    > O SSL é imposto por padrão no servidor e requer configuração adicional para se conectar com êxito. Confira [Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md).  Se você deseja desabilitar o SSL para este Guia de Início Rápido, visite o portal do Azure e clique na página Segurança de conexão para desabilitar o botão de alternância Impor conexão SSL.
+    > Por padrão, a segurança da conexão SSL é exigida e imposta no seu Banco de Dados do Azure para o servidor MySQL. Normalmente, nenhuma configuração adicional com certificados SSL é necessária para que o MySQL Workbench se conecte ao servidor. Para saber mais sobre SSL, confira [Configurar a conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md).  Se precisar desabilitar o SSL, visite o portal do Azure e clique na página Segurança de conexão para desabilitar o botão de alternância Impor conexão SSL.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Criar uma tabela, inserir dados, ler dados, atualizar dados, excluir dados
 1. Copie e cole o código de exemplo do SQL em uma guia SQL em branco para ilustrar alguns dados de exemplo.
@@ -108,7 +108,7 @@ Para se conectar ao servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
     ![Guia de SQL do MySQL Workbench para executar código SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. Para executar o código SQL de exemplo, clique no ícone de raio na barra de ferramentas da guia **Arquivo SQL**.
-3. Observe os resultados em três guias na seção **Conjunto de Resultados** no meio da página. 
+3. Observe os resultados em três guias na seção **Grade de Resultados** no meio da página. 
 4. Observe a lista de **Saída** na parte inferior da página. O status de cada comando é mostrado. 
 
 Agora, você se conectou ao Banco de Dados do Azure para MySQL usando o MySQL Workbench e consultou dados usando a linguagem SQL.

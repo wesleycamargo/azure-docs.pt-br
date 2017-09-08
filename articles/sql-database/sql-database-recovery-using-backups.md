@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be44db002fc2491be9fc4428c6429ef8b4036147
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
@@ -34,7 +33,16 @@ O Banco de Dados SQL fornece essas opções para recuperação de banco de dados
 > Não é possível substituir um banco de dados existente durante a restauração.
 >
 
-Você também pode usar [backups de banco de dados automatizados](sql-database-automated-backups.md) para criar uma [cópia de banco de dados](sql-database-copy.md) em qualquer servidor lógico em qualquer região. 
+Um banco de dados restaurado incorre em um custo de armazenamento extra nas seguintes condições: 
+- Restauração de P11 – P15 para S4 ou S12 ou P1– P6 se o tamanho máximo do banco de dados for superior a 500 GB.
+- Restauração de P1 – P6 ou PRS1 - PRS6 para S4 - S12 se o tamanho máximo do banco de dados for superior a 250 GB.
+
+O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída. Para saber mais sobre tamanhos de armazenamento de banco de dados e alterar o tamanho máximo do banco de dados, consulte [limites de recursos de banco de dados individual](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+
+> [!NOTE]
+> [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usadas quando você cria uma [cópia de banco de dados](sql-database-copy.md). 
+>
+
 
 ## <a name="recovery-time"></a>Tempo de recuperação
 O tempo de recuperação para restaurar um banco de dados usando backups de banco de dados automatizado é afetado por vários fatores: 
@@ -106,7 +114,7 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 > Para obter um script de exemplo do PowerShell que mostra como executar uma restauração geográfica, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 > 
 
-Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
+Atualmente, não há suporte para a restauração pontual em uma área geográfica secundária. A restauração pontual pode ser feita somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > A recuperação de backups é a mais básica dentre as soluções de recuperação de desastre disponíveis no Banco de Dados SQL com RPO e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam os bancos de dados básicos, a restauração geográfica é uma solução frequentemente razoável de recuperação de desastres com um ERT de 12 horas. Para soluções que usam bancos de dados Standard ou Premium maiores que exigem tempos de recuperação menores, você deve considerar o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Recuperação da continuidade de negócios](sql-database-business-continuity.md).

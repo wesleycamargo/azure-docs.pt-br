@@ -4,7 +4,7 @@ description: "Saiba como visualizar um pipeline de trabalho do Stream Analytics 
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
@@ -14,26 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualizar e solucionar problemas com trabalhos do Stream Analytics
-No Stream Analytics, assim como em outras tecnologias baseadas em nuvem, a solução de problemas às vezes é necessária para examinar por que um trabalho não produz a saída esperada (ou até mesmo nenhuma saída). Considerando isso, o Stream Analytics oferece a capacidade de visualizar um trabalho de streaming. Isso também é útil como uma ferramenta de modelagem e traz um benefício adicional para os que exigem documentação de seu trabalho.
+No Stream Analytics, assim como em outras tecnologias baseadas em nuvem, a solução de problemas às vezes é necessária para examinar por que um trabalho não produz a saída esperada (ou até mesmo nenhuma saída). Com esse conceito em mente, o Stream Analytics oferece a capacidade de visualizar um trabalho de streaming. Isso também é útil como uma ferramenta de modelagem e traz um benefício adicional para os que exigem documentação de seu trabalho.
 
 No painel de visualização, as entradas são visíveis, bem como a consulta que estão sendo executadas, e então todas as saídas são configuradas. Problemas de conectividade ou a configuração podem se tornar mais aparentes e também pode ser útil ver uma representação visual da sua configuração.
 
 ## <a name="using-the-diagnosis-diagram-tool"></a>Usando a ferramenta de diagrama de diagnóstico
-Para acessar esse visualizador, basta clicar no botão "Diagrama de diagnóstico" na folha de "Configurações" do trabalho do Stream Analytics.
+Para acessar esse visualizador, basta clicar no botão "Diagrama de diagnóstico" na área "Configurações" do trabalho do Stream Analytics.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
-Cada entrada e saída é codificadas por cores para indicar o estado atual desse componente, conforme mostrado abaixo.
+Cada entrada e saída é codificadas por cores para indicar o estado atual desse componente, conforme mostrado a seguir.
 
 ![stream-analytics-troubleshoot-visualization-input-map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 

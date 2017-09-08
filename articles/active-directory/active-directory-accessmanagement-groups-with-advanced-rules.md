@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -188,7 +189,8 @@ Operadores permitidos
 | Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propriedades de vários valores
 Operadores permitidos
@@ -237,7 +239,7 @@ Um exemplo de uma regra que usa um atributo personalizado:
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
+O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo. No momento, não oferecemos suporte a atributos com valores múltiplos sincronizados a partir do Active Directory local. 
 
 ## <a name="direct-reports-rule"></a>Regra de "subordinados diretos"
 Você pode criar um grupo contendo todos os subordinados diretos de um gerente. Quando os subordinados diretos do gerente forem alterados no futuro, a associação do grupo será ajustada automaticamente.

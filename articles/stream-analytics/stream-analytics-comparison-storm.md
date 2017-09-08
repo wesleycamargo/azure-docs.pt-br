@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Escolher uma plataforma de análise de streaming: comparação do Apache Storm com o Stream Analytics do Azure
@@ -231,29 +231,12 @@ Os logs detalhados estão disponíveis. Os usuários podem acessar os logs no Vi
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Suporte a UDFs (Funções Definidas pelo Usuário)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-As consultas dão suporte a UDFs de JavaScript. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Integração do JavaScript UDF</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-UDFs podem ser escritos em linguagem C#, Java ou outra de sua escolha.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Extensibilidade usando código personalizado?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Não. Não há nenhum suporte para código extensível no Stream Analytics.
+Suporte parcial com UDFs de JavaScript. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Integração do JavaScript UDF</a>.
                 </p>
             </td>
             <td width="246" valign="top">
