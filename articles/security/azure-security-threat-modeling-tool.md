@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 381922a7e83a65a855dc906a22c354380914f31e
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft 
+# <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft
 
 A ferramenta de modelagem de ameaça é um elemento principal do Microsoft Security Development Lifecycle (SDL). Ele permite identificar e mitigar possíveis problemas de segurança no início, quando eles são relativamente fácil e econômica para resolver os arquitetos de software. Como resultado, ele reduz o custo total de desenvolvimento. Além disso, criamos a ferramenta com especialistas de não-segurança em mente, facilitando a modelagem de ameaças para todos os desenvolvedores fornecendo orientação clara sobre a criação e análise de modelos de ameaças. 
 
@@ -43,10 +43,24 @@ Aqui estão alguns recursos de ferramentas e inovações, apenas para citar algu
 
 ## <a name="next-steps"></a>Próximas etapas
 
+A tabela abaixo contém links importantes para que você comece a usar o Threat Modeling Tool:
+
+| Etapa  | Descrição                                                                                   |
+| ----- | --------------------------------------------------------------------------------------------- |
+| **1** | [Baixe a ferramenta Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **2** | [Leia nosso guia de introdução](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [Familiarize-se com os recursos](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [Saiba mais sobre categorias de ameaça gerada](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [Localize mitigações para ameaças geradas](./azure-security-threat-modeling-tool-mitigations.md) |
+
+## <a name="resources"></a>Recursos
+
 Aqui estão alguns artigos mais antigos que ainda são relevantes para modelagem de ameaça atual:
+
 * [Artigo sobre a Importância da modelagem de ameaças](https://msdn.microsoft.com/magazine/dd347831.aspx)
 * [Treinamento publicado pela Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Confira o que alguns especialistas em Ferramenta de modelagem de ameaças têm feito:
+
 * [Gerenciador de ameaças](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Blog de segurança Simone Curzi](https://simoneonsecurity.com/)

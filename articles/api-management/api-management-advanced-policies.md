@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
@@ -308,8 +308,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |---------------|-----------------|--------------|--------------|  
 |chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|Sim|N/D|  
 |max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|Sim|N/D|  
-|Tempo limite|Um inteiro. Expressão permitida. Especifica o número de segundos que uma solicitação deve esperar para inserir um escopo antes de falhar com "403 Muitas solicitações"|Não|Infinito|  
-|max-queue-length|Um inteiro. Expressão permitida. Especifica o comprimento máximo da fila. Solicitações de entrada que tentarem inserir essa política serão encerradas com "403 Muitas solicitações" assim que a fila atingir seu comprimento máximo.|Não|Infinito|  
+|Tempo limite|Um inteiro. Expressão permitida. Especifica o número de segundos que uma solicitação deve esperar para inserir um escopo antes de falhar com "429 Muitas solicitações"|Não|Infinito|  
+|max-queue-length|Um inteiro. Expressão permitida. Especifica o comprimento máximo da fila. Solicitações de entrada que tentarem inserir essa política serão encerradas com "429 Muitas solicitações" assim que a fila atingir seu comprimento máximo.|Não|Infinito|  
   
 ###  <a name="ChooseUsage"></a> Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  

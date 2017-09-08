@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
@@ -126,7 +126,7 @@ O carimbo de data/hora padrão de eventos de Armazenamento de Blobs no Stream An
 As entradas formatadas em CSV *exigem* uma linha de cabeçalho para definir os campos do conjunto de dados. Além disso, todos os campos de linha de cabeçalho adicionais devem ser exclusivos.
 
 > [!NOTE]
-> O Stream Analytics não dá suporte para a adição de conteúdo a um blob existente. O Stream Analytics exibirá um blob apenas uma vez e quaisquer alterações que ocorram no blob após o trabalho ter lido os dados não serão processados. Uma melhor prática é carregar todos os dados uma vez e não adicionar nenhum evento àquele repositório de blobs.
+> O Stream Analytics não dá suporte para a adição de conteúdo a um arquivo de blob existente. O Stream Analytics exibirá cada arquivo apenas uma vez e quaisquer alterações que ocorram no arquivo após o trabalho ter lido os dados não serão processados. A prática recomendada é carregar todos os dados para um arquivo de blob de uma vez e, em seguida, adicionar outros eventos mais recentes em um arquivo diferente, o novo arquivo de blob.
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>Configurar o Armazenamento de Blobs como um fluxo de dados de entrada
@@ -165,7 +165,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu sobre as opções de conexão de dados no Azure para seus trabalhos do Stream Analytics. Para saber mais sobre o Stream Analytics, confira:

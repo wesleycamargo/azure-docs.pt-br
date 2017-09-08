@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: usar a API do Graph | Microsoft Docs'
+title: Usar a API do Graph - Azure AD B2C | Microsoft Docs
 description: "Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usar a API do Graph
@@ -38,7 +38,7 @@ Antes de criar o aplicativo ou os usuários ou interagir com o Azure AD, você p
 Quando você tiver um locatário B2C, será necessário registrar seu aplicativo por meio do [Portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando a folha genérica *Registros de Aplicativo* no Portal do Azure, **NÃO** a folha *Aplicativos* do Azure AD B2C. Você não pode reutilizar seus aplicativos B2C já existentes registrados na folha *Aplicativos* do Azure AD B2C.
+> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o menu genérico *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD B2C selecionando sua conta no canto superior direito da página.
@@ -47,16 +47,16 @@ Quando você tiver um locatário B2C, será necessário registrar seu aplicativo
     1. Selecione **Aplicativo Web/API** como o Tipo de Aplicativo.    
     2. Forneça **qualquer URI de redirecionamento** (por exemplo, https://B2CGraphAPI), pois isso não é relevante para este exemplo.  
 5. Agora, o aplicativo aparecerá na lista de aplicativos. Clique nele para obter a **ID do Aplicativo** (também conhecida como ID do Cliente). Copie-a, pois precisará dela em uma seção posterior.
-6. Na folha Configurações, clique em **Chaves** e adicione uma nova chave (também conhecida como o segredo do cliente). Copie-a também para uso em uma seção posterior.
+6. No menu Configurações, clique em **Chaves** e adicione uma nova chave (também conhecida como o segredo do cliente). Copie-a também para uso em uma seção posterior.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurar as permissões de criação, leitura e atualização para seu aplicativo
 Agora você precisa configurar seu aplicativo para obter todas as permissões necessárias para criar, ler, atualizar e excluir usuários.
 
-1. Ainda na folha Registros de Aplicativo do Portal do Azure, selecione seu aplicativo.
-2. Na folha Configurações, clique em **Permissões necessárias**.
-3. Na folha Permissões necessárias, clique em **Windows Azure Active Directory**.
-4. Na folha Habilitar Acesso, selecione a permissão **Ler e gravar dados de diretório** em **Permissões de Aplicativo** e clique em **Salvar**.
-5. Por fim, na folha Permissões necessárias, clique no botão **Conceder Permissões**.
+1. Ainda no menu Registros de Aplicativo do Portal do Azure, selecione seu aplicativo.
+2. No menu Configurações, clique em **Permissões necessárias**.
+3. No menu Permissões necessárias, clique em **Windows Azure Active Directory**.
+4. No menu Habilitar Acesso, selecione a permissão **Ler e gravar dados de diretório** em **Permissões de Aplicativo** e clique em **Salvar**.
+5. Por fim, no menu Permissões necessárias, clique no botão **Conceder Permissões**.
 
 Agora, você tem um aplicativo que tem permissão para criar, ler e atualizar usuários de seu locatário B2C.
 

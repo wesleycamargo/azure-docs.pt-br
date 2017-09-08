@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall do aplicativo Web | Microsoft Docs
-description: Saiba como criar um Gateway de Aplicativo com o firewall do aplicativo Web usando o portal
+title: Criar ou atualizar um gateway de aplicativo com um firewall do aplicativo Web | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo com o firewall do aplicativo Web usando o portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -16,150 +16,147 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e747d4777bdf515e8b7bd54f44ff48b8539ed765
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
-# <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicativo com o firewall do aplicativo Web usando o portal
+# <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
-Aprenda como criar um gateway de aplicativo habilitado para firewall de aplicativo Web.
+Saiba como criar um gateway de aplicativo habilitado para WAF (firewall do aplicativo Web).
 
-O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O aplicativo Web protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
+O WAF no Gateway de Aplicativo do Azure protege aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O WAF protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
 
 ## <a name="scenarios"></a>Cenários
 
-Neste artigo, há dois cenários:
-
-No primeiro cenário, você aprenderá a [criar um gateway de aplicativo com o firewall do aplicativo Web](#create-an-application-gateway-with-web-application-firewall)
-
-No segundo cenário, você aprende a [adicionar o firewall do aplicativo Web a um gateway de aplicativo existente](#add-web-application-firewall-to-an-existing-application-gateway).
+Este artigo apresenta dois cenários. No primeiro cenário, você aprenderá a [criar um gateway de aplicativo com um WAF](#create-an-application-gateway-with-web-application-firewall). No segundo cenário, você aprende a [adicionar o WAF a um gateway de aplicativo existente](#add-web-application-firewall-to-an-existing-application-gateway).
 
 ![Cenário de exemplo][scenario]
 
 > [!NOTE]
-> A configuração adicional do Gateway de Aplicativo, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Gateway de Aplicativo ser configurado e não durante a implantação inicial.
+> Você pode adicionar investigações de integridade personalizadas, endereços de pool de back-ends e regras extras ao gateway de aplicativo. Esses aplicativos são configurados depois que o gateway de aplicativo é configurado e não durante a implantação inicial.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+ Um gateway de aplicativo exige sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo em uma sub-rede, apenas gateways de aplicativo adicionais poderão ser incluídos na sub-rede.
 
-##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
+## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Adicionar um firewall do aplicativo Web a um gateway de aplicativo existente
 
-Este exemplo atualiza um gateway de aplicativo existente para dar suporte ao firewall do aplicativo Web no modo de prevenção.
+Este exemplo atualiza um gateway de aplicativo existente para dar suporte ao WAF no modo **Prevenção**.
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no Gateway de Aplicativo existente, na folha **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir o nome em **Filtrar por nome...** para acessar a Zona DNS facilmente.
+1. No painel **Favoritos** do portal do Azure, selecione **Todos os recursos**. Na folha **Todos os recursos**, selecione o gateway de aplicativo existente. Se a assinatura escolhida já tiver vários recursos, insira o nome na caixa **Filtrar por nome** para acessar com facilidade a zona DNS.
 
-   ![Criação de um gateway de aplicativo][1]
+   ![Seleção do gateway de aplicativo existente][1]
 
-1. Clique em **Firewall do Aplicativo Web** e atualize as configurações do gateway de aplicativo. Quando concluir, clique em **Salvar**
+2. Selecione **Firewall do Aplicativo Web** e atualize as configurações do gateway de aplicativo. Quando a atualização for concluída, selecione **Salvar**. 
 
-    As configurações para atualizar um gateway de aplicativo existente para dar suporte ao firewall do aplicativo da Web são:
+3. Use as seguintes configurações para atualizar um gateway de aplicativo existente para dar suporte a um WAF:
 
    | **Configuração** | **Valor** | **Detalhes**
    |---|---|---|
-   |**Atualizar para a camada WAF**| Verificado | Isso define a camada do gateway de aplicativo para a camada WAF.|
+   |**Atualizar para camada WAF**| Verificado | Essa opção define a camada do gateway de aplicativo para a camada WAF.|
    |**Status do firewall**| Habilitado | Essa configuração habilita o firewall no WAF.|
-   |**Modo de firewall** | Prevenção | Essa configuração é como o firewall do aplicativo Web lida com o tráfego mal-intencionado. O modo **Detecção** só registra em log os eventos, onde o modo **Prevenção** registra os eventos e interrompe o tráfego mal-intencionado.|
-   |**Conjunto de regras**|3.0|Essa configuração determina o [conjunto principal de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) usado para proteger os membros do pool de back-end.|
-   |**Configurar regras desabilitadas**|varia|Para evitar possíveis falsos positivos, essa configuração permite que você desabilite certas [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).|
+   |**Modo de firewall** | Prevenção | Essa configuração é como o WAF lida com o tráfego mal-intencionado. O modo **Detecção** registra em log apenas os eventos. O modo **Prevenção** registra os eventos e interrompe o tráfego mal-intencionado.|
+   |**Conjunto de regras**|3.0|Essa configuração determina o [conjunto principal de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) usado para proteger os membros do pool de back-ends.|
+   |**Configurar regras desabilitadas**|Varia|Para evitar possíveis falsos positivos, você pode usar essa configuração para desabilitar determinadas [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).|
 
     >[!NOTE]
-    > Ao fazer o upgrade de um gateway de aplicativo existente para o SKU do WAF, o tamanho do SKU muda para **médio**. Isso pode ser reconfigurado após a conclusão da configuração.
+    > Ao fazer o upgrade de um gateway de aplicativo existente para o SKU do WAF, o tamanho do SKU muda para **médio**. Após a conclusão da configuração, você poderá reconfigurar esse parâmetro.
 
-    ![folha mostrando configurações básicas][2-1]
+    ![Configurações Básicas][2-1]
 
     > [!NOTE]
-    > Para exibir logs de firewall do aplicativo Web, o diagnóstico deve ser habilitado e ApplicationGatewayFirewallLog selecionado. É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Os gateways pequenos não estão disponíveis ao usar o firewall do aplicativo Web.
+    > Para exibir os logs do WAF, habilite o diagnóstico e escolha **ApplicationGatewayFirewallLog**. Escolha uma contagem de instância de **1** apenas para fins de teste. Não é recomendável uma contagem de instâncias em **2**, pois ele não é coberto por um SLA. Gateways pequenos não estão disponíveis quando você usa um WAF.
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a>criar um gateway de aplicativo com o firewall do aplicativo Web
+## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web
 
 Este cenário:
 
-* Crie um gateway de aplicativo de firewall do aplicativo Web médio com duas instâncias.
+* Criará um gateway de aplicativo WAF médio com duas instâncias.
 * Criará uma rede virtual chamada AdatumAppGatewayVNET, com um bloco CIDR 10.0.0.0/16 reservado.
 * Criará uma sub-rede chamada Appgatewaysubnet que usa 10.0.0.0/28 como seu bloco CIDR.
 * Configurará um certificado para descarregamento SSL.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). Caso você ainda não tenha uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
-1. No painel Favoritos do portal, clique em **Novo**
-1. Na folha **Novo**, clique em **Rede**. Na folha **Rede**, clique em **Gateway de Aplicativo**, conforme mostrado na seguinte imagem:
-1. Navegue até o portal do Azure, clique em **Novo** > **Rede** > **Gateway de Aplicativo**
+1. Entre no [Portal do Azure](https://portal.azure.com). Caso ainda não tenha uma conta, você poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free).
 
-    ![Criação de um gateway de aplicativo][1]
+2. No painel **Favoritos** do portal, clique em **Novo**.
 
-1. Na folha **Informações Básicas** exibida, insira os seguintes valores e clique em **OK**:
+3. Na folha **Novo**, selecione **Rede**. Na folha **Rede**, selecione **Gateway de Aplicativo**, conforme mostrado na seguinte imagem:
+
+    ![Criação de gateway de aplicativo][1]
+
+4. Na folha **Informações Básicas** exibida, insira os seguintes valores e selecione **OK**:
 
    | **Configuração** | **Valor** | **Detalhes**
    |---|---|---|
-   |**Nome**|AdatumAppGateway|O nome do gateway de aplicativo|
-   |**Camada**|WAF|Os valores disponíveis são Standard e WAF. Visite a página [Firewall do aplicativo Web](application-gateway-web-application-firewall-overview.md) para saber mais sobre o WAF.|
-   |**Tamanho do SKU**|Média|As opções ao escolher a camada Standard são Pequeno, Médio e Grande. Ao escolher a camada do WAF, as opções são apenas Médio e Grande.|
-   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
-   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura na qual o gateway de aplicativo será criado.|
+   |**Nome**|AdatumAppGateway|O nome do gateway de aplicativo.|
+   |**Camada**|WAF|Os valores disponíveis são Standard e WAF. Para saber mais sobre um WAF, confira [Firewall do aplicativo Web](application-gateway-web-application-firewall-overview.md).|
+   |**Tamanho do SKU**|Média|As opções de camada padrão são **Pequeno**, **Médio** e **Grande**. As opções da camada WAF são apenas **Médio** e **Grande**.|
+   |**Contagem de instâncias**|2|O número de instâncias do gateway de aplicativo para alta disponibilidade. Use contagens de instância de 1 apenas para fins de teste.|
+   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura a ser usada para criar o gateway de aplicativo.|
    |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
    |**Localidade**|Oeste dos EUA||
 
-   ![folha mostrando configurações básicas][2-2]
+   ![Definição das configurações básicas][2-2]
 
-1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. Essa etapa abre a folha **Escolher rede virtual**.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
+5. Na folha **Configurações** exibida em **Rede virtual**, selecione **Escolher uma rede virtual**. Na folha **Escolher rede virtual**, clique em **Criar novo**.
 
-   ![escolher uma rede virtual][2]
+   ![Escolha da rede virtual][2]
 
-1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. Essa etapa fecha as folhas **Criar rede virtual** e **Escolher rede virtual**. Isso popula o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
+6. Na **folha Criar rede virtual**, insira os valores a seguir e selecione **OK**. O campo **Sub-rede** na folha **Configurações** é populado com a sub-rede que você escolheu.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo|
-   |**Espaço de Endereço**|10.0.0.0/16| Esse valor é o espaço de endereço da rede virtual|
-   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede do gateway de aplicativo|
-   |**Intervalo de endereços da sub-rede**|10.0.0.0/28 | Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
+   |**Nome**|AdatumAppGatewayVNET|O nome do gateway de aplicativo.|
+   |**Espaço de endereço**|10.0.0.0/16| Esse valor é o espaço de endereço da rede virtual.|
+   |**Nome da sub-rede**|AppGatewaySubnet|O nome da sub-rede para o gateway de aplicativo.|
+   |**Intervalo de endereços da sub-rede**|10.0.0.0/28 | Essa sub-rede permite mais sub-redes adicionais na rede virtual para membros do pool de back-ends.|
 
-1. Na folha **Configurações** em **Configuração de IP de front-end**, escolha **Público** como o **Tipo de endereço IP**
+7. Na folha **Configurações**, em **Configuração de IP de front-end**, selecione **Público** como o **Tipo de endereço IP**.
 
-1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**. Essa etapa abrirá a folha **Escolher o endereço IP público**. Em seguida, clique em **Criar novo**.
+8. Na folha **Configurações**, em **Endereço IP Público**, selecione **Escolher um endereço IP público**. Na folha **Escolher endereço IP público**, selecione **Criar novo**.
 
-   ![escolher o IP público][3]
+   ![Escolha do endereço IP público][3]
 
-1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. Essa etapa fechará as folhas **Escolher endereço IP público** e **Criar endereço IP público** e populará **Endereço IP público** com o endereço IP público escolhido.
+9. Na folha **Criar endereço IP público**, aceite o valor padrão e selecione **OK**. O campo **Endereço IP público** é populado com o endereço IP público que você escolheu.
 
-1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** sob **Protocolo**. Um certificado é necessário para usar **https**. A chave privada do certificado é necessária, portanto uma exportação .pfx do certificado é necessária para ser fornecida, além da senha do arquivo.
+10. Na folha **Configurações**, em **Configuração do ouvinte**, selecione **HTTP** em **Protocolo**. Um certificado é necessário para usar **HTTPS**. A chave privada do certificado é necessária. Forneça uma exportação .pfx do certificado e insira a senha para o arquivo.
 
-1. Definir as configurações específicas do **WAF** .
+11. Defina configurações específicas para o **WAF**.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Status do firewall**| habilitado| Essa configuração ativa ou desativa o WAF.|
-   |**Modo de firewall** | Prevenção| Essa configuração determina as ações tomadas pelo WAF em relação ao tráfego mal-intencionado. Se **Detecção** for escolhido, o tráfego só será registrado em log.  Se **Prevenção** for escolhido, o tráfego será registrado em log e interrompido com uma resposta 403 Não Autorizado.|
+   |**Modo de firewall** | Prevenção| Essa configuração determina as ações tomadas pelo WAF em relação ao tráfego mal-intencionado. O modo **Detecção** registra em log apenas o tráfego. O modo **Prevenção** registra em log e interrompe o tráfego com uma resposta 403 Não autorizado.|
 
 
-1. Examine a página Resumo e clique em **OK**.  Agora o Gateway de Aplicativo está na fila e será criado.
+12. Examine a página **Resumo** e selecione **OK**. Agora o Gateway de Aplicativo está na fila e será criado.
 
-1. Quando o Gateway de Aplicativo tiver sido criado, navegue até ele no portal para continuar a configuração do Gateway de Aplicativo.
+13. Quando o gateway de aplicativo for criado, vá até ele no portal para continuar a configuração do gateway de aplicativo.
 
-    ![Modo de exibição de recursos do Gateway de Aplicativo][10]
+    ![Modo de exibição de recursos do gateway de aplicativo][10]
 
-Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido
+Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-ends, configurações de HTTP de back-end e regras. Depois que o provisionamento for finalizado com êxito, você poderá modificar essas configurações para ajustá-las à sua implantação.
 
 > [!NOTE]
-> Os gateways de aplicativo criados com a configuração básica do firewall do aplicativo Web são configurados com o CRS 3.0 para proteções.
+> Os gateways de aplicativo criados com a configuração básica do WAF são definidos com o CRS 3.0 para proteções.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, você pode aprender a configurar um alias de domínio personalizado para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address) usando DNS do Azure ou outro provedor DNS.
+Para configurar um alias de domínio personalizado para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address), você pode usar o DNS do Azure ou outro provedor de DNS.
 
-Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo firewall do aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
+Para configurar o log de diagnósticos para registrar os eventos que são detectados ou evitados com o WAF, confira [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md).
 
-Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
+Para criar investigações de integridade personalizadas, confira [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md).
 
-Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL cara longe dos seus servidores Web visitando [Configurar Descarregamento de SSL](application-gateway-ssl-portal.md)
+Para configurar o descarregamento SSL e afastar a onerosa assinatura de SSL dos seus servidores Web, confira [Configurar descarregamento SSL](application-gateway-ssl-portal.md).
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

@@ -12,19 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
-ms.author: saeedakhter-msft
+ms.date: 08/04/2017
+ms.author: saeda
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Coleta de logs
 
 Este artigo fornece etapas para coletar logs do Azure AD B2C para que você possa diagnosticar problemas com suas políticas personalizadas.
+
+>[!NOTE]
+>Atualmente, os logs de atividade detalhados descritos aqui são projetados **APENAS** para ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento.  Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui.  Esses logs detalhados são coletados apenas quando a política é colocada em **MODO DE DESENVOLVIMENTO**.
+
 
 ## <a name="use-application-insights"></a>Usar o Application insights
 
@@ -60,7 +64,7 @@ O Azure AD B2C oferece suporte a um recurso para envio de dados ao Application I
   * `DeveloperMode="true"` informa ao ApplicationInsights para agilizar a telemetria por meio do pipeline de processamento, bom para o desenvolvimento, mas com restrição em grandes volumes.
   * `ClientEnabled="true"` envia o script do lado do cliente do ApplicationInsights para rastrear erros de exibição de página e do lado do cliente (não é necessário).
   * `ServerEnabled="true"` envia o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights.
-  O XML final terá a aparência a seguir:
+Exemplo:
 
   ```XML
   <TrustFrameworkPolicy
@@ -104,9 +108,14 @@ Saiba mais sobre essa ferramentas de análise [aqui](https://docs.microsoft.com/
 >[!NOTE]
 >A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê na sua instância do Application Insights e fornece uma exibição bem estruturada dos eventos userjourney.  Obtenha o código-fonte e o implante em sua própria solução.
 
+>[!NOTE]
+>Atualmente, os logs de atividade detalhados descritos aqui são projetados **APENAS** para ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento.  Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui.  Esses logs detalhados são coletados apenas quando a política é colocada em **MODO DE DESENVOLVIMENTO**.
+
 [Repositório Github para obter exemplos de política personalizada sem suporte e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 
+## <a name="next-steps"></a>Próximas etapas
 
+Explore os dados no Application Insights para ajudar a entender como o Identity Experience Framework por trás do B2C trabalha para fornecer suas próprias experiências de identidade.
 

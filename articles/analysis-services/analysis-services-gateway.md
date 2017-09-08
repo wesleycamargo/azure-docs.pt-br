@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
@@ -99,11 +99,11 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 
 ### <a name="general"></a>Geral
 
-**P**: Preciso ter um gateway para fontes de dados na nuvem, como o SQL Azure? <br/>
+**P**: Preciso de um gateway para fontes de dados na nuvem, como o Banco de Dados SQL do Azure? <br/>
 **R:** Não. Um gateway conecta-se apenas a fontes de dados locais.
 
 **Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
-**R:** Não. O gateway se conecta à fonte de dados usando as informações de conexão que foram fornecidas. Considere o gateway como um aplicativo de cliente nesse sentido. O gateway precisa apenas da capacidade de se conectar ao nome do servidor que foi fornecido.
+**R:** Não. O gateway se conecta à fonte de dados usando as informações de conexão que foram fornecidas. Considere o gateway como um aplicativo de cliente nesse sentido. O gateway precisa apenas da capacidade de se conectar ao nome do servidor que foi fornecido, geralmente na mesma rede.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -130,7 +130,7 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Verifique as portas e os hosts que o gateway usa.
 
 **P**: Qual é o serviço Windows que é de fato chamado?<br/>
-**R**: Em Serviços, o gateway é chamado de Serviço de Gateway Corporativo do Power BI.
+**R**: Em Serviços, o gateway é chamado de Serviço de gateway de dados local.
 
 **P**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
 **R:** Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
@@ -151,7 +151,7 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 Você também pode examinar ferramentas de rastreamento de consultas disponibilizadas por sua fonte de dados. Por exemplo, você pode usar o Extended Events ou o SQL Profiler para SQL Server e Analysis Services.
 
 **P**: Em que local estão os logs do gateway? <br/>
-**R**: Consulte Ferramentas mais adiante neste tópico.
+**R**: Veja Logs, mais adiante neste tópico.
 
 ### <a name="update"></a>Atualização para a versão mais recente
 

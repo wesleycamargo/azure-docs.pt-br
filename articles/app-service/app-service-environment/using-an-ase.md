@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fc20979575b204cdd8dda5291552af0adbde180f
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
@@ -133,9 +133,15 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 ## <a name="pricing"></a>Preços ##
 
-Com o ASEv2, um novo SKU de preços chamado **Isolado** é usado somente com o ASEv2. Todos os planos do Serviço de Aplicativo que são hospedados no ASEv2 estão no SKU de preços Isolado. Além do preço dos planos do Serviço de Aplicativo, há um valor fixo para o ASE em si. Esse preço não é alterado com o tamanho do ASE. 
+O SKU de preço chamado **Isolado** foi criado para uso apenas com ASEv2. Todos os planos do Serviço de Aplicativo que são hospedados no ASEv2 estão no SKU de preços Isolado. As taxas de plano do Serviço de Aplicativo Isolado podem variar por região. 
 
-Os outros valores potenciais são referentes ao ajuste da taxa de escala ou do tamanho do front-end. Você pode ajustar a taxa de escala para adicionar front-ends mais rapidamente. No entanto, você paga pelos núcleos adicionais que não forem automaticamente adicionados ao sistema. Da mesma forma, se você selecionar um tamanho maior para os front-ends, pagará por todos os núcleos que não são alocados automaticamente. Por exemplo, se você ajustar a taxa de escala para 10, um front-end será adicionado para cada 10 instâncias nos planos do Serviço de Aplicativo. O valor fixo abrange uma taxa de escala de um front-end para cada 15 instâncias. Com uma taxa escala de 10, você pode pagar uma taxa para o terceiro front-end adicionado para as 10 instâncias de plano de Serviço de Aplicativo. Você não precisará pagar por ele quando você chegar a 15 instâncias porque ele terá sido adicionado automaticamente.
+Além do preço dos planos do Serviço de Aplicativo, há um valor fixo para o ASE em si. O valor fixo não muda com o tamanho do seu ASE e paga pela infraestrutura de ASE a uma taxa de dimensionamento padrão de 1 front-end adicional para cada 15 instâncias do plano do Serviço de Aplicativo.  
+
+Se a taxa de escala padrão de 1 front-end para cada 15 instâncias do plano do Serviço de Aplicativo não for rápida o suficiente, você poderá ajustar a taxa na qual front-ends são adicionados ou o tamanho dos front-ends.  Quando você ajustar a taxa ou o tamanho, pagará pelos núcleos de front-end que não seriam adicionados por padrão.  
+
+Por exemplo, se você ajustar a taxa de escala para 10, um front-end será adicionado para cada 10 instâncias nos planos do Serviço de Aplicativo. O valor fixo abrange uma taxa de escala de um front-end para cada 15 instâncias. Com uma taxa escala de 10, você pode pagar uma taxa para o terceiro front-end adicionado para as 10 instâncias de plano de Serviço de Aplicativo. Você não precisará pagar por ele quando você chegar a 15 instâncias porque ele terá sido adicionado automaticamente.
+
+Se você ajustar o tamanho dos front-ends para dois núcleos, mas não ajustar a taxa, você pagará pelos núcleos extras.  Um ASE é criado com dois front-ends, então, até mesmo abaixo do limite de dimensionamento automático você pagaria por dois núcleos adicionais se aumentasse o tamanho para front-ends com dois núcleos.
 
 Para saber mais, veja [Preços do Serviço de Aplicativo do Azure][Pricing].
 
