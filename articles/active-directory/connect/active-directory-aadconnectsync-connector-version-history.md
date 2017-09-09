@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/18/2017
+ms.date: 08/24/2017
 ms.author: fimguy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
@@ -39,7 +39,7 @@ Links relacionados:
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
 
-## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+## <a name="116040-aadconnect-pending-release"></a>1.1.604.0 (AADConnect versão pendente)
 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos:
@@ -74,7 +74,7 @@ Links relacionados:
 ### <a name="enhancements"></a>Melhorias:
 
 * SQL genérico:
-  * **Cenário: Reimplementado:** recurso "*"
+  * **Cenário: reprojetado implementado:** recurso "*"
   * **Descrição da solução:** abordagem alterada para a [manipulação de atributos de referência de vários valores](active-directory-aadconnectsync-connector-genericsql.md).
 
 

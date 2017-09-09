@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7546650e6096a880f4fb4d0c94dd4ecc00b70160
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
@@ -25,8 +26,8 @@ A compactação é um método simples e eficiente para melhorar a velocidade de 
 
 Há duas maneiras de habilitar a compactação:
 
-* Você pode habilitar a compactação no seu servidor de origem. Nesse caso, a CDN passará os arquivos compactados e entregará arquivos compactados para os clientes que os solicitem.
-* Você pode habilitar a compactação diretamente nos servidores de borda CDN; nesse caso, o CDN compactará os arquivos e os fornecerá aos usuários finais mesmo se eles não forem compactados pelo servidor de origem.
+* Você pode habilitar a compactação em seu servidor de origem. Nesse caso, a CDN passa os arquivos compactados e entrega arquivos compactados para os clientes que os solicitem.
+* Você pode habilitar a compactação diretamente nos servidores de borda CDN; nesse caso, o CDN compacta os arquivos e os fornece aos usuários finais mesmo se eles não forem compactados pelo servidor de origem.
 
 > [!IMPORTANT]
 > As alterações de configuração de CDN levam algum tempo para se propagarem pela rede.  Para perfis <b>CDN do Azure do Akamai</b> , a propagação normalmente é concluída em menos de um minuto.  Para perfis <b>CDN do Azure da Verizon</b> , você geralmente verá suas alterações serem aplicadas em 90 minutos.  Se esta for a primeira vez que você configura a compactação do seu ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação sejam propagadas para os POPs antes de solucionar problemas
@@ -45,16 +46,16 @@ Há duas maneiras de habilitar a compactação:
 > 
 > 
 
-1. Na folha Perfil CDN, clique no ponto de extremidade da CDN que deseja gerenciar.
+1. Na página de perfil da CDN, clique no ponto de extremidade da CDN que deseja gerenciar.
    
-    ![Pontos de extremidade da folha Perfil CDN](./media/cdn-file-compression/cdn-endpoints.png)
+    ![Pontos de extremidade da página de perfil da CDN](./media/cdn-file-compression/cdn-endpoints.png)
    
-    A folha do ponto de extremidade da CDN se abre.
+    A página do ponto de extremidade da CDN se abre.
 2. Clique no botão **Configurar** .
    
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-file-compression/cdn-config-btn.png)
+    ![Botão de gerenciamento de página de perfil da CDN](./media/cdn-file-compression/cdn-config-btn.png)
    
-    A folha Configuração da CDN se abre.
+    A página de Configuração da CDN é aberta.
 3. Habilitar **Compactação**.
    
     ![Opções de compactação da CDN](./media/cdn-file-compression/cdn-compress-standard.png)
@@ -72,12 +73,14 @@ Há duas maneiras de habilitar a compactação:
 > 
 > 
 
-1. Na folha do perfil CDN, clique no botão **Gerenciar** .
+1. Na página de perfil da CDN, clique no botão **Gerenciar**.
    
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Botão de gerenciamento de página de perfil da CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
 2. Passe o mouse sobre a guia **HTTP Grande**, em seguida, sobre o submenu **Configurações do Cache**.  Clique em **Compactação**.
+
+    ![Seleção de compactação de arquivos](./media/cdn-file-compression/cdn-compress-select.png)
    
     As opções de compactação são exibidas.
    
@@ -103,11 +106,11 @@ Essas tabelas descrevem o comportamento de compactação CDN do Azure para cada 
 > 
 > Para todos os produtos de CDN do Azure, um arquivo deve ser um tipo MIME que foi [configurado para compactação](#enabling-compression).
 > 
-> Os perfis da **CDN do Azure da Verizon** (Standard e Premium) suportam a codificação **gzip**, **deflate** ou **bzip2**.  Os perfis da **CDN do Azure da Akamai** suportam somente a codificação **gzip**.
+> Os perfis da **CDN do Azure da Verizon** (Standard e Premium) oferecem suporte à codificação **gzip** (GNU zip), **deflate**, **bzip2** ou **br** (Brotli). Para a codificação Brotli, a compactação é realizada apenas na borda. O cliente/navegador deve enviar a solicitação para codificação Brotli, e o ativo compactado deve ter sido compactado primeiro no lado de origem. 
+>
+>Os perfis da **CDN do Azure da Akamai** oferecem suporte somente á codificação **gzip**.
 > 
-> Os pontos de extremidade da **CDN do Azure da Akamai** sempre solicitam os arquivos codificados **gzip** na origem, independentemente da solicitação do cliente.
-> 
-> 
+> Os pontos de extremidade da **CDN do Azure da Akamai** sempre solicitam os arquivos codificados **gzip** na origem, independentemente da solicitação do cliente. 
 
 ### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>Compactação desabilitada ou arquivo não qualificado para compactação
 | Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | Resposta CDN para o cliente | Observações |
@@ -124,7 +127,7 @@ Essas tabelas descrevem o comportamento de compactação CDN do Azure para cada 
 | --- | --- | --- | --- |
 | Compactado |Compactado |Compactado |CDN transcodifica entre os formatos com suporte |
 | Compactado |Não compactado |Compactado |CDN executa compactação |
-| Compactado |Não armazenado em cache |Compactado |O CDN executará compactação se a origem for retornada descompactada.  **CDN do Azure da Verizon** passará o arquivo descompactado na primeira solicitação e, em seguida, compactará e armazenará em cache o arquivo para solicitações subsequentes.  Os arquivos com o cabeçalho `Cache-Control: no-cache` nunca serão compactados. |
+| Compactado |Não armazenado em cache |Compactado |O CDN executará compactação se a origem for retornada descompactada.  **CDN do Azure da Verizon** passa o arquivo descompactado na primeira solicitação e, em seguida, compacta e armazena em cache o arquivo para solicitações subsequentes.  Os arquivos com o cabeçalho `Cache-Control: no-cache` nunca serão compactados. |
 | Não compactado |Compactado |Não compactado |CDN executa descompactação |
 | Não compactado |Não compactado |Não compactado | |
 | Não compactado |Não armazenado em cache |Não compactado | |
@@ -134,10 +137,5 @@ Para pontos de extremidade de streaming habilitado para a CDN de Serviços de M�
 
 ## <a name="see-also"></a>Consulte também
 * [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

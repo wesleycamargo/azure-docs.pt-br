@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8bb7f93b5ba2d1909653bb1010f1266640a1b2e9
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: fc9f362d2506451748841e02dbae58f80cf278ba
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Visão geral: grupos de failover e replicação geográfica ativa
@@ -62,7 +62,7 @@ O recurso de replicação geográfica ativa fornece os seguintes recursos essenc
 * **Vários bancos de dados secundários legíveis**: dois ou mais bancos de dados secundários aumentam a redundância e o nível de proteção para o banco de dados primário e o aplicativo. Se existirem vários bancos de dados secundários, o aplicativo permanecerá protegido mesmo se houver uma falha em um dos bancos de dados secundários. Se houver apenas um banco de dados secundário e ele falhar, o aplicativo será exposto a um risco maior até que um novo banco de dados secundário seja criado.
 
    > [!NOTE]
-   > Se você estiver usando replicação geográfica ativa para compilar um aplicativo distribuído globalmente e precisa fornecer acesso somente leitura aos dados em mais de quatro regiões, poderá criar um banco de dados secundário de outro banco de dados secundário (um processo conhecido como encadeamento). Dessa forma, que você pode obter uma escala praticamente ilimitada de replicação de banco de dados. Além disso, o encadeamento reduz a sobrecarga de replicação do banco de dados primário. A desvantagem é uma maior latência de replicação nos bancos de dados secundários filhos. . 
+   > Se você estiver usando replicação geográfica ativa para compilar um aplicativo distribuído globalmente e precisa fornecer acesso somente leitura aos dados em mais de quatro regiões, poderá criar um banco de dados secundário de outro banco de dados secundário (um processo conhecido como encadeamento). Dessa forma, que você pode obter uma escala praticamente ilimitada de replicação de banco de dados. Além disso, o encadeamento reduz a sobrecarga de replicação do banco de dados primário. A desvantagem é uma maior latência de replicação nos bancos de dados secundários filhos. 
    >
 
 * **Suporte para bancos de dados do pool elástico**: a replicação geográfica ativa pode ser configurada para qualquer banco de dados em qualquer pool elástico. O banco de dados secundário pode estar em outro pool elástico. Para bancos de dados regulares, o secundário pode ser um pool elástico e vice-versa, desde que as camadas de serviço sejam as mesmas. 
@@ -97,11 +97,12 @@ O recurso grupos de failover automático fornece uma abstração eficaz de repli
 
 ## <a name="best-practices-of-building-highly-available-service"></a>Práticas recomendadas para a criação de serviço altamente disponível
 
-Para criar um serviço altamente disponível que usa o Banco de Dados SQL do Azure, os clientes devem seguir estas diretrizes:
+Para criar um serviço altamente disponível que usa o Banco de Dados SQL do Azure, você deve seguir estas diretrizes:
+
 - **Usar grupo de failover**: Um ou mais grupos de failover podem ser criados entre dois servidores em regiões diferentes (servidores primário e secundário). Cada grupo pode conter um ou vários bancos de dados que são recuperados como uma unidade no caso de alguns ou todos os bancos de dados primários ficarem indisponíveis devido a uma interrupção na região primária. O grupo de failover cria um banco de dados geograficamente secundário com o mesmo objetivo de serviço do primário. Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, verifique se o geograficamente secundário está configurado com o mesmo objetivo de nível de serviço do primário.
-- **Usar o ouvinte de leitura/gravação para a carga de trabalho OLTP**: ao executar operações de OLTP use **&lt;nome-do-grupo-de-failover&gt;.database.windows.net** como a URL do servidor, e as conexões serão automaticamente direcionadas ao primário. Essa URL não será alterada após o failover.  
+- **Usar o ouvinte de leitura/gravação para a carga de trabalho OLTP**: ao executar operações de OLTP use **&lt;nome-do-grupo-de-failover&gt;.database.windows.net** como a URL do servidor, e as conexões são automaticamente direcionadas ao primário. Essa URL não é alterada após o failover.  
 Observe que o failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS.
-- **Usar o ouvinte somente leitura para cargas de trabalho somente leitura**: se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualização dos dados, use o banco de dados secundário no aplicativo. Para sessões somente leitura, use **&lt;nome-do-grupo-de-failover&gt;.secondary.database.windows.net** como a URL do servidor, e a conexão será direcionada automaticamente para o secundário. Também recomendamos que você indique na cadeia de conexão a intenção de leitura usando **ApplicationIntent=ReadOnly**. 
+- **Usar o ouvinte somente leitura para cargas de trabalho somente leitura**: se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualização dos dados, use o banco de dados secundário no aplicativo. Para sessões somente leitura, use **&lt;nome-do-grupo-de-failover&gt;.secondary.database.windows.net** como a URL do servidor, e a conexão é direcionada automaticamente para o secundário. Também recomendamos que você indique na cadeia de conexão a intenção de leitura usando **ApplicationIntent=ReadOnly**. 
 - **Prepare-se para a degradação do desempenho**: a decisão de failover do SQL independe dos demais aplicativos ou outros serviços usados. O aplicativo pode estar "misturado", com alguns componentes em uma região e outros em outra. Para evitar a degradação, garanta a implantação do aplicativo redundante na região de DR e siga as diretrizes neste artigo.  
 Observe que o aplicativo na área de recuperação de desastres não precisa usar uma cadeia de conexão diferente.  
 - **Preparar a perda de dados**: se uma falha for detectada, o SQL disparará o failover de leitura-gravação se não houver perda de dados, até onde nós sabemos. Caso contrário, ele aguardará o período especificado por **GracePeriodWithDataLossHours**. Se você tiver especificado **GracePeriodWithDataLossHours**, esteja preparado para eventual perda de dados. Em geral, durante interrupções, o Azure favorece a disponibilidade. Se você não puder perder dados, defina **GracePeriodWithDataLossHours** com um número grande o suficiente, como 24 horas. 
@@ -118,10 +119,10 @@ Você pode atualizar ou fazer downgrade de um banco de dados primário para um n
 Devido à alta latência das redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona tornará a perda de alguns dados inevitável se ocorrer uma falha. No entanto, alguns aplicativos podem exigir nenhuma perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativo pode chamar o procedimento de sistema [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) imediatamente após a confirmação da transação. Chamar **sp_wait_for_database_copy_sync** bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. Contudo, a chamada não aguarda as transações transmitidas serem reproduzidas e confirmadas no banco de dados secundário. **sp_wait_for_database_copy_sync** é atribuído a um vínculo de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** prevenirá perda de dados depois de um failover, mas não garantirá a sincronização completa para acesso de leitura. A demora causada por uma chamada de procedimento **sp_wait_for_database_copy_sync** pode ser significativa e depende do tamanho do log de transações no momento da chamada. 
+> **sp_wait_for_database_copy_sync** impede a perda de dados depois de um failover, mas não garante a sincronização completa para acesso de leitura. A demora causada por uma chamada de procedimento **sp_wait_for_database_copy_sync** pode ser significativa e depende do tamanho do log de transações no momento da chamada. 
 > 
 
-## <a name="programmatically-managing-active-geo-replication"></a>Gerenciando a replicação geográfica ativa programaticamente
+## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Gerenciar grupos de failover e a replicação geográfica ativa programaticamente
 Conforme discutido anteriormente, os grupos de failover automático (em versão prévia) e a replicação geográfica ativa também podem ser gerenciadas programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis.
 
 **API do Azure Resource Manager e segurança baseada em funções**: a replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do banco de dados SQL](https://docs.microsoft.com/rest/api/sql/) e os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, confira [Controle de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-what-is.md).
@@ -130,7 +131,8 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 > Muitos dos novos recursos de replicação geográfica ativa só têm suporte usando a [API REST do Azure SQL](../azure-resource-manager/resource-group-overview.md) e [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) baseados no [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). Há suporte para compatibilidade com versões anteriores na [API REST (clássico)](https://msdn.microsoft.com/library/azure/dn505719.aspx) e nos [cmdlets do Banco de Dados SQL do Azure (clássico)](https://msdn.microsoft.com/library/azure/dn546723.aspx). Portanto, é recomendável usar as APIs baseadas no Azure Resource Manager. 
 > 
 
-### <a name="transact-sql"></a>Transact-SQL
+## <a name="manage-sql-database-failover-using-transact-sql"></a>Gerenciar failover do Banco de Dados SQL usando Transact-SQL
+
 | Command | Descrição |
 | --- | --- |
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt574871.aspx) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
@@ -142,7 +144,8 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 | [sp_wait_for_database_copy_sync (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn467644.aspx) |faz com que o aplicativo espere até que todas as transações confirmadas sejam replicadas e reconhecidas pelo banco de dados secundário ativo. |
 |  | |
 
-### <a name="powershell"></a>PowerShell
+## <a name="manage-sql-database-failover-using-powershell"></a>Gerenciar failover do Banco de Dados SQL usando PowerShell
+
 | Cmdlet | Descrição |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
@@ -161,23 +164,23 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 > Para scripts de exemplo, consulte [Configurar e realizar o failover de um banco de dados individual usando a replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configurar e realizar o failover de um banco de dados em pool usando a replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md) e [Configurar e realizar o failover de um grupo de failover para um banco de dados individual (versão prévia)] (scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
 >
 
-### <a name="rest-api"></a>API REST
+## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gerenciar failover do Banco de Dados SQL usando a API REST
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
-| [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Retorna o status durante uma operação de criação. |
-| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinkss#ReplicationLinks_Failover) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
-| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_FailoverAllowDataLoss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
-| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_Get) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Listar links de replicação](https://docs.microsoft.com/en-us/rest/api/sql/replicationlinks#ReplicationLinks_ListByDatabase) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_Delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
-| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Criar ou atualizar grupo de failover |
-| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Remove o grupo de failover do servidor |
-| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Failover do servidor principal atual para este servidor. |
-| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
-| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) | Obtém um grupo de failover. |
-| [Listar grupos de failover pelo servidor](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lista grupos de failover em um servidor. |
-| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Atualiza um grupo de failover. |
+| [Criar ou atualizar banco de dados (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
+| [Obter, Criar ou Atualizar o Status de um Banco de Dados](/rest/api/sql/Databases/CreateOrUpdate) |Retorna o status durante uma operação de criação. |
+| [Definir o banco de dados secundário como primário (Failover planejado)](/rest/api/sql/replicationlinks/failover) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
+| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
+| [Obter link de replicação](/rest/api/sql/replicationlinks/get) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Links de Replicação - Listar pelo Banco de Dados](/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Excluir links de replicação](/rest/api/sql/databases/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
+| [Criar ou atualizar um grupo de failover] / rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar grupo de failover |
+| [Excluir grupo de failover](/rest/api/sql/failovergroups/delete) | Remove o grupo de failover do servidor |
+| [Failover (planejado)](/rest/api/sql/failovergroups/failover) | Failover do servidor principal atual para este servidor. |
+| [O Failover forçado permite a perda de dados](/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
+| [Obter grupo de failover](/rest/api/sql/failovergroups/get) | Obtém um grupo de failover. |
+| [Listar grupos de failover pelo servidor](/rest/api/sql/failovergroups/listbyserver) | Lista grupos de failover em um servidor. |
+| [Atualizar grupo de failover](/rest/api/sql/failovergroups/update) | Atualiza um grupo de failover. |
 |  | |
 
 ## <a name="next-steps"></a>Próximas etapas
