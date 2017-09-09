@@ -2,7 +2,7 @@
   items:
     - name: Introdução
       href: ./common/storage-introduction.md
-    - name: 'Escolha os Blobs, Arquivos ou Discos de dados'
+    - name: 'Escolher Blobs, Arquivos ou Discos'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
   href: ./blobs/storage-blobs-introduction.md

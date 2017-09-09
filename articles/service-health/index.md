@@ -1,9 +1,9 @@
 ---
 title: Integridade de Recursos do Azure - Tutoriais | Microsoft Docs
-description: 
+description: "A Integridade de Serviço do Azure oferece suporte e diretrizes personalizadas quando ocorrer problemas nos serviços do Azure, e ajuda você a se preparar para manutenção futura planejada. A Integridade de Serviço do Azure alerta você e suas equipes por meio de notificações flexíveis e de destino."
 services: Resource health
-author: bernardm
-manager: bernardm
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: service-health
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
-ms.author: bernardm
+ms.author: carolz
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 1452c1dd56829d162d464c4a359fa8c86ce74a6b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 17f7d334380032eec4be7d0ce3071a62b04fdc62
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-service-health-documentation"></a>Documentação do Azure Service Health
