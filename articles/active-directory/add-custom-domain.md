@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/29/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4848130601ffa18ed1565e79cb0f0db3274e950f
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 3acdc406b5e753d407c7c6fb32fe0ad5ed6dd68c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Início rápido: adicionar um nome de domínio personalizado ao Azure Active Directory
@@ -46,10 +46,8 @@ Todo diretório do Azure AD vem com um nome de domínio inicial no formato *nome
 > [!TIP]
 > Se você planeja federar seu AD do Windows Server local com o Azure AD, você precisa selecionar a caixa de seleção **Pretendo configurar esse domínio para logon único com meu Active Directory local** quando você executa a ferramenta Azure AD Connect para sincronizar seus diretórios. Você também precisa registrar o mesmo nome de domínio selecionado para federação com seu diretório local na etapa **domínio do Azure AD** no assistente. Você pode ver como é essa etapa do assistente [nessas instruções](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se você não tiver a ferramenta Azure AD Connect, poderá [baixá-la aqui](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-Agora que você adicionou o nome de domínio, o AD do Azure deverá verificar se a sua organização é proprietária do nome de domínio. Antes que o AD do Azure possa executar essa verificação, você deverá adicionar uma entrada DNS ao arquivo de zona DNS para o nome de domínio. Essa tarefa pode ser concluída no site do registrador de nome de domínio para o nome de domínio.
-
 ## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Adicione a entrada DNS no registrador de nome de domínio para o domínio
-A próxima etapa para usar o nome de domínio personalizado com o Azure AD é atualizar o arquivo de zona DNS do domínio. O Azure AD pode então verificar se a organização é proprietária do nome de domínio personalizado.
+A próxima etapa para usar o nome de domínio personalizado com o Azure AD é atualizar o arquivo de zona DNS do domínio. O Azure AD pode então verificar se a organização é proprietária do nome de domínio personalizado. Você pode usar [DNS do Azure no portal do Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) para um único ponto de gerenciamento para o Azure, Office 365 e registros DNS externos no Azure.
 
 1. Entre no registrador de nome de domínio para o domínio. Se você não tem acesso para atualizar a entrada DNS, peça à pessoa ou à equipe que tem esse acesso para concluir a etapa 2 e avisá-lo quando ela for concluída.
 2. Atualize o arquivo de zona DNS para o domínio adicionando a entrada DNS fornecida pelo AD do Azure. Essa entrada DNS permitirá que o AD do Azure verifique sua propriedade do domínio. A entrada DNS não altera nenhum comportamento, como o roteamento de emails ou a hospedagem na Web.

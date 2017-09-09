@@ -3,8 +3,8 @@ title: "Navegação e gerenciamento de recursos de armazenamento com o Gerenciad
 description: Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d35c9903fd68199f9decdf099a7e162fe664e4d5
-
+ms.date: 8/24/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
@@ -42,11 +43,12 @@ Para exibir recursos em uma conta de armazenamento, expanda o nó da conta de ar
 * Tabelas
 
 ## <a name="work-with-blob-resources"></a>Trabalhar com recursos de blob
-O nó de blobs exibe uma lista de contêineres para a conta de armazenamento selecionado. Contêineres de blob contêm arquivos de blob e você pode organizar esses blobs em pastas e subpastas. Consulte [Como usar o Armazenamento de Blob do .NET](storage/storage-dotnet-how-to-use-blobs.md) para obter mais informações.
+O nó de blobs exibe uma lista de contêineres para a conta de armazenamento selecionado. Contêineres de blob contêm arquivos de blob e você pode organizar esses blobs em pastas e subpastas. Consulte [Como usar o Armazenamento de Blob do .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) para obter mais informações.
 
 ### <a name="to-create-a-blob-container"></a>Para criar um contêiner de blob
 1. Abra o menu de atalho no nó **Blobs** e escolha **Criar Contêiner de Blob**.
-2. Insira o nome do novo contêiner na caixa de diálogo **Criar Contêiner de Blob** e escolha **Ok**
+2. Na caixa de diálogo **Criar Contêiner de Blob**, insira o nome do novo contêiner.  
+3. Pressione **ENTER** no teclado, ou clique/toque fora do campo de nome para salvar o contêiner de blob.
    
    > [!NOTE]
    > O nome do contêiner de blob deve começar com uma letra minúscula (a-z) ou um número (0-9).
@@ -57,7 +59,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
 * Abra o menu de atalho para o contêiner de blob que você deseja remover e escolha **Excluir**.
 
 ### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Para exibir uma lista de itens contidos em um contêiner de blob
-* Abra o menu de atalho para um nome de contêiner de blob na lista e escolha **Exibir Contêiner de Blob**.
+* Abra o menu de atalho para um nome de contêiner de blob na lista e escolha **Abrir**.
   
     Quando você exibe o conteúdo de um contêiner de blob, ele aparece em uma guia conhecida como exibição do contêiner de blob.
   
@@ -78,7 +80,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
   * Salvar um blob no computador local
 
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Para criar uma pasta ou subpasta em um contêiner de blob
-1. Escolha o contêiner de blob no Gerenciador de Servidores. Na janela do contêiner, escolha o botão **Carregar blob** .
+1. Escolha o contêiner de blob no Cloud Explorer. Na janela do contêiner, escolha o botão **Carregar blob** .
    
     ![Carregar um arquivo em uma pasta de blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. Na caixa de diálogo **Carregar Novo Arquivo**, escolha o botão **Procurar** para especificar o arquivo que você deseja carregar e digite o nome da pasta na caixa **Pasta (opcional)**.
@@ -109,7 +111,7 @@ Por exemplo, se você inserir o prefixo `hello` na caixa de texto do filtro e, e
 > 
 
 ### <a name="to-download-blob-data"></a>Para baixar os dados de blob
-* No **Gerenciador de Servidores**, abra o menu de atalho de um ou mais blobs e escolha **Abrir**, ou escolha o nome do blob e o botão **Abrir**, ou clique duas vezes no nome do blob.
+* No **Cloud Explorer**, abra o menu de atalho de um ou mais blobs e escolha **Abrir**, ou escolha o nome do blob e o botão **Abrir**, ou clique duas vezes no nome do blob.
   
     O andamento do download de um blob aparece na janela **Log de atividades do Azure** .
   
@@ -142,7 +144,7 @@ No Gerenciador de Servidores, você pode exibir as filas em uma conta de armazen
 
 * Atualizar a exibição da fila
 * Adicionar uma mensagem a uma fila
-* Remover da fila a mensagem de nível mais alto.
+* Remover da fila a mensagem de nível mais alto
 * Excluir a fila inteira
 
 A imagem a seguir mostra uma fila que contém duas mensagens.
@@ -160,11 +162,11 @@ Para saber mais sobre as filas de serviço de armazenamento, consulte [Como usar
 O serviço de armazenamento Tabela do Microsoft Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
 ### <a name="to-create-a-table"></a>Para criar uma tabela
-1. No Gerenciador de Servidores, selecione o nó **Tabelas** da conta de armazenamento e escolha **Criar Tabela**.
+1. No Cloud Explorer, selecione o nó **Tabelas** da conta de armazenamento e escolha **Criar Tabela**.
 2. Na caixa de diálogo **Criar Tabela** , insira um nome para a tabela.
 
 ### <a name="to-view-table-data"></a>Para exibir dados da tabela
-1. No Gerenciador de Servidores, abra o nó **Azure** e clique no nó **Armazenamento**.
+1. No Cloud Explorer, abra o nó **Azure** e clique no nó **Armazenamento**.
 2. Abra o nó de conta de armazenamento no qual está interessado e abra o nó **Tabelas** para ver uma lista de tabelas para a conta de armazenamento.
 3. Abra o menu de atalho para uma tabela e escolha **Exibir Tabela**.
    
@@ -185,7 +187,7 @@ A tabela é organizada por entidades (mostradas nas linhas) e propriedades (most
    * Se você inserir um valor DateTime, deve seguir o formato apropriado para as configurações de região e idioma do seu computador (por exemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para o inglês dos EUA ).
 
 ### <a name="to-add-entities"></a>Para adicionar entidades
-1. No **Designer de Tabela**, escolha o botão **Adicionar Entidade**, que está no canto superior direito da exibição de tabela.
+1. No **Designer de Tabela**, escolha o botão **Adicionar Entidade**.
    
     ![Adicionar entidade](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. Na caixa de diálogo **Adicionar Entidade**, insira os valores das propriedades **PartitionKey** e **RowKey**.
@@ -198,7 +200,7 @@ A tabela é organizada por entidades (mostradas nas linhas) e propriedades (most
 Você pode personalizar o conjunto de entidades que aparecem em uma tabela, se usar o construtor de consultas.
 
 1. Para abrir o construtor de consultas, abra uma tabela para exibir.
-2. Escolha o botão mais à direita na barra de ferramentas de exibição de tabela.
+2. Escolha o botão Construtor de Consultas na barra de ferramentas de exibição de tabela.
    
     A caixa de diálogo **Construtor de Consultas** é exibida. A ilustração a seguir mostra uma consulta sendo criada no construtor de consultas.
    
@@ -271,10 +273,5 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

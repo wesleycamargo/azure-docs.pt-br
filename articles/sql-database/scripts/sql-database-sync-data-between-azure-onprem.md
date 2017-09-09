@@ -46,7 +46,7 @@ using namespace System.Collections.Generic
 # Hub database info
 # Subscription id for hub database
 $SubscriptionId = "subscription_guid"
-# Resrouce group name for hub database
+# Resource group name for hub database
 $ResourceGroupName = "ResourceGroupName"
 # Server name for hub database
 $ServerName = "ServerName"
@@ -350,6 +350,10 @@ else
         }
     }
 }
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+# Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+
 ```
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
@@ -357,7 +361,8 @@ else
 Após a execução do exemplo de script, execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
