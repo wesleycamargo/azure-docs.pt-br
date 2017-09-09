@@ -52,7 +52,13 @@
 
 ## Gerenciar
 ### [Bibliotecas de gerenciamento do Barramento de Serviço](service-bus-management-libraries.md)
-### [Usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md)
+### [Usar modelos do Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Criar um namespace](service-bus-resource-manager-namespace.md)
+#### [Criar um namespace e uma fila](service-bus-resource-manager-namespace-queue.md)
+#### [Criar um namespace com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
+#### [Criar uma regra de autorização do namespace e da fila](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Criar um namespace com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Usando o PowerShell para provisionar entidades](service-bus-manage-with-ps.md)
 
 # Referência
