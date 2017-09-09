@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Como usar o licenciamento do AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Usar Direitos de Hospedagem de Multilocatários para Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Como proteger VMs
       items:
         - name: Criptografar

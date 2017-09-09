@@ -26,13 +26,9 @@
     - name: Referência de API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
     - name: SDK Padrão do .Net
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
+      href: 'https://aka.ms/tasdkdotnet'
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fale conosco
-      href: 'https://azure.microsoft.com/overview/sales-number/'
     - name: Conteúdo externo e da comunidade
       href: text-analytics-resource-external-community.md
     - name: Perguntas frequentes
