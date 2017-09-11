@@ -13,7 +13,7 @@
 ## [Assistir a uma introdução](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Introdução
-## [Replicar máquinas virtuais do Azure (versão prévia)](site-recovery-azure-to-azure.md)
+## [Replicar VMs do Azure para o Azure (versão prévia)](site-recovery-azure-to-azure.md)
 ## [Replicar VMs do VMware para o Azure](vmware-walkthrough-overview.md)
 ### [Etapa 1: analisar a arquitetura](vmware-walkthrough-architecture.md)
 ### [Etapa 2: analisar os pré-requisitos e as limitações](vmware-walkthrough-prerequisites.md)
@@ -140,6 +140,8 @@
 ## Monitorar e solucionar problemas
 ### [Problemas de replicação do Azure para o Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problemas de replicação de local para o Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Problemas de instalação do serviço de mobilidade](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Problemas de failover para o Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Coletar logs e solucionar problemas de local](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referência

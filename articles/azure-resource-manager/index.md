@@ -2,7 +2,7 @@
 title: "Documentação do Azure Resource Manager - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Resource Manager para implantar e gerenciar os recursos da solução como um grupo e criar modelos para implantação de recursos consistentes e repetíveis."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

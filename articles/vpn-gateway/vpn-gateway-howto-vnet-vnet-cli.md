@@ -366,7 +366,7 @@ Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e 
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

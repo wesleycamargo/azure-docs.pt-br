@@ -4,7 +4,7 @@ description: "Este artigo mostra como cortar vídeos com o Codificador de Mídia
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services

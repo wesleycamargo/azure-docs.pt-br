@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
@@ -182,12 +182,15 @@ Para carregar seus próprios certificados e testar o acesso:
 
     ![Endereço IP do ILB][5]
 
-### <a name="functions-and-the-ilb-ase"></a>Functions e o ASE ILB
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Trabalhos da Web, Funções e o ILB ASE ##
 
-Quando você usa o Azure Functions em um ASE ILB, você pode receber uma mensagem de erro informando: "Não é possível recuperar as funções no momento. Tente novamente mais tarde.” Esse erro ocorre porque a interface do usuário do Functions aproveita o site de scm via HTTPS. Ao usar um certificado HTTP em seu ASE que não tem um certificado raiz no navegador, você pode encontrar essa situação. Além disso, os navegadores Internet Explorer\Edge não compartilham a configuração *accept-invalid-cert* entre as guias. Portanto, você tem duas opções:
+As Funções e os trabalhos da Web são suportados em um ILB ASE, mas para que o portal funcione com eles, você deve ter acesso de rede ao site SCM.  Isso significa que seu navegador deve estar em um host que esteja na rede virtual ou conectado a ela.  
 
-- Adicionar o certificado ao seu repositório de certificados confiáveis. 
-- Usar o Chrome. Mas você precisa acessar o site de scm primeiro e aceitar o certificado não confiável. Em seguida, acesse o portal.
+Quando você usa o Azure Functions em um ASE ILB, você pode receber uma mensagem de erro informando: "Não é possível recuperar as funções no momento. Tente novamente mais tarde.” Esse erro ocorre porque a interface do usuário de Funções aproveita o site SCM por HTTPS e o certificado raiz não está na cadeia de navegadores de confiança. Os trabalhos da Web têm um problema semelhante. Para evitar esse problema, você pode executar uma destas ações:
+
+- Adicionar o certificado ao seu repositório de certificados confiáveis. Isso desbloqueia o Edge e o Internet Explorer.
+- Use o Chrome e acesse o site SCM primeiro, aceite o certificado não confiável e vá para o portal.
+- Use um certificado comercial que esteja na sua cadeia de navegadores confiáveis.  Essa é a melhor opção.  
 
 ## <a name="dns-configuration"></a>Configuração de DNS ##
 

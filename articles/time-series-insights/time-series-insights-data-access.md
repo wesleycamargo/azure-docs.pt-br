@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Os ambientes de Análise de Séries Temporais possuem dois tipos independentes d
 Os dois tipos de políticas concedem às entidades de segurança (usuários e aplicativos) do Azure Active Directory várias permissões em um ambiente específico. As entidades de segurança (usuários e aplicativos) devem pertencer ao active directory (ou "Azure locatário") associado à assinatura que contém o ambiente.
 
 As políticas de acesso de gerenciamento concedem permissões relacionadas à configuração do ambiente, como
-*    Criação e exclusão do ambiente, origens de evento, conjuntos de dados de referência e
-*    Gerenciamento das políticas de acesso de dados.
+*   Criação e exclusão do ambiente, origens de evento, conjuntos de dados de referência e
+*   Gerenciamento das políticas de acesso de dados.
 
 As políticas de acesso a dados concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e salvar consultas compartilhadas e perspectivas associadas ao ambiente.
 
@@ -43,30 +43,30 @@ Os dois tipos de políticas permitem uma separação clara entre o acesso ao ger
 ## <a name="grant-data-access"></a>Conceder acesso a dados
 As etapas a seguir mostram como conceder acesso a dados para uma entidade de usuário:
 
-1.    Entre no [Portal do Azure](https://portal.azure.com).
-2.    Clique em "Todos os recursos" no menu à esquerda do portal do Azure.
-3.    Selecione o seu ambiente de Análise de Séries Temporais.
+1.  Entre no [Portal do Azure](https://portal.azure.com).
+2.  Clique em "Todos os recursos" no menu à esquerda do portal do Azure.
+3.  Selecione o seu ambiente de Análise de Séries Temporais.
 
   ![Gerenciar a fonte das Análise de Séries Temporais - ambiente](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Selecione "Acesso ao plano de dados", clique em "Adicionar"
+4.  Selecione "Acesso ao plano de dados", clique em "Adicionar"
 
   ![Gerenciar a fonte das Análise de Séries Temporais - adicionar](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Clique em “Selecionar usuário”.
-6.    Procure e selecione o usuário por email.
-7.    Clique em "Selecionar" na folha "Selecionar usuário".
+5.  Clique em “Selecionar usuário”.
+6.  Procure e selecione o usuário por email.
+7.  Clique em "Selecionar" na folha "Selecionar usuário".
 
   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar usuário](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Clique em “Selecionar função”.
-9.    Selecione "Colaborador" se quiser permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente. Caso contrário, selecione "Leitor" para permitir que o usuário consulte os dados no ambiente e salve as consultas (não compartilhadas) pessoais no ambiente.
-10.    Clique em "Ok" na folha "Selecionar função".
+8.  Clique em “Selecionar função”.
+9.  Selecione "Colaborador" se quiser permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente. Caso contrário, selecione "Leitor" para permitir que o usuário consulte os dados no ambiente e salve as consultas (não compartilhadas) pessoais no ambiente.
+10. Clique em "Ok" na folha "Selecionar função".
 
   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar função](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Clique em "Ok" na folha "Selecionar função do usuário".
-12.    Você deverá ver:
+11. Clique em "Ok" na folha "Selecionar função do usuário".
+12. Você deverá ver:
 
   ![Gerenciar a fonte das Análise de Séries Temporais - resultados](media/data-access/getstarted-grant-data-access5.png)
 

@@ -4,7 +4,7 @@ description: "Este artigo descreve como é possível usar os serviços de mídia
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services

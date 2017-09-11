@@ -4,7 +4,7 @@ description: "O Azure Media Indexer permite que você torne o conteúdo de seus 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services

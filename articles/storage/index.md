@@ -2,7 +2,7 @@
 title: "Documentação do Armazenamento do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Armazenamento do Azure - armazenamento de Blobs, de Tabelas, de Filas, de Arquivos e de Disco de Máquina Virtual na nuvem. Tutoriais, referências de API e outras documentações."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

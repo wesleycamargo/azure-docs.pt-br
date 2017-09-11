@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 80b58ac0a5a34a9ff573d161ca26dbfd2dba25c7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 50bd4eb02be8f03baf186255429bec51c036aa43
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -29,7 +29,7 @@ Este artigo aborda as melhores práticas de segurança de banco de dados e os pr
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Novidades na segurança do Azure Cosmos DB?
 
-A criptografia em repouso agora está disponível para documentos armazenados no Azure Cosmos DB em todas as regiões do Azure, exceto regiões governamentais, Azure na China e Azure na Alemanha. As regiões restantes serão habilitadas na próxima semana, juntamente com a criptografia em repouso em backups. A criptografia em repouso é aplicada automaticamente para clientes novos e existentes nessas regiões. Não é necessário configurar nada e você obtém a mesma latência, taxa de transferência, disponibilidade e funcionalidade excelentes de antes, com o benefício de saber que seus dados estão seguros e protegidos com a criptografia em repouso.
+A criptografia em repouso agora está disponível para documentos e backups armazenados no Azure Cosmos DB em todas as regiões do Azure. A criptografia em repouso é aplicada automaticamente para clientes novos e existentes nessas regiões. Não é necessário configurar nada e você obtém a mesma latência, taxa de transferência, disponibilidade e funcionalidade excelentes de antes, com o benefício de saber que seus dados estão seguros e protegidos com a criptografia em repouso.
 
 ## <a name="how-do-i-secure-my-database"></a>Como fazer para proteger meu banco de dados? 
 

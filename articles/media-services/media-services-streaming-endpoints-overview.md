@@ -1,12 +1,11 @@
 ---
-
 title: "Visão Geral do ponto de extremidade de streaming dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este tópico fornece uma visão geral dos pontos de extremidade de streaming dos Serviços de Mídia do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
@@ -21,7 +20,6 @@ ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming 

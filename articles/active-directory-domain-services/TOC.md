@@ -7,12 +7,6 @@
 ## [Software de terceiros compatível](active-directory-ds-compatible-software.md)
 
 # Introdução
-## portal clássico do Azure
-### [Tarefa 1: criar grupo de administradores](active-directory-ds-getting-started-create-group.md)
-### [Tarefa 2: criar ou selecionar uma rede virtual](active-directory-ds-getting-started-vnet.md)
-### [Tarefa 3: habilitar os Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Tarefa 4: atualizar configurações de DNS para a rede virtual](active-directory-ds-getting-started-update-dns.md)
-### [Tarefa 5: habilitar sincronização de senha](active-directory-ds-getting-started-password-sync.md)
 ## Portal do Azure (Versão prévia)
 ### [Tarefa 1: definir as configurações básicas](active-directory-ds-getting-started.md)
 ### [Tarefa 2: definir as configurações de rede](active-directory-ds-getting-started-network.md)

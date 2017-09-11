@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
@@ -28,7 +28,9 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Controlar fluxo](api-management-advanced-policies.md#choose) - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions](api-management-policy-expressions.md).  
   
--   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.  
+-   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.
+
+-   [Simultaneidade de limite](#LimitConcurrency) - impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações por vez.
   
 -   [Registrar no Hub de Eventos](#log-to-eventhub) – envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. 
 
@@ -266,6 +268,56 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
+##  <a name="LimitConcurrency"></a> Simultaneidade de limite  
+ A política `limit-concurrency` impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações em um determinado momento. Ao exceder o limite, novas solicitações são adicionadas a uma fila, até que o comprimento máximo da fila seja atingido. Quando a fila atinge seu máximo, novas solicitações falham imediatamente.
+  
+###  <a name="LimitConcurrencyStatement"></a> Declaração de política  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>Exemplos  
+  
+####  <a name="ChooseExample"></a> Exemplo  
+ O exemplo a seguir demonstra como limitar o número de solicitações encaminhadas a um back-end com base no valor de uma variável de contexto.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|Elemento raiz.|Sim|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|Atributo|Descrição|Obrigatório|Padrão|  
+|---------------|-----------------|--------------|--------------|  
+|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|Sim|N/D|  
+|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|Sim|N/D|  
+|Tempo limite|Um inteiro. Expressão permitida. Especifica o número de segundos que uma solicitação deve esperar para inserir um escopo antes de falhar com "429 Muitas solicitações"|Não|Infinito|  
+|max-queue-length|Um inteiro. Expressão permitida. Especifica o comprimento máximo da fila. Solicitações de entrada que tentarem inserir essa política serão encerradas com "429 Muitas solicitações" assim que a fila atingir seu comprimento máximo.|Não|Infinito|  
+  
+###  <a name="ChooseUsage"></a> Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções da política:** entrada, saída, back-end, em caso de erro  
+  
+-   **Escopos da política:** todos os escopos  
+
 ##  <a name="log-to-eventhub"></a> Registrar no Hub de Eventos  
  A política `log-to-eventhub` envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. Como o nome sugere, a política é usada para salvar informações de contexto de solicitação ou de resposta solicitadas para a análise online ou offline.  
   
@@ -963,6 +1015,6 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como trabalhar com políticas, consulte:
--    [Políticas no Gerenciamento de API](api-management-howto-policies.md) 
--    [Expressões de política](api-management-policy-expressions.md)
+-   [Políticas no Gerenciamento de API](api-management-howto-policies.md) 
+-   [Expressões de política](api-management-policy-expressions.md)
 

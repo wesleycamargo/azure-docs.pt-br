@@ -1,7 +1,7 @@
 ---
-title: "Atualizar o cofre do Site Recovery para o cofre dos Serviços de Recuperação"
-description: "Saiba como atualizar um cofre do Azure Site Recovery para o cofre dos Serviços de Recuperação"
-ddocumentationcenter: 
+title: "Atualizar um cofre do Site Recovery para um cofre dos Serviços de Recuperação do Azure"
+description: "Saiba como atualizar um cofre do Azure Site Recovery para um cofre dos Serviços de Recuperação"
+documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
 editor: 
@@ -14,125 +14,127 @@ ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 523cab85b195d85007bd85c45dbe3645f7a00ab1
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="upgrade-site-recovery-vaults-to-azure-resource-manager-based-recovery-services-vaults"></a>Atualizar cofres do Site Recovery para o Azure Resource Manager com base em cofres dos Serviços de Recuperação
+# <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Atualizar um cofre do Site Recovery para um cofre dos Serviços de Recuperação com base no Azure Resource Manager
 
-Este artigo descreve como atualizar "Cofres do Site Recovery" para o Azure Resource Manager com base em "Cofres do Serviço de Recuperação" sem afetar a replicação em andamento. Leia mais sobre os recursos e benefícios do Azure Resource Manager [aqui](../azure-resource-manager/resource-group-overview.md).
+Este artigo descreve como atualizar cofres do Azure Site Recovery para cofres dos Serviços de Recuperação com base no Azure Resource Manager sem afetar a replicação em andamento. Para saber mais sobre os recursos e benefícios do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="introduction"></a>Introdução
-O Cofre dos Serviços de Recuperação é um recurso do Azure Resource Manager para gerenciar suas necessidades de backup e recuperação de desastre de forma nativa na nuvem. É um cofre unificado que pode ser usado no novo Portal do Azure, uma substituição para os cofres clássicos de Backup e Site Recovery.
+Um cofre dos Serviços de Recuperação é um recurso do Azure Resource Manager para gerenciar backup e recuperação de desastre de forma nativa na nuvem. É um cofre unificado que você pode usar no novo Portal do Azure e ele substitui o backup clássico e os cofres do Site Recovery.
 
-Os cofres dos Serviços de Recuperação proporcionam uma matriz de recursos, incluindo:
+Os cofres dos Serviços de Recuperação oferecem uma matriz de recursos, incluindo:
 
--   Suporte ao Azure Resource Manager: proteja e realize o failover de suas máquinas virtuais e máquinas físicas na pilha do Azure Resource Manager.
+* Suporte do Azure Resource Manager: você pode proteger e realizar o failover de suas máquinas virtuais e computadores físicos em uma pilha do Azure Resource Manager.
 
--   Excluir Disco – se você tiver arquivos temporários ou dados com uma variação alta com os quais você não queira gastar sua largura de banda, exclua os volumes da replicação. Esse recurso está habilitado no momento em "VMware para Azure" e "Hyper-V para Azure" e em breve será estendido para outros cenários também.
+* Excluir disco: se você tem arquivos temporários ou dados com uma variação alta, com os quais você não deseja gastar sua largura de banda, exclua os volumes da replicação. Essa capacidade está atualmente habilitada em *VMware para Azure* e *Hyper-V para Azure* e está estendido para outros cenários também.
 
-- Suporte para Armazenamento Premium e com redundância local (LRS): agora você pode proteger servidores em contas de armazenamento premium que permitem aos clientes proteger aplicativos com IOPs maiores. Esse recurso está habilitado no momento em "VMware para Azure".
+* Suporte para armazenamento Premium e armazenamento com redundância local: agora você pode proteger servidores em contas de armazenamento Premium que permitem aos clientes proteger aplicativos com mais operações de entrada/saída por segundo (IOPS). Essa capacidade está atualmente habilitada em *VMware para o Azure*.
 
--   Experiência de "Introdução" simplificada: a experiência aprimorada de Introdução foi personalizada para garantir a facilidade da configuração de recuperação de desastres.
+* Experiência de introdução simplificada: a experiência aprimorada de introdução foi projetada para facilitar a configuração da recuperação de desastres.
 
-- Gerenciar Backup e Site Recovery a partir do mesmo cofre: agora você pode proteger servidores para recuperação de desastres ou execução de backup, do cofre do mesmo, o que reduz consideravelmente a sobrecarga de gerenciamento.
+* Gerenciamento de Backup e Site Recovery por meio do mesmo cofre: agora você pode proteger servidores para recuperação de desastre ou realização de backup por meio do mesmo cofre, o que reduz consideravelmente a sobrecarga de gerenciamento.
 
-Para obter mais detalhes sobre a os recursos experiência e recursos atualizados, confira este [blog](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
+Para obter mais informações sobre a experiência e os recursos atualizados, consulte o [Blog de Armazenamento, Backup e Recuperação](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
 
 ## <a name="salient-features"></a>Principais recursos
 
-- **Sem impacto na replicação em andamento**: replicações contínuas continuam sem qualquer interrupção durante e após a atualização.
+* Sem impacto na replicação em andamento: as replicações em andamento continuam sem qualquer interrupção durante e após a atualização.
 
-- **Sem custo adicional**: experimente todo um conjunto de recursos novos sem custo adicional
+* Sem custo adicional: obtenha um conjunto completo de recursos atualizados sem custo adicional.
 
-- **Sem perda de dados**: como isso é uma atualização e não uma migração, as informações de replicação existentes (pontos de recuperação, configurações de replicação etc.) permanecem intactas durante e após a atualização.
+* Sem perda de dados: como esse processo é uma atualização e não uma migração, os pontos de recuperação e as configurações de replicação existentes permanecem intactas durante e após a atualização.
 
 
-## <a name="what-happens-during-the-upgrade"></a>O que acontece durante a atualização?
+## <a name="what-happens-during-the-vault-upgrade"></a>O que acontece durante a atualização do cofre?
 
-Operações como registrar um novo servidor, habilitar a replicação para uma VM etc. não têm permissão durante a atualização. Qualquer operação que envolva apenas dados lidos ou gravados no cofre, como a replicação em andamento de itens protegidos no cofre, continua sem interrupções.
+Durante a atualização, você não pode realizar operações como registrar um novo servidor ou habilitar a replicação para uma VM (máquina virtual). As operações que envolvem a leitura ou gravação de dados no cofre, como a replicação em andamento de itens protegidos no cofre, continuam sem interrupções.
 
-## <a name="changes-to-your-automation-and-tooling-after-vault-upgrade"></a>Alterações de automação e de ferramentas após a atualização do cofre
-Como parte da atualização de seu tipo de cofre do modelo de implantação clássico para o modelo de implantação do Resource Manager, você deve atualizar sua automação ou ferramentas existentes para garantir que continuem funcionando após a atualização.
+### <a name="changes-to-automation-and-tooling-after-the-upgrade"></a>Alterações na automação e nas ferramentas depois da atualização
+Ao atualizar o tipo de cofre do modelo de implantação clássico para o modelo de implantação do Resource Manager, atualize a automação ou as ferramentas existentes para garantir que continuem funcionando após a atualização.
 
-## <a name="preparing-your-environment-for-vault-upgrade"></a>Preparar seu ambiente para a atualização do cofre
+### <a name="prepare-your-environment-for-the-upgrade"></a>Preparar o ambiente para a atualização
 
-1.  Instalar/Atualizar o PowerShell para a versão 5 ou posterior usando este [link](https://www.microsoft.com/download/details.aspx?id=50395)
+* [Instale o PowerShell ou atualize-o para a versão 5 ou posterior](https://www.microsoft.com/download/details.aspx?id=50395)
+* [Instale a versão mais recente do MSI do Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
+* [Baixe o script de atualização do cofre dos Serviços de Recuperação](https://aka.ms/vaultupgradescript)
 
-2.  Instale o Azure PowerShell MSI mais recente clicando [aqui](https://github.com/Azure/azure-powershell/releases)
+### <a name="prerequisites"></a>Pré-requisitos
+Para atualizar de cofres do Site Recovery para cofres do Serviço de Recuperação com base no Azure Resource Manager, você deve atender aos seguintes pré-requisitos:
 
-3.  [Baixe](https://aka.ms/vaultupgradescript) o script para a atualização do cofre
+* Versão mínima do agente: a versão do Provedor do Azure Site Recovery instalado em seu servidor deve ser a 5.1.1700.0 ou posterior.
 
-## <a name="prerequisites-for-upgrade"></a>Pré-requisitos para a atualização
-Para atualizar seus cofres de cofres do Site Recovery para o Azure Resource Manager baseado em cofres do Serviço de Recuperação, os seguintes pré-requisitos devem ser atendidos.
+* Configuração com suporte: não é possível configurar o cofre com a rede SAN (rede de área de armazenamento ) ou Grupos de Disponibilidade AlwaysOn do SQL Server. Há suporte para todas as outras configurações.
 
-- Versão mínima do agente: a atualização exige que a versão do Provedor do Azure Site Recovery instalada em seu servidor seja no mínimo 5.1.1700.0.
+    >[!NOTE]
+    >Após a atualização, você pode gerenciar o mapeamento de armazenamento somente por meio do PowerShell.
 
-- Configuração com suporte: seu cofre não deve ser configurado com rede SAN, grupos de disponibilidade SQL Always. Há suporte para todas as outras configurações.
+* Cenário de implantação com suporte: seu cofre não deve ser do modelo de implantação herdado *VMware para Azure*. Antes de prosseguir, primeiro mude para o modelo de implantação avançado.
 
->[!NOTE]
-> O mapeamento de armazenamento só pode ser gerenciado por meio do PowerShell após a atualização.
-
-- Cenário de implantação com suporte: seu cofre não deve estar no modelo de implantação herdado "VMware para Azure".  Antes de continuar, você precisa mudar para o modelo de implantação avançada.
-
-- Nenhum trabalho ativo iniciado pelo usuário que envolva operações do plano de gerenciamento: como o acesso ao plano de gerenciamento é restrito durante a atualização, você precisa concluir todas as ações do plano de gerenciamento e, depois, disparar a atualização. Isso não inclui a replicação em andamento.
+* Nenhum trabalho ativo iniciado pelo usuário que envolva operações do plano de gerenciamento: como o acesso ao plano de gerenciamento é restrito durante a atualização, conclua todas as ações do plano de gerenciamento antes de disparar a atualização. Esse processo não inclui a replicação em andamento.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-- Esta atualização afeta minha replicação em andamento?
+**Essa atualização afeta minha replicação em andamento?**
 
-  Nº A replicação em andamento continuará sem interrupção durante e após a atualização.
+Não. A replicação em andamento continuará sem interrupção durante e após a atualização.
 
-- O que acontece com as configurações de rede – VPN Site a Site, configurações de IP etc.?
+**O que acontece com as configurações de rede, como configurações de IP e VPN site a site?**
 
-  A atualização não afeta as configurações de rede, todas as conexões do Azure para o local permanecerão intactas.
-- O que acontece com meus cofres se eu não planejar a atualização em breve?
+A atualização não afeta as configurações de rede. Todas as conexões Azure para local permanecem intactas.
 
-  O suporte para o cofre do Site Recovery no Portal do Azure antigo será preterido a partir de setembro. Portanto, é altamente recomendável aos clientes usar o recurso de atualização para mudar para o novo Portal.
+**O que acontece com meus cofres se eu não planejo atualizar em breve?**
 
-- O que este plano de migração significa para minhas ferramentas existentes?  
+O suporte para o cofre do Site Recovery no Portal do Azure antigo será preterido a partir de setembro de 2017. É altamente recomendável que você use o recurso de atualização para mudar para o novo portal.
 
-  Atualizar suas ferramentas para o modelo de implantação do Resource Manager em que os cofres dos Serviços de Recuperação são baseados é uma das alterações mais importantes que você precisa considerar em seus planos de atualização.
+**O que este plano de migração significa para minhas ferramentas existentes?**  
 
-- O tempo de inatividade do plano de gerenciamento será de quanto tempo?
+Atualizar suas ferramentas para o modelo de implantação do Resource Manager é uma das alterações mais importantes que você deve considerar em seus planos de atualização. Os cofres dos Serviços de Recuperação são baseados no modelo de implantação do Resource Manager. 
 
-  A atualização demora cerca de 15 a 30 minutos. Pode demorar até no máximo uma hora.
+**Qual será o tempo de inatividade do plano de gerenciamento?**
 
-- Posso reverter após a atualização?
+A atualização normalmente leva cerca de 15 a 30 minutos e poderá levar, no máximo, uma hora.
 
-  Nº Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+**Posso reverter após a atualização?**
 
-- Posso validar minha assinatura ou recursos para ver se eles podem ser atualizados?
+Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
-  Sim. Na opção de atualização com suporte da plataforma, a primeira etapa é validar se os recursos podem fazer a atualizar. No caso de falha da validação dos pré-requisitos, você receberá erros ou avisos apropriados.
+**Posso validar minha assinatura ou meus recursos para ver se eles podem ser atualizados?**
 
-- Como fazer para relatar um problema com a atualização?
+Sim. Na opção de atualização com suporte da plataforma, a primeira etapa é validar se os recursos podem ser atualizados. Se a validação falhar, você receberá mensagens de erro ou avisos apropriados.
 
-  Caso você enfrente falhas durante a atualização, tome nota do OperationId listado no erro. O Suporte da Microsoft estará trabalhando proativamente para resolver o problema. Também é possível entrar em contato com a equipe de suporte informando sua ID de Assinatura, nome do cofre e ID da operação. Trabalharemos para resolver o problema o mais rápido possível. Não repita a operação, a menos que seja explicitamente instruído a fazer isso pela Microsoft.
+**Como faço para relatar um problema com a atualização?**
 
-## <a name="how-to-run-the-script"></a>Como executar o script?
+Se você enfrentar falhas durante a atualização, observe a ID da operação que estará listada no erro. O Suporte da Microsoft trabalhará proativamente para resolver o problema. Também é possível entrar em contato com a equipe do Suporte, informando sua ID de assinatura, o nome do cofre e a ID da operação. O suporte trabalhará para resolver o problema o mais rápido possível. Não repita a operação, a menos que seja explicitamente instruído a fazer isso pela Microsoft.
 
-Execute o seguinte comando em um prompt do PowerShell:
+## <a name="run-the-script"></a>Execute o script
+
+No PowerShell, execute o seguinte comando:
 
     PS > .\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionID <subscriptionID>  -VaultName <vaultname> -Location <location> -ResourceType HyperVRecoveryManagerVault -TargetResourceGroupName <rgname>
 
-- SubscriptionID: a ID da assinatura associada ao cofre que está sendo atualizado
-- VaultName: nome do cofre que está sendo atualizado
-- Local: local do cofre que está sendo atualizado
-- ResourceType: HyperVRecoveryManagerVault para cofres do Site Recovery
-- TargetResourceGroupName: grupo de recursos no qual você deseja que o cofre atualizado seja colocado. O TargetResourceGroupName pode ser um grupo de recursos existente no Azure Resource Manager ou um novo. Caso o TargetResourceGroupName fornecido não exista, ele será criado como parte da atualização no mesmo local que o cofre. Para ler mais sobre os Grupos de Recursos, clique [aqui](../azure-resource-manager/resource-group-overview.md#resource-groups):
+* SubscriptionID: a ID da assinatura associada ao cofre que você está atualizando.
 
->[!NOTE]
->Nomes de Grupo de Recursos têm restrições. Respeite essas restrições, caso contrário a atualização do cofre falhará.
+* VaultName: o nome do cofre que você está atualizando.
 
-Exemplo:
+* Localização: a localização do cofre que você está atualizando.
 
-    .\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionId 1234-54123-354354-56416-8645 -VaultName gen2dr -Location "north europe" -ResourceType hypervrecoverymanagervault -TargetResourceGroupName abc
+* ResourceType: HyperVRecoveryManagerVault para cofres do Site Recovery.
 
+* TargetResourceGroupName: o grupo de recursos no qual você deseja que o cofre atualizado seja colocado. O TargetResourceGroupName pode ser de um grupo de recursos existente no Azure Resource Manager ou um novo. Se o TargetResourceGroupName fornecido não existir, ele será criado como parte da atualização no mesmo local que o cofre. Para obter mais informações, consulte a seção "Grupos de recursos" da [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-Como alternativa, você pode executar o script conforme indicado abaixo, e receberá uma solicitação para fornecer entradas para todos os parâmetros necessários.
+    >[!NOTE]
+    >A nomenclatura do grupo de recursos está sujeita a determinadas restrições. Para evitar a falha na atualização do cofre, certifique-se de observar a convenção de nomenclatura com cuidado.
+    >
+    >Por exemplo:
+    >
+    >.\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionId 1234-54123-354354-56416-8645 -VaultName gen2dr -Location "north europe" -ResourceType hypervrecoverymanagervault -TargetResourceGroupName abc
+
+Como alternativa, você pode executar o seguinte script. Insira os valores dos parâmetros necessários.
 
     PS > .\RecoveryServicesVaultUpgrade-1.0.0.ps1
     cmdlet RecoveryServicesVaultUpgrade-1.0.0.ps1 at command pipeline position 1
@@ -144,44 +146,44 @@ Como alternativa, você pode executar o script conforme indicado abaixo, e receb
     ResourceType:
     TargetResourceGroupName:
 
-1.  O script do PowerShell solicita que você insira suas credenciais. Você precisa inserir suas credenciais duas vezes: uma vez para a conta do ASM e outra para a conta do Azure Resource Manager.
+1. O script do PowerShell solicita que você insira suas credenciais. Digite-as duas vezes, uma vez para a conta do modelo de implantação clássico e outra para a conta do Azure Resource Manager.
 
-2.  Após a inserção das credenciais, o script executará uma verificação de pré-requisitos para determinar se a configuração da infraestrutura atende aos pré-requisitos mencionados anteriormente no documento.
+2. Depois de inserir suas credenciais, o script executará uma verificação para determinar se a sua configuração de infraestrutura atende aos requisitos mencionados anteriormente.
 
-3.  Após a verificação dos pré-requisitos, você receberá uma solicitação de confirmação para continuar com a atualização do cofre. Após a confirmação, o processo de atualização começa a atualizar seu cofre. Toda a atualização pode levar de 15 a 30 minutos para ser concluída.
+3. Depois que os pré-requisitos foram verificados e confirmados, você será solicitado a continuar com a atualização do cofre. O processo de atualização começará a atualizar seu cofre. Toda a atualização pode levar de 15 a 30 minutos para ser concluída.
 
-4.  Após a conclusão bem-sucedida da atualização, você poderá acessar o cofre atualizado no novo Portal do Azure.
+4. Depois que a atualização for concluída com êxito, você poderá acessar o cofre atualizado no novo Portal do Azure.
 
-## <a name="management-experience-post-upgrade"></a>Experiência de gerenciamento pós-atualização
+## <a name="post-upgrade-vault-management"></a>Gerenciamento do cofre após a atualização
 
-### <a name="how-to-replicate-using-azure-site-recovery-in-the-recovery-services-vault"></a>Como replicar usando o Azure Site Recovery no cofre dos Serviços de Recuperação
+### <a name="replicate-by-using-azure-site-recovery-in-the-recovery-services-vault"></a>Replicar usando o Azure Site Recovery no cofre dos Serviços de Recuperação
 
-- Agora você pode proteger suas VMs do Azure de uma região para outra. Para saber mais, veja [esta](site-recovery-azure-to-azure.md) documentação.
+* Agora você pode proteger suas VMs do Azure de uma região para outra. Para obter mais informações, consulte [Replicar VMs do Azure entre regiões com o Azure Site Recovery](site-recovery-azure-to-azure.md).
 
-- Para saber mais sobre a replicação de VMs do VMware no Azure, veja [esta](vmware-walkthrough-overview.md) documentação.
+* Para obter mais informações sobre a replicação de VMs do VMware para o Azure, consulte [Replicar VMs do VMware no Azure com o Site Recovery](vmware-walkthrough-overview.md).
 
-- Para saber mais sobre a replicação de VMs do Hyper-V (sem VMM) no Azure, veja [esta](hyper-v-site-walkthrough-overview.md) documentação.
+* Para obter mais informações sobre a replicação de VMs do Hyper-V (sem VMM) no Azure, consulte [Replicar máquinas virtuais do Hyper-V (sem o VMM) no Azure](hyper-v-site-walkthrough-overview.md).
 
-- Para saber mais sobre a replicação de VMs do Hyper-V (com VMM) no Azure, veja [esta](vmm-to-azure-walkthrough-overview.md) documentação.
+* Para obter mais informações sobre a replicação de VMs do Hyper-V (com o VMM) no Azure, consulte [Replicar máquinas virtuais Hyper-V em nuvens VMM no Azure usando o Site Recovery no Portal do Azure](vmm-to-azure-walkthrough-overview.md).
 
-- Para saber mais sobre a replicação de VMs do Hyper-V (com VMM) em um site secundário, veja [esta](site-recovery-vmm-to-vmm.md) documentação.
+* Para obter mais informações sobre a replicação de VMs do Hyper-V (com o VMM) em um site secundário, consulte [Replicar máquinas virtuais do Hyper-V em nuvens VMM para um site de VMM secundário usando o Portal do Azure](site-recovery-vmm-to-vmm.md).
 
-- Para saber mais sobre a replicação de VMs do VMware em um site secundário, veja [esta](site-recovery-vmware-to-vmware.md) documentação.
+* Para obter mais informações sobre a replicação de VMs do VMware para um site secundário, consulte [Replicar máquinas virtuais locais ou servidores físicos do VMware em um site secundário no Portal Clássico do Azure](site-recovery-vmware-to-vmware.md).
 
-### <a name="how-to-view-your-replicated-items"></a>Como exibir os itens replicados
+### <a name="view-your-replicated-items"></a>Exibir seus itens replicados
 
-Veja abaixo a tela que mostra a página de painel do cofre dos Serviços de Recuperação que exibe as principais entidades para o cofre. Clique em **Site Recovery** -> **Itens replicados** para exibir a lista de entidades protegidas no cofre.
+A imagem abaixo mostra a página de painel do cofre dos Serviços de Recuperação que exibe as principais entidades do cofre. Para exibir uma lista de entidades protegidas no cofre, selecione **Site Recovery** > **Itens replicados**.
 
 
 ![Itens replicados](./media/upgrade-site-recovery-vaults/replicateditems.png)
 
-A tela abaixo mostra o fluxo de trabalho para exibição de seus itens replicados e como iniciar um failover.
+A imagem a seguir mostra o fluxo de trabalho para exibir seus itens replicados e o comando **Failover** para iniciar um failover.
 
 ![Itens replicados](./media/upgrade-site-recovery-vaults/failover.png)
 
-### <a name="how-to-view-your-replication-settings"></a>Como exibir suas configurações de replicação
+### <a name="view-your-replication-settings"></a>Exibir suas configurações de replicação
 
-No cofre do Site Recovery, cada grupo de proteção é definido com as configurações de replicação (Frequência de cópia, Retenção do ponto de recuperação, frequência dos instantâneos consistentes por aplicativo etc.). No cofre dos Serviços de Recuperação, essas configurações são definidas como uma política de replicação. O nome da política é o nome do grupo de proteção ou da "primarycloud_Policy".
+No cofre do Site Recovery, cada grupo de proteção é definido com frequência de cópia, retenção do ponto de recuperação, frequência dos instantâneos consistentes com aplicativo e outras configurações de replicação. No cofre dos Serviços de Recuperação, essas configurações são definidas como uma política de replicação. O nome da política é o nome do grupo de proteção ou da *primarycloud_Policy*.
 
-Para saber mais sobre a política de replicação, clique [aqui](site-recovery-setup-replication-settings-vmware.md)
+Para obter mais informações sobre a política de replicação, consulte [Gerenciar a política de replicação para VMware para Azure](site-recovery-setup-replication-settings-vmware.md).
 

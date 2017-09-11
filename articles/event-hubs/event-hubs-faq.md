@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e0e33882acc90130ef93cd66c3d57bb90f78ccee
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -33,7 +32,7 @@ A camada Standard dos Hubs de Evento do Azure fornece recursos além daqueles di
 * Maior retenção de evento
 * Conexões agenciadas adicionais, com uma taxa excedente para além do número incluído
 * Mais de um único Grupo de consumidores
-* [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 Para obter mais informações sobre tipos de preço, incluindo Hubs de Eventos Dedicados, veja os [Detalhes de preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -59,7 +58,7 @@ Há uma cota padrão de 20 unidades de produtividade por namespace. Você pode s
 Sim, contanto que todos os Hubs de Eventos estejam no mesmo namespace.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual é o período de retenção máximo para eventos?
-O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Observe que os Hubs de Eventos não são destinados a funcionarem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes. Se você precisar de retenção de mensagens por mais de 7 dias, a habilitação da [Captura de Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) efetuará pull dos dados do Hub de Eventos para o armazenamento de sua escolha. A habilitação da Captura incorrerá em uma cobrança de acordo com a Unidade de Produtividade adquirida.
+O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Observe que os Hubs de Eventos não são destinados a funcionarem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes. Se você precisar de retenção de mensagens por mais de 7 dias, a habilitação da [Captura de Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) efetuará pull dos dados do hub de eventos para a conta de armazenamento ou conta de serviço Azure Data Lake de sua escolha. A habilitação da Captura incorrerá em uma cobrança de acordo com a Unidade de Produtividade adquirida.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Onde os Hubs de Eventos do Azure estão disponíveis?
 Os Hubs de Eventos do Azure está disponível em todas as regiões do Azure com suporte. Para obter uma lista, visite a página [Regiões do Azure](https://azure.microsoft.com/regions/).  

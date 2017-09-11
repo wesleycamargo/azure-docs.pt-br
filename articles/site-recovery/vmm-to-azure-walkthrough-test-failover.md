@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 8d7b3b8293120bb7e9f00a90da09f94ca7cba29b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4688fc4bc74a9e0e04487cfbe965006070fd9a7b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,13 +34,13 @@ Antes de executar um failover de teste, é recomendável verificar as propriedad
 
 ## <a name="managed-disk-considerations"></a>Considerações sobre discos gerenciados
 
-[Discos gerenciados](../storage/storage-managed-disks-overview.md) simplificam o gerenciamento de disco para VMs do Azure, gerenciando as contas de armazenamento associadas aos discos da VM. 
+[Discos gerenciados](../virtual-machines/windows/managed-disks-overview.md) simplificam o gerenciamento de disco para VMs do Azure, gerenciando as contas de armazenamento associadas aos discos da VM. 
 
 - Os discos gerenciados são criados e anexados à VM somente quando um failover no Azure ocorre. Quando você habilita a proteção, os dados das VMs locais são replicados em contas de armazenamento.
 - Managed disks podem ser criados apenas para VMs implantadas usando o modelo de implantação do Resource Manager.
 - Não há suporte para failback do Azure para o ambiente do Hyper-V local para computadores com managed disks. Você só deve definir **Usar discos gerenciados** como **Sim** se estiver fazendo uma migração única (failover no Azure sem failback)
 - Com essa configuração habilitada, apenas os conjuntos de disponibilidade nos Grupos de Recursos que tenham a configuração **Utilizar discos gerenciados** habilitados poderão ser selecionados. VMs com discos gerenciados devem estar em conjuntos de disponibilidade com a configuração **Utilizar discos gerenciados** configurada para **Sim**. Se a configuração não estiver habilitada para as VMs, apenas os conjuntos de disponibilidade em Grupos de Recursos sem discos gerenciados habilitados poderão ser selecionados. [Saiba mais](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
-- - Se a conta de armazenamento que você utiliza para replicação foi criptografada com a Criptografia do Serviço de Armazenamento, os discos gerenciados não poderão ser criados durante o failover. Nesse caso, não habilite o uso de discos gerenciados ou desabilite a proteção para a VM e reabilite-a para utilizar uma conta de armazenamento que não tenha criptografia habilitada. [Saiba mais](../storage/storage-managed-disks-overview.md#managed-disks-and-encryption).
+- - Se a conta de armazenamento que você utiliza para replicação foi criptografada com a Criptografia do Serviço de Armazenamento, os discos gerenciados não poderão ser criados durante o failover. Nesse caso, não habilite o uso de discos gerenciados ou desabilite a proteção para a VM e reabilite-a para utilizar uma conta de armazenamento que não tenha criptografia habilitada. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md#managed-disks-and-encryption).
 
  
 ## <a name="network-considerations"></a>Considerações sobre rede
@@ -66,9 +66,9 @@ Antes de executar um failover de teste, é recomendável verificar as propriedad
     ![Habilitar a replicação](./media/vmm-to-azure-walkthrough-test-failover/test-failover2.png)
 3. Em **Computador e Rede**, é possível:
     - Modificar o nome da VM do Azure. O nome deve atender aos [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Especificar um [grupo de recursos](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) pós-failover
+    - Especificar um failover de postagem [grupo de recursos].
     - Especifique um tamanho de destino para a VM do Azure
-    - Selecione um [conjunto de disponibilidade](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Selecione um [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md).
     - Especifique se deseja usar [discos gerenciados](#managed-disk-considerations). Selecione **Sim**, se deseja anexar discos gerenciados à sua máquina na migração para o Azure.
     - Visualize ou modifique as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após o failover e o endereço IP que será atribuído.
 

@@ -1,5 +1,5 @@
 ---
-title: "Adicionar um repositório de artefatos do Git a um laboratório no Azure DevTest Labs | Microsoft Docs"
+title: "Adicionar um repositório Git a um laboratório no Azure DevTest Labs | Microsoft Docs"
 description: "Adicionar um repositório Git do GitHub ou do Visual Studio Team Services à sua fonte de artefatos personalizados no Azure DevTest Labs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 55b8b97a8cabedf86e2b92d9490be74c72a5fb09
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates-for-use-in-azure-devtest-labs"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Azure Resource Manager para uso no Azure DevTest Labs
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Azure Resource Manager
 
 Se você quiser [criar artefatos personalizados](devtest-lab-artifact-author.md) para as VMs em seu laboratório ou [usar modelos do Azure Resource Manager para criar um ambiente de teste personalizado](devtest-lab-create-environment-from-arm.md), adicione também um repositório gito para incluir os artefatos ou modelos do Azure Resource Manager que sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou no [VSTS (Visual Studio Team Services)](https://visualstudio.com).
 
@@ -77,12 +76,12 @@ Para obter a URL de clone do repositório do Visual Studio Team Services e token
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.   
-4. Na folha do laboratório, selecione **Configuração e Políticas**.
-5. Na folha **Configuração e políticas** do laboratório, selecione **Repositórios**.
-6. Na folha **Repositório**, selecione **+ Adicionar**.
+4. No painel esquerdo, selecione **Configuração e políticas**.
+5. Na área **Configuração e políticas** do laboratório, selecione **Repositórios**.
+6. Na área **Repositório**, selecione **+ Adicionar**.
 
     ![Adicionar um botão de repositório](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. Na segunda folha **Repositórios**, especifique o seguinte:
+7. Na segunda página **Repositórios**, especifique as seguintes informações:
 
    * **Nome** – insira um nome para o repositório.
    * **URL de Clone de Git** – insira a URL HTTPS de clone de Git que você copiou anteriormente do GitHub ou do Visual Studio Team Services.
@@ -90,7 +89,7 @@ Para obter a URL de clone do repositório do Visual Studio Team Services e token
    * **Token de Acesso Pessoal** – insira o token de acesso pessoal obtido anteriormente do GitHub ou do Visual Studio Team Services.
    * **Caminhos de pasta** – Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Azure Resource Manager. Ao especificar um subdiretório, certifique-se de incluir a barra no caminho da pasta.
 
-     ![Folha de repositório](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+     ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -98,11 +97,11 @@ Depois que você criou seu repositório Git, você pode fazer um ou ambos estes 
 * Armazene seus [artefatos personalizados](devtest-lab-artifact-author.md), que você pode usar depois para criar novas VMs.
 * [Crie ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) e, então, armazene os modelos em seu repositório particular.
 
-Quando você cria uma VM, você poderá verificar se os artefatos ou os modelos são adicionados ao seu repositório Git. Eles estarão disponíveis imediatamente na lista de artefatos ou modelos, com o nome do seu repositório particular mostrado na coluna que especifica a origem. 
+Quando você criar uma VM, poderá verificar se os artefatos ou os modelos são adicionados ao seu repositório Git. Eles estarão disponíveis imediatamente na lista de artefatos ou modelos, com o nome do seu repositório particular mostrado na coluna que especifica a origem. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="related-blog-posts"></a>Postagens de blogs relacionadas
-* [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Como solucionar problemas de falha de Artefatos no Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Ingressar uma VM em um Domínio do AD existente usando um modelo do Resource Manager no Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 

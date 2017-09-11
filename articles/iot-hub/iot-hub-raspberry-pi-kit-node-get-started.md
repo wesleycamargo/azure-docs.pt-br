@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -120,8 +120,8 @@ Use a seguinte fiação para os pinos do sensor:
 | -----------------------  | ---------------------- | ------------: |
 | VDD (pino 5G)             | 3,3 v PWR (pino 1)       | Cabo branco   |
 | GND (pino 7G)             | GND (pino 6)            | Cabo marrom   |
-| SCK (pino 8G)             | I2C1 SDA (pino 3)       | Cabo laranja  |
-| SDI (pino 10G)            | I2C1 SCL (pino 5)       | Cabo vermelho     |
+| SDI (pino 10G)            | I2C1 SDA (pino 3)       | Cabo vermelho     |
+| SCK (pino 8G)             | I2C1 SCL (pino 5)       | Cabo laranja  |
 | LED VDD (pino 18F)        | GPIO 24 (pino 18)       | Cabo branco   |
 | LED GND (pino 17F)        | GND (pino 20)           | Cabo preto   |
 
@@ -222,7 +222,7 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que o seu Raspberry Pi enviou ao seu IoT Hub ou enviar mensagens para o Raspberry Pi em uma interface de linha de comando, consulte o [tutorial Gerenciar sistema de mensagens em dispositivo de nuvem com o gerenciador de Hub IoT](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que o seu Raspberry Pi enviou ao seu Hub IoT ou enviar mensagens para o Raspberry Pi em uma interface de linha de comando, consulte o [tutorial Gerenciar mensagens em dispositivo de nuvem com o gerenciador de Hubs IoT](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

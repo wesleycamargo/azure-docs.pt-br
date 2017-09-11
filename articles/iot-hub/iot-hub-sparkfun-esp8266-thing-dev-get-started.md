@@ -1,10 +1,10 @@
 ---
 title: "ESP8266 para a nuvem – conectar o Sparkfun ESP8266 Thing Dev ao Hub IoT do Azure | Microsoft Docs"
-description: "Um guia para conectar um dispositivo Arduino, o Sparkfun ESP8266 Thing Dev, ao Hub IoT do Azure, que é um serviço de nuvem da Microsoft que ajuda a gerenciar seus ativos IoT."
+description: Neste tutorial, aprenda a configurar e conectar Sparkfun ESP8266 Thing Dev para o Hub IoT do Azure para enviar dados para a plataforma de nuvem do Azure.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Conectar a Sparkfun ESP8266 Thing Dev ao Hub IoT do Azure na nuvem
@@ -192,6 +191,14 @@ O aplicativo de exemplo pode simular a temperatura e umidade dados caso você n�
 
 1. No IDE Arduino, clique em **Ferramenta** > **Porta** e clique na porta serial para a Sparkfun ESP8266 Thing Dev.
 1. Clique em **Esboço** > **Upload** para criar e implantar o aplicativo de exemplo para a Sparkfun ESP8266 Thing Dev.
+
+> [!Note]
+> Se você estiver usando macOS provavelmente você pode ver as seguintes mensagens de erro durante o carregamento. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Abra a janela do seu terminal e concluir ações para resolver esse problema abaixo.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>Inserir suas credenciais
 

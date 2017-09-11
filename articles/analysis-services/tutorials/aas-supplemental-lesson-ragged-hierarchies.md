@@ -3,7 +3,7 @@ title: "Lição suplementar de tutorial do Azure Analysis Services: hierarquias 
 description: Descreve como corrigir hierarquias desbalanceadas no tutorial do Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

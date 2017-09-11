@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backups do SQL Data Warehouse
@@ -35,15 +35,15 @@ O SQL Data Warehouse também protege seus dados armazenando-os em Armazenamento 
 
 Para saber mais sobre:
 
-* Armazenamento Premium do Azure, veja [Introdução ao Armazenamento Premium do Azure](../storage/storage-premium-storage.md).
-* Armazenamento com redundância local, veja [Replicação do Armazenamento do Azure](../storage/storage-redundancy.md#locally-redundant-storage).
+* Armazenamento Premium do Azure, veja [Introdução ao Armazenamento Premium do Azure](../storage/common/storage-premium-storage.md).
+* Armazenamento com redundância local, veja [Replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## <a name="azure-storage-blob-snapshots"></a>Instantâneos do Azure Storage Blob
 Como um benefício do uso do Armazenamento Premium do Azure, o SQL Data Warehouse usa instantâneos do Blob de Armazenamento do Azure para fazer backup do data warehouse localmente. Você pode restaurar um data warehouse para um ponto de restauração de instantâneo. Instantâneos iniciam no mínimo a cada oito horas e permanecem disponíveis por sete dias.  
 
 Para saber mais sobre:
 
-* Instantâneos de blob do Azure, consulte [Criar um instantâneo de blob](../storage/storage-blob-snapshots.md).
+* Instantâneos de blob do Azure, consulte [Criar um instantâneo de blob](../storage/blobs/storage-blob-snapshots.md).
 
 ## <a name="geo-redundant-backups"></a>Backups com redundância geográfica
 A cada 24 horas, o SQL Data Warehouse armazena um data warehouse completo no Armazenamento padrão. Um data warehouse completo é criado para coincidir com a hora do último instantâneo. O armazenamento padrão pertence a uma conta de armazenamento com RA-GRS (redundância geográfica com acesso de leitura). O recurso RA-GRS do Armazenamento do Azure replica os arquivos de backup para um [data center emparelhado](../best-practices-availability-paired-regions.md). Essa replicação geográfica garante que você possa restaurar um data warehouse caso não seja possível acessar os instantâneos em sua região primária. 
@@ -62,8 +62,8 @@ Esse recurso está ligado por padrão. Se você não quiser usar backups com red
 
 Para saber mais sobre:
 
-* Armazenamento com redundância geográfica, veja [Replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
-* Armazenamento RA-GRS, veja [Armazenamento com redundância geográfica com acesso de leitura](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Armazenamento com redundância geográfica, veja [Replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
+* Armazenamento RA-GRS, veja [Armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>Período de retenção e agendamento de backup de data warehouse
 O SQL Data Warehouse cria instantâneos em seus data warehouses online a cada quatro a oito horas e mantém cada instantâneo por sete dias. Você pode restaurar seu banco de dados online para um dos pontos de restauração nos últimos sete dias. 

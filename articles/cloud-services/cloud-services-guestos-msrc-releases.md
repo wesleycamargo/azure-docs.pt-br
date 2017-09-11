@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2017
+ms.date: 8/24/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="august-guest-os"></a>SO convidado de agosto
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Lanç. 17-07 | [4034658] |Atualizações do Windows 10 |5.10 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034679] |Somente Segurança do Windows |2.65 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034672] |Somente Segurança do Windows |4.45 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034666] |Somente Segurança do Windows |3.52 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034664], [4034665], [4034681] |Pacotes Cumulativos de Atualizações Mensais do Windows |2.65, 3.52, 4.45 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4034668], [4034660], [4034658], [4034674] |Relançamento de CVE-2017-0071, Relançamento de CVE-2017-0228 |5.10 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4025341] |Pacote cumulativo de atualizações não relacionado à segurança de julho |2.65 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4025331] |Pacote cumulativo de atualizações não relacionado à segurança de julho |3.52 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4025336] |Pacote cumulativo de atualizações não relacionado à segurança de julho |4.45 |8 de agosto de 2017 |
 
 ## <a name="july-guest-os"></a>SO convidado - julho
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -509,6 +523,23 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3007054] |Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
+
+
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034679]: http://support.microsoft.com/kb/4034679
+[4034672]: http://support.microsoft.com/kb/4034672
+[4034666]: http://support.microsoft.com/kb/4034666
+[4034733]: http://support.microsoft.com/kb/4034733
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+[4034668]: http://support.microsoft.com/kb/4034668
+[4034660]: http://support.microsoft.com/kb/4034660
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034674]: http://support.microsoft.com/kb/4034674
+[4025341]: http://support.microsoft.com/kb/4025341
+[4025331]: http://support.microsoft.com/kb/4025331
+[4025336]: http://support.microsoft.com/kb/4025336
 
 [4025339]: http://support.microsoft.com/kb/4025337
 [4025337]: http://support.microsoft.com/kb/4025333

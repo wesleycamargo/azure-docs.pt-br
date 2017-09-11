@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
@@ -27,12 +26,12 @@ ms.lasthandoff: 06/16/2017
 ## <a name="overview"></a>Visão geral
 
 
-O Microsoft Dynamics AX é uma das mais populares soluções de ERP entre as empresas para padronizar o processo entre locais, gerenciar recursos e simplificar a conformidade. Considerando que o aplicativo é crítico para uma organização, é muito importante ter certeza de que, em caso de desastre, o aplicativo estará em execução no mínimo de tempo.
+O Microsoft Dynamics AX é uma das mais populares soluções de ERP entre as empresas para padronizar o processo entre locais, gerenciar recursos e simplificar a conformidade. Considerando que o aplicativo é crítico para os negócios de uma organização, é muito importante ter certeza de que, em caso de desastre, o aplicativo estará em execução no tempo mínimo.
 
 Hoje, o Microsoft Dynamics AX não fornece nenhuma funcionalidade integrada de recuperação de desastre. O Microsoft Dynamics AX consiste em vários componentes de servidor como o Servidor de Objetos de Aplicativo, o AD (Active Directory), o servidor de Banco de Dados SQL, o SharePoint Server, o Servidor de Relatórios, etc. Gerenciar a recuperação de desastre de cada um desses componentes manualmente não é apenas caro mas também propenso a erros.
 
-Este artigo explica em detalhes sobre como você pode criar uma solução de recuperação de desastre para seu aplicativo Dynamics AX usando o [Azure Site Recovery](site-recovery-overview.md). Ele também discutirá failovers planejados/não planejados/de teste usando o plano de recuperação de um único clique, configurações com suporte e pré-requisitos.
-A solução de recuperação de desastre com base no Azure Site Recovery é totalmente testada, certificada e recomendada pelo Microsoft Dynamics AX.
+Este artigo explica em detalhes sobre como você pode criar uma solução de recuperação de desastre para seu aplicativo Dynamics AX usando o [Azure Site Recovery](site-recovery-overview.md). Ele também aborda failovers planejados/não planejados/de teste usando o plano de recuperação com um único clique, configurações com suporte e pré-requisitos.
+A solução de recuperação de desastre baseada no Azure Site Recovery é totalmente testada, certificada e recomendada pelo Microsoft Dynamics AX.
 
 
 
@@ -49,7 +48,7 @@ A implementação de recuperação de desastre para aplicativos do Dynamics AX u
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Para a criação deste artigo, usamos as máquinas virtuais VMware com o Dynamics AX 2012R3 no Windows Server 2012 R2 Enterprise. Já que a replicação do Site Recovery é independente do aplicativo, as recomendações fornecidas aqui devem servir também para os cenários a seguir.
+Para a finalidade de criação deste artigo, usamos as máquinas virtuais do VMware com o Dynamics AX 2012 R3 no Windows Server 2012 R2 Enterprise. Já que a replicação do Site Recovery é independente do aplicativo, as recomendações fornecidas aqui devem servir também para os cenários a seguir.
 
 ### <a name="source-and-target"></a>Origem e destino
 
@@ -59,7 +58,7 @@ Para a criação deste artigo, usamos as máquinas virtuais VMware com o Dynamic
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>Habilitar a DR do aplicativo Dynamics AX usando o ASR
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Habilitar a DR do aplicativo Dynamics AX usando o Azure Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger o aplicativo Dynamics AX
 Cada componente do Dynamics AX precisa ser protegido para habilitar a replicação e a recuperação completas do aplicativo. Esta seção aborda:
 
@@ -103,7 +102,7 @@ O instantâneo abaixo mostra o status de proteção de VMs componentes do Dynami
 ### <a name="4-configure-networking"></a>4. Configurar Rede
 Definir as Configurações de Rede e de Computação de VM
 
-Para as VMs do AOS e cliente AX, defina configurações de rede no ASR para que as redes de VMs sejam anexadas à rede de DR correta após o failover. Verifique se a rede de DR para essas camadas é roteável para a camada SQL.
+Para as VMs do AOS e do cliente AX, defina as configurações de rede no Azure Site Recovery para que as redes VMs sejam anexadas à rede de DR correta após o failover. Verifique se a rede de DR para essas camadas é roteável para a camada SQL.
 
 Você pode selecionar a VM nos itens replicados para definir as configurações de rede, conforme mostrado no instantâneo a seguir.
 
@@ -115,9 +114,9 @@ Você pode selecionar a VM nos itens replicados para definir as configurações 
 
 ### <a name="5-creating-a-recovery-plan"></a>5. Criar um plano de recuperação
 
-Você pode criar um plano de recuperação no ASR para automatizar o processo de failover. Adicione a camada de aplicativos e a camada da Web no plano de recuperação. Ordene-as em grupos diferentes, para que o front-end se desligue antes da camada de aplicativos.
+Crie um plano de recuperação no Azure Site Recovery para automatizar o processo de failover. Adicione a camada de aplicativos e a camada da Web no plano de recuperação. Ordene-as em grupos diferentes, para que o front-end se desligue antes da camada de aplicativos.
 
-1)  Selecione o cofre do ASR em sua assinatura e clique no bloco 'Planos de Recuperação'.
+1)  Selecione o cofre do Azure Site Recovery em sua assinatura e clique no bloco “Planos de Recuperação”.
 
 2)  Clique em '+ Plano de recuperação' e especifique um nome.
 
@@ -139,14 +138,14 @@ Você pode personalizar o plano de recuperação do aplicativo Dynamics AX adici
 
 Consulte o guia complementar ['Solução de recuperação de desastres do SQL Server'](site-recovery-sql.md) para obter detalhes sobre etapas de recuperação específicas para o SQL Server.
 
-*2. Grupo de failover 1: fazer failover das VMs do AOS*
+*2. Grupo de Failover 1: fazer failover das VMs do AOS*
 
 Verifique se o ponto de recuperação selecionado está tão próximo quanto possível do PIT do banco de dados, mas não à frente dele.
 
 *3. Script: adicionar balanceador de carga (apenas E-A)* Adicione um script (por meio da Automação do Azure) depois do aparecimento do grupo de VMs do AOS para adicionar um balanceador de carga para ele. Você pode usar um script para realizar essa tarefa. Consulte o artigo [como adicionar balanceador de carga para DR de aplicativos de várias camadas](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)
 
-*4. Grupo de Failover 2: faça failover das VMs de cliente do AX.*
-Faça failover das VMs da camada da web como parte do plano de recuperação.
+*4. Grupo de Failover 2: fazer failover das VMs do cliente do AX.*
+Faça failover das VMs da camada da Web como parte do plano de recuperação.
 
 
 ### <a name="doing-a-test-failover"></a>Executar um failover de teste

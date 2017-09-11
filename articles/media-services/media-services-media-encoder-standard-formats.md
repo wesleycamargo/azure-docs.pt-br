@@ -4,7 +4,7 @@ description: "Este tópico oferece uma visão geral dos codecs e dos formatos do
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services

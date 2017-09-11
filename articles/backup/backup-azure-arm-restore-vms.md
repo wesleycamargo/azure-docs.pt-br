@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/12/2017
+ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2ab86ed8aafb01e97b3ac9ba0411f4b80f88ac5b
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
@@ -131,7 +130,7 @@ Se quiser personalizar a máquina virtual que você gostaria de criar nos discos
 
 Após a conclusão da operação de restauração, você pode:
 * [Usar o modelo para personalizar a VM restaurada](#use-templates-to-customize-restore-vm)
-* [Usar os discos restaurados para anexar a uma máquina virtual existente](../virtual-machines/windows/attach-disk-portal.md)
+* [Usar os discos restaurados para anexar a uma máquina virtual existente](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Criar uma nova máquina virtual usando o PowerShell de discos restaurados.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 Na folha **Restaurar configuração** folha, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
@@ -172,19 +171,11 @@ Após a [conclusão da operação de restauração dos discos](#Track-the-restor
 Para obter o modelo gerado como parte da opção de discos de restauração,
 
 1. Acesse os detalhes do trabalho de restauração correspondente ao trabalho. 
-2. Isso listará o uri do modelo do qual você pode baixar o modelo. Anote os valores de nome do contêiner. 
+2. Na tela de detalhes do trabalho de restauração, clique em *implantar modelo* botão para iniciar a implantação de modelo. 
 
      ![restaurar detalhamento de trabalho](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. Anote os valores de nome da conta de armazenamento de destino, nome do contêiner, uri do blob de modelo. Acesse *conta de armazenamento de destino > selecione Blobs > Contêineres* e vá até o arquivo e baixe o arquivo que começa com o nome *azuredeploy*.
-
-    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
-    
-   Como alternativa, você pode usar o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para ir até a assinatura > conta de armazenamento de destino > Contêineres de Blob correspondente e selecionar o nome do contêiner anotado na etapa acima. No painel à direita que mostra os arquivos dentro do contêiner, baixe o arquivo que começa com o nome *azuredeploy*. 
    
-   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-Depois de baixar o modelo, use a implantação de modelo para [editar e implantar o modelo](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou acrescentar mais personalizações [criando um modelo](../azure-resource-manager/resource-group-authoring-templates.md) antes de implantar. Use a opção Carregar arquivo para implantar o modelo baixado acima. 
+Na folha do modelo Implantar para a implantação personalizada, use a implantação de modelo para [editar e implantar o modelo](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou acrescentar mais personalizações [criando um modelo](../azure-resource-manager/resource-group-authoring-templates.md) antes de implantar. 
 
    ![implantação por carregamento de modelo](./media/backup-azure-arm-restore-vms/loading-template.png)
    
@@ -196,7 +187,7 @@ Depois de inserir os valores necessários, aceite o *termos e Condições* e cli
 * Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/classic/reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração.
 * As extensões presentes durante a configuração do backup serão instaladas, mas não serão habilitadas. Se você vir qualquer problema, reinstale as extensões. 
 * Se, após a restauração, a VM de backup tiver IP estático, a VM restaurada terá um IP dinâmico para evitar conflitos ao criar uma VM restaurada. Saiba mais sobre como [adicionar um endereço IP estático à VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) ao criar uma VM do PowerShell ou modelos usando discos restaurados. 
+* A VM restaurada não terá o valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração e [adição do conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM do PowerShell ou modelos usando discos restaurados. 
 
 
 ## <a name="backup-for-restored-vms"></a>Backup de VMs restauradas

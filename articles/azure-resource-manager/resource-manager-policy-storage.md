@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>Aplicar políticas de recursos a contas de armazenamento
@@ -27,7 +26,7 @@ Este tópico mostra várias [políticas de recursos](resource-manager-policy.md)
 
 ## <a name="define-permitted-storage-account-types"></a>Definir tipos de conta de armazenamento permitidos
 
-A seguinte política restringe quais [tipos de conta de armazenamento](../storage/storage-redundancy.md) podem ser implantados:
+A seguinte política restringe quais [tipos de conta de armazenamento](../storage/common/storage-redundancy.md) podem ser implantados:
 
 ```json
 {
@@ -58,7 +57,7 @@ Uma regra de política semelhante com um parâmetro para aceitar os SKUs permiti
 
 ## <a name="define-permitted-access-tier"></a>Definir o nível de acesso permitido
 
-A política a seguir especifica o tipo de [camada de acesso](../storage/storage-blob-storage-tiers.md) que pode ser especificado para contas de armazenamento:
+A política a seguir especifica o tipo de [camada de acesso](../storage/blobs/storage-blob-storage-tiers.md) que pode ser especificado para contas de armazenamento:
 
 ```json
 {
@@ -88,7 +87,7 @@ A política a seguir especifica o tipo de [camada de acesso](../storage/storage-
 
 ## <a name="ensure-encryption-is-enabled"></a>Certifique-se de que a criptografia esteja habilitada
 
-A seguinte política requer que todas as contas de armazenamento para habilitar [criptografia do serviço de armazenamento](../storage/storage-service-encryption.md):
+A seguinte política requer que todas as contas de armazenamento para habilitar [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md):
 
 ```json
 {

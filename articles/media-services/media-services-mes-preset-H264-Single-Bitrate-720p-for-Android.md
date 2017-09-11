@@ -2,7 +2,7 @@
 title: "H264 Taxa de Bits Única 720p para Android | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 720p Para Android**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

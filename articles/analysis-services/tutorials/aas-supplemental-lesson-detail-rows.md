@@ -3,7 +3,7 @@ title: "Lição suplementar de tutorial do Azure Analysis Services: linhas de de
 description: "Descreve como criar uma expressão de linhas de detalhes no tutorial do Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

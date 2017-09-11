@@ -13,15 +13,70 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/21/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: d348d607a71d2bc8d2d51a9940d19aa61db751ef
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas de máquinas virtuais Linux no Azure
 
-[!INCLUDE [virtual-machines-common-boot-diagnostics](../../../includes/virtual-machines-common-boot-diagnostics.md)]
+O suporte a dois recursos de depuração agora está disponível no Azure: Saída do Console e a Captura de Tela para o modelo de implantação do Resource Manager de Máquinas Virtuais do Azure. 
+
+Ao colocar sua própria imagem no Azure ou iniciar uma das imagens da plataforma, muitas razões podem contribuir para que uma máquina virtual fique em um estado não inicializável. Esses recursos permitem que você diagnostique e recupere as máquinas virtuais de falhas de inicialização facilmente.
+
+No caso de máquinas virtuais Linux, você pode exibir a saída do seu log de console no Portal:
+
+![Portal do Azure](./media/boot-diagnostics/screenshot1.png)
+ 
+No entanto, no caso dde máquinas virtuais Linux e Windows, o Azure também permite que você veja uma captura de tela da VM no hipervisor:
+
+![Erro](./media/boot-diagnostics/screenshot2.png)
+
+Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regiões. Anotações, capturas de tela e saídas podem levar até 10 minutos para aparecer na sua conta de armazenamento.
+
+## <a name="common-boot-errors"></a>Erros comuns de inicialização
+
+- [Problemas com o sistema de arquivos](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
+- [Problemas de kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
+- [Erros de FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitar o diagnóstico em uma nova máquina virtual
+1. Ao criar uma nova máquina virtual no Portal de Versão Prévia, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
+ 
+    ![Gerenciador de Recursos](./media/boot-diagnostics/screenshot3.jpg)
+
+2. Configure a opção de monitoramento para selecionar a conta de armazenamento em que você deseja colocar esses arquivos de diagnóstico.
+ 
+    ![Criar VM](./media/boot-diagnostics/screenshot4.jpg)
+
+3. Se você estiver implantando um modelo do Azure Resource Manager, navegue até seu recurso de máquina virtual e acrescente a seção de diagnóstico do perfil. Lembre-se de usar o cabeçalho de versão de API "2015-06-15".
+
+    ```json
+    {
+          "apiVersion": "2015-06-15",
+          "type": "Microsoft.Compute/virtualMachines",
+          … 
+    ```
+
+4. O perfil de diagnóstico permite que você selecione a conta de armazenamento em que deseja colocar esses logs.
+
+    ```json
+            "diagnosticsProfile": {
+                "bootDiagnostics": {
+                "enabled": true,
+                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                }
+            }
+            }
+        }
+    ```
+
+## <a name="update-an-existing-virtual-machine"></a>Atualizar uma máquina virtual existente
+
+Para habilitar o diagnóstico de inicialização no portal, você também pode atualizar uma máquina virtual existente pelo portal. Selecione a opção Diagnóstico de inicialização e salve. Reinicie a VM para que entre em vigor.
+
+![Atualizar VM existente](./media/boot-diagnostics/screenshot5.png)

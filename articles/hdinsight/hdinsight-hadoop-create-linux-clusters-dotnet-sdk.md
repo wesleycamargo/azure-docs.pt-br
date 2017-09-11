@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com o HDInsight em um aplicativo .NET Framework. Este documento demonstra como criar um cluster HDInsight baseado em Linux usando o SDK do .NET.
+
+Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .NET.
 
 > [!IMPORTANT]
-> As etapas neste documento criam um cluster com um nó de trabalho. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> As etapas neste documento criam um cluster com um nó de trabalho. Se você pretende ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, precisa selecionar um tamanho de nó de cabeçalho com, pelo menos, 8 núcleos e 14 GB de RAM.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -39,14 +40,14 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Uma conta de armazenamento do Azure**. Consulte [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **Uma conta de armazenamento do Azure**. Consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Criar clusters
 
 1. Abra o Visual Studio 2017.
 2. Crie um novo aplicativo de console do Visual C#.
-3. No menu **Ferramentas**, clique em **Gerenciador de Pacotes Nuget**, em seguida, clique em **Console do Gerenciador de Pacotes**.
+3. No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e, em seguida, clique em **Console do Gerenciador de Pacotes**.
 4. Execute o seguinte comando no console para instalar os pacotes:
 
     ```powershell
@@ -192,7 +193,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
     ```
 
 6. Substitua os valores de membro de classe.
-7. Pressione **F5** para executar o aplicativo. Uma janela de console deve ser aberta e exibir o status do aplicativo. Você também será solicitado a inserir suas credenciais de conta do Azure. Pode levar vários minutos para criar um cluster HDInsight, normalmente em torno de 15.
+7. Pressione **F5** para executar o aplicativo. Uma janela de console deve ser aberta e exibir o status do aplicativo. Você deverá inserir suas credenciais de conta do Azure. Pode levar vários minutos para criar um cluster HDInsight, normalmente em torno de 15.
 
 ## <a name="use-bootstrap"></a>Usar a inicialização
 
@@ -325,7 +326,7 @@ static void Main(string[] args)
 
 ## <a name="use-script-action"></a>Usar Ação de Script
 
-Usando a Ação de Script, você pode definir configurações adicionais durante a criação do cluster.  Para obter mais informações, consulte [Personalizar clusters do HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+Usando a Ação de Script, você pode definir configurações adicionais durante a criação do cluster.  Para obter mais informações, consulte [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modifique o exemplo em [Criar clusters](#create-clusters) para chamar uma Ação de Script para instalar o R:
 

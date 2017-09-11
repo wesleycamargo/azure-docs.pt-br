@@ -3,7 +3,7 @@ title: Como usar o Gerenciamento de API do Azure com redes virtuais internas | M
 description: Saiba como instalar e configurar o Gerenciamento de API do Azure na rede virtual interna.
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
@@ -63,23 +62,23 @@ Ao usar o Gerenciamento de API em modo de rede virtual externa, o DNS é gerenci
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de host padrão:
 Ao criar um serviço de Gerenciamento de API na nuvem pública do Azure, chamado "contoso" por exemplo, os seguintes pontos de extremidade de serviço são configurados por padrão.
 
->    Gateway/Proxy: contoso.azure-api.net
+>   Gateway/Proxy: contoso.azure-api.net
 
 > Portal do Editor e Portal do desenvolvedor: contoso.portal.azure-api.net
 
 > Ponto de extremidade de gerenciamento direto: contoso.management.azure-api.net
 
->    GIT: contoso.scm.azure-api.net
+>   GIT: contoso.scm.azure-api.net
 
 Para acessar esses pontos de extremidade do serviço de Gerenciamento de API, você pode criar uma máquina virtual em uma sub-rede conectada à rede virtual na qual o Gerenciamento de API é implantado. Supondo que o endereço IP virtual interno para seu serviço seja 10.0.0.5, você pode fazer o mapeamento dos arquivos de hosts (%UnidadeDoSistema%\drivers\etc\hosts) como se segue:
 
-> 10.0.0.5      contoso.azure-api.net
+> 10.0.0.5    contoso.azure-api.net
 
-> 10.0.0.5      contoso.portal.azure-api.net
+> 10.0.0.5    contoso.portal.azure-api.net
 
-> 10.0.0.5      contoso.management.azure-api.net
+> 10.0.0.5    contoso.management.azure-api.net
 
-> 10.0.0.5      contoso.scm.azure-api.net
+> 10.0.0.5    contoso.scm.azure-api.net
 
 Em seguida pode acessar todos os pontos de extremidade do serviço da máquina virtual criada. Se usar um servidor DNS personalizado em uma rede virtual, você também pode criar registros A de DNS e acessar esses pontos de extremidade de qualquer lugar em sua rede virtual. 
 

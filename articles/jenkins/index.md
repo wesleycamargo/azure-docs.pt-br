@@ -2,25 +2,25 @@
 title: Jenkins e Azure
 description: Implantar e integrar o Jenkins com o Azure
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
-ms.author: mlearned
+ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Jenkins no Azure</h1>
+    <h1>Jenkins® no Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> O Jenkins, um conhecido servidor de automação de código aberto e integra-se perfeitamente com o Azure para habilitar a integração contínua (CI) e fornecimento contínuo (CD).  Aprenda a instalar, configurar e usar o Jenkins com os serviços e as ferramentas do Azure com os guias de início rápido, tutoriais e exemplos.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Plug-in de Agentes da VM do Azure</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Plug-in de Armazenamento do Azure</a><br/>
 <a href="https://jenkins.io">Saiba mais sobre o Jenkins</a><br/>
+<h4>      
+Jenkins® é uma marca registrada da Software in the Public Interest, Inc. O [logotipo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) é licenciado sob [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) do [projeto Jenkins](https://jenkins.io).</h4>
 </div>
 

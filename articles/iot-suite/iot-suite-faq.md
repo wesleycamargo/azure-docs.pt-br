@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas frequentes sobre o IoT Suite
 
+Consulte também as [Perguntas frequentes](iot-suite-faq-cf.md) específicas sobre a fábrica conectada.
+
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Onde encontrar o código-fonte para as soluções pré-configuradas?
 
 O código-fonte é armazenado nos seguintes repositórios GitHub:
-* [Solução pré-configurada de Monitoramento Remoto][lnk-remote-monitoring-github]
+* [Solução pré-configurada de monitoramento remoto][lnk-remote-monitoring-github]
 * [Solução pré-configurada de manutenção preditiva][lnk-predictive-maintenance-github]
+* [Solução pré-configurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Como atualizar para a versão mais recente da solução de monitoramento remoto predefinida que usa os recursos de gerenciamento de dispositivo do Hub IoT?
 
@@ -95,22 +97,14 @@ Atualmente, não é possível criar uma solução pré-configurada com uma assin
 
 Veja a postagem do blog de Eric Golpe, [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Passo a passo da exclusão de um locatário do Azure AD).
 
-### <a name="what-is-opc-ua"></a>O que é OPC UA?
-
-OPC Unified Architecture (UA), lançado em 2008, é um padrão de interoperabilidade orientada a serviços e independente de plataforma que é usado por vários sistemas e dispositivos como PCs, PLCs e sensores do setor. O OPC UA integra todas as funcionalidades das especificações de OPC clássico individuais em uma estrutura extensível com segurança interna. É um padrão controlado pela OPC Foundation. A [OPC Foundation][lnk-opc-foundation] é uma organização sem fins lucrativos cujos mais de 440 membros compartilham o objetivo comum de fornecer a infraestrutura, as especificações, a tecnologia e os processos para facilitar a interoperabilidade confiável, segura, de vários fornecedores e várias plataformas usando as especificações do OPC.
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Por que a Microsoft escolheu o OPC UA para a solução pré-configurada de fábrica conectada?
-
-A Microsoft escolheu OPC UA porque ele é um padrão aberto, comprovado, não proprietário, independente de plataforma e reconhecido no setor. É um requisito para soluções de arquitetura de referência Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um amplo conjunto de processos de fabricação e equipamento. A Microsoft considera a demanda de nossos clientes para criar soluções do Industrie 4.0. O suporte para OPC UA ajuda a reduzir a barreira para os clientes atingirem suas metas e fornece valor comercial imediato para eles.
-
 ### <a name="next-steps"></a>Próximas etapas
 
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 * [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
+* [Visão geral da solução pré-configurada de fábrica conectada](iot-suite-connected-factory-overview.md)
 * [Segurança IoT desde o início][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

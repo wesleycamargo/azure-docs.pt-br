@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/20/2017
 > Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão sendo desativados e não estão mais disponíveis para novas contas da API do DocumentDB.
 >
 
-Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e analisa como as coleções que usam esses níveis serão migradas para as coleções de partição única em 1º de agosto de 2017. Após ler este artigo, você poderá responder as perguntas a seguir:
+Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e analisa como as coleções que usam esses níveis de desempenho serão migradas para as coleções de partição única no final de 2017. Após ler este artigo, você poderá responder as perguntas a seguir:
 
 - [Por que os níveis de desempenho S1, S2 e S3 estão sendo desativados?](#why-retired)
 - [Como as coleções de partição única e as coleções particionadas se comparam com os níveis de desempenho S1, S2 e S3?](#compare)
@@ -37,7 +36,7 @@ Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e ana
 - [Como a minha coleção mudará após a migração?](#collection-change)
 - [Como minha cobrança mudará depois que eu migrar para as coleções de partição única?](#billing-change)
 - [E se eu precisar de mais de 10 GB de armazenamento?](#more-storage-needed)
-- [Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?](#change-before)
+- [Posso mudar entre os níveis de desempenho S1, S2 e S3 antes da migração planejada?](#change-before)
 - [Como saberei quando minha coleção migrou?](#when-migrated)
 - [Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?](#migrate-diy)
 - [Como serei afetado se eu for um cliente EA?](#ea-customer)
@@ -59,7 +58,7 @@ A tabela a seguir compara as opções da taxa de transferência e armazenamento 
 |Taxa de transferência máxima|Ilimitado|10 K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Taxa de transferência mínima|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
-|Preço|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|$ 25 dólares americanos|$ 50 dólares americanos|$ 100 dólares americanos|
+|Preço (mensal)|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|$ 25 dólares americanos|$ 50 dólares americanos|$ 100 dólares americanos|
 
 Você é um cliente EA? Se for, consulte [Como serei afetado se eu for um cliente EA?](#ea-customer)
 
@@ -67,7 +66,7 @@ Você é um cliente EA? Se for, consulte [Como serei afetado se eu for um client
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?
 
-Nada. O Cosmos DB cuida da migração para você. Se você tiver uma coleção S1, S2 ou S3, a coleção atual será migrada para uma coleção de partição única em 31 de julho de 2017. 
+Nada. O Cosmos DB cuida da migração para você. Se você tiver uma coleção S1, S2 ou S3, a coleção atual será migrada para uma coleção de partição única no final de 2017. 
 
 <a name="collection-change"></a>
 
@@ -99,15 +98,15 @@ Se você tiver uma coleção com um nível de desempenho S1, S2 ou S3 ou uma col
 
 <a name="change-before"></a>
 
-## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>Posso mudar entre os níveis de desempenho S1, S2 e S3 antes da migração planejada?
 
-Somente as contas existentes com os desempenhos S1, S2 e S3 conseguirão mudar e alterar as camadas do nível de desempenho no portal ou por meio da programação. Em 1º de agosto de 2017, os níveis de desempenho S1, S2 e S3 não estarão mais disponíveis. Se você mudar de S1, S3 ou S3 para uma coleção de partição único, não será possível retornar aos níveis de desempenho S1, S2 ou S3.
+Somente as contas existentes com os desempenhos S1, S2 e S3 conseguirão mudar e alterar as camadas do nível de desempenho no portal ou por meio da programação. Se você mudar de S1, S3 ou S3 para uma coleção de partição único, não será possível retornar aos níveis de desempenho S1, S2 ou S3.
 
 <a name="when-migrated"></a>
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Como saberei quando minha coleção migrou?
 
-A migração ocorrerá em 31 de julho de 2017. Se você tiver uma coleção que usa os níveis de desempenho S1, S2 ou S3, a equipe do Cosmos DB o contatará por email antes da migração. Quando a migração for concluída, em 1º de agosto de 2017, o portal do Azure mostrará que sua coleção usa o preço Standard.
+A migração ocorrerá no final de 2017. Se você tiver uma coleção que usa os níveis de desempenho S1, S2 ou S3, a equipe do Cosmos DB o contatará por email antes da migração. Depois que a migração for concluída, o portal do Azure mostrará que a sua coleção usa o preço Standard.
 
 ![Como confirmar se sua coleção migrou para a tipo de preço Standard](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -115,7 +114,7 @@ A migração ocorrerá em 31 de julho de 2017. Se você tiver uma coleção que 
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?
 
-Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de partição única usando o portal do Azure ou programaticamente. Você pode fazer isso sozinho antes de 1º de agosto para aproveitar as opções flexíveis da taxa de transferência disponíveis com as coleções de partição única ou migraremos suas coleções em 31 de julho de 2017.
+Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de partição única usando o portal do Azure ou programaticamente. Faça isso por conta própria antes da migração planejada para se beneficiar das opções flexíveis de produtividade disponíveis com as coleções de partição única ou migraremos suas coleções para você no final de 2017.
 
 **Para migrar para coleções de partição única usando o portal do Azure**
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
@@ -31,8 +31,11 @@ Para termos e descrições detalhados de sua fatura e arquivo de uso diário det
 
 Para obter detalhes sobre os relatórios de gerenciamento de custo, consulte [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-
 ## <a name="charges"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
+
 Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, há duas opções.
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opção 1: examine a fatura e compare o uso e os custos com o arquivo CSV de uso detalhado
@@ -72,7 +75,7 @@ Para saber mais sobre cada uma das colunas no CSV, consulte [Entenda seu uso det
 
 ### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Opção 2: examine a fatura e compare com o uso e os custos no Portal do Azure
 
-O portal do Azure também pode lhe ajudar a verificar seus encargos. O Portal do Azure fornece gráficos de gerenciamento de custos para uma visão geral rápida de seu uso e dos encargos na sua fatura.
+O portal do Azure também pode ajudar a verificar seus encargos. O portal do Azure fornece gráficos de gerenciamento de custos para uma visão geral rápida de seu uso e dos encargos na sua fatura.
 
 Para continuar com o exemplo acima, visite a [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecione sua assinatura e, em seguida, escolha **Análise de custo**. Daí em diante, você pode especificar o período de tempo e ver os encargos de uso para o serviço Agendador do Azure.
 

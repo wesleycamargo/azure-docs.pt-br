@@ -53,7 +53,7 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 | Envios da nuvem para o dispositivo | 83,33/s/unidade (5000/min/unidade) (para S3), 1,67/s/unidade (100/min/unidade) (para S1 e S2). |
 | Recebimentos da nuvem para o dispositivo |833,33/s/unidade (50000/min/unidade) (para S3), 16,67/s/unidade (1000/min/unidade) (para S1 e S2). |
 | Operações de upload de arquivo |83,33 notificações de carregamento de arquivos/s/unidade (5000/s/unidade) (para S3), 1,67 notificações de carregamento de arquivos/s/unidade (100/min/unidade) (para S1 e S2). <br/> 10000 URIs de SAS podem estar fora de uma conta de Armazenamento do Azure ao mesmo tempo.<br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
-| Métodos diretos | 1500/s/unidade (para S3), 30/s/unidade (para S2), 10/s/unidade (para S1) |
+| Métodos diretos | 3000/s/unidade (para S3), 60/s/unidade (para S2), 20/s/unidade (para S1) |
 | Leituras de dispositivo gêmeo | 50/s/unidade (para S3), máximo de 10/s ou 1/s/unidade (para S2), 10/s (para S1) |
 | Atualizações de dispositivos gêmeos | 50/s/unidade (para S3), máximo de 10/s ou 1/s/unidade (para S2), 10/s (para S1) |
 | Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | 83,33/s/unidade (5000/min/unidade) (para S3), 1,67/s/unidade (100/min/unidade) (para S2), 1,67/s/unidade (100/min/unidade) (para S1) |

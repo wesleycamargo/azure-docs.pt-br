@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,13 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-# Criar um conjunto de dados de referência para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Criar um conjunto de dados de referência para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
 
 Um conjunto de dados de referência é uma coleção de itens que são aumentados com os eventos da fonte de evento. O mecanismo de entrada da Análise de Séries Temporais une um evento da fonte de evento a um item em seu conjunto de dados de referência. Esse evento aumentado é disponibilizado para consulta. Essa junção baseia-se nas chaves definidas no conjunto de dados de referência.
 
-## Etapas para adicionar um conjunto de dados de referência ao seu ambiente
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Etapas para adicionar um conjunto de dados de referência ao seu ambiente
 
 1. Entre no [portal do Ibiza](https://portal.azure.com).
 2. Clique em "Todos os recursos" no menu à esquerda do portal do Ibiza.
@@ -48,8 +46,7 @@ Um conjunto de dados de referência é uma coleção de itens que são aumentado
 
 7. Clique em “Criar”.
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
 * Para obter a referência completa de API, confira o documento [API de Dados de Referência](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

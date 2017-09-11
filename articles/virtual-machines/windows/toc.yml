@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12 - CI/CD do Team Services
       href: tutorial-vsts-iis-cicd.md
+    - name: 13 - Proteger o servidor Web com SSL
+      href: tutorial-secure-web-server.md
 - name: Exemplos
   items:
     - name: PowerShell
@@ -50,7 +52,7 @@
     - name: Regiões e disponibilidade
       href: regions-and-availability.md
     - name: Armazenamento
-      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: about-disks-and-vhds.md
     - name: Rede
       href: network-overview.md
     - name: Conjuntos de Dimensionamento da VM
@@ -106,6 +108,10 @@
           href: csharp.md
         - name: 'Como usar um modelo com C#'
           href: csharp-template.md
+        - name: Criar VM com Chef
+          href: chef-automation.md
+        - name: Usar Java
+          href: java.md
         - name: Como usar o Python
           href: python.md
         - name: Como usar um modelo
@@ -114,6 +120,8 @@
           href: connect-logon.md
         - name: Como usar o licenciamento do AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Usar Direitos de Hospedagem de Multilocatários para Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Como proteger VMs
       items:
         - name: Criptografar
@@ -205,6 +213,10 @@
               href: excel-cluster-hpcpack.md
     - name: Gerenciamento do armazenamento
       items:
+        - name: Saiba mais sobre Managed Disks
+          href: managed-disks-overview.md
+        - name: Perguntas frequentes de discos
+          href: faq-for-disks.md
         - name: Adicionar um disco
           items:
             - name: Azure PowerShell
@@ -217,12 +229,14 @@
           href: expand-os-disk.md
         - name: Instantâneo de um disco
           href: snapshot-copy-managed-disk.md
+        - name: Backup de discos não gerenciados
+          href: incremental-snapshots.md
         - name: Como converter disco entre Standard e Premium
           href: convert-disk-storage.md
-        - name: Perguntas frequentes de discos
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Como usar o armazenamento de arquivos
           href: mount-azure-file-storage.md
+        - name: Implantar discos com modelo
+          href: using-managed-disks-template-deployments.md
         - name: Como migrar para Managed Disks
           href: migrate-to-managed-disks.md
           items:

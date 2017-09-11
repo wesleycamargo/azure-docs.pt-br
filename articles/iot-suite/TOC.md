@@ -48,11 +48,12 @@
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Hubs de Evento](/azure/event-hubs/)
 ## [Hub IoT](/azure/iot-hub/)
-## [Aprendizado de máquina](/azure/machine-learning/)
+## [Machine Learning](/azure/machine-learning/)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Perguntas frequentes](iot-suite-faq.md)
+## [Perguntas frequentes do factory conectado](iot-suite-faq-cf.md)
 ## [Roteiro de aprendizagem do IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 

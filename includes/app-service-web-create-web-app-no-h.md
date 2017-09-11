@@ -5,7 +5,7 @@ O aplicativo Web fornece um espaço de hospedagem para seu código e fornece uma
 No comando a seguir, substitua *\<nome_do_aplicativo >* por um nome exclusivo (os caracteres válidos são `a-z`, `0-9` e `-`). Se `<app_name>` não for exclusivo, você obterá a mensagem de erro "O site com o nome <nome_do_aplicativo> fornecido já existe." A URL padrão do aplicativo Web é `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:

@@ -4,7 +4,7 @@ description: "Entenda como os Azure Functions escalam para atender às necessida
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Consumo do Azure Functions e planos de Serviço de Aplicativo 
@@ -61,9 +60,10 @@ No Plano do Serviço de Aplicativo, seus aplicativos de funções são executado
 
 Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
-- Você espera que seus aplicativos de função executem de forma contínua, ou quase contínua.
+- Você espera que seus aplicativos de função executem de forma contínua, ou quase contínua. Nesse caso, um Plano de Serviço de Aplicativo pode ser mais econômico.
 - Você precisa de mais opções de CPU ou memória do que é fornecido no plano de Consumo.
 - Você precisa executar por mais tempo do que o tempo de execução máximo permitido no plano de Consumo.
+- Você precisa de recursos que estão disponíveis somente em um Plano do Serviço de Aplicativo, como suporte para o Ambiente de Serviço de Aplicativo, conectividade VPN/VNET e tamanhos de VM maiores. 
 
 Uma VM separa o custo do tempo de execução e do tamanho da memória. Como resultado, você não paga mais do que o custo da instância da VM alocada. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
@@ -81,7 +81,7 @@ A opção Sempre ativo está disponível apenas em um plano do Serviço de Aplic
 
 Em um plano de Consumo ou plano do Serviço de Aplicativo, um aplicativo de funções exige uma conta de Armazenamento do Azure com suporte ao armazenamento de Blobs, Filas e Tabelas do Azure. Internamente, o Azure Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob (incluindo o armazenamento premium) e contas de armazenamento de uso geral com a replicação de armazenamento com redundância de zona. Essas contas são filtradas na folha **Conta de Armazenamento** durante a criação de um aplicativo de Funções.
 
-Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 

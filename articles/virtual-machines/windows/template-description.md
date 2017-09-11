@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9b9121bc5e38396ba4def6c17f9b373c2b48056
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -288,7 +288,7 @@ Vários elementos de perfil são usados ao definir um recurso de máquina virtua
 
 ## <a name="disks-and-images"></a>Discos e imagens
    
-No Azure, arquivos VHD podem representar [discos ou imagens](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operacional em um arquivo VHD é especializado para ser uma VM específica, ele é conhecido como um disco. Quando o sistema operacional em um arquivo VHD é generalizado para ser usado para criar muitas VMs, ele é conhecido como uma imagem.   
+No Azure, arquivos VHD podem representar [discos ou imagens](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operacional em um arquivo VHD é especializado para ser uma VM específica, ele é conhecido como um disco. Quando o sistema operacional em um arquivo VHD é generalizado para ser usado para criar muitas VMs, ele é conhecido como uma imagem.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Criar novas máquinas virtuais e novos discos de uma imagem de plataforma
 

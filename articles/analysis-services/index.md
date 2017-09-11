@@ -2,7 +2,7 @@
 title: "Documentação do Azure Analysis Services - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como configurar a modelagem de dados com o Analysis Services na nuvem. A Documentação mostra como criar uma solução de BI empresarial usando dados tabulares."
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: f5358e2395d5380841894e62a694a6d1253c9126
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/25/2017
 
 ---

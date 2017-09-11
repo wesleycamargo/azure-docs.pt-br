@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04e1c7a70db712dbc54e8846e9453d932016a043
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Crie pesquisas de logs no Azure Log Analytics utilizando o portal de Pesquisa de Logs
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/28/2017
 >
 > Se o espaço de trabalho não foi atualizado para a nova linguagem de consulta, você deverá consultar [Localizar dados usando pesquisas de logs no Log Analytics](log-analytics-log-searches.md) para obter informações sobre a versão atual do portal de Pesquisa de Logs.
 
-Este artigo inclui um tutorial que descreve como criar pesquisas de logs e analisar dados armazenados em seu espaço de trabalho do Log Analytics utilizando o portal de Pesquisa de Logs.  O tutorial inclui executar algumas consultas simples para retornar diferentes tipos de dados e analisar os resultados.  Ele concentra-se em recursos no portal de Pesquisa de Logs para modificar a consulta em vez de modificá-la diretamente.  Para obter detalhes sobre a edição direta da consulta, consulte a [Referência de linguagem de consulta](https://docs.loganalytics.io/queryLanguage/query_language.html).
+Este artigo inclui um tutorial que descreve como criar pesquisas de logs e analisar dados armazenados em seu espaço de trabalho do Log Analytics utilizando o portal de Pesquisa de Logs.  O tutorial inclui executar algumas consultas simples para retornar diferentes tipos de dados e analisar os resultados.  Ele concentra-se em recursos no portal de Pesquisa de Logs para modificar a consulta em vez de modificá-la diretamente.  Para obter detalhes sobre a edição direta da consulta, consulte a [Referência de linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Para criar pesquisas no portal de Análise Avançada em vez do portal de Pesquisa de Logs, consulte [Introdução ao Portal de Análise](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  Ambos os portais utilizam a mesma linguagem de consulta para acessar os mesmos dados no espaço de trabalho do Log Analytics.
+Para criar pesquisas no portal de Análise Avançada em vez do portal de Pesquisa de Logs, consulte [Introdução ao Portal de Análise](https://go.microsoft.com/fwlink/?linkid=856587).  Ambos os portais utilizam a mesma linguagem de consulta para acessar os mesmos dados no espaço de trabalho do Log Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial assume que você já possui um espaço de trabalho do Log Analytics com pelo menos uma fonte conectada que gera dados para as consultas a serem analisadas.  
@@ -99,12 +99,12 @@ Você possui somente a opção **Filtro** para propriedades com seu nome em azul
 
 ![Menu de filtro](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-É possível agrupar os resultados em uma propriedade única, selecionando a opção **Agrupar por** no menu de registro.  Isso adicionará um operador [resumido](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) à sua consulta que exibirá os resultados em um gráfico.  É possível agrupar em mais de uma propriedade, mas será necessário editar a consulta diretamente.  Selecione o menu de registro próximo à propriedade **Computador** e selecione **Agrupar por 'Computador'**.  
+É possível agrupar os resultados em uma propriedade única, selecionando a opção **Agrupar por** no menu de registro.  Isso adicionará um operador [resumido](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) à sua consulta que exibirá os resultados em um gráfico.  É possível agrupar em mais de uma propriedade, mas será necessário editar a consulta diretamente.  Selecione o menu de registro próximo à propriedade **Computador** e selecione **Agrupar por 'Computador'**.  
 
 ![Agrupar por computador](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
 ## <a name="work-with-results"></a>Trabalhar com os resultados
-O portal de Pesquisa de Logs possui uma variedade de recursos para trabalhar com os resultados de uma consulta.  É possível classificar, filtrar e agrupar os resultados para analisar os dados sem modificar a consulta real.
+O portal de Pesquisa de Logs possui uma variedade de recursos para trabalhar com os resultados de uma consulta.  É possível classificar, filtrar e agrupar os resultados para analisar os dados sem modificar a consulta real.  Os resultados de uma consulta não são classificados por padrão.
 
 Para exibir os dados em formulário de tabela que fornece opções adicionais para filtrar e classificar, clique em **Tabela**.  
 
@@ -145,7 +145,7 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![Utilização do processador](media/log-analytics-log-search-log-search-portal/log-search-portal-12.png)
 
-Isso limita os dados para um contador particular, mas ainda não o coloca em uma forma particularmente útil.  É possível exibir os dados em um gráfico de linhas, mas primeiro deverá agrupar por computador e TimeGenerated.  Para agrupar em campos múltiplo será necessário modificar a consulta diretamente, então, modifique a consulta para o seguinte.  Isso usa a função [avg](https://docs.loganalytics.io/queryLanguage/query_language_avg_aggfunction.html) na propriedade **CounterValue** para calcular o valor médio ao longo de cada hora.
+Isso limita os dados para um contador particular, mas ainda não o coloca em uma forma particularmente útil.  É possível exibir os dados em um gráfico de linhas, mas primeiro deverá agrupar por computador e TimeGenerated.  Para agrupar em campos múltiplo será necessário modificar a consulta diretamente, então, modifique a consulta para o seguinte.  Isso usa a função [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) na propriedade **CounterValue** para calcular o valor médio ao longo de cada hora.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Gráfico de dados de desempenho](media/log-analytics-log-search-log-search-portal/log-search-portal-13.png)
 
-Agora que os dados estão adequadamente agrupados, você poderá exibi-los em um gráfico visual, adicionando o operador [renderizar](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html).  
+Agora que os dados estão adequadamente agrupados, você poderá exibi-los em um gráfico visual, adicionando o operador [renderizar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
@@ -163,6 +163,6 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a linguagem de consulta do Log Analytics em [Introdução ao Portal de Análise](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).
-- Explore um tutorial utilizando o [Portal de Análise Avançada](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html), o qual permite executar as mesmas consultas e acessar os mesmos dados que o portal de Pesquisa de Logs.
+- Saiba mais sobre a linguagem de consulta do Log Analytics em [Introdução ao Portal de Análise](https://go.microsoft.com/fwlink/?linkid=856079).
+- Explore um tutorial utilizando o [Portal de Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587), o qual permite executar as mesmas consultas e acessar os mesmos dados que o portal de Pesquisa de Logs.
 

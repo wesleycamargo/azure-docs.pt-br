@@ -13,6 +13,3 @@
 ### [Introdução ao aplicativo](microsoft-authenticator-app-how-to.md)
 ### [Conectar com seu telefone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Perguntas frequentes](microsoft-authenticator-app-faq.md)
-# Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

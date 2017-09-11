@@ -1,5 +1,5 @@
 ---
-title: "Configurar a política de SSL e o SSL de ponta a ponta com o Gateway de Aplicativo | Microsoft Docs"
+title: Configurar o SSL de ponta a ponta no Gateway de Aplicativo do Azure | Microsoft Docs
 description: Este artigo descreve como configurar o SSL de ponta a ponta com o Gateway de Aplicativo usando o Azure PowerShell Resource Manager
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configurar a política de SSL e o SSL de ponta a ponta com o Gateway de Aplicativo usando o PowerShell
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configurar o SSL de ponta a ponta com o Gateway de Aplicativo usando o PowerShell
 
 ## <a name="overview"></a>Visão geral
 
 O Gateway de Aplicativo oferece suporte à criptografia de tráfego de ponta a ponta. O Gateway de Aplicativo faz isso ao encerrar a conexão SSL no gateway de aplicativo. O gateway, em seguida, aplica as regras de roteamento ao tráfego, criptografa o pacote novamente e encaminha o pacote para o back-end apropriado com base nas regras de roteamento definidas. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final.
 
-Outro recurso a que esse gateway de aplicativo oferece suporte está desabilitando determinadas versões do protocolo SSL. O Gateway de Aplicativo oferece suporte a desabilitar a versão do protocolo a seguir; **TLSv1.0**, **TLSv1.1** e **TLSv1.2**.
+Outro recurso ao qual o gateway de aplicativo dá suporte para definir opções personalizadas de SSL. O Gateway de Aplicativo oferece suporte a desabilitar a seguinte versão de protocolo; **TLSv1.0**, **TLSv1.1**, e **TLSv1.2** como também define quais conjuntos de uso e a ordem de preferência de criptografia.  Para saber mais sobre as opções configuráveis de SSL, visite [visão geral da política de SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > O SSL 2.0 e o SSL 3.0 estão desabilitados por padrão e não podem ser habilitados. Eles são considerados não seguras e não podem ser usados com o Gateway de Aplicativo.
@@ -40,15 +41,15 @@ Neste cenário, você aprenderá a criar um gateway de aplicativo usando o SSL d
 Este cenário:
 
 * Criar um grupo de recursos denominado **appgw-rg**
-* Criar uma rede virtual chamada **appgwvnet**, com um bloco CIDR 10.0.0.0/16 reservado.
+* Criar uma rede virtual denominada **appgwvnet** com um espaço de endereço de 10.0.0.0/16.
 * Crie duas sub-redes chamadas **appgwsubnet** e **appsubnet**.
-* Crie um pequeno gateway de aplicativo que ofereça suporte à criptografia SSL de ponta a ponta que desabilita determinados protocolos SSL.
+* Crie um gateway de aplicativo pequeno que oferece suporte à criptografia de SSL de ponta a ponta que versões de protocolos SSL limites e conjuntos de codificação.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para configurar o SSL de ponta a ponta com um gateway de aplicativo, um certificado é necessário para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é usado para criptografar e descriptografar o tráfego enviado para ele usando SSL. O certificado do gateway precisa estar no formato pfx (Troca de Informações Pessoais). Esse formato de arquivo permite que a chave privada seja exportada, o que é exigido pelo Application Gateway para executar criptografia e descriptografia de tráfego.
+Para configurar o SSL de ponta a ponta com um gateway de aplicativo, um certificado é necessário para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é usado para criptografar e descriptografar o tráfego enviado para ele usando SSL. O certificado do gateway precisa estar no formato pfx (Troca de Informações Pessoais). Esse formato de arquivo permite que a chave privada seja exportada, o que é exigido pelo Gateway de Aplicativo para executar criptografia e descriptografia de tráfego.
 
-Para criptografia ssl de ponta a ponta, o back-end deve estar na lista branca do gateway de aplicativo. Isso é feito por meio do upload do certificado público dos back-ends para o gateway de aplicativo. Isso garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
+Para criptografia SSL de ponta a ponta, o back-end deve estar na lista branca do gateway de aplicativo. Isso é feito por meio do upload do certificado público dos back-ends para o gateway de aplicativo. Isso garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
 
 Cada atributo é descrito nas etapas a seguir:
 
@@ -132,11 +133,11 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome amigável de dns para o gateway de aplicativo, é recomendável usar um registro cname como alias.
+> O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome amigável de dns para o gateway de aplicativo, é recomendável usar um registro CNAME como alias.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway do aplicativo
 
-Você deve configurar todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
+Todos os itens de configuração são definidos antes da criação do gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Configure o certificado para o gateway de aplicativo. Esse certificado é usado para descriptografar e criptografar novamente o tráfego no gateway de aplicativo.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -189,12 +190,12 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 Crie o ouvinte HTTP para o gateway de aplicativo. Atribua a configuração do ip, a porta e o certificado ssl do front-end a ser usado.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>Etapa 7
 
-Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para ssl.
+Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para SSL.
 
 > [!NOTE]
 > A investigação padrão obtém a chave pública a associação SSL **padrão** no endereço IP do back-end e compara o valor da chave pública que recebe ao valor da chave pública fornecida aqui. A chave pública recuperada pode não ser necessariamente o local desejado para o qual o tráfego fluirá **se** você estiver usando cabeçalhos de host e SNI no back-end. Em caso de dúvida, visite https://127.0.0.1/ nos back-ends para confirmar qual certificado será usado para a associação SSL **padrão**. Use a chave pública dessa solicitação nesta seção. Se você estiver usando cabeçalhos de host e SNI em associações HTTPS e você não receberá uma resposta e um certificado de uma solicitação de navegador manual para https://127.0.0.1/ em back-ends, deverá configurar uma associação SSL padrão nos back-ends. Se você não fizer isso, as investigações falharão e o back-end não estará na lista branca.
@@ -235,29 +236,29 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>Etapa 11
 
-Configure a política SSL a ser usada no Gateway de Aplicativo. O Gateway de Aplicativo oferece suporte à capacidade de desabilitar determinadas versões do protocolo SSL.
+Configure a política SSL a ser usada no Gateway de Aplicativo. O Gateway de Aplicativo oferece suporte a capacidade de definir uma versão mínima para versões de protocolo SSL.
 
-Os valores a seguir são uma lista de versões do protocolo que podem ser desabilitadas.
+Os valores a seguir são uma lista de versões do protocolo que podem ser definidas.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-O exemplo a seguir desabilita o **TLSv1\_0**.
+Define a versão mínima do protocolo para **TLSv1_2** e permita **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** somente.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
-## <a name="create-the-application-gateway"></a>Criar o Application Gateway
+## <a name="create-the-application-gateway"></a>Criar o Gateway de Aplicativo
 
 Usando todas as etapas anteriores, crie o Gateway de Aplicativo. A criação do gateway é um processo de execução demorada.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>Desabilitar as versões de protocolo SSL em um Gateway de Aplicativo existente
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limitar as versões de protocolo SSL em um Gateway de Aplicativo existente
 
 As etapas anteriores levam você a criar um aplicativo com ssl de ponta a ponta e a desabilitar determinadas versões do protocolo SSL. O exemplo a seguir desabilita determinadas políticas de SSL em um gateway de aplicativo existente.
 
@@ -271,23 +272,24 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>Etapa 2
 
-Defina uma política de SSL. No exemplo a seguir, TLSv1.0 e TLSv1.1 estão desabilitados.
+Defina uma política de SSL. No exemplo a seguir, TLSv1.0 e TLSv1.1 estão desabilitadas e os conjuntos de codificação **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>Etapa 3
 
-Por fim, atualize o gateway. É importante observar que essa última etapa é uma tarefa de execução demorada. Quando estiver pronto, o ssl de ponta a ponta será configurado no gateway de aplicativo.
+Por fim, atualize o gateway. É importante observar que essa última etapa é uma tarefa de execução demorada. Quando estiver pronto, o SSL de ponta a ponta será configurado no gateway de aplicativo.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Application Gateway
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do Application Gateway.
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 Saiba mais sobre como otimizar a segurança dos seus aplicativos Web com o Firewall do Aplicativo Web por meio do Gateway de Aplicativo ao visitar [Visão geral do Firewall de Aplicativo Web](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

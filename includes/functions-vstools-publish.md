@@ -14,7 +14,7 @@
     | **Assinatura** | Escolha sua assinatura | A assinatura do Azure a utilizar. |
     | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual criar o seu aplicativo de funções. |
     | **[Plano do Serviço de Aplicativo](../articles/azure-functions/functions-scale.md)** | Plano de consumo | Não deixe de escolher **Consumo** em **Tamanho** ao criar um novo plano.  |
-    | **[Conta de armazenamento](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Nome globalmente exclusivo | Use uma conta de armazenamento existente ou crie uma nova.   |
+    | **[Conta de armazenamento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Nome globalmente exclusivo | Use uma conta de armazenamento existente ou crie uma nova.   |
 
 4. Clique em **Criar** para criar um aplicativo de funções no Azure com essas configurações. Após a conclusão do provisionamento, anote o valor da **URL do Site**, que é o endereço do seu aplicativo de funções no Azure. 
 

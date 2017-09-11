@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 8/21/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
@@ -34,10 +34,29 @@ O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Co
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
 
-Você também deve configurar a [CLI do Azure 2.0](service-fabric-azure-cli-2-0.md) (recomendado) ou a [CLI XPlat](service-fabric-azure-cli.md) para implantar seu aplicativo.
+Você também desejará instalar a [CLI do Service Fabric](service-fabric-cli.md)
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>Instalar e configurar os geradores para CSharp
+O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo em CSharp do Service Fabric no terminal usando gerador de modelos Yeoman. Execute as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric para CSharp funcionando em seu computador.
+1. Instalar o nodejs e o NPM em seu computador
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) em seu computador a partir do NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Instalar o gerador de aplicativos Java Yeo do Service Fabric a partir do NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
+Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O gerador [Yeoman](http://yeoman.io/) do Service Fabric para CSharp, instalado na última etapa, que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
 
 1. Em um terminal, digite o comando a seguir para começar a criar o scaffolding: `yo azuresfcsharp`
 2. Nome do seu aplicativo.
@@ -62,12 +81,10 @@ Os modelos Yeoman do Service Fabric incluem um script de build para criar o apli
 
 Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 
-### <a name="using-xplat-cli"></a>Usando a CLI XPlat
-
 1. Conectar-se ao cluster local do Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registre o tipo de aplicativo e crie uma instância do aplicativo.
@@ -76,14 +93,11 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Usando a CLI do Azure 2.0
-
-A implantação do aplicativo interno é igual a qualquer outro aplicativo do Service Fabric. Confira a documentação sobre [como gerenciar um aplicativo do Service Fabric com a CLI do Azure](service-fabric-application-lifecycle-azure-cli-2-0.md) para obter instruções detalhadas.
+A implantação do aplicativo interno é igual a qualquer outro aplicativo do Service Fabric. Consulte a documentação sobre [como gerenciar um aplicativo do Service Fabric com a CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md) para obter instruções detalhadas.
 
 Os parâmetros para esses comandos podem ser encontrados nos manifestos gerados dentro do pacote de aplicativos.
 
-Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
 Projetos de atores não fazem nada por conta própria. Eles exigem outro serviço ou cliente para enviar mensagens a eles. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
@@ -101,7 +115,7 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
-Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfcsharp:AddService`
 
@@ -111,14 +125,11 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 3. Atualize os nomes de arquivo de projeto para arquivos csproj em build.sh.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
+* [Interação com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Artigos relacionados
-
-* [Introdução ao Service Fabric e a CLI do Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introdução à CLI XPlat do Service Fabric](service-fabric-azure-cli.md)
+* [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

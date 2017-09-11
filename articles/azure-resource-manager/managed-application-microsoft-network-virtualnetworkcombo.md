@@ -3,7 +3,7 @@ title: "Elemento de interface do usuário VirtualNetworkCombo de aplicativo gere
 description: "Descreve o elemento Microsoft.Compute.VirtualNetworkCombo da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 8bb255b76ac5c3de570fa569a1cfb3ee953f9687
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.VirtualNetworkCombo

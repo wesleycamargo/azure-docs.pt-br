@@ -4,7 +4,7 @@ description: "Entenda como usar gatilhos e associações do Barramento de Servi�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"

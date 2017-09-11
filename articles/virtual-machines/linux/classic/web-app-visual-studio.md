@@ -3,7 +3,7 @@ title: "Criar uma máquina virtual Linux para um aplicativo Web | Microsoft Docs
 description: Criando uma VM para um projeto Web com o Visual Studio e o Linux.
 services: virtual-machines-linux
 documentationcenter: 
-author: TomArcher
+author: kraigb
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 136a82084d06227a71e1ad7632a31b9d764fda58
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Criando uma máquina virtual para um aplicativo Web com o Visual Studio

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB: notas de versão e recursos
@@ -58,6 +58,11 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
+
+* Adição de suporte a PartitionKeyRangeId como FeedOption de modo a definir o escopo dos resultados da consulta para um valor específico do intervalo de chaves de partição. 
+* Adição de suporte a StartTime como ChangeFeedOption para começar a procurar as alterações após esse horário. 
+
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
 *   Foi corrigido um problema na classe JsonSerializable que podia gerar uma exceção de excedente de pilha.
@@ -76,7 +81,6 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   Adição de suporte ao recurso Unidade de Solicitação por Minuto (RU/m).
 *   Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
 *   Adição de suporte a métricas de consulta em partições individuais.
 *   Adição de suporte para limitar o tamanho do token de continuação em consultas.
@@ -133,6 +137,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 
 | [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
 | [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
 | [1.3.2](#1.3.2) |12 de junho de 2017 |--- |

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 750540d0866e69ce043133e9c668c8a2e09b9d1c
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrando o Repositório Data Lake com outros Serviços do Azure
@@ -64,6 +63,9 @@ Você pode usar o gerenciador de conexão do Azure Data Lake Store no SSIS para 
 
 ## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Usar o Data Lake Store com o SQL Data Warehouse
 Você pode usar o PolyBase para carregar dados do Azure Data Lake Store para o SQL Data Warehouse. Para obter mais informações, consulte [Usar o Data Lake Store com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
+## <a name="use-data-lake-store-with-azure-event-hubs"></a>Usar o Data Lake Store com os Hubs de Eventos do Azure
+Você pode usar o Azure Data Lake Store para arquivar e capturar dados recebidos pelos Hubs de Eventos do Azure. Para saber mais, confira [Usar o Data Lake Store com os Hubs de Eventos do Azure](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)

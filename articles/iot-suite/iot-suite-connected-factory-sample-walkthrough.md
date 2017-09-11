@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Passo a passo de solução pré-configurada de fábrica conectada
 
 A [solução pré-configurada][lnk-preconfigured-solutions] de fábrica conectada do IoT Suite é uma implementação de uma solução industrial de ponta a ponta que:
 
-* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais. Para saber mais informações sobre UA OPC, confira as [Perguntas Frequentes][lnk-faq].
+* Conecta-se a dispositivos industriais simulados que executam servidores OPC UA em linhas de produção de fábrica simuladas e a dispositivos de servidor OPC UA reais. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
 * Mostra KPIs operacionais e OEE desses dispositivos e de linhas de produção.
 * Demonstra como um aplicativo baseado em nuvem pode ser usado para interagir com sistemas de servidor UA OPC.
 * Permite que você conecte seus próprios dispositivos de servidor OPC UA.
@@ -40,6 +40,8 @@ Este artigo explica alguns dos principais elementos da solução de fábrica con
 * Solucionar problemas na solução.
 * Planejar como personalizar a solução para atender a seus próprios requisitos específicos.
 * Criar sua própria solução IoT que usa os serviços do Azure.
+
+Para saber mais, confira as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
@@ -128,6 +130,7 @@ O aplicativo Web implantado como parte da solução pré-configurada é composto
 Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 
 * [Permissões no site azureiotsuite.com][lnk-permissions]
+* [Implantar um gateway no Windows ou Linux para a solução pré-configurada de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

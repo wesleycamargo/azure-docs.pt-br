@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4a0b8254ec80576576afde7af34828025d1d2f0a
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir discos rígidos virtuais em uma VM Linux com a CLI do Azure
-Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir o disco do sistema operacional e o disco de dados existente. Este artigo fornece detalhes de como expandir discos gerenciados de uma VM Linux com a CLI do Azure 2.0. Você também pode expandir o disco do sistema operacional não gerenciado com a [CLI do Azure 1.0](expand-disks-nodejs.md).
+Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir um disco de dados existente. Este artigo fornece detalhes de como expandir discos gerenciados de uma VM Linux com a CLI do Azure 2.0. Você também pode expandir o disco do sistema operacional não gerenciado com a [CLI do Azure 1.0](expand-disks-nodejs.md).
+
+> [!WARNING]
+> Certifique-se sempre de fazer backup dos dados antes de realizar operações de redimensionamento do disco. Para saber mais, confira [Fazer backup de máquinas virtuais do Linux no Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-disk"></a>Expandir disco
 Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#login).
+
+Este artigo requer uma VM existente no Azure com, pelo menos, um disco de dados anexado e preparado. Caso ainda não tenha uma VM que possa ser usada, confira [Criar e preparar uma VM com discos de dados](tutorial-manage-disks.md#create-and-attach-disks).
 
 Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup* e *myVM*.
 
@@ -58,7 +63,7 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     ```
 
     > [!NOTE]
-    > Ao expandir um disco gerenciado, o tamanho atualizado é mapeado para o tamanho de disco gerenciado mais próximo. Para obter uma tabela dos tamanhos de disco gerenciado e as camadas disponíveis, consulte [Visão geral do Azure Managed Disks – Preço e cobrança](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+    > Ao expandir um disco gerenciado, o tamanho atualizado é mapeado para o tamanho de disco gerenciado mais próximo. Para obter uma tabela dos tamanhos de disco gerenciado e as camadas disponíveis, consulte [Visão geral do Azure Managed Disks – Preço e cobrança](../windows/managed-disks-overview.md#pricing-and-billing).
 
 3. Inicie a VM com [az vm start](/cli/azure/vm#start). O exemplo a seguir inicia a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
@@ -66,11 +71,76 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH da VM com as credenciais apropriadas. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A saída de exemplo a seguir mostra que a unidade de dados (*/dev/sdc1*) agora tem 200 GB:
+4. SSH da VM com as credenciais apropriadas. Você pode obter o endereço IP público da sua VM com [az vm show](/cli/azure/vm#show):
+
+    ```azurecli
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    ```
+
+5. Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
+
+    a. Se já estiver montado, desmonte o disco:
+
+    ```bash
+    sudo umount /dev/sdc1
+    ```
+
+    b. Use `parted` para exibir informações de disco e redimensionar a partição:
+
+    ```bash
+    sudo parted /dev/sdc
+    ```
+
+    Exiba informações sobre o layout da partição existente com `print`. A saída é semelhante ao exemplo a seguir, que mostra que o disco subjacente tem um tamanho de 215 GB:
+
+    ```bash
+    GNU Parted 3.2
+    Using /dev/sdc1
+    Welcome to GNU Parted! Type 'help' to view a list of commands.
+    (parted) print
+    Model: Unknown Msft Virtual Disk (scsi)
+    Disk /dev/sdc1: 215GB
+    Sector size (logical/physical): 512B/4096B
+    Partition Table: loop
+    Disk Flags:
+    
+    Number  Start  End    Size   File system  Flags
+        1      0.00B  107GB  107GB  ext4
+    ```
+
+    c. Expanda a partição com `resizepart`. Insira o número de partição, *1*, e um tamanho para a nova partição:
+
+    ```bash
+    (parted) resizepart
+    Partition number? 1
+    End?  [107GB]? 215GB
+    ```
+
+    d. Para sair, digite `quit`
+
+5. Com a partição redimensionada, verifique a consistência da partição com `e2fsck`:
+
+    ```bash
+    sudo e2fsck -f /dev/sdc1
+    ```
+
+6. Agora redimensione o sistema de arquivos com `resize2fs`:
+
+    ```bash
+    sudo resize2fs /dev/sdc1
+    ```
+
+7. Monte a partição no local desejado, como `/datadrive`:
+
+    ```bash
+    sudo mount /dev/sdc1 /datadrive
+    ```
+
+8. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A seguinte saída de exemplo mostra que a unidade de dados, */dev/sdc1*, agora tem 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
-    /dev/sdc1        194G   52M   193G   1% /datadrive
+    /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

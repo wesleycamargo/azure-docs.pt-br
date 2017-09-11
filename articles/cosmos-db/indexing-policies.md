@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
@@ -60,6 +60,10 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
 > 
 > 
 
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalização da política de indexação usando o portal
+
+Você pode alterar a política de indexação de uma coleção usando o portal do Azure. Abra sua conta do Azure Cosmos DB no portal do Azure, selecione a coleção na menu de navegação à esquerda, clique em **Configurações** e então clique em **Política de Indexação**. Na folha **Política de Indexação**, altere sua política de indexação e, em seguida, clique em **OK** para salvar suas alterações. 
+
 ### <a id="indexing-modes"></a>Modos de indexação do banco de dados
 O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Azure Cosmos DB – Consistente, Lento e Nenhum.
 
@@ -73,8 +77,6 @@ O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser config
 > A configuração da política de indexação com “Nenhum” tem o efeito colateral de remover qualquer índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
 > 
 > 
-
-A amostra a seguir explica como criar uma coleção do Azure Cosmos DB usando o SDK do .NET com indexação automática consistente em todas as inserções de documentos.
 
 A tabela a seguir mostra a consistência para as consultas baseadas no modo de indexação (Consistente e Lento) configurado para a coleção e o nível de consistência especificado para a solicitação de consulta. Isso se aplica a consultas criadas com qualquer interface - API REST, SDKs ou de dentro de procedimentos armazenados e de gatilhos. 
 

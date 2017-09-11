@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Tutorial: Integração do Azure Active Directory com o Merchlogix
@@ -109,9 +109,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<domain>/login.php?saml=true`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>/login.php?saml=true`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+    
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Merchlogix](http://www.merchlogix.com/contact/) para obter esses valores.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -121,7 +124,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Merchlogix**, clique em **Configurar o Merchlogix** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Merchlogix**, clique em **Configurar o Merchlogix** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** da **seção Referência Rápida**.
 
     ![Configuração do Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

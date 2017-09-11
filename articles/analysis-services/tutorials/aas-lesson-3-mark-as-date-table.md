@@ -3,7 +3,7 @@ title: "Lição 3 do tutorial do Azure Analysis Services: marcar como tabela de 
 description: Descreve como marcar uma tabela de data no projeto de tutorial do Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

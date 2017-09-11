@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,7 +72,7 @@ _Não, atualmente podem ser usados backups de dados e log no lado primário. Se 
 
 ### <a name="why-sap-hana-backup"></a>Por que o backup do SAP HANA?
 
-O Armazenamento do Azure oferece disponibilidade e confiabilidade imediatas (consulte [Introdução ao Armazenamento do Microsoft Azure](../../../storage/storage-introduction.md) para obter mais informações sobre o armazenamento do Azure).
+O Armazenamento do Azure oferece disponibilidade e confiabilidade imediatas (consulte [Introdução ao Armazenamento do Microsoft Azure](../../../storage/common/storage-introduction.md) para obter mais informações sobre o armazenamento do Azure).
 
 O mínimo para o &quot;backup&quot; é contar com os SLAs do Azure, mantendo os arquivos de dados e de log do SAP HANA em VHDs do Azure conectados à VM do servidor SAP HANA. Este método aborda falhas da VM, mas não possíveis danos aos arquivos de log e dados do SAP HANA ou erros lógicos, como a exclusão de dados ou arquivos por engano. Os backups também são necessários por motivos legais ou de conformidade. Em resumo, sempre há a necessidade de backups do SAP HANA.
 
@@ -171,7 +170,7 @@ No Microsoft Azure, um cliente pode usar o recurso de criptografia de VM do IaaS
 
 O Serviço de Backup do Azure pode manipular discos/VMs criptografados (consulte [Como fazer backup e restaurar máquinas virtuais criptografadas com criptografia do backup do Azure](../../../backup/backup-azure-vms-encryption.md)).
 
-Outra opção seria manter a VM do SAP HANA e seus discos sem criptografia e armazenar os arquivos de backup do SAP HANA em uma conta de armazenamento para a qual a criptografia foi habilitada (consulte [Criptografia do serviço de armazenamento do Azure para dados em repouso](../../../storage/storage-service-encryption.md)).
+Outra opção seria manter a VM do SAP HANA e seus discos sem criptografia e armazenar os arquivos de backup do SAP HANA em uma conta de armazenamento para a qual a criptografia foi habilitada (consulte [Criptografia do serviço de armazenamento do Azure para dados em repouso](../../../storage/common/storage-service-encryption.md)).
 
 ## <a name="test-setup"></a>Configuração de teste
 

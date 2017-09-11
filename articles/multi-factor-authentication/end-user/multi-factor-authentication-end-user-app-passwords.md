@@ -3,7 +3,7 @@ title: Como usar senhas de aplicativo no Azure MFA? | Microsoft Docs
 description: "Esta página ajudará os usuários a entender o que são senhas de aplicativo e para que elas são usadas em relação ao Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
@@ -36,21 +36,21 @@ Veja a seguir do que se lembrar sobre como usar senhas de aplicativo.
 
 * Você não cria suas próprias senhas de aplicativo. Em vez disso, elas são geradas automaticamente. Como você só precisa digitar a senha de aplicativo uma vez por aplicativo, é mais seguro usar uma senha mais complexa, gerada automaticamente, em vez de criar uma que você possa se lembrar.
 * Atualmente, há um limite de 40 senhas por usuário. Se você tentar criar uma depois de ter atingido o limite, será solicitado que você exclua uma de suas senhas de aplicativo existentes antes de criar uma nova.
-* Você deve usar uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, você pode criar uma senha de aplicativo para seu laptop e usá-la para todos os aplicativos nesse laptop. Em seguida, crie uma segunda senha de aplicativo a ser usada para todos os seus aplicativos na área de trabalho. 
+* Você deve usar uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, você pode criar uma senha de aplicativo para seu laptop e usá-la para todos os aplicativos nesse laptop. Em seguida, crie uma segunda senha de aplicativo a ser usada para todos os seus aplicativos na área de trabalho.
 * Você receberá uma senha de aplicativo na primeira vez que se inscrever na verificação em duas etapas.  Se precisar de mais, é possível criá-las.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Criação e exclusão de senhas de aplicativo
-Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar.  Além disso, você também pode criar e excluir senhas de aplicativo posteriormente.  Como fazer isso depende de como você usa a autenticação multifator. Responda as perguntas a seguir para saber mais sobre como gerenciar as suas senhas de aplicativo: 
+Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar.  Além disso, você também pode criar e excluir senhas de aplicativo posteriormente.  Como fazer isso depende de como você usa a autenticação multifator. Responda as perguntas a seguir para saber mais sobre como gerenciar as suas senhas de aplicativo:
 
 1. Você usa a verificação em duas etapas em sua conta pessoal da Microsoft? Se sim, consulte o artigo [Senhas de aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) para obter ajuda. Se não, prossiga para a pergunta dois.
 
-2. Certo, você usa a verificação de duas etapas em sua conta corporativa ou de estudante. Você a utiliza para entrar em aplicativos do Office 365? Se Sim, consulte o artigo [Criar uma senha de aplicativo para o Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obter ajuda. Se não, prossiga para a pergunta três. 
+2. Certo, você usa a verificação de duas etapas em sua conta corporativa ou de estudante. Você a utiliza para entrar em aplicativos do Office 365? Se Sim, consulte o artigo [Criar uma senha de aplicativo para o Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obter ajuda. Se não, prossiga para a pergunta três.
 
 3. Você usa a verificação em duas etapas com o Microsoft Azure? Se sim, vá para a seção [Gerenciar senhas de aplicativo no portal do Azure](#manage-app-passwords-in-the-Azure-portal) deste artigo. Se não, prossiga para a pergunta quatro.
 
-4. Você não sabe onde utiliza a verificação em duas etapas? Vá para a seção [Gerenciar senhas de aplicativo no portal do MyApps](#manage-app-passwords-with-the-myapps-portal) deste artigo. 
+4. Você não sabe onde utiliza a verificação em duas etapas? Vá para a seção [Gerenciar senhas de aplicativo no portal do MyApps](#manage-app-passwords-with-the-myapps-portal) deste artigo.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerenciar senhas de aplicativo no portal do Azure
@@ -63,7 +63,7 @@ Se você usa a autenticação em duas etapas com o Azure, talvez seja convenient
 4. Clique em **Criar**.
 5. Insira um nome para a senha de aplicativo e clique em **Avançar**
 6. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
-   
+
    ![Nuvem](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
@@ -115,5 +115,5 @@ Se não tiver certeza de como você usa a autenticação multifator, será poss�
 
 - [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 
-- Experimente o [aplicativo Autenticador Microsoft](microsoft-authenticator-app-how-to.md) para verificar suas conexões com notificações de aplicativo, em vez de receber mensagens ou ligações. 
+- Experimente o [aplicativo Autenticador Microsoft](microsoft-authenticator-app-how-to.md) para verificar suas conexões com notificações de aplicativo, em vez de receber mensagens ou ligações.
 

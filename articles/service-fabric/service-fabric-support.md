@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
@@ -42,7 +41,7 @@ Saiba mais sobre:
 
 ## <a name="report-production-or-live-site-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Relatar problemas de produção ou de site ativo ou solicitar o suporte pago para clusters independentes do Service Fabric
 
-Para relatar problemas de site ativo no cluster do Service Fabric implantado localmente ou em outras nuvens, abra um tíquete de suporte profissional no [portal de suporte da Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Para relatar problemas de site ativo no cluster do Service Fabric implantado localmente ou em outras nuvens, abra um tíquete para obter suporte profissional no [portal de suporte da Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Saiba mais sobre:
 
@@ -84,7 +83,8 @@ Veja a seguir a lista das versões do Service Fabric com suporte e as datas de f
 | 5.3.* |Menor ou igual à versão 2.3 |24 de fevereiro de 2017 |
 | 5.4.* |Menor ou igual à versão 2.4 |10 de maio de 2017     |
 | 5.5.* |Menor ou igual à versão 2.5 |10 de agosto de 2017    |
-| 5.6.* |Menor ou igual à versão 2.6 |Versão atual e, portanto, sem data de término
+| 5.6.* |Menor ou igual à versão 2.6 |13 de outubro de 2017    |
+| 5.7.* |Menor ou igual à versão 2.7 |Versão atual e, portanto, sem data de término
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões prévias do Service Fabric – sem suporte para uso em produção.

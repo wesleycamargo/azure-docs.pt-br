@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do Criador de Modos de Exibição do Log Analytics
@@ -26,7 +27,10 @@ O Designer de Modos de Exibição do Log Analytics permite que você crie modos 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
 * [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de componentes de visualização](log-analytics-view-designer-parts.md) – referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
+* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas.
+
+>[!NOTE]
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
 A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de Modos de Exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 
@@ -176,10 +180,4 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas em blocos.
 * Adicione [Componentes de Visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

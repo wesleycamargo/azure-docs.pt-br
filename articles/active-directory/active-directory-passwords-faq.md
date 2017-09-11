@@ -6,21 +6,21 @@ keywords: "Gerenciamento de senhas do Active Directory, gerenciamento de senhas,
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
@@ -38,6 +38,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [**Perguntas sobre o write-back de senha**](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registro de redefinição de senha
+
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
   > **R:** Sim, desde que a redefinição de senha esteja habilitada e eles sejam licenciados, eles podem ir para o portal de Registro de Redefinição de Senha em http://aka.ms/ssprsetup para registrar as informações de autenticação. Os usuários também podem se registrar se conectando ao painel de acesso em http://myapps.microsoft.com, clicando na guia perfil e clicando na opção Registrar-se para a redefinição de senha.
@@ -82,7 +83,9 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** Um usuário é considerado registrado para o SSPR quando ele registrou, pelo menos, o **Número de métodos obrigatórios para a redefinição** que você definiu no [portal do Azure](https://portal.azure.com).
   >
   >
+
 ## <a name="password-reset"></a>Redefinição de senha
+
 * **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
 
   > **R:** Emails, mensagens SMS e chamadas telefônicas devem ser recebidas em menos de um minuto, normalmente de 5 a 20 segundos.
@@ -105,7 +108,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
 
-  > **R:** Você pode enviar os usuários diretamente para https://passwordreset.microsoftonline.com ou instruí-los a clicar no **link Não consegue acessar sua conta** encontrado em qualquer tela de conexão de Conta Corporativa ou de Estudante. Você também pode publicar esses links em um local acessível aos usuários.
+  > **R:** Tente alguma das sugestões em nosso [artigo de implantação do SSPR](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **P: posso usar essa página em um dispositivo móvel?**
@@ -158,6 +161,11 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** sim, um limite pode ser definido para o registro e outro para a redefinição. Podem ser necessárias de três a cinco perguntas de segurança para o registro e de três a cinco perguntas para a redefinição.
   >
   >
+* **P: Configurei minha política para exigir que os usuários usem perguntas de segurança para redefinição, mas os administradores do Azure parecem ter configurado de maneira diferente.**
+
+  > **R:** Esse é um comportamento esperado. A Microsoft impõe uma política padrão forte de redefinição de senha de dois portões para qualquer função de administrador do Azure. Isso impede administradores de usar perguntas de segurança. Mais informações sobre essa política podem ser encontradas no artigo [Políticas e restrições de senha no Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  >
+  >
 * **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança são selecionadas durante a redefinição?**
 
   > **R:** X perguntas de segurança são selecionadas aleatoriamente do número total de perguntas nas quais um usuário se registrou, em que X é o **Número de perguntas obrigatórias para a redefinição**. Por exemplo, se um usuário tem 5 perguntas de segurança registradas, mas apenas 3 são obrigatórias para a redefinição, 3 das 5 são selecionadas aleatoriamente e apresentadas no momento da redefinição. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
@@ -175,6 +183,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 
 ## <a name="password-change"></a>Alteração de senha
+
 * **P: onde os usuários devem ir para alterar suas senhas?**
 
   > **R:** Os usuários podem alterar suas senhas em qualquer lugar em que veem seus ícones ou imagens de perfil (como no canto superior direito das experiências do [Office 365](https://portal.office.com) ou do [Painel de Acesso](https://myapps.microsoft.com)). Os usuários podem alterar suas senhas na [página de perfil do Painel de Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também poderão ser solicitados a alterar suas senhas automaticamente na tela de conexão do Azure AD se elas expirarem. Por fim, os usuários podem navegar até o [Portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem alterar suas senhas.
@@ -187,6 +196,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 
 ## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
+
 * **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
 
   > **R:** os dados devem ser exibidos nos relatórios de gerenciamento de senha entre 5 e 10 minutos. Em algumas instâncias, pode levar até uma hora para que sejam exibidos.
@@ -219,6 +229,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 
 ## <a name="password-writeback"></a>Write-back de senha
+
 * **P: como funciona os bastidores do write-back de senha?**
 
   > **R:** Consulte [Como funciona o write-back de senha](active-directory-passwords-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
@@ -257,13 +268,13 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md) – configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md) – entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
 * [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
 * [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
 * [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local

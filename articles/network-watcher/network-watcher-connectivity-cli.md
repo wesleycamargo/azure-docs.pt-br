@@ -3,7 +3,7 @@ title: "Verificar a conectividade com o Observador de Rede do Azure – CLI 2.0 
 description: "Esta página explica como usar a verificação de conectividade com o Observador de Rede usando a CLI 2.0 do Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278

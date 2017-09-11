@@ -4,7 +4,7 @@ description: "Amostra de script da CLI do Azure – Criar uma função do Azure 
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

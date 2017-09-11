@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 Durante o restante deste tutorial, utilizamos `<acrname>` como um espaço reservado para o nome do registro de contêiner escolhido.
 
-## <a name="get-azure-container-registry-information"></a>Obter informações sobre o Registro de Contêiner do Azure
+## <a name="container-registry-login"></a>Logon no registro de contêiner
 
-Depois que o registro de contêiner é criado, você pode consultar o servidor de logon e senha dele. O seguinte código retorna esses valores. Anote cada valor de servidor de logon e senha, pois eles serão referenciados ao longo deste tutorial.
-
-Servidor de logon do registro de contêiner (atualize com seu nome de registro):
+Você deverá entrar na instância do ACR antes de enviar imagens por push a ele. Use o comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) para concluir a operação. Você precisa fornecer o nome exclusivo fornecido para o registro de contêiner quando ele foi criado.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-Durante o restante deste tutorial, utilizamos `<acrLoginServer>` como um espaço reservado para o valor do servidor de logon do registro de contêiner.
-
-Senha de registro de contêiner:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-Durante o restante deste tutorial, utilizamos `<acrPassword>` como um espaço reservado para o valor da senha do registro de contêiner.
-
-## <a name="login-to-the-container-registry"></a>Logon no registro de contêiner
-
-Você deve fazer logon na instância do registro de contêiner antes de enviar imagens por push a ela. Use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para concluir a operação. Ao executar o logon do docker, você precisa fornecer o nome e as credenciais do servidor de logon do registro.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 O comando retorna uma mensagem de 'Logon bem-sucedido' quando é concluído.
@@ -105,6 +85,12 @@ Saída:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+Para obter o nome de loginServer, execute o comando a seguir.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 Marque a imagem *aci-tutorial-app* com o loginServer do registro de contêiner. Além disso, adicione `:v1` ao final do nome da imagem. Essa marca indica o número de versão da imagem.
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 Para retornar uma lista de imagens que foram enviadas por push ao Registro de Contêiner do Azure, use o comando [az acr repository list](/cli/azure/acr/repository#list). Atualize o comando com o nome do registro de contêiner.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Saída:
@@ -156,7 +142,7 @@ aci-tutorial-app
 E, em seguida, para ver as marcas de uma imagem específica, use o comando [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Saída:

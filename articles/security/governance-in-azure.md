@@ -1,5 +1,4 @@
 ---
-
 title: "Governança no Azure | Microsoft Docs"
 description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 91fb3c70d95cca46dd68e3f15ad67c914cfbfa5b
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -424,7 +422,7 @@ A Microsoft tem uma equipe de segurança e conformidade que monitora e analisa t
 
 O OMS (Operations Management Suite) é um conjunto de serviços de gerenciamento que foram criados na nuvem desde o início. Em vez de implantar e gerenciar recursos locais, os componentes do OMS estão totalmente hospedados no Azure. A configuração é mínima e você pode ter tudo funcionando literalmente em questão de minutos.
 
-![Conjunto de Gerenciamento de Operação](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 Só porque os serviços do OMS são executados na nuvem não significa que eles não possam gerenciar efetivamente seu ambiente local.
 
@@ -434,7 +432,7 @@ Os runbooks na nuvem normalmente não podem acessar os recursos locais, mas voc�
 
 A principal funcionalidade do OMS é oferecida por um conjunto de serviços que são executados no Azure. Cada serviço fornece uma função de gerenciamento específico, e você pode combinar serviços para obter cenários de gerenciamento diferentes.
 
-![Conjunto de Gerenciamento de Operação](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Gerenciador de operação do Azure estende suas funcionalidades fornecendo soluções de gerenciamento. [Soluções de gerenciamento](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento específico utilizando um ou mais serviços do OMS.
 

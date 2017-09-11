@@ -4,7 +4,7 @@ description: "O MP (processador de mídia) Azure Media Motion Detector permite a
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services

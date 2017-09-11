@@ -4,7 +4,7 @@ description: "Este tutorial guia você pelas etapas de codificação de um ativo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services

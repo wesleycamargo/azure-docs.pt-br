@@ -4,7 +4,7 @@ description: "Este artigo mostra como usar a telemetria dos Serviços de Mídia 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 26428ad0d3acda959235ffa780294154ba61bca5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 61a8bfcf3704f361432400771d8fcc8b81927b53
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -32,8 +32,8 @@ No primeiro início, o Cloud Shell solicita a associação de um compartilhament
 
 Ao usar as configurações básicas e seleciona apenas uma assinatura, o Cloud Shell criará três recursos em seu nome na região com suporte mais próxima de você:
 * Grupo de recursos: `cloud-shell-storage-<region>`
-* Conta de armazenamento: `cs-uniqueGuid`
-* Compartilhamento de arquivos:`cs-<user>-<domain>-com-uniqueGuid`
+* Conta de armazenamento: `cs<uniqueGuid>`
+* Compartilhamento de arquivos:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![A configuração da assinatura](media/basic-storage.png)
 
@@ -41,7 +41,7 @@ O compartilhamento de arquivos é montado como `clouddrive` no seu diretório `$
 
 ### <a name="use-existing-resources"></a>Usar recursos existentes
 
-Usando a opção avançada, você pode associar recursos existentes. Quando aparecer o prompt de instalação de armazenamento, selecione **Mostrar configurações avançadas** para exibir opções adicionais. Compartilhamentos de arquivos existentes recebem uma imagem do usuário de 5 GB para persistir seu diretório `$Home`. Os menus suspensos são filtrados para sua região do Cloud Shell, o armazenamento redundante localmente e as contas de armazenamento com redundância geográfica atribuídos.
+Usando a opção avançada, você pode associar recursos existentes. Quando aparecer o prompt de instalação de armazenamento, selecione **Mostrar configurações avançadas** para exibir opções adicionais. Compartilhamentos de arquivos existentes recebem uma imagem do usuário de 5 GB para persistir seu diretório `$Home`. Os menus suspensos são filtrados para sua região do Cloud Shell e para contas de armazenamento com redundância local e geográfica.
 
 ![A configuração do grupo de recursos](media/advanced-storage.png)
 
@@ -52,7 +52,7 @@ As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource
 O Cloud Shell persiste arquivos usando os seguintes métodos:
 * Criando uma imagem de disco do seu diretório `$Home` para persistir todo o conteúdo do diretório. A imagem de disco é salva no compartilhamento de arquivos especificado como `acc_<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img` e sincroniza as alterações automaticamente.
 
-* Montando o compartilhamento de arquivos especificado como `clouddrive` no diretório `$Home` para que haja interação direta com o compartilhamento de arquivos. `/Home/<User>/clouddrive` é mapeado para `fileshare.storage.windows.net/fileshare`.
+* Montagem do compartilhamento de arquivos especificado como `clouddrive` no diretório `$Home` para que haja interação direta com o compartilhamento de arquivos. `/Home/<User>/clouddrive` é mapeado para `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
 > Todos os arquivos em seu diretório `$Home` como chaves SSH são persistidos em sua imagem de disco do usuário, que é armazenada no compartilhamento de arquivos montado. Aplique as práticas recomendadas ao persistir informações em seu diretório `$Home` e no compartilhamento de arquivos montado.
@@ -71,7 +71,7 @@ Se estiver montando um compartilhamento de arquivos existente, as contas de arma
 * Localizadas na região atribuída a você. Ao fazer a integração, a região atribuída a você será listada no nome do grupo de recursos `cloud-shell-storage-<region>`.
 
 ### <a name="supported-storage-regions"></a>Regiões de armazenamento com suporte
-Os arquivos do Azure devem residir na mesma região que o computador do Cloud Shell em que você estiver montando. Há computadores do Cloud Shell nas regiões a seguir:
+Os arquivos do Azure devem residir na mesma região que o computador do Cloud Shell em que você estiver montando. Há clusters do Cloud Shell nas regiões a seguir:
 |Área|Região|
 |---|---|
 |Américas|Leste dos EUA, Centro-Sul dos EUA, Oeste dos EUA|
@@ -94,7 +94,7 @@ Para exibir mais detalhes, execute `clouddrive mount -h` conforme mostrado aqui:
 ![Executando o comando ' clouddrive mount'](media/mount-h.png)
 
 ## <a name="unmount-clouddrive"></a>Desmontar o `clouddrive`
-Você pode desmontar um compartilhamento de arquivos que esteja montado no Cloud Shell a qualquer momento. No entanto, como o Cloud Shell requer um compartilhamento de arquivos montado, será solicitado que você crie e monte um novo compartilhamento de arquivos na sessão seguinte se ele for removido.
+Você pode desmontar um compartilhamento de arquivos que esteja montado no Cloud Shell a qualquer momento. Após desmontar o compartilhamento de arquivos, você receberá uma solicitação para montar um novo compartilhamento de arquivo antes de sua próxima sessão.
 
 Para remover um compartilhamento de arquivos do Cloud Shell:
 1. Execute `clouddrive unmount`.
@@ -107,23 +107,23 @@ Para exibir mais detalhes, execute `clouddrive unmount -h` conforme mostrado aqu
 ![Executando o comando ' clouddrive unmount'](media/unmount-h.png)
 
 > [!WARNING]
-> Embora a execução desse comando não exclua todos os recursos, a exclusão manual de um grupo de recursos, de uma conta de armazenamento, ou de um compartilhamento de arquivos mapeado para o Cloud Shell apagará a imagem do disco `$Home` e todos os arquivos em seu compartilhamento de arquivos. Essa ação não pode ser desfeita.
+> A execução desse comando não excluirá qualquer recurso. A exclusão manual de um grupo de recursos, conta de armazenamento ou compartilhamento de arquivos mapeado para o Cloud Shell apagará permanentemente sua imagem de diretório `$Home` e todos os arquivos no compartilhamento de arquivos. Essa ação não pode ser desfeita.
 
 ## <a name="list-clouddrive-file-shares"></a>Listar compartilhamentos de arquivos do `clouddrive`
 Para descobrir qual compartilhamento de arquivos está montado como `clouddrive`, execute o comando `df` a seguir. 
 
-O caminho de arquivo para o clouddrive mostrará o nome da conta de armazenamento e o compartilhamento de arquivos na URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
+O caminho de arquivo para a unidade de nuvem mostra o nome da conta de armazenamento e o compartilhamento de arquivos na URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## <a name="transfer-local-files-to-cloud-shell"></a>Transferir arquivos locais para o Cloud Shell

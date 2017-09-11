@@ -4,7 +4,7 @@ description: "Saiba como usar os Serviços de Mídia do Azure para criar um apli
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
@@ -134,7 +134,7 @@ Para importar dados, carregue-os no armazenamento do Azure, crie uma chave de ac
 
 Você pode realizar o seguinte processo manualmente ou configurar um sistema automatizado para fazê-lo em intervalos regulares. Você precisa seguir estas etapas para cada bloco de dados que quiser importar.
 
-1. Carregue os dados no [armazenamento de blobs do Azure](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Carregue os dados no [armazenamento de blobs do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Blobs podem ter um tamanho de até 1 GB descompactados. Os blobs grandes, com centenas de MB, são ideais da perspectiva do desempenho.
  * Você pode compactá-los com Gzip para melhorar o tempo de carregamento e a latência, para que os dados fiquem disponíveis para consulta. Use a extensão de nome de arquivo `.gz`.
@@ -142,7 +142,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
  * Ao enviar dados em alta frequência, em intervalos de segundos, é recomendável usar mais de uma conta de armazenamento, por motivos de desempenho.
 
  
-2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
+2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
 3. Faça uma chamada REST para notificar o Application Insights que os dados estão em espera.
 
  * Ponto de extremidade: `https://dc.services.visualstudio.com/v2/track`

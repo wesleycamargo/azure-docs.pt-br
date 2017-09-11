@@ -1,10 +1,9 @@
 ---
-
 title: "Exibir atribuições de acesso a recursos do Azure | Microsoft Docs"
 description: "Exibir e gerenciar todas as atribuições de Controle de Acesso Baseado em Função para um usuário ou grupo no portal do Azure"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -14,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: e3b31a3db4b8f435c29cbc9dbdd09d100e821026
+ms.author: andredm
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no Portal do Azure

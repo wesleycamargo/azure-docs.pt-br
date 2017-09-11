@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
@@ -56,6 +56,34 @@ Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as
 | **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Packages |
 | **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>Os dados de métrica não são exibidos no portal do Azure
+O Diagnóstico do Azure fornece um conjunto de dados de métrica, que podem ser exibidos no portal do Azure. Se você tiver problemas para ver esses dados no portal, verifique a conta de armazenamento de diagnóstico -> tabela WADMetrics\* para ver se os registros correspondentes de métrica existem. Aqui, PartitionKey da tabela é a ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais, e a RowKey é o nome da métrica, ou seja, o nome do contador de desempenho.
+
+Se a ID de recurso estiver incorreta, verifique Configuração de Diagnósticos -> Métricas -> ResourceId para ver se a ID de recurso está definida corretamente.
+
+Se não houver dados para a métrica específica, verifique Configuração de Diagnóstico -> PerformanceCounter para ver se a métrica (contador de desempenho) está incluída. Habilitamos os seguintes contadores por padrão.
+- \Processador(_Total)\% Tempo do processador
+- \Memória\Bytes Disponíveis
+- \Aplicativos ASP.NET (__Total__)\Solicitações/s
+- \Aplicativos ASP.NET (__Total__)\Total de Erros/s
+- \ASP.NET\Solicitações Enfileiradas
+- \ASP.NET\Solicitações Rejeitadas
+- \Processador(w3wp)\% Tempo do Processador
+- \Processo(w3wp)\Bytes Privados
+- \Processo(WaIISHost)\% Tempo do Processador
+- \Processo(WaIISHost)\Bytes Privados
+- \Processo(WaWorkerHost)\% Tempo do Processador
+- \Processo(WaWorkerHost)\Bytes Privados
+- \Memória\Falhas de Página/s
+- \.Memória CLR NET(_Global_)\% Tempo em GC
+- \LogicalDisk(C:)\Bytes de Gravação de Disco/s
+- \LogicalDisk(C:)\Bytes de Leitura de Disco/s
+- \LogicalDisk(D:)\Bytes de Gravação de Disco/s
+- \LogicalDisk(D:)\Bytes de Leitura de Disco/s
+
+Se a configuração estiver definida corretamente, mas você ainda não conseguir ver os dados da métrica, siga as diretrizes abaixo para investigar mais.
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics não está iniciando
 Analise os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** do local dos arquivos de log para obter informações sobre porque o diagnóstico não pode ser iniciado. 
 
@@ -72,7 +100,7 @@ Se você encontrar um código de saída **negativo**, consulte a [tabela de cód
 Determine se nenhum dado é exibido ou apenas alguns dos dados não estão sendo exibidos.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Logs de infraestrutura de diagnósticos
-Logs da Infraestrutura de diagnóstico é onde o diagnóstico do Azure registra quaisquer erros que são encontrados. Verifique se você habilitou ([como?](#how-to-check-diagnostics-extension-configuration)) a captura de logs da Infraestrutura de diagnóstico em sua configuração e procure rapidamente erros relevantes que aparecem na tabela `DiagnosticInfrastructureLogsTable` em sua conta de armazenamento configurada.
+Logs da Infraestrutura de diagnóstico é onde o diagnóstico do Azure registra quaisquer erros que são encontrados. Verifique se você habilitou ([como?](#how-to-check-diagnostics-extension-configuration)) a captura de logs da Infraestrutura de Diagnóstico em sua configuração e procure rapidamente erros relevantes que aparecem na tabela `DiagnosticInfrastructureLogsTable` em sua conta de armazenamento configurada.
 
 ### <a name="no-data-is-showing-up"></a>Nenhum dado está sendo exibido
 A causa mais comum da completa ausência de dados de evento é uma informação de conta de armazenamento definida incorretamente.
@@ -87,9 +115,9 @@ Se você estiver obtendo alguns dados, mas não outros. Isso significa que a col
 A Configuração de diagnóstico contém a parte que instrui para um determinado tipo de dados a ser coletado. [Examine a configuração](#how-to-check-diagnostics-extension-configuration) para certificar-se de que você não está procurando dados que foram configurados para a coleta.
 #### <a name="is-the-host-generating-data"></a>O host está gerando dados:
 - **Contadores de desempenho**: abra o perfmon e verifique o contador.
-- **Logs de rastreamento**: a área de trabalho remota na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Consulte http://msdn.microsoft.com/pt-br/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
+- **Logs de rastreamento**: a área de trabalho remota na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Confira http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
 Se você não vir os logs de rastreamento sendo gerados, execute [Mais sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
-- **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
+- **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de Usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
 - **Logs de evento**: área de trabalho remota na VM. Abra `Event Viewer` e verifique se os eventos existem.
 #### <a name="is-data-getting-captured-locally"></a>Os dados estão sendo capturados localmente:
 Em seguida, certifique-se de que os dados estão sendo capturados localmente.
@@ -103,7 +131,7 @@ Se você verificou se os dados estão sendo capturados localmente, mas ainda nã
 - Por fim, você pode tentar e ver quais falhas estão sendo relatadas pelo Agente de monitoramento. O Agente de monitoramento grava logs no `maeventtable.tsf` localizado no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Siga as instruções na seção [Extração de log local](#local-log-extraction) para abrir este arquivo e experimentar e descobrir se há `errors` indicando falhas para ler os arquivos locais ou de gravação para o armazenamento.
 
 ### <a name="capturing--archiving-logs"></a>Capturando/arquivando logs
-Você seguiu as etapas acima, mas não foi possível descobrir o que estava errado e está pensando sobre como entrar em contato com o suporte. A primeira coisa que eles podem solicitar a você é para coletar logs do seu computador. Você pode poupar tempo fazendo isso você mesmo. Execute o utilitário `CollectGuestLogs.exe` no [Caminho do utilitário de coleta de log](#log-artifacts-path) e ele gerará um arquivo zip com todos os logs relevantes do Azure na mesma pasta.
+Você seguiu as etapas acima, mas não foi possível descobrir o que estava errado e está pensando sobre como entrar em contato com o suporte. A primeira coisa que eles podem solicitar a você é para coletar logs do seu computador. Você pode poupar tempo fazendo isso você mesmo. Execute o utilitário `CollectGuestLogs.exe` no [Caminho do Utilitário de Coleta de Log](#log-artifacts-path) e ele gerará um arquivo zip com todos os logs relevantes do Azure na mesma pasta.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tabelas dos dados de diagnósticos não encontradas
 As tabelas no armazenamento do Azure que contêm eventos do ETW são nomeadas usando o código a seguir:
@@ -122,13 +150,13 @@ As tabelas no armazenamento do Azure que contêm eventos do ETW são nomeadas us
 Aqui está um exemplo:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -212,7 +240,7 @@ O agente de monitoramento coleta logs e artefatos como arquivos `.tsf`. O arquiv
 ```
 Um novo arquivo chamado `<relevantLogFile>.csv` será criado no mesmo caminho correspondente do arquivo `.tsf`.
 
-**OBSERVAÇÃO**: você só precisa executar este utilitário contra o arquivo tsf principal (por exemplo, PerformanceCountersTable.tsf). Os arquivos complementares (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf, etc.) serão processados automaticamente.
+**OBSERVAÇÃO**: você só precisa executar este utilitário contra o arquivo tsf principal (por exemplo, PerformanceCountersTable.tsf). Os arquivos complementares (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) serão processados automaticamente.
 
 ### <a name="more-about-trace-logs-missing"></a>Mais informações sobre Logs de rastreamento ausentes
 
@@ -240,7 +268,8 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 **2. Dados de Contadores de desempenho estão disponíveis no armazenamento, mas não são mostrados no portal**
 
 A experiência do portal de máquinas virtuais mostra determinados contadores de desempenho por padrão. Se você não os vir e souber que os dados estão sendo gerados porque ele está disponível no armazenamento. Verificação:
-- Se os dados no armazenamento possuem nomes do contador em inglês. Se os nomes do contador não estão em inglês, o gráfico de métrica do portal não poderá reconhecê-los.
+- Se os dados no armazenamento possuírem nomes do contador em inglês. Se os nomes do contador não estão em inglês, o gráfico de métrica do portal não poderá reconhecê-los.
 - Se você estiver usando caracteres curinga (\*) em seus nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
 
 **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Painel de Controle -> Região -> Administrativos -> Configurações de Cópia -> desmarque "Bem-vindo às contas de tela e do sistema" para que o idioma personalizado não seja aplicado à conta do sistema. Verifique também se você não usa caracteres curinga, se quiser que o portal seja sua experiência de consumo principal.
+

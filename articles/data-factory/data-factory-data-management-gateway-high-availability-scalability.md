@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ed62e35930b64919f4be0f3491f4eda995b81e7f
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
 ms.contentlocale: pt-br
 ms.lasthandoff: 08/10/2017
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 08/10/2017
 Este artigo lhe ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway de Gerenciamento de Dados.    
 
 > [!NOTE]
-> Este artigo pressupõe que você já esteja familiarizado com conceitos básicos do Gateway de Gerenciamento de Dados. Se você não estiver, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).  
+> Este artigo pressupõe que você já esteja familiarizado com conceitos básicos do Gateway de Gerenciamento de Dados. Se você não estiver, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
+
+>**Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Visão geral
 Você pode associar gateways de gerenciamento de dados instalados em vários computadores locais a um único gateway lógico por meio do portal. Esses computadores são chamados de **nós**. Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
@@ -125,7 +127,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
 11. Para excluir um nó do gateway, clique em **Excluir Nó** na barra de ferramentas, selecione o nó que você deseja excluir e, em seguida, clique em **Excluir** na barra de ferramentas. Essa ação exclui o nó selecionado do grupo. Observe que essa ação não desinstala o software de Gateway de Gerenciamento de Dados do nó (computador do Windows local). Use **Adicionar ou remover programas** no Painel de Controle local para desinstalar o gateway. Quando você desinstala um gateway por meio do nó, ele é automaticamente excluído no portal.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Atualizar um gateway existente
-Você pode atualizar um gateway existente para usar o recurso de alta disponibilidade e escalabilidade. Esse recurso funciona somente com nós que têm o Gateway de Gerenciamento de Dados de versão >= 2.9.xxxx. Você pode ver a versão do Gateway de Gerenciamento de Dados instalado no computador na guia **Ajuda** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados. 
+Você pode atualizar um gateway existente para usar o recurso de alta disponibilidade e escalabilidade. Esse recurso funciona somente com nós que têm o gateway de gerenciamento de dados da versão >= 2.12.xxxx. Você pode ver a versão do Gateway de Gerenciamento de Dados instalado no computador na guia **Ajuda** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados. 
 
 1. Atualize o gateway no computador local para a versão mais recente, baixando e executando um pacote de instalação MSI do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte a seção [Instalação](data-factory-data-management-gateway.md#installation) para obter detalhes.  
 2. Navegue até o Portal do Azure. Inicie a **página do Data Factory** o seu data factory. Clique no bloco Serviços vinculados para iniciar a **página Serviços vinculados**. Selecione o gateway para iniciar a **página Gateway**. Clique na **Versão Prévia do Recurso** e habilite-a, conforme mostrado na imagem a seguir: 
@@ -247,3 +249,4 @@ Depois de excluí-lo, clique na **versão prévia dos recursos** na mesma págin
 Examine os seguintes artigos:
 - [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) – fornece uma visão geral detalhada do gateway.
 - [Mover dados entre locais e na nuvem armazenamentos de dados](data-factory-move-data-between-onprem-and-cloud.md) – contém um passo a passo com instruções passo a passo para usar um gateway com um único nó. 
+

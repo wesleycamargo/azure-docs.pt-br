@@ -2,7 +2,7 @@
 title: "Lógica de repetição no SDK dos Serviços de Mídia para .NET | Microsoft Docs"
 description: "Este tópico fornece uma visão geral da lógica de repetição no SDK dos Serviços de Mídia para .NET."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -10,6 +10,5 @@ Agora você pode usar o Data Explorer para criar uma tabela e adicionar dados ao
     Id da Tabela|tabela de exemplo|A ID da nova tabela. Os nomes de tabela possuem os mesmos requisitos de caractere que os ids de banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
     Capacidade de armazenamento| 10 GB|Mantenha o valor padrão. Essa é a capacidade de armazenamento do banco de dados.
     Taxa de transferência|400 RUs|Mantenha o valor padrão. Você pode escalar a [taxa de transferência](../articles/cosmos-db/request-units.md) verticalmente mais tarde se desejar reduzir a latência.
-    RU/m|Desativar|Use o valor padrão.
 
 3. Quando o formulário estiver preenchido, clique em **OK**.

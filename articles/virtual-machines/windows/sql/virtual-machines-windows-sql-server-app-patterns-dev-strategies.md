@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
@@ -51,7 +51,7 @@ Camadas de aplicativo descrevem os agrupamentos lógicos de funcionalidades e os
 
 Antes de começar a ler este artigo, você deve ter conhecimento dos conceitos básicos do SQL Server e do Azure. Para obter mais informações, confira [Manuais Online do SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e [Azure.com](https://azure.microsoft.com/).
 
-Este artigo descreve vários padrões de aplicativos que podem ser adequados para seus aplicativos simples, bem como para aplicativos corporativos altamente complexos. Antes de detalharmos cada padrão, recomendamos que você se familiarize com os serviços de armazenamento de dados disponíveis no Azure, como o [Armazenamento do Azure](../../../storage/storage-introduction.md), o [Banco de Dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md) e o [SQL Server em uma Máquina Virtual do Azure](virtual-machines-windows-sql-server-iaas-overview.md). Para tomar as melhores decisões de design para seus aplicativos, entenda claramente quando usar cada serviço de armazenamento de dados.
+Este artigo descreve vários padrões de aplicativos que podem ser adequados para seus aplicativos simples, bem como para aplicativos corporativos altamente complexos. Antes de detalharmos cada padrão, recomendamos que você se familiarize com os serviços de armazenamento de dados disponíveis no Azure, como o [Armazenamento do Azure](../../../storage/common/storage-introduction.md), o [Banco de Dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md) e o [SQL Server em uma Máquina Virtual do Azure](virtual-machines-windows-sql-server-iaas-overview.md). Para tomar as melhores decisões de design para seus aplicativos, entenda claramente quando usar cada serviço de armazenamento de dados.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Escolha o SQL Server em uma Máquina Virtual do Azure quando:
 * Você precisa ter controle no SQL Server e no Windows. Por exemplo, isso pode incluir a versão do SQL Server, hotfixes especiais, configuração de desempenho etc.
@@ -192,7 +192,7 @@ Como visto no diagrama, o Balanceador de Carga do Azure distribui o tráfego ent
 
 ![Padrões de aplicativo com Serviços de Nuvem](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Outra abordagem para implementar esse padrão de aplicativo é usar uma função web consolidada que contém componentes de camada de apresentação e camada de negócios, conforme mostrado no diagrama a seguir. Esse padrão de aplicativo é útil para aplicativos que requerem um design com monitoração de estado. Como o Azure fornece nós de computação sem monitoração de estado em funções web e de trabalho, recomendamos que você implemente uma lógica para armazenar o estado de sessão usando uma das seguintes tecnologias: [Caching do Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Armazenamento de Tabelas do Azure](../../../storage/storage-dotnet-how-to-use-tables.md) ou [Banco de Dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md).
+Outra abordagem para implementar esse padrão de aplicativo é usar uma função web consolidada que contém componentes de camada de apresentação e camada de negócios, conforme mostrado no diagrama a seguir. Esse padrão de aplicativo é útil para aplicativos que requerem um design com monitoração de estado. Como o Azure fornece nós de computação sem monitoração de estado em funções web e de trabalho, recomendamos que você implemente uma lógica para armazenar o estado de sessão usando uma das seguintes tecnologias: [Caching do Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Armazenamento de Tabelas do Azure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) ou [Banco de Dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md).
 
 ![Padrões de aplicativo com Serviços de Nuvem](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 5de81da3c6b77f1a80876d68def66792b6a21bb9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ Há dois tipos de métricas no Azure que são coletadas de VMs e conjuntos de di
 
 Nosso modelo de conjunto de dimensionamento viável mínimo pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) e nosso modelo para implantar o conjunto de dimensionamento Linux com dimensionamento automático baseado em convidado pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Vamos examinar a comparação usada para criar esse modelo (`git diff minimum-viable-scale-set existing-vnet`), parte por parte:
 
-Primeiro, adicionamos parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazenará dados de métrica em uma [tabela](../storage/storage-dotnet-how-to-use-tables.md) nessa conta de armazenamento. Do Agente de Diagnóstico do Linux versão 3.0 em diante, não há mais suporte para usar uma chave de acesso de armazenamento. É necessário usar um [Token SAS](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Primeiro, adicionamos parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazenará dados de métrica em uma [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nessa conta de armazenamento. Do Agente de Diagnóstico do Linux versão 3.0 em diante, não há mais suporte para usar uma chave de acesso de armazenamento. É necessário usar um [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },

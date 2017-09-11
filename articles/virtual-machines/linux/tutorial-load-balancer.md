@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9dd85d38a64f0557fb4ef250b0e177e21bb84e53
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7b3a089d2f6386afcc46cbc4377594be0d758fc6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -167,7 +167,9 @@ done
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
 ### <a name="create-cloud-init-config"></a>Criar configuração de inicialização de nuvem
-Em um tutorial anterior sobre [Como personalizar uma máquina virtual do Linux na primeira inicialização](tutorial-automate-vm-deployment.md), você aprendeu a automatizar a personalização de VM com a inicialização de nuvem. Você pode utilizar o mesmo arquivo de configuração de inicialização de nuvem para instalar o NGINX e executar um aplicativo simples do Node. js 'Hello, World'. Crie um arquivo chamado *cloud-init.txt* e cole a seguinte configuração:
+Em um tutorial anterior sobre [Como personalizar uma máquina virtual do Linux na primeira inicialização](tutorial-automate-vm-deployment.md), você aprendeu a automatizar a personalização de VM com a inicialização de nuvem. Você pode utilizar o mesmo arquivo de configuração de inicialização de nuvem para instalar o NGINX e executar um aplicativo simples do Node. js 'Hello, World'.
+
+No shell atual, crie um arquivo chamado *cloud-init.txt* e cole a configuração a seguir. Por exemplo, crie o arquivo no Cloud Shell e não em seu computador local. Insira `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -219,9 +221,7 @@ Crie um conjunto de disponibilidade com [az vm availability-set create](/cli/azu
 ```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
-    --name myAvailabilitySet \
-    --platform-fault-domain-count 3 \
-    --platform-update-domain-count 2
+    --name myAvailabilitySet
 ```
 
 Agora, você podecriar as VMs com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria três VMs e gera chaves SSH, se elas ainda não existirem:
@@ -233,7 +233,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -241,7 +241,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-Demora alguns minutos para criar e configurar todas as três VMs. A investigação de integridade do balanceador de carga detecta automaticamente quando o aplicativo está em execução em cada VM. Quando o aplicativo estiver em execução, a regra do balanceador de carga começará a distribuir o tráfego.
+Há tarefas em segundo plano que continuarão em execução depois que a CLI do Azure faz você voltar para o prompt. O parâmetro `--no-wait` não espera até que todas as tarefas sejam concluídas. Pode demorar mais alguns minutos antes que você possa acessar o aplicativo. A investigação de integridade do balanceador de carga detecta automaticamente quando o aplicativo está em execução em cada VM. Quando o aplicativo estiver em execução, a regra do balanceador de carga começará a distribuir o tráfego.
 
 
 ## <a name="test-load-balancer"></a>Testar o balanceador de carga
@@ -255,7 +255,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Você pode inserir o endereço IP público em um navegador da Web. O aplicativo é exibido, incluindo o nome do host da VM para a qual o balanceador de carga distribui o tráfego, como no exemplo a seguir:
+Você pode inserir o endereço IP público em um navegador da Web. Lembre-se - leva alguns minutos a VMs estar pronto antes de inicia o balanceador de carga distribuir tráfego a eles. O aplicativo é exibido, incluindo o nome do host da VM para a qual o balanceador de carga distribui o tráfego, como no exemplo a seguir:
 
 ![Executar o aplicativo Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Depois de revisar a [arquitetura do cenário](vmm-to-azure-walkthrough-architect
 **Requisito** | **Detalhes**
 --- | ---
 **Conta do Azure** | Você precisa de uma conta do [Microsoft Azure](http://azure.microsoft.com/) .
-**Armazenamento do Azure** | Você precisa de uma conta de armazenamento do Azure para armazenar os dados replicados.<br/><br/> A conta de armazenamento deve estar na mesma região que o cofre dos Serviços de Recuperação do Azure.<br/><br/>Você pode usar [armazenamento com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) ou armazenamento com redundância local. Recomendamos usar armazenamento com redundância geográfica. Com o armazenamento com redundância geográfica, os dados são resilientes em caso de interrupção, ou se a região primária não puder ser recuperada.<br/><br/> Você pode usar uma conta de armazenamento padrão do Azure, ou pode usar o [Armazenamento Premium](../storage/storage-premium-storage.md) do Azure. Armazenamento Premium pode hospedar cargas de trabalho intensivas de E/S e é normalmente usado em VMs que precisam de um desempenho de E/S consistentemente alto e baixa latência. Se você usar o Armazenamento Premium para os dados replicados, também precisará de uma conta de Armazenamento Standard. Uma conta de Armazenamento Standard armazena os logs de replicação que capturam as alterações contínuas nos dados locais.
+**Armazenamento do Azure** | Você precisa de uma conta de armazenamento do Azure para armazenar os dados replicados.<br/><br/> A conta de armazenamento deve estar na mesma região que o cofre dos Serviços de Recuperação do Azure.<br/><br/>Você pode usar [armazenamento com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) ou armazenamento com redundância local. Recomendamos usar armazenamento com redundância geográfica. Com o armazenamento com redundância geográfica, os dados são resilientes em caso de interrupção, ou se a região primária não puder ser recuperada.<br/><br/> Você pode usar uma conta de armazenamento padrão do Azure, ou pode usar o [Armazenamento Premium](../storage/common/storage-premium-storage.md) do Azure. Armazenamento Premium pode hospedar cargas de trabalho intensivas de E/S e é normalmente usado em VMs que precisam de um desempenho de E/S consistentemente alto e baixa latência. Se você usar o Armazenamento Premium para os dados replicados, também precisará de uma conta de Armazenamento Standard. Uma conta de Armazenamento Standard armazena os logs de replicação que capturam as alterações contínuas nos dados locais.
 **Rede do Azure** | Você precisa de uma [rede do Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md), à qual as VMs do Azure criadas após o failover se conectarão. A rede do Azure deve estar na mesma região do que o cofre dos Serviços de Recuperação.
 **Servidores VMM locais** | Você precisa de um ou mais servidores VMM em execução no System Center 2012 R2 ou versão posterior.<br/><br/> Cada servidor VMM deve estar em uma ou mais nuvens privadas. Cada nuvem precisa de um ou mais grupos de hosts.<br/><br/> O servidor VMM precisa de acesso à Internet.
 **Hyper-V local** | Os servidores de host Hyper-V devem executar pelo menos o Windows Server 2012 R2 com a função Hyper-V habilitada, ou o Microsoft Hyper-V Server 2012 R2. Instale as atualizações mais recentes.<br/><br/> O host Hyper-V deve estar localizado em um grupo de hosts do VMM (localizado em uma nuvem do VMM).<br/><br/> Um host deve ter uma ou mais VMs que você deseja replicar.<br/><br/> Os hosts do Hyper-V devem estar conectados à Internet para replicação no Azure, seja diretamente ou com um proxy. Os servidores Hyper-V devem ter as correções descritas no artigo [2961977](https://support.microsoft.com/kb/2961977).

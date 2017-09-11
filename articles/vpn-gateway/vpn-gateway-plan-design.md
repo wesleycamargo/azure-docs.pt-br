@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planejamento e design para o Gateway de VPN
@@ -40,13 +40,13 @@ Caso você queira conectar seus sites locais com segurança a uma rede virtual, 
 * Qual tipo de gateway de VPN é necessário para a solução que você deseja criar?
 * Qual SKU de gateway você deve usar?
 
-### <a name="planning-table"></a>Tabela de planejamento
+### <a name="planningtable"></a>Tabela de planejamento
 
 A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade para sua solução.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>SKUs de gateway
+### <a name="gwsku"></a>SKUs do Gateway
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -69,7 +69,7 @@ Comece examinando os diagramas no artigo [Sobre o Gateway de VPN](vpn-gateway-ab
 
 As seções a seguir tratam dos aspectos básicos do gateway de VPN. 
 
-#### <a name="networking-services-limits"></a>Limites dos serviços de rede
+#### <a name="servicelimits"></a>Limites dos serviços de rede
 
 Percorra as tabelas para exibir [limites de serviços de rede](../azure-subscription-service-limits.md#networking-limits). Os limites listados podem afetar o design.
 
@@ -100,7 +100,7 @@ Cada configuração exige um tipo específico de conexão. Os tipos de conexão 
 
 * IPsec
 * Vnet2Vnet
-* ExpressRoute
+* Rota Expressa
 * VPNClient
 
 #### <a name="vpntype"></a>Sobre tipos de VPN

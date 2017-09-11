@@ -46,6 +46,7 @@
 ## [Configurar tokens](active-directory-b2c-token-session-sso.md)
 ## [Habilitar MFA](active-directory-b2c-reference-mfa.md)
 ## [Usar atributos personalizados](active-directory-b2c-reference-custom-attr.md)
+## [Personalizar senha](active-directory-b2c-reference-password-complexity.md)
 ## [Personalizando a interface do usuário](active-directory-b2c-reference-ui-customization.md)
 ### [Ferramenta auxiliar para personalização](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalização de linguagem](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [Políticas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guias
 ### [Introdução](active-directory-b2c-get-started-custom.md)
-### Configurar provedores de OIDC
+### Configurar provedores OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Conta da Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configurar provedores de SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrar APIs RESTful
 #### [Validar entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,11 +72,12 @@
 #### [Atributos personalizados](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizar tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Personalizar senha](active-directory-b2c-reference-password-complexity-custom.md)
 ### Solucionar problemas
 #### [Coletar logs usando o Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referência
 ### [Notas de versão](active-directory-b2c-developer-notes-custom.md)
-
+### [Definição da Estrutura Confiável](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossário

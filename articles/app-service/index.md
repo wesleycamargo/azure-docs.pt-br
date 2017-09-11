@@ -2,7 +2,7 @@
 title: "Documentação do Serviço de Aplicativo do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Serviço de Aplicativo para criar aplicativos Web e móveis para qualquer plataforma ou dispositivo usando vídeos, tutoriais, referências de API e outras documentações."
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: pt-br
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
@@ -132,10 +134,5 @@ Saiba como usar o Serviço de Aplicativo para desenvolver e hospedar aplicativos
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

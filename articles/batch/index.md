@@ -2,7 +2,7 @@
 title: "Documentação do Lote do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

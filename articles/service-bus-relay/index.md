@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Documentação da Retransmissão do Barramento de Serviço"
 description: "Saiba como o serviço de Retransmissão do Azure funciona em um ambiente local e na nuvem híbrido, completo com instruções, tutoriais, vídeos, referências de API e muito mais."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: pt-br
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentação da Retransmissão do Barramento de Serviço
 Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbridos entre ambientes locais e na nuvem em uma rede empresarial corporativa e para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa.

@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Usar o PowerShell para gerenciar recursos dos Hubs de Eventos
 
-O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos](/powershell/module/azurerm.eventhub) para provisionar e gerenciar entidades dos Hubs de Eventos (grupos de consumidor, namespaces e Hubs de Eventos) usando um script ou console local do Azure PowerShell.
+O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo PowerShell do Gerenciador de Recursos dos Hubs de Eventos](/powershell/module/azurerm.eventhub) para provisionar e gerenciar entidades dos Hubs de Eventos (namespaces, hubs de eventos individuais e grupos de consumidores) usando um script ou console local do Azure PowerShell.
 
-Também é possível gerenciar recursos dos Hubs de Eventos usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
+Também é possível gerenciar recursos dos Hubs de Eventos usando modelos do Azure Resource Manager. Para saber mais, confira o artigo [Criar um namespace dos Hubs de Eventos com um hub de eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +37,7 @@ Antes de começar, você precisará do seguinte:
 
 ## <a name="get-started"></a>Introdução
 
-A primeira etapa é usar o PowerShell para fazer logon em sua conta do Azure e assinatura do Azure. Siga as instruções contidas em [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps) para fazer logon em sua conta do Azure e recuperar e acessar os recursos em sua assinatura do Azure.
+A primeira etapa é usar o PowerShell para fazer logon em sua conta do Azure e assinatura do Azure. Siga as instruções contidas em [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps) para fazer logon em sua conta do Azure, bem como para recuperar e acessar os recursos em sua assinatura do Azure.
 
 ## <a name="provision-an-event-hubs-namespace"></a>Provisionar um namespace dos Hubs de Eventos
 
@@ -81,31 +80,31 @@ Esta parte do script tem a seguinte função:
 
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
-Para criar um Hub de Eventos, execute uma verificação de namespace usando o script na seção anterior. Em seguida, use o cmdlet New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) para criar o Hub de Eventos:
+Para criar um hub de eventos, execute uma verificação de namespace usando o script na seção anterior. Em seguida, use o cmdlet [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) para criar o hub de eventos:
 
 ```powershell
-# Check if Event Hub already exists
+# Check if event hub already exists
 $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 
 if($CurrentEH)
 {
-    Write-Host "The Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
 {
-    Write-Host "The $EventHubName Event Hub does not exist."
-    Write-Host "Creating the $EventHubName Event Hub in the $Location region..."
+    Write-Host "The $EventHubName event hub does not exist."
+    Write-Host "Creating the $EventHubName event hub in the $Location region..."
     New-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -Location $Location -MessageRetentionInDays 3
     $CurrentEH = Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $EventHubName Event Hub in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $EventHubName event hub in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
 ### <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 
-Para criar um grupo de consumidores dentro de um Hub de Eventos, execute as verificações do namespace e do Hub de Eventos usando os scripts na seção anterior. Em seguida, use o cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para criar o grupo de consumidores no Hub de Eventos. Por exemplo:
+Para criar um grupo de consumidores em um hub de eventos, execute as verificações de namespace e hub de eventos usando os scripts na seção anterior. Em seguida, use o cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para criar o grupo de consumidores no hub de eventos. Por exemplo:
 
 ```powershell
 # Check if consumer group already exists
@@ -113,7 +112,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 
 if($CurrentCG)
 {
-    Write-Host "The consumer group $ConsumerGroupName in Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
@@ -123,7 +122,7 @@ else
     Write-Host "Creating the $ConsumerGroupName consumer group in the $Location region..."
     New-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
     $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $ConsumerGroupName consumer group in Event Hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $ConsumerGroupName consumer group in event hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -139,9 +138,9 @@ Set-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $
 Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
 ```
 
-## <a name="remove-event-hub"></a>Remover Hub de Eventos
+## <a name="remove-event-hub"></a>Remover hub de eventos
 
-Para remover as entidades dos Hubs de Eventos que foram criadas, você pode usar os cmdlets `Remove-*`, como no exemplo a seguir:
+Para remover os hubs de eventos que criou, você pode usar os cmdlets `Remove-*`, como no seguinte exemplo:
 
 ```powershell
 # Clean up
@@ -153,7 +152,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte a documentação completa sobre o módulo do PowerShell do Gerenciador de Recursos dos Hubs de Eventos [aqui](/powershell/module/azurerm.eventhub). Esta página lista todos os cmdlets disponíveis.
-- Para obter informações sobre como usar modelos do Azure Resource Manager, consulte o artigo [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
+- Para saber mais sobre como usar modelos do Azure Resource Manager, confira o artigo [Criar um namespace dos Hubs de Eventos com um hub de eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 - Informações sobre [Bibliotecas de gerenciamento .NET dos Hubs de Eventos](event-hubs-management-libraries.md).
 
 [purchase options]: http://azure.microsoft.com/pricing/purchase-options/

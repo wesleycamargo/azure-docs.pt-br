@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 09b65ccd77f6e0898f07c4262940e517a8f913fa
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47f4441612be4f363ba82cc22b09786a6f3bfdc3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opções de contexto de computação para o Servidor R no HDInsight
@@ -30,7 +29,7 @@ O Microsoft R Server no Azure HDInsight controla como as chamadas são executada
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-las em todos os nós do cluster usando o Hadoop Map Reduce do ScaleR ou os contextos de computação do Spark.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server no Azure HDInsight
-O [Microsoft R Server no Azure HDInsight](hdinsight-hadoop-r-server-overview.md) fornece os recursos mais recentes para a análise baseada em R. Ele pode usar dados armazenados em um contêiner HDFS em sua conta de armazenamento de [Blob do Azure](../storage/storage-introduction.md "Armazenamento de Blobs do Azure"), em um Data Lake Store ou no sistema de arquivos local do Linux. Uma vez que o R Server é criado no R de software livre, os aplicativos baseados em R que você compilar podem aplicar qualquer um dos mais de 8.000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), o pacote de análise de Big Data da Microsoft que está incluído no R Server.  
+O [Microsoft R Server no Azure HDInsight](hdinsight-hadoop-r-server-overview.md) fornece os recursos mais recentes para a análise baseada em R. Ele pode usar dados armazenados em um contêiner HDFS em sua conta de armazenamento de [Blob do Azure](../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure"), em um Data Lake Store ou no sistema de arquivos local do Linux. Uma vez que o R Server é criado no R de software livre, os aplicativos baseados em R que você compilar podem aplicar qualquer um dos mais de 8.000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), o pacote de análise de Big Data da Microsoft que está incluído no R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
 Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. As exceções são aquelas etapas que chamam uma função ScaleR. As chamadas de ScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do ScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:

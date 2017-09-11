@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -108,7 +108,7 @@ Para habilitar o SSH e o I2C, você pode encontrar mais documentos de referênci
 
 Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao Pi, da seguinte maneira. Se você não tiver o sensor, [ignore esta seção](#connect-pi-to-the-network).
 
-![A conexão do Raspberry Pi e do sensor](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![A conexão do Raspberry Pi e do sensor](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 O sensor BME280 pode coletar dados de temperatura e umidade. E o LED piscará se houver uma comunicação entre o dispositivo e a nuvem. 
 
@@ -116,27 +116,27 @@ Use a seguinte fiação para os pinos do sensor:
 
 | Início (Sensor e LED)     | End (quadro)            | Cor de cabo   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (pino 5G)         | GPIO 4 (pino 7)         | Cabo branco   |
-| LED GND (pino 6G)         | GND (pino 6)            | Cabo preto   |
-| VDD (pino 18F)            | 3,3 v PWR (pino 17)      | Cabo branco   |
-| GND (pino 20F)            | GND (pino 20)           | Cabo preto   |
-| SCK (pino 21F)            | SPI0 SCLK (pino 23)     | Cabo laranja  |
-| SDO (pino 22F)            | SPI0 MISO (pino 21)     | Cabo amarelo  |
-| SDI (pino 23F)            | SPI0 MOSI (pino 19)     | Cabo verde   |
-| CS (pino 24F)             | SPI0 CS (pino 24)       | Cabo azul    |
+| VDD (pino 5G)             | 3,3 v PWR (pino 1)       | Cabo branco   |
+| GND (pino 7G)             | GND (pino 6)            | Cabo marrom   |
+| SDI (pino 10G)            | I2C1 SDA (pino 3)       | Cabo vermelho     |
+| SCK (pino 8G)             | I2C1 SCL (pino 5)       | Cabo laranja  |
+| LED VDD (pino 18F)        | GPIO 24 (pino 18)       | Cabo branco   |
+| LED GND (pino 17F)        | GND (pino 20)           | Cabo preto   |
 
 Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para referência.
 
 Depois de conectar com êxito o BME280 ao Raspberry Pi, ele deve ficar semelhante à imagem abaixo.
 
-![Pi e BME280 conectados](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi e BME280 conectados](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Conectar Pi à rede
 
 Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethernet para conectar o Pi à sua rede com fio ou siga as [instruções da Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar o Pi à sua rede sem fio. Depois que o Pi tiver se conectado com êxito à rede, você precisará observar o [endereço IP do Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Conectado à rede com fio](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Conectado à rede com fio](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Verifique se o Pi está conectado à mesma rede que o computador. Por exemplo, se o computador estiver conectado a uma rede sem fio enquanto o Pi estiver conectado a uma rede com fio, talvez você não veja o endereço IP na saída devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Executar um aplicativo de exemplo no Pi
 

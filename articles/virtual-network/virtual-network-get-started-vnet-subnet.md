@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -160,7 +160,7 @@ Embora você tenha criado uma VNet e duas VMs, o portal do Azure criou vários r
 
     ![Conteúdo do grupo de recursos](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Para saber mais sobre VMs, discos e contas de armazenamento, leia os artigos de visão geral de [Máquina Virtual](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disco](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Conta de armazenamento](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você pode ver os dois NSGs padrão criados para você pelo portal. Você também pode ver que o portal criou dois recursos de NIC (interface de rede). A NIC permite que uma VM se conecte a outros recursos pela rede virtual. Leia o artigo [NIC](virtual-network-network-interface.md) para saber mais sobre NICs. O portal também criou um recurso de endereço IP público. Endereços IP públicos são uma configuração para um recurso de endereço IP público. Para saber mais sobre endereços IP públicos, leia o artigo [Endereços IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Para saber mais sobre VMs, discos e contas de armazenamento, leia os artigos de visão geral de [Máquina Virtual](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disco](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Conta de armazenamento](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você pode ver os dois NSGs padrão criados para você pelo portal. Você também pode ver que o portal criou dois recursos de NIC (interface de rede). A NIC permite que uma VM se conecte a outros recursos pela rede virtual. Leia o artigo [NIC](virtual-network-network-interface.md) para saber mais sobre NICs. O portal também criou um recurso de endereço IP público. Endereços IP públicos são uma configuração para um recurso de endereço IP público. Para saber mais sobre endereços IP públicos, leia o artigo [Endereços IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Conectar-se às VMs
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 
-Este artigo descreve como usar um modelo do Azure Resource Manager que cria um namespace de Barramento de Serviço do tipo **Mensagens** com um SKU Standard/Básico. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo descreve como usar um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço do tipo **Mensagens** com um SKU Standard. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
 Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -43,7 +43,7 @@ Para ver o modelo completo, confira o [Modelo de namespace do Barramento de Serv
 > 
 
 ## <a name="what-will-you-deploy"></a>O que você implantará?
-Com esse modelo, você implantará um namespace de Barramento de Serviço com uma SKU [Básica, Standard ou Premium](https://azure.microsoft.com/pricing/details/service-bus/).
+Com esse modelo, você implanta um namespace do Barramento de Serviço com um SKU [Standard ou Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
@@ -73,7 +73,6 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -84,7 +83,7 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
 
 ```
 
-O modelo definirá os valores permitidos para esse parâmetro (Basic, Standard ou Premium) e atribuirá um valor padrão (Standard) se nenhum valor for especificado.
+O modelo define os valores permitidos para esse parâmetro (Standard ou Premium) e atribui um valor padrão (Standard) se nenhum valor é especificado.
 
 Para saber mais sobre os preços do Barramento de Serviço, confira [Preços e cobrança do Barramento de Serviço][Service Bus pricing and billing].
 

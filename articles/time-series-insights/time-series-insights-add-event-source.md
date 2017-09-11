@@ -8,7 +8,7 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Criar uma origem de eventos para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Criar uma origem de eventos para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
 
 Uma Origem de Evento da Análise de Séries Temporais é derivada de um agente de evento, como o Hubs de Eventos do Azure. A Análise de Séries Temporais se conecta diretamente às Origens de Evento, ingerindo o fluxo de dados sem exigir que os usuários escrevam uma única linha de código. Atualmente, a Análise de Séries Temporais dá suporte a Hubs de Eventos do Azure e a Hubs IoT do Azure. No futuro, mais fontes de eventos serão adicionadas.
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## Etapas para adicionar uma origem de evento ao seu ambiente
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Etapas para adicionar uma origem de evento ao seu ambiente
 
 1.  Entre no [portal do Ibiza](https://portal.azure.com).
 2.  Clique em "Todos os recursos" no menu à esquerda do portal do Ibiza.
@@ -55,9 +51,7 @@ Uma Origem de Evento da Análise de Séries Temporais é derivada de um agente d
 
 Após a criação da origem de evento, a Análise de Séries Temporais iniciará automaticamente o fluxo de dados no seu ambiente.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento
 * Exibir seu ambiente no [Portal de Análise de Séries Temporais](https://insights.timeseries.azure.com)

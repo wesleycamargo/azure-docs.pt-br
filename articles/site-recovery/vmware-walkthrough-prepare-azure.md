@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: b25e2d5738a5d8a0f98470678ff03950b0aa4e36
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 40abff72278c9f8d9f701023fd473fe52c17b421
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-vmware-replication-to-azure"></a>Etapa 5: preparar os recursos do Azure para a replicação de VMware para o Azure
@@ -54,9 +53,9 @@ Não se esqueça de ler os [pré-requisitos](vmware-walkthrough-prerequisites.md
 ## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
-- [Configure uma conta de armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account) para os dados replicados.
+- [Configure uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) para os dados replicados.
 - O Site Recovery no portal do Azure pode usar contas de armazenamento configuradas no Gerenciador de Recursos, ou no modo clássico.
-- A conta de armazenamento pode ser padrão ou [premium](../storage/storage-premium-storage.md).
+- A conta de armazenamento pode ser padrão ou [premium](../storage/common/storage-premium-storage.md).
 - Se você configurar uma conta premium, também precisará de uma conta padrão adicional para dados de log.
 
 

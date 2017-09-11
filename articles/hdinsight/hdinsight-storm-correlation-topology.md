@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlacionar eventos que chegam em diferentes horários usando Storm e o HBase
@@ -35,8 +35,8 @@ Neste documento, você aprenderá como criar uma topologia Storm C# básica que 
 
 * Apache Storm em cluster HDInsight (baseado em Windows).
 
-  > [!IMPORTANT]
-  > Embora as topologias SCP.NET sejam compatíveis com clusters Storm baseados em Linux criados após 28/10/2016, o pacote SDK do HBase para .NET disponível a partir de 28/10/2016 não funciona corretamente no Linux.
+  > [!WARNING]
+  > Embora as topologias SCP.NET tenham suporte em clusters Storm baseados em Linux criados após 28/10/2016, o pacote SDK do HBase para .NET disponível a partir de 28/10/2016 não funciona corretamente no HDInsight baseado em Linux
 
 * Apache HBase no cluster HDInsight (baseado em Linux ou Windows).
 

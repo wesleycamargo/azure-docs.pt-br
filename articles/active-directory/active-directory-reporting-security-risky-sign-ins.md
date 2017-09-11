@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
@@ -52,7 +52,7 @@ No entanto, o nível de granularidade do relatório varia entre as edições:
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
 
-As edições gratuita e básica do Azure Active Directory fornecem uma lista de entradas de risco que foram detectadas dos seus usuários. O relatório de eventos de risco oferece:
+As edições gratuita e básica do Azure Active Directory fornecem uma lista de entradas de risco que foram detectadas dos seus usuários. O relatório lista:
 
 - **Usuário** - o nome do usuário usado durante a operação de entrada
 - **IP** - o endereço IP do dispositivo usado para se conectar ao Azure Active Directory
@@ -60,7 +60,6 @@ As edições gratuita e básica do Azure Active Directory fornecem uma lista de 
 - **Hora da entrada** - o horário em que a entrada foi realizada
 - **Status** - o status da entrada
 
-Esse relatório fornece uma opção para baixar os dados do relatório.
 
 ![Entradas de risco](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Com base em sua investigação da entrada arriscada, você poderá fazer coment�
 ![Entradas de risco](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Para obter mais detalhes, veja [Fechando eventos de risco manualmente](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Esse relatório fornece uma opção para:
+
+- Recursos de pesquisa
+- Baixar os dados do relatório
+
+
+![Entradas de risco](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Edições premium do Azure Active Directory
 

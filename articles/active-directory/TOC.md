@@ -10,16 +10,9 @@
 ## [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md)
 ## [Como adicionar um nome de domínio personalizado](add-custom-domain.md)
 ## [Configurar a identidade visual da empresa](customize-branding.md)
+## [Adicionar usuários ao Azure AD](add-users-azure-active-directory.md)
+## [Atribuir licenças aos usuários](license-users-groups.md)
 ## [Como configurar a redefinição de senha de autoatendimento](active-directory-passwords-getting-started.md)
-## Gerenciar o licenciamento do Azure AD
-### [Portal do Azure](active-directory-licensing-get-started-azure-portal.md)
-### [Portal clássico](active-directory-licensing-what-is.md)
-### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
-#### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
-#### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
-#### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 
 
 # Como
@@ -44,11 +37,6 @@
 #### [Comparação de ferramentas](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gerenciar usuários
-### Adicionar usuários
-#### [Portal do Azure](active-directory-users-create-azure-portal.md)
-#### [Portal clássico](active-directory-create-users.md)
-
-
 ### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
 #### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -56,7 +44,6 @@
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 ### [Adicionar usuários de outros diretórios (portal clássico)](active-directory-create-users-external.md)
-### [Excluir usuários](active-directory-users-delete-user-azure-portal.md)
 ### [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 ### [Redefinir uma senha](active-directory-users-reset-password-azure-portal.md)
 ### [Gerenciar informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
@@ -144,28 +131,18 @@
 
 ## Gerenciar dispositivos
 ### [Introdução](device-management-introduction.md)
+### [Usando o portal do Azure](device-management-azure-portal.md)
+### [Planejar a Associação do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Perguntas frequentes](device-management-faq.md)
 ### Tarefas
+#### [Configurar dispositivos do Windows 10 registrados pelo Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurar dispositivos do Azure AD adicionados](device-management-azuread-joined-devices-setup.md)
 #### [Configurar dispositivos híbridos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Solucionar problemas
-##### [Dispositivos híbridos do Windows 10 e Windows Server 2016 adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Dispositivos híbridos do Windows de herança adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Registrar dispositivos
 #### [Implantar no local](active-directory-device-registration-on-premises-setup.md)
-#### [Perguntas frequentes](active-directory-device-registration-faq.md)
-#### Solucionar problemas
-##### [Solução de problemas do Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Solução de problemas para clientes de nível inferior do Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
-### [Ingresso no Azure AD](active-directory-azureadjoin-overview.md)
-#### [Plano](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Configure o registro de dispositivos](active-directory-azureadjoin-setup.md)
-#### [Registrar novos dispositivos](active-directory-azureadjoin-user-frx.md)
-#### [Implantar](active-directory-azureadjoin-devices-group-policy.md)
-#### [Compreender a integração do Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Usar dispositivos com o Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Associar seu dispositivo](active-directory-azureadjoin-personal-device.md)
-#### [Associar um dispositivo com Windows 10](active-directory-azureadjoin-user-upgrade.md)
+#### [Associação do Azure AD durante a experiência de primeira execução do Windows 10](device-management-azuread-joined-devices-frx.md)
+### Solucionar problemas
+#### [Dispositivos híbridos do Windows 10 e Windows Server 2016 adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Dispositivos híbridos do Windows de herança adicionados ao Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Gerenciar aplicativos
 ### [Visão geral](active-directory-enable-sso-scenario.md)
@@ -314,15 +291,15 @@
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [práticas recomendadas](active-directory-conditional-access-best-practices.md)
+#### [Conectividade VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Gerenciamento de aplicativos móveis](active-directory-conditional-access-mam.md)
 #### [Referência técnica](active-directory-conditional-access-technical-reference.md)
-#### [Aplicativos com suporte](active-directory-conditional-access-supported-apps.md)
 #### [Entender as políticas de dispositivo](active-directory-conditional-access-device-policies.md)
 #### [Configurar o acesso a aplicativos conectados](active-directory-conditional-access-policy-connected-applications.md)
 #### [Correção](active-directory-conditional-access-device-remediation.md)
 #### [Perguntas frequentes](active-directory-conditional-faqs.md)
 #### [Portal clássico](active-directory-conditional-access.md)
 ##### [Introdução](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Autenticar sem senhas](active-directory-azureadjoin-passport.md)

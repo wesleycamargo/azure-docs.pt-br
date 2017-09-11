@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/07/2016
+ms.date: 08/16/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: acb69621babf0f562bfafedfe5547e16e8f2c8af
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/09/2017
 
 O Azure Analysis Services dá suporte a modelos de tabela no nível de compatibilidade 1200 e 1400.
 
-O nível de compatibilidade mais recente é 1400 (visualização). Esse nível coincide com o Analysis Services do SQL Server 2017. Os principais recursos do nível de compatibilidade 1400 incluem:
+O nível de compatibilidade mais recente é 1400. Esse nível coincide com o Analysis Services do SQL Server 2017. Os principais recursos do nível de compatibilidade 1400 incluem:
 
 *  Nova infraestrutura para conectividade de dados e importação para modelos de tabela com suporte para APIs de TOM e scripts de TMSL. Esse novo recurso habilita o suporte para fontes de dados adicionais, como armazenamento de Blobs do Azure.
 *  Transformação de dados e recursos de mashup de dados usando expressões Obter dados e M.
@@ -37,11 +37,6 @@ O nível de compatibilidade mais recente é 1400 (visualização). Esse nível c
 *  Segurança em nível de objeto para nomes de tabela e coluna, além dos dados dentro deles.
 *  Suporte aprimorado para hierarquias desbalanceadas.
 *  Monitoramento de desempenho e melhorias.
-
-
-
-> [!IMPORTANT]
-> O nível de compatibilidade 1400 ainda está em visualização. Alguns recursos podem não estar totalmente funcionais. Recomendamos que você não use modelos de tabela 1400 em ambientes de produção. 
   
 ## <a name="set-compatibility-level"></a>Configuração de nível de compatibilidade 
  Ao criar um novo projeto de modelo de tabela no SSDT, você pode especificar o nível de compatibilidade na caixa de diálogo **Designer de modelo de tabela**. 
@@ -63,3 +58,4 @@ O nível de compatibilidade mais recente é 1400 (visualização). Esse nível c
 ## <a name="next-steps"></a>Próximas etapas
   [Como criar um modelo no portal do Azure](analysis-services-create-model-portal.md)   
   [Gerenciar o Analysis Services](analysis-services-manage.md)  
+

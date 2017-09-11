@@ -1,5 +1,4 @@
 ---
-
 title: Usar grupos para gerenciar o acesso a recursos no Azure Active Directory | Microsoft Docs
 description: "Como usar grupos no Azure Active Directory para gerenciar o acesso de usuário a aplicativos e recursos locais e na nuvem."
 services: active-directory
@@ -13,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: cd8125eda7643f0b190d35cbb89edf8b7b4eca30
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gerenciar o acesso a recursos com grupos do Azure Active Directory

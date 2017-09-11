@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 Recriamos `DimDate` e `DimSalesTerritory` como tabelas round robin. Como resultado, a consulta mostrou o seguinte plano de consulta, que tem várias operações de movimentação difundidas: 
  
-![Plano de consulta round robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Plano de consulta round robin") 
+![Plano de consulta round robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 Recriamos `DimDate` e `DimSalesTerritory` como tabelas replicadas e executamos a consulta novamente. O plano de consulta resultante é muito menor e não tem nenhuma movimentação difundida.
 
-![Plano de consulta replicada](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Plano de consulta round robin") 
+![Plano de consulta replicado](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerações sobre o desempenho para modificar as tabelas replicadas

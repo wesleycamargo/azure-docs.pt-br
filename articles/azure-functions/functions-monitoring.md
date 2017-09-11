@@ -4,7 +4,7 @@ description: Saiba como monitorar o Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -35,14 +35,12 @@ A guia **Monitorar** de cada função permite revisar cada execução de uma fun
 
 Ao clicar em uma execução, é possível rever a duração, os dados de entrada, os erros e os arquivos de log associados. Tudo isso é útil na depuração e no ajuste de desempenho de suas funções.
 
-
 > [!IMPORTANT]
-> Ao usar o [Plano de hospedagem de consumo](functions-overview.md#pricing) do Azure Functions, o bloco **Monitoramento** na folha de visão geral do Aplicativo de Funções não mostrará dados. Isso porque a plataforma escala e gerencia dinamicamente instâncias de computação para você, de modo que essas métricas não são significativas em um plano de consumo. Para monitorar o uso dos Aplicativos de Funções, você deve usar as orientações neste artigo.
+> Ao usar o [Plano de hospedagem de consumo](functions-overview.md#pricing) do Azure Functions, o bloco **Monitoramento** no Aplicativo de Funções não mostrará dados. Isso ocorre porque a plataforma gerenciar e dimensionar dinamicamente instâncias de computação para você. Essas métricas não são significativas em um plano de consumo. Para monitorar o uso dos Aplicativos de Funções, você deve usar as orientações neste artigo.
 > 
 > A captura de tela a seguir mostra um exemplo:
 > 
-> ![Monitoramento na folha de recursos principais](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![Monitoramento de função](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## <a name="real-time-monitoring"></a>Monitoramento em tempo real
@@ -51,7 +49,7 @@ Para acessar o monitoramento em tempo real, clique na **transmissão de evento a
 
 ![Opção de transmissão de evento ao vivo para a guia monitorar](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-A transmissão de evento ao vivo será mostrada em gráfico em uma nova guia do navegador, como mostrado abaixo. 
+O fluxo de evento ao vivo é exibido em um gráfico em uma nova guia no navegador, como no exemplo a seguir: 
 
 ![Exemplo de transmissão de evento ao vivo](./media/functions-monitoring/live-event-stream.png)
 
@@ -69,24 +67,19 @@ A transmissão de evento ao vivo apresentará em gráfico as seguintes estatíst
 Essas estatísticas são em tempo real, mas o gráfico real dos dados de execução pode ter aproximadamente 10 segundos de latência.
 
 
-
-
-
-
 ## <a name="monitoring-log-files-from-a-command-line"></a>Monitoramento de arquivos de log de uma linha de comando
 
+Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a CLI (Interface de Linha de Comando) 1.0 do Azure ou o PowerShell.
 
-Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a CLI (Interface de Linha de Comando) do Azure ou o PowerShell.
+### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>Monitoramento de arquivos de log do aplicativo de funções com a CLI do Azure 1.0
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Monitoramento de arquivos de log do aplicativo de funções com a CLI do Azure
+Para começar, [instale a CLI do Azure 1.0](../cli-install-nodejs.md)
 
-Para começar, [instale a CLI do Azure](../cli-install-nodejs.md)
-
-Faça logon na sua conta do Azure usando o comando a seguir, ou qualquer uma das outras opções abordadas em [Fazer logon no Azure usando a CLI do Azure](../xplat-cli-connect.md).
+Entre na sua conta do Azure usando o comando a seguir ou qualquer uma das outras opções abordadas em [Entrar no Azure usando a CLI do Azure 1.0](../xplat-cli-connect.md).
 
     azure login
 
-Use o comando a seguir para habilitar o modo ASM (Gerenciamento de Serviço da CLI do Azure):
+Use o comando a seguir para habilitar a CLI do Azure 1.0 no modo de gerenciamento de serviço Clássico:
 
     azure config mode asm
 
@@ -119,7 +112,7 @@ Transmita os logs para sua sessão do PowerShell com o seguinte comando:
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-Para obter mais informações, veja [Como transmitir logs para aplicativos Web](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para obter mais informações, consulte [Como transmitir logs para aplicativos Web](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:

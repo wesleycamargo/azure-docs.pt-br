@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
@@ -135,6 +135,15 @@ O Gateway de Aplicativo, portanto, precisa de uma maneira para distinguir entre 
 Esse cabeçalho de resposta HTTP indica uma situação de HTTP 404 normal em que o recurso solicitado não existir e o Gateway de Aplicativo não tentará resolver novamente o endereço do serviço.
 
 ## <a name="setup-and-configuration"></a>Instalação e configuração
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>Habilitar proxy reverso por meio do portal do Azure
+
+Portal do Azure fornece uma opção para habilitar o proxy inverso ao criar um novo cluster do Service Fabric.
+Em **cluster do Service Fabric criar**, etapa 2: configuração de Cluster, configuração do tipo de nó, selecione a caixa de seleção "Habilitar proxy reverso".
+Para configurar o proxy reverso seguro, o certificado SSL pode ser especificado na Etapa 3: Segurança, definir configurações de segurança de cluster, selecione a caixa de seleção "Incluir um certificado SSL para o proxy inverso" e insira os detalhes do certificado.
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Habilitar proxy reverso, por meio de modelos do Azure Resource Manager
+
 O proxy reverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Consulte [Configurar proxy reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) para amostras de modelo do Azure Resource Manager para configurar o proxy reverso de segurança com um certificado e o tratamento da substituição de certificados.

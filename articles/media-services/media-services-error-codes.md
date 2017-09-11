@@ -2,7 +2,7 @@
 title: "Códigos de erro dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este tópico oferece uma visão geral dos códigos de erro dos Serviços de Mídia do Azure."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

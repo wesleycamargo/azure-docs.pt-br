@@ -2,7 +2,7 @@
 title: "Documentação do Gateway de Aplicativo do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como implantar um controlador de entrega de aplicativos de nuvem. A documentação mostra como configurar o roteamento no nível de aplicativo e o balanceamento de carga para um front-end da Web."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ Saiba como implantar o Gateway de Aplicativo, um ADC (controlador de entrega de 
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 
