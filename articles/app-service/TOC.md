@@ -32,10 +32,9 @@
 
 ## Planejar e projetar
 ### [Práticas Recomendadas para o Serviço de Aplicativo do Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Serviço de Aplicativo do Azure e serviços existentes do Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Detalhes dos planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Hospedagem de alta densidade](app-service-high-density-hosting.md)
-### [Serviço de Aplicativo no Linux](app-service-linux-readme.md)
+### [Serviço de Aplicativo no Linux](containers/app-service-linux-intro.md)
 ### [Usar WebJobs no Serviço de Aplicativo do Azure](app-service-webjobs-readme.md)
 ### [Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Documentação do ambiente do Serviço de Aplicativo](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [Domínios personalizados com o Gerenciador de Tráfego](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Clonar um aplicativo existente](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Conexões híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Conexões híbridas v2](app-service-hybrid-connections.md)
 ### [Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Configuração avançada](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [Detalhes de configuração de rede com o ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Proteger](app-service-security-readme.md)
-### [Proteger um aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Autenticação e autorização](app-service-authentication-overview.md)
 ### Autenticar com provedores de identidade
 #### [Autenticação do Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## Backup
 ### [Fazer backup de seu aplicativo no Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Usar REST para fazer backup e restaurar apps do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Monitorar](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## Automatizar
 ### [Desenvolvimento Agile](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Implantação do Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [MSDeploy com o nome de host personalizado e certificado SSL](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### Powershell
 #### [Automatizar backup e restauração](app-service-powershell-backup.md)
 #### [Clonagem de aplicativo](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Associação de certificado SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Usar o Azure Resource Manager com PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Gerenciar aplicativos usando a Automação do Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Integração
-### [Acessar recursos locais usando conexões híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Como enviar emails usando o SendGrid com o Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Exportar para o PowerApps e para o Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # Recursos
-## [Referência do Serviço de Aplicativo](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Portal do Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [práticas recomendadas](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  

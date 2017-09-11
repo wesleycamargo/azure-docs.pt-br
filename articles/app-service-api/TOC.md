@@ -34,8 +34,7 @@
 ### [O que mudou](app-service-api-whats-changed.md)
 ### [Autenticação e autorização para Aplicativos de API](app-service-api-authentication.md)
 
-### [Práticas recomendadas para o Serviço de Aplicativo do Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Serviço de Aplicativo do Azure e serviços existentes do Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Práticas Recomendadas para o Serviço de Aplicativo do Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Detalhes dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Hospedagem de alta densidade](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Usando WebJobs no Serviço de Aplicativo do Azure](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -83,7 +82,6 @@
 #### [Domínios personalizados com o Gerenciador de Tráfego](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### [Clonar um aplicativo existente](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Conexões locais](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Configuração avançada](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Grupos de recursos](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -98,7 +96,6 @@
 #### [Detalhes de configuração de rede com o ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Proteger](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Proteger um aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Autenticação e autorização](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Autenticação de entidade de serviço](app-service-api-dotnet-service-principal-auth.md)
 ### [Autenticação de usuário](app-service-api-dotnet-user-principal-auth.md)
@@ -123,7 +120,6 @@
 ## Backup
 ### [Fazer backup de seu aplicativo no Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Usar REST para fazer backup e restaurar apps do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Monitorar](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -132,18 +128,12 @@
 ## Automatizar
 ### [Desenvolvimento Agile](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Implantação do Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Web + GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Web + SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [MSDeploy com o nome de host personalizado e certificado SSL](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### Powershell
 #### [Automatizar backup e restauração](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Clonagem de aplicativo](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Associação de certificado SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Usar o Azure Resource Manager com PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Gerenciar aplicativos usando a Automação do Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Integração
-### [Acessar recursos locais usando conexões híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Como enviar emails usando o SendGrid com o Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Exportar para o PowerApps e para o Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -154,8 +144,6 @@
 
 # Recursos
 ## [Práticas recomendadas do Serviço de Aplicativo](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Referência do Serviço de Aplicativo](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Portal do Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Lista de recursos do WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

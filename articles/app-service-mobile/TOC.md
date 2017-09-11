@@ -33,8 +33,7 @@
 ## Planejar e projetar
 ### [Autenticação e Autorização nos Aplicativos Móveis do Azure](app-service-mobile-auth.md)
 ### [Sincronização de dados offline em Aplicativos Móveis do Azure](app-service-mobile-offline-data-sync.md)
-### [Práticas recomendadas para o Serviço de Aplicativo do Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Serviço de Aplicativo do Azure e serviços existentes do Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Práticas Recomendadas para o Serviço de Aplicativo do Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Detalhes dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Hospedagem de alta densidade](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Usando WebJobs no Serviço de Aplicativo do Azure](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -127,7 +126,6 @@
 #### [Domínios personalizados com o Gerenciador de Tráfego](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Clonar um aplicativo existente](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Conexões locais](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Configuração avançada](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Grupos de recursos](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -149,7 +147,6 @@
 #### [Back-end do Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## [Proteger](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Proteger um aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Autenticação e autorização](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Autenticar com provedores de identidade
 #### [Autenticação do Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
@@ -172,7 +169,6 @@
 ## Backup
 ### [Fazer backup de seu aplicativo no Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Usar REST para fazer backup e restaurar apps do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Monitorar](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -181,18 +177,12 @@
 ## Automatizar
 ### [Desenvolvimento Agile](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Implantação do Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web + GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web + SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [MSDeploy com o nome de host personalizado e certificado SSL](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Powershell
 #### [Automatizar backup e restauração](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Clonagem de aplicativo](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Associação de certificado SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Usar o Azure Resource Manager com PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Gerenciar aplicativos usando a Automação do Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integração
-### [Acessar recursos locais usando conexões híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Como enviar emails usando o SendGrid com o Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Exportar para o PowerApps e para o Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -214,7 +204,6 @@
 
 # Relacionados
 ## [Repositórios GitHub](https://github.com/Azure/azure-mobile-apps)
-## [Portal do Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Recursos
 ## [Práticas recomendadas do Serviço de Aplicativo](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
