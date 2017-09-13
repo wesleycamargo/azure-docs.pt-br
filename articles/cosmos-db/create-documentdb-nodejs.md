@@ -34,7 +34,8 @@ Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um ba
     * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 

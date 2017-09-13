@@ -20,7 +20,6 @@ ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 > [!div class="op_single_selector"]
@@ -37,8 +36,6 @@ A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger d
 Essa tarefa usa uma implantação de produção. Informações sobre o uso de uma implantação de preparo são fornecidas no final deste tópico.
 
 Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se você ainda não tiver criado um serviço de nuvem.
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
 Para configurar SSL de um aplicativo, você deve primeiro obter um certificado SSL assinado por uma Autoridade de Certificação (CA), um terceiro confiável que emita certificados com essa finalidade. Se ainda não tiver um, você precisará obtê-lo junto a uma empresa que venda certificados SSL.
