@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ O método recomendado para a automação integrada é selecionando a oferta de A
    - Especifique um nome para o novo **Espaço de Trabalho do OMS**.
    - Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
    - Em **Grupo de Recursos**, você pode selecionar um grupo de recursos existente ou criar um novo.  
-   - Selecione um **Local**.  No momento, os únicos locais disponíveis **Sudeste da Austrália**, **Leste dos EUA**, **Sudeste Asiático**, **Centro Oeste dos EUA** e **Europa Ocidental**.
-   - Selecione um **tipo de preço**.  A solução é oferecida em duas camadas: gratuito e camada por nó (OMS).  A camada gratuita tem um limite de quantidade de dados coletados diariamente, de período de retenção e de minutos de tempo de execução do trabalho de runbook.  A camada por nó do OMS não tem um limite de quantidade de dados coletados diariamente.  
+   - Selecione um **Local**.  Para saber mais, confira quais [regiões da Automação do Azure estão disponíveis em](https://azure.microsoft.com/regions/services/).  As soluções são oferecidas em duas camadas: gratuita e por nó (OMS).  A camada gratuita tem um limite de quantidade de dados coletados diariamente, de período de retenção e de minutos de tempo de execução do trabalho de runbook.  A camada por nó do OMS não tem um limite de quantidade de dados coletados diariamente.  
    - Selecione **Conta de Automação**.  Se você estiver criando um novo espaço de trabalho do OMS, será necessário criar uma nova conta de Automação que será associada ao novo espaço de trabalho do OMS especificado anteriormente, incluindo a assinatura do Azure, o grupo de recursos e a região.  Selecione **Criar uma conta de Automação** e, na folha **Adicionar Conta de Automação**, forneça o seguinte: 
   - No campo **Nome**, digite o nome da conta de Automação.
 

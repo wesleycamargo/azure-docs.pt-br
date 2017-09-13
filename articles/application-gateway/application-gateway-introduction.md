@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Visão geral do Gateway de Aplicativo
@@ -88,7 +88,7 @@ O Gateway de Aplicativo do Azure monitora automaticamente a integridade das inst
 
 ## <a name="configuring-and-managing"></a>Configurando e gerenciando
 
-Para seu ponto de extremidade, o gateway de aplicativo pode ter um IP público, um IP privado ou ambos, quando é configurado. O Gateway de Aplicativo é configurado em uma rede virtual na sua própria sub-rede. A sub-rede criada ou usada para o gateway de aplicativo não pode conter outros tipos de recursos, os únicos recursos permitidos na sub-rede são outros gateways de aplicativo. Para proteger seus recursos de back-end, os servidores de back-end podem estar contidos em uma sub-rede diferente na mesma rede virtual do que o gateway de aplicativo. Esta sub-rede não é necessária para aplicativos de back-end. Desde que o gateway de aplicativo possa acessar o endereço ip, ele será capaz de fornecer recursos ADC aos servidores de back-end. 
+Para seu ponto de extremidade, o gateway de aplicativo pode ter um IP público, um IP privado ou ambos, quando é configurado. O Gateway de Aplicativo é configurado em uma rede virtual na sua própria sub-rede. A sub-rede criada ou usada para o gateway de aplicativo não pode conter outros tipos de recursos, os únicos recursos permitidos na sub-rede são outros gateways de aplicativo. Para proteger seus recursos de back-end, os servidores de back-end podem estar contidos em uma sub-rede diferente na mesma rede virtual do que o gateway de aplicativo. Essa sub-rede não é necessária para aplicativos de back-end. Desde que o gateway de aplicativo possa acessar o endereço ip, ele será capaz de fornecer recursos ADC aos servidores de back-end. 
 
 É possível criar e gerenciar um gateway de aplicativo usando as APIs REST, os cmdlets do PowerShell, a CLI do Azure ou o [portal do Azure](https://portal.azure.com/). Para conferir perguntas adicionais sobre o Gateway de Aplicativo, visite [Perguntas frequentes sobre o Gateway de Aplicativo](application-gateway-faq.md) e veja uma lista de perguntas frequentes.
 

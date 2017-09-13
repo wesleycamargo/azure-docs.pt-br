@@ -24,6 +24,8 @@ Serviço de Contêiner do Azure é um serviço do Azure com suporte de SLA com r
 
 O [Mecanismo ACS](http://github.com/Azure/acs-engine) é um projeto de software livre que habilita usuários avançados a personalizar a configuração de cluster em todos os níveis. Essa capacidade de alterar a configuração de infraestrutura e software significa que não oferecemos um SLA para o Mecanismo ACS. O suporte é tratado por meio do projeto de software livre no GitHub, em vez de canais oficiais da Microsoft. 
 
+Para obter mais detalhes, consulte nossa [política de suporte para contêineres](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Gerenciamento de clusters
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Como criar chaves SSH para o cluster?
