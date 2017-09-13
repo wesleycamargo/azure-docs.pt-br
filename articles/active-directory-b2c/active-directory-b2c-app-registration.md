@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrar seu aplicativo
@@ -31,6 +31,8 @@ Para compilar um aplicativo que aceite a inscrição e a entrada do consumidor, 
 
 Os aplicativos criados da folha Azure AD B2C no portal do Azure devem ser gerenciados do mesmo local. Se você editar os aplicativos B2C usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C. Consulte os detalhes da seção [aplicativos com falha](#faulted-apps). 
 
+Este artigo usa exemplos que ajudarão você a começar a usar nossos exemplos. Você pode aprender mais sobre esses exemplos nos artigos subsequentes.
+
 ## <a name="navigate-to-b2c-settings"></a>Navegue até as configurações de B2C
 
 Entre no [Portal do Azure](https://portal.azure.com/) como Administrador Global do locatário B2C. 
@@ -39,13 +41,13 @@ Entre no [Portal do Azure](https://portal.azure.com/) como Administrador Global 
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Escolha as próximas etapas com base no tipo de aplicativo que você está registrando:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Escolha as próximas etapas com base em seu tipo de aplicativo
 
 * [Registrar um aplicativo Web](#register-a-web-app)
 * [Registrar uma API Web](#register-a-web-api)
 * [Registrar um aplicativo móvel ou nativo](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Registrar um aplicativo Web
+### <a name="register-a-web-app"></a>Registrar um aplicativo Web
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Se o aplicativo Web chamar uma API da Web protegida pelo Azure AD B2C, execute e
 
 [Vá até **próximas etapas**](#next-steps)
 
-## <a name="register-a-web-api"></a>Registrar uma API Web
+### <a name="register-a-web-api"></a>Registrar uma API Web
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Clique em **Escopos publicados** para adicionar mais escopos, conforme o necess�
 
 [Vá até **próximas etapas**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Registrar um aplicativo móvel ou nativo
+### <a name="register-a-mobile-or-native-app"></a>Registrar um aplicativo móvel ou nativo
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
