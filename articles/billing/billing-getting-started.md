@@ -16,21 +16,23 @@ ms.workload: na
 ms.date: 08/10/2017
 ms.author: tonguyen
 experimental_id: a2b2579c-cd2e-41
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b172fc1726d2a01ee68aebf8ec03cc1567012ca6
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure
 
-Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter uma ideia melhor de seus gastos. No [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), ao selecionar a assinatura, é possível ver o detalhamento de custo atual e a taxa de gravação. Você também pode [baixar faturas anteriores e arquivos de uso detalhado](billing-download-azure-invoice-daily-usage-date.md). Se desejar agrupar os custos dos recursos usados em diferentes projetos ou equipes, examine a [marcação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que você prefira usar, confira as [APIs de cobrança](billing-usage-rate-card-overview.md). 
+Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter uma ideia melhor de seus gastos. No [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), ao selecionar a assinatura, é possível ver o detalhamento de custo atual e a taxa de gravação. Você também pode [baixar faturas anteriores e arquivos de uso detalhado](billing-download-azure-invoice-daily-usage-date.md) para a maioria dos tipos de oferta. Se desejar agrupar os custos dos recursos usados em diferentes projetos ou equipes, examine a [marcação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que você prefira usar, confira as [APIs de cobrança](billing-usage-rate-card-overview.md). 
 
 Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
-Se sua assinatura foi feita por meio de um EA (Contrato Enterprise), CSP (Provedor de Soluções na Nuvem) ou Azure Sponsorship, vários recursos neste artigo não se aplicam ao seu caso. Em vez disso, temos um conjunto diferente de ferramentas que pode ser usado para o gerenciamento de custo. Consulte [Recursos adicionais do EA, CSP e Sponsorship](#other-offers).
+Se sua assinatura foi feita por meio de um CSP (Provedor de Soluções na Nuvem) ou Azure Sponsorship, vários recursos neste artigo não se aplicam ao seu caso. Em vez disso, temos um conjunto diferente de ferramentas que pode ser usado para o gerenciamento de custo. Consulte [Recursos adicionais do EA, CSP e Sponsorship](#other-offers).
+
+Se sua assinatura for um EA (Contrato Enterprise), a visualização pública para ver os seus custos no Portal do Azure agora estará ativa. Há [alguns itens para informação](#EA), pois alguns dos recursos listados neste artigo não pertencem a você.   
 
 Se sua assinatura for uma Avaliação Gratuita, do [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO (Azure via Open) ou BizSpark, saiba mais sobre os [limites de gastos](#spending-limit) para evitar que ela seja desabilitada de forma inesperada. 
 
@@ -48,7 +50,7 @@ Para saber mais, confira [Perguntas frequentes sobre preço](https://azure.micro
 
 A exibição dos custos exige [acesso no nível das assinaturas a informações de cobrança](billing-manage-access.md), mas somente o Administrador da conta pode acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index), alterar informações de cobrança e gerenciar assinaturas. O Administrador da conta é a pessoa que passou pelo processo de inscrição. Para gerenciar essas funções, consulte [Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços](billing-add-change-azure-subscription-administrator.md).
 
-Para ver se você é o Administrador da conta, vá para a [folha Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e examine a lista de assinaturas a que você tem acesso. Procure **Minha Função**. Se estiver indicado *Administrador de conta*, tudo bem. Se estiver indicado *Proprietário*, você não tem todos os privilégios.
+Para ver se você é o Administrador da Conta, vá para a [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e examine a lista de assinaturas a qual você tem acesso. Procure **Minha Função**. Se estiver indicado *Administrador de conta*, tudo bem. Se estiver indicado *Proprietário*, você não tem todos os privilégios.
 
 ![Captura de tela de sua função no modo de exibição Assinaturas no portal do Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -91,7 +93,7 @@ Normalmente, quando você adiciona um serviço no portal do Azure, há um modo d
 
 ![Exemplo: uma VM Windows A1 é estimada ao custo de US$ 66,96 por mês](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="tags"></a>Adicionar marcas aos seus recursos para agrupar os dados de cobrança
+### <a name="tags"></a> Agrupar os dados de cobrança adicionando marcas aos seus recursos 
 
 Você pode usar marcas para agrupar os dados de cobrança no caso de serviços com suporte. Por exemplo, se você executa várias VMs para equipes diferentes, pode usar marcas para categorizar os custos por centro de custo (RH, marketing, finanças) ou ambiente (pré-produção, produção, teste). 
 
@@ -117,11 +119,11 @@ Para obter mais recursos de redução de custos para os ambientes de desenvolvim
 
 Depois de colocar seus serviços em funcionamento, verifique regularmente quanto eles estão custando. Você pode ver o gasto atual e a taxa de gravação no portal do Azure. 
 
-1. Visite a [folha Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Acesse a [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Selecione a assinatura que você deseja ver. Você pode só ter uma para selecionar.
 
-3. Você deve ver o detalhamento de custo e a taxa de gravação na folha pop-up. Ele pode não ter suporte da sua oferta (um aviso seria exibido na parte superior). Aguarde 24 horas depois de adicionar um serviço de dados para preenchê-lo.
+3. Você deve ver o detalhamento de custo e a taxa de gravação na página pop-up. Ele pode não ter suporte da sua oferta (um aviso seria exibido na parte superior). Aguarde 24 horas depois de adicionar um serviço de dados para preenchê-lo.  
     
     ![Captura de tela da taxa de gravação e do detalhamento no portal do Azure](./media/billing-getting-started/burn-rate.PNG)
 
@@ -135,15 +137,27 @@ Depois de colocar seus serviços em funcionamento, verifique regularmente quanto
 
 6. Você pode filtrar por propriedades diferentes, como [marcas](#tags), grupo de recursos e período de tempo. Clique em **Aplicar** para confirmar os filtros e **Baixar** para exportar o modo de exibição para um arquivo .csv (valores separado por vírgulas).
 
-7. Clique em um recurso para ver o histórico de gastos e quanto ele custa a você por dia.
+7. Clique em um recurso para exibir o histórico de gastos e quanto ele custa a você por dia.
 
     ![Captura de tela da exibição do histórico de gastos no portal do Azure](./media/billing-getting-started/costhistory.PNG)
 
 Recomendamos que você verifique os custos, consulte as estimativas vistas quando selecionou os serviços. Se os custos diferem bastante das estimativas, verifique novamente o plano de preços (VMs A1 x A0, por exemplo) que você selecionou para os seus recursos. 
 
-#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>Confira os custos de todas as suas assinaturas na folha Cobrança
+#### <a name="EA"></a> Visualizações de custo Contrato Enterprise de Versão Prévia no Portal do Azure 
 
-Se você gerenciar várias assinaturas como o Administrador da conta, poderá ver o valor total e o detalhado da fatura de todas as assinaturas na [folha Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+As visualizações de custo Enterprise estão, no momento, em Visualização Pública. Itens a serem observados:
+- Os custos de assinatura são baseados no uso e não contam para valores pré-pagos, excedentes, quantidades incluídas, ajustes e impostos. Os encargos reais são calculados no nível de registro. 
+- As quantidades exibidas no Portal do Azure podem ser atrasadas em comparação com os valores no Enterprise Portal.  
+- Se você não estiver vendo os custos, pode ser devido a um dos seguintes motivos:
+    - Você é um Proprietário de Conta e seu Administrador de registro desabilitou a configuração “Encargos de exibição do AO”.  Contate o Administrador de registro para obter acesso aos custos. 
+    - Você é um Administrador de Departamento e seu Administrador de registro desabilitou a configuração “Encargos de exibição do DA”.  Contate o Administrador de registro para obter acesso. 
+    - Você adquiriu o Azure por meio de um parceiro de canal e o parceiro não liberou as informações de preços.  
+- Quando as configurações relacionadas ao acesso de custo são atualizadas no Enterprise Portal, há um atraso de alguns minutos antes que as alterações sejam refletidas no Portal do Azure.
+- Limite de gastos, alertas de cobrança e diretrizes de fatura não pertencem às Assinaturas EA.
+
+#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-page"></a>Confira os custos de todas as suas assinaturas na página Cobrança
+
+Se você gerenciar várias assinaturas como o Administrador da Conta, poderá ver o valor agregado e o detalhado da fatura de todas as assinaturas na [página Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). Exibições de agregação de EA não estão na página Cobrança no Portal do Azure no momento.  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -161,7 +175,7 @@ Para saber mais, veja [Advisor Cost recommendations](../advisor/advisor-cost-rec
 
 ### <a name="invoice-and-usage"></a> Baixe sua fatura e detalhes de uso após o primeiro período de cobrança
 
-Após o primeiro período de cobrança, você pode baixar sua fatura em PDF (Portable Document Format) e os detalhes de uso em CSV (valores separados por vírgulas). Também é possível escolher que a fatura seja enviada para você. Esses arquivos ajudam a compreender o que é efetivamente cobrado depois de descontados impostos, deduções e créditos. Se você não tiver um método de pagamento associado à assinatura, esses arquivos podem não estar disponíveis para você. Para saber mais, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md) e [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
+Após o primeiro período de cobrança, você pode baixar sua fatura em PDF (Portable Document Format) e os detalhes de uso em CSV (valores separados por vírgulas). Também é possível escolher que a fatura seja enviada para você. Esses arquivos ajudam a compreender o que é efetivamente cobrado depois de descontados impostos, deduções e créditos. Se você não tiver um método de pagamento associado à assinatura, esses arquivos podem não estar disponíveis para você. Se você tiver uma assinatura EA, o administrador de registro receberá a fatura via email, pois ela não está disponível no Portal do Azure. Para saber mais, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md) e [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
 ![Captura de tela de uma fatura em .pdf](./media/billing-getting-started/invoice.png)
 

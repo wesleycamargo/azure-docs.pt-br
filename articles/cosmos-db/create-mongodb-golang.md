@@ -27,7 +27,10 @@ Em outras palavras, o aplicativo Golang só sabe que está se conectando a um ba
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar. 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) e um conhecimento básico sobre a linguagem [Go](https://golang.org/).
 - Um IDE — [Gogland](https://www.jetbrains.com/go/) da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/). Neste tutorial, estou usando Goglang.
 

@@ -1,9 +1,9 @@
 ---
 title: "Gerenciamento de logon único para aplicativos empresariais no Azure Active Directory | Microsoft Docs"
-description: "Saiba como gerenciar o logon único para aplicativos empresariais usando o Azure Active Directory"
+description: "Gerenciar configurações de logon único para aplicativos empresariais em sua organização da Galeria de Aplicativos do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: asmalser
+author: curtand
 manager: femila
 editor: 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
-ms.author: asmalser
+ms.date: 09/05/2017
+ms.author: curtand
+ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
-> [!div class="op_single_selector"]
-> * [Portal do Azure](active-directory-enterprise-apps-manage-sso.md)
-> * [Portal clássico do Azure](active-directory-sso-integrate-saas-apps.md)
-> 
 
 Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar as configurações de logon único para aplicativos corporativos. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização. Este artigo se aplica principalmente aos aplicativos que foram adicionados através da [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
@@ -34,29 +31,31 @@ Todos os aplicativos corporativos que estão configurados para o logon único po
 
 ![Folha de Aplicativos Empresariais][1]
 
-Selecione **Todos os aplicativos** para exibir uma lista de todos os aplicativos que foram configurados. A seleção de um aplicativo carrega a folha de recursos do aplicativo, na qual os relatórios podem ser exibidos para que o aplicativo e várias configurações possam ser gerenciados.
+Selecione **Todos os aplicativos** para exibir uma lista de todos os aplicativos que foram configurados. A seleção de um aplicativo exibe os recursos desse aplicativo, permitindo que os relatórios sejam exibidos para esse aplicativo e que várias configurações possam ser gerenciadas.
 
 Para gerenciar as configurações de logon único, selecione **Logon único**.
 
 ![Folha de recursos do aplicativo][2]
 
 ## <a name="single-sign-on-modes"></a>Modos de logon único
-A folha **Logon único** começa com um menu **Modo**, que permite que o modo de logon único seja configurado. As opções disponíveis incluem:
+**Logon único** começa com um menu **Modo**, que permite que o modo de logon único seja configurado. As opções disponíveis incluem:
 
-* **Logon baseado em SAML** - essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0.
-* **Logon baseado em senha em** -essa opção está disponível se o Azure AD dá suporte ao preenchimento de formulário de senha para este aplicativo.
-* **Logon vinculado** - anteriormente conhecida como "Logon único existente", essa opção permite que os administradores coloquem um link para esse aplicativo no painel de acesso do Azure AD ou no iniciador de aplicativo do Office 365 do usuário.
+* **Logon baseado em SAML** – essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0.
+* **Logon baseado em senha** – essa opção está disponível se o Azure AD dá suporte ao preenchimento de formulário de senha para este aplicativo.
+* **Logon vinculado** – anteriormente conhecida como "Logon único existente", essa opção permite que os administradores coloquem um link para esse aplicativo no painel de acesso do Azure AD ou no iniciador de aplicativo do Office 365 do usuário.
 
 Para obter mais informações sobre esses modos, confira [Como o logon único funciona com o Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Logon único baseado em SAML
-A opção **logon baseado em SAML** exibe uma folha que é dividida em quatro seções:
+A opção **logon baseado em SAML** é dividida em quatro seções:
 
 ### <a name="domains-and-urls"></a>Domínios e URLs
 É onde todos os detalhes sobre o domínio do aplicativo e as URLs são adicionados ao seu diretório do Azure AD. Todas as entradas necessárias para criar o aplicativo de logon único são exibidas diretamente na tela, enquanto todas as entradas opcionais podem ser exibidas marcando a caixa de seleção **Mostrar configurações de URL avançadas** . A lista completa de entradas com suporte inclui:
 
-* **URL de logon** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure AD a fim de autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure AD ou da URL de logon único do Azure AD.
-* **Identificador** - esse URI deve identificar exclusivamente o aplicativo para o qual o SSO está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro Audiência do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo.
+* **URL de logon** – o local para o qual o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário abrir essa URL, o provedor de serviços redirecionará para o Azure AD a fim de autenticar e conectar o usuário. 
+  * Se esse campo estiver populado, o Azure AD usará a URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD.
+  * Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure AD ou da URL de logon único do Azure AD.
+* **Identificador** – esse URI deve identificar exclusivamente o aplicativo para o qual o logon único está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro Audiência do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo.
 * **URL de resposta** – a URL de resposta é onde o aplicativo espera receber o token SAML. Ela também é chamada de URL de ACS (Serviço do Consumidor de Declaração). Depois que eles tiverem sido inseridos, clique em Avançar para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure.
 * **Estado de Retransmissão** - o estado de retransmissão é um parâmetro opcional que pode ajudar a informar o aplicativo para onde redirecionar o usuário após a autenticação. Normalmente, o valor é uma URL válida no aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente (confira a documentação do logon único do aplicativo para obter detalhes). A capacidade de definir o estado de retransmissão é um novo recurso que é exclusivo do novo portal do Azure.
 
@@ -80,10 +79,10 @@ O menu suspenso **Configurar Aplicativo** fornece novas instruções concisas in
 
 ![Documentos internos][3]
 
-## <a name="password-based-sign-on"></a>Logon baseado em senha em
+## <a name="password-based-sign-on"></a>Logon baseado em senha
 Se houver suporte para o aplicativo, selecionar o modo SSO baseado em senha e selecionar **Salvar** configura-o instantaneamente para fazer o SSO baseado em senha. Para obter mais informações sobre a implantação de SSO baseada em senha, confira [Como o logon único funciona com o Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Logon baseado em senha em][4]
+![Logon baseado em senha][4]
 
 ## <a name="linked-sign-on"></a>Logon vinculado
 Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite que você insira a URL para a qual deseja que o painel de acesso do Azure AD ou do Office 365 redirecione quando os usuários clicam nesse aplicativo. Para obter mais informações sobre o SSO vinculado (anteriormente conhecido como "SSO existente"), confira [Como o logon único funciona com o Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).

@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Criar uma rede virtual com várias sub-redes
 
-Neste tutorial, aprenda como criar uma rede virtual do Azure básica com sub-redes públicas e privadas separadas. Você pode criar recursos do Azure, como máquinas virtuais, ambientes de Serviço de Aplicativo, conjuntos de dimensionamento de máquina virtual, Azure HDInsight e serviços de nuvem em uma sub-rede. Os recursos em redes virtuais podem se comunicar entre si e com os recursos em outras redes conectadas a uma rede virtual.
+Neste tutorial, aprenda como criar uma rede virtual do Azure básica com sub-redes públicas e privadas separadas. Os recursos em redes virtuais podem se comunicar entre si e com os recursos em outras redes conectadas a uma rede virtual. Você pode criar recursos do Azure, como máquinas virtuais, ambientes de Serviço de Aplicativo, conjuntos de dimensionamento de máquina virtual, Azure HDInsight e serviços de nuvem na mesma ou em diferentes sub-redes dentro de uma rede virtual. Criar recursos em diferentes sub-redes permite filtrar o tráfego de rede de entrada e de saída de sub-redes independentemente com [grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md), bem como [rotear o tráfego entre sub-redes](virtual-network-create-udr-arm-ps.md) por meio de soluções de virtualização de rede, tais como um firewall, se você assim escolher. 
 
 As seções a seguir incluem etapas que você pode executar para criar uma rede virtual usando o [Portal do Azure](#portal), a interface de linha de comando do Azure ([CLI do Azure](#azure-cli)), [Azure PowerShell](#powershell)e um [modelo do Azure Resource Manager](#resource-manager-template). O resultado é o mesmo, não importa a ferramenta que você usa para criar a rede virtual. Clique no link da ferramenta para ir para essa seção do tutorial. Saiba mais sobre todas as configurações de [rede virtual](virtual-network-manage-network.md) e [sub-rede](virtual-network-manage-subnet.md).
 
@@ -52,7 +52,8 @@ Este artigo fornece etapas para criar uma rede virtual usando o modelo de implan
 6. Na folha **myVnet – Sub-redes**, clique em **+Sub-rede**.
 7. Na folha **Adicionar sub-rede**, para **Nome**, insira **Privada**. Para **Intervalo de endereços**, digite **10.0.1.0/24**.  Clique em **OK**.
 8. Na folha **myVnet – Sub-Redes**, examine as sub-redes. Você pode ver as sub-redes **Pública** e **Privada** que você criou.
-9. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-portal) deste artigo.
+9. **Opcional:** conclua os tutoriais adicionais listados em [Próximas etapas](#next-steps) para filtrar o tráfego de rede de entrada e de saída de cada sub-rede com grupos de segurança de rede, para rotear o tráfego entre as sub-redes por meio de uma solução de virtualização de rede ou então para conectar a rede virtual a outras redes virtuais ou redes locais.
+10. **Opcional**: exclua os recursos criados neste tutorial concluindo as etapas em [Excluir recursos](#delete-portal).
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -90,7 +91,8 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
+5. **Opcional:** conclua os tutoriais adicionais listados em [Próximas etapas](#next-steps) para filtrar o tráfego de rede de entrada e de saída de cada sub-rede com grupos de segurança de rede, para rotear o tráfego entre as sub-redes por meio de uma solução de virtualização de rede ou então para conectar a rede virtual a outras redes virtuais ou redes locais.
+6. **Opcional**: exclua os recursos criados neste tutorial concluindo as etapas em [Excluir recursos](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-powershell) deste artigo.
+5. **Opcional:** conclua os tutoriais adicionais listados em [Próximas etapas](#next-steps) para filtrar o tráfego de rede de entrada e de saída de cada sub-rede com grupos de segurança de rede, para rotear o tráfego entre as sub-redes por meio de uma solução de virtualização de rede ou então para conectar a rede virtual a outras redes virtuais ou redes locais.
+6. **Opcional**: exclua os recursos criados neste tutorial concluindo as etapas em [Excluir recursos](#delete-powershell).
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
 Você pode implantar uma rede virtual usando um modelo do Azure Resource Manager. Para saber mais sobre modelos, consulte [O que é o Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Para acessar o modelo e saber mais sobre seus parâmetros, consulte o modelo [Criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). Você pode implantar o modelo usando [portal](#template-portal), [CLI do Azure](#template-cli) ou [PowerShell](#template-powershell).
 
-**Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em quaisquer subseções de [Excluir recursos](#delete) deste artigo.
+Etapas opcionais depois de implantar o modelo:
+
+1. Conclua os tutoriais adicionais listados em [Próximas etapas](#next-steps) para filtrar o tráfego de rede de entrada e de saída de cada sub-rede com grupos de segurança de rede, para rotear o tráfego entre as sub-redes por meio de uma solução de virtualização de rede ou então para conectar a rede virtual a outras redes virtuais ou redes locais.
+2. Exclua os recursos criados neste tutorial concluindo as etapas em quaisquer subseções de [Excluir recursos](#delete).
 
 ### <a name="template-portal"></a>Portal do Azure
 
@@ -227,8 +233,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre todas as configurações de sub-rede e rede virtual, confira [Gerenciar redes virtuais](virtual-network-manage-network.md#view-vnet) e [Gerenciar sub-redes da rede virtual](virtual-network-manage-subnet.md#create-subnet). Você tem várias opções para o uso de redes virtuais e sub-redes em um ambiente de produção para atender aos requisitos diferentes.
-- Para filtrar o tráfego de entrada e saída da sub-rede, crie e aplique [grupos de segurança de rede](virtual-networks-nsg.md) às sub-redes.
-- Crie uma máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a conecte a uma rede virtual existente.
-- Para conectar duas redes virtuais no mesmo local do Azure, crie um [emparelhamento de rede virtual](virtual-network-peering-overview.md) entre as redes virtuais.
+- Filtre o tráfego de entrada e de saída da sub-rede criando e aplicando [grupos de segurança de rede](virtual-networks-nsg.md) a sub-redes.
+- Rotear o tráfego entre as sub-redes por meio de uma solução de virtualização de rede criando [rotas definidas pelo usuário](virtual-network-create-udr-arm-ps.md) e aplicar as rotas para cada sub-rede.
+- Crie uma máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) em uma rede virtual existente.
+- Conecte duas redes virtuais criando um [emparelhamento de rede virtual](virtual-network-peering-overview.md) entre as redes virtuais.
 - Conecte a rede virtual a uma rede local usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou circuito do [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

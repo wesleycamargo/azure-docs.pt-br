@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
@@ -98,7 +98,7 @@ Você pode usar a implantação() para vincular a outro modelo com base no URI d
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir retorna o objeto de implantação:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) a seguir retorna o objeto de implantação:
 
 ```json
 {
@@ -138,9 +138,21 @@ O exemplo anterior retorna o seguinte objeto:
 }
 ```
 
+Para implantar este modelo de exemplo com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+Para implantar este modelo de exemplo com o PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
 <a id="parameters" />
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parâmetros
 `parameters(parameterName)`
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
@@ -177,7 +189,7 @@ Normalmente, você usa parâmetros para definir valores de recursos. O exemplo a
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra um uso simplificado da função parâmetros.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) a seguir mostra um uso simplificado da função parameters.
 
 ```json
 {
@@ -242,6 +254,18 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | Matriz | [1, 2, 3] |
 | crossOutput | Cadeia de caracteres | opção 1 |
 
+Para implantar este modelo de exemplo com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+Para implantar este modelo de exemplo com o PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
 <a id="variables" />
 
 ## <a name="variables"></a>variáveis
@@ -285,7 +309,7 @@ Normalmente, você usa variáveis para simplificar seu modelo criando valores co
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo retorna valores de variáveis diferentes.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) a seguir retorna valores de variáveis diferentes.
 
 ```json
 {
@@ -331,6 +355,18 @@ A saída do exemplo anterior com os valores padrão é:
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
 | exampleOutput3 | Cadeia de caracteres | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
+
+Para implantar este modelo de exemplo com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+Para implantar este modelo de exemplo com o PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).

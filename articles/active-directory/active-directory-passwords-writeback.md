@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
 O write-back de senha permite que você configure o Azure AD para o write-back de senhas no Active Directory local. Ele remove a necessidade de configurar e gerenciar uma solução complicada de autoatendimento de redefinição de senha local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. O write-back de senha é um componente do [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais das [Edições do Azure Active Directory](active-directory-editions.md) Premium.
 
-O write-back de senha fornece os seguintes recursos
+O write-back de senha fornece os seguintes recursos:
 
 * **Comentários sem atraso** – o write-back de senha é uma operação síncrona. Os usuários serão notificados imediatamente se suas senhas não atenderem à política ou se não puderem ser redefinidas nem alteradas por qualquer motivo.
 * **Dá suporte à redefinição de senhas de usuários que usam o AD FS ou outras tecnologias de federação** – com o write-back de senha, desde que as contas dos usuários federados sejam sincronizadas no locatário do Azure AD, eles poderão gerenciar suas instalações senhas do AD local na nuvem.

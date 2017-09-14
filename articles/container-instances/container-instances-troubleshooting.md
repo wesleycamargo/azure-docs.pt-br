@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: bff594d86c7c34ebff4d7dad5be4e54cdb604baf
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -213,3 +213,17 @@ microsoft/aci-helloworld               latest              7f78509b568e        1
 A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem final não contenha nada que não deja necessário no tempo de execução. Uma forma de fazer isso é com [builds de vários estágios](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Builds de vários estágios tornam fácil assegurar que a imagem final contenha somente os artefatos necessários para seu aplicativo, sem nenhum conteúdo extra que foi necessário no momento do build.
 
 A outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner usando o Registro de Contêiner do Azure na mesma região em que você pretende usar Instâncias de Contêiner do Azure. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
+
+### <a name="resource-not-available-error"></a>Erro de recurso não disponível
+
+Devido a diversas cargas de recursos regionais no Azure, você poderá receber o seguinte erro durante a tentativa de implantar uma instância de contêiner:
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+Esse erro indica que devido à carga pesada na região em que você está tentando implantar, os recursos especificados para o contêiner não poderão ser alocados no momento. Use uma ou mais das seguintes etapas de mitigação para ajudar a resolver o problema.
+
+* Verifique se suas configurações de implantação do contêiner caem dentro dos parâmetros definidos na [Disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-region-availability.md)
+* Especificar configurações de CPU e memória inferiores para o contêiner
+* Implantar em uma região diferente do Azure
+* Implantar em um momento posterior
+

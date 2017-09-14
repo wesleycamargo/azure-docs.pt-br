@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/31/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 207c53924863eb51ee369fe46d5ad12fb1905c53
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
@@ -65,15 +65,26 @@ O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtu
 
 As etapas do procedimento definem ‘DefaultSiteHQ’ como a conexão de site padrão para o túnel forçado e configuram as sub-redes Midtier e Back-end para usarem túnel forçado.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before"></a>Antes de começar
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar os cmdlets do PowerShell.
+
+> [!IMPORTANT]
+> É necessário instalar a versão mais recente dos cmdlets do PowerShell. Caso contrário, você poderá receber erros de validação ao executar alguns dos cmdlets.
+>
+>
 
 ### <a name="to-log-in"></a>Para fazer logon
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="configure-forced-tunneling"></a>Configurar o túnel forçado
+
+> [!NOTE]
+> Você pode ver avisos dizendo que "O tipo de objeto de saída deste cmdlet será modificado em uma versão futura". Esse comportamento é esperado e você pode ignorar esses avisos com segurança.
+>
+>
+
 
 1. Crie um grupos de recursos.
 
@@ -113,7 +124,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Crie o gateway com um site padrão. Essa etapa de criação e configuração do gateway leva cerca de 45 minutos ou mais para ser concluída, pois você está criando e configurando o gateway.<br> O **-GatewayDefaultSite** é o parâmetro cmdlet que permite a configuração de roteamento forçada funcionar, portanto, atente-se para configurar corretamente essa configuração. Esse parâmetro está disponível no PowerShell 1.0 ou versão posterior.
+6. Crie o gateway com um site padrão. Essa etapa de criação e configuração do gateway leva cerca de 45 minutos ou mais para ser concluída, pois você está criando e configurando o gateway.<br> O **-GatewayDefaultSite** é o parâmetro cmdlet que permite a configuração de roteamento forçada funcionar, portanto, atente-se para configurar corretamente essa configuração. Se você vir erros ValidateSet relacionados ao valor do GatewaySKU, verifique se você instalou a [versão mais recente dos cmdlets do PowerShell](#before). A versão mais recente dos cmdlets do PowerShell contém os novos valores validados para os SKUs de gateway mais recentes.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -137,3 +148,4 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
     
   Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
   ```
+

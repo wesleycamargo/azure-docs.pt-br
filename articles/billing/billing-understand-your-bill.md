@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
+
+>[!NOTE]
+>Este artigo não se aplica aos clientes do EA (Enterprise Agreement). Se você for um cliente do EA, [você pode encontrar a documentação de fatura no Enterprise Portal.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
 
 Para obter um PDF de sua fatura e uma cópia do download do arquivo de uso diário detalhado em CSV, consulte [Como obter sua fatura de cobrança do Azure e dados de uso diário](billing-download-azure-invoice-daily-usage-date.md). 
 
@@ -48,7 +51,7 @@ Os encargos de uso são exibidos no nível do medidor. Os termos na lista a segu
  | --- | --- |
 |Ciclo de cobrança | Período de Cobrança |
  |Nome |Categoria de medidor |
- |Tipo |Subcategoria de Medidor |
+ |Tipo |Subcategoria de medidor |
  |Recurso |Nome do medidor |
  |Região |Região do medidor |
  |Consumido |Quantidade consumida |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -84,7 +84,7 @@ mysql-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor MySQ
 docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado se o Docker for detectado.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>Compatibilidade com o System Center Operations Manager
-O Agente do OMS para Linux compartilha arquivos binários de agente com o agente do System Center Operations Manager. Se você instalar o Agente do OMS para Linux em um sistema atualmente gerenciado pelo Operations Manager, atualiza os pacotes OMI e SCX no computador para uma versão mais recente. Nesta versão, o OMS e o System Center 2016 – agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis. 
+O Agente do OMS para Linux compartilha arquivos binários de agente com o agente do System Center Operations Manager. Se você instalar o Agente do OMS para Linux em um sistema atualmente gerenciado pelo Operations Manager, ele atualiza os pacotes OMI e SCX no computador para uma versão mais recente. Nesta versão, o OMS e o System Center 2016 – agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis. 
 
 > [!NOTE]
 > O System Center 2012 SP1 e versões anteriores atualmente não são compatíveis com o Agente do OMS para Linux ou não têm suporte.<br>
@@ -265,7 +265,7 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você vê um erro 404 e 500 no arquivo de log logo após a integração
 Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do OMS. Isso não afeta os dados sendo enviados ou a experiência do serviço.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Você não está vendo nenhum dado no portal do OMS
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: você não está vendo nenhum dado no portal do OMS
 
 #### <a name="probable-causes"></a>Causas prováveis
 
@@ -281,4 +281,5 @@ Esse é um problema conhecido que ocorre durante o primeiro upload de dados do L
 
     >[!NOTE]
     >Esse problema foi corrigido nas versões 1.1.0-28 e posteriores do Agente.
-> 
+
+

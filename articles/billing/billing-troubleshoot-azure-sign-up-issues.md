@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inscrição do Azure
 Se você não conseguir se inscrever no Azure, use as dicas deste artigo para solucionar problemas comuns. Caso tenha um problema com seu cartão de crédito durante a inscrição, consulte [Seu cartão de débito ou crédito é recusado durante a inscrição do Azure](billing-credit-card-fails-during-azure-sign-up.md). Se você tiver uma conta do Azure, mas não conseguir se conectar, consulte [Não consigo me conectar para gerenciar minha assinatura do Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro "Não é possível prosseguir com a inscrição devido a um problema com sua conta. Entre em contato com o suporte à cobrança". 
+
+Para resolver o problema, siga estas etapas:
+
+1. Entre no [Centro de Contas do Azure](https://account.azure.com) usando a credencial do administrador da conta. 
+2. Clique em **Perfil**e, em seguida, clique em **Editar detalhes**.
+3. Certifique-se de que todos os campos de endereço estejam preenchidos e válidos. 
+4. Ao se inscrever à assinatura do Azure, certifique-se de que o endereço de cobrança inserido durante o registro de cartão de crédito corresponde os registros do banco.
+
+Se você ainda receber o erro, tente se inscrever usando um navegador diferente.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>A barra de progresso trava na seção "Verificação de identidade por cartão"
 

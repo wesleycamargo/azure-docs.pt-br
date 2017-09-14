@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Proteja Novamente do Azure para um site local
@@ -226,4 +226,36 @@ O failback desligará a máquina virtual no Azure e inicializará a máquina vir
 * Se você estiver tentando realizar failback para um vCenter alternativo, verifique se seu novo vCenter e o servidor de destino mestre estão descobertos. Um sintoma típico é que os armazenamentos de dados não ficam acessíveis ou visíveis na caixa de diálogo **Proteger Novamente**.
 
 * Um servidor Windows Server 2008 R2 SP1 que é protegido, já que um servidor local físico não pode fazer failback do Azure para um site local.
+
+### <a name="common-error-codes"></a>Códigos de erro comuns
+
+#### <a name="error-code-95226"></a>Código de erro 95226
+
+*A nova proteção falhou porque a máquina virtual do Azure não foi capaz de alcançar o servidor de configuração local.*
+
+Isso ocorre quando 
+1. A máquina virtual do Azure não foi capaz de alcançar o servidor de configuração local e, portanto, não pôde ser descoberta e registrada no servidor de configuração. 
+2. O serviço de aplicativo do InMage Scout na máquina virtual do Azure que precisa estar em execução para comunicar-se com o servidor de configuração local pode não estar executando após o failover.
+
+Para resolver esse problema
+1. Você precisa verificar se a rede de máquina virtual do Azure está configurada de modo que a máquina virtual possa se comunicar com o servidor de configuração local. Para fazer isso, defina uma VPN Site a Site para seu datacenter local ou configure uma conexão ExpressRoute com emparelhamento privado na rede virtual da máquina virtual do Azure. 
+2. Se você já tiver uma rede configurada de forma que a máquina virtual do Azure possa se comunicar com o servidor de configuração local, faça logon na máquina virtual e marque o 'Serviço de Aplicativo InMage Scout'. Se você observar que o Serviço de Aplicativo InMage Scout não está em execução, inicie o serviço manualmente e verifique se o tipo de inicialização do serviço está definido como Automático.
+
+### <a name="error-code-78052"></a>Código de erro 78052
+A nova proteção falha com a mensagem de erro: *Não foi possível concluir a proteção para a máquina virtual.*
+
+Isso pode acontecer devido a duas razões
+1. A máquina virtual que você está protegendo novamente é um Windows Server 2016. Atualmente, esse sistema operacional não tem suporte para failback, mas terá suporte em breve.
+2. Já existe uma máquina virtual com o mesmo nome no servidor de destino Mestre para o qual você está fazendo failback.
+
+Para resolver esse problema, você pode selecionar um servidor de destino mestre diferente em um host diferente, de modo que a nova proteção crie a máquina em um host diferente no qual não ocorra conflito entre os nomes. Você também pode fazer vMotion do destino mestre para um host diferente no qual não ocorra conflito entre os nomes.
+
+### <a name="error-code-78093"></a>Código de erro 78093
+
+*A VM não está em execução, está em um estado suspenso ou não está acessível.*
+
+Para proteger novamente uma máquina virtual que sofreu failover de volta para o local, é necessário que a máquina virtual do Azure esteja em execução. Isso é para que o serviço de mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (estado suspenso ou desligado), o servidor de configuração não poderá acessar o serviço de mobilidade na máquina virtual para iniciar a nova proteção. Você pode reiniciar a máquina virtual para que ela possa começar a comunicar-se de volta localmente. Reiniciar o trabalho de nova proteção depois de iniciar a máquina virtual do Azure
+
+
+
 

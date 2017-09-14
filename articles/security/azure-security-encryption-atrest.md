@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: ae612cbfb889181a18a7b6071ad80e8cc8ba336c
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
@@ -37,7 +37,7 @@ A criptografia em Repouso refere-se à codificação criptográfica (criptografi
 Acima, descreve-se os elementos de alto nível de Criptografia em Repouso comuns. Na prática, os principais cenários de controle e gerenciamento, assim como garantias de disponibilidade e escala, requerem construções adicionais. Os conceitos e componentes de Criptografia em Repouso no Microsoft Azure são descritos abaixo.
 
 ## <a name="the-purpose-of-encryption-at-rest"></a>A finalidade da criptografia em repouso
-A Criptografia em Repouso destina-se a fornecer proteção de dados para dados em repouso (conforme descrito acima.) Os ataques contra dados em repouso incluem tentativas de obter acesso físico ao hardware em que os dados são armazenados e, em seguida, comprometer os dados contidos. Nesse ataque, o disco rígido de um servidor pode ter sido manipulado incorretamente durante a manutenção, permitindo que um invasor remova o disco rígido. Mais tarde, o invasor poderia colocar o disco rígido em um computador sob seu controle para tentar acessar os dados. 
+A criptografia em repouso destina-se a fornecer proteção de dados para dados em repouso (conforme descrito acima). Os ataques contra dados em repouso incluem tentativas de obter acesso físico ao hardware em que os dados são armazenados e, em seguida, comprometer os dados contidos. Nesse ataque, o disco rígido de um servidor pode ter sido manipulado incorretamente durante a manutenção, permitindo que um invasor remova o disco rígido. Mais tarde, o invasor poderia colocar o disco rígido em um computador sob seu controle para tentar acessar os dados. 
 
 A criptografia em repouso é projetada para impedir que o invasor acesse os dados não criptografados, assegurando que os dados sejam criptografados quando em disco. Se um invasor pudesse obter um disco rígido com esses dados criptografados e nenhum acesso às chaves de criptografia, o invasor não comprometia os dados sem grande dificuldade. Nesse cenário, um invasor teria que tentar ataques contra dados criptografados que são muito mais complexos e consomem recursos, do que acessar dados não criptografados em um disco rígido. Por esse motivo, a criptografia em repouso é altamente recomendada e é um requisito de alta prioridade para muitas organizações. 
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/05/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: perguntas frequentes
@@ -80,6 +80,9 @@ Sim. Para saber mais, confira a [página de preço](https://azure.microsoft.com/
 
 #### <a name="is-there-a-free-trial-for-the-service"></a>Há uma avaliação gratuita para o serviço?
 Esse serviço está incluído na avaliação gratuita do Azure. Você pode se inscrever para uma [avaliação gratuita de um mês do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+#### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Posso pausar um domínio gerenciado do Azure AD Domain Services? 
+Não. Depois que você habilitar um domínio gerenciado do Azure AD Domain Services, o serviço estará disponível em sua rede virtual selecionada até que você desabilite/exclua o domínio gerenciado. Não é possível pausar o serviço. A cobrança continuará por hora até que você exclua o domínio gerenciado.
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Posso obter os Serviços de Domínio do AD do Azure como parte do EMS (Enterprise Mobility Suite)? Preciso do Azure AD Premium para usar os Serviços de Domínio do Azure AD?
 Não. Os Serviços de Domínio do Azure AD é um serviço pré-pago do Azure e não faz parte do EMS. O Azure AD Domain Services pode ser usado em todas as edições do Azure AD (Free, Basic e Premium). Você será cobrado por hora, dependendo do uso.

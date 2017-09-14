@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -329,86 +329,9 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="common-scenarios-for-listing-jobs"></a>Cenários comuns para listagem de trabalhos
+### <a name="analyzing-job-history"></a>Analisar o histórico do trabalho
 
-
-```
-# List jobs submitted in the last five days and that successfully completed.
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-
-# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
-Get-AdlJob -Account $adla `
-    -Submitter "joe@contoso.com" `
-    -SubmittedAfter (Get-Date).AddDays(-7) `
-    -Result Failed
-```
-
-## <a name="filtering-a-list-of-jobs"></a>Filtrar uma lista de trabalhos
-
-Uma vez que tenha uma lista de trabalhos na sessão atual do PowerShell. você poderá usar os cmdlets normais do PowerShell para filtrar a lista.
-
-Filtrar uma lista de trabalhos dos trabalhos enviados nas últimas 24 horas
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.EndTime -ge $lowerdate }
-```
-
-Filtrar uma lista de trabalhos dos trabalhos concluídos nas últimas 24 horas
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
-```
-
-Filtrar uma lista de trabalhos dos trabalhos que começaram a ser executados. Um trabalho poderá falhar no tempo de compilação e, portanto, ele nunca será iniciado. Vamos examinar os trabalhos com falha que, de fato, começaram a ser executados e falharam.
-
-```powershell
-$jobs | Where-Object { $_.StartTime -ne $null }
-```
-
-### <a name="analyzing-a-list-of-jobs"></a>Analisar uma lista de trabalhos
-
-Use o cmdlet `Group-Object` para analisar uma lista de trabalhos.
-
-```
-# Count the number of jobs by Submitter
-$jobs | Group-Object Submitter | Select -Property Count,Name
-
-# Count the number of jobs by Result
-$jobs | Group-Object Result | Select -Property Count,Name
-
-# Count the number of jobs by State
-$jobs | Group-Object State | Select -Property Count,Name
-
-#  Count the number of jobs by DegreeOfParallelism
-$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
-```
-Ao executar uma análise, pode ser útil adicionar propriedades aos objetos de trabalho para simplificar a filtragem e o agrupamento. O trecho a seguir mostra como anotar um JobInfo com propriedades calculadas.
-
-```
-function annotate_job( $j )
-{
-    $dic1 = @{
-        Label='AUHours';
-        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
-    $dic2 = @{
-        Label='DurationSeconds';
-        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
-    $dic3 = @{
-        Label='DidRun';
-        Expression={ ($_.StartTime -ne $null)}}
-
-    $j2 = $j | select *, $dic1, $dic2, $dic3
-    $j2
-}
-
-$jobs = Get-AdlJob -Account $adla -Top 10
-$jobs = $jobs | %{ annotate_job( $_ ) }
-```
+Usar o Azure PowerShell para analisar o histórico de trabalhos que foram executados no Data Lake Analytics é uma técnica poderosa. Você pode usá-lo para obter informações sobre o uso e o custo. Você pode saber mais examinando o [repositório de exemplo de análise do histórico do trabalho](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="get-information-about-pipelines-and-recurrences"></a>Obter informações sobre pipelines e recorrências
 

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
@@ -58,7 +57,7 @@ Depois de criar um aplicativo nomeado, você pode criar uma instância de um de 
 
 Há dois tipos de serviços: com e sem monitoração. Os serviços sem monitoração de estado podem armazenar o estado persistente em um serviço de armazenamento externo, como o Armazenamento do Azure, o Banco de Dados SQL do Azure ou o Azure Cosmos DB. Use um serviço sem estado quando o serviço não tiver nenhum armazenamento persistente. Um serviço com estado usa o Service Fabric para gerenciar o estado de seu serviço por meio de seus modelos de programação Reliable Collections ou Reliable Actors. 
 
-Ao criar um serviço nomeado, você especifica um esquema de partição. Serviços com grandes quantidades de estado dividem os dados entre partições. Cada partição é responsável por uma parte do estado completo do serviço, que é distribuído entre os nós do cluster. Dentro de uma partição, serviços nomeados sem estado têm instâncias, enquanto serviços nomeados com estado têm réplicas. Normalmente, os serviços nomeadas sem estado têm apenas uma partição, já que não têm estado interno. Os serviços nomeados com estado mantêm seu estado dentro de réplicas e cada partição tem seu próprio conjunto de réplicas. As operações de leitura e gravação são realizadas em uma réplica (chamada de Primária). As alterações no estado, devidas a operações de gravação, são replicadas para outras réplicas (chamadas de Secundárias Ativas). 
+Ao criar um serviço nomeado, você especifica um esquema de partição. Serviços com grandes quantidades de estado dividem os dados entre partições. Cada partição é responsável por uma parte do estado completo do serviço, que é distribuído entre os nós do cluster.  
 
 O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
 
@@ -94,7 +93,10 @@ O [Reliable Services](service-fabric-reliable-services-introduction.md) é uma e
 Criada com base no Reliable Services, a estrutura [Reliable Actor](service-fabric-reliable-actors-introduction.md) é uma estrutura de aplicativo que implementa o padrão Ator Virtual baseado no padrão de design de ator. A estrutura Reliable Actor usa unidades independentes de computação e de estado com execução single-threaded chamadas atores. A estrutura Reliable Actor fornece comunicação interna para atores e configurações de expansão e persistência de estado predefinido.
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-O Service Fabric é integrado ao [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a criação de aplicativos Web e de API
+O Service Fabric é integrado ao [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a criação de aplicativos Web e de API.  O Núcleo do ASP.NET pode ser usado de duas maneiras diferentes no Service Fabric:
+
+- Hospedado como um executável convidado. Isso é usado principalmente para executar aplicativos do Núcleo do ASP.NET existentes no Service Fabric sem alterações de código.
+- Executar em um Serviço Confiável. Isso permite uma melhor integração com o tempo de execução do Service Fabric e permite os serviços de Núcleo do ASP.NET com monitoração de estado.
 
 ### <a name="guest-executables"></a>Executáveis de convidado
 Um [executável convidado](service-fabric-deploy-existing-app.md) é um executável existente e arbitrário (escrito em qualquer linguagem), hospedado em um cluster do Service Fabric junto com outros serviços. Os executáveis convidados não são integrados diretamente às APIs do Service Fabric. No entanto, eles ainda se beneficiam dos recursos que a plataforma oferece, como relatórios personalizados de integridade e carregamento e a capacidade de descoberta de serviço com a chamada às APIs REST. Eles também têm suporte completo do ciclo de vida do aplicativo. 

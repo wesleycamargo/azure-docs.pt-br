@@ -4,10 +4,10 @@ hide_bc: true
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 <div id="main" class="v2">
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/24/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Banco de Dados Cosmos</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Banco de dados do Azure Cosmos</a></li>
                                                 </ul>
                                                 <h4>AI e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
@@ -299,7 +299,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Banco de Dados Cosmos</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -481,7 +481,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>Rota Expressa</p>
+                                                <p>ExpressRoute</p>
                                             </a>
                                         </li>
                                         <li>
@@ -901,7 +901,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Engajamento Móvel</p>
+                                                <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1646,7 +1646,7 @@ ms.lasthandoff: 07/24/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Engajamento Móvel</h3>
+                                                    <h3>Mobile Engagement</h3>
                                                     <p>Aumentar o uso do aplicativo e a retenção do usuário</p>
                                                 </div>
                                             </div>
@@ -1846,8 +1846,8 @@ ms.lasthandoff: 07/24/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Banco de Dados Cosmos</h3>
-                                                    <p>Banco de dados como um serviço gerenciado de documentos NoSQL</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Multimodelo de banco de dados distribuído globalmente para qualquer escala</p>
                                                 </div>
                                             </div>
                                         </div>

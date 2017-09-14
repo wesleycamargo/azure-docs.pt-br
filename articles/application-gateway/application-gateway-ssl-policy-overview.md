@@ -15,23 +15,23 @@ ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: dae04a093af8512d27edbae8d41bd58ccc33df53
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
    
 
 # <a name="application-gateway-ssl-policy-overview"></a>Visão geral da política SSL do Gateway de Aplicativo
 
-O Gateway de Aplicativo permite que você centralize o gerenciamento de certificados SSL e reduza a sobrecarga de criptografia e descriptografia de um farm de servidores de back-end. Esse tratamento SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como diretrizes de segurança e práticas recomendadas.
+É possível usar o Gateway de Aplicativo do Azure para centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores de back-end. Esse tratamento SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e às práticas recomendadas.
 
-A política SSL inclui controle de versão de protocolo SSL, bem como conjuntos de codificação e a ordem em que as codificações são usadas durante um handshake SSL. Este Gateway de Aplicativo oferece dois mecanismos para permitir que os clientes controlem a política SSL, um modelo predefinido ou uma política personalizada.
+A política SSL inclui controle de versão de protocolo SSL, bem como conjuntos de criptografia e a ordem em que as criptografias são usadas durante um handshake SSL. O Gateway de Aplicativo oferece dois mecanismos para controlar a política de SSL. Você pode usar uma política predefinida ou uma política personalizada.
 
 ## <a name="predefined-ssl-policy"></a>Política SSL predefinida
 
-O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você pode configurar o gateway com alguma dessas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês no qual eles foram configurados. Cada política oferece diferentes versões protocolo SSL e conjuntos de codificação. É recomendável usar as políticas SSL mais recentes para garantir a melhor segurança SSL. Atualmente, o Gateway de Aplicativo permite que os usuários podem escolher uma das seguintes opções predefinidas.
+O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você pode configurar o gateway com alguma dessas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês no qual eles foram configurados. Cada política oferece diferentes versões protocolo SSL e conjuntos de codificação. É recomendável usar as políticas SSL mais recentes para garantir a melhor segurança SSL.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -62,19 +62,18 @@ O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você p
 
 ## <a name="custom-ssl-policy"></a>Política SSL personalizada
 
-Se uma política SSL predefinida tiver de ser configurado para suas necessidades, você terá de definir sua própria política SSL personalizada. Nesse caso, você tem controle total sobre a versão mínima do protocolo SSL para dar suporte, bem como conjuntos de codificação com suporte e a ordem de prioridade.
+Se uma política SSL predefinida tiver de ser configurada para suas necessidades, você terá de definir sua própria política SSL personalizada. Com uma política SSL personalizada, você tem controle total sobre a versão mínima do protocolo SSL para dar suporte, bem como conjuntos de criptografia com suporte e a ordem de prioridade.
  
-Versões de protocolo SSL:
+### <a name="ssl-protocol-versions"></a>Versões de protocolo SSL
 
-* SSL 2.0 e 3.0 desabilitados por padrão para todos os Gateways do Aplicativo. Essas versões de protocolo não são configuráveis.
-* A definição de política SSL personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima de protocolo SSL para o seu gateway: TLSv1_0, TLSv1_1, TLSv1_2.
-* Se nenhuma política SSL for definida, todas as três (TLSv1_0, TLSv1_1, TLSv1_2) deverão ser habilitadas.
+* SSL 2.0 e 3.0 são desabilitados por padrão para todos os gateways do aplicativo. Essas versões de protocolo não são configuráveis.
+* Uma política SSL personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima de protocolo SSL para o seu gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* Se nenhuma política SSL for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) deverão ser habilitados.
 
-Conjunto de Codificação:
+### <a name="cipher-suites"></a>Conjuntos de criptografia
 
-O Gateway de Aplicativo dá suporte aos seguintes conjuntos de codificação do qual a política personalizada pode ser escolhida. A ordenação dos pacotes de codificação determina a ordem de prioridade durante a negociação SSL.
+O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos quais a política personalizada pode ser escolhida. A ordenação dos pacotes de codificação determina a ordem de prioridade durante a negociação SSL.
 
-Conjuntos de codificação disponíveis:
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -107,5 +106,5 @@ Conjuntos de codificação disponíveis:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configurar política SSL em um gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md)
+Se desejar aprender a configurar uma política SSL, confira [Configurar política SSL em um gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md).
 

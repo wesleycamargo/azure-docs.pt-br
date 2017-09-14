@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f961cde4aa8de5bdd0f8f220d355f2c93af580a4
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 7704a7465941d317adfa83d8c6832de273eed39c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
@@ -342,8 +342,8 @@ Qual é a diferença entre os processadores de telemetria e inicializadores de t
 * [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>Código do SDK
-* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [SDK do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Próximas etapas

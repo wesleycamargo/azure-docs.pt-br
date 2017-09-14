@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Perguntas frequentes sobre o Azure Disk Encryption
@@ -111,6 +111,16 @@ Este artigo fornece respostas a perguntas frequentes sobre o Azure Disk Encrypti
 **P:** Posso aplicar atualizações a uma VM Red Hat Linux que usa a atualização do yum?
 
 **R:** Sim, você pode executar uma atualização ou aplicar patch em uma VM do Red Hat Linux. Para saber mais, confira [Applying updates to an encrypted Azure IaaS Red Hat VM by using the yum update](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/) (Aplicando atualizações a uma VM Red Hat IaaS do Azure criptografada usando a atualização do yum).
+
+**P:** O que é o fluxo de trabalho recomendado de criptografia de disco do Azure recomendado para Linux?
+
+**R:** O seguinte fluxo de trabalho é recomendado para ter os melhores resultados no Linux:
+* Inicie na imagem da galeria de estoque não modificada que corresponde à distribuição e à versão desejadas do sistema operacional
+* Faça backup de todas as unidades montadas que serão criptografadas.  Isso permite a recuperação em caso de falha, por exemplo, se a VM for reiniciada antes de a criptografia ser concluída.
+* Criptografar (pode levar várias horas ou mesmo dias dependendo das características da VM e do tamanho dos discos de dados anexados)
+* Personalizar e adicionar o software à imagem conforme necessário.
+
+Se esse fluxo de trabalho não for possível, depender de SSE [(Criptografia do Serviço de Armazenamento)](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) na camada da conta de armazenamento de plataforma poderá ser uma alternativa para criptografia de disco cheio usando dm-crypt.
 
 **P:** Onde posso fazer perguntas ou fornecer comentários?
 

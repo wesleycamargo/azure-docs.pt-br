@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ Antes do upgrade, ao selecionar um valor em um gráfico, ele retornava uma lista
 ## <a name="log-search-api"></a>API da Pesquisa de Log
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Pergunta: a API da Pesquisa de Logs é atualizada após o upgrade?
-A [API da Pesquisa de Logs](log-analytics-log-search-api.md) ainda não foi atualizada para a nova linguagem de pesquisa.  Continue usando a linguagem de consulta herdada com essa API, mesmo depois de fazer upgrade do espaço de trabalho.  A documentação atualizada estará disponível para a API da Pesquisa de Logs quando ela for atualizada.
+A [API de pesquisa de Logs](log-analytics-log-search-api.md) herdada deixará de funcionar quando você tiver atualizado seu espaço de trabalho.  Consulte [API REST do Azure Log Analytics](https://dev.loganalytics.io/) para obter detalhes sobre a nova API.
 
 
 ## <a name="portals"></a>Portais

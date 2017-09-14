@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dfe06ee6b8fadfe6d34397661c974181f870239e
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT

@@ -14,27 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
+ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
-Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assinatura do [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) para [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) no Portal de Contas do Azure. A atualização em si não é muito cara e você só será cobrado pelos serviços que usar.
 
-1. Entre no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions) e navegue até a guia **assinaturas**.
-2. Na seção de status de assinatura, selecione a faixa **Atualizar agora**.
+Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assinatura do [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) para [Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de Contas do Azure.
+
+1. Entrar no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions).
+1. Na seção de status de assinatura, selecione a faixa **Atualizar agora**.
    
     ![Captura de tela que mostra onde clicar para atualizar da Avaliação Gratuita para Pré-pago](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Confirme a atualização.
+1. Confirme a atualização.
    
     ![Captura de tela que mostra o que selecionar para confirmar que você deseja atualizar sua assinatura](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Use os benefícios restantes de sua Avaliação gratuita, como o limite de 30 dias ou o crédito. Depois de usar todos os benefícios, sua assinatura será atualizada.
-
-
+A atualização em si não é muito cara e você só será cobrado pelos serviços que usar. Depois de confirmar a atualização, ainda será mantido seu crédito de avaliação até o término do período da avaliação.
