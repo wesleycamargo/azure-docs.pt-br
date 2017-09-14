@@ -13,17 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/22/2017
+ms.date: 09/06/2017
 ms.author: maroche
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
+
+## <a name="whats-new-for-september-2017"></a>Novidades para setembro de 2017 
+Em setembro de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+
+* Suporte para extrair metadados de relação de união de fontes de dados do DB2 ao registrar tabelas relacionadas usando a ferramenta de registro de fonte de dados.
+* Suporte para o registro de fontes de dados do MongoDB versão 3.4 usando a ferramenta de registro da fonte de dados.
+* Suporte para a exclusão de todos os metadados para os objetos contidos em uma única operação durante a remoção de um banco de dados ou outro contêiner do Catálogo de Dados.
+* Suporte para exibir até 1.000 marcas, termos do glossário de negócios ou outras facetas de pesquisa ao refinar uma pesquisa no portal do Catálogo de Dados.
+
 
 ## <a name="whats-new-for-august-2017"></a>Novidades para agosto de 2017 
 Em agosto de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:

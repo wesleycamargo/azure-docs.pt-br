@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 8/31/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: cfed5f0f4f703821e83e3d365810c0e5ad22f035
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 84b78fe4eb60162f3cad0ae4ae7f98864d5bbf2b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -213,12 +213,12 @@ A causa mais provável dessa exceção é que não há memória de heap suficien
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Para obter a memória total usada por todos os executores, execute o seguinte comando: 
+    Para calcular a memória total usada por todos os executores: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-    Para obter a memória total usada pelo driver, execute o seguinte comando:
+   Para calcular a memória total usada pelo driver:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead

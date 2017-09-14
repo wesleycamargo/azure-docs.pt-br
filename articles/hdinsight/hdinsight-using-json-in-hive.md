@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: ee7d40d2ff0ae1ac10b54f4c1f1dd704a70eb70c
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>Processar e analisar documentos JSON usando Hive no HDInsight
@@ -141,105 +141,7 @@ A saída deste script no console do Hive:
 JSON\_TUPLE usa a sintaxe da [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive, que permite que a json\_tupla criar uma tabela virtual aplicando a função UDT em cada linha da tabela original.  JSONs complexos se tornam muito complicados devido ao uso repetido de LATERAL VIEW. Além disso, JSON_TUPLE não pode manipular JSONs aninhados.
 
 ### <a name="use-custom-serde"></a>Usar SerDe personalizado
-SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite definir o esquema JSON e usar o esquema para analisar os documentos. Neste tutorial, usamos um dos SerDe mais populares desenvolvidos por [Roberto Congiu](https://github.com/rcongiu).
-
-**Para usar o SerDe personalizado:**
-
-1. Instale o [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Escolha a versão Windows X64 do JDK se você for usar a implantação do Windows do HDInsight
-   
-   > [!WARNING]
-   > O JDK 1.8 não funciona com este SerDe.
-   > 
-   > 
-   
-    Após a instalação ser concluída, adicione uma nova variável de ambiente de usuário:
-   
-   1. Abra **Exibir configurações avançadas do sistema** na tela do Windows.
-   2. Clique em **Variáveis de Ambiente**.  
-   3. Adicione uma nova variável de ambiente **JAVA_HOME**, que aponte para **C:\Program Files\Java\jdk1.7.0_55** ou onde quer que o JDK esteja instalado.
-      
-      ![Definir valores de configuração correto para o JDK][image-hdi-hivejson-jdk]
-2. Instale o [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
-   
-    Adicione a pasta bin ao seu caminho indo para Painel de Controle --> Editar as Variáveis do Sistema para as variáveis de Ambiente da sua conta. A captura de tela a seguir mostra como fazer isso.
-   
-    ![Configurando o Maven][image-hdi-hivejson-maven]
-3. Clone o projeto do site do github [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) . Você pode fazer isso clicando no botão "Baixar Zip" conforme mostrado na captura de tela a seguir.
-   
-    ![Clonar o projeto][image-hdi-hivejson-serde]
-
-4: vá para a pasta onde você baixou este pacote e digite "mvn package". Isso deverá criar os arquivos jar necessários que você poderá copiar para o cluster.
-
-5: vá para a pasta de destino na pasta raiz na qual você baixou o pacote. Carregue o arquivo json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar para o nó principal do seu cluster. Normalmente, eu o coloco na pasta de binários de hive: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin ou algo semelhante.
-
-6: no prompt do Hive, digite "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Como o jar está na pasta C:\apps\dist\hive-0.13.x\bin no meu caso, posso adicionar o jar diretamente com o nome mostrado:
-
-    add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
-
-   ![Adicionar JAR ao seu projeto][image-hdi-hivejson-addjar]
-
-Agora você está pronto para usar o SerDe para executar consultas no documento JSON.
-
-A instrução a seguir cria uma tabela com um esquema definido:
-
-    DROP TABLE json_table;
-    CREATE EXTERNAL TABLE json_table (
-      StudentId string,
-      Grade int,
-      StudentDetails array<struct<
-          FirstName:string,
-          LastName:string,
-          YearJoined:int
-          >
-      >,
-      StudentClassCollection array<struct<
-          ClassId:string,
-          ClassParticipation:string,
-          ClassParticipationRank:string,
-          Score:int,
-          PerformedActivity:boolean
-          >
-      >
-    ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-    LOCATION '/json/students';
-
-Para listar o nome e sobrenome do aluno
-
-    SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
-
-Este é o resultado no console do Hive.
-
-![Consulta SerDe 1][image-hdi-hivejson-serde_query1]
-
-Para calcular a soma das pontuações do documento JSON
-
-    SELECT SUM(scores)
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as scores;
-
-A consulta anterior usa a UDF [explodir exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) para expandir a matriz de pontuações para que possam ser somados.
-
-Esta é a saída do console do Hive.
-
-![Consulta SerDe 2][image-hdi-hivejson-serde_query2]
-
-Para localizar quais matérias um aluno específico obteve mais de 80 pontos:
-
-    SELECT  
-      jt.StudentClassCollection.ClassId
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
-
-A consulta anterior retorna uma matriz do Hive diferente de get\_json\_object, que retorna uma cadeia de caracteres.
-
-![Consulta SerDe 3][image-hdi-hivejson-serde_query3]
-
-Se você quiser realizar skil em JSON malformado, conforme explicado no [página wiki](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) desse SerDe, isso pode ser feito digitando o seguinte código:  
-
-    ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
-
-
-
+SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite definir o esquema JSON e usar o esquema para analisar os documentos. Para obter instruções, consulte [como usar um Serde JSON personalizado com o Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Resumo
 Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá optar por usar a UDF get\_json\_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.

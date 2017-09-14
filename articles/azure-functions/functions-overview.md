@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução ao Azure Functions  
@@ -45,15 +45,15 @@ O Azure Functions é uma ótima solução para processamento de dados, integraç
 
 O Functions fornece modelos para você poder começar em cenários chave, incluindo os seguintes:
 
-* **BlobTrigger** – processa blobs do Armazenamento do Azure quando são adicionados a contêineres. Você pode usar essa função para o redimensionamento de imagens.
-* **EventHubTrigger** - responder a eventos entregues a um Hub de Eventos do Azure. É especialmente útil em cenários de instrumentação de aplicativos, de processamento de fluxo de trabalho ou experiência do usuário e de Internet das Coisas (IoT).
-* **Webhook genérico** – processa solicitações de webhook HTTP de qualquer serviço que dá suporte a webhooks.
-* **Webhook GitHub** – responde a eventos que ocorrem em seus repositórios GitHub. Para obter um exemplo, confira [Criar uma função de API ou webhook](functions-create-a-web-hook-or-api-function.md).
-* **HTTPTrigger** – dispara a execução do seu código usando uma solicitação HTTP.
-* **QueueTrigger** – responde às mensagens que chegam em uma fila do Armazenamento do Azure. Para ver um exemplo, confira [Criar uma Azure Function vinculada a um serviço do Azure](functions-create-an-azure-connected-function.md).
-* **ServiceBusQueueTrigger** – conecte seu código a outros serviços do Azure ou serviços locais por meio da escuta de filas de mensagens. 
-* **ServiceBusTopicTrigger** – conecte seu código a outros serviços do Azure ou serviços locais por meio da assinatura de tópicos. 
-* **TimerTrigger** – execute limpeza ou outras tarefas em lotes em uma programação predefinida. Para ver um exemplo, confira [Criar um função de processamento de eventos](functions-create-an-event-processing-function.md).
+* **HTTPTrigger** – dispara a execução do seu código usando uma solicitação HTTP. Para obter um exemplo, consulte [Criar sua primeira função](functions-create-first-azure-function.md).
+* **TimerTrigger** – execute limpeza ou outras tarefas em lotes em uma programação predefinida. Para um exemplo, consulte [Criar uma função disparada por um temporizador](functions-create-scheduled-function.md).
+* **Webhook GitHub** – responde a eventos que ocorrem em seus repositórios GitHub. Para um exemplo, consulte [Criar uma função disparada pelo webhook do GitHub](functions-create-a-web-hook-or-api-function.md).
+* **Webhook genérico** – processa solicitações de webhook HTTP de qualquer serviço que dá suporte a webhooks. Para um exemplo, consulte [Criar uma função disparada por um webhook genérico](functions-create-generic-webhook-triggered-function.md).
+* **BlobTrigger** – processa blobs do Armazenamento do Azure quando são adicionados a contêineres. Você pode usar essa função para o redimensionamento de imagens. Para obter mais informações, consulte [Associações de armazenamento de blobs](functions-bindings-storage-blob.md).
+* **QueueTrigger** – responde às mensagens que chegam em uma fila do Armazenamento do Azure. Para obter mais informações, consulte [Criar uma função que se conecta a outros serviços do Azure](functions-create-an-azure-connected-function.md).
+* **EventHubTrigger** - responder a eventos entregues a um Hub de Eventos do Azure. É especialmente útil em cenários de instrumentação de aplicativos, de processamento de fluxo de trabalho ou experiência do usuário e de Internet das Coisas (IoT). Para obter mais informações, consulte [Associações de Hubs de Eventos](functions-bindings-event-hubs.md).
+* **ServiceBusQueueTrigger** – conecte seu código a outros serviços do Azure ou serviços locais por meio da escuta de filas de mensagens. Para obter mais informações, consulte [Associações de Barramento de Serviço](functions-bindings-service-bus.md).
+* **ServiceBusTopicTrigger** – conecte seu código a outros serviços do Azure ou serviços locais por meio da assinatura de tópicos. Para obter mais informações, consulte [Associações de Barramento de Serviço](functions-bindings-service-bus.md).
 
 O Azure Functions dá suporte a *gatilhos*, que são maneiras de iniciar a execução do seu código, e *associações*, que são maneiras de simplificar a codificação de dados de entrada e de saída. Para obter uma descrição detalhada dos gatilhos e associações que o Azure Functions fornece, confira a [Referência do desenvolvedor de disparadores e associações do Azure Functions](functions-triggers-bindings.md).
 
@@ -71,12 +71,12 @@ O Azure Functions integra-se com uma variedade de serviços do Azure e de tercei
 * Twilio (mensagens SMS)
 
 ## <a name="pricing"></a>Quanto custa o Functions?
-O Azure Functions tem dois tipos de planos de preços. Escolha a opção que melhor atende às suas necessidades: 
+As funções do Azure têm dois tipos de planos de preços. Escolha a opção que melhor atende às suas necessidades: 
 
 * **Plano de consumo** – quando sua função é executada, o Azure fornece todos os recursos computacionais necessários. Você não precisa se preocupar com o gerenciamento de recursos e paga apenas pelo tempo de execução do seu código. 
 * **Plano do Serviço de Aplicativo** – executa suas funções como aplicativos Web, móveis e de API. Quando você já estiver usando o Serviço de Aplicativo para os outros aplicativos, poderá executar suas funções no mesmo plano sem custo adicional. 
 
-Os detalhes de preços completos estão disponíveis na [página Preço do Functions](https://azure.microsoft.com/pricing/details/functions/). Para saber mais sobre o dimensionamento de suas funções, confira [Como dimensionar o Azure Functions](functions-scale.md).
+Para obter mais informações sobre planos de hospedagem, consulte [Comparação de planos de hospedagem do Azure Functions](functions-scale.md). Os detalhes de preços completos estão disponíveis na [página Preço do Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar sua primeira função](functions-create-first-azure-function.md)  
@@ -88,6 +88,6 @@ Os detalhes de preços completos estão disponíveis na [página Preço do Funct
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
 * [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md)  
-  O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
+  O Azure Functions aproveita o Serviço de Aplicativo do Azure para a funcionalidade básica como implantações, variáveis de ambiente e diagnóstico. 
 
 

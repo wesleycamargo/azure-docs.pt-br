@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 073/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco em um dispositivo StorSimple da série 8000
@@ -103,8 +103,8 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
     **Figura 6** Deslizando o suporte da unidade para dentro do chassi
 3. Com o suporte da unidade inserido, feche a alça do suporte enquanto continua a empurrar o suporte da unidade para dentro do chassi, até que a alça se encaixe na posição travada.
 4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
-5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o Portal do Azure e navegue para **Configurações** > **Integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
-<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
+5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o Portal do Azure e navegue para **Configurações do dispositivo** > **Integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
+
    
    > [!NOTE]
    > Pode levar várias horas até que o status do disco fique verde após a troca.

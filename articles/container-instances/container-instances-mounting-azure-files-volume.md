@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -31,7 +31,7 @@ Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de est
 
 ## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 
-Antes de usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure, você deve criá-lo. Execute o seguinte script para criar uma conta de armazenamento para hospedar o compartilhamento de arquivos e o próprio compartilhamento. Observe que o nome da conta de armazenamento deve ser globalmente exclusivo, para que o script adicione um valor aleatório à cadeia de caracteres de base.
+Antes de usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure, você deve criá-lo. Execute o seguinte script para criar uma conta de armazenamento para hospedar o compartilhamento de arquivos e o próprio compartilhamento. O nome da conta de armazenamento deve ser globalmente exclusivo para que o script adicione um valor aleatório à cadeia de caracteres de base.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,7 +52,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## <a name="acquire-storage-account-access-details"></a>Obter detalhes de acesso da conta de armazenamento
 
-Para montar um compartilhamento de arquivos do Azure como um volume nas Instâncias de Contêiner do Azure, você precisa de três valores: o nome da conta de armazenamento, o nome do compartilhamento e a chave de acesso de armazenamento. 
+Para montar um compartilhamento de arquivos do Azure como um volume nas Instâncias de Contêiner do Azure, você precisa de três valores: o nome da conta de armazenamento, o nome do compartilhamento e a chave de acesso de armazenamento.
 
 Se você usou o script acima, o nome da conta de armazenamento foi criado com um valor aleatório no final. Para consultar a cadeia de caracteres final (incluindo a parte aleatória), use os seguintes comandos:
 
@@ -64,13 +64,13 @@ echo $STORAGE_ACCOUNT
 O nome do compartilhamento já é conhecido (é *acishare* no script acima), portanto, só falta a chave de conta de armazenamento, que pode ser encontrada usando o seguinte comando:
 
 ```azurecli-interactive
-$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
 ## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Armazenar detalhes de acesso da conta de armazenamento com o Azure Key Vault
 
-As chaves da conta de armazenamento protegem o acesso aos seus dados, portanto, recomendamos armazená-las em um Azure Key Vault. 
+As chaves da conta de armazenamento protegem o acesso aos seus dados, portanto, recomendamos armazená-las em um Azure Key Vault.
 
 Crie um cofre de chaves com a CLI do Azure:
 
@@ -129,7 +129,7 @@ Para definir os volumes que você deseja disponibilizar para montagem, adicione 
             "name": "myvolume",
             "mountPath": "/aci/logs/"
           }]
-        }  
+        }
       }],
       "osType": "Linux",
       "ipAddress": {
@@ -152,7 +152,7 @@ Para definir os volumes que você deseja disponibilizar para montagem, adicione 
 }
 ```
 
-O modelo inclui o nome da conta de armazenamento e a chave como parâmetros, os quais podem ser fornecidos em um arquivo de parâmetros separado. Para preencher o arquivo de parâmetros, você precisará de três valores: o nome da conta de armazenamento, a ID de recurso do seu Azure Key Vault e o nome do segredo do cofre de chaves que você usou para armazenar a chave de armazenamento. Se seguiu as etapas anteriores, você pode obter esses valores com o seguinte script:
+O modelo inclui o nome da conta de armazenamento e a chave como parâmetros, os quais podem ser fornecidos em um arquivo de parâmetros separado. Para preencher o arquivo de parâmetros, você precisará de três valores: o nome da conta de armazenamento, a ID de recurso do seu Azure Key Vault e o nome do segredo do cofre de chaves que você usou para armazenar a chave de armazenamento. Se seguiu as etapas anteriores, você poderá obter esses valores com o seguinte script:
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -169,7 +169,7 @@ Insira os valores no arquivo de parâmetros:
   "parameters": {
     "storageaccountname": {
       "value": "<my_storage_account_name>"
-    },    
+    },
    "storageaccountkey": {
       "reference": {
         "keyVault": {
@@ -190,7 +190,7 @@ Com o modelo definido, você pode criar o contêiner e montar seu volume usando 
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem **seanmckenna/aci-hellofiles** para gerenciar arquivos no compartilhamento de arquivos no caminho de montagem especificado. Obtenha o endereço IP para o aplicativo Web da seguinte maneira:
+Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem **seanmckenna/aci-hellofiles** para gerenciar arquivos no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o endereço IP para o aplicativo Web da seguinte maneira:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name hellofiles -o table
