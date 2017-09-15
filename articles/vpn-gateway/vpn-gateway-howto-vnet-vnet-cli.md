@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
@@ -124,7 +124,7 @@ Usamos os seguintes valores nos exemplos:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Crie outro espaço de endereço para a sub-rede de back-end. Observe que nesta etapa, especificamos o espaço de endereço criado anteriormente e outro espaço de endereço que desejamos adicionar. Isso ocorre porque o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) substitui as configurações anteriores. Não deixe de especificar todos os prefixos de endereço ao usar o comando.
+3. Crie outro espaço de endereço para a sub-rede de back-end. Observe que nesta etapa, especificamos o espaço de endereço criado anteriormente e outro espaço de endereço que desejamos adicionar. Isso ocorre porque o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) substitui as configurações anteriores. Não deixe de especificar todos os prefixos de endereço ao usar o comando.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -326,7 +326,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use 'az account list --all' a fim de listar as assinaturas disponíveis para sua conta e use 'az account set --subscription<subscriptionID>' a fim de alternar para a assinatura que você deseja usar.
 
-1. **[Assinatura 1]**  Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
+1. **[Assinatura 1] ** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
   ```azurecli
   az network vnet-gateway show -n VNet1GW -g TestRG1
@@ -340,7 +340,7 @@ Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e 
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
   ```
 
-2. **[Assinatura 5]**  Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
+2. **[Assinatura 5] ** Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
   ```azurecli
   az network vnet-gateway show -n VNet5GW -g TestRG5

@@ -6,7 +6,7 @@ Para recuperar o nome de host, portas e acesso chaves usando o Portal do Azure, 
 ![Configurações de Cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Recuperar o nome de host, portas e chaves de acesso usando a CLI do Azure
-Para recuperar o nome de host e as portas usando a CLI do Azure 2.0, você pode chamar [az redis show](https://docs.microsoft.com/cli/azure/redis#show) e para recuperar as chaves, pode chamar [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). O script a seguir chama esses dois comandos e repete o nome de host, portas e chaves no console.
+Para recuperar o nome de host e as portas usando a CLI do Azure 2.0, você pode chamar [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) e para recuperar as chaves, pode chamar [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). O script a seguir chama esses dois comandos e repete o nome de host, portas e chaves no console.
 
 ```azurecli
 #/bin/bash
