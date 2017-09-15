@@ -13,6 +13,7 @@
 # Como
 ## Planejar e projetar
 ### [Autenticação e segurança](relay-authentication-and-authorization.md)
+#### [Migrar do ACS para o SAS](relay-migrate-acs-sas.md)
 ### [Protocolo de Conexões híbridas](relay-hybrid-connections-protocol.md)
 ## Desenvolver
 ### [APIs Disponíveis](relay-api-overview.md)
