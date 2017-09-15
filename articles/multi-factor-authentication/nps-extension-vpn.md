@@ -4,7 +4,7 @@ description: "Este artigo aborda a integração da infraestrutura da sua VPN com
 services: active-directory
 keywords: "Azure MFA, integrar VPN, Azure Active Directory, extensão do Servidor de Políticas de Rede"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT

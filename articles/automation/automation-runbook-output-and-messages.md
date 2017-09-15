@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: pt-br
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
@@ -187,6 +188,11 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Criação gráfica
 Para runbooks gráficos, um log extra está disponível na forma de rastreamento em nível de atividade.  Há dois níveis de rastreamento: Básico e Detalhado.  No rastreamento Básico, é possível ver a hora de início e de término de cada atividade do runbook, além de informações relacionadas a quaisquer repetições de atividade, como o número de tentativas e a hora de início da atividade.  No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade.  Observe que, atualmente, os registros de rastreamento são escritos usando a transmissão detalhada; portanto, é necessário, habilitar o log Detalhado ao habilitar o rastreamento.  Para runbooks gráficos com o rastreamento habilitado, não é necessário fazer registros de progresso de log, pois o rastreamento Básico tem a mesma finalidade e é mais informativo.
@@ -220,10 +226,5 @@ Para saber mais sobre como configurar a integração com o Log Analytics para co
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 * Para entender como criar e usar runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

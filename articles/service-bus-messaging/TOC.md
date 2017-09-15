@@ -37,6 +37,7 @@
 ### [Aplicativos que usam filas](service-bus-create-queues.md)
 ### [Aplicativos que usam tópicos/assinaturas](service-bus-create-topics-subscriptions.md)
 ### [Autenticação e autorização](service-bus-authentication-and-authorization.md)
+#### [Migrar do ACS para o SAS](service-bus-migrate-acs-sas.md)
 #### [Autenticação com assinaturas de acesso compartilhado](service-bus-sas.md)
 ### [Filas e tópicos particionados](service-bus-partitioning.md)
 ### [Filas de mensagens mortas](service-bus-dead-letter-queues.md)

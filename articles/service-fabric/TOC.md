@@ -4,6 +4,8 @@
 
 # Guia de início rápido
 ## [Criar um aplicativo .NET](service-fabric-quickstart-dotnet.md)
+## [Implantar um aplicativo de contêiner do Windows](service-fabric-quickstart-containers.md)
+## [Implantar um aplicativo de contêiner do Linux](service-fabric-quickstart-containers-linux.md)
 
 # Tutoriais
 ## Implantar um aplicativo .NET
