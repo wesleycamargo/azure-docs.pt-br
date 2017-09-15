@@ -12,9 +12,6 @@ Este tutorial mostra como:
 * Criar um aplicativo de dispositivo simulado que tem um método direto que pode ser chamado pela nuvem.
 * Criar um aplicativo de console que chama um método direto no dispositivo simulado por meio do Hub IoT.
 
-> [!NOTE]
-> Neste momento, os métodos diretos estão acessíveis somente em dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
-
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

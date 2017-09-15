@@ -10,7 +10,7 @@
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio.](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
 * [Como implantar Trabalhos Web usando o Portal de Gerenciamento do Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
 * [A caixa de diálogo Adicionar Trabalho Web do Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Agendando Azure WebJobs com expressões cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Exibir o painel Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Como gravar logs usando o SDK de Trabalhos Web e exibi-los no painel](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
