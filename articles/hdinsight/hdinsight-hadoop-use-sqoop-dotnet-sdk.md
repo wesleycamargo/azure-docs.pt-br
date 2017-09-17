@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 737cfd5d1bbd3d55968d7fc0e67d94aff6ada5ea
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight
@@ -46,7 +45,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 ## <a name="submit-a-sqoop-job"></a>Enviar um trabalho de Sqoop
 
 1. No Visual Studio, crie um aplicativo de console C#.
-2. No Console do Gerenciador de Pacotes do Visual Studio, execute o seguinte comando do Nuget para importar o pacote.
+2. No Console do Gerenciador de Pacotes do Visual Studio, execute o comando do NuGet a seguir para importar o pacote.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use o seguinte código no arquivo Program.cs:

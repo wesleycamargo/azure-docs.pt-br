@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Criação de perfil de aplicativos Web do Azure ativos com o Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Descubra quanto tempo é gasto em cada método no seu aplicativo Web ao vivo usando a ferramenta de criação de perfil de [Azure Application Insights](app-insights-overview.md). Ele mostra perfis detalhados de solicitações ao vivo que foram atendidas por seu aplicativo e realça o 'hot path' que está usando mais tempo. Ele seleciona automaticamente exemplos que têm tempos de resposta diferentes. O criador de perfil usa várias técnicas para minimizar a sobrecarga.
 
-O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico. 
+O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Habilitar o criador de perfil
