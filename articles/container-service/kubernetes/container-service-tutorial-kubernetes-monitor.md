@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -40,9 +40,9 @@ Este tutorial, parte sete de sete, aborda as seguintes tarefas:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, um aplicativo foi empacotado em um cluster de contêiner, essas imagens foram carregadas no Registro de Contêiner do Azure e um cluster do Kubernetes foi criado. Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
+Nos tutoriais anteriores, um aplicativo foi empacotado em um cluster de contêiner, essas imagens foram carregadas no Registro de Contêiner do Azure e um cluster do Kubernetes foi criado. 
 
-No mínimo, este tutorial requer um cluster do Kubernetes com nós de agente do Linux e uma conta do OMS (Operations Management Suite). Se necessário, inscreva-se em uma [avaliação gratuita do OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="get-workspace-settings"></a>Obter configurações de espaço de trabalho
 

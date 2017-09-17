@@ -4,7 +4,7 @@ description: "Informações sobre o cliente de autenticação multifator e os di
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c47ca818bd77291338de6e90e5dd27465475e868
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 525ca7733d509b6831e6c5ab7a6f3a5ce5250156
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter o Azure Multi-Factor Authentication
@@ -66,7 +66,6 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 | Lembrar MFA para dispositivos confiáveis |● |● |● |
 | SDK de MFA | | |● (Exige o provedor de Autenticação Multifator e assinatura completa do Azure) |
 | MFA para aplicativos locais | | |● |
-| Políticas de acesso condicional | | | ● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter o Azure Multi-Factor Authentication
 Se você quiser a funcionalidade completa oferecida pela autenticação multifator do Azure, há várias opções:

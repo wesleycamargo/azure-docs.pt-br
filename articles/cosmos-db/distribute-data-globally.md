@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir os dados globalmente com o Azure Cosmos DB
@@ -65,9 +65,6 @@ Para controlar a sequência exata de failovers regionais quando há uma interrup
 **Um locatário do Azure Cosmos DB pode configurar a ordem de prioridade do failover (painel direito) de regiões associadas a uma conta de banco de dados**
 
 ![Configurando prioridades de failover com o Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>Colocando uma região "offline" dinamicamente
-O Azure Cosmos DB permite colocar sua conta de banco de dados offline em uma região específica e colocá-la online novamente mais tarde. As regiões marcadas como offline não participam ativamente da replicação e não fazem parte da sequência de failover. Isso o habilita a congelar a última imagem correta conhecida do banco de dados em uma das regiões de leitura antes de distribuir atualizações potencialmente perigosas para o aplicativo.
 
 ### <a id="ConsistencyLevels"></a>Vários modelos de consistência bem definidos para bancos de dados replicados globalmente
 O Azure Cosmos DB expõe [vários níveis de consistência bem definidos](consistency-levels.md) com suporte de SLAs. Você pode escolher um modelo específico de consistência (da lista de opções disponíveis) dependendo da carga de trabalho/dos cenários. 

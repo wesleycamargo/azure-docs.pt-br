@@ -10,11 +10,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 590cba6cb58d0c0eaedb9f122ac048c33988004d
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -31,7 +31,7 @@ O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional
 > * Atualizar dados
 > * Restaurar dados
 
-Você pode usar o Azure Cloud Shell no navegador ou [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli) em seu computador para executar os blocos de código neste tutorial.
+Você pode usar o Azure Cloud Shell no navegador, ou [instalar o CLI 2.0 do Azure]( /cli/azure/install-azure-cli) em seu computador para executar os blocos de código neste tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +43,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
+Crie um [grupo de recursos do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
 
 O exemplo a seguir cria um grupo de recursos denominado `mycliresource` no local `westus`.
 

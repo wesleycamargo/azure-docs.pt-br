@@ -15,11 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 209766e4ebc902d78cf0c83fa8fe0f57c4da73e4
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory
@@ -337,7 +336,8 @@ Parabéns, você está executando um aplicativo de linha de negócios no Azure c
 ## <a name="next-step"></a>Próxima etapa
 Se você precisar de controle de acesso baseado em função (RBAC) para o aplicativo de linha de negócios no Azure, confira [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) para obter um exemplo da equipe do Azure Active Directory. Ele mostra como habilitar funções para seu aplicativo do Azure Active Directory e, em seguida, autorizar usuários com a decoração `[Authorize]` .
 
-Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira [Acesso a recursos locais usando conexões híbridas no Serviço de Aplicativo do Azure](web-sites-hybrid-connection-get-started.md).
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 

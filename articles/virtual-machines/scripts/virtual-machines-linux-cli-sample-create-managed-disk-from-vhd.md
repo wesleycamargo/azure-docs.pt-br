@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 448636e87db126defc804a613bb61ff19a086ad9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 36d34261325ba3ab120fd6bcf0f3816f84e15182
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ Esse script usa os comandos a seguir para criar um disco gerenciado com base em 
 
 | Command | Observações |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Cria um disco gerenciado usando o URI de um arquivo VHD em uma conta de armazenamento na mesma assinatura |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Cria um disco gerenciado usando o URI de um arquivo VHD em uma conta de armazenamento na mesma assinatura |
 
 ## <a name="next-steps"></a>Próximas etapas
 

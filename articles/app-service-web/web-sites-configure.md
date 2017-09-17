@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 443f49c720b47734f330db9bd6790e6a55ac5f9b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
@@ -49,7 +48,7 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 <a name="platform"></a>
 **Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64-bit requere o modo Básico ou Padrão. Modos Livre e Compartilhado são sempre executados em um ambiente de 32 bits.
 
-**Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo Web usar [ASP.NET SignalR] ou [socket.io].
+**Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo Web usar [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
 **Sempre ativado**. Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite ao sistema conservar recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se o aplicativo executar WebJobs contínuos ou executar WebJobs disparados com uma expressão CRON, você deverá habilitar a opção **Sempre ativo** ou os trabalhos Web poderão não ser executados de forma confiável.
@@ -171,7 +170,6 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 [Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
-[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Experimentar o Serviço de Aplicativo]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

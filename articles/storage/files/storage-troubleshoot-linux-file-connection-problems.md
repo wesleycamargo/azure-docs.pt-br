@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0cab2e3540afdbdc64cb77fca4b9219c77258166
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Solucionar problemas de armazenamento de Arquivos do Azure no Linux
@@ -46,7 +46,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns deles e
 -   Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
 -   Se você sabe o tamanho final de um arquivo que está estendendo com gravações e o software não apresenta problemas de compatibilidade quando a parte final não escrita do arquivo contém zeros, defina o tamanho do arquivo antecipadamente, em vez de realizar cada gravação como uma gravação de extensão.
 -   Use o método de cópia correto:
-    -   Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#file-copy) para todas as transferências entre dois compartilhamentos de arquivo.
+    -   Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.
     -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
 
 <a id="error112"></a>

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cd9adc784bceb0fff5e7c2bbee2be0950c51c8f6
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: aee24e5c478c4453655952cc626d7d6c857e7962
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -40,12 +40,12 @@ Esse script usa os seguintes comandos para recuperar nome de host, chaves e port
 
 | Command | Observações |
 |---|---|
-| [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis#show) | Recupere os detalhes de uma instância de Cache Redis do Azure. |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | Recupere chaves de acesso para uma instância de Cache Redis do Azure. |
+| [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Recupere os detalhes de uma instância de Cache Redis do Azure. |
+| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Recupere chaves de acesso para uma instância de Cache Redis do Azure. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos adicionais de script da CLI de Cache Redis do Azure podem ser encontrados na [documentação de Cache Redis do Azure](../cli-samples.md).
+Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).

@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 51f61901e1b1615e48582690dea701a01a56ebca
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e34d810b8cf9f290a61e302c6f68781abea14173
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,10 +50,10 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 | Command | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Atualiza uma conta do Banco de Dados Cosmos do Azure para incluir as configurações do firewall. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Atualiza uma conta do Banco de Dados Cosmos do Azure para incluir as configurações do firewall. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

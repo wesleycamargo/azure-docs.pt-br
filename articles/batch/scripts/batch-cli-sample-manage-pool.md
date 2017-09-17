@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -60,19 +60,19 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 
 | Command | Observações |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Autentique em uma conta do Lote.  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | Liste os aplicativos disponíveis na conta do Lote.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | Crie um pool de VMs.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | Atualize as propriedades de um pool.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | Liste as informações de imagem e SKUs do agente de nó disponíveis.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | Redimensione o número de VMs em execução no pool especificado.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | Exiba as propriedades de um pool.  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | Exclua o pool especificado.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | Habilite o dimensionamento automático em um pool e aplique uma fórmula.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | Desabilite o dimensionamento automático em um pool.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | Liste todos os nós de computação no pool especificado.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | Reinicie o nó de computação especificado.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | Exclua os nós listados do pool especificado.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autentique em uma conta do Lote.  |
+| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#az_batch_application_summary_list) | Liste os aplicativos disponíveis na conta do Lote.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Crie um pool de VMs.  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | Atualize as propriedades de um pool.  |
+| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az_batch_pool_node_agent_skus_list) | Liste as informações de imagem e SKUs do agente de nó disponíveis.  |
+| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_resize) | Redimensione o número de VMs em execução no pool especificado.  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | Exiba as propriedades de um pool.  |
+| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_delete) | Exclua o pool especificado.  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | Habilite o dimensionamento automático em um pool e aplique uma fórmula.  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | Desabilite o dimensionamento automático em um pool.  |
+| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_list) | Liste todos os nós de computação no pool especificado.  |
+| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_reboot) | Reinicie o nó de computação especificado.  |
+| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | Exclua os nós listados do pool especificado.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

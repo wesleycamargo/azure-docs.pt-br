@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
-
-## <a name="introduction"></a>Introdução
 
 O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. O aplicativo pode se conectar a contas de Armazenamento hospedadas no Azure, em nuvens independentes e no Azure Stack.
 
@@ -32,7 +30,7 @@ Este guia resume as soluções de problemas comuns encontrados no Gerenciador de
 
 ## <a name="sign-in-issues"></a>Problemas de entrada
 
-Somente contas do AAD (Azure Active Directory) têm suporte. Se você usar uma conta do ADFS, espera-se que a entrada no Gerenciador de Armazenamento não funcione. Antes de continuar, tente reiniciar o aplicativo e verifique se os problemas podem ser corrigidos.
+Antes de continuar, tente reiniciar o aplicativo e verifique se os problemas podem ser corrigidos.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erro: Certificado autoassinado na cadeia confiável
 
