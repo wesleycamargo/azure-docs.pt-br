@@ -3,7 +3,7 @@ title: "Autenticação LDAP e Servidor Azure MFA | Microsoft Docs"
 description: "Essa é a página Azure Multi-Factor Authentication que auxiliará na implantação de autenticação LDAP e do servidor Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.author: joflore
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e Servidor de Autenticação Multifator do Azure
@@ -41,7 +40,7 @@ Para configurar a autenticação LDAP, instale o servidor Azure Multi-Factor Aut
 4. Se você planejar usar LDAPS do cliente para o Servidor de Autenticação Multifator do Azure, um certificado SSL deverá ser instalado no mesmo servidor que o Servidor de MFA. Clique em **Procurar** ao lado da caixa de certificado SSL e selecione um certificado a ser usado para a conexão segura.
 5. Clique em **Adicionar**.
 6. Na caixa de diálogo Adicionar Cliente LDAP, digite o endereço IP do dispositivo, do servidor ou do aplicativo que fará a autenticação para o Servidor e um nome de Aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
-7. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure**  se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado para o Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada. Consulte o arquivo de ajuda Servidor de MFA para obter informações adicionais sobre esse recurso.
+7. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure ** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado para o Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada. Consulte o arquivo de ajuda Servidor de MFA para obter informações adicionais sobre esse recurso.
 
 Repita estas etapas para adicionar outros clientes LDAP.
 

@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dcf92babf84872ffbbba81127952f8422104c723
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 9447e7c78849bb7a25d141c454550ce708b781b6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ Esse script usa os comandos a seguir para criar um novo disco gerenciado na assi
 
 | Command | Observações |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Obtém todas as propriedades de um disco gerenciado usando o nome e as propriedades do grupo de recursos do disco gerenciado. A propriedade de ID é usada para copiar o disco gerenciado para assinatura diferente.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Copia um disco gerenciado criando um novo disco gerenciado em uma assinatura diferente usando a Id e o nome do disco gerenciado pai.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtém todas as propriedades de um disco gerenciado usando o nome e as propriedades do grupo de recursos do disco gerenciado. A propriedade de ID é usada para copiar o disco gerenciado para assinatura diferente.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Copia um disco gerenciado criando um novo disco gerenciado em uma assinatura diferente usando a Id e o nome do disco gerenciado pai.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

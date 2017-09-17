@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,7 +42,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos chamado *myResourceGroupVM* na região *eastus*. 
 
@@ -54,7 +54,7 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
+Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
 Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, criaremos uma máquina virtual chamada *myVM* no Ubuntu. 
 
@@ -62,7 +62,7 @@ Há várias opções disponíveis ao criar uma máquina virtual, como a imagem d
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM. Anote o `publicIpAddress`, esse endereço pode ser usado para acessar a máquina virtual... 
+A criação da VM pode levar alguns minutos. Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM. Anote o `publicIpAddress`, esse endereço pode ser usado para acessar a máquina virtual... 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM
 
 ## <a name="connect-to-vm"></a>Conectar-se a uma VM
 
-Agora você pode se conectar à VM com SSH. Substitua o endereço IP de exemplo com o `publicIpAddress` observado na etapa anterior.
+Agora você pode se conectar à VM com o SSH no Azure Cloud Shell ou do computador local. Substitua o endereço IP de exemplo com o `publicIpAddress` observado na etapa anterior.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Quando tiver concluído com a VM, feche a sessão SSH. 
+Depois de conectado à VM, você pode instalar e configurar aplicativos. Quando tiver terminado, você fechará a sessão SSH normalmente:
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Redimensionar uma VM
 
-Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos.
+Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos. Você pode exibir atual do tamanho de uma VM com [az vm show](/cli/azure/vm#show):
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [az vm lista-vm--opções de redimensionamento](/cli/azure/vm#list-vm-resize-options) retorna a lista de tamanhos. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Excluir grupo de recursos
 
-Excluir um grupo de recursos exclui todos os recursos contidos nele.
+Excluir um grupo de recursos exclui todos os recursos contidos nele, tais como a VM, rede virtual e disco. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

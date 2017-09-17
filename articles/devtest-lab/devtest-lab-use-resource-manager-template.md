@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 12cdb61667f77215c894800d5c439235e767a26b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -66,7 +65,7 @@ Depois de salvar o modelo do Resource Manager, você deve atualizar a seção de
 Depois de salvar um modelo do Resource Manager e personalizá-lo de acordo com suas necessidades, você pode usá-lo para automatizar a criação de VMs. [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) descreve como usar o Azure PowerShell com modelos do Resource Manager para implantar seus recursos no Azure. [Implantar recursos com modelos do Resource Manager e a CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) descreve como usar a CLI do Azure com modelos do Resource Manager para implantar seus recursos no Azure.
 
 > [!NOTE]
-> Somente um usuário com permissões de proprietário de laboratório pode criar VMs de um modelo do Resource Manager usando o Azure PowerShell. Se você quiser automatizar a criação de VMs usando um modelo do Resource Manager e tiver apenas permissões de usuário, você poderá usar o comando [**az lab vm create** na CLI](https://docs.microsoft.com/cli/azure/lab/vm#create).
+> Somente um usuário com permissões de proprietário de laboratório pode criar VMs de um modelo do Resource Manager usando o Azure PowerShell. Se você quiser automatizar a criação de VMs usando um modelo do Resource Manager e tiver apenas permissões de usuário, você poderá usar o comando [**az lab vm create** na CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 ### <a name="next-steps"></a>Próximas etapas
 * Aprenda como [Criar ambientes de várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).

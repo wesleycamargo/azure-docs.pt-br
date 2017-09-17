@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,13 +51,13 @@ Esse script usa os seguintes comandos para criar um trabalho do Lote e suas tare
 
 | Command | Observações |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Autentica em uma conta do Lote.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Cria um trabalho do Lote.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Atualiza as propriedades de um trabalho do Lote.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Recupera detalhes de um trabalho especificado do Lote.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Lista as tarefas associadas ao trabalho especificado.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autentica em uma conta do Lote.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Cria um trabalho do Lote.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Atualiza as propriedades de um trabalho do Lote.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Recupera detalhes de um trabalho especificado do Lote.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Lista as tarefas associadas ao trabalho especificado.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

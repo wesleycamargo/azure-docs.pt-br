@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -158,7 +158,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
     >**Quando utilizar**: ao implantar um aplicativo Web no Linux para uma imagem de Docker.
 
-    >**Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -168,7 +168,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
     >**Quando utilizar**: quando quiser fornecer uma experiência de SSO, trabalhe com dados baseados em gráfico ou autentique usuários baseados em domínio.
 
-    >**Introdução**: Para saber mais, consulte o [Guia do desenvolvedor do Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+    >**Introdução**: Para saber mais, consulte o [Guia do desenvolvedor do Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
 
 -   **Autenticação do Serviço de Aplicativo**: ao escolher o Serviço de Aplicativo para hospedar seu aplicativo, você também obterá suporte de autenticação interna para o Azure AD, juntamente com provedores de identidade social — incluindo Facebook, Google, Microsoft e Twitter.
 

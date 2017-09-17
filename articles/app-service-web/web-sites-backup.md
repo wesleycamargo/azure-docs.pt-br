@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a79f05792fdda3c9895c0893678e4a4d5fb23d54
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
@@ -159,7 +159,7 @@ O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. 
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 23170923d7c05c9b7230cf331725250b2a3c0f09
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -54,14 +54,14 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 | Command | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | Criar um conjunto de dimensionamento de máquinas virtuais |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Adicionar um ponto de extremidade com balanceamento de carga |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | Criar a extensão que executa o script personalizado na implantação de uma VM |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | Execute o script personalizado nas instâncias de VM que foram implantadas antes de a extensão ser aplicada ao conjunto de dimensionamento. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | Escale verticalmente o conjunto de dimensionamento adicionando mais instâncias de VM. O script personalizado é executado nelas quando elas são implantadas. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | Obtenha os endereços IP das VMs criadas pela amostra. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | Obtenha as portas de front-end e back-end usadas pelo balanceador de carga. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Criar um conjunto de dimensionamento de máquinas virtuais |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Adicionar um ponto de extremidade com balanceamento de carga |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Criar a extensão que executa o script personalizado na implantação de uma VM |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Execute o script personalizado nas instâncias de VM que foram implantadas antes de a extensão ser aplicada ao conjunto de dimensionamento. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Escale verticalmente o conjunto de dimensionamento adicionando mais instâncias de VM. O script personalizado é executado nelas quando elas são implantadas. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Obtenha os endereços IP das VMs criadas pela amostra. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Obtenha as portas de front-end e back-end usadas pelo balanceador de carga. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

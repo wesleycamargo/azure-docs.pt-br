@@ -1,5 +1,4 @@
 ---
-
 title: "Funcionalidades técnicas de segurança do Azure | Microsoft Docs"
 description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
@@ -346,7 +344,7 @@ O Azure fornece vários recursos fáceis de usar para ajudar a proteger o tráfe
 
 - [Conectar seu aplicativo com segurança com recursos em uma rede privada usando VPN Ponto a Site](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando Conexões Híbridas](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando Conexões Híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 O Serviço de Aplicativo do Azure usa a mesma solução Antimalware usada pelos Serviços de Nuvem do Azure e pelas máquinas virtuais. Para saber mais sobre isso, confira nossa [documentação antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 

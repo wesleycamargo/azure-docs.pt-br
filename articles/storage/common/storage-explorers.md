@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c57a300b54c62bbd43c73121c22adbc44cb94776
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
@@ -113,20 +113,6 @@ Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferrament
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Avaliação</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
@@ -155,7 +141,7 @@ Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferrament
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Gerenciador de Armazenamento do Azure</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Navegador do Armazenamento da Web do Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -169,7 +155,7 @@ Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferrament
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">CloudBerry Explorer</a></td>
+    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -221,34 +207,6 @@ Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferrament
     <td>Avaliação</td>
     <td></td>
     <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="http://storageexplorer.codeplex.com/">Navegador do Armazenamento da Web do Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>S</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://zudio.co/">Zudio</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Avaliação</td>
-    <td>X</td>
-    <td></td>
     <td></td>
     <td></td>
   </tr>
