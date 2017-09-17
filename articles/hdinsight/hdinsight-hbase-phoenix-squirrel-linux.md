@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 342e29b009f51f7d1e9c3134a69cab6e30726bcd
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Usar o Apache Phoenix com clusters do HBase baseados em Linux no HDInsight
@@ -35,7 +34,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de poder usar o SQLLine, você deve ter o seguinte:
+Antes de poder usar o SQLLine, você deve ter os seguintes itens:
 
 * **Um cluster HBase no HDInsight**. Para obter informações sobre como provisionar o cluster HBase, consulte [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started].
 * **Conectar-se ao cluster HBase por meio do protocolo de área de trabalho remoto**. Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure][hdinsight-manage-portal].

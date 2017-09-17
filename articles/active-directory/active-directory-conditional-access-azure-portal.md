@@ -17,10 +17,10 @@ ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
@@ -183,7 +183,7 @@ A autenticação herdada refere-se aos clientes usando a autenticação básica,
 ![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-conditions).
+Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
 
 
 
@@ -215,3 +215,4 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 - Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+

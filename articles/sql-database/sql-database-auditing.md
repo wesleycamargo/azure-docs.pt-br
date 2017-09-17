@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
@@ -68,8 +67,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Acesse a folha **Configurações** do banco de dados SQL/SQL Server que você deseja auditar. Na folha **Configurações**, selecione **Auditoria e Detecção de ameaças**.
 
-    <a id="auditing-screenshot"></a>
-    ![Painel de navegação][1]
+    <a id="auditing-screenshot"></a> ![Painel de navegação][1]
 3. Se você preferir configurar uma política de auditoria do servidor (que se aplicará a todos os bancos de dados existentes e recém-criados neste servidor), poderá selecionar o link **Exibir configurações do servidor** na folha de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor.
 
     ![Painel de navegação][2]
@@ -82,8 +80,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
    >[!TIP] 
    >Para aproveitar ao máximo os modelos de relatórios de auditoria, use a mesma conta de armazenamento para todos os bancos de dados auditados. 
 
-    <a id="storage-screenshot"></a>
-    ![Painel de navegação][4]
+    <a id="storage-screenshot"></a> ![Painel de navegação][4]
 6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST. Para obter mais detalhes, consulte a seção [Automação (PowerShell/API REST)](#subheading-7).
 7. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais detalhes, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Salvar**.
@@ -148,17 +145,16 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Auditoria de bancos de dados replicados geograficamente</a>
-Ao usar bancos de dados com replicação geográfica, é possível configurar a auditoria no banco de dados primário, no banco de dados secundário ou em ambos, dependendo do tipo de auditoria.
+Quando você usa bancos de dados replicados geograficamente, é possível configurar a auditoria no banco de dados secundário ao habilitar a auditoria no **servidor secundário** ou então ao habilitar a auditoria de banco de dados primário (nesse caso, o banco de dados secundário terá uma política de auditoria idêntica àquela do banco de dados primário).
 
-Siga estas instruções (lembre-se de que a auditoria de blob pode ser ativada ou desativada somente nas configurações de auditoria do banco de dados primário):
+* Nível de servidor (**recomendado**): ligar a auditoria de ambos o **servidor primário** e o **servidor secundário** – cada um dos bancos de dados primário e secundário será auditado independentemente com base em sua respectiva política de nível de servidor.
 
-* **Banco de dados primário**. Ative a auditoria de blob, no servidor ou no próprio banco de dados, conforme descrito na seção [Configurar a auditoria do banco de dados](#subheading-2).
-* **Banco de dados secundário**. Ative a auditoria de blob no banco de dados primário, conforme descrito na seção [Configurar a auditoria do banco de dados](#subheading-2). 
+* Nível de banco de dados: a auditoria de nível de banco de dados para bancos de dados secundários só pode ser configurada nas configurações de auditoria do banco de dados primário.
    * A auditoria de blob precisa estar habilitada no *banco de dados primário*, não no servidor.
    * Depois que a auditoria de blob estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
 
      >[!IMPORTANT]
-     >Por padrão, as configurações de armazenamento do banco de dados secundário serão idênticas às do banco de dados primário, causando um tráfego entre regiões. Evite isso habilitando a auditoria de blob no servidor secundário e configurando o armazenamento local nas configurações de armazenamento do servidor secundário. Isso substituirá o local de armazenamento do banco de dados secundário e o resultado será que cada banco de dados salvará seus logs de auditoria no armazenamento local.  
+     >Com a auditoria de nível de banco de dados, as configurações de armazenamento do banco de dados secundário serão idênticas às do banco de dados primário, causando um tráfego entre regiões. A menos que a auditoria de nível de banco de dados seja necessária, recomendamos que você habilite a auditoria de nível de servidor apenas em servidores primários e secundários e deixe a auditoria de nível de banco de dados desabilitada para todos os bancos de dados.
 <br>
 
 ### <a id="subheading-6">Regeneração de chave de armazenamento</a>
@@ -184,7 +180,6 @@ Configure também a auditoria no Banco de Dados SQL do Azure usando as seguintes
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    Para obter um exemplo de script, confira [Configurar a auditoria e a detecção de ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -218,11 +213,10 @@ Configure também a auditoria no Banco de Dados SQL do Azure usando as seguintes
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

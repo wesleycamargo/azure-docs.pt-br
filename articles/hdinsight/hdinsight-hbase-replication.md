@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Configurar a replicação de cluster HBase dentro das redes virtuais
@@ -88,7 +87,7 @@ A replicação de HBase usa endereços IP das VMs do ZooKeeper. Você deve confi
 5. Clique em uma das VMs do ZooKeeper.
 6. Clique em **Configurações de IP**.
 7. Clique em **ipConfig1** na lista.
-8. Clique em **Estático** e anote o endereço IP real. Você precisará do endereço IP ao executar a ação de script para habilitar a replicação.
+8. Clique em **Estático** e anote o endereço IP real. Você precisa do endereço IP ao executar a ação de script para habilitar a replicação.
 
   ![IP estático do ZooKeeper para replicação de HBase no HDInsight](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
@@ -110,7 +109,7 @@ Para o cenário de rede virtual cruzada, você deve usar a opção **-ip** ao ch
 
 ## <a name="load-test-data"></a>Carregar dados de teste
 
-Ao replicar um cluster, você deve especificar as tabelas a serem replicadas. Nesta seção, você carregará alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
+Ao replicar um cluster, você deve especificar as tabelas a serem replicadas. Nesta seção, você carrega alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
 
 Siga as instruções em [Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado em Linux no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) para criar uma tabela **Contatos** e inserir alguns dados na tabela.
 
@@ -151,7 +150,7 @@ Argumentos opcionais:
 |-su, --src-ambari-user | Especifique o nome de usuário de administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du, --dst-ambari-user | Especifique o nome de usuário de administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
 |-t, --table-list | Especifique as tabelas a replicar. Por exemplo: --table-list="table1;table2;table3". Se você não especificar tabelas, todas as tabelas HBase existentes serão replicadas.|
-|-m, --machine | Especifique o nó de cabeçalho em que a ação de script será executada. O valor é hn1 ou hn0. Como hn0 geralmente está mais ocupado, é recomendável usar hn1. Use essa opção quando estiver executando o script de $0 como uma ação de script do portal do HDInsight ou do Azure PowerShell.|
+|-m, --machine | Especifique o nó de cabeçalho em que a ação de script é executada. O valor é hn1 ou hn0. Como hn0 geralmente está mais ocupado, é recomendável usar hn1. Use essa opção quando estiver executando o script de $0 como uma ação de script do portal do HDInsight ou do Azure PowerShell.|
 |-ip | Esse argumento é necessário quando você estiver habilitando a replicação entre duas redes virtuais. Esse argumento atua como uma opção para usar os IPs estáticos de nós ZooKeeper de clusters de réplica em vez de nomes FQDN. Os IPs estáticos precisam ser pré-configurados antes de habilitar a replicação. |
 |-cp, -copydata | Habilite a migração dos dados existentes nas tabelas em que a replicação está habilitada. |
 |-rpm, -replicate-phoenix-meta | Habilite a replicação nas tabelas do sistema Phoenix. <br><br>*Use esta opção com cuidado.* É recomendável que você recrie tabelas Phoenix em clusters de réplica antes de usar esse script. |

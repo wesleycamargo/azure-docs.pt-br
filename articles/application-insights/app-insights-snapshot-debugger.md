@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
@@ -175,7 +175,7 @@ O instantâneo baixado contém os arquivos de símbolo que foram encontrados no 
 
 ## <a name="how-snapshots-work"></a>Como os instantâneos funcionam
 
-Quando seu aplicativo é iniciado, é criado um processo separado de carregador de instantâneos que monitora seu aplicativo quanto a solicitações de instantâneos. Quando um instantâneo é solicitado, é feita uma cópia de sombra do processo em execução em cerca de 10 a 20 minutos. O processo de sombra é analisado e um instantâneo é criado enquanto o processo principal continua sendo executado e fornecendo tráfego para os usuários. O instantâneo, então, é carregado para o Application Insights em conjunto com os arquivos de símbolo (.pdb) relevantes necessários para exibir o instantâneo.
+Quando seu aplicativo é iniciado, é criado um processo separado de carregador de instantâneos que monitora seu aplicativo quanto a solicitações de instantâneos. Quando um instantâneo é solicitado, é feita uma cópia de sombra do processo em execução em cerca de 10 a 20 milissegundos. O processo de sombra é analisado e um instantâneo é criado enquanto o processo principal continua sendo executado e fornecendo tráfego para os usuários. O instantâneo, então, é carregado para o Application Insights em conjunto com os arquivos de símbolo (.pdb) relevantes necessários para exibir o instantâneo.
 
 ## <a name="current-limitations"></a>Limitações atuais
 

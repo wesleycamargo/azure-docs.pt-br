@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e83ad647f6b7c70f34ef0c69b5bf322da5b6d60d
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Como usar o armazenamento de Blob do Node.js
@@ -415,15 +415,19 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir.
 
-* [SDK de Armazenamento do Azure para Referência de API de Nó][SDK de Armazenamento do Azure para Referência de API de Nó]
-* [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure]
-* Repositório [Microsoft Azure Storage SDK for Node.js][Azure Storage SDK for Node] (SDK do Armazenamento do Microsoft Azure para Node.js) no GitHub
-* [Centro de Desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/)
-* [Transferir dados com o utilitário de linha de comando AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [SDK de Armazenamento do Azure para Referência de API de Nó][SDK de Armazenamento do Azure para Referência de API de Nó]  
+* [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure]  
+* Repositório [Microsoft Azure Storage SDK for Node.js][Azure Storage SDK for Node] (SDK do Armazenamento do Microsoft Azure para Node.js) no GitHub  
+* [Centro de Desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/)  
+* [Transferir dados com o utilitário de linha de comando AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
 [Aplicativo Web Node.js com o Serviço Tabela do Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix]: https://www.microsoft.com/web/webmatrix/  
-[Usando a API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx [Portal do Azure]: https://portal.azure.com [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/ [SDK de Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[Usando a API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Portal do Azure]: https://portal.azure.com  
+[Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[SDK do Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  
 

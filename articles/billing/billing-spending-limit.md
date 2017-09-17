@@ -12,62 +12,74 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a2743ef34bde0faabb3afd2ace27acddd59d3d70
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
 
-O limite de gastos do Azure representa o quanto sua assinatura do Azure pode gastar. Todos os novos clientes que se inscreverem para a oferta de avaliação ou para ofertas que incluem créditos durante vários meses, terão um limite de gastos ativado por padrão. O limite de gastos é de $0. Isso não pode ser alterado. O limite de gastos não está disponível para tipos de assinatura como assinaturas pré-pagas e planos de comprometimento. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+O limite de gastos no Azure existe para evitar gastos sobre a quantidade de crédito. Todos os novos clientes que se inscreverem para a oferta ou avaliação gratuita, que inclui créditos durante vários meses, terão um limite de gastos ativado por padrão. O limite de gastos é de $0. Isso não pode ser alterado. O limite de gastos não está disponível para tipos de assinatura como assinaturas pré-pagas e planos de comprometimento. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+
+**Pesquisando alertas de cobrança?** Consulte [Configurar alertas de cobrança ou de crédito para assinaturas do Azure](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>O que acontece quando eu alcanço o limite de gastos?
 
-Quando seu uso resultar em cobranças que consomem todas as quantias mensais incluídas em sua oferta, os serviços implantados serão desabilitados durante o restante do mês de cobrança. Por exemplo, os Serviços de Nuvem implantados são removidos do ambiente de produção, e suas máquinas virtuais do Azure são interrompidas e desalocadas. Para evitar que seus serviços sejam desabilitados, você pode escolher remover seu limite de gastos. Quando seus serviços forem desabilitados, os dados em suas contas de armazenamento e banco de dados estarão disponíveis como somente leitura para administradores. No início do próximo mês de cobrança, se sua oferta incluir créditos durante vários meses, sua assinatura será habilitada novamente. Depois, você pode reimplantar seus Serviços de Nuvem e ter acesso total às suas contas de armazenamento e bancos de dados.
+Quando seu uso resultar em encargos que consomem todas as quantias mensais incluídas em sua assinatura, os serviços implantados serão desabilitados durante o restante do período de cobrança. 
 
-Quando a assinatura de avaliação gratuita atingir o limite de gastos, você poderá reativar a assinatura e [atualizá-la automaticamente para nossa oferta pré-paga padrão](billing-upgrade-azure-subscription.md) em até 90 dias.
+Por exemplo, quando gastar todo o crédito incluso na sua assinatura, os Serviços de Nuvem implantados serão removidos da produção e suas máquinas virtuais do Azure serão interrompidas e desalocadas. Os dados em seus bancos de dados e suas contas de armazenamento estarão disponíveis como somente leitura.
 
-Você recebe notificações quando atinge o limite de gastos de sua oferta. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com), selecione **CONTA** e selecione **assinaturas**. Você recebe notificações sobre assinaturas que atingiram o limite de gastos.
+No início do próximo período de cobrança, se sua oferta de assinatura incluir créditos durante vários meses, sua assinatura será habilitada novamente automaticamente. Depois, você pode reimplantar seus Serviços de Nuvem e ter acesso total às suas contas de armazenamento e bancos de dados.
 
-## <a name="things-you-are-charged-for-even-if-you-have-a-spending-limit-enabled"></a>Coisas pelas quais você é cobrado mesmo que esteja com um limite de gastos habilitado
+Enviaremos notificações por email quando você atingir o limite de gastos de sua oferta. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions) e verá notificações sobre assinaturas que atingiram o limite de gastos.
 
-Alguns serviços do Azure e [compras do Marketplace](https://azure.microsoft.com/marketplace/) podem decorrer em cobranças no método de pagamento (CC) mesmo se um limite de gastos for definido. Os exemplos são licenças do Visual Studio e Azure Active Directory Premium que dão suporte a planos e a maior parte dos serviços de marcas de terceiros vendidos pelo Marketplace.
+Se você tiver uma avaliação gratuita e atingir o limite de gastos, você poderá [atualizar para o Pagamento Conforme o Uso](billing-upgrade-azure-subscription.md) para remover o limite de gastos e ter a assinatura automaticamente reabilitada.
 
+<a id="remove"></a>
 
-## <a name="when-not-to-use-the-spending-limit"></a>Quando não usar o limite de gastos
+## <a name="remove-the-spending-limit-in-account-center"></a>Remover o limite de gastos no Centro de Contas
 
-O limite de gastos pode evitar que você implante ou use determinados serviços da Microsoft e do Marketplace. Esses são os cenários em que você deve remover o limite de gastos na sua assinatura.
-
-- Você planeja implantar imagens primárias como o Oracle e serviços como o Visual Studio Team Services. Esse cenário fará com que você exceda seu limite de gastos quase imediatamente e sua assinatura será desabilitada.
-
-- Você tem serviços que não podem ser interrompidos.
-
-- Você tem serviços e recursos com configurações como endereços IP virtuais e que não deseja perder. Essa configurações são perdidas quando os serviços e recursos forem desalocados.
-
-
-## <a name="remove-the-spending-limit"></a>Remover o limite de gastos
-
-Você pode remover o limite de gastos em qualquer momento, contanto que haja um método de pagamento válido associado à sua assinatura. Para ofertas que tem crédito em vários meses, você pode também reabilitar o limite de gastos no começo do seu próximo ciclo de cobrança.
+Você pode remover o limite de gastos em qualquer momento, contanto que haja um método de pagamento válido associado à sua assinatura. Para ofertas que têm crédito em vários meses, você pode também reabilitar o limite de gastos no começo do seu próximo período de cobrança.
 
 Para remover seu limite de gastos, execute estas etapas:
 
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com).
-
-2. Selecione uma assinatura.
-
-3. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "Assinatura alcançou o limite de gastos e foi desabilitada para evitar cobranças." Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
-
-4. Selecione uma opção que é adequada para você.
+1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
+1. Selecione uma assinatura.
+1. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "A assinatura atingiu o limite de gastos e foi desabilitada para evitar encargos". Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
+1. Selecione uma opção que é adequada para você.
 
 |Opção|Efeito|
 |-------|-----|
 |Remover o limite de gastos indefinidamente|Remove o limite de gastos sem ativá-lo automaticamente no início do próximo período de cobrança.|
 |Remover limite de gastos para o período de cobrança atual|Remove o limite de gastos para que ele seja ativado automaticamente no início do próximo período de cobrança.|
 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+### <a name="why-would-i-want-to-remove-the-spending-limit"></a>Por que desejaria remover o limite de gastos?
+
+O limite de gastos pode evitar que você implante ou use determinados serviços da Microsoft e de terceiros. Esses são os cenários em que você deve remover o limite de gastos na sua assinatura.
+
+* Você planeja implantar imagens primárias como o Oracle e serviços como o Visual Studio Team Services. Esse cenário fará com que você exceda seu limite de gastos quase imediatamente e sua assinatura será desabilitada.
+* Você tem serviços que não podem ser interrompidos.
+* Você tem serviços e recursos com configurações como endereços IP virtuais e que não deseja perder. Essas configurações são perdidas quando os serviços e os recursos são desalocados.
+
+### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>Como ativar o limite de gastos após removê-lo?
+
+O limite de gastos somente é ativado automaticamente. Infelizmente, não há nenhuma opção para ativá-lo por conta própria depois que ele é removido. Verifique se você selecionou a opção **Remover limite de gastos para o período de cobrança atual** se você estiver preocupado com o limite não ser ativado novamente.
+
+### <a name="how-do-i-set-a-custom-spending-limit"></a>Como definir o limite de gastos personalizado?
+
+Atualmente, não temos limites de gastos personalizados. No entanto, você pode optar por [usar alertas de cobrança para controlar seus gastos](billing-set-up-alerts.md).
+
+### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>O limite de gastos impede todos os encargos do Azure?
+
+Alguns [serviços da Microsoft e serviços de terceiros](billing-understand-your-azure-marketplace-charges.md) podem decorrer em encargos na forma de pagamento mesmo se um limite de gastos for definido. Os exemplos incluem licenças do Visual Studio, Azure Active Directory Premium, planos de suporte e a maior parte dos serviços de terceiros vendidos pelo [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 

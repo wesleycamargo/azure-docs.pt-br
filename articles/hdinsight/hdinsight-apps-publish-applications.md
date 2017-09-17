@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 0ccaee16a19b4338099a93f994553caaa6aa57e3
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Publicar aplicativos do HDInsight no Azure Marketplace
 Um aplicativo do HDInsight é um aplicativo que os usuários podem instalar em um cluster HDInsight baseado em Linux. Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria. Neste artigo, você aprende a publicar um aplicativo do HDInsight no Azure Marketplace.  Para obter informações gerais sobre a publicação no Azure Marketplace, confira [Publicar uma oferta no Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Os aplicativos do HDInsight usam o modelo *BYOL (traga sua própria licença)* , em que o provedor do aplicativo é responsável por licenciar o aplicativo aos usuários finais e estes são cobrados pelo Azure apenas pelos recursos que criarem, como o cluster HDInsight e seus nós/VMs. Atualmente, a cobrança do aplicativo propriamente dito não é feita pelo Azure.
+Os aplicativos do HDInsight usam o modelo *BYOL (traga sua própria licença)*, em que o provedor do aplicativo é responsável por licenciar o aplicativo aos usuários finais e estes são cobrados pelo Azure apenas pelos recursos que criarem, como o cluster HDInsight e seus nós/VMs. Atualmente, a cobrança do aplicativo propriamente dito não é feita pelo Azure.
 
 Outro artigo relacionado ao aplicativo do HDInsight:
 
@@ -64,7 +63,7 @@ Há duas etapas envolvidas na publicação de aplicativos no Azure Marketplace. 
 ## <a name="application-install-script"></a>Script de instalação do aplicativo
 Sempre que um aplicativo é instalado em um cluster (já existente ou um novo), um nó de borda é criado e o script de instalação do aplicativo é executado nele.
   > [!IMPORTANT]
-  > O nome dos nomes de script de instalação de aplicativo deve ser exclusivo para determinado cluster com o formato a seguir.
+  > O nome dos nomes de script de instalação de aplicativo deve ser exclusivo para determinado cluster com o formato a seguir:
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -74,7 +73,7 @@ Sempre que um aplicativo é instalado em um cluster (já existente ou um novo), 
   > 2. Um "-" para facilitar a leitura.
   > 3. Uma função de cadeia de caracteres exclusiva com o nome do aplicativo como o parâmetro.
   > 
-  > O exemplo acima acaba se tornando: hue-install-v0-4wkahss55hlas na lista de ação de script persistente. Para uma carga JSON de exemplo, consulte [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > O exemplo anterior acaba se tornando hue-install-v0-4wkahss55hlas na lista de ação de script persistente. Para uma carga JSON de exemplo, consulte [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 O script de instalação deve ter as seguintes características:
 1. Certifique-se de que o script seja idempotente. Várias chamadas para o script devem produzir o mesmo resultado.
