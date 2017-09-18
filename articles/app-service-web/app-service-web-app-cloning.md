@@ -14,21 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Azure PowerShell
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, uma nova opção foi adicionada ao New-AzureRMWebApp para dar ao usuário a capacidade de clonar um aplicativo Web existente como um aplicativo recém-criado em uma região diferente ou na mesma região. Isso permitirá que os clientes implantem vários aplicativos em diferentes regiões de forma rápida e fácil.
 
-A clonagem de aplicativo atualmente só tem suporte para planos de serviço de aplicativos de camada Premium. O novo recurso usa as mesmas limitações que o recurso de Backup de aplicativos Web; confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md).
+A clonagem de aplicativo atualmente só tem suporte para planos de serviço de aplicativos de camada Premium. O novo recurso usa as mesmas limitações que o recurso de Backup dos Aplicativos Web; veja [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Para saber mais sobre como usar os cmdlets do Azure PowerShell baseados no Azure Resource Manager para gerenciar Aplicativos Web, confira [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="cloning-an-existing-app"></a>Clonagem de um aplicativo existente
 Cenário: um aplicativo Web existente na região Centro-Sul dos EUA, o usuário gostaria de clonar o conteúdo como um novo aplicativo Web na região Centro-Norte dos EUA. Isso pode ser feito usando a versão do cmdlet do PowerShell do Azure Resource Manager para criar um novo aplicativo Web com a opção -SourceWebApp.
@@ -107,11 +105,10 @@ Esse recurso está atualmente em visualização. Estamos trabalhando para adicio
 * O conteúdo do banco de dados não é clonado
 
 ### <a name="references"></a>Referências
-* [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 * [Clonagem de Aplicativo Web usando o Portal do Azure](app-service-web-app-cloning-portal.md)
 * [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 * [Suporte do Azure Resource Manager para Visualização do Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
-* [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)
+* [Usando o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

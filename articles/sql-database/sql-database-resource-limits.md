@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 3b89ff2c47e0a06587f92e23e6b32bf7bb750a1d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 66fa69b746ce2404e3083a9c3872300a9efee874
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos do Banco de Dados SQL do Azure
@@ -146,5 +146,6 @@ Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenua
 - Para saber mais sobre as camadas de serviço, confira [Camadas de serviço](sql-database-service-tiers.md).
 - Para saber mais sobre bancos de dados individuais, confira [Recursos de banco de dados individual](sql-database-resource-limits.md).
 - Para saber mais sobre pools elásticos, confira [Pools elásticos](sql-database-elastic-pool.md).
-- Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](/azure/azure-subscription-service-limits.md).
+- Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-what-is-a-dtu.md).
+

@@ -16,10 +16,10 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
@@ -29,10 +29,6 @@ ms.lasthandoff: 08/28/2017
 * A estrutura do dispositivo gêmeo: *marcas*, *propriedades desejadas* e *relatadas* e
 * As operações que os aplicativos e back-ends de dispositivo podem executar em dispositivos gêmeos.
 
-> [!NOTE]
-> No momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
-> 
-> 
 
 ### <a name="when-to-use"></a>Quando usar
 Use os dispositivos gêmeos para:
@@ -219,10 +215,6 @@ Todas as operações anteriores exigem a permissão **DeviceConnect**, conforme 
 
 Os [SDKs do dispositivo IoT do Azure][lnk-sdks] facilitam o uso das operações anteriores em várias linguagens e plataformas. Encontre mais informações sobre os detalhes dos primitivos do Hub IoT para sincronização de propriedades desejadas em [Fluxo de reconexão do dispositivo][lnk-reconnection].
 
-> [!NOTE]
-> No momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT.
-> 
-> 
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 Os tópicos de referência a seguir fornecem a você mais informações sobre como controlar o acesso ao seu Hub IoT.

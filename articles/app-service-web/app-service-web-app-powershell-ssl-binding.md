@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0302c4e4e63383a2b19bd6f02f3be8d83f5ff98
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e57e4b55555b04f6109e16322aa05ff0e41bb16c
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>Associação de certificado SSL do Serviço de Aplicativo do Azure usando o PowerShell
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, um novo cmdlet foi adicionado para dar ao usuário a capacidade de associar certificados SSL novos ou existentes a um aplicativo Web existente.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Para saber mais sobre como usar os cmdlets do Azure PowerShell baseados no Azure Resource Manager para gerenciar Aplicativos Web, confira [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="uploading-and-binding-a-new-ssl-certificate"></a>Carregando e associando um novo certificado SSL
 Cenário: o usuário gostaria de associar um certificado SSL a um dos seus aplicativos Web.
@@ -68,13 +67,7 @@ Observe que, se a associação de SSL removida for a última associação que us
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>Referências
-* [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 * [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
-* [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Usando o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

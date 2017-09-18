@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6866a16e40ea7b6953b13ae72e207f3f69a3030c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Usar o PowerShell para fazer backup e restaurar aplicativos do Serviço de Aplicativo
-> [!div class="op_single_selector"]
-> * [PowerShell](app-service-powershell-backup.md)
-> * [API REST](../app-service-web/websites-csm-backup.md)
-> 
-> 
 
 Saiba como usar o Azure PowerShell para fazer backup e restaurar [aplicativos do Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/). Para saber mais sobre os backups de aplicativo Web, incluindo requisitos e restrições, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](../app-service-web/web-sites-backup.md).
 

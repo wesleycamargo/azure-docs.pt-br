@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -33,7 +33,6 @@ A migração do Serviço Móvel do Azure torna o serviço móvel um aplicativo d
 A Microsoft está recomendando que você migre o serviço móvel do Azure para aproveitar os recursos do Serviço de Aplicativo do Azure, incluindo:
 
 * Novos recursos de host, incluindo [Trabalhos Web] e [nomes de domínio personalizados].
-* Conectividade para seus recursos locais usando [VNet], além de [Conexões Híbridas].
 * Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
 * Ferramentas do DevOps internas, incluindo [Slots de preparo], reversão e testes em produção.
 * [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
@@ -389,7 +388,7 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilidade geral do Serviço de Aplicativo do Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[Conexões Híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [Logs]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis vs. Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md
