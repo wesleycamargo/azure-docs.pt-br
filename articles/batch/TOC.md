@@ -64,11 +64,10 @@
 # Relacionados
 ## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
 ## [Processamento de dados com Lote e Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Soluções de Lote e HPC na nuvem do Azure](batch-hpc-solutions.md)
+## [Soluções de Lote, HPC e Computação Intensa no Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
-## [Recursos de Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

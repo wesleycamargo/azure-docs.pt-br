@@ -136,8 +136,8 @@
 ### [Perguntas frequentes](device-management-faq.md)
 ### Tarefas
 #### [Configurar dispositivos do Windows 10 registrados pelo Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurar dispositivos do Azure AD adicionados](device-management-azuread-joined-devices-setup.md)
-#### [Configurar dispositivos híbridos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Configurar dispositivos adicionados ao Azure AD](device-management-azuread-joined-devices-setup.md)
+#### [Configurar dispositivos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Implantar no local](active-directory-device-registration-on-premises-setup.md)
 #### [Associação do Azure AD durante a experiência de primeira execução do Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Solucionar problemas
@@ -266,34 +266,21 @@
 
 ### [Integrar identidades locais usando o Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Gerenciar o acesso ao Azure](toc.yml)
+
 ## Delegar acesso aos recursos
 ### [Funções de administrador](active-directory-assign-admin-roles.md)
 #### [Atribuir funções de administrador](active-directory-users-assign-role-azure-portal.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
-### [Acesso a recursos no Azure](active-directory-understanding-resource-access.md)
-### [Controle de acesso baseado em função](role-based-access-control-what-is.md)
-#### Gerenciar atribuições de acesso
-##### [Por usuário](role-based-access-control-manage-assignments.md)
-##### [Por recurso](role-based-access-control-configure.md)
-#### [Funções internas](role-based-access-built-in-roles.md)
-#### [Funções personalizadas](role-based-access-control-custom-roles.md)
-#### [Atribuir funções personalizadas para usuários internos e externos](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Relatórios](role-based-access-control-access-change-history-report.md)
-#### Mais maneiras de gerenciar funções
-##### [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Elevar o acesso de administrador de locatário](role-based-access-control-tenant-admin-access.md)
-#### [Solucionar problemas](role-based-access-control-troubleshooting.md)
-#### [Operações de provedor de recursos](role-based-access-control-resource-provider-operations.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
 
 ## Proteger suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
+#### [Controles](active-directory-conditional-access-controls.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [práticas recomendadas](active-directory-conditional-access-best-practices.md)
 #### [Entender as políticas do dispositivo para os serviços do Office 365](active-directory-conditional-access-device-policies.md)
-#### [Tarefas]
+#### Tarefas
 ##### [Configurar o acesso condicional com base no dispositivo](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurar o acesso condicional com base no aplicativo](active-directory-conditional-access-mam.md)
 ##### [Configurar a conectividade VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)

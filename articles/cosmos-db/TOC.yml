@@ -358,6 +358,8 @@
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Experimente o Azure Cosmos DB gratuitamente
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Perguntas frequentes
