@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 156c5d0b007e33a9181d2847fc7b517c6f816494
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Dimensionar pontos de extremidade de streaming com o portal do Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 > 
 > 
 
-Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma SU (unidade de streaming). O ponto de extremidade de streaming pode ser dimensionado com a adição de SUs. Cada SU fornece uma capacidade de largura de banda adicional para o aplicativo. Para saber mais sobre tipos de ponto de extremidade de streaming e configuração de CDN, confira o tópico [Visão geral do Ponto de Extremidade do Streaming](media-services-portal-manage-streaming-endpoints.md).
+Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada SU fornece uma capacidade de largura de banda adicional para o aplicativo. Para saber mais sobre tipos de ponto de extremidade de streaming e configuração de CDN, confira o tópico [Visão geral do Ponto de Extremidade do Streaming](media-services-streaming-endpoints-overview.md).
  
 Este tópico mostra como dimensionar um ponto de extremidade de streaming.
 
@@ -43,7 +43,8 @@ Para alterar o número de unidades de streaming, faça o seguinte:
 2. Na janela **Configurações**, selecione **Pontos de extremidade de streaming**.
 3. Clique no ponto de extremidade de streaming que você deseja dimensionar. 
 
-    [!NOTE] É possível dimensionar apenas pontos de extremidade de streaming **Premium**.
+    > [!NOTE] 
+    > É possível dimensionar apenas pontos de extremidade de streaming **Premium**.
 
 4. Mova o controle deslizante para especificar o número de unidades de streaming.
 

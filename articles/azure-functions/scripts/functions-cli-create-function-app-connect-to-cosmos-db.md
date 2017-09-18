@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: ba7e934f71824493f29b001cea6dd1c567ef3414
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure
@@ -52,11 +52,11 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | Command | Observações |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/#login) | Logon no Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Criar um grupo de recursos com local |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com local |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Criar um novo aplicativo de funções |
-| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#create) | Criar banco de dados do documentdb |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Limpar |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar um novo aplicativo de funções |
+| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#az_documentdb_create) | Criar banco de dados do documentdb |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpar |
 
 ## <a name="next-steps"></a>Próximas etapas
 

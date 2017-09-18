@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
@@ -47,7 +46,7 @@ Para configurar as credenciais de usuário:
 1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Credenciais de implantação**.
 
     > [!NOTE]
-    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a folha de credenciais de implantação. No entanto, com a [CLI do Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), é possível configurar credenciais de usuário sem um aplicativo existente.
+    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a folha de credenciais de implantação. No entanto, com a [CLI do Azure](/cli/azure/webapp/deployment/user#set), é possível configurar credenciais de usuário sem um aplicativo existente.
 
 2. Configure o nome de usuário e a senha e, em seguida, clique em **Salvar**.
 

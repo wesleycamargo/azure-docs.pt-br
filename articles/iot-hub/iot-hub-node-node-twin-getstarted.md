@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-node"></a>Introdução aos dispositivos gêmeos (Node)
@@ -129,10 +129,6 @@ Na próxima seção, você criará um aplicativo de dispositivo que reporta as i
 ## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
 Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, e depois atualiza seu as propriedades reportadas de seu dispositivo gêmeo a fim de conter as informações indicando que ele está conectado usando uma rede de celular.
 
-> [!NOTE]
-> Neste momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
-> 
-> 
 
 1. Crie uma nova pasta vazia denominada **reportconnectivity**. Na pasta **reportconnectivity**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
    

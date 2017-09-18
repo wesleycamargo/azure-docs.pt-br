@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure
@@ -264,7 +264,9 @@ Como você projetou intencionalmente os ambientes de teste e desenvolvimento par
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>Resumo
-O desenvolvimento de software Agile é indispensável para muitas empresas que desejam adotar o Azure como sua plataforma de aplicativos. Neste tutorial, você aprendeu a criar e eliminar réplicas exatas ou réplicas muito semelhantes do ambiente de produção com facilidade, mesmo para aplicativos complexos. Você também aprendeu como aproveitar essa capacidade para criar um processo de desenvolvimento capaz de compilar e testar cada confirmação única no Azure. Este tutorial mostrou como você pode usar Serviço de Aplicativo do Azure e o Gerenciador de Recursos do Azure em conjunto de modo mais adequado, a fim de criar uma solução de DevOps útil para metodologias Agile. Em seguida, você pode criar esse cenário executando técnicas avançadas de DevOps, por exemplo, [teste em produção](app-service-web-test-in-production-get-start.md). Para conhecer um cenário comum de teste em produção, consulte [Implantação de liberação de versões de pré-lançamento (teste beta) no Serviço de Aplicativo do Azure](app-service-web-test-in-production-controlled-test-flight.md).
+O desenvolvimento de software Agile é indispensável para muitas empresas que desejam adotar o Azure como sua plataforma de aplicativos. Neste tutorial, você aprendeu a criar e eliminar réplicas exatas ou réplicas muito semelhantes do ambiente de produção com facilidade, mesmo para aplicativos complexos. Você também aprendeu como aproveitar essa capacidade para criar um processo de desenvolvimento capaz de compilar e testar cada confirmação única no Azure. Este tutorial mostrou como você pode usar Serviço de Aplicativo do Azure e o Gerenciador de Recursos do Azure em conjunto de modo mais adequado, a fim de criar uma solução de DevOps útil para metodologias Agile. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>Mais recursos
 * [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)

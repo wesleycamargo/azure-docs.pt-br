@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3269cb65cfb59258d761f4c60278c598bc251325
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução ao dispositivos gêmeos (Java)
@@ -267,7 +267,7 @@ Nesta seção, você cria um aplicativo de console Java que define um valor da p
     private static String deviceId = "myDeviceId";
     ```
 
-    Este aplicativo de exemplo usa a variável **protocol** quando cria uma instância de um objeto **DeviceClient**. No momento, para usar recursos de dispositivos gêmeos, você deve usar o protocolo MQTT.
+    Este aplicativo de exemplo usa a variável **protocol** quando cria uma instância de um objeto **DeviceClient**. 
 
 1. Adicione o seguinte código ao método **principal** para:
     * Criar um cliente de dispositivo para se comunicar com o Hub IoT.

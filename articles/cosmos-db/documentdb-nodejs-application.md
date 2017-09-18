@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: bfd970a78becfe3f29518b71c4ece24ada2861b2
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="_Toc395783175"></a>Compilar um aplicativo Web Node.js usando o Azure Cosmos DB
@@ -45,11 +45,10 @@ Não há tempo para concluir o tutorial e deseja apenas a solução completa? N�
 
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-   OU
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   Uma instalação local do [Emulador do Azure Cosmos DB](local-emulator.md) (Somente no Windows).
 * [Node.js][Node.js] versão v0.10.29 ou superior.
 * [Gerador expresso](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 * [Git][Git].

@@ -5,7 +5,7 @@ keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Gerenciamento do esquema para vários locatários no aplicativo de SaaS do Wingtip
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gerenciar o esquema para vários locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure
 
 O [primeiro tutorial de SaaS do Wingtip](sql-database-saas-tutorial.md) mostra como o aplicativo pode provisionar um banco de dados do locatário e registrá-lo no catálogo. Como qualquer aplicativo, o aplicativo de SaaS do Wingtip evoluirá ao longo do tempo e, às vezes, exigirá alterações no banco de dados. As alterações podem incluir um esquema novo ou alterado, dados de referência novos ou alterados e tarefas de manutenção de rotina do banco de dados para garantir o desempenho ideal do aplicativo. Com um aplicativo SaaS, essas alterações precisam ser implantadas de maneira coordenada em uma frota potencialmente grande de bancos de dados de locatário. Para que essas alterações estejam em bancos de dados de locatário futuros, elas precisam ser incorporadas ao processo de provisionamento.
 

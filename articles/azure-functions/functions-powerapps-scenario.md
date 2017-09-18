@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 89d9fa8f11a4c6ae3860b91e246716aad071870f
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -74,32 +74,7 @@ Você começa a preparação dos dados de exemplo que usará no aplicativo. Copi
 
 1. Salve a pasta de trabalho do Excel.
 
-## <a name="export-an-api-definition"></a>Exportar uma definição de API
-Você tem uma definição de OpenAPI para sua função, em [Criar uma definição de OpenAPI para uma função](functions-openapi-definition.md). A próxima etapa neste processo é exportar a definição de API para que o PowerApps e o Microsoft Flow possam usá-la em uma API personalizada.
-
-> [!IMPORTANT]
-> Lembre-se de que você precisa entrar no Azure com as mesmas credenciais que você usa nos locatários do PowerApps e do Microsoft Flow. Isso permite que o Azure crie a API personalizada e disponibilize-a no PowerApps e no Microsoft Flow.
-
-1. Clique no nome do aplicativo de funções (como **function-demo-energy**) > **Recursos de plataforma** > **Definição de API**.
-
-    ![Definição da API](media/functions-powerapps-scenario/api-definition.png)
-
-1. Clique em **Exportar PowerApps + Flow**.
-
-    ![Fonte de definição da API](media/functions-powerapps-scenario/export-api-1.png)
-
-1. No painel direito, use as configurações, conforme especificado na tabela.
-
-    |Configuração|Descrição|
-    |--------|------------|
-    |**Modo de exportação**|Selecione **Express** para gerar automaticamente a API personalizada. Selecionar **Manual** exporta a definição de API, mas, em seguida, você deverá importá-la no PowerApps e no Microsoft Flow manualmente.|
-    |**Ambiente**|Selecione o ambiente no qual a API personalizada deve ser salva. Para obter mais informações, consulte [Visão geral dos ambientes](https://powerapps.microsoft.com/tutorials/environments-overview/).|
-    |**Nome da API personalizada**|Insira um nome, como `Turbine Repair`.|
-    |**Nome da chave de API**|Insira o nome que os construtores de aplicativo e fluxo devem ver na interface do usuário da API personalizada. Observe que o exemplo inclui informações úteis.|
- 
-    ![Fonte de definição da API](media/functions-powerapps-scenario/export-api-2.png)
-
-1. Clique em **OK**. Agora, a API personalizada é compilada e adicionada ao ambiente especificado.
+[!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
 ## <a name="add-a-connection-to-the-api"></a>Adicionar uma conexão à API
 A API personalizada (também conhecida como um conector personalizado) está disponível no PowerApps, mas você deve fazer uma conexão para a API antes de poder usá-la em um aplicativo.
