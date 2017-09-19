@@ -28,4 +28,4 @@
 
 6.  Quando a implantação for concluída, abra a nova conta no bloco Todos os Recursos. 
 
-    ![Conta do DocumentDB no bloco Todos os Recursos](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Conta do Azure Cosmos DB no bloco Todos os Recursos](./media/cosmos-db-create-dbaccount-table/all-resources.png)

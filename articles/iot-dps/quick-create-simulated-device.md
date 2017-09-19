@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: d4eeb7a77d6336e241c196e4ad48af52d57af1d4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,7 +44,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 5. Crie uma pasta em sua cópia local do repositório GitHub para o processo de compilação do CMake. 
 
     ```cmd/sh
-    cd azure-iot-device-auth
+    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
@@ -58,27 +58,36 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 7. Em um prompt de comando separado, navegue até a pasta raiz do GitHub e execute o simulador do [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview). Ele escuta em um soquete nas portas 2321 e 2322. Não feche essa janela de comando; você precisará manter esse simulador em execução até o término deste Guia de Início Rápido. 
 
     ```cmd/sh
-    .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Criar uma entrada de registro de dispositivo no Serviço de Provisionamento de Dispositivos
 
 1. Abra a solução gerada na pasta *cmake* denominada `azure_iot_sdks.sln`e compile-a no Visual Studio.
 
-2. Clique com botão direito do mouse no projeto **tpm_device_provision** e selecione **Definir como Projeto de Inicialização**. Execute a solução. A janela de saída exibe a  **_Chave de Endosso_**  e a  **_ID de Registro_**  necessárias para registrar o dispositivo. Anote esses valores. 
+2. Clique com botão direito do mouse no projeto **tpm_device_provision** e selecione **Definir como Projeto de Inicialização**. Execute a solução. A janela de saída exibe a ** _Chave de Endosso_ ** e a ** _ID de Registro_ ** necessárias para registrar o dispositivo. Anote esses valores. 
 
 3. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de Provisionamento de Dispositivos.
 
-4. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. Selecione **TPM** como *Mecanismo* de atestado de identidade e insira a *ID de Registro* e a *Chave de endosso* conforme solicitado pela folha. Uma vez concluído, clique no botão **Salvar**. 
+4. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+
+5. Em **Adicionar a entrada da lista de registro**, insira as seguintes informações:
+    - Selecione **TPM** como o atestado de identidade *Mecanismo*.
+    - Insira a *ID de Registro* e *Chave de Endosso* para seu dispositivo do TPM. 
+    - Selecione um hub IoT vinculado com o serviço de provisionamento.
+    - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo.
+    - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+    - Uma vez concluído, clique no botão **Salvar**. 
 
     ![Inserir informações de registro de dispositivo na folha do portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo será exibida na lista na guia *Registros Individuais*. 
 
+
 <a id="firstbootsequence"></a>
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Simular a primeira sequência de inicialização para o dispositivo
 
-1. No portal do Azure, selecione a folha **Visão Geral** do seu serviço de Provisionamento de Dispositivos e anote os valores de  **_Ponto de extremidade do dispositivo global_**  e   **_ID do Escopo_** .
+1. No portal do Azure, selecione a folha **Visão Geral** do seu serviço de Provisionamento de Dispositivos e anote os valores de ** _Ponto de extremidade do dispositivo global_ ** e ** _ ID do Escopo_ **.
 
     ![Extrair informações de ponto de extremidade do DPS na folha do portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -95,6 +104,8 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 
     ![Dispositivo é registrado no Hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
+    Se você tiver alterado o *estado de dispositivo gêmeo inicial* do valor padrão na entrada de registro para o seu dispositivo, pode receber o estado desejado duas do hub e agir de acordo. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md)
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -103,7 +114,7 @@ Se você planeja continuar a trabalhar e explorar o dispositivo cliente de exemp
 1. Feche a janela de saída de exemplo de dispositivo cliente em seu computador.
 1. Feche a janela do simulador do TPM no seu computador.
 1. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e selecione o serviço de Provisionamento do Dispositivo. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
-1. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e selecione seu hub IoT. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
+1. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

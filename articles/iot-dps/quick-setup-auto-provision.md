@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 2. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Hubs IoT Vinculados**. Clique no botão **+ Adicionar** na parte superior. 
 
-3. Na folha do portal **Adicionar link para o pool ou Hub IoT**, selecione a assinatura atual ou insira o nome e a cadeia de conexão para outra assinatura. Selecione *Hub IoT* como o **Tipo de recurso** e selecione o nome do hub da lista suspensa. Quando concluir, clique em **Salvar**. 
+3. Na folha do portal **Adicionar link para o Hub IoT**, selecione a assinatura atual ou insira o nome e a cadeia de conexão para outra assinatura. Selecione o nome do hub na lista suspensa. Quando concluir, clique em **Salvar**. 
 
     ![Vincular o nome do hub para vincular à instância de DPS na folha do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
@@ -76,7 +76,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 Outros Guias de Início Rápido na coleção aproveitam este Guia de Início Rápido. Se você planeja continuar trabalhando com Guias de Início Rápido ou tutoriais subsequentes, não limpe os recursos criados neste Guia de Início Rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse Guia de Início Rápido no portal do Azure.
 
 1. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e selecione o serviço de Provisionamento do Dispositivo. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
+2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Na parte superior da folha **Todos os recursos**, clique em **Excluir**.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

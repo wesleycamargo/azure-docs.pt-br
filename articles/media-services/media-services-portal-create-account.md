@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure
@@ -36,6 +36,9 @@ O portal do Azure fornece uma maneira de criar rapidamente uma conta de Serviço
 
 Este artigo explica alguns conceitos comuns e mostra como criar uma conta do Serviços de Mídia com o portal do Azure.
 
+> [!NOTE]
+> Para saber mais sobre a disponibilidade de recursos dos Serviços de Mídia do Azure em regiões diferentes, veja [disponibilidade de recursos do AMS em data centers](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Conceitos
 O acesso aos Serviços de Mídia requer duas contas associadas:
 
@@ -43,8 +46,8 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
   
 * Uma conta de armazenamento do Azure. As contas de armazenamento devem estar localizadas na mesma região geográfica que a conta dos Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
 
-> [!NOTE]
-> Para saber mais sobre a disponibilidade de recursos dos Serviços de Mídia do Azure em regiões diferentes, veja [disponibilidade de recursos do AMS em data centers](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > O Serviços de Mídia restringe a conta de armazenamento principal para ser uma conta do **Armazenamento de Propósito Geral** com Tabelas, Filas. Para saber mais sobre os tipos de armazenamento, veja [Sobre as contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Criar uma conta do AMS
 As etapas nesta seção mostram como criar uma conta do AMS.

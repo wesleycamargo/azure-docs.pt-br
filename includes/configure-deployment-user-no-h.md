@@ -1,4 +1,4 @@
-Crie credenciais de implantação com o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+No Cloud Shell, crie credenciais de implantação com o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Um usuário de implantação é necessário para a implantação do FTP e do Git local em um aplicativo Web. O nome de usuário e a senha estão no nível de conta. _Eles são diferentes das credenciais da sua assinatura do Azure._
 
