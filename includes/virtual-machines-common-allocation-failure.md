@@ -6,15 +6,15 @@ Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Az
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
 * Redimensione a VM para um tamanho de VM diferente.<br>
-  Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 * Exclua todas as VMs do serviço de nuvem e recrie-as.<br>
-   Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
+    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Solução de problemas de falhas de alocação comuns no modelo de implantação do Gerenciador de Recursos do Azure
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
 * Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.<br>
-   Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
+    Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
   
     Depois de parar todas as VMs, selecione a primeira VM e clique em **Iniciar**.
 
@@ -99,7 +99,7 @@ Se for aceitável usar um VIP diferente, exclua as VMs originais paradas (desalo
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Cenário de alocação: implantações de preparo/produção (apenas plataforma como serviço)
 **Erro**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -112,7 +112,7 @@ Exclua a primeira implantação e o serviço de nuvem original e reimplante o se
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)
 **Erro**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -125,7 +125,7 @@ Se um grupo de afinidades não for necessário, não use o grupo de afinidades o
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Cenário de alocação: rede virtual com base em grupo de afinidades
 **Erro**
 
-New_General *ou New_VMSizeNotSupported*
+New_General* ou New_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -151,7 +151,7 @@ Em geral, se o erro não indicar "não há suporte para o tamanho de VM solicita
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Cenário de alocação: redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
 **Erro**
 
-Upgrade_VMSizeNotSupported *ou GeneralError*
+Upgrade_VMSizeNotSupported* ou GeneralError*
 
 **Causa de fixação de cluster**
 
@@ -188,6 +188,8 @@ A desalocação total significa que você parou (desalocou) todas as VMs em um c
 **Solução alternativa**
 
 Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novamente mais tarde.
+
+<a name="Error string lookup"></a>
 
 ## <a name="error-string-lookup"></a>Pesquisa de cadeia de caracteres de erro
 **New_VMSizeNotSupported***

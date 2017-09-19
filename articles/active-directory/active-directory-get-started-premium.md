@@ -1,6 +1,6 @@
 ---
-title: Inscrever-se no Azure Active Directory Premium
-description: "Explica como inscrever-se na edição do Azure Active Directory Premium."
+title: Inscrever-se no Azure Active Directory Premium | Microsoft Docs
+description: "Explica como inscrever-se na edição do Azure Active Directory Premium"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Início rápido: Inscrever-se no Azure Active Directory Premium
-Para começar com o Azure Active Directory (Azure AD) Premium, você precisa comprar licenças e associá-las à sua assinatura do Azure. Se você criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD conforme descrito nas seções a seguir. 
+Para começar com o Azure Active Directory (Azure AD) Premium, você poderá comprar licenças e associá-las à sua assinatura do Azure. Se você criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD conforme descrito nas seções a seguir. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Inscrever-se no Active Directory Premium
 Para se inscrever no Active Directory Premium, você tem várias opções: 
+* Usar sua assinatura do Azure ou do Office 365
+* Use um plano de licenciamento Enterprise Mobility + Security
+* Usar um plano de Licenciamento por Volume da Microsoft
 
 ### <a name="azure-or-office-365"></a>Azure ou Office 365 
 Como assinante do Azure ou do Office 365, você pode comprar o Azure Active Directory Premium online. 
@@ -41,17 +45,15 @@ Você pode começar com o Azure AD via licenças do EMS usando uma das seguintes
 - Comprar [licenças do Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
 - Comprar [licenças do Enterprise Mobility + Security E3](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
-### <a name="microsoft-volume-licensing"></a>Licenciamento por Volume da Microsoft
+### <a name="microsoft-volume-licensing"></a>Licenciamento por volume da Microsoft
 O Azure Active Directory Premium está disponível por meio de um [Contrato do Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 ou mais licenças) ou do programa [Licença de Volume Aberto](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenças).
 
 Você pode aprender mais sobre as opções de compra do licenciamento por volume na página [Como comprar com o licenciamento por Volume](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx).
 
 > [!NOTE]
 > As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-Se antes você adquiriu e ativou as licenças do Azure AD para a mesma assinatura do Azure usada nas etapas anteriores, as licenças serão ativadas automaticamente no mesmo diretório. E você não precisará continuar com as etapas descritas no resto deste artigo.
+Se antes você adquiriu e ativou as licenças do Azure AD para a mesma assinatura do Azure usada nas etapas anteriores, as licenças serão ativadas automaticamente no mesmo diretório. Caso contrário, continue com as etapas descritas no restante deste artigo.
 
 ## <a name="activate-your-license-plan"></a>Ativar seu plano de licença
 Este é seu primeiro plano de licença do Azure AD comprado na Microsoft? Nesse caso, um email de confirmação será gerado e enviado para você quando a compra for concluída. Você precisará desse email para ativar seu primeiro plano de licença.
@@ -62,7 +64,7 @@ Este é seu primeiro plano de licença do Azure AD comprado na Microsoft? Nesse 
    
     ![Entrar][1]
 
-    - Se você tiver um locatário existente, clique em **Entrar** para entrar com sua conta de administrador existente. Entre com as credenciais de administrador global no diretório no qual as licenças devem ser ativadas.
+    - Se você tiver um locatário existente, clique em **Entrar** para entrar com sua conta de administrador existente. Entre com as credenciais de administrador global no locatário no qual as licenças devem ser ativadas.
 
     - Se você quiser criar um novo locatário do Azure AD para usar com seu plano de licenciamento, clique em **Inscrever-se** para abrir a caixa de diálogo **Criar Perfil da Conta**.
 

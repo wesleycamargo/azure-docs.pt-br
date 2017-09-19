@@ -1,5 +1,5 @@
 ---
-title: "Integração de parceiros na Central de Segurança do Azure | Microsoft Docs"
+title: "Integração de parceiros e soluções na Central de Segurança do Azure | Microsoft Docs"
 description: "Saiba como a Central de Segurança do Azure se integra aos parceiros para aprimorar a segurança geral dos recursos do Azure."
 services: security-center
 documentationcenter: na
@@ -12,22 +12,18 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/13/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8cc44da0f61362018d2757da58ca4fb3a9a43764
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Integração com Parceiros na Central de Segurança do Azure
+# <a name="partner-and-solutions-integration-in-azure-security-center"></a>Integração de parceiros e soluções na Central de Segurança do Azure
 
 Neste artigo, descreveremos como a Central de Segurança do Azure se integra aos parceiros para ajudá-lo a melhorar a segurança geral. A Central de Segurança oferece uma experiência integrada no Azure e aproveita o Azure Marketplace para certificação de parceiro e cobrança.
-
-> [!NOTE] 
-> A partir de junho de 2017, a Central de Segurança usará o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração de plataforma da Central de Segurança do Azure](security-center-platform-migration.md). As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
->
 
 ## <a name="why-deploy-partner-solutions-from-security-center"></a>Por que implantar soluções de parceiro da Central de Segurança
 
@@ -41,7 +37,7 @@ Os quatro principais motivos para utilizar a integração de parceiros na Centra
 
 ## <a name="partners-that-integrate-with-security-center"></a>Parceiros que se integram à Central de Segurança
 
-No momento, a Central de Segurança se integra a estas soluções:
+No momento, a integração nativa das soluções de parceiros que estão disponíveis no Azure Marketplace com a Central de Segurança são:
 
 - Proteção de ponto de extremidade ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec e [Antimalware da Microsoft para Serviços de Nuvem e Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
 - Firewall de aplicativo Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [Gateway de Aplicativo do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
@@ -61,13 +57,57 @@ Com base na configuração de seu ambiente do Azure e na política de segurança
 
 ## <a name="manage-partner-solutions"></a>Gerenciar soluções de parceiros
 
-Após a implantação, para exibir informações sobre a integridade da solução e executar o gerenciamento básico de tarefas, na folha **Central de Segurança**, selecione a opção **Soluções de parceiro**. Para saber mais sobre o gerenciamento de soluções de parceiros na Central de Segurança, veja [Monitorar soluções de parceiro com a Central de Segurança do Azure](security-center-partner-solutions.md).
+Após a implantação, para exibir informações sobre a integridade da solução e executar o gerenciamento básico de tarefas, no painel **Central de Segurança**, selecione a opção **Soluções de parceiro**.
 
-![Integração de parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
+![Integração de soluções de parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+
+O conteúdo que você vê quando abre as Soluções de Segurança pode variar de acordo com sua infraestrutura. Usando a imagem anterior como exemplo, esta página possui três seções:
+
+- **Soluções conectadas**: exibe soluções conectadas à Central de Segurança.
+- **Soluções descobertas**: exibe soluções não conectadas à Central de Segurança. Você pode conectar essas soluções e elas serão exibidas em Soluções conectadas.  Se a Central de Segurança não detectar soluções desconectadas, essa seção ficará oculta.
+- **Adicionar fontes de dados**: exibe fontes de dados do Azure e de outros que você pode adicionar à Central de Segurança.
+
+### <a name="connected-solutions"></a>Soluções conectadas
+
+A seção **Soluções conectadas** mostra todas as soluções de segurança que estão conectadas atualmente à Central de Segurança. 
+
+![Soluções conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+
+As informações que você vê em cada uma podem variar de acordo com a solução. Algumas informações disponíveis em cada bloco podem incluir:
+
+- Ícone da empresa parceira.  Se a Central de Segurança não possui o ícone da empresa, os primeiros caracteres do nome do parceiro são exibidos.
+- Tipo de solução.
+- O nome do computador pode ser exibido.
+- Status de integridade.  Se um indicador de integridade não for enviado, a Central de Segurança mostrará a data e a hora do último evento recebido para indicar se o dispositivo está se comunicando ou não. Se a Central de Segurança não receber o indicador de integridade de uma solução específica, o bloco da solução não aparecerá nessa seção.
 
 > [!NOTE]
-> Suporte à proteção de ponto de extremidade Symantec é limitado à descoberta. Nenhum alerta de integridade disponível.
->
+> A Central de Segurança mostra a data e a hora do último evento recebido para indicar se o dispositivo está se comunicando ou não. As soluções que não estiverem enviando o indicador de integridade serão exibidas como conectadas se um alerta ou evento tiverem sido enviados nos últimos 14 dias.
+>  
+
+Algumas dessas soluções podem estar totalmente integradas ao Azure; outras podem ser locais. Como a Central de Segurança dá suporte a [CEF (Formato de Evento Comum)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), ela pode se conectar a soluções que usam CEF, por exemplo, um firewall que dá suporte a CEF. Depois que essa solução é adicionada à Central de Segurança, o firewall envia logs em formato CEF à Central de Segurança, que os repassa ao [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). O firewall é um recurso que não pertence ao Azure, e envia eventos, mas não é um indicador de integridade.  A única informação que a Central de Segurança tem sobre integridade é a última vez que o dispositivo enviou um evento.  Para todos os recursos que não pertencem ao Azure, a Central de Segurança exibe na área de integridade do bloco a data e a hora do último evento recebido, o que indica que o recurso que não é do Azure ainda está se comunicando.
+
+### <a name="discovered-solutions"></a>Soluções descobertas
+
+A seção **Soluções descobertas** mostra todas as soluções que foram adicionadas por meio do Azure e com as quais a Central de Segurança sugere a conexão.
+
+![Soluções descobertas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+
+A Central de Segurança pode se integrar a soluções do Azure internas, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). Se você tem uma licença do Azure AD Identity Protection, mas o produto não está conectado a Central de Segurança, ele será listado nas **Soluções descobertas**. Para integrar essa solução à Central de Segurança, clique em **CONECTAR** no bloco **Azure AD Identity Protection**; a página abaixo será exibida:
+
+![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
+
+Para concluir a conexão do Azure AD Identity Protection, você precisa selecionar um espaço de trabalho em que os dados serão salvos. Todos os dados do Azure AD Identity Protection virão da região do espaço de trabalho que foi selecionada nesta etapa.  Você percorrerá o seletor de espaço de trabalho para selecionar o espaço de trabalho e os dados começarão a fluir para ele.
+
+Para se conectar à Central de Segurança, você deve ser um administrador global ou um administrador de segurança.  O botão **Conectar** será desabilitado se você não tiver permissões, e se você não tiver permissões, uma mensagem aparecerá explicando por que o botão está desabilitado.
+
+Os alertas do Azure AD Identity Protection passam pelo pipe de detecção da Central de Segurança; isso fará com que você obtenha alertas da Central de Segurança e do Azure Active Directory Identity Protection. A Central de Segurança mesclará todos os alertas que parecem relevantes para criar um [incidente de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident). A descrição do incidente de segurança oferece mais controle sobre atividades suspeitas.
+
+### <a name="add-data-sources"></a>Adicionar fontes de dados
+
+Você pode adicionar computadores Azure e não Azure para integração com o Security Center.  Adicionar computadores não Azure significa que você pode adicionar um computador local ou um dispositivo que dê suporte a CEF. 
+
+![Fontes de dados](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+
 
 ## <a name="see-also"></a>Consulte também
 

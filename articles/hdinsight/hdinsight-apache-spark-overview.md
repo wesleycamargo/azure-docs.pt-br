@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introdução ao Spark no HDInsight
@@ -30,8 +30,17 @@ Este artigo fornece uma introdução ao Spark no HDInsight. O <a href="http://sp
 
 Quando você cria um cluster do Spark no HDInsight, cria recursos de computação do Azure com o Spark instalado e configurado. Demora apenas cerca de dez minutos para criar um cluster do Spark no HDInsight. Os dados a serem processados são armazenados no Armazenamento do Azure ou no Azure Data Lake Store. Veja [Usar o Armazenamento do Azure com HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-**Para criar um cluster do Spark no HDInsight**, consulte [Início rápido: criar um cluster do Spark no HDInsight e executar consultas interativas usando Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+![Spark: uma estrutura unificada](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## <a name="spark-vs-traditional-mapreduce"></a>Spark X MapReduce tradicional
+
+O que torna o Spark rápido? Como a arquitetura do Apache Spark é diferente do MapReduce tradicional, permitindo que ele ofereça melhor desempenho no compartilhamento de dados?
+
+![MapReduce tradicional X Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+O Spark oferece primitivos para computação de cluster na memória. Um trabalho Spark pode carregar e armazenar dados em cache na memória e consultá-los várias vezes, muito mais rapidamente do que os sistemas baseados em disco. O Spark também se integra à linguagem de programação Scala para permitir a manipulação de conjuntos de dados distribuídos como coleções locais. Não é necessário para estruturar tudo como operações de mapeamento e redução.
+
+No Spark, o compartilhamento de dados entre operações é mais rápido, pois os dados estão na memória. Por outro lado, o Hadoop compartilha dados por meio do HDFS, o que leva mais tempo para processar.
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight?
 Os clusters do Spark oferecem um serviço Spark totalmente gerenciado. Os benefícios da criação de um cluster do Spark no HDInsight estão listados aqui.
@@ -41,7 +50,7 @@ Os clusters do Spark oferecem um serviço Spark totalmente gerenciado. Os benef�
 | Facilidade de criação de clusters do Spark |Você pode criar um novo cluster do Spark no HDInsight em minutos usando o portal do Azure, o Azure PowerShell ou o SDK .NET do HDInsight. Confira [Introdução ao cluster do Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Fácil de uso |O cluster do Spark no HDInsight inclui blocos de anotações do Jupyter e do Zeppelin. Você pode usar esses blocos de anotações para processar e visualizar dados interativamente.|
 | APIs REST |Os clusters do Spark no HDInsight incluem [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), um servidor de trabalho do Spark baseado em API REST para enviar e monitorar trabalhos remotamente. |
-| Suporte ao Repositório Azure Data Lake | O cluster do Spark no HDInsight pode ser configurado para usar o Azure Data Lake Store como um armazenamento adicional, bem como armazenamento primário (somente com clusters HDInsight 3.5). Para saber mais sobre o Repositório Data Lake, veja [Visão geral do Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
+| Suporte ao Repositório Azure Data Lake | O cluster Spark no HDInsight pode ser configurado para usar o Azure Data Lake Store como um armazenamento adicional, bem como armazenamento primário (somente com clusters HDInsight 3.5). Para saber mais sobre o Repositório Data Lake, veja [Visão geral do Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integração com serviços do Azure |O cluster do Spark no HDInsight é fornecido com um conector para Hubs de Eventos do Azure. Os clientes podem criar aplicativos de fluxo contínuo usando os Hubs de Eventos, além do [Kafka](http://kafka.apache.org/), que já está disponível como parte do Spark. |
 | Suporte para Servidor R | Você pode configurar um Servidor R no cluster HDInsight Spark para executar cálculos R distribuídos com as velocidades prometidas com um cluster Spark. Para obter mais informações, confira [Introdução ao uso do Servidor R no HDInsight](hdinsight-hadoop-r-server-get-started.md). |
 | Integração com IDEs de terceiros | O HDInsight fornece plug-ins para IDEs como IntelliJ IDEA e Eclipse, que você pode usar para criar e enviar solicitações a um cluster do Spark no HDInsight. Para saber mais, confira [Usar kit de ferramentas do uso do Azure para IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md) e [Usar kit de ferramentas do Azure para Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md).|
@@ -52,8 +61,22 @@ Os clusters do Spark oferecem um serviço Spark totalmente gerenciado. Os benef�
 | Escalabilidade |Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os clusters do HDInsight permitem alterar o número de nós no cluster. Além disso, os clusters do Spark podem ser descartados sem perda de dados, pois todos os dados ficam no Armazenamento do Azure ou no Data Lake Store. |
 | Suporte contínuo |Os clusters do Spark no HDInsight vêm com suporte de nível empresarial 24 horas por dia, 7 dias por semana, e um SLA de 99,9% de tempo de atividade. |
 
+## <a name="spark-cluster-architecture"></a>Arquitetura do cluster Spark
+
+Veja a arquitetura do cluster Spark e como ela funciona:
+
+![Arquitetura do cluster Spark](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+O nó principal tem o mestre Spark que gerencia o número de aplicativos; os aplicativos são mapeados para o driver do Spark. Cada aplicativo é gerenciado pelo mestre Spark de várias maneiras. O Spark pode ser implantado em cima do Mesos, do YARN ou do Gerenciador de cluster Spark, que aloca recursos de nó de trabalho a um aplicativo. No HDInsight, o Spark é executado usando o gerenciador de cluster YARN. Os recursos no cluster são gerenciados pelo mestre Spark no HDInsight. Isso significa que o mestre Spark tem conhecimento dos quais recursos, como a memória, estão ocupados ou disponíveis no nó de trabalho.
+
+O driver executa a função principal do usuário e as várias operações paralelas nos nós de trabalho. Em seguida, o driver coleta os resultados das operações. Os nós de trabalho leem dados do HDFS (Sistema de Arquivos Distribuído Hadoop) e gravam nele. Os nós de trabalho também armazenam dados transformados na memória em cache como RDDs (Conjuntos de Dados Distribuído Resiliente).
+
+Quando o aplicativo é criado no mestre Spark, os recursos são alocados para os aplicativos pelo mestre Spark, criando uma execução chamada de driver do Spark. O driver do Spark também cria o SparkContext e inicia criando os RDDs. Os metadados dos RDDs são armazenados no driver do Spark.
+
+O driver do Spark conecta-se ao mestre Spark e é responsável por converter um aplicativo em um DAG (grafo direcionado acíclico) das tarefas individuais, que é executado em um processo de executor nos nós de trabalho. Cada aplicativo obtém seus próprios processos de executor, que se mantêm pela duração do aplicativo e executa tarefas em vários threads.
+
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Quais são os casos de uso do Spark no HDInsight?
-Os clusters do Spark no HDInsight ativam os cenários principais a seguir.
+Os clusters do Spark no HDInsight ativam os seguintes cenários principais:
 
 ### <a name="interactive-data-analysis-and-bi"></a>Análise de dados interativa e BI
 [Examinar um tutorial](hdinsight-apache-spark-use-bi-tools.md)
@@ -70,7 +93,7 @@ O Apache Spark vem com [MLlib](http://spark.apache.org/mllib/), uma biblioteca d
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Análise de dados de streaming e em tempo real do Spark
 [Examinar um tutorial](hdinsight-apache-spark-eventhub-streaming.md)
 
-Os clusters Spark no HDInsight dão suporte avançado para criar soluções de análise em tempo real. Embora o Spark já tenha conectores para receber dados de várias fontes, como soquetes TCP, Flume, Twitter, ZeroMQ ou Kafka, o Spark no HDInsight adiciona suporte de primeira classe para a inserção de dados de hubs de evento do Azure. Os Hubs de Eventos são o serviço de enfileiramento de mensagens mais usado no Azure. Ter um excelente suporte pronto para uso para hubs de eventos torna os clusters Spark no HDInsight a plataforma ideal para a criação de pipeline de análise em tempo real.
+Os clusters Spark no HDInsight dão suporte avançado para criar soluções de análise em tempo real. Embora o Spark já tenha conectores para receber dados de várias fontes, como soquetes TCP, Flume, Twitter, ZeroMQ ou Kafka, o Spark no HDInsight adiciona suporte de primeira classe para a inserção de dados de hubs de evento do Azure. Hubs de Eventos é o serviço de enfileiramento de mensagens mais usado no Azure. Ter um excelente suporte pronto para uso para hubs de eventos torna os clusters Spark no HDInsight a plataforma ideal para a criação de pipeline de análise em tempo real.
 
 ## <a name="next-steps"></a>Quais componentes estão incluídos como parte de um cluster do Spark?
 Os clusters Spark no HDInsight incluem os seguintes componentes que estão disponíveis nos clusters por padrão.
@@ -99,7 +122,7 @@ Inicie com a criação de um cluster Spark no HDInsight. Confira [Início rápid
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)

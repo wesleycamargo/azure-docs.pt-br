@@ -11,4 +11,4 @@ A tabela a seguir relaciona as cotas e limites específicos para os Hubs de Even
 | Número de destinatários sem época por grupo de consumidores |Entidade |Estático |- |5 |
 | Período de retenção máximo dos dados do evento |Entidade |Estático |- |Um a sete dias |
 | Unidades de produtividade máxima |Namespace |Estático |Exceder o limite de unidades de produtividade causará a limitação dos seus dados e gerará um **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. Você pode solicitar um número maior de unidades de produtividade para uma camada Standard ao preencher uma [solicitação de suporte](/azure/azure-supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 |
-
+| Número de Regras de Autorização por namespace |Namespace|estático |As solicitações subsequentes de criação de regra de autorização serão rejeitadas.|12 |
