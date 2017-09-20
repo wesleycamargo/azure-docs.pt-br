@@ -345,7 +345,7 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 <!--Link references-->
 
 [O que é um Serviço de Nuvem?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

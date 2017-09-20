@@ -145,8 +145,6 @@ Para gerenciar suas Conexões Híbridas, você pode:
 Após tê-los copiado, você pode usar o Editor de políticas de grupo para mudar a política.
 
 ## <a name="next"></a>Avançar
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Consulte também

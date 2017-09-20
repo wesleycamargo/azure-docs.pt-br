@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ O conteúdo que você vê quando abre as Soluções de Segurança pode variar de
 
 A seção **Soluções conectadas** mostra todas as soluções de segurança que estão conectadas atualmente à Central de Segurança. 
 
-![Soluções conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Soluções conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 As informações que você vê em cada uma podem variar de acordo com a solução. Algumas informações disponíveis em cada bloco podem incluir:
 
@@ -106,7 +106,7 @@ Os alertas do Azure AD Identity Protection passam pelo pipe de detecção da Cen
 
 Você pode adicionar computadores Azure e não Azure para integração com o Security Center.  Adicionar computadores não Azure significa que você pode adicionar um computador local ou um dispositivo que dê suporte a CEF. 
 
-![Fontes de dados](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Fontes de dados](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Consulte também
