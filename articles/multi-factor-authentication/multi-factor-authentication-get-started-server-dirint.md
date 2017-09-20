@@ -3,7 +3,7 @@ title: "Integração de diretórios entre o Azure Multi-Factor Authentication au
 description: "Esta é a página de autenticação multifator do Azure que descreve como integrar o servidor Azure Multi-Factor Authentication ao Active Directory para sincronizar os diretórios."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

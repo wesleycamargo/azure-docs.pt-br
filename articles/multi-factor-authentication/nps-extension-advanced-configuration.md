@@ -3,7 +3,7 @@ title: "Configurar a extensão NPS da MFA do Azure | Microsoft Docs"
 description: "Depois de instalar a extensão NPS, siga estas etapas para configuração avançada como lista de permissões de IP e substituição de UPN."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT
