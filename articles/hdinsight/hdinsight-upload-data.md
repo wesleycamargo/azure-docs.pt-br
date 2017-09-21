@@ -18,17 +18,17 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
 
 O Azure HDInsight fornece um HDFS (sistema de arquivos distribuído) completo do Hadoop no Armazenamento do Azure e no Azure Data Lake Store. O Armazenamento do Azure e o Data Lake Store foram projetados como uma extensão do HDFS para fornecer uma experiência contínua para os clientes. Eles habilitam o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente nos dados gerenciados por ele. O Armazenamento do Azure e o Data Lake Store são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para obter informações sobre os benefícios do uso do Armazenamento do Azure, consulte [Usar o Armazenamento do Azure com o HDInsight][hdinsight-storage] e [Usar o Data Lake Store com o HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##<a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Observe os seguintes requisitos antes de começar:
 
@@ -159,7 +159,7 @@ A linha de comando do Hadoop só é útil para armazenar dados no Azure Storage 
 Para usar o comando Hadoop, primeiro você deve se conectar ao nó de cabeçalho usando um dos seguintes métodos:
 
 * **HDInsight baseado em Windows**: [conecte-se usando a área de trabalho remota](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight baseado em Linux**: conecte-se usando SSH ([o comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **HDInsight baseado em Linux**: conecte-se usando [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Uma vez conectado, você pode usar a seguinte sintaxe para carregar um arquivo no armazenamento.
 

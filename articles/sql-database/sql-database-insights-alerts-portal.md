@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfbaa71dc5716fbbc23d04bbd62210193c990e8e
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2b3f9f226039759a68e28b9392d30256f308c8d3
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
@@ -62,7 +61,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
    
     ![Adicionar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
-5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procura por CPU acima de 80%, o alerta disparará quando a CPU estiver consistentemente acima de 80% por cinco minutos. Após o primeiro gatilho, ele disparará novamente quando a CPU permanecer abaixo de 80% durante cinco minutos. A medição da CPU ocorre a cada um minuto.   
+5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procurar CPU acima de 80%, o alerta disparará quando a **média** da CPU estiver consistentemente acima de 80% por 5 minutos. Após a ocorrência do primeiro disparo, ele disparará novamente quando a média da CPU estiver abaixo de 80% durante 5 minutos. A medição da CPU ocorre a cada um minuto. Consulte a tabela abaixo para ver janelas de tempo com suporte e o tipo de agregação que cada alerta usa – nem todos os alertas usam o valor médio.   
 6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.
 7. Se você quiser que outros emails recebam uma notificação quando o alerta for disparado, adicione-os ao campo **Email(s) de administrador adicionais** . Vários emails separados com ponto e vírgula – *email@contoso.com;email2@contoso.com*
 8. Coloque um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.

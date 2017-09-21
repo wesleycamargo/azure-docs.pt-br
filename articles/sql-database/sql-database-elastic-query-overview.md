@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do Banco de Dados SQL do Azure (visualização)
@@ -142,7 +142,7 @@ A consulta elástica está incluída no custo dos bancos de dados do Banco de Da
 * Atualmente, não há suporte para estatísticas de coluna em tabelas externas. Há suporte para as estatísticas de tabelas, mas elas precisam ser criadas manualmente.
 
 ## <a name="feedback"></a>Comentários
-Compartilhe conosco seus comentários sobre sua experiência com as consultas elásticas no Disqus abaixo, nos fóruns do MSDN ou no Stackoverflow. Estamos interessados em todos os tipos de comentários sobre o serviço (defeitos, pontos em aberto, lacunas do recurso).
+Compartilhe conosco seus comentários sobre sua experiência com as consultas elásticas no Livefyre abaixo, nos fóruns do MSDN ou no Stackoverflow. Estamos interessados em todos os tipos de comentários sobre o serviço (defeitos, pontos em aberto, lacunas do recurso).
 
 ## <a name="next-steps"></a>Próximas etapas
 

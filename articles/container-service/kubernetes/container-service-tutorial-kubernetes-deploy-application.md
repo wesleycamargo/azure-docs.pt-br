@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 81a6a3d5364642b2da75faf875d64d2f4a1939d4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/25/2017
 Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. As etapas concluídas incluem:
 
 > [!div class="checklist"]
-> * Baixar arquivos de manifesto Kubernetes
+> * Atualizar os arquivos de manifesto do Kubernetes
 > * Executar um aplicativo no Kubernetes
 > * Testar o aplicativo
 
@@ -40,29 +40,15 @@ Este tutorial assume uma compreensão básica dos conceitos de Kubernetes; para 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
+Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. 
 
-No mínimo, este tutorial requer um cluster Kubernetes.
+Para concluir este tutorial, você precisa do arquivo de manifesto do Kubernetes `azure-vote-all-in-one-redis.yml` pré-criado. Esse arquivo foi baixado com o código-fonte do aplicativo em um tutorial anterior. Verifique se você clonou repositório e se você alterou os diretórios para o repositório clonado.
 
-## <a name="get-manifest-file"></a>Obter arquivo de manifesto
-
-Para este tutorial, [objetos Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) dão implantados utilizando um manifesto Kubernetes. Um manifesto Kubernetes é um arquivo formatado YAML ou JSON que contém instruções de implantação e configuração de objetos Kubernetes.
-
-O arquivo de manifesto do aplicativo para este tutorial está disponível no repositório do aplicativo Azure Vote, que foi clonado em um tutorial anterior. Se você ainda não tiver feito isso, clone o repositório com o seguinte comando: 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-O arquivo de manifesto está localizado no seguinte diretório do repositório clonado.
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-manifest-file"></a>Atualizar arquivo de manifesto
 
-Se estiver utilizando o Registro de Contêiner do Azure para armazenar as imagens de contêiner, será necessário atualizar o manifesto com o nome ACR loginServer.
+Neste tutorial, o ACR (Registro de Contêiner do Azure) foi usado para armazenar uma imagem de contêiner. Antes de executar o aplicativo, o nome do servidor de logon do ACR precisa ser atualizado no arquivo de manifesto do Kubernetes.
 
 Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr#list).
 
@@ -70,7 +56,13 @@ Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-O manifesto de amostra foi pré-criado com um nome de repositório da *microsoft*. Abra o arquivo com qualquer editor de texto e substitua o valor *microsoft* com o nome do servidor de logon da sua instância ACR.
+O arquivo de manifesto foi pré-criado com um nome do servidor de logon `microsoft`. Abra o arquivo com qualquer editor de texto. Neste exemplo, o arquivo é aberto com o `vi`.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+Substitua `microsoft` pelo nome do servidor de logon do ACR. Esse valor pode ser encontrado na linha **47** do arquivo de manifesto.
 
 ```yaml
 containers:
@@ -78,12 +70,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+Salve e feche o arquivo.
+
 ## <a name="deploy-application"></a>Implantar um aplicativo
 
 Use o comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Saída:
@@ -105,7 +99,7 @@ Para monitorar o andamento, use o comando [kubectl get service](https://review.d
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o **EXTERNAL -IP** para o serviço *azure-vote-front* aparece como *pendente*. Depois que o endereço EXTERNAL -IP foi alterado de *pendente* para *endereço IP*, use `CTRL-C` para interromper o processo kubectl watch.
+Inicialmente, o **EXTERNAL-IP** do serviço `azure-vote-front` aparece como `pending`. Depois que o endereço EXTERNAL-IP for alterado de `pending` para um `IP address`, use `CTRL-C` para interromper o processo de inspeção do kubectl.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

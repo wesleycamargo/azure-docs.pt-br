@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
@@ -47,8 +46,16 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 
 > [!NOTE]
 > Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de credenciais no momento do design.
-> 
-> 
+
+## <a name="python2-functions"></a>Funções Python2
+A função na tabela a seguir é usada para acessar credenciais em um runbook em Python2.
+
+| Função | Descrição |
+|:---|:---|
+| automationassets.get_automation_credential | Recupera informações sobre um ativo de credencial. |
+
+> [!NOTE]
+> É necessário importar o módulo "automationassets", na parte superior do runbook Python para acessar as funções do ativo.
 
 ## <a name="creating-a-new-credential-asset"></a>Criando um novo ativo de credencial
 
@@ -97,10 +104,22 @@ A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráf
 ## <a name="using-a-powershell-credential-in-dsc"></a>Usando uma credencial do PowerShell na DSC
 Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credencial usando **Get-AutomationPSCredential**, os ativos de credencial também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
 
+## <a name="using-credentials-in-python2"></a>Usando credenciais no Python2
+A seguir, veja um exemplo de como acessar as credenciais em runbooks Python2.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre links na criação gráfica, veja [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
 * Para entender os diferentes métodos de autenticação com Automação, consulte [Segurança da Automação do Azure](automation-security-overview.md)
 * Para começar a usar os runbooks Gráficos, confira [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
+* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
+* Para começar a usar runbooks Python2, consulte [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md) 
 
 

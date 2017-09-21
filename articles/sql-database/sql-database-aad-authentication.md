@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/11/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c83d482eaf476388a174dfb02ae6ef53ebe921bc
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 246c89be85a4ccd2e8f7fab0ae8128e7285123a1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Usar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse
@@ -69,7 +69,7 @@ Ao usar a autenticação do Azure AD, haverá duas contas de administrador para 
 ## <a name="permissions"></a>Permissões
 Para criar novos usuários, você deve ter a permissão `ALTER ANY USER` no banco de dados. A permissão `ALTER ANY USER` pode ser concedida a qualquer usuário do banco de dados. A permissão `ALTER ANY USER` também é mantida pelas contas de administrador do servidor e usuários de banco de dados com a permissão `CONTROL ON DATABASE` ou `ALTER ON DATABASE` para esse banco de dados e por membros da função de banco de dados `db_owner`.
 
-Para criar um usuário do banco de dados contido no Banco de Dados SQL do Azure ou no SQL Data Warehouse, você deverá conectar-se ao banco de dados usando uma identidade do Azure AD. Para criar o primeiro usuário de banco de dados independente, você deve se conectar ao banco de dados usando o administrador do AD do Azure (que é o proprietário do banco de dados). Isso é demonstrado nas etapas 4 e 5 abaixo. Qualquer autenticação do Azure AD só será possível se o administrador do Azure AD tiver sido criado para o Banco de Dados SQL do Azure ou para o servidor SQL Data Warehouse. Se o administrador do Azure Active Directory tiver sido removido do servidor, os usuários existentes do Azure Active Directory criados anteriormente dentro do SQL Server não poderão mais se conectar ao banco de dados usando suas credenciais do Azure Active Directory.
+Para criar um usuário do banco de dados contido no Banco de Dados SQL do Azure ou no SQL Data Warehouse, você deverá conectar-se ao banco de dados usando uma identidade do Azure AD. Para criar o primeiro usuário de banco de dados independente, você deve se conectar ao banco de dados usando o administrador do AD do Azure (que é o proprietário do banco de dados). Isso é demonstrado em [Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md). Qualquer autenticação do Azure AD só será possível se o administrador do Azure AD tiver sido criado para o Banco de Dados SQL do Azure ou para o servidor SQL Data Warehouse. Se o administrador do Azure Active Directory tiver sido removido do servidor, os usuários existentes do Azure Active Directory criados anteriormente dentro do SQL Server não poderão mais se conectar ao banco de dados usando suas credenciais do Azure Active Directory.
 
 ## <a name="azure-ad-features-and-limitations"></a>Limitações e recursos do AD do Azure
 Os membros do Azure AD a seguir podem ser provisionados no Azure SQL Server ou no SQL Data Warehouse:
@@ -79,7 +79,6 @@ Os membros do Azure AD a seguir podem ser provisionados no Azure SQL Server ou n
 * Membros importados de outros Azure ADs que são membros de domínio nativo ou federado.
 * Grupos do Active Directory criados como grupos de segurança.
 
-Não há suporte para contas da Microsoft (por exemplo, outlook.com, hotmail.com, live.com) nem para outras contas de convidado (por exemplo, gmail.com, yahoo.com). Se você pode fizer logon em [https://login.live.com](https://login.live.com) usando a conta e senha, isso significará que você está usando uma conta da Microsoft para a qual não há suporte para autenticação do Azure AD para o Banco de Dados SQL do Azure ou para o SQL Data Warehouse do Azure.
 
 ## <a name="connecting-using-azure-ad-identities"></a>Conectar-se usando as identidades do Azure AD
 

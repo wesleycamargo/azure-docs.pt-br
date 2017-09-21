@@ -1,6 +1,6 @@
 ---
 title: Manipulando a ordem e o atraso dos eventos com o Azure Stream Analytics | Microsoft Docs
-description: Saiba como o Stream Analytics funciona com eventos fora de ordem ou atrasados nos fluxos de dados.
+description: Saiba como o Azure Stream Analytics funciona com eventos fora de ordem ou atrasados nos fluxos de dados
 keywords: fora de ordem, atraso, eventos
 documentationcenter: 
 services: stream-analytics
@@ -16,59 +16,75 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: cf9a43fbb82a32c92d66f25809916d3ccde1a20d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Manipulação da ordem dos eventos do Azure Stream Analytics
 
-Em um fluxo de dados temporal de eventos, cada evento é registrado com a hora em que ele foi recebido. Algumas condições podem fazer com que os fluxos de eventos às vezes recebam alguns eventos em uma ordem diferente da qual eles foram enviados. Uma retransmissão TCP simples ou, até mesmo, uma defasagem horária entre o dispositivo de envio e o hub de eventos de recebimento pode fazer com que isso aconteça. Os eventos de "pontuação" também são adicionados aos fluxos de eventos recebidos, de modo a antecipar o horário na ausência das chegadas de evento. Eles são necessários em cenários como "Notificar-me quando nenhum logon ocorrer por três minutos".
+Em um fluxo de dados temporais de eventos, cada evento recebe um carimbo de data/hora. O Azure Stream Analytics atribui os carimbos de data/hora para cada evento, usando a hora de chegada ou a hora do aplicativo. 
 
-Os fluxos de entrada que não estão em ordem são:
-* Classificados (e, portanto, **atrasados**).
-* Ajustados pelo sistema, de acordo com uma política especificada pelo usuário.
+A coluna **System.Timestamp** tem o carimbo de data/hora atribuído ao evento. A hora de chegada é atribuída na fonte de entrada, quando o evento chega à origem. A hora de chegada é **EventEnqueuedTime** para entrada de hub de eventos e [hora da última modificação do blob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) para a entrada de blob. A hora do aplicativo é atribuída quando o evento é gerado e é parte do conteúdo. 
 
+Para processar eventos por hora do aplicativo, use a cláusula TIMESTAMP BY na consulta select. Se a cláusula TIMESTAMP BY estiver ausente, os eventos serão processados na hora de chegada. É possível acessar a hora de chegada usando a propriedade **EventEnqueuedTime** para o hub de eventos e a propriedade **BlobLastModified** para a entrada de blob. 
 
-## <a name="lateness-tolerance"></a>Tolerância de atraso
-O Stream Analytics tolera esses tipos de cenários. O Stream Analytics tem tratamento para eventos "fora de ordem" e "em atraso". Ele lida com esses eventos das seguintes maneiras:
-
-* Os eventos que chegam fora de ordem, mas dentro da tolerância definida são **reordenados pelo carimbo de data/hora**.
-* Os eventos que chegam após o tempo de tolerância são **removidos ou ajustados**.
-    * **Ajustados**: para que pareçam ter chegado no último horário aceitável.
-    * **Removidos**: descartados.
+O Azure Stream Analytics produz a saída de carimbo de data/hora em ordem e fornece algumas configurações para lidar com os dados fora de ordem.
 
 ![Manipulação de eventos do Stream Analytics](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-## <a name="reduce-the-number-of-out-of-order-events"></a>Reduzir o número de eventos fora de ordem
+Os fluxos de entrada que não estão em ordem são:
+* Classificados (e, portanto, *atrasados*).
+* Ajustados pelo sistema, de acordo com a política especificada pelo usuário.
 
-Uma vez que o Stream Analytics aplica uma transformação temporal quando processa eventos de entrada (por exemplo, para agregações com janela ou uniões temporais), ele classifica eventos de entrada pela ordem do carimbo de data/hora.
+O Stream Analytics tolera eventos atrasados e fora de ordem ao processar pela hora do aplicativo.
 
-Quando a palavra-chave "carimbo de data/hora por" **não** é usada, a hora de enfileiramento do evento dos Hubs de Eventos do Azure é usada por padrão. Os Hubs de Eventos garantem monotonia do carimbo de data/hora em cada partição do hub de eventos. Eles também garantem que os eventos de todas as partições sejam mesclados na ordem do carimbo de data/hora. Essas duas garantias dos Hubs de Eventos asseguram que não haja eventos fora de ordem.
+**Tolerância a atrasos**
 
-Às vezes, é importante usar o carimbo de data/hora do remetente. Nesse caso, um carimbo de data/hora do conteúdo do evento é escolhido usando "timestamp by". Nesses cenários, uma ou mais fontes de ordem incorreta podem ser introduzidas:
+* A configuração de tolerância a atrasos se aplica somente ao processar pelo tempo de aplicação. Caso contrário, será ignorada.
+* A tolerância a atrasos é a diferença máxima entre a hora de chegada e o tempo de aplicação. Se o tempo de aplicação for anterior a *(Hora de Chegada – Janela de Atraso)*, ela será definida como *(Hora de Chegada – Janela de Atraso)*.
+* Quando várias partições do mesmo fluxo de entrada ou de vários fluxos de entrada são combinadas, a tolerância a atrasos é a quantidade máxima de tempo que cada partição espera por novos dados. 
 
-* Os produtores de eventos têm defasagem horária. Isso é comum quando produtores são de diferentes computadores, pois eles têm relógios diferentes.
-* Há um atraso de rede da fonte dos eventos até o hub de eventos de destino.
-* As defasagens horárias existem entre partições do hub de eventos. O Stream Analytics primeiro classifica os eventos de todas as partições do hub de eventos pela hora de enfileiramento do evento. Em seguida, ele examina o fluxo de dados em busca de eventos em ordem incorreta.
+Em resumo, a janela de atraso é o atraso máximo entre a geração de eventos e o recebimento do evento na fonte de entrada.
+O ajuste com base na tolerância a atrasos é feita pela primeiro e o fora de ordem depois. A coluna **System.Timestamp** tem o carimbo de data/hora final atribuído ao evento.
 
-Na guia de configuração, você verá os seguintes padrões:
+**Tolerância para trabalhos fora de ordem**
 
-![Manipulação de eventos fora de ordem do Stream Analytics](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+* Os eventos que chegam fora de ordem, mas dentro da “janela de tolerância para trabalhos fora de ordem”, são *reordenados pelo carimbo de data/hora*. 
+* Os eventos que chegam após o tempo de tolerância são *removidos* ou *ajustados*.
+    * **Ajustados**: para que pareçam ter chegado no último horário aceitável. 
+    * **Removidos**: descartados.
 
-Caso use 0 segundos como a janela de tolerância para eventos fora de ordem, você estará afirmando que todos os eventos estão em ordem o tempo todo. Considerando as três fontes de eventos em ordem incorreta, é improvável que isso seja verdadeiro. 
+Para reordenar eventos recebidos dentro da “janela de tolerância para trabalhos fora de ordem”, a saída da consulta é *atrasada pela janela de tolerância para trabalhos fora de ordem*.
 
-Para permitir que o Stream Analytics corrija a ordem incorreta de um evento, você pode especificar uma janela de tolerância fora de ordem diferente de zero. O Stream Analytics armazena em buffer os eventos até essa janela e, em seguida, os reordena usando o carimbo de data/hora escolhido. Ele então aplica a transformação temporal. Você pode começar com uma janela de 3 segundos e ajustar o valor para reduzir o número de eventos que são ajustados por hora. 
+**Exemplo**
 
-Um efeito colateral do armazenamento em buffer é que a saída **tem o mesmo tempo de atraso**. Você pode ajustar o valor para reduzir o número de eventos fora de ordem e manter baixa a latência do trabalho.
+Tolerância a atrasos = 10 minutos<br/>
+Tolerância para eventos fora de ordem = 3 minutos<br/>
+Processamento por tempo de aplicação<br/>
+
+Eventos:
+
+O Evento 1 _Tempo de Aplicação_ = 00:00:00, _Hora de Chegada_ = 00:10:01, _System.Timestamp_ = 00:00:01 é ajustado porque (_Hora de Chegada_ - _Hora do Aplicativo_) é maior do que a tolerância a atrasos.
+
+O Evento 2 _Tempo de Aplicação_ = 00:00:01, _Hora de Chegada_ = 00:10:01, _System.Timestamp_ = 00:00:01 não é ajustado porque a hora do aplicativo está dentro da janela de atraso.
+
+O Evento 3 _Tempo de Aplicação_ = 00:10:00, _Hora de Chegada_ = 00:10:02, _System.Timestamp_ = 00:10:00 não é ajustado porque a hora do aplicativo está dentro da janela de atraso.
+
+O Evento 4 _Tempo de Aplicação_ = 00:09:00, _Hora de Chegada_ = 00:10:03, _System.Timestamp_ = 00:09:00 é aceito com o carimbo de data/hora original, pois o tempo de aplicação está dentro da tolerância a eventos fora de ordem.
+
+O Evento 5 _Tempo de Aplicação_ = 00:06:00, _Hora de Chegada_ = 00:10:04, _System.Timestamp_ = 00:07:00 é ajustado porque o tempo de aplicação é anterior à tolerância a eventos fora de ordem.
+
+
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics](stream-analytics-introduction.md)
-* [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência da linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução ao Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+* [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

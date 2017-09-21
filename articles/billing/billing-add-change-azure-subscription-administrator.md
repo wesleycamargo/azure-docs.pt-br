@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços
@@ -44,7 +44,7 @@ Para adicionar alguém como administrador para uma assinatura no Portal do Azure
 Somente um proprietário pode ser adicionado como um coadministrador. Outros usuários com funções como colaborador e leitor não podem ser adicionados como coadministradores.
 
 1. Se você ainda não o fez, adicione alguém como proprietário seguindo as instruções acima.
-1. **Clique com botão direito do mouse** no usuário proprietário você acabou de adicionar e, em seguida, selecione **Adicionar como coadministrador**. 
+2. **Clique com botão direito do mouse** no usuário proprietário você acabou de adicionar e, em seguida, selecione **Adicionar como coadministrador**. Se a opção **Adicionar como coadministrador** não for exibida, atualize a página ou tente usar outro navegador da Internet. 
 
      ![Captura de tela que adiciona o coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 

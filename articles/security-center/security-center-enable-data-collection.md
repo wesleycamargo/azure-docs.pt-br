@@ -1,5 +1,5 @@
 ---
-title: "Habilitar a coleta de dados na Central de Segurança do Azure | Microsoft Docs"
+title: "Coleta de dados na Central de Segurança do Azure | Microsoft Docs"
 description: " Saiba como habilitar a coleta de dados na Central de Segurança do Azure. "
 services: security-center
 documentationcenter: na
@@ -12,59 +12,118 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 7e9ad8cd8c77c57c37dc208b86b3727a4e1dc7b5
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="enable-data-collection-in-azure-security-center"></a>Habilitar coleta de dados na Central de Segurança do Azure
+# <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
+A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
+
+## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Habilitar o provisionamento automático do Microsoft Monitoring Agent     
+Quando o provisionamento automático está habilitado, a Central de Segurança provisiona o Microsoft Monitoring Agent em todas as VMs do Azure com suporte, bem como em quaisquer novas VMs que forem criadas. O provisionamento automático é altamente recomendável e é necessário para as assinaturas na camada Standard da Central de Segurança.
 
 > [!NOTE]
-> A partir do início de junho de 2017, a Central de Segurança usará o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md). As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
+> Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos. Para obter mais informações, consulte [desabilitar o provisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Os instantâneos de disco da VM e a coleção de artefatos ficam habilitados mesmo que o provisionamento automático esteja desabilitado.
 >
 >
 
-A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, você tem a opção de habilitar a coleta de dados para em todas as VMs em sua assinatura. Se a coleta de dados estiver desabilitada, a Central de Segurança recomendará que você ligue a coleta de dados na política de segurança dessa assinatura.
+Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
+1. No menu principal da Central de Segurança, selecione **Política de Segurança**.
+2. Selecione a assinatura.
+3. Em **Política de segurança**, selecione **Coleta de Dados**.
+4. Em **Integração**, selecione **Ativar** para habilitar o provisionamento automático.
+5. Selecione **Salvar**.
 
-Quando a coleta de dados é habilitada, a Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as máquinas virtuais do Azure existentes com suporte e em quaisquer novas máquinas virtuais criadas. O Microsoft Monitoring Agent realiza varreduras em busca de várias configurações relacionadas à segurança. Além disso, o sistema operacional cria entradas de log de eventos. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent lê as entradas e configurações do log de eventos e copia os dados para seu espaço de trabalho para análise. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
+![Habilitar o provisionamento automático][1]
 
-Se você estiver usando a Camada gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de máquinas virtuais desligando a coleta de dados na política de segurança. Desabilitar a coleta de dados limita as avaliações de segurança para as VMs. Para saber mais, consulte [Desabilitar a coleta de dados](#disabling-data-collection). Os instantâneos de disco da VM e a coleção de artefatos são habilitados mesmo que a coleta de dados tenha sido desabilitada. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança.
+## <a name="default-workspace-configuration"></a>Configuração do espaço de trabalho padrão
+Os dados coletados pela Central de Segurança são armazenados no espaço do Log Analytics.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em espaços de trabalho criados pela Central de Segurança ou em um espaço de trabalho existente que você criou.
+
+Para usar o espaço de trabalho existente do Log Analytics:
+- O espaço de trabalho deve ser associado à sua assinatura do Azure selecionada.
+- No mínimo, você deve ter permissões de leitura para acessar o espaço de trabalho.
+
+Para selecionar um espaço de trabalho existente do Log Analytics:
+
+1. Em **Política de segurança – Coleta de dados**, selecione **Usar outro espaço de trabalho**.
+
+   ![Selecionar um espaço de trabalho existente][2]
+
+2. No menu suspenso, selecione um espaço de trabalho para armazenar os dados coletados.
 
 > [!NOTE]
-> Saiba mais sobre os [tipos de preço](security-center-pricing.md) Gratuito e Standard da Central de Segurança.
+> No menu suspenso, são mostrados apenas os espaços de trabalho aos quais você tem acesso e que estejam em sua assinatura do Azure.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
+3. Selecione **Salvar**.
+4. Ao selecionar **Salvar**, você será questionado se deseja reconfigurar as VMs monitoradas.
+
+   - Selecione **Não** se quiser que as novas configurações de espaço de trabalho sejam aplicadas somente às novas VMs. As novas configurações de espaço de trabalho se aplicam somente a novas instalações de agente: VMs recém-descobertas que não têm o Microsoft Monitoring Agent instalado.
+   - Selecione **Sim** se quiser que as novas configurações de espaço de trabalho sejam aplicadas a todas as VMs. Além disso, todas as VMs conectadas a um espaço de trabalho criado da Central de Segurança serão reconectadas ao novo espaço de trabalho de destino.
+
+   > [!NOTE]
+   > Se selecionar Sim, você não deverá excluir os espaços de trabalho criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo espaço de trabalho de destino. Essa operação falhará se um espaço de trabalho for excluído muito cedo.
+   >
+   >
+
+   - Selecione **Cancelar** para cancelar a operação.
+
+   ![Selecionar um espaço de trabalho existente][3]
+
+## <a name="data-collection-tier"></a>Camada de coleta de dados
+A Central de Segurança pode reduzir o volume de eventos, mantendo, ao mesmo tempo, eventos suficientes para investigação, auditoria e detecção de ameaças. Você pode escolher a política de filtragem correta para as suas assinaturas e espaços de trabalho dentre quatro conjuntos de eventos a serem coletados pelo agente.
+
+- **Todos os eventos** – para clientes que desejam se certificar de que todos os eventos sejam coletados. Esse é o padrão.
+- **Comum** – este é um conjunto de eventos que satisfaz a maioria dos clientes, garantindo uma trilha de auditoria completa.
+- **Mínimo** – um conjunto menor de eventos, para clientes que desejam minimizar o volume de eventos.
+- **Nenhum** – desabilitar a coleta de eventos de segurança da segurança e dos logs do AppLocker. Para clientes que escolherem esta opção, os painéis de segurança apresentarão somente os logs do Firewall do Windows e as avaliações proativas, como antimalware, linha de base e atualização.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Este documento não é um guia passo a passo.
+> Esses conjuntos foram projetados para lidar com cenários típicos. Avalie qual atende às suas necessidades antes de implementá-los.
 >
 >
 
-1. Na folha **Recomendações**, selecione **Habilitar coleta de dados em assinaturas**.  Isso abre a folha **Ativar a coleta de dados**.
-   ![Folha de recomendações][2]
-2. Na folha **Ativar a coleta de dados** , selecione sua assinatura. A folha **Política de segurança** para essa assinatura é aberta.
-3. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados provisiona a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
-4. Selecione **Salvar**.
-5. Selecione **OK**.
+Para determinar os eventos que farão parte dos conjuntos de eventos **Comum** e **Mínimo**, trabalhamos com clientes e padrões do setor para saber mais sobre a frequência não filtrada de cada evento e seu uso. Neste processo, usamos as seguintes diretrizes:
 
-## <a name="disabling-data-collection"></a>Desabilitar a coleta de dados
-Se você estiver usando a camada Gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de máquinas virtuais a qualquer momento desligando a coleta de dados na política de segurança. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança.
+- **Mínimo** – Certificar-se de que esse conjunto aborde apenas os eventos que possam indicar uma violação com êxito e eventos importantes que tenham um volume muito baixo. Por exemplo, este conjunto conterá logon de usuário bem-sucedidos e malsucedidos (IDs de evento 4624 e 4625), mas não conterá o logout que seja importante para a auditoria, mas não seja significativo para a detecção e que tenha um volume relativamente alto. A maior parte do volume de dados desse conjunto é dos eventos de logon e do evento de criação de processo (ID de evento 4688).
+- **Comum** – fornecer uma trilha de auditoria de usuário completa neste conjunto. Por exemplo, este conjunto contém tanto os logons quanto os logoffs de usuário (ID de evento 4634). Incluímos ações de auditoria, como alterações de grupo de segurança, operações Kerberos do controlador de domínio de chave e outros eventos que são recomendados por organizações do setor.
 
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Política**. Isso abre a folha **Política de segurança – definir política por assinatura**.
-   ![Selecione o bloco de política][5]
-2. Na folha **Política de segurança – definir política por assinatura**, selecione a assinatura para a qual você deseja desabilitar a coleta de dados.
-3. A folha **Política de segurança** para essa assinatura é aberta.  Selecione **Desativado** em Coleta de dados.
-4. Selecione **Salvar** na faixa de opções.
+Eventos que têm um volume muito baixo foram incluídos no conjunto Comum, pois a principal motivação para escolhê-los dentre todos os eventos era reduzir o volume e não filtrar eventos específicos.
+
+Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLocker para cada conjunto:
+
+   ![IDs de eventos][4]
+
+Para escolher a política de filtragem:
+1. Na folha **Configurações e política de segurança**, selecione a política de filtragem em **Eventos de Segurança**.
+2. Selecione **Salvar**.
+
+   ![Escolher a política de filtragem][5]
+
+## <a name="disable-automatic-provisioning"></a>Desabilitar o provisionamento automático
+Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendável a fim de obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção do ponto de extremidade.
+
+> [!NOTE]
+> Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado.
+>
+>
+
+1. Retorne ao menu principal da Central de Segurança e selecione a Política de segurança.
+
+   ![Desabilitar o provisionamento automático][6]
+
+2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
+3. Na folha **Política de segurança – Coleta de Dados**, em **Integração** selecione **Desativar** para desabilitar o provisionamento automático.
+4. Selecione **Salvar**.  
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo mostrou como implementar a recomendação da Central de Segurança "Habilitar a coleta de dados". Para saber mais sobre a Central de Segurança, confira o seguinte:
+Este artigo mostrou como a coleta de dados e o provisionamento automático na Central de Segurança funcionam. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
@@ -76,9 +135,10 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
-[2]: ./media/security-center-enable-data-collection/recommendations.png
-[3]: ./media/security-center-enable-data-collection/data-collection.png
-[4]: ./media/security-center-enable-data-collection/storage-account.png
-[5]: ./media/security-center-enable-data-collection/policy.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
+[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
+[3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
+[4]: ./media/security-center-enable-data-collection/event-id.png
+[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
+[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="security-center-platform-migration-faq"></a>Perguntas frequentes sobre a migração da plataforma da Central de Segurança
@@ -70,6 +70,41 @@ Para saber mais sobre preços, confira [preços da Central de Segurança](https:
 
 Para recuperar, remova o Microsoft Monitoring Agent nas VMs conectadas ao espaço de trabalho excluído. A Central de Segurança reinstala o agente e cria novos espaços de trabalho padrão.
 
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Como posso usar meu espaço de trabalho existente do Log Analytics?
+
+Você pode selecionar um espaço de trabalho existente do Log Analytics para armazenar dados coletados pela Central de Segurança. Para usar o espaço de trabalho existente do Log Analytics:
+
+- O espaço de trabalho deve ser associado à sua assinatura do Azure selecionada.
+- No mínimo, você deve ter permissões de leitura para acessar o espaço de trabalho.
+
+Para selecionar um espaço de trabalho existente do Log Analytics:
+
+1. Em **Política de segurança – Coleta de dados**, selecione **Usar outro espaço de trabalho**.
+
+   ![Usar outro espaço de trabalho][5]
+
+2. No menu suspenso, selecione um espaço de trabalho para armazenar os dados coletados.
+
+   > [!NOTE]
+   > No menu suspenso, são mostrados apenas os espaços de trabalho aos quais você tem acesso e que estejam em sua assinatura do Azure.
+   >
+   >
+
+3. Selecione **Salvar**.
+4. Ao selecionar **Salvar**, você será questionado se deseja reconfigurar as VMs monitoradas.
+
+   - Selecione **Não** se quiser que as novas configurações de espaço de trabalho sejam **aplicadas somente às novas VMs**. As novas configurações de espaço de trabalho se aplicam somente a novas instalações de agente: VMs recém-descobertas que não têm o Microsoft Monitoring Agent instalado.
+   - Selecione **Sim** se quiser que as novas configurações de espaço de trabalho sejam **aplicadas a todas as VMs**. Além disso, todas as VMs conectadas a um espaço de trabalho criado da Central de Segurança serão reconectadas ao novo espaço de trabalho de destino.
+
+   > [!NOTE]
+   > Se selecionar Sim, você não deverá excluir os espaços de trabalho criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo espaço de trabalho de destino. Essa operação falhará se um espaço de trabalho for excluído muito cedo.
+   >
+   >
+
+   - Selecione **Cancelar** para cancelar a operação.
+
+      ![Reconfigurar VMs monitoradas][6]
+
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o Microsoft Monitoring Agent já estivesse instalado como uma extensão na VM?
 A Central de Segurança não substitui as conexões existentes nos espaços de trabalho do usuário. A Central de Segurança armazena dados de segurança da VM no espaço de trabalho que já está conectado.
 
@@ -80,14 +115,13 @@ Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como u
 Se você remover a Extensão de Monitoramento da Microsoft, a Central de Segurança não será capaz de coletar dados de segurança da VM e algumas recomendações de segurança e alertas não estarão disponíveis. Dentro de 24 horas, a Central de Segurança determinará que a VM não possui a extensão e reinstalará a extensão.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Como fazer para impedir a instalação automática do agente e a criação do espaço de trabalho?
-Você pode desativar a coleta de dados para suas assinaturas na política de segurança, mas isso não é recomendado. A desativação da coleta de dados limita as recomendações e os alertas da Central de Segurança. A Coleta de dados é necessária para assinaturas no tipo de preço Standard. Para desabilitar a coleta de dados:
+Você pode desligar o provisionamento automático para suas assinaturas na política de segurança, mas isso não é recomendado. Desativar o provisionamento automático limita as recomendações e os alertas da Central de Segurança. O provisionamento automático é necessário para assinaturas no tipo de preço Standard. Para desabilitar o provisionamento automático:
 
 1. Se sua assinatura estiver configurada para a camada Standard, abra a política de segurança para essa assinatura e selecione a camada **Gratuita**.
 
    ![Tipo de preço ][1]
 
-2. Em seguida, desative a coleta de dados selecionando **Desativar** na folha **Política de segurança – Coleta de dados**.
-
+2. Em seguida, desligue o provisionamento automático, selecionando **Desativar** na folha **Política de segurança – Coleta de dados**.
    ![Coleta de dados][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Como fazer para remover as extensões do OMS instaladas pela Central de Segurança?
@@ -159,4 +193,6 @@ Para saber mais sobre a migração de plataforma da Central de Segurança, confi
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
 

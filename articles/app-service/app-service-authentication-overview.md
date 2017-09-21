@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
@@ -30,7 +31,6 @@ Se você deseja começar agora mesmo, veja um dos seguintes tutoriais:
 
 * [Adicionar autenticação ao aplicativo iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova])
 * [Autenticação de usuário para Aplicativos de API no Serviço de Aplicativo do Azure][apia-user]
-* [Introdução ao Serviço de Aplicativo do Azure - Parte 2][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>Como funciona a autenticação no Serviço de Aplicativo
 Para autenticar o uso de um dos provedores de identidade, primeiro você precisa configurar o provedor de identidade para conhecer seu aplicativo. O provedor de identidade, em seguida, fornecerá as IDs e os segredos que você fornecer para o Serviço de Aplicativo. Isso conclui a relação de confiança para que o Serviço de Aplicativo possa validar as declarações de usuário, como tokens de autenticação, do provedor de identidade.
@@ -75,7 +75,7 @@ Se quiser usar a autenticação do Serviço de Aplicativo para lidar com um cen�
 
 A autenticação de conta de serviço de um aplicativo lógico do Serviço de Aplicativo para um aplicativo de API é um caso especial, que é explicado detalhadamente em [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../logic-apps/logic-apps-custom-hosted-api.md).
 
-## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>Como funciona a autorização no Serviço de Aplicativo
+## <a name="authorization"></a>Como funciona a autorização no Serviço de Aplicativo
 Você tem controle total sobre as solicitações que podem acessar o aplicativo. A Autenticação/Autorização do Serviço de Aplicativo pode ser configurada com qualquer um dos seguintes comportamentos:
 
 * Permitir que apenas solicitações autenticadas cheguem ao aplicativo.
@@ -90,7 +90,7 @@ Você tem controle total sobre as solicitações que podem acessar o aplicativo.
   
     Nesse caso, o recurso Autenticação/Autorização é desativado. As tarefas de autenticação e autorização ficam inteiramente a cargo do código do aplicativo.
 
-Os comportamentos anteriores são controlados pela **Ação a ser tomada quando a solicitação não for autenticada** no portal do Azure. Se você escolher **Fazer logon com *nome do provedor* **, todas as solicitações terão de ser autenticadas. **Permitir solicitação (nenhuma ação)** adia a decisão de autorização no código, mas ainda fornece informações de autenticação. Se deseja que seu código lide com tudo, é possível desabilitar o recurso Autenticação/Autorização.
+Os comportamentos anteriores são controlados pela **Ação a ser tomada quando a solicitação não for autenticada** no portal do Azure. Se você escolher **Fazer logon com o *nome do provedor***, todas as solicitações terão que ser autenticadas. **Permitir solicitação (nenhuma ação)** adia a decisão de autorização no código, mas ainda fornece informações de autenticação. Se deseja que seu código lide com tudo, é possível desabilitar o recurso Autenticação/Autorização.
 
 ## <a name="working-with-user-identities-in-your-application"></a>Trabalhando com identidades de usuário em seu aplicativo
 O Serviço de Aplicativo transmite algumas informações do usuário para seu aplicativo usando cabeçalhos especiais. As solicitações externas proíbem esses cabeçalhos e só estarão presentes se definidas pela Autenticação/Autorização do Serviço de Aplicativo. Alguns cabeçalhos de exemplo incluem:
@@ -119,7 +119,7 @@ Se você deseja usar um sistema de identidade diferente daqueles fornecidos aqui
 ### <a name="web-applications"></a>Aplicativos Web
 Os tutoriais a seguir mostram como adicionar a autenticação a um aplicativo Web:
 
-* [Introdução ao Serviço de Aplicativo do Azure - Parte 2][web-getstarted]
+* [Introdução ao Serviço de Aplicativo do Azure – Parte 2] [web-getstarted]
 
 ### <a name="mobile-applications"></a>Aplicativos móveis
 Os seguintes tutoriais mostram como adicionar a autenticação aos clientes móveis usando o fluxo direcionado pelo servidor:
@@ -159,8 +159,6 @@ Os tutoriais a seguir mostram como proteger seus aplicativos de API:
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
-
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
 [Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
@@ -180,9 +178,4 @@ Os tutoriais a seguir mostram como proteger seus aplicativos de API:
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -40,7 +40,7 @@ Se estiver **preparando as unidades** para um trabalho de importação, os segui
 * É necessário um computador (o “computador de cópia”) com o Windows 7, Windows Server 2008 R2 ou um sistema operacional Windows mais novo instalado.
 * O .NET Framework 4 deve ser instalado no computador de cópia.
 * O BitLocker deve estar habilitado no computador de cópia.
-* Você precisa de um ou mais discos rígidos SATA de 3,5 polegadas vazios conectados ao computador de cópia.
+* Você precisa de um ou mais discos rígidos SATAII ou III ou SSD de 2,5 ou 3,5 polegadas vazios conectados ao computador de cópia.
 * Os arquivos que você pretende importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou um disco rígido local.
 
 Se estiver tentando **reparar uma importação** com falha parcial, é necessário:
