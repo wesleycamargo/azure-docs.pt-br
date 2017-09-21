@@ -1,12 +1,17 @@
 # Visão geral
 ## [Guia do desenvolvedor](azure-developer-guide.md) 
+### [O que é o Azure?](azure-developer-guide.md#what-is-azure)
+### [Por onde começo?](azure-developer-guide.md#where-do-i-start)
+### [Regiões do Azure](azure-developer-guide.md#azure-regions)
+### [Como fazer para gerenciar meus aplicativos e projetos?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Compreendendo contas, assinaturas e cobrança](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Visão geral dos Serviços do Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Visão geral do portal](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Visão geral dos Serviços do Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Visão geral do portal](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDKs e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Início rápido
-## [Aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Aplicativos Web](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Máquinas virtuais
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Tutoriais
 ## Crie e implante um aplicativo Web
-### [.NET com Banco de Dados SQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js com Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [PHP com MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java com MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET com Banco de Dados SQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js com Mongo DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [PHP com MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java com MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Implantar modelos complexos de VM
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Exemplos
 ## CLI do Azure
-### [Aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Aplicativos Web](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Aplicativos Web](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Conceitos
 ## [Cobrança e assinaturas](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Comparações de hospedagem](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [O que é o Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Comparações de hospedagem](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [O que é o Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Máquinas virtuais
 ### [VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Visão geral do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Guias de como fazer
-## [Plano](https://docs.microsoft.com/azure/architecture/guide/)
+## Plano
 ### [Arquiteturas de aplicativo Web](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Arquiteturas da VM](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Conectar-se a redes locais](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Aplicativos sem servidor](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Cluster de microsserviços](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Implantar
-### [Aplicativos Web e móveis do controle de origem](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Aplicativos Web e móveis do controle de origem](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Microsserviços localmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Filas de mensagens](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Escala
-### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Aplicativos de microsserviços](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Segurança
-### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Máquinas virtuais](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Monitoramento
-### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Aplicativos Web e móveis](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Microsserviços](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Alertas de cobrança](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Automatizar
-### [Desenvolvimento de aplicativos web Agile](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Dimensionar VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Dimensionar VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fedc72f8fe1ada9a991d417cc77b8ca659589f55
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para o acesso condicional no Azure Active Directory
@@ -96,6 +96,99 @@ Em seu ambiente, evite as configurações a seguir:
 **Para todos os usuários, todos os aplicativos de nuvem, todas as plataformas de dispositivo:**
 
 - **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
+
+
+
+## <a name="policy-migration"></a>Migração de política
+
+Se você tiver políticas configuradas no Portal Clássico do Azure, você deverá migrá-las para o Portal do Azure porque:
+
+
+- Um usuário que está em uma política do Portal Clássico do Azure e em uma política do Portal do Azure precisa atender aos requisitos em ambas as políticas 
+
+- Se você não migrar as políticas existentes, não será capaz de implementar políticas que estejam concedendo acesso
+
+
+### <a name="migration-from-the-azure-classic-portal"></a>Migração do Portal Clássico do Azure
+
+Neste cenário: 
+
+- No seu [Portal Clássico do Azure](https://manage.windowsazure.com), você configurou:
+
+    - SharePoint Online
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Uma política de acesso condicional com base em dispositivo
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Você deseja configurar uma política de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure 
+ 
+
+#### <a name="configuration"></a>Configuração 
+
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Adicionar políticas de acesso condicional de gerenciamento de aplicativos móveis
+
+
+### <a name="migrating-from-intune"></a>Migrando do Intune 
+
+Neste cenário:
+
+- No [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), você tem uma política de acesso condicional de gerenciamento de aplicativos móveis para o Exchange Online ou para o SharePoint Online configurada
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Você deseja migrar para o uso de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
+
+
+#### <a name="configuration"></a>Configuração 
+ 
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Examinar as políticas de acesso condicional de gerenciamento de aplicativos móveis configuradas para o Exchange Online ou para o SharePoint Online no Intune
+
+- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrando do Portal Clássico do Azure e do Intune
+
+Neste cenário:
+
+- Você tem os seguintes itens configurados:
+
+    - **Portal Clássico do Azure:** condicional com base no dispositivo 
+
+    - **Intune:** políticas de acesso condicional de gerenciamento de aplicativos móveis 
+    
+- Você deseja migrar ambas as políticas para o uso de políticas de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
+
+
+#### <a name="configuration"></a>Configuração
+
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Examinar a política de acesso condicional de gerenciamento de aplicativos móveis configurada para o Exchange Online ou para o SharePoint Online no Intune
+
+- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
+
+
+
+
+
+
+
+
+
+
 
 
 ## <a name="common-scenarios"></a>Cenários comuns

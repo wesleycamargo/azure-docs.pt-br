@@ -42,6 +42,7 @@
 #### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
+#### [Forneça os termos de uso para usuários e aplicativos](active-directory-tou.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 ### [Adicionar usuários de outros diretórios (portal clássico)](active-directory-create-users-external.md)
 ### [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [Exibir todos os meus aplicativos](active-directory-coreapps-view-azure-portal.md)
 #### [Gerenciar o provisionamento de conta de usuário](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gerenciar logon único para aplicativos corporativos](active-directory-enterprise-apps-manage-sso.md)
+#### [Assinatura de certificados avançada para aplicativos SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 #### [Acesso de autoatendimento](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [Atribuir funções de administrador](active-directory-users-assign-role-azure-portal.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
+
+## Análises de acesso
+### [Visão geral de revisões de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Concluir uma revisão de acesso](active-directory-azure-ad-controls-complete-access-review.md)
+### [Criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md)
+### [Como executar uma análise de acesso](active-directory-azure-ad-controls-perform-access-review.md)
+### [Como analisar seu acesso](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Acesso de convidado com análises de acesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Gerenciando o acesso de usuário com análises](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Gerenciamento de programas e controles](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## Proteger suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)

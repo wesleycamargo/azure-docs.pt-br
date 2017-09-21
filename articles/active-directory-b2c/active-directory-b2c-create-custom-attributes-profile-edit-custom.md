@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Como criar e usar atributos personalizados em uma política e edição de perfil personalizado
@@ -52,7 +52,7 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Criação de um aplicativo novo para armazenar as propriedades de extensão
 
-1. Abra uma sessão de navegação e navegue até o [portal do Azure](https://portal.azure.com) e entre com as credenciais administrativas do diretório do B2C que deseja configurar.
+1. Abra uma sessão de navegação e navegue até o [Portal do Azure](https://portal.azure.com) e entre com as credenciais administrativas do diretório do B2C que deseja configurar.
 1. Clique em **Azure Active Directory** no menu de navegação à esquerda. Talvez seja necessário localizá-lo, para isso, selecione Mais serviços>.
 1. Selecione **Registros de aplicativo** e clique em **Novo registro de aplicativo**
 1. Forneça as seguintes entradas recomendadas:
@@ -62,7 +62,7 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 1. Selecione **Criar. A conclusão bem-sucedida aparece nas **notificações**
 1. Selecione o aplicativo Web criado recentemente: **WebApp-GraphAPI-DirectoryExtensions**
 1. Selecione as configurações: **Permissões necessárias**
-1. Selecione a API **Active Directory do Windows**
+1. Selecione a API **Azure Active Directory do Windows**
 1. Coloque uma marca de seleção em Permissões de Aplicativo: **Ler e gravar dados do diretório** e **Salvar**
 1. Escolha **Conceder permissões** e confirme **Sim**.
 1. Copie para a área de transferência e salve os seguintes identificadores de WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
@@ -235,7 +235,7 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 
 O token de id enviado novamente para o seu aplicativo inclui a propriedade de extensão nova como uma declaração personalizada precedida por extension_loyaltyId. Confira o exemplo.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados. Esses dois TechnicalProfiles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador do objeto de usuário.
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados abaixo. Esses dois TechnicalProfiles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador do objeto de usuário.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

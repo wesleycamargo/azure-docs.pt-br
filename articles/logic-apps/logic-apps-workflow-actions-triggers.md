@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -160,11 +160,11 @@ Aqui estão alguns exemplos de comportamentos diferentes para diferentes tipos d
   
 |Código de resposta|Repetir\-Após|Comportamento|  
 |-----------------|----------------|------------|  
-|200|\(nenhum\)|Não é um gatilho válido, Repetir\-Após é necessário ou o mecanismo nunca irá sondar a próxima solicitação.|  
-|202|60|Não dispara o fluxo de trabalho. A próxima tentativa ocorrerá em um minuto.|  
+|200|\(nenhum\)|Execute o fluxo de trabalho e verifique novamente se há mais conteúdo após a recorrência definida.|  
 |200|10|Execute o fluxo de trabalho e verifique novamente para obter mais conteúdo em 10 segundos.|  
-|400|\(nenhum\)|Solicitação inválida, não execute o fluxo de trabalho. Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Depois do número de repetições ter sido atingido, o gatilho não será mais válido.|  
-|500|\(nenhum\)|Erro do servidor, não execute o fluxo de trabalho.  Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Depois do número de repetições ter sido atingido, o gatilho não será mais válido.|  
+|202|60|Não dispara o fluxo de trabalho. A próxima tentativa ocorre em um minuto, sujeito à recorrência definida. Se a recorrência definida for inferior a um minuto, o cabeçalho retry-after terá precedência. Caso contrário, a recorrência definida será seguida.|  
+|400|\(nenhum\)|Solicitação inválida, não execute o fluxo de trabalho. Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Após a quantidade de novas tentativas, o gatilho buscará novamente o conteúdo após a recorrência definida.|  
+|500|\(nenhum\)|Erro do servidor, não execute o fluxo de trabalho.  Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Após a quantidade de novas tentativas, o gatilho buscará novamente o conteúdo após a recorrência definida.|  
   
 As saídas de um gatilho HTTP são parecidas com este exemplo:  
   

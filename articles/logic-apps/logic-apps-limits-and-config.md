@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>Limites e configuração do Aplicativo Lógico
@@ -113,7 +113,7 @@ A seguir, os limites de definição de um único aplicativo lógico.
 
 ### <a name="integration-account-limits"></a>Limites da conta de integração
 
-A seguir, os limites para artefatos adicionados à conta de integração
+Estes são os limites para os artefatos que podem ser adicionados a uma Conta de Integração.
 
 |Nome|Limite|Observações|
 |----|----|----|
@@ -123,6 +123,21 @@ A seguir, os limites para artefatos adicionados à conta de integração
 |Ponto de extremidade de tempo de execução invoca chamadas por 5 minutos |45,000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
 |Ponto de extremidade do tempo de execução acompanhando chamadas por 5 minutos |45,000|Pode distribuir carga de trabalho entre várias contas conforme necessário|
 |Ponto de extremidade de tempo de execução bloqueando chamadas simultâneas |~1,000|Diminuir o número de solicitações simultâneas ou reduzir a duração conforme necessário|
+
+Estes são os limites no número de artefatos que podem ser adicionados a uma Conta de Integração.
+
+Tipo de preço Gratuito
+
+|Nome|Limite|Observações|
+|----|----|----|
+|Contratos|10||
+|Outros tipos de artefato|25|Os tipos incluem parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos.|
+
+Tipo de preço Standard
+
+|Nome|Limite|Observações|
+|----|----|----|
+|Qualquer tipo de artefato|500|Os tipos incluem contratos, parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos.|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamanho da mensagem dos protocolos B2B (AS2, X12, EDIFACT)
 
