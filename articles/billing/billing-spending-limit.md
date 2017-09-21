@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
@@ -69,7 +69,11 @@ O limite de gastos pode evitar que você implante ou use determinados serviços 
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>Como ativar o limite de gastos após removê-lo?
 
-O limite de gastos somente é ativado automaticamente. Infelizmente, não há nenhuma opção para ativá-lo por conta própria depois que ele é removido. Verifique se você selecionou a opção **Remover limite de gastos para o período de cobrança atual** se você estiver preocupado com o limite não ser ativado novamente.
+Esse recurso está disponível somente quando o limite de gastos foi removido indefinidamente. Altere-o para ativá-lo automaticamente no início do próximo período de cobrança.
+
+1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
+1. Clique na faixa amarela para alterar a opção de limite de gastos.
+1. Escolha **Ativar o limite de gastos no próximo período de cobrança \<start date of billing period\>**
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Como definir o limite de gastos personalizado?
 

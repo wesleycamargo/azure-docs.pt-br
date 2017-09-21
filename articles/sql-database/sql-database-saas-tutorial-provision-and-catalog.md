@@ -1,6 +1,6 @@
 ---
 title: "Provisionar novos locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba como provisionar e catalogar novos locatários no aplicativo SaaS Wingtip"
+description: "Saiba como provisionar e catalogar novos locatários em um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: febf9d9f8a32a95ae61734cc2d3632bb74f6c8f5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Provisionar novos locatários e registrá-los no catálogo
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar e catalogar novos locatários e registrá-los no catálogo
 
 Neste tutorial, você aprenderá sobre os padrões de provisionamento e catálogo de SaaS, e como eles são implementados no aplicativo SaaS Wingtip. Você vai criar e inicializar novos bancos de dados de locatário e os registrará no catálogo de locatários do aplicativo. O catálogo é um banco de dados que mantém o mapeamento entre os vários locatários do aplicativo SaaS e seus dados. O catálogo desempenha uma função importante no direcionamento das solicitações de aplicativo para o banco de dados correto.  
 

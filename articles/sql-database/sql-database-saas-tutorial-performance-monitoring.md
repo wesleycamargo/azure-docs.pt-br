@@ -1,6 +1,6 @@
 ---
 title: "Monitoração do desempenho de vários bancos de dados do Azure SQL em um aplicativo de SaaS multilocatário | Microsoft Docs"
-description: Monitorar e gerenciar o desempenho de bancos de dados e pools no aplicativo SaaS Wingtip do Banco de Dados SQL do Azure
+description: "Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitoração do desempenho do aplicativo de SaaS do Wingtip
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
 Neste tutorial, vários dos principais cenários de gerenciamento de desempenho usados em aplicativos SaaS são explorados. São demonstrados o uso de um gerador de carga para simular a atividade em todos os bancos de dados de locatário, os recursos internos de monitoramento e alertas do Banco de Dados SQL e os pools elásticos.
 

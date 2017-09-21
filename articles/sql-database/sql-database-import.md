@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um arquivo BACPAC para um novo Banco de Dados SQL do Azure
@@ -38,7 +37,7 @@ Quando você precisa importar um banco de dados de um arquivo ou ao migrar de ou
 
 Este artigo fornece instruções para criar um Banco de Dados SQL Azure de um arquivo BACPAC armazenado no Armazenamento de Blobs do Azure usando o [Portal do Azure](https://portal.azure.com). Importar usando o Portal do Azure dá suporte somente à importação de um arquivo BACPAC do Armazenamento de Blobs do Azure.
 
-Para importar um banco de dados usando o Portal do Azure, abra a página do banco de dados e clique em **Importar** na barra de ferramentas. Especifique a conta de armazenamento e o contêiner e selecione o arquivo BACPAC que você deseja importar. Selecione o tamanho do novo banco de dados (normalmente, o mesmo que o de origem) e forneça credenciais do SQL Server de destino.  
+Para importar um banco de dados usando o Portal do Azure, abra a página do servidor ao qual associar o banco de dados e clique em **Importar** na barra de ferramentas. Especifique a conta de armazenamento e o contêiner e selecione o arquivo BACPAC que você deseja importar. Selecione o tamanho do novo banco de dados (normalmente, o mesmo que o de origem) e forneça credenciais do SQL Server de destino.  
 
    ![Importação de banco de dados](./media/sql-database-import/import.png)
 
@@ -63,8 +62,6 @@ Confira o comando SQLPackage a seguir para um script de exemplo sobre como impor
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Um servidor lógico do Banco de Dados SQL do Azure escuta na porta 1433. Se você estiver tentando conectar um servidor lógico do Banco de Dados SQL do Azure de dentro de um firewall corporativo, essa porta deverá estar aberta no firewall corporativo para que você possa conectar-se com êxito.

@@ -13,19 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Associar um locatário do Office 365 a uma assinatura do Azure
-Vincule suas assinaturas do Azure e o Office 365 separadas para que possam acessar o locatário do Office 365 da sua assinatura do Azure. Para vincular suas assinaturas, entre no Azure com a conta de administrador de serviços do Azure, adicione um diretório e adicione as contas organizacionais do Office 365 para o locatário do Azure Active Directory.
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Vincular um locatário do Office 365 a uma assinatura do Azure
+Vincule suas assinaturas do Azure e o Office 365 separadas para que possam acessar o locatário do Office 365 da sua assinatura do Azure. Para vincular suas assinaturas, entre no Azure com a conta de administrador de serviços do Azure, adicione um diretório e adicione as contas corporativas ou de estudante do Office 365 ao locatário do Azure Active Directory.
 
-Se você quiser uma assinatura do Office 365 para usuários na sua instância do Azure Active Directory ou você tiver uma conta do Office 365, mas não uma conta do Azure, consulte [Inscrever-se no Azure com uma conta do Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
+**Deseja mover sua assinatura existente do Azure para sua conta corporativa ou de estudante do Office 365?** Se você se inscreveu no Azure usando uma conta pessoal da Microsoft e deseja usá-la ou entrar com sua conta do Office 365, é altamente recomendável transferir a assinatura. Consulte [Transferir a propriedade de assinatura do Azure para outra conta](billing-subscription-transfer.md). 
+
+**Deseja se inscrever no Azure usando o Office 365?** Consulte [Inscrever-se no Azure com uma conta do Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 * Você deve ter as credenciais do administrador de serviços de assinatura do Azure. Contas de coadministrador não podem realizar algumas das etapas neste artigo. Para alterar o administrador do serviço, veja [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
@@ -92,6 +94,5 @@ Para adicionar um administrador a sua assinatura do Azure, consulte [Adicionar o
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
 
 

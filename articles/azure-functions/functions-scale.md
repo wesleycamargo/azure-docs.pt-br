@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparação de planos de hospedagem do Azure Functions
@@ -56,7 +56,7 @@ O plano de Consumo é o padrão e oferece os seguintes benefícios:
 
 ## <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 
-No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas, em SKUs Basic, Standard e Premium, assim como os Aplicativos Web. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução.
+No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas em SKUs Basic, Standard ou Premium e isoladas, assim como os Aplicativos Web. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução.
 
 Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
@@ -96,7 +96,7 @@ Ao usar o plano de hospedagem de Consumo, os arquivos do código de função sã
 
 ### <a name="runtime-scaling"></a>Escalonamento de tempo de execução
 
-O Azure Functions usa um componente chamado *controlador de escala* para monitorar a taxa de eventos e determinar se deve escalar horizontalmente ou verticalmente. O controlador de escala usa heurística para cada tipo de gatilho. Por exemplo, ao usar um gatilho do armazenamento de Filas do Azure, ele escala com base no tamanho da fila e na idade da mensagem em fila mais antiga.
+O Azure Functions usa um componente chamado *controlador de escala* para monitorar a taxa de eventos e determinar se deve aumentar ou reduzir. O controlador de escala usa heurística para cada tipo de gatilho. Por exemplo, ao usar um gatilho do armazenamento de Filas do Azure, ele escala com base no tamanho da fila e na idade da mensagem em fila mais antiga.
 
 A unidade de escala é o aplicativo de funções. Quando o aplicativo de funções é dimensionado na horizontal, mais recursos são alocados para executar várias instâncias do host do Azure Functions. Em contrapartida, quando a demanda por computação é reduzida, o controlador de escala remove as instâncias do host de função. O número de instâncias é eventualmente reduzido a zero quando nenhuma função está em execução em um aplicativo de funções.
 
@@ -104,9 +104,9 @@ A unidade de escala é o aplicativo de funções. Quando o aplicativo de funçõ
 
 ### <a name="billing-model"></a>Modelo de cobrança
 
-A cobrança do plano de Consumo é descrita detalhadamente na [página de preços do Azure Functions]. O uso é agregado no nível do aplicativo de funções e conta apenas o tempo durante o qual o código de função está em execução. Veja a seguir as unidades de cobrança: 
+A cobrança do plano de Consumo é descrita detalhadamente na [página de preços do Azure Functions]. O uso é agregado no nível do aplicativo de funções e conta apenas o tempo durante o qual o código de função é executado. Veja a seguir as unidades de cobrança: 
 * **Consumo de recursos em GB/s (gigabyte por segundo)**. Calculado como uma combinação do tamanho da memória e o tempo de execução para todas as funções dentro de um aplicativo de Funções. 
 * **Execuções**. Contadas toda vez que uma função é executada em resposta a um evento, disparado por uma associação.
 
-[página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

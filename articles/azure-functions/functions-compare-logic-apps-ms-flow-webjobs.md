@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -83,7 +83,7 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
 | Executar-tipo |disparado, agendado (pelo gatilho de temporizador) |acionado, contínuo, agendado |
 | Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage.md) |[Armazenamento do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Desenvolvimento no navegador |com suporte | sem suporte |
-| Script de janela |experimental |com suporte |
+| Scripts do Windows (.cmd, .bat) |experimental |com suporte |
 | PowerShell |experimental |com suporte |
 | C# |com suporte |com suporte |
 | F# |com suporte |sem suporte |

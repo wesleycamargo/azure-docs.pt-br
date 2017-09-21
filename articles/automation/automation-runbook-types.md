@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6217d47bfed089e372b9bdb3d10310447eaed8d9
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
-A Automação do Azure dá suporte a quatro tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
+
+A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
 
 | Tipo | Descrição |
 |:--- |:--- |
@@ -31,37 +31,45 @@ A Automação do Azure dá suporte a quatro tipos de runbooks descritos brevemen
 | [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks) |Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook de texto com base no script do Windows PowerShell. |
 | [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks) |Runbook de texto com base no Fluxo de Trabalho do Windows PowerShell. |
+| [Python](#python-runbooks) | Runbook de texto com base em Python. |
+| [Bash](#bash-runbooks) | Runbook de texto com base no Bash. |
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
+
 [Gráfico](automation-runbook-types.md#graphical-runbooks) and Gráfico PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  Você pode exportá-los para um arquivo e depois importá-los em outra conta de automação, mas não pode criá-los nem editá-los com outra ferramenta.  Os runbooks gráficos geram código do PowerShell, mas você não pode exibir nem modificar diretamente o código. Os runbooks gráficos não podem ser convertidos em um dos [formatos de texto](automation-runbook-types.md), nem um runbook de texto pode ser convertido em formato gráfico. Runbooks gráficos podem ser convertidos para runbooks de Fluxo de Trabalho Gráfico do PowerShell durante a importação e vice-versa.
 
 ### <a name="advantages"></a>Vantagens
-* Modelo visual de criação para configurar link de inserção  
-* Foco em como os dados fluem no processo  
-* Representar visualmente os processos de gerenciamento  
-* Incluir outros runbooks como runbooks-filho para criar fluxos de trabalho de alto nível  
-* Incentiva a programação modular  
 
+* Modelo visual de criação para configurar link de inserção
+* Foco em como os dados fluem no processo
+* Representar visualmente os processos de gerenciamento
+* Incluir outros runbooks como runbooks-filho para criar fluxos de trabalho de alto nível
+* Incentiva a programação modular
 
 ### <a name="limitations"></a>Limitações
+
 * Não é possível editar um runbook fora do portal do Azure.
 * Pode exigir uma atividade de Código que contenha código do PowerShell para executar lógicas complexas.
 * Não é possível exibir ou editar diretamente o código do PowerShell criado pelo fluxo de trabalho gráfico. Observe que você pode exibir o código criado em todas as atividades de Código.
 
 ## <a name="powershell-runbooks"></a>Runbooks do PowerShell
+
 Os runbooks do PowerShell se baseiam no Windows PowerShell.  Você edita o código do runbook diretamente usando o editor de texto do portal do Azure.  Também é possível usar qualquer editor de texto offline e [importar o runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) na Automação do Azure.
 
 ### <a name="advantages"></a>Vantagens
+
 * Implemente toda a lógica complexa com o código do PowerShell sem as complexidades adicionais do Fluxo de Trabalho do PowerShell. 
 * O runbook inicia mais rapidamente do que os runbooks do Fluxo de Trabalho do PowerShell, uma vez que não precisa ser compilado antes da execução.
 
 ### <a name="limitations"></a>Limitações
+
 * Exige familiarização com a criação de script do PowerShell.
 * Não é possível usar o [processamento paralelo](automation-powershell-workflow.md#parallel-processing) para executar várias ações paralelamente.
 * Não é possível usar os [pontos de verificação](automation-powershell-workflow.md#checkpoints) para retomar o runbook em caso de erro.
 * Os runbooks de Fluxo de Trabalho e Gráficos do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
 
 ### <a name="known-issues"></a>Problemas conhecidos
+
 Veja a seguir problemas conhecidos atuais com os runbooks do PowerShell.
 
 * Os runbooks do PowerShell não podem recuperar um [ativo variável](automation-variables.md) não criptografado com um valor nulo.
@@ -70,19 +78,32 @@ Veja a seguir problemas conhecidos atuais com os runbooks do PowerShell.
 * Um runbook do PowerShell poderá falhar se tentar gravar uma grande quantidade de dados no fluxo de saída de uma vez.   Geralmente, você pode contornar esse problema emitindo apenas as informações que precisa ao trabalhar com objetos grandes.  Por exemplo, em vez de produzir algo como *Get-Process*, você pode exibir apenas os campos obrigatórios com *Get-Process | Selecionar ProcessName, CPU*.
 
 ## <a name="powershell-workflow-runbooks"></a>Runbooks do Fluxo de Trabalho do PowerShell
+
 Os runbooks do Fluxo de Trabalho do PowerShell são runbooks de texto baseados no [Fluxo de Trabalho do Windows PowerShell](automation-powershell-workflow.md).  Você edita o código do runbook diretamente usando o editor de texto do portal do Azure.  Também é possível usar qualquer editor de texto offline e [importar o runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) na Automação do Azure.
 
 ### <a name="advantages"></a>Vantagens
+
 * Implemente toda a lógica complexa com o código do Fluxo de Trabalho do PowerShell.
 * Use os [pontos de verificação](automation-powershell-workflow.md#checkpoints) para retomar o runbook em caso de erro.
 * Use o [processamento paralelo](automation-powershell-workflow.md#parallel-processing) para executar várias ações paralelamente.
 * Pode incluir runbooks Gráficos e runbooks de Fluxo de Trabalho do PowerShell como runbooks filho para criar fluxos de trabalho de alto nível.
 
 ### <a name="limitations"></a>Limitações
+
 * O autor deve estar familiarizado com o Fluxo de Trabalho do PowerShell.
 * O runbook deve lidar com a complexidade adicional do Fluxo de Trabalho do PowerShell, como [objetos desserializados](automation-powershell-workflow.md#code-changes).
 * O runbook demora mais para iniciar do que os runbooks do PowerShell pois precisa ser compilado antes da execução.
 * Os runbooks do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
+
+## <a name="python-runbooks"></a>Runbooks Python
+
+Os runbooks em Python são runbooks de texto baseados na linguagem de script Python. A Automação do Azure oferece suporte aos runbooks em Python 2 e Python 3.
+Para obter mais informações sobre Python, acesse [https://www.python.org/](https://www.python.org/).
+Para obter um exemplo de runbook em Python, consulte [Meu primeiro runbook em Python na Automação do Azure](automation-first-runbook-textual-python2.md).
+
+## <a name="bash-runbooks"></a>Runbooks do Bash
+
+Os runbooks do Bash são runbooks de texto baseados no shell Bash do GNU. Para obter informações sobre o Bash, acesse [https://www.gnu.org/software/bash/](https://www.gnu.org/software/bash/).
 
 ## <a name="considerations"></a>Considerações
 Você deve levar em conta as considerações adicionais a seguir ao determinar qual tipo usar para um runbook específico.

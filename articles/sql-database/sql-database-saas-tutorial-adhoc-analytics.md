@@ -1,11 +1,11 @@
 ---
 title: "Executar consultas de análise ad hoc entre vários bancos de dados Azure SQL | Microsoft Docs"
-description: "Execute consultas de análise ad hoc em vários bancos de dados SQL no aplicativo SaaS Wingtip multilocatário."
+description: "Execute consultas de análise ad hoc em vários bancos de dados SQL em um aplicativo de exemplo multilocatário."
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,17 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c287fe5d6b333c749b0580b5253e7e46ac27232b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a27a65627fecf35b59122110250a40c6fe8077b5
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="run-ad-hoc-analytics-queries-across-all-wingtip-saas-tenants"></a>Executar consultas de análise ad hoc em todos os locatários SaaS Wingtip
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc entre vários bancos de dados SQL do Azure
 
-Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados locatários para habilitar análises ad-hoc. A Consulta Elástica é usada para habilitar consultas distribuídas, o que exige que um banco de dados de análise adicional seja implantado (para o servidor de catálogo). Essas consultas podem extrair informações escondidas nos dados operacionais diários do aplicativo de SaaS do Wingtip.
+Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados multilocatários para habilitar análises ad hoc. A Consulta Elástica é usada para habilitar consultas distribuídas, o que exige que um banco de dados de análise adicional seja implantado (para o servidor de catálogo). Essas consultas podem extrair informações escondidas nos dados operacionais diários do aplicativo de SaaS do Wingtip.
 
 
 Neste tutorial, você aprende:
@@ -48,11 +47,11 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="ad-hoc-analytics-pattern"></a>Padrão de análise ad hoc
 
-Uma das ótimas oportunidades com aplicativos SaaS é usar a grande quantidade de dados do locatário armazenados centralmente na nuvem. Use esses dados para obter informações sobre a operação e o uso de aplicativos, locatários, usuários, suas preferências, comportamentos etc. Essas informações podem guiar o desenvolvimento do recurso, aprimoramentos de usabilidade e outros investimentos no aplicativo e nos serviços.
+Uma das ótimas oportunidades com aplicativos SaaS é usar a grande quantidade de dados do locatário armazenados centralmente na nuvem. Use esses dados para obter informações sobre a operação e o uso do aplicativo. Essas informações podem guiar o desenvolvimento do recurso, aprimoramentos de usabilidade e outros investimentos no aplicativo e nos serviços.
 
 É fácil acessar esses dados em um único banco de dados multilocatário, mas não tão fácil quando são distribuídos em escala por, potencialmente, milhares de bancos de dados. Uma abordagem é usar a [Consulta Elástica](sql-database-elastic-query-overview.md), que permite consultas ad hoc em um conjunto distribuído de bancos de dados com esquema comum. A Consulta Elástica usa um único banco de dados *principal* no qual as tabelas externas são definidas que espelham tabelas ou modos de exibição nos bancos de dados distribuídos (de locatário). As consultas enviadas ao banco de dados principal são compiladas para produzir um plano de consulta distribuído, com partes da consulta propagadas para os bancos de dados de locatário, conforme necessário. As Consulta Elásticas usam o mapa de fragmento no banco de dados de catálogo para fornecer o local dos bancos de dados de locatário. A instalação e a consulta são diretas usando o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) padrão e dá suporte para consultas ad hoc de ferramentas, como o Power BI e o Excel.
 
-Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elástica fornece ideias imediatas sobre dados de produção em tempo real. No entanto, como a Consulta Elástica extrai dados possivelmente de vários bancos de dados, a latência da consulta, às vezes, pode ser maior que para consultas equivalentes enviadas para um único banco de dados de vários locatários. Tenha cuidado ao criar consultas para minimizar os dados que são retornados. A Consulta Elástica é geralmente mais adequada para consultar pequenas quantidades de dados em tempo real, em vez de criar consultas ou relatórios de análise complexos ou usados com frequência. Se as consultas não tiverem um bom desempenho, examine o [plano de execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qual parte da consulta foi propagada para o banco de dados remoto e a quantidade de dados sendo retornada. Consultas que exigem processamento analítico complexo podem ser melhor atendidas em alguns casos extraindo dados de locatário em um banco de dados dedicado ou data warehouse otimizado para consultas de análise. Esse padrão é explicado no [tutorial de análise de locatário](sql-database-saas-tutorial-tenant-analytics.md). 
+Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elástica fornece ideias imediatas sobre dados de produção em tempo real. No entanto, como a Consulta Elástica extrai dados possivelmente de vários bancos de dados, a latência da consulta, às vezes, pode ser maior que para consultas equivalentes enviadas para um único banco de dados de vários locatários. Certifique-se de criar consultas para minimizar os dados retornados. A Consulta Elástica é geralmente mais adequada para consultar pequenas quantidades de dados em tempo real, em vez de criar consultas ou relatórios de análise complexos ou usados com frequência. Se as consultas não tiverem um bom desempenho, examine o [plano de execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qual parte da consulta foi propagada para o banco de dados remoto e a quantidade de dados sendo retornada. Consultas que exigem processamento analítico complexo podem ser melhor atendidas em alguns casos extraindo dados de locatário em um banco de dados dedicado ou data warehouse otimizado para consultas de análise. Esse padrão é explicado no [tutorial de análise de locatário](sql-database-saas-tutorial-tenant-analytics.md). 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
 
@@ -64,13 +63,13 @@ Para executar consultas em um conjunto de dados mais interessante, crie dados de
 
 1. No *ISE do PowerShell*, abra o script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* e defina os seguintes valores:
    * **$DemoScenario** = 1, **Comprar ingressos de eventos em todos os locais**.
-2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas distribuídas ad hoc*, portanto, aguarde o gerador de ingressos ser concluído se ele ainda estiver em execução quando chegar a esse exercício.
+2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas distribuídas ad hoc*, portanto, aguarde o gerador de ingressos ser concluído.
 
 ## <a name="explore-the-global-views"></a>Explore as exibições globais
 
 O aplicativo SaaS Wingtip é criado usando um modelo de locatário por banco de dados e, por isso, o esquema de banco de dados do locatário é definido de uma perspectiva de locatário único. As informações específicas do locatário existem em uma tabela, *Local*, que sempre tem uma única linha e é implementada como um heap, sem uma chave primária. As outras tabelas no esquema não precisam estar relacionadas com a tabela *Local* porque, em condições normais, nunca existe dúvida sobre a qual locatário pertencem os dados.
 
-No entanto, ao consultar em todos os bancos de dados, é importante que a Consulta Elástica possa tratar os dados como se fizessem parte de um único banco de dados lógico fragmentado por locatário. Para fazer isso, um conjunto de exibições 'globais' é adicionado ao banco de dados do locatário que projeta uma ID de locatário em cada uma das tabelas consultadas globalmente. Por exemplo, a exibição *VenueEvents* adiciona uma *VenueId* computada às colunas projetadas da tabela *Eventos*. Ao definir a tabela externa no banco de dados principal em *VenueEvents* (em vez da tabela *Eventos* subjacente), A Consulta Elástica é capaz de enviar por push junções com base em *VenueId* para que elas possam ser executadas em paralelo em cada banco de dados remoto (e não no banco de dados principal). Isso reduz significativamente a quantidade de dados retornada, o que resulta em um aumento significativo no desempenho para várias consultas. Essas exibições globais foram pré-criadas em todos os bancos de dados de locatário (e em *basetenantdb*).
+No entanto, ao consultar em todos os bancos de dados, é importante que a Consulta Elástica possa tratar os dados como se fizessem parte de um único banco de dados lógico fragmentado por locatário. Para simular este padrão, um conjunto de exibições 'globais' é adicionado ao banco de dados do locatário que projeta uma ID de locatário em cada uma das tabelas consultadas globalmente. Por exemplo, a exibição *VenueEvents* adiciona uma *VenueId* computada às colunas projetadas da tabela *Eventos*. Ao definir a tabela externa no banco de dados principal em *VenueEvents* (em vez da tabela *Eventos* subjacente), A Consulta Elástica é capaz de enviar por push junções com base em *VenueId* para que elas possam ser executadas em paralelo em cada banco de dados remoto (e não no banco de dados principal). Isso reduz significativamente a quantidade de dados retornada, o que resulta em um aumento significativo no desempenho para várias consultas. Essas exibições globais foram pré-criadas em todos os bancos de dados de locatário (e em *basetenantdb*).
 
 1. Abra o SSMS e [conecte-se ao servidor tenants1 -&lt;USER&gt;](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expanda **Bancos de Dados**, clique com botão direito do mouse em **contosoconcerthall**e selecione **Nova Consulta**.
@@ -105,7 +104,7 @@ Gere o script de qualquer uma das outras exibições *Local* para ver como elas 
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implantar o banco de dados usado para consultas distribuídas ad hoc
 
-Neste exercício implanta o banco de dados *adhocanalytics*. Esse é o banco de dados principal que conterá o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
+Neste exercício implanta o banco de dados *adhocanalytics*. Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
 1. Abra... \\Módulos de Aprendizado\\Análise Operacional\\Análise Adhoc\\*Demo-AdhocAnalytics.ps1* no *PowerShell ISE* e defina os seguintes valores:
    * **$DemoScenario** = 2, **Implantar banco de dados de análise Ad hoc**.
@@ -118,7 +117,7 @@ Na próxima seção, você adiciona o esquema ao banco de dados para que ele pos
 
 Este exercício adiciona o esquema (a fonte de dados externa e as definições de tabela externa) ao banco de dados de análise ad hoc que habilita a consulta em todos os bancos de dados de locatário.
 
-1. Abra o SQL Server Management Studio e conecte-se ao banco de dados de Análise Ad hoc criado na etapa anterior. O nome do banco de dados será adhocanalytics.
+1. Abra o SQL Server Management Studio e conecte-se ao banco de dados de Análise Ad hoc criado na etapa anterior. O nome do banco de dados é *adhocanalytics*.
 2. Abra ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* no SSMS.
 3. Examine o script SQL e observe o seguinte:
 

@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
@@ -188,7 +188,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 5. Clique em **Salvar**.
 
 > [!IMPORTANT]
-> Se desejar personalizar os eventos auditados, você pode fazer isso por meio do PowerShell ou API REST. Consulte a seção [Automação (PowerShell/API REST)](sql-database-auditing.md#subheading-7) para obter mais detalhes.
+> Se desejar personalizar os eventos auditados, será possível fazer isso por meio do PowerShell ou da API REST – consulte [Auditoria do banco de dados SQL](sql-database-auditing.md) para obter mais detalhes.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitar a detecção de ameaças do Banco de Dados SQL

@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming do Apache Spark: processe dados de Hubs de Eventos do Azure com o cluster Spark no HDInsight
@@ -254,7 +254,7 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
    1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.      
        
        ![Exemplo de streaming do Apache Spark – Criar JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Exemplo de streaming do Apache Spark – Criar JAR")
-   2. Na caixa de diálogo **Criar JAR de Módulos,** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.
+   2. Na caixa de diálogo **Criar JAR de Módulos, **clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.
    3. Na caixa de diálogo **Selecionar Classe Principal**, selecione qualquer uma das classes disponíveis e clique em **OK**.
       
        ![Exemplo de streaming do Apache Spark – selecionar classe para jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Exemplo de streaming do Apache Spark – selecionar classe para jar")
@@ -367,17 +367,7 @@ Os parâmetros no arquivo **inputHive.txt** são definidos da seguinte maneira:
 
 Os parâmetros são semelhantes aos especificados para a saída de texto nas etapas anteriores. Novamente, você não precisa criar as pastas de saída (EventCheckpoint, EventCount/EventCount10) ou a tabela do Hive de saída (EventHiveTable10) usadas como parâmetros. O aplicativo de streaming cria para você. Observe que a opção **jars** e **arquivos** inclui caminhos para os arquivos .jar e o hive-site.xml copiados para a conta de armazenamento.
 
-Para verificar se a tabela de hive foi criada com êxito, é possível executar SSH no cluster e executar consultas de Hive. Para obter instruções, consulte [usar o Hive com Hadoop no HDInsight com SSH](hdinsight-hadoop-use-hive-ssh.md). Quando você estiver conectado usando SSH, poderá executar o comando a seguir para verificar se a tabela de Hive, **EventHiveTable10**, é criada.
-
-    show tables;
-
-Você deverá ver um resultado semelhante ao seguinte:
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-Você também pode executar uma consulta SELECT para exibir o conteúdo da tabela.
+Para verificar se a tabela de hive foi criada com êxito, use a [exibição do Hive do Ambari](hdinsight-hadoop-use-hive-ambari-view.md). Também é possível executar uma consulta SELECT lá para exibir o conteúdo da tabela.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 

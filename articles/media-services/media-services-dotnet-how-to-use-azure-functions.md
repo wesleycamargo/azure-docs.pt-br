@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
@@ -32,10 +32,6 @@ Se você quiser explorar e implantar as Azure Functions existentes que usam o Se
 - Antes de criar sua primeira função, você precisará ter uma conta ativa do Azure. Se você ainda não tiver uma conta do Azure, [há contas gratuitas disponíveis](https://azure.microsoft.com/free/).
 - Se você pretende criar Azure Functions que executam ações em sua conta do AMS (Serviços de Mídia do Azure) ou escutar eventos enviados pelos Serviços de Mídia, crie uma conta do AMS conforme descrito [aqui](media-services-portal-create-account.md).
     
-## <a name="considerations"></a>Considerações
-
--  O Azure Functions em execução no plano de Consumo atingiu o tempo limite de 5 minutos.
-
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
 1. Vá para o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
@@ -47,10 +43,6 @@ Se você quiser explorar e implantar as Azure Functions existentes que usam o Se
 ## <a name="configure-function-app-settings"></a>Definir configurações do aplicativo de funções
 
 Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis de ambiente que serão usadas em todas as funções. Para definir as configurações de aplicativo, clique no link Definir configurações de aplicativo. Para obter mais informações, consulte [Como definir configurações de aplicativo de uma Azure Function](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
-
-Por exemplo:
-
-![Configurações](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 A função, definida neste artigo, pressupõe que você tenha as seguintes variáveis de ambiente nas configurações do aplicativo:
 
@@ -344,6 +336,9 @@ Para testar a função, você precisa carregar um arquivo MP4 no contêiner **in
 2. Clique em **Blobs**.
 3. Clique em **+ Contêiner**. Nomeie o contêiner **entrada**.
 4. Pressione **Carregar** e navegue até um arquivo .mp4 que você deseja carregar.
+
+>[!NOTE]
+> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para obter mais informações, consulte [Gatilhos e associações de armazenamento de blobs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## <a name="next-steps"></a>Próximas etapas
 
