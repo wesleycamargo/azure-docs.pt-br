@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integração do Azure Active Directory com o Netsuite
@@ -115,7 +114,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > Esse valor não é o valor real. Atualize o valor com a URL de Resposta real. Contate a [equipe de suporte do Netsuite](http://www.netsuite.com/portal/services/support.shtml) para obter esse valor.
+    > Esses não são valores reais. Atualize esses valores com a URL de Resposta real. Contate a [equipe de suporte do Netsuite](http://www.netsuite.com/portal/services/support.shtml) para obter esses valores.
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
@@ -161,7 +160,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. Para o campo **Nome do Atributo**, digite `account`. No campo **Valor do Atributo**, digite sua ID de conta do Netsuite. Esse valor é constante e muda com a conta. Instruções sobre como localizar a ID de conta estão abaixo:
+13. Para o campo **Nome do Atributo**, digite `account`. Para o campo **Valor do Atributo** , digite a ID de conta do NetSuite. Esse valor é constante e muda com a conta. Instruções sobre como localizar a ID de conta estão abaixo:
 
       ![Configurar Logon Único](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 

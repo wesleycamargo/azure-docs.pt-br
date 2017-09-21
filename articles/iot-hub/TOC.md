@@ -32,13 +32,14 @@
 ##### [Configurar a NUC Intel como um gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Conectar o gateway ao Hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Usar o gateway para conversão de dados](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Cenários de IoT estendidos
 ### [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 ### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-### [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Previsão do tempo usando o Aprendizado de Máquina do Azure](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Carregar arquivos de dispositivos](iot-hub-csharp-csharp-file-upload.md)
+### [Carregar arquivos de dispositivos]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Introdução a dispositivos gêmeos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Introdução ao gerenciamento de dispositivos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Dispositivo do .NET/back-end do .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Dispositivo Java/Back-end de Java](iot-hub-java-java-device-management-getstarted.md)
 ### Como usar propriedades gêmeas
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Dispositivo do .NET/back-end do .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Dispositivo Java/Back-end de Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Usar trabalhos do dispositivo para atualizar o firmware do dispositivo
 #### [Back-end do Nó/Dispositivo do Nó](iot-hub-node-node-firmware-update.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-firmware-update.md)
