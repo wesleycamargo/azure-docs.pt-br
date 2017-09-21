@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -238,7 +238,13 @@ Suponhamos ainda que esse índice contém os quatro documentos a seguir:
 
 Para entender a recuperação, é útil conhecer algumas noções básicas sobre indexação. A unidade de armazenamento é um índice invertido, um para cada campo pesquisável. Dentro de um índice invertido está uma lista classificada de todos os termos de todos os documentos. Cada termo é mapeado para a lista de documentos nos quais ele ocorre, tão evidente no exemplo a seguir.
 
-Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa a análise léxica do o conteúdo dos documentos, de forma semelhante ao que acontece durante o processamento da consulta. As entradas de texto são passadas para um analisador, em letras minúsculas, sem pontuação e assim por diante, dependendo da configuração do analisador. É comum, mas não obrigatório, usar os mesmo analisadores para operações de indexação para que os termos da consulta pareçam mais com os termos dentro do índice.
+Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa a análise léxica do o conteúdo dos documentos, de forma semelhante ao que acontece durante o processamento da consulta:
+
+1. As *entradas de texto* são passadas para um analisador, em letras minúsculas, sem pontuação e assim por diante, dependendo da configuração do analisador. 
+2. *Tokens* são a saída da análise de texto.
+3. *Termos* são adicionados ao índice.
+
+É comum, mas não obrigatório, usar os mesmo analisadores para operações de indexação para que os termos da consulta pareçam mais com os termos dentro do índice.
 
 > [!Note]
 > O Azure Search permite especificar diferentes analisadores para indexação e pesquisa através dos parâmetros de campo adicionais `indexAnalyzer` e `searchAnalyzer`. Se não forem especificados, o analisador definido com a propriedade `analyzer` é usado para indexação e pesquisa.  

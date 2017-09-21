@@ -1,6 +1,6 @@
 ---
-title: "Acesso condicional com gerenciamento de aplicativo móvel no Azure Active Directory | Microsoft Docs"
-description: "Saiba como o acesso condicional com gerenciamento de aplicativo móvel no Azure Active Directory funciona."
+title: Acesso condicional com base no aplicativo do Azure Active Directory | Microsoft Docs
+description: Saiba como funciona o acesso condicional com base no aplicativo do Azure Active Directory.
 services: active-directory
 keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
 documentationcenter: 
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: c6bc39dc151c80ffe1306464da60a029e54cc6b1
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="conditional-access-with-mobile-app-management-in-azure-active-directory"></a>Acesso condicional com gerenciamento de aplicativo móvel no Azure Active Directory  
+# <a name="azure-active-directory-app-based-conditional-access"></a>Acesso condicional baseado em aplicativo do Azure Active Directory  
 
-O acesso condicional baseado em aplicativo do Azure AD (Azure Active Directory) no Portal do Azure, combinado com as políticas de proteção de aplicativo do Intune, ajudam a restringir o acesso de aplicativos de nuvem a aplicativos móveis que dão suporte à proteção de aplicativo do Intune, por exemplo, restringindo o acesso do aplicativo Outlook ao Exchange Online. Esse suporte permite que os dispositivos que não estão registrados para gerenciamento pelo Intune MDM ainda protejam os dados da empresa.   
+Os funcionários usam dispositivos móveis para tarefas de pessoais e corporativas. Ao mesmo tempo que garante que seus funcionários sejam produtivos, você também quer impedir a perda de dados. Com o acesso condicional com base no aplicativo do Azure Active Directory (Azure AD), você pode restringir o acesso aos seus aplicativos de nuvem a aplicativos cliente que possam proteger seus dados corporativos.  
 
-O acesso condicional do gerenciamento de aplicativo móvel permite que você combine com outras políticas, tais como políticas de acesso condicional baseadas no dispositivo, para fornecer flexibilidade no modo de proteger os dados, tanto para dispositivos pessoais quanto corporativos. 
+Este tópico explica como configurar o acesso condicional com base no aplicativo do Azure AD.
+
+## <a name="overview"></a>Visão geral
+
+Com o [acesso condicional do Azure AD](active-directory-conditional-access-azure-portal.md), você pode ajustar como os usuários autorizados podem acessar seus recursos. Por exemplo, você pode limitar o acesso aos seus aplicativos de nuvem a dispositivos confiáveis.
+
+Você pode usar [políticas de proteção do aplicativo Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da empresa. As políticas de proteção do aplicativo Intune não exigem a solução de gerenciamento de dispositivo móvel (MDM), que permite que você proteja os dados da sua empresa com ou sem registro de dispositivos em uma solução de gerenciamento de dispositivos.
+
+O acesso condicional baseado em aplicativo do Azure Active Directory permite que você limite o acesso a seus aplicativos de nuvem compatíveis com as políticas de proteção do aplicativo Intune. Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook.
+
+Na terminologia de acesso condicional, esses aplicativos cliente são conhecidos como **aplicativos cliente aprovados**.  
+
+
+![Acesso condicional](./media/active-directory-conditional-access-mam/05.png)
+
+
+Para obter uma lista de aplicativos cliente aprovada, veja [requisito de aplicativo cliente aprovado](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+Você pode combinar políticas de acesso condicional baseado em aplicaitvos com outras políticas, como as [políticas de acesso condicional baseado em dispositivo](active-directory-conditional-access-policy-connected-applications.md) para fornecer flexibilidade na forma de proteger dados para os dispositivos pessoais e corporativos.
+
+ 
+
 
 ##<a name="before-you-begin"></a>Antes de começar
 
 Este tópico pressupõe que você esteja familiarizado com:
 
+- A referência técnica do [requisito de aplicativo cliente aprovado](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
 - Os conceitos básicos do [acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - Como [configurar uma política de acesso condicional](active-directory-conditional-access-azure-portal-get-started.md).
 
-
-Além disso, talvez você queira examinar as [Práticas recomendadas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md).  
-
-
+- A [migração das políticas de acesso condicional](active-directory-conditional-access-best-practices.md#policy-migration).
+ 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1.  Antes de criar uma política de acesso condicional com base no aplicativo, você deve ter uma assinatura Premium do Azure Active Directory ou do Enterprise Mobility + Security, e os usuários devem ser licenciados para o EMS ou Azure AD. 
-2.  Antes de criar um novo acesso condicional com a política de gerenciamento de aplicativo móvel, você deve examinar os cenários e as considerações de migração
-
-## <a name="supported-platforms"></a>Plataformas com suporte
-
--   iOS
-
--   Android
-
-## <a name="approved-client-applications"></a>Aplicativos do cliente aprovados 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Equipes da Microsoft
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+Antes de criar uma política de acesso condicional com base no aplicativo, você deve ter uma assinatura Premium do Azure Active Directory ou do Enterprise Mobility + Security, e os usuários devem ser licenciados para o EMS ou o Azure AD. 
 
 
 ## <a name="exchange-online-policy"></a>Política do Exchange Online 
 
-Este cenário consiste em um acesso condicional com política de gerenciamento de aplicativo móvel para acesso ao Exchange Online com aplicativos aprovados.
+Este cenário consiste em uma política de acesso condicional com base no aplicativo para acesso ao Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Guia estratégico do cenário
@@ -246,9 +246,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 Para obter mais informações, consulte [Proteger aplicativos e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-## <a name="mobile-application-management-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Gerenciamento de aplicativos móveis ou política de dispositivo em conformidade para o Exchange Online e SharePoint Online
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Política de dispositivo compatível ou com base no aplicativo para o Exchange Online e o SharePoint Online
 
-Este cenário consiste em um acesso condicional com política de gerenciamento de aplicativo móvel ou política de dispositivo em conformidade para acesso ao Exchange Online com aplicativos aprovados.
+Este cenário consiste em uma política de acesso condicional de dispositivo compatível ou com base no aplicativo para obter acesso ao Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Guia estratégico do cenário
@@ -338,9 +338,10 @@ Para obter mais informações, consulte [Proteger aplicativos e dados com o Micr
 
 
 
-## <a name="mobile-application-management-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Gerenciamento de aplicativos móveis e política de dispositivo em conformidade para o Exchange Online e SharePoint Online
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Política de dispositivo compatível e com base no aplicativo para o Exchange Online e o SharePoint Online
 
-Este cenário consiste em um acesso condicional com política de gerenciamento de aplicativo móvel e política de dispositivo em conformidade para acesso ao Exchange Online com aplicativos aprovados.
+Este cenário consiste em uma política de acesso condicional de dispositivo compatível e com base no aplicativo para obter acesso ao Exchange Online.
+
 
 ### <a name="scenario-playbook"></a>Guia estratégico do cenário
 
@@ -436,87 +437,6 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 Para obter mais informações, consulte [Proteger aplicativos e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-
-## <a name="migration-considerations"></a>Considerações sobre a migração
-
-Se você tiver políticas configuradas no Portal Clássico do Azure, você deverá migrá-las para o Portal do Azure porque:
-
-
-- Um usuário que está em uma política do Portal Clássico do Azure e em uma política do Portal do Azure precisa atender aos requisitos em ambas as políticas 
-
-- Se você não migrar as políticas existentes, não será capaz de implementar políticas que estejam concedendo acesso
-
-
-## <a name="migration-from-the-azure-classic-portal"></a>Migração do Portal Clássico do Azure
-
-Neste cenário: 
-
-- No seu [Portal Clássico do Azure](https://manage.windowsazure.com), você configurou:
-
-    - SharePoint Online
-
-    ![Acesso condicional](./media/active-directory-conditional-access-mam/14.png)
-
-    - Uma política de acesso condicional com base em dispositivo
-
-    ![Acesso condicional](./media/active-directory-conditional-access-mam/15.png)
-
-- Você deseja configurar uma política de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure 
- 
-
-### <a name="configuration"></a>Configuração 
-
-- Examinar as políticas de acesso condicional com base no dispositivo
-
-- Migrá-las para o Portal do Azure 
-
-- Adicionar políticas de acesso condicional de gerenciamento de aplicativos móveis
-
-
-## <a name="migrating-from-intune"></a>Migrando do Intune 
-
-Neste cenário:
-
-- No [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), você tem uma política de acesso condicional de gerenciamento de aplicativos móveis para o Exchange Online ou para o SharePoint Online configurada
-
-    ![Acesso condicional](./media/active-directory-conditional-access-mam/15.png)
-
-- Você deseja migrar para o uso de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
-
-
-### <a name="configuration"></a>Configuração 
- 
-- Examinar as políticas de acesso condicional com base no dispositivo
-
-- Migrá-las para o Portal do Azure 
-
-- Examinar as políticas de acesso condicional de gerenciamento de aplicativos móveis configuradas para o Exchange Online ou para o SharePoint Online no Intune
-
-- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
- 
-
-## <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrando do Portal Clássico do Azure e do Intune
-
-Neste cenário:
-
-- Você tem os seguintes itens configurados:
-
-    - **Portal Clássico do Azure:** condicional com base no dispositivo 
-
-    - **Intune:** políticas de acesso condicional de gerenciamento de aplicativos móveis 
-    
-- Você deseja migrar ambas as políticas para o uso de políticas de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
-
-
-### <a name="configuration"></a>Configuração
-
-- Examinar as políticas de acesso condicional com base no dispositivo
-
-- Migrá-las para o Portal do Azure 
-
-- Examinar a política de acesso condicional de gerenciamento de aplicativos móveis configurada para o Exchange Online ou para o SharePoint Online no Intune
-
-- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
 
 
 

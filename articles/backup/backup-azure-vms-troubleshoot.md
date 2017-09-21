@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
@@ -31,9 +31,13 @@ ms.lasthandoff: 09/05/2017
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
 
 ## <a name="backup"></a>Backup
+
+## <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erro: Não há suporte para a Configuração de Disco especificada
+
+Atualmente, o Backup do Azure não dá suporte a tamanhos de disco maiores que 1.023 GB. Certifique-se de que os tamanhos de disco são menores do que o limite dividindo os discos. Para dividir os discos, você precisa copiar dados de discos maiores do que 1.023 GB para discos recém-criados de tamanho menor que 1.023 GB.
+
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
-| A configuração de disco especificada não tem suporte. Acesse http://go.microsoft.com/fwlink/?LinkId=808978 para resolver os alertas ou contate o suporte da Microsoft para obter assistência.| Atualmente, o Backup do Azure não dá suporte a tamanhos de disco maiores que 1.023 GB. Certifique-se de que os tamanhos de disco são menores do que o limite dividindo os discos. Para dividir os discos, você precisa copiar dados de discos maiores do que 1.023 GB para discos recém-criados de tamanho menor que 1.023 GB. |
 | Não foi possível executar a operação, pois a VM não existe mais. - Pare a proteção da máquina virtual sem excluir os dados de backup. Mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual – verifique se a VM tem acesso à rede. Para que o instantâneo seja bem-sucedido, coloque os intervalos de IP do data center do Azure na lista de permissões ou configure um servidor proxy para acesso à rede. Para obter mais detalhes, consulte http://go.microsoft.com/fwlink/?LinkId=800034. Se já estiver usando um servidor proxy, verifique se as configurações dele foram definidas corretamente | Este erro é gerado quando você nega a conectividade com a Internet de saída na máquina virtual. A conectividade com a Internet é necessária para que a extensão de instantâneo da VM faça um instantâneo dos discos subjacentes da máquina virtual. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) sobre como resolver falhas de instantâneo decorrentes do acesso à rede bloqueado. |
 | O agente de VM não consegue se comunicar com o Serviço de Backup do Azure. - Verifique se a VM tem conectividade com a rede e se o agente da VM está em execução e é o mais recente. Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkId=800034 |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre depuração de problemas de instantâneo de VM.<br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes, um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado defeituoso". |

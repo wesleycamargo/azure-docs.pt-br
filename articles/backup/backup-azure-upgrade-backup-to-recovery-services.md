@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
@@ -42,7 +42,7 @@ Consulte as referências de cmdlets do PowerShell para o [Modelo de implantaçã
 
 Verifique os problemas a seguir antes de atualizar seus cofres de Backup para os cofres do serviço de recuperação.
 
-- **Versão mínima do agente**: para atualizar seu cofre, verifique se o agente do MARS (Serviços de Recuperação do Microsoft Azure) é pelo menos a versão 2.0.9070.0. Se o agente do MARS for mais antigo que 2.0.9070.0, atualize o agente antes de iniciar o processo de atualização.
+- **Versão mínima do agente**: Para atualizar seu cofre, verifique se o agente de Serviços de Recuperação do Microsoft Azure (MARS) é pelo menos a versão 2.0.9083.0. Se o agente do MARS for mais antigo que 2.0.9083.0, atualize o agente antes de iniciar o processo de atualização.
 - **Modelo de cobrança com base em instância**: cofres do Serviço de Recuperação dão suporte apenas ao modelo de cobrança com base em instância. Se você tiver um cofre de backup que esteja usando o antigo modelo de cobrança com base em Armazenamento, converta o modelo de cobrança durante a atualização.
 - **Nenhuma operação de configuração de backup em andamento**: durante a atualização, o acesso ao plano de gerenciamento é restrito. Conclua todas as ações do plano de gerenciamento e inicie a atualização.
 
@@ -84,7 +84,7 @@ O script do PowerShell solicita que você insira suas credenciais. Insira suas c
 ### <a name="pre-requisites-checking"></a>Verificação de pré-requisitos
 Depois de inserir suas credenciais do Azure, o Azure verifica se o seu ambiente atende aos seguintes pré-requisitos:
 
-- **Versão mínima do agente** – atualizar os cofres de Backup para cofres dos Serviços de Recuperação requer que o agente do MARS tenha pelo menos a versão 2.0.9070. Se você tiver itens registrados para um cofre de Backup com um agente anterior à versão 2.0.9070, a verificação de pré-requisitos falhará. Se a verificação de pré-requisitos falhar, atualize o agente e tente atualizar o cofre novamente. Você pode baixar a versão mais recente do agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versão mínima do agente** – Atualizar os cofres de Backup para cofres dos Serviços de Recuperação requer que o agente do MARS tenha pelo menos a versão 2.0.9083.0. Se você tiver itens registrados para um cofre de Backup com um agente anterior à versão 2.0.9083.0, a verificação de pré-requisitos falhará. Se a verificação de pré-requisitos falhar, atualize o agente e tente atualizar o cofre novamente. Você pode baixar a versão mais recente do agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tarefas de configuração em andamento**: se alguém estiver configurando o trabalho para um cofre de Backup definido para ser atualizado ou estiver registrando um item, a verificação de pré-requisitos falhará. Conclua a configuração ou conclua o registro do item e, em seguida, inicie o processo de atualização do cofre.
 - **Modelo de cobrança com base em armazenamento**: cofres dos Serviços de Recuperação dão suporte ao modelo de cobrança baseado em instância. Se você executar a atualização do cofre em um cofre de Backup que use o modelo de cobrança baseado em armazenamento, será solicitado a atualizar o modelo de cobrança junto com o cofre. Caso contrário, poderá atualizar o modelo de cobrança primeiro e então executar a atualização do cofre.
 - Identificar um Grupo de Recursos para o cofre de Serviços de Recuperação. Para aproveitar os recursos de implantação do Resource Manager, coloque um cofre de Serviços de Recuperação em um Grupo de Recursos. Se você não souber qual Grupo de Recursos usar, forneça um nome e o processo de atualização criará o Grupo de Recursos para você. O processo de atualização também associa o cofre ao novo Grupo de Recursos.
@@ -147,8 +147,8 @@ Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização.
 Se você precisar usar o armazenamento, os backups desse computador para retenção de longo prazo, você não poderá atualizar o cofre. Nas versões futuras, adicionaremos suporte para atualizar esse cofre.
 Se você não precisar mais armazenar os backups desse computador, cancele o registro desse computador do cofre e tente realizar a atualização novamente.
 
-**Por que não consigo ver as informações de trabalhos de meus recursos locais após a atualização**</br>
-O monitoramento de backups locais (agente MARS, DPM e Servidor de Backup do Azure) é um novo recurso que você obtém ao atualizar seu cofre de Backup para o cofre dos Serviços de Recuperação. As informações de monitoramento levam até 12 horas para serem sincronizadas com o serviço.
+**Por que não consigo ver as informações de trabalhos de meus recursos após a atualização?**</br>
+O Monitoramento de backups (agente MARS e IaaS) é um novo recurso que você obtém ao atualizar seu cofre de Backup para o cofre de Serviços de Recuperação. As informações de monitoramento levam até 12 horas para serem sincronizadas com o serviço.
 
 **Como faço para relatar um problema?**</br>
 Se qualquer parte da atualização do cofre falhar, observe a OperationId listada no erro. O Suporte da Microsoft trabalhará de forma proativa para resolver o problema. Você pode contatar o Suporte ou enviar um email para nós no endereço rsvaultupgrade@service.microsoft.com com sua ID de Assinatura, nome do cofre e OperationId. Tentaremos resolver o problema o mais rápido possível. Não repita a operação, a menos que seja explicitamente instruído a fazer isso pela Microsoft.
