@@ -3,7 +3,7 @@ title: "Criando aplicativos altamente disponíveis usando o Armazenamento com Re
 description: "Como usar o armazenamento RA-GRS do Azure para projetar um aplicativo altamente disponível que seja flexível o suficiente para lidar com interrupções."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -12,28 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
-ms.author: robinsh
+ms.date: 9/06/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Criando aplicativos altamente disponíveis usando RA-GRS
 
-Um recurso comum das infraestruturas de nuvem é que elas fornecem uma plataforma altamente disponível para hospedar aplicativos. Os desenvolvedores de aplicativos baseados em nuvem devem considerar cuidadosamente como aproveitar essa plataforma para fornecer aplicativos altamente disponíveis aos usuários. Este artigo aborda especificamente como os desenvolvedores podem usar o Armazenamento do Azure com Redundância de Área Geográfica com Acesso de Leitura (RA-GRS) para tornar seus aplicativos mais disponíveis.
+Um recurso comum das infraestruturas baseadas em nuvem como o Armazenamento do Azure é que elas fornecem uma plataforma altamente disponível para hospedar aplicativos. Os desenvolvedores de aplicativos baseados em nuvem devem considerar cuidadosamente como aproveitar essa plataforma para fornecer aplicativos altamente disponíveis aos usuários. Este artigo ressalta como os desenvolvedores podem usar o RA-GRS (armazenamento com redundância geográfica com acesso de leitura) para garantir que seus aplicativos do Armazenamento do Azure são altamente disponíveis.
 
-Há quatro opções de redundância: LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) e RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Vamos discutir GRS e RA-GRS neste artigo. Com GRS, três cópias dos dados são mantidas na região primária que você selecionou ao configurar a conta de armazenamento. Três cópias adicionais são mantidas de forma assíncrona em uma região secundária especificada pelo Azure. RA-GRS é o mesmo que GRS, exceto que você tem acesso de leitura à cópia secundária. Para obter mais informações sobre as diferentes opções de redundância do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). O artigo sobre replicação também mostra os emparelhamentos de regiões primárias e secundárias.
+O Armazenamento do Azure oferece quatro opções de redundância de dados em sua conta de armazenamento:
+
+– LRS (Armazenamento com Redundância Local)
+- ZRS (Armazenamento com Redundância de Zona) 
+- GRS (Armazenamento com Redundância Geográfica)
+- RA-GRS (armazenamento com redundância geográfica com acesso de leitura). 
+
+Este artigo tem como foco o GRS e o RA-GRS. Com GRS, três cópias dos dados são mantidas na região primária que você selecionou ao configurar a conta de armazenamento. Três cópias adicionais são mantidas de forma assíncrona em uma região secundária especificada pelo Azure. RA-GRS é o mesmo que GRS, exceto que você tem acesso de leitura à cópia secundária. Para obter mais informações sobre as diferentes opções de redundância do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-redundancy). O artigo sobre replicação também mostra os emparelhamentos de regiões primárias e secundárias.
 
 Há trechos de código incluídos neste artigo e um link para um exemplo completo no fim, que você pode baixar e executar.
 
 ## <a name="key-features-of-ra-grs"></a>Principais recursos do RA-GRS
 
-Antes de abordarmos como usar o armazenamento RA-GRS, vamos falar sobre suas propriedades e seu comportamento.
+Tenha em mente estes pontos-chave ao projetar seu aplicativo para RA-GRS:
 
-* O Armazenamento do Azure mantém uma cópia somente leitura dos dados que você armazena na região primária em uma região secundária; conforme observado anteriormente, o serviço de armazenamento determina o local da região secundária.
+* O Armazenamento do Azure mantém uma cópia somente leitura dos dados armazenados na região primária em uma região secundária. Conforme observado acima, o serviço de armazenamento determina o local da região secundária.
 
 * A cópia somente leitura é [eventualmente consistente](https://en.wikipedia.org/wiki/Eventual_consistency) com os dados na região primária.
 
@@ -43,21 +50,23 @@ Antes de abordarmos como usar o armazenamento RA-GRS, vamos falar sobre suas pro
 
 * Se um grande problema afetar a acessibilidade dos dados na região primária, a equipe do Azure poderá disparar um failover geográfico. Nesse ponto, as entradas DNS que apontam para a região primária serão alteradas para apontar para a região secundária.
 
-* Se ocorrer um failover geográfico, o Azure selecionará um novo local secundário, replicará os dados para esse local e apontará as entradas DNS secundárias para ele. O ponto de extremidade secundário ficará indisponível até que a conta de armazenamento termine a replicação. Para obter mais informações, confira [O que fazer se ocorrer uma falha de Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance).
+* Se ocorrer um failover geográfico, o Azure selecionará um novo local secundário, replicará os dados para esse local e apontará as entradas DNS secundárias para ele. O ponto de extremidade secundário ficará indisponível até que a conta de armazenamento termine a replicação. Para obter mais informações, confira [O que fazer se ocorrer uma falha de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Considerações de design de aplicativo ao usar RA-GRS
 
-A principal finalidade deste artigo é mostrar como criar um aplicativo que continue a funcionar (embora com capacidade limitada) mesmo que ocorra um grande desastre no data center primário. Para isso, você pode fazer com que o aplicativo lide com problemas transitórios ou demorados alternando para leitura da região secundária quando houver um problema e alternando novamente quando a região primária estiver disponível novamente.
+A finalidade deste artigo é mostrar como criar um aplicativo que continuará funcionando (embora com capacidade limitada) mesmo que ocorra um grande desastre no data center primário. Você pode projetar seu aplicativo para resolver problemas transitórios ou de execução longa com a leitura da região secundária quando há um problema que interfere na leitura da região primária. Quando a região primária estiver disponível novamente, o aplicativo poderá retornar com a leitura da região primária.
 
 ### <a name="using-eventually-consistent-data"></a>Usando dados eventualmente consistentes
 
-Esta solução pressupõe que é aceitável retornar o que poderiam ser dados obsoletos para o aplicativo de chamada. Como os dados secundários são consistentes, é possível que os dados tenham sido gravados no primário, mas a atualização para o secundário não tenha concluído a replicação quando a região primária se tornou inacessível.
+A solução proposta pressupõe que é aceitável retornar dados potencialmente obsoletos ao aplicativo de chamada. Como os dados na região secundária são finalmente consistentes, é possível que a região primária se torne inacessível antes que uma atualização para a região secundária tenha concluído a replicação.
 
-Por exemplo, o cliente poderia enviar uma atualização bem-sucedida, e o primário poderia ficar inoperante antes de a atualização ser propagada para o secundário. Nesse caso, se o cliente solicitar a leitura dos dados novamente, receberá os dados obsoletos, em vez dos dados atualizados. Você deve decidir se isso é aceitável e, nesse caso, como você enviará uma mensagem ao cliente. Você verá como verificar a Hora da Última Sincronização nos dados secundários adiante neste artigo para saber se o secundário está atualizado.
+Por exemplo, suponha que o cliente envie uma atualização com êxito, mas a região primária falhe antes que a atualização seja propagada para a região secundária. Quando o cliente solicita a leitura dos dados novamente, ele recebe os dados obsoletos da região secundária, em vez dos dados atualizados. Ao projetar seu aplicativo, você deve decidir se isso é aceitável e, nesse caso, como você enviará uma mensagem ao cliente. 
+
+Neste artigo, mostramos como verificar a Hora da Última Sincronização para os dados secundários para verificar se o secundário está atualizado.
 
 ### <a name="handling-services-separately-or-all-together"></a>Tratamento de serviços separadamente ou em conjunto
 
-Embora não seja provável, é possível que um serviço se torne indisponível enquanto os outros serviços ainda estão totalmente funcionais. Você pode lidar com as repetições e o modo somente leitura para cada serviço separadamente (blobs, filas, tabelas) ou pode lidar com as repetições de forma genérica para todos os serviços de armazenamento em conjunto.
+Embora não seja provável, é possível que um serviço não fique disponível enquanto os outros serviços ainda estão totalmente funcionais. Você pode lidar com as repetições e o modo somente leitura para cada serviço separadamente (blobs, filas, tabelas) ou pode lidar com as repetições de forma genérica para todos os serviços de armazenamento em conjunto.
 
 Por exemplo, se usar filas e blobs no aplicativo, você poderá optar por incluir código separado para lidar com erros com nova tentativa para cada um desses itens. Em seguida, se você receber uma repetição do serviço blob, mas o serviço fila ainda estiver funcionando, somente a parte do aplicativo que lida com os blobs será afetada. Se você decidir lidar com todas as tentativas de serviço de armazenamento de forma genérica e uma chamada ao serviço blob retornar um erros com nova tentativa, as solicitações para o serviço blob e o serviço fila serão afetadas.
 
@@ -75,11 +84,11 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
-Para usar o armazenamento de RA-GRS, você deve ser capaz de lidar com as solicitações de leitura com falha e as solicitações de atualização com falha (nesse caso, atualizações significam inserções, atualizações e exclusões). Se o data center primário falhar, as solicitações de leitura poderão ser redirecionadas para o data center secundário, mas as solicitações de atualização não podem, pois o secundário é somente leitura. Por esse motivo, você precisa de uma maneira de executar o aplicativo no modo somente leitura.
+Para usar o armazenamento de RA-GRS, você deve ser capaz de lidar com as solicitações de leitura com falha e as solicitações de atualização com falha (nesse caso, atualizações significam inserções, atualizações e exclusões). Se o data center primário falhar, as solicitações de leitura poderão ser redirecionadas para o data center secundário. No entanto, as solicitações de atualização não podem ser redirecionadas para o secundário porque o secundário é somente leitura. Por esse motivo, você precisa projetar o aplicativo para ser executado no modo somente leitura.
 
-Por exemplo, você pode definir um sinalizador que será verificado antes de enviar solicitações de atualização ao serviço de armazenamento. Quando uma das solicitações de atualização chega, você pode ignorá-la e retornar uma resposta apropriada para o cliente. Talvez você até ainda queira desabilitar totalmente determinados recursos até que o problema seja resolvido e notificar os usuários de que esses recursos estão temporariamente indisponíveis.
+Por exemplo, você pode definir um sinalizador que é verificado antes que todas as solicitações de atualização sejam enviadas ao Armazenamento do Azure. Quando uma das solicitações de atualização chega, você pode ignorá-la e retornar uma resposta apropriada para o cliente. Talvez você até ainda queira desabilitar totalmente determinados recursos até que o problema seja resolvido e notificar os usuários de que esses recursos estão temporariamente indisponíveis.
 
-Se optar por lidar com os erros em cada serviço separadamente, você também precisará lidar com a capacidade de executar o aplicativo no modo somente leitura pelo serviço. Você pode ter sinalizadores somente leitura para cada serviço que podem ser habilitados e desabilitados e lidar com o sinalizador apropriado nos locais apropriados no código.
+Se optar por lidar com os erros em cada serviço separadamente, você também precisará lidar com a capacidade de executar o aplicativo no modo somente leitura pelo serviço. Por exemplo, você pode ter sinalizadores somente leitura para cada serviço que pode ser habilitado e desabilitado. Em seguida, você pode manipular o sinalizador nos lugares apropriados do código.
 
 Ser capaz de executar o aplicativo no modo somente leitura tem outro benefício: a capacidade de garantir funcionalidade limitada durante uma atualização importante do aplicativo. Você pode disparar o aplicativo para ser executado no modo somente leitura e apontar para o data center secundário, garantindo que ninguém acessa os dados na região primária enquanto você faz atualizações.
 
@@ -145,7 +154,7 @@ Outra consideração é como lidar com várias instâncias de um aplicativo e o 
 
 Você tem três opções principais para monitorar a frequência de novas tentativas na região primária para determinar quando passar para a região secundária e alterar o aplicativo para que seja executado no modo somente leitura.
 
-*   Adicionar um manipulador para o evento [**Retrying**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) do objeto [**OperationContext**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
+*   Adicionar um manipulador para o evento [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) do objeto [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +165,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
     };
     ```
 
-*   No método [**Evaluate**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
+*   No método [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -164,12 +173,12 @@ Você tem três opções principais para monitorar a frequência de novas tentat
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 
@@ -232,7 +241,7 @@ Se você tiver tornado configuráveis os limites para alternar o aplicativo para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre Redundância de Área Geográfica com acesso de leitura, inclusive outro exemplo de como LastSyncTime é definido, confira [Opções de redundância de armazenamento do Windows Azure e Redundância de Área Geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Para obter mais informações sobre a Redundância Geográfica com Acesso de Leitura, incluindo outro exemplo de como LastSyncTime é definido, consulte [Opções de redundância de armazenamento do Microsoft Azure e o Armazenamento com Redundância Geográfica com Acesso de Leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * Para obter um exemplo completo que mostra como fazer a alternância entre os pontos de extremidade primário e secundário, confira [Exemplos do Azure – usando o padrão de Disjuntor com o armazenamento de RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
 
