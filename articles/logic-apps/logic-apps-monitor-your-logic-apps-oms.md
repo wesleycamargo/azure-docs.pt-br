@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -133,7 +133,7 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
      ![Exibir ações e detalhes da execução de um aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
      Aqui na página do Azure Log Analytics, você pode atualizar consultas e exibir os resultados da tabela. 
-     Essa consulta usa a [linguagem de consulta Kusto](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), que pode ser editada se você quiser exibir resultados diferentes. 
+     Essa consulta usa a [linguagem de consulta Kusto](https://docs.loganalytics.io/docs/Language-Reference), que pode ser editada se você quiser exibir resultados diferentes. 
 
      ![Azure Log Analytics – modo de exibição de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a76770c7a2101675f7cbf953ce9c3b1750656477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: aec5eb551ef438015d4f6a3d1578d0fa890d737e
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como usar o Armazenamento de Fila do Node.js
@@ -34,7 +34,7 @@ Este guia mostra como executar cenários comuns usando o serviço Fila do Micros
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service-web/app-service-web-get-started-nodejs.md), [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web](https://www.microsoft.com/web/webmatrix/).
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service/app-service-web-get-started-nodejs.md), [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o armazenamento
 Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
@@ -340,7 +340,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service-web/app-service-web-get-started-nodejs.md)
+[Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service/app-service-web-get-started-nodejs.md)
    
 
 

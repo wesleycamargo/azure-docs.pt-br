@@ -9,11 +9,11 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 06/29/2017
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
-Este início rápido demonstra como usar um aplicativo [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) existente escrito em [Golang](https://golang.org/) e como conectá-lo ao banco de dados do BD Cosmos do Azure, que dá suporte a conexões de cliente do MongoDB.
+Este início rápido demonstra como usar um aplicativo [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) existente escrito em [Golang](https://golang.org/) e como conectá-lo ao banco de dados do BD Cosmos do Azure, que dá suporte a conexões de cliente do MongoDB.
 
 Em outras palavras, o aplicativo Golang só sabe que está se conectando a um banco de dados usando as APIs do MongoDB. Está claro para o aplicativo que os dados estão armazenados no BD Cosmos do Azure.
 

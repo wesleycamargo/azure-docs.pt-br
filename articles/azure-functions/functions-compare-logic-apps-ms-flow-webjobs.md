@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -60,7 +60,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 ## <a name="functions-vs-webjobs"></a>Functions vs. Trabalhos Web
 Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *code-first* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças: 
 
-* Ambos são criados no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e têm recursos como [controle do código-fonte](../app-service-web/app-service-continuous-deployment.md), [autenticação](../app-service/app-service-authentication-overview.md) e [monitoramento](../app-service-web/web-sites-monitor.md).
+* Ambos são criados no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) e têm recursos como [controle do código-fonte](../app-service/app-service-continuous-deployment.md), [autenticação](../app-service/app-service-authentication-overview.md) e [monitoramento](../app-service/web-sites-monitor.md).
 * Ambos são serviços voltados para desenvolvedores.
 * Ambos dão suporte a scripts e linguagens de programação padrão.
 * Ambos têm suporte NuGet e NPM.
@@ -81,7 +81,7 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
 | Dimensionamento |Dimensionamento sem configuração |dimensionar com Plano do Serviço de Aplicativo |
 | Preços |Pagamento por uso ou parte de Plano do Serviço de Aplicativo |Parte do Plano do Serviço de Aplicativo |
 | Executar-tipo |disparado, agendado (pelo gatilho de temporizador) |acionado, contínuo, agendado |
-| Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage.md) |[Armazenamento do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage-blob.md) |[Armazenamento do Azure](functions-bindings-storage-blob.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md) |
 | Desenvolvimento no navegador |com suporte | sem suporte |
 | Scripts do Windows (.cmd, .bat) |experimental |com suporte |
 | PowerShell |experimental |com suporte |
@@ -115,7 +115,7 @@ Comece a usar cada um dos serviços criando seu primeiro fluxo, aplicativo lógi
 * [Introdução ao Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)
-* [Implantar Trabalhos Web usando o Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Implantar Trabalhos Web usando o Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 
 Ou saiba mais sobre esses serviços de integração com os links abaixo:
 
@@ -123,6 +123,5 @@ Ou saiba mais sobre esses serviços de integração com os links abaixo:
 * [Integração simplificada, por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast ao vivo de Aplicativos Lógicos](http://aka.ms/logicappslive)
 * [Perguntas frequentes sobre o Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Recursos de documentação do Azure Webjobs](../app-service-web/websites-webjobs-resources.md)
 
 

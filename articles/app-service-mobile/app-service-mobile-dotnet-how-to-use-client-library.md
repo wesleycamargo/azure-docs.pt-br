@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2a5ac8d7bfbed4969cb9baf46e0fc35e5c84b4a3
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
@@ -1094,10 +1094,10 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Adicionar autenticação ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de Dados Offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Adicionar notificações por push ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Registrar seu aplicativo para usar um logon de conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar o Serviço de Aplicativo para logon no Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Registrar seu aplicativo para usar um logon de conta da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Como configurar o Serviço de aplicativo para o logon do Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
@@ -1117,11 +1117,11 @@ public class MyHandler : DelegatingHandler
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
+[Selecionar]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [Ignorar]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
+[Onde]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portal do Azure]: https://portal.azure.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx

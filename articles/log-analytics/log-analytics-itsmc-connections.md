@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conectar produtos/serviços ITSM ao Conector de Gerenciamento do Serviço de TI (Versão Prévia)
@@ -50,7 +50,7 @@ Mais informações: [Configuração](log-analytics-itsmc-overview.md#configurati
 Use o procedimento a seguir para conectar a instância do System Center Service Manager ao Conector de Gerenciamento do Serviço de TI:
 
 1. Vá para **OMS** >**Configurações** > **Origens Conectadas**.
-2. Selecione **Conector ITSM,**  clique em **Adicionar Nova Conexão**.
+2. Selecione **Conector ITSM, ** clique em **Adicionar Nova Conexão**.
 
     ![Service manager ](./media/log-analytics-itsmc/itsmc-service-manager-connection.png)
 3. Forneça as informações conforme descrito na tabela a seguir e clique em **Salvar** para criar a conexão:
@@ -190,7 +190,7 @@ Os administradores do ServiceNow devem fazer o seguinte em sua instância do Ser
 Use o procedimento a seguir para criar uma conexão do ServiceNow:
 
 1. Vá para **OMS** > **Configurações** > **Origens Conectadas**.
-2. Selecione **Conector ITSM,**  clique em **Adicionar Nova Conexão**.
+2. Selecione **Conector ITSM, ** clique em **Adicionar Nova Conexão**.
 
     ![Conexão do ServiceNow](./media/log-analytics-itsmc/itsmc-servicenow-connection.png)
 
@@ -270,7 +270,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto Provance 
 Verifique se você cumpriu os seguintes pré-requisitos:
 
 - Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Configuração](log-analytics-itsmc-overview.md#configuration).
-- Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - Função de usuário: Administrador.
 
 ### <a name="connection-procedure"></a>Procedimento de Conexão
@@ -278,7 +278,7 @@ Verifique se você cumpriu os seguintes pré-requisitos:
 Use o procedimento a seguir para criar uma conexão do Provance:
 
 1. Vá para **OMS** > **Configurações** > **Origens Conectadas**.
-2. Selecione **Conector ITSM,**  clique em **Adicionar Nova Conexão**.  
+2. Selecione **Conector ITSM, ** clique em **Adicionar Nova Conexão**.  
 
     ![Conexão do Provance](./media/log-analytics-itsmc/itsmc-provance-connection.png)
 3. Forneça as informações conforme descrito na tabela a seguir e clique em **salvar** para criar a conexão.
@@ -293,7 +293,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 | **Nome de Usuário**   | Digite o nome de usuário que pode se conectar ao Conector de Gerenciamento do Serviço de TI.    |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação:** nome de usuário e senha são usados para gerar tokens de autenticação apenas e não são armazenados em qualquer lugar no serviço OMS. _|
 | **URL do Servidor**   | Digite a URL da sua instância do Provance que você deseja conectar ao Conector de Gerenciamento do Serviço de TI. |
-| **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância de Provance.  Para saber mais sobre a ID do cliente, consulte [como configurar a autenticação do active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância de Provance.  Para saber mais sobre a ID do cliente, consulte [como configurar a autenticação do active directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Escopo de Sincronização de Dados**   | Selecione os itens de trabalho do Provance que você deseja sincronizar com o OMS, por meio do Conector de Gerenciamento do Serviço de TI.  Esses itens de trabalho são importados para o Log Analytics.   **Opções:** Incidentes, Solicitações de Alteração.|
 | **Sincronizar Dados** | Digite o número de dias anteriores dos quais você deseja dados. **Limite máximo** 120 dias. |
 | **Criar um novo item de configuração na solução ITSM** | Selecione esta opção se você deseja criar os itens de configuração no produto ITSM. Quando selecionado, o OMS cria os CIs afetados como itens de configuração (no caso de CIs inexistentes) no sistema de ITSM com suporte. **Padrão**: desabilitado.|
@@ -322,7 +322,7 @@ Verifique se você cumpriu os seguintes pré-requisitos:
 Use o procedimento a seguir para criar uma conexão do Cherwell:
 
 1. Vá para **OMS** >  **Configurações** > **Origens Conectadas**.
-2. Selecione **Conector ITSM,**  clique em **Adicionar Nova Conexão**.  
+2. Selecione **Conector ITSM, ** clique em **Adicionar Nova Conexão**.  
 
     ![Id de usuário do Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-connection.png)
 

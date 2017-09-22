@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração ao Active Directory do Azure
@@ -34,7 +33,7 @@ Há várias maneiras de seu aplicativo integrar-se ao AD do Azure.  Aproveite o 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Dê suporte ao AD do Azure como um modo de entrar no aplicativo
 **Reduza a fricção de entrada e reduza os custos de suporte.** Usando o AD do Azure para entrar no aplicativo, os usuários terão um nome e uma senha a menos para lembrar.  Como desenvolvedor, você terá uma senha a menos para armazenar e proteger.  Apenas o fato de não precisar lidar com redefinições de senha, por si só, pode ser uma economia significativa.  O AD do Azure aprimora a entrada para alguns dos mais populares aplicativos de nuvem do mundo, incluindo o Office 365 e Microsoft Azure.  Com centenas de milhões de usuários de milhões de organizações, provavelmente seu usuário já está conectado ao AD do Azure.  Saiba mais sobre [como adicionar suporte ao logon do AD do Azure](active-directory-authentication-scenarios.md).
 
-**Simplifique a inscrição para o aplicativo.**  Durante a inscrição para o aplicativo, o AD do Azure pode enviar informações essenciais sobre um usuário para que você possa preencher previamente o formulário de inscrição ou eliminá-lo completamente.  Os usuários podem inscrever-se no aplicativo usando suas respectivas contas do AD do Azure por meio de uma experiência de consentimento familiar, semelhante àquelas encontradas em mídias sociais e aplicativos móveis.  Qualquer usuário pode se inscrever e entrar em um aplicativo que é integrado ao AD do Azure sem a necessidade de envolvimento de TI.  Saiba mais sobre como [inscrever o aplicativo para logon na conta do AD do Azure](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) .
+**Simplifique a inscrição para o aplicativo.**  Durante a inscrição para o aplicativo, o AD do Azure pode enviar informações essenciais sobre um usuário para que você possa preencher previamente o formulário de inscrição ou eliminá-lo completamente.  Os usuários podem inscrever-se no aplicativo usando suas respectivas contas do AD do Azure por meio de uma experiência de consentimento familiar, semelhante àquelas encontradas em mídias sociais e aplicativos móveis.  Qualquer usuário pode se inscrever e entrar em um aplicativo que é integrado ao AD do Azure sem a necessidade de envolvimento de TI.  Saiba mais sobre como [inscrever o aplicativo para logon na conta do AD do Azure](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) .
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Procure por usuários, gerencie o provisionamento de usuários e controle o acesso ao aplicativo
 **Procure por usuários no diretório.**  Use a Graph API para ajudar os usuários, ao convidar outras pessoas ou ao conceder acesso, a pesquisar e procurar por outras pessoas em suas organizações em vez de exigir que esses usuários digitem endereços de email.  Os usuários podem navegar usando uma interface familiar estilo livro de endereços, incluindo a exibição dos detalhes da hierarquia organizacional.  Saiba mais sobre a [API do Graph](active-directory-graph-api.md).

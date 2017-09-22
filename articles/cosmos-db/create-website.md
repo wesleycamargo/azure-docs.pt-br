@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42146cdc20bcff84d54110c8fba6d00951558bd0
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
@@ -130,12 +130,16 @@ Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar 
 ## <a name="next-steps"></a>Próximas etapas
 Parabéns! Você implantou o Azure Cosmos DB, um aplicativo Web do Serviço de Aplicativo e um aplicativo Web de exemplo usando modelos do Azure Resource Manager.
 
-* Para saber mais sobre o Azure Cosmos DB, consulte a [página de serviço do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-* Para saber mais sobre os aplicativos Web do Serviço de Aplicativo do Azure, consulte a [documentação dos Aplicativos Web](http://go.microsoft.com/fwlink/?LinkId=325362).
-* Para saber mais sobre os modelos do Azure Resource Manager, consulte [API REST do Gerenciador de Recursos: Implantações](https://docs.microsoft.com/rest/api/resources/deployments).
+* Para saber mais sobre o Azure Cosmos DB, clique [aqui](http://azure.com/docdb).
+* Para saber mais sobre os aplicativos Web do Serviço de Aplicativo do Azure, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Para saber mais sobre modelos do Gerenciador de Recursos do Azure, clique [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
+
+## <a name="whats-changed"></a>O que mudou
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, veja: [Referência para navegar no Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 

@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (projetos WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Visão geral
-Este artigo fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) versão 1.x. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, o pacote do NuGet do Armazenamento do Azure apropriado é instalado, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.
+Este artigo fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versão 1.x. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, o pacote do NuGet do Armazenamento do Azure apropriado é instalado, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Como disparar uma função quando um blob é criado ou atualizado
 Esta seção mostra como usar o atributo **BlobTrigger** .
 
- **Observação:** o SDK dos trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar blobs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) em vez do atributo **BlobTrigger** na função que processa o blob.
+ **Observação:** o SDK dos trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar blobs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo **QueueTrigger** em vez do atributo **BlobTrigger** na função que processa o blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Espaço reservado único para nome de blob com extensão
 O seguinte exemplo de código copia blobs de texto que aparecem no contêiner de *entrada* para o contêiner de *saída*:
@@ -142,7 +142,7 @@ O código de associação **WebImage** é fornecido em uma classe **WebImageBind
 ## <a name="how-to-handle-poison-blobs"></a>Como manipular blobs suspeitos
 Quando uma função **BlobTrigger** falha, o SDK a chama novamente caso a falha tenha sido causada por um erro transitório. Se a falha for causada pelo conteúdo do blob, a função falhará sempre que tentar processar o blob. Por padrão, o SDK chama uma função até cinco vezes para um blob específico. Se a quinta tentativa falhar, o SDK adicionará uma mensagem a uma fila denominada *webjobs-blobtrigger-poison*.
 
-O número máximo de novas tentativas é configurável. A mesma [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas.
+O número máximo de novas tentativas é configurável. A mesma **MaxDequeueCount** é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas.
 
 A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
@@ -204,7 +204,7 @@ Os recebimentos de blob são armazenados em um contêiner denominado *azure-webj
 Para forçar o reprocessamento de um blob, você pode excluir manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts* .
 
 ## <a name="related-topics-covered-by-the-queues-article"></a>Tópicos relacionados abordados no artigo sobre filas
-Para obter informações sobre como lidar com o processamento de blob disparado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Para obter informações sobre como lidar com o processamento de blob disparado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Os tópicos relacionados abordados neste artigo incluem o seguinte:
 

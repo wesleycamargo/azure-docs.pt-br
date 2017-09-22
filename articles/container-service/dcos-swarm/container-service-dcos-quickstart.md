@@ -18,10 +18,10 @@ ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fdc85e69403cec392328aad255352b2bee5afc20
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,12 +58,10 @@ Crie um cluster de DC/SO com o comando [az acs create](/cli/azure/acs#create).
 O exemplo a seguir cria um cluster de DC/SO chamado *myDCOSCluster* e cria as chaves de SSH se elas ainda não existirem. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
 ```azurecli
-az acs create \
-  --orchestrator-type dcos \
-  --resource-group myResourceGroup \
-  --name myDCOSCluster \
-  --generate-ssh-keys
+az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
+
+Em alguns casos, como em uma avaliação limitada, uma assinatura do Azure terá acesso limitado aos recursos do Azure. Se a implantação falhar devido à limitação nos núcleos disponíveis, reduza a contagem de agentes padrão, adicionando `--agent-count 1` ao comando [az acs create](/cli/azure/acs#create). 
 
 Após alguns minutos, o comando é concluído e retorna informações sobre a implantação.
 

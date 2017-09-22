@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -257,7 +257,7 @@ O [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-sec
 
 -   **Atualizações da plataforma Antimalware -** atualiza automaticamente a plataforma Microsoft Antimalware.
 
--   **Proteção ativa -**  reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
+-   **Proteção ativa - ** reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
 
 -   **Relatórios de exemplos -** fornece e relata exemplos para o serviço Microsoft Antimalware para ajudar a aprimorar o serviço e a habilitar a solução de problemas.
 
@@ -290,7 +290,7 @@ Detectores de ameaça do banco de dados SQL use uma das seguintes metodologias d
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall do Aplicativo Web do Gateway de Aplicativo
 
-O [Firewall do Aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) é um recurso do [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que fornece proteção para aplicativos Web que utilizam o gateway de aplicativo para as funções de [Controle de Entrega de Aplicativos](https://kemptechnologies.com/in/application-delivery-controllers) padrão. O firewall do aplicativo Web faz isso protegendo-os contra a maioria das [Dez vulnerabilidades mais comuns da Web segundo o OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
+O [Firewall do Aplicativo Web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é um recurso do [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que fornece proteção para aplicativos Web que utilizam o gateway de aplicativo para as funções de [Controle de Entrega de Aplicativos](https://kemptechnologies.com/in/application-delivery-controllers) padrão. O firewall do aplicativo Web faz isso protegendo-os contra a maioria das [Dez vulnerabilidades mais comuns da Web segundo o OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Firewall do Aplicativo Web do Gateway de Aplicativo](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

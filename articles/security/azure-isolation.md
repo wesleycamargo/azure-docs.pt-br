@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,7 +58,7 @@ A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente
 
 Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o Portal do Azure, ferramentas de linha de comando do Azure e APIs de Gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança, para que nenhum cliente possa acessar ou comprometer colocatários, de forma maliciosa ou acidental. O Azure AD é executado em servidores "bare metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível do host e o Firewall do Windows bloqueiam o tráfego e conexões indesejadas.
 
-- O acesso a dados no AD do Azure requer autenticação de usuário por meio de um [STS (serviço de token de segurança)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). As informações sobre a existência do usuário, o estado habilitado e a função são usadas pelo sistema de autorização para determinar se o acesso solicitado ao locatário de destino está autorizado para esse usuário nessa sessão.
+- O acesso a dados no AD do Azure requer autenticação de usuário por meio de um STS (serviço de token de segurança). As informações sobre a existência do usuário, o estado habilitado e a função são usadas pelo sistema de autorização para determinar se o acesso solicitado ao locatário de destino está autorizado para esse usuário nessa sessão.
 
 ![Locação do Azure](./media/azure-isolation/azure-isolation-fig1.png)
 

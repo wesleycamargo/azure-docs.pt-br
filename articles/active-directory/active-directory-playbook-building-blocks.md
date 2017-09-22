@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
@@ -340,7 +340,7 @@ Se o aplicativo tiver o provisionamento habilitado, talvez seja necessário agua
 | Etapa | Recursos |
 | --- | --- |
 | Remover o usuário do grupo ao qual o aplicativo é atribuído | [Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory](active-directory-groups-members-azure-portal.md) |
-| Aguarde alguns minutos para desprovisionamento | [Provisionamento de Usuário de Aplicativo SaaS Automatizado do Azure AD: Como fazer o trabalho de provisionamento automatizado?](active-directory-saas-app-provisioning.md#how-does-automated-provisioning-work) |
+| Aguarde alguns minutos para desprovisionamento | [Provisionamento de Usuário de Aplicativo SaaS Automatizado do Azure AD: Como fazer o trabalho de provisionamento automatizado?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | Em uma sessão separada do navegador, faça logon como o operador de informações para o portal de aplicativos e confirme se o bloco está ausente | http://myapps.microsoft.com |
 
 

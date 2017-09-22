@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
@@ -99,7 +99,7 @@ Qualquer Azure SQL ou recurso do Azure SQL DW na solução deve ser habilitado c
 | AAD com Banco de Dados SQL e SQL Data Warehouse | [Use a autenticação do Azure Active Directory com o banco de dados SQL ou com o SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | Configure e gerencie a AAD | [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Autenticação dos Aplicativos Web do Azure | [Autenticação e autorização no Serviço de Aplicativo do Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Configure os aplicativos Web com a AAD | [Como configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Configure os aplicativos Web com a AAD | [Como configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Os conjuntos de dados acessíveis aos usuários finais devem suportar o controle de acesso baseado em função
 Ao executar a ferramenta de avaliação, você deverá especificar qualquer relatório ou publicar os recursos. Assume-se que esses recursos servem para serem acessados pelos usuários finais, não pelos desenvolvedores. Esses recursos devem fornecer o controle de acesso baseado em função (RBAC) para garantir que os usuários finais possam apenas acessar os dados autorizados.

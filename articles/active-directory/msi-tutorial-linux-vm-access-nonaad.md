@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,10 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
-<<<<<<< HEAD Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com). =======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual do Linux em um novo Grupo de Recursos
 
@@ -50,9 +47,8 @@ Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilit
 1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Insira as informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública SSH** ou **Senha**. As credenciais criadas permitirão que você faça logon na máquina virtual.
-<<<<<<< HEAD =======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![texto Alt de imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
 5. Para selecionar um novo **Grupo de Recursos** no qual você deseja criar a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
@@ -111,7 +107,7 @@ Para concluir essas etapas, você precisará de cliente SSH.  Se você estiver u
     A solicitação CURL para o token de acesso está abaixo.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     A resposta inclui o token de acesso de que você precisa para acessar o Azure Resource Manager. 
     

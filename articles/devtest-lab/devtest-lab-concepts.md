@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
@@ -29,7 +29,7 @@ A lista a seguir contém as principais definições e conceitos dos Laboratório
 Um laboratório é a infraestrutura que abrange um grupo de recursos, como VMs (máquinas virtuais), que permite melhor gerenciar esses recursos especificando limites e cotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
+Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
 
 [Visão geral das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
 

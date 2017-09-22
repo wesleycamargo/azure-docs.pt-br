@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 78cf118dfb9759e1cdbdc023ccad65238853122e
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de DocumentDB
@@ -87,8 +87,9 @@ Para criar o aplicativo JSP:
    
     ![Hello World — tutorial de aplicativo Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Etapa 3: Instalar o SDK do Java do Banco de Dados de Documentos
-É a maneira mais fácil de obter o SDK do Java do Banco de Dados de Documentos e suas dependências por meio do [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK">
+            </a>Etapa 3: Instalar o SDK do Java do DocumentDB
+É a maneira mais fácil de obter o SDK do Java do DocumentDB e suas dependências por meio do [Apache Maven](http://maven.apache.org/).
 
 Para fazer isso, você precisará converter o projeto para um projeto Maven concluindo as etapas a seguir:
 
@@ -102,7 +103,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
    * Na caixa **Id do Artefato**, insira azure-documentdb.
    * Na caixa **Versão**, insira 1.5.1.
      
-   ![Instalar o SDK do aplicativo Java para Banco de Dados de Documentos](./media/documentdb-java-application/image13.png)
+   ![Instalar o SDK do aplicativo Java para DocumentDB](./media/documentdb-java-application/image13.png)
      
    * Ou adicione a dependência de XML para a ID do Grupo e ID do Artefato diretamente no pom.xml por meio de um editor de texto:
      
@@ -280,7 +281,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
                 return null;
             }
         }
-7. Também podemos usar o DocumentClient para obter uma coleção ou uma lista de TodoItems usando o SQL do Banco de Dados de Documentos:
+7. Também podemos usar o DocumentClient para obter uma coleção ou uma lista de TodoItems usando o SQL do DocumentDB:
    
         @Override
         public List<TodoItem> readTodoItems() {
@@ -725,7 +726,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
    * Na caixa de projeto da Web, insira azure-documentdb-java-sample.
    * Na caixa Destino, escolha um destino para salvar o arquivo WAR.
    * Clique em **Concluir**.
-3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service-web/web-sites-java-add-app.md).
+3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/web-sites-java-add-app.md).
    
     Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
 4. Para exibir seu produto acabado, navegue para http://SEU\_NOME\_SITE.azurewebsites.net/azure-java-sample/ e comece a adicionar suas tarefas!

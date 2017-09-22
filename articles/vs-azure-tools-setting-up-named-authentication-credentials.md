@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurar credenciais de autenticação nomeadas
@@ -77,7 +77,7 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
    d. Selecione sua assinatura do Azure, cole o caminho completo do arquivo .cer que você acabou de criar e selecione **Carregar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral de aplicativos Web](https://docs.microsoft.com/azure/app-service-web/)
-* [Implantar seu aplicativo no Serviço de Aplicativo do Azure](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Implantar Trabalhos Web usando o Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Visão geral de aplicativos Web](https://docs.microsoft.com/azure/app-service/)
+* [Implantar seu aplicativo no Serviço de Aplicativo do Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Implantar Trabalhos Web usando o Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Criar e implantar um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 8eb0e7aa1a0fd55ece4adcfe4619c64845b7d271
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
@@ -153,10 +153,20 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 ---
 
-**P: Onde posso encontrar instruções para a configuração de dispositivos ingressados no Azure AD?**
+**P: onde posso encontrar instruções para a configuração de registro automático do dispositivo?**
 
-**P:** Para obter instruções detalhadas, consulte [configuração de dispositivos ingressados no Azure Active Directory híbrido](device-management-hybrid-azuread-joined-devices-setup.md).
+**R:** Para obter as instruções detalhadas, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
+---
+
+**P: Onde posso encontrar informações de solução de problemas sobre o registro de dispositivo automático?**
+
+**R:** Para encontrar informações de solução de problemas, consulte:
+
+- [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 

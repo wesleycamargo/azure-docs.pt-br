@@ -16,15 +16,15 @@ ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7757ecf442314d294432266750502e384e39bde0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilar um aplicativo Web Docker Python e PostgreSQL no Azure
 
-Os aplicativos Web do Azure fornecem um serviço de hospedagem na Web altamente escalonável, com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Web Docker Python básico no Azure. Você conectará esse aplicativo a um banco de dados PostgreSQL. Quando terminar, você terá um aplicativo Python Flask em execução dentro de um contêiner do Docker nos [Aplicativos Web do Serviço de Aplicativo do Azure](../../app-service-web/app-service-web-overview.md).
+Os aplicativos Web do Azure fornecem um serviço de hospedagem na Web altamente escalonável, com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Web Docker Python básico no Azure. Você conectará esse aplicativo a um banco de dados PostgreSQL. Quando terminar, você terá um aplicativo Python Flask em execução dentro de um contêiner do Docker nos [Aplicativos Web do Serviço de Aplicativo do Azure](../app-service-web-overview.md).
 
 ![Aplicativo Docker Python Flask no Serviço de Aplicativo do Azure](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navegue até http://127.0.0.1:5000 em um navegador. Clique em **Registrar!** e crie um usuário de teste.
+Navegue até `http://127.0.0.1:5000` em um navegador. Clique em **Registrar!** e crie um usuário de teste.
 
 ![Aplicativo Python Flask em execução localmente](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -149,7 +149,7 @@ Use o comando CLI do Azure [az appservice list-locations](/cli/azure/appservice#
 
 Crie um servidor PostgreSQL com o comando [az postgres server create](/cli/azure/documentdb#create).
 
-No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado  *\<postgresql_name >* e um nome de usuário para o espaço reservado  *\<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
+No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado * \<postgresql_name >* e um nome de usuário para o espaço reservado * \<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
@@ -554,5 +554,5 @@ Por padrão, o portal mostra a página **Visão geral** do seu aplicativo Web . 
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
 
 > [!div class="nextstepaction"] 
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service-web-tutorial-custom-domain.md)
 

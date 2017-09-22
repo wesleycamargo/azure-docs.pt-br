@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como usar a Biblioteca de Cliente iOS para os Aplicativos Móveis do Azure
@@ -688,7 +688,7 @@ Você pode usar o SDK do Facebook para iOS para conectar os usuários ao seu apl
 ## <a name="twitter-fabric"></a>Instruções: autenticar usuários com a Twitter Fabric para iOS
 Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativo usando o Twitter. Normalmente, é melhor usar a autenticação de fluxo de cliente do que usar o método `loginWithProvider:completion:` , pois ele fornece uma aparência mais nativa do UX e permite uma maior personalização.
 
-1. Configurar o seu back-end de aplicativos móveis para entrar no Twitter, seguindo o tutorial [Como configurar o Serviço de Aplicativo para fazer logon no Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) .
+1. Configurar o seu back-end de aplicativos móveis para entrar no Twitter, seguindo o tutorial [Como configurar o Serviço de Aplicativo para fazer logon no Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) .
 2. Adicione a Fabric ao seu projeto seguindo a documentação [Fabric para iOS - Introdução] e a configuração TwitterKit.
 
    > [!NOTE]
@@ -762,7 +762,7 @@ Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativ
 ## <a name="google-sdk"></a>Instruções: autenticar usuários com o SDK do Login do Google para iOS
 Você pode usar o SDK do Login do Google para iOS para conectar os usuários ao seu aplicativo usando uma conta do Google.  O Google anunciou alterações em suas políticas de segurança OAuth recentemente.  Essas alterações de política exigirão o uso do SDK do Google.
 
-1. Configurar o seu back-end de aplicativos móveis para entrar no Google, seguindo o tutorial [How to configure App Service for Google login (Como configurar o Serviço de Aplicativo para fazer login no Google)](app-service-mobile-how-to-configure-google-authentication.md) .
+1. Configurar o seu back-end de aplicativos móveis para entrar no Google, seguindo o tutorial [How to configure App Service for Google login (Como configurar o Serviço de Aplicativo para fazer login no Google)](../app-service/app-service-mobile-how-to-configure-google-authentication.md) .
 2. Instale o SDK do Google para iOS seguindo a documentação [Google Sign-In for iOS - Start integrating (Login do Google para iOS - iniciar a integração)](https://developers.google.com/identity/sign-in/ios/start-integrating) . Você pode ignorar a seção "Autenticar com um servidor de back-end".
 3. Adicione o seguinte ao método `signIn:didSignInForUser:withError:` do seu representante, de acordo com a linguagem que você estiver usando.
 
@@ -860,7 +860,7 @@ Você pode usar o SDK do Login do Google para iOS para conectar os usuários ao 
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Esquema Dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Esquema dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
@@ -876,8 +876,8 @@ Você pode usar o SDK do Login do Google para iOS para conectar os usuários ao 
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 
