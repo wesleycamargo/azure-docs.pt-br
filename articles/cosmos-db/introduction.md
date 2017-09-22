@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5b6f016ce634fd244f1ea3b54361b9a5da9d5483
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 08/11/2017
 O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o clique de um botão, o BD Cosmos do Azure permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer.
 
 ![O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente pela Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
+
+Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que se beneficiam do Azure Cosmos DB
 
@@ -41,7 +43,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * Ao usar as APIs de hospedagem múltipla do Azure Cosmos DB, o aplicativo sempre sabe onde é a região mais próxima e enviará solicitações para o data center mais próximo. Tudo isso é possível sem alterações de configuração. Você define sua região de gravação e quantas regiões de leitura do seu jeito e o resto é feito para você.
 
 * **Vários modelos de dados e APIs populares para acessar e consultar dados**
-    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, baseia-se nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, grafos, valor de chave, tabela e modelos de dados de colunas.
+    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, gráfico, valor de chave, tabela e modelos de dados de colunas.
     * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
         * [API do DocumentDB](documentdb-introduction.md)
         * [API do MongoDB](mongodb-introduction.md)

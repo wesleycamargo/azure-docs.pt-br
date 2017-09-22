@@ -17,10 +17,10 @@ ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web do Python Flask usando o Azure Cosmos DB
@@ -48,12 +48,11 @@ Seguindo este tutorial, você criará um aplicativo simples de votação que per
 ## <a name="database-tutorial-prerequisites"></a>Pré-requisitos do tutorial de banco de dados
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
- 
-    OU 
+* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-    Uma instalação local do [Emulador do Azure Cosmos DB](local-emulator.md).
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/).  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.  
 * [Ferramentas Python para Visual Studio](https://github.com/Microsoft/PTVS/).  
 * [SDK do Microsoft Azure para Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7.13](https://www.python.org/downloads/windows/). 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 859035598831c1019304973a435de8f9276c9002
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
@@ -230,7 +230,7 @@ Nesta etapa, você cria um pipeline com a atividade **HDInsightSpark**. Atualmen
 
     ![Resultados da consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-Veja a seção [Executar uma consulta SQL do Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) para obter instruções detalhadas. 
+Consulte [Executar uma consulta SQL do Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) para obter instruções detalhadas. 
 
 ### <a name="troubleshooting"></a>Solucionar problemas
 Como você define **getDebugInfo** para **Sempre**, verá uma subpasta **log** na pasta **pyFiles** em seu contêiner de Blob do Azure. O arquivo de log na pasta de log fornece detalhes adicionais. Esse arquivo de log é especialmente útil quando há um erro. Em um ambiente de produção, convém defini-lo como **Falha**.

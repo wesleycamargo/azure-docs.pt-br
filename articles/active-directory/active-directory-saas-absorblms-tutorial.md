@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
@@ -124,7 +124,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. Na seção **Configuração do Absorb LMS**, clique em **Configurar Absorb LMS** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
+7. Na seção **Configuração do Absorb LMS**, clique em **Configurar Absorb LMS** para abrir a janela **Configurar logon**. Copie a **URL de Logoff** da **seção de Referência rápida.**
 
     ![Configuração do Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar Logon Único](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. Selecione o **Modo** adequado.
+    a. Selecione **Iniciado pelo provedor de identidade**.
 
-    b. Abra o certificado que você baixou do Portal do Azure no bloco de notas, remova a marcação **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e, em seguida, cole o conteúdo restante na caixa de texto **Chave**.
+    b. Abra o certificado que você baixou do portal do Azure no bloco de notas, remova as marcas **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e, em seguida, cole o conteúdo restante na caixa de texto **Chave**.
     
     c. Na **Propriedade ID**, selecione o atributo apropriado que você configurou como o identificador de usuário no Azure AD (por exemplo, se o userprinciplename fosse selecionado no Azure AD, o nome de usuário seria selecionado aqui.)
 
-    d. No **URL de logon**, cole o valor de **"URL de Logon Único do Serviço SAML"** copiado da janela **Configurar logon** do Portal do Azure.
+    d. Na **URL de logon**, cole a **URL de acesso do usuário** do aplicativo da página **Propriedades** do portal do Azure.
 
-    e. No **URL de logout**, cole o valor de **"URL de Saída"** copiado da janela **Configurar logon** do Portal do Azure.
+    e. Na **URL de logoff**, cole o valor de **URL de saída** copiado da janela **Configurar logon** do portal do Azure.
 
 13. Habilitar **"Permitir apenas logon SSO"**.
 
@@ -276,6 +276,7 @@ Clique no bloco Absorb LMS no Painel de Acesso, você será conectado automatica
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

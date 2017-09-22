@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -213,6 +213,8 @@ Se você usa o licenciamento baseado em grupo, convém se familiarizar com a lis
 - Quando um usuário é removido de um grupo e perde a licença, os planos de serviço dessa licença (por exemplo, SharePoint Online) são definidos como um estado **Suspenso**. Os planos de serviço não são definidos com um estado final desabilitado. Essa precaução pode evitar a remoção acidental de dados do usuário, caso um administrador cometa um erro no gerenciamento de associação a um grupo.
 
 - Quando as licenças são atribuídas ou modificadas para um grupo grande (por exemplo, 100.000 usuários), isso pode afetar o desempenho. Especificamente, o volume de alterações geradas pela automação do Azure AD pode afetar negativamente o desempenho da sincronização de diretório entre o Azure AD e sistemas locais.
+
+- Em determinadas situações de carga alta, o processamento de licença pode ser atrasado e alterações, como adição/remoção de um grupo de licenças ou adicionar/remover usuários do grupo, podem levar muito tempo para serem processadas. Se você observar que suas alterações estão demorando mais do que 24 horas para serem processadas, por favor, [abra um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que possamos investigar. Nós melhoraremos as características de desempenho desse recurso antes de atingir a *Disponibilidade geral*.
 
 - A automação de gerenciamento de licença não reage automaticamente a todos os tipos de alteração no ambiente. Por exemplo, você pode ficar sem licenças, colocando alguns usuários em um estado de erro. Para liberar a contagem de estações disponíveis, você pode remover algumas licenças atribuídas diretamente de outros usuários. No entanto, o sistema não reage automaticamente a essa alteração e corrige os usuários nesse estado de erro.
 

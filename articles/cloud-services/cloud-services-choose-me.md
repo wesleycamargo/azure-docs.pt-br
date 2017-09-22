@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher os serviços de nuvem ou algo mais?
@@ -28,7 +28,7 @@ Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece 
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>Fale-me sobre os serviços de nuvem
-Os Serviços de Nuvem são um exemplo de [PaaS (Plataforma como Serviço)](https://azure.microsoft.com/overview/what-is-paas/). Como o [Serviço de Aplicativo](../app-service-web/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
+Os Serviços de Nuvem são um exemplo de [PaaS (Plataforma como Serviço)](https://azure.microsoft.com/overview/what-is-paas/). Como o [Serviço de Aplicativo](../app-service/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 

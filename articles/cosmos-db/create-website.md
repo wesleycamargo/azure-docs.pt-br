@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.translationtype: HT
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
@@ -62,8 +61,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com), clique em Novo e procure "Implantação de modelo".
     ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment1.png)
-2. Selecione o item Implantação de modelo e clique em **Criar**
-    ![Captura de tela da interface do usuário de implantação de modelo](./media/create-website/TemplateDeployment2.png)
+2. Selecione o item Implantação de modelo e clique em **Criar** ![Captura de tela da interface do usuário de implantação de modelo](./media/create-website/TemplateDeployment2.png)
 3. Clique em **Editar modelo**, cole o conteúdo do arquivo de modelo DocDBWebsiteTodo.json e clique em **Salvar**.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
@@ -103,8 +101,7 @@ Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar 
 
 1. No [Portal do Azure](https://portal.azure.com), clique em Novo e procure "Implantação de modelo".
     ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment1.png)
-2. Selecione o item Implantação de modelo e clique em **Criar**
-    ![Captura de tela da interface do usuário de implantação de modelo](./media/create-website/TemplateDeployment2.png)
+2. Selecione o item Implantação de modelo e clique em **Criar** ![Captura de tela da interface do usuário de implantação de modelo](./media/create-website/TemplateDeployment2.png)
 3. Clique em **Editar modelo**, cole o conteúdo do arquivo de modelo DocDBWebSite.json e clique em **Salvar**.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
@@ -122,8 +119,7 @@ Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar 
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment6.png)
 7. Quando a implantação for concluída, a folha do Grupo de recursos será aberta.
    ![Captura de tela da folha Grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Clique no recurso Aplicativo Web na lista Recursos e, em seguida, clique em **Configurações do Aplicativo**
-    ![Captura de tela do grupo de recursos](./media/create-website/TemplateDeployment9.png)  
+8. Clique no recurso Aplicativo Web na lista Recursos e, em seguida, clique em **Configurações do Aplicativo** ![Captura de tela do grupo de recursos](./media/create-website/TemplateDeployment9.png)  
 9. Observe como há configurações de aplicativo presentes para o ponto de extremidade do Azure Cosmos DB e para cada uma das chaves mestras do Azure Cosmos DB.
 
     ![Captura de tela das configurações do aplicativo](./media/create-website/TemplateDeployment10.png)  

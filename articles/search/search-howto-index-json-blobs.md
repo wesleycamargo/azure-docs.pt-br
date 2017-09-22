@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -48,7 +49,7 @@ Como alternativa, quando seus blobs contêm uma **matriz de objetos JSON**, conv
 você pode popular o índice do Azure Search com três documentos separados, cada um com os campos "id" e "text".
 
 > [!IMPORTANT]
-> A funcionalidade de análise de matriz JSON está atualmente em visualização. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs em visualização ia servem para teste e avaliação e não devem ser usadas em ambientes de produção.
+> A funcionalidade de análise de matriz JSON está atualmente em visualização. Ela está disponível somente na API REST que usa a versão **2016-09-01-Preview**. Lembre-se de que as APIs em visualização ia servem para teste e avaliação e não devem ser usadas em ambientes de produção.
 >
 >
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
@@ -46,7 +46,7 @@ A folha **Provisionamento** começa com um menu **Modo**, que mostra quais modos
 Selecionar a opção **Automático** exibe uma tela dividida em quatro seções:
 
 ### <a name="admin-credentials"></a>Credenciais de administrador
-É onde são inseridas as credenciais necessárias para o Azure AD conectar-se à API de gerenciamento de usuários do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, confira o [tutorial de configuração para o aplicativo específico](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
+É onde são inseridas as credenciais necessárias para o Azure AD conectar-se à API de gerenciamento de usuários do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, confira o [tutorial de configuração para o aplicativo específico](active-directory-saas-app-provisioning.md).
 
 Selecionar o botão **Testar Conexão** permite que você teste as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
 

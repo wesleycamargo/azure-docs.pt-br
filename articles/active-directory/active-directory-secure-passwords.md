@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas à segurança de senha do Azure AD
@@ -51,7 +51,7 @@ Para obter informações sobre o gerenciamento de senha com base na pesquisa atu
 
 ### <a name="dynamically-banned-passwords"></a>Senhas banidas dinamicamente
 
-As Contas da Microsoft e do Azure AD garantem a proteção por senha banindo dinamicamente as senhas comumente usadas. A equipe de Proteção de Identidade do Azure ID analisa rotineiramente as listas de senhas proibidas, impedindo que os usuários selecionem senhas usadas comumente. Este serviço está disponível para o Azure AD e os clientes do serviço de Conta da Microsoft.
+As Contas da Microsoft e do Azure AD garantem a proteção por senha banindo dinamicamente as senhas comumente usadas. A equipe do Azure AD Identity Protection analisa rotineiramente as listas de senhas proibidas, impedindo que os usuários selecionem senhas usadas comumente. Este serviço está disponível para o Azure AD e os clientes do serviço de Conta da Microsoft.
 
 Durante a criação de senhas, é importante que os administradores incentivem os usuários a escolher frases de senha que incluam uma combinação exclusiva de letras, números, caracteres ou palavras. Essa abordagem ajuda a tornar as senhas de usuário praticamente impossíveis de serem comprometidas, mas mais fáceis de serem lembradas pelos usuários.
 

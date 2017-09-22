@@ -1,6 +1,6 @@
 ---
-title: "Tipos de nós do Service Fabric e Conjuntos de Dimensionamento de VMs | Microsoft Docs"
-description: "Descreve como os tipos de nó do Service Fabric se relacionam com os conjuntos de escala da VM e como fazer a conexão remota com uma instância de conjunto de escala da VM ou um nó de cluster."
+title: "Os tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual | Microsoft Docs"
+description: "Saiba como os tipos de nó do Service Fabric se relacionam com os conjuntos de dimensionamento da máquina virtual e como fazer a conexão remotamente com uma instância do conjunto de dimensionamento da VM ou um nó de cluster."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -15,51 +15,50 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 8c9e91d122591a19d34d944e2d9aaeb327cdafe4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="the-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>A relação entre os tipos de nó do Service Fabric e os conjuntos de escala da máquina virtual
-Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure. Eles podem ser usados para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente.
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
+Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Defina um conjunto de dimensionamento separado para cada tipo de nó que você define em um cluster do Azure Service Fabric. Cada tipo de nó pode ser escalada verticalmente ou horizontalmente de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferentes.
 
-A captura de tela abaixo mostra um cluster com dois tipos de nó: FrontEnd e BackEnd.  Cada tipo de nó tem cinco nós.
+A figura abaixo mostra um cluster com dois tipos de nó, denominados FrontEnd e BackEnd. Cada tipo de nó tem cinco nós.
 
-![Captura de tela de um cluster com dois tipos de nó][NodeTypes]
+![Um cluster com dois tipos de nó][NodeTypes]
 
-## <a name="mapping-virtual-machine-scale-set-instances-to-nodes"></a>Mapeando instâncias de conjuntos de dimensionamento de máquinas virtuais para nós
-Como você pode ver acima, as instâncias de conjunto de dimensionamento de máquinas virtuais começam da instância 0 e vão subindo. A numeração está refletida nos nomes. Por exemplo, BackEnd_0 é a instância 0 do conjunto de dimensionamento de máquinas virtuais de BackEnd. Esse conjunto de dimensionamento de máquinas virtuais específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mapeando instâncias de conjuntos de dimensionamento de máquinas virtuais para nós
+Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes do nó. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de dimensionamento de BackEnd. Esse conjunto de dimensionamento específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando você aumenta um conjunto de dimensionamento de máquinas virtuais, uma nova instância é criada. O nome da nova instância do conjunto de dimensionamento de máquinas virtuais geralmente será o nome do conjunto de dimensionamento de máquinas virtuais mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
+Quando você escala um conjunto de dimensionamento verticalmente, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento geralmente será o nome do conjunto de dimensionamento mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
 
-## <a name="mapping-virtual-machine-scale-set-load-balancers-to-each-node-typevm-scale-set"></a>Mapeando balanceadores de carga de conjuntos de dimensionamento de máquinas virtuais para cada tipo de nó/conjunto de dimensionamento de VM
-Se você tiver implantado o cluster do portal ou usado o modelo do Resource Manager, você poderá obter uma lista de todos os recursos em um grupo de recursos. Você ver os balanceadores de carga de cada conjunto de dimensionamento de máquinas virtuais ou tipo de nó.
-
-O nome seria algo como: **LB-&lt;nome do NodeType&gt;**. Por exemplo, LB-sfcluster4doc-0, conforme mostrado nesta captura de tela:
+## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear balanceadores de carga do conjunto de dimensionamento para tipos de nó e conjuntos de dimensionamento
+Se você tiver implantado o cluster no portal do Azure ou usado o modelo do exemplo do Azure Resource Manager, todos os recursos em um grupo de recursos serão listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **LB-&lt;nome do tipo de nó&gt;**. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
 ![Recursos][Resources]
-
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conectar remotamente a uma instância do conjunto de dimensionamento de máquinas virtuais ou a um nó de cluster
-Cada tipo de nó definido em um cluster está configurado como um conjunto de dimensionamento de máquinas virtuais separado.  Isso significa que os tipos de nó podem ser escalados verticalmente para cima ou para baixo de forma independente. Além disso, eles podem ser compostos por diferentes SKUs de VM. Ao contrário das VMs de instância única, as instâncias de conjunto de dimensionamento de máquinas virtuais não recebem um endereço IP virtual próprio. Assim, pode ser complicado procurar um endereço IP e uma porta que você queira usar para fazer a conexão remota com uma instância específica.
+Defina um conjunto de dimensionamento separado para cada tipo de nó que você define em um cluster. Você pode escalar os tipos de nó verticalmente ou horizontalmente de forma independente. Você também pode usar diferentes SKUs de VM. Ao contrário das máquinas virtuais de instância única, as instâncias de conjunto de dimensionamento da VM não recebem um endereço IP virtual próprio. Isso pode ser complicado quando você um endereço IP e uma porta que você queira usar para fazer a conexão remota com uma instância específica.
 
-Aqui estão as etapas que você pode seguir para descobri-los.
+Para localizar um endereço IP e porta que você pode usar para se conectar remotamente a uma instância específica, conclua as etapas a seguir.
 
-### <a name="step-1-find-out-the-virtual-ip-address-for-the-node-type-and-then-inbound-nat-rules-for-rdp"></a>Etapa 1: descobrir o endereço IP virtual do tipo de nó e as regras NAT de entrada para RDP
-Para obtê-lo, você precisa obter os valores de regras NAT de entrada definidos como parte da definição de recurso para **Microsoft.Network/loadBalancers**.
+**Etapa 1**: Localizar o endereço IP virtual para o tipo de nó, obtendo as regras de entrada de NAT para o protocolo RDP.
 
-No portal, navegue até a folha Balanceador de carga e então até **Configurações**.
+Primeiro, obtenha os valores de regras de entrada NAT que foram definidos como parte da definição de recurso para `Microsoft.Network/loadBalancers`.
 
-![LBBlade][LBBlade]
+No portal do Azure, na página do balanceador de carga, selecione **Configurações** > **Regras NAT de entrada**. Isso lhe dá o endereço IP e a porta que você pode usar para fazer a conexão remota com a primeira instância de conjunto de dimensionamento. 
 
-Em **Configurações**, clique em **Regras NAT de entrada**. Isso lhe dá o endereço IP e a porta que você pode usar para fazer a conexão remota com a instância de conjunto de dimensionamento de máquinas virtuais. Na captura de tela a seguir, é **104.42.106.156** e **3389**
+![Balanceador de carga][LBBlade]
 
-![NATRules][NATRules]
+Na figura a seguir, o endereço IP e porta são **104.42.106.156** e **3389**.
 
-### <a name="step-2-find-out-the-port-that-you-can-use-to-remote-connect-to-the-specific-virtual-machine-scale-set-instancenode"></a>Etapa 2: descobrir a porta que você pode usar para fazer conexão remota com o nó/instância do conjunto de dimensionamento de máquinas virtuais específico
-Neste documento, falei sobre como as instâncias de conjunto de dimensionamento de máquinas virtuais mapeiam para os nós. Nós usamos isso para descobrir a porta exata.
+![Regras de NAT][NATRules]
 
-As portas são alocadas em ordem crescente de instância do conjunto de dimensionamento de máquinas virtuais. Portanto, em meu exemplo, para o tipo de nó FrontEnd, as portas para cada uma das cinco instâncias são as mostradas a seguir. Agora, você precisa fazer o mesmo mapeamento para a instância do conjunto de dimensionamento de máquinas virtuais.
+**Etapa 2**: Descobrir a porta que você pode usar para fazer conexão remota com o nó/instância do conjunto de dimensionamento específico.
+
+As instâncias do conjunto de dimensionamento mapeiam para os nós. Use as informações do conjunto de dimensionamento para determinar a porta exata a ser usada.
+
+As portas são alocadas em uma ordem crescente que corresponde à instância do conjunto de dimensionamento. Para o exemplo anterior do tipo de nó FrontEnd, a tabela a seguir lista as portas para cada uma das cinco instâncias de nó. Aplique o mesmo mapeamento para a instância do conjunto de dimensionamento.
 
 | **Instância do conjunto de dimensionamento de máquinas virtuais** | **Porta** |
 | --- | --- |
@@ -70,74 +69,79 @@ As portas são alocadas em ordem crescente de instância do conjunto de dimensio
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-### <a name="step-3-remote-connect-to-the-specific-virtual-machine-scale-set-instance"></a>Etapa 3: conectar-se remotamente à instância do conjunto de dimensionamento de máquinas virtuais específico
-Na captura de tela abaixo, usei a conexão de área de trabalho remota para me conectar com o FrontEnd_1:
+**Etapa 3**: Conectar-se remotamente à instância do conjunto de dimensionamento específico.
 
-![RDP][RDP]
+A figura a seguir demonstra como usar a Conexão de Área de Trabalho Remota para se conectar à instância do conjunto de dimensionamento FrontEnd_1:
 
-## <a name="how-to-change-the-rdp-port-range-values"></a>Como alterar os valores de intervalo da porta RDP
+![Conexões de Área de Trabalho Remota][RDP]
+
+## <a name="change-the-rdp-port-range-values"></a>Alterar os valores de intervalo da porta RDP
+
 ### <a name="before-cluster-deployment"></a>Antes da implantação de cluster
-Quando você estiver configurando o cluster usando um modelo do Resource Manager, poderá especificar o intervalo em **inboundNatPools**.
+Quando você configurar o cluster usando um modelo do Gerenciador de Recursos, especifique o intervalo em `inboundNatPools`.
 
-Vá para a definição de recurso para **Microsoft.Network/loadBalancers**. Lá, você encontra a descrição de **inboundNatPools**.  Substitua os valores *frontendPortRangeStart* e *frontendPortRangeEnd*.
+Vá para a definição do recurso para `Microsoft.Network/loadBalancers`. Localize a descrição de `inboundNatPools`.  Substitua os valores `frontendPortRangeStart` e `frontendPortRangeEnd`.
 
-![inboundNatPools][InboundNatPools]
+![Valores de inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>Depois da implantação de cluster
-Após a implantação de cluster isso é um pouco mais complicado e pode resultar na reciclagem das VMs. Defina os novos valores usando o Azure PowerShell. Verifique se o Azure PowerShell versão 1.0 ou posterior está instalado em seu computador. Se você não tem o Azure PowerShell 1.0 ou posterior, sugiro fortemente que você execute as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azure/overview)
+Alterar os valores de intervalo de porta RDP após a implantação de cluster é mais complexo. Para garantir que você não recicle as VMs, use o Azure PowerShell para definir novos valores. 
 
-Entre na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
+> [!NOTE]
+> Certifique-se de que você tenha o Azure PowerShell 1.0 ou uma versão posterior instalada em seu computador. Se você não tem o Azure PowerShell 1.0 ou uma versão posterior, recomendamos fortemente que você execute as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azure/overview)
 
-```
-Login-AzureRmAccount
-```
+1. Entre na sua conta do Azure. Se o seguinte comando do PowerShell falhar, verifique se você instalou o PowerShell corretamente.
 
-Execute o seguinte para obter detalhes sobre o balanceador de carga e ver os valores para a descrição de **inboundNatPools**:
+    ```
+    Login-AzureRmAccount
+    ```
 
-```
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
-```
+2. Para obter detalhes sobre o seu balanceador de carga e para ver os valores para a descrição de `inboundNatPools`, execute o seguinte código:
 
-Agora defina os valores desejados para *frontendPortRangeEnd* e *frontendPortRangeStart*.
+    ```
+    Get-AzureRmResource -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
+    ```
 
-```
-$PropertiesObject = @{
-    #Property = value;
-}
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
-```
+3. Defina `frontendPortRangeEnd` e `frontendPortRangeStart` para os valores que você deseja.
 
-## <a name="how-to-change-the-rdp-username--password-for-nodes"></a>Como alterar o nome de usuário RDP e senha para nós
+    ```
+    $PropertiesObject = @{
+        #Property = value;
+    }
+    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name> -ApiVersion <use the API version that is returned> -Force
+    ```
 
-As etapas a seguir descrevem como alterar a senha para todos os nós de um determinado tipo de nó. Essas alterações serão aplicadas a todos os nós atuais e futuros no conjunto de dimensionamento de máquinas virtuais.
+## <a name="change-the-rdp-user-name-and-password-for-nodes"></a>Como alterar o nome de usuário e senha RDP para nós
 
-### <a name="step-1-open-powershell-with-elevated-privileges-administrator-mode"></a>Etapa 1: abra o PowerShell com privilégios elevados (modo de administrador). 
-### <a name="step-2-run-the-following-commands-to-log-in-and-select-your-subscription-for-the-session-change-the-subscriptionid-parameter-to-your-subscription-id"></a>Etapa 2: execute os comandos a seguir para efetuar logon e selecione sua assinatura para a sessão. Altere o `SUBSCRIPTIONID` parâmetro para sua ID da assinatura. 
+Para alterar a senha para todos os nós de um tipo de nó específico, siga as seguintes etapas. Essas alterações serão aplicadas a todos os nós atuais e futuros no conjunto de dimensionamento.
 
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
-```
+1. Abra o PowerShell como administrador. 
+2. Para efetuar logon e selecione sua assinatura para a sessão, execute os comandos a seguir. Altere o `SUBSCRIPTIONID` parâmetro para sua ID da assinatura. 
 
-### <a name="step-3-run-the-following-script-with-the-appropriate-nodetypename-resourcegroup-username-and-password-values-the-username-and-password-values-will-be-the-new-credentials-that-should-be-used-in-future-rdp-sessions"></a>Etapa 3: execute o script a seguir com os valores `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` e `PASSWORD` apropriados. Os valores `USERNAME` e `PASSWORD` serão as novas credenciais que deverão ser usadas em futuras sessões RDP. 
+    ```powershell
+    Login-AzureRmAccount
+    Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
+    ```
 
-```powershell
-$nodeTypeName = 'NODETYPENAME'
-$resourceGroup = 'RESOURCEGROUP'
-$publicConfig = @{'UserName' = 'USERNAME'}
-$privateConfig = @{'Password' = 'PASSWORD'}
-$extName = 'VMAccessAgent'
-$publisher = 'Microsoft.Compute'
-$node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
-$node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+3. Execute o seguinte script. Use os valores `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` e `PASSWORD` relevantes. Os valores `USERNAME` e `PASSWORD` são as novas credenciais que deverão ser usadas em futuras sessões RDP. 
 
-Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
-```
+    ```powershell
+    $nodeTypeName = 'NODETYPENAME'
+    $resourceGroup = 'RESOURCEGROUP'
+    $publicConfig = @{'UserName' = 'USERNAME'}
+    $privateConfig = @{'Password' = 'PASSWORD'}
+    $extName = 'VMAccessAgent'
+    $publisher = 'Microsoft.Compute'
+    $node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
+    $node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+
+    Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md)
-* [Segurança de cluster](service-fabric-cluster-security.md)
-* [ SDK do Service Fabric e introdução](service-fabric-get-started.md)
+* Consulte [visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md).
+* Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).
+* Saiba mais em [Introdução e SDK do Service Fabric](service-fabric-get-started.md).
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

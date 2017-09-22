@@ -12,10 +12,10 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b4ef5dc0af6bea8af02ad63843acc91713666ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -72,7 +72,7 @@ Na próxima seção, você mostrará sua API através de um proxy. Os Proxies do
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
-- Aplicativos de API no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+- Aplicativos de API no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 - Contêineres de docker no [Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualquer outra API hospedada
 
@@ -189,10 +189,10 @@ Neste tutorial, você aprendeu a compilar e personalizar uma API no Azure Functi
 As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 
 - [Associações HTTP e de webhook do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Trabalhar com Proxies do Azure Functions (visualização)]
+- [Trabalhar com proxies do Azure Functions (visualização)]
 - [Documentar uma API do Azure Functions (visualização)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Trabalhar com Proxies do Azure Functions (visualização)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Trabalhar com proxies do Azure Functions (visualização)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
 

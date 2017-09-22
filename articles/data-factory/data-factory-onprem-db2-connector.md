@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fed1c8790c5d6d1c688e04a49d5cecd09fbc0dda
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Factory para copiar dados de um banco de dados DB2 local para um armazenamento de dados. Você pode copiar dados em qualquer armazenamento listado como um coletor suportado no artigo [Atividades de movimentação de dados no Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este tópico foi criado com base no artigo do Data Factory, que apresenta uma visão geral da movimentação de dados usando a Atividade de Cópia e lista as combinações de armazenamento de dados suportadas. 
 
-Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um banco de dados DB2 para um [armazenamento de dados do coletor suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Mover dados de outros armazenamentos de dados para um banco de dados DB2 não é suportado.
+Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um banco de dados DB2 para um [armazenamento de dados do coletor suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Não há suporte para a movimentação de dados de outros armazenamentos de dados para um banco de dados DB2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Move dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Mover dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
-O gateway é necessário, mesmo se o DB2 estiver hospedado na VM Iaas do Azure. Você pode instalar o gateway na mesma VM IaaS que o armazenamento de dados. Se o gateway puder se conectar com o banco de dados, você poderá instalar o gateway em uma VM diferente.
+O gateway é necessário, mesmo se o DB2 estiver hospedado na VM da Iaas do Azure. Você pode instalar o gateway na mesma VM da IaaS que o armazenamento de dados. Se o gateway puder se conectar com o banco de dados, você poderá instalar o gateway em uma VM diferente.
 
 O gateway de gerenciamento de dados fornece um driver DB2 interno, de modo que não é necessário instalar manualmente um driver para copiar dados do DB2.
 
@@ -93,7 +93,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da Atividade de Cópia
-Para obter uma lista das seções e propriedades disponíveis para definir as atividades de cópia, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades da Atividade de Cópia, como **name**, **description**, tabela **inputs**, tabela **outputs** e **policy** estão disponíveis para todos os tipos de atividade. As propriedades estão disponíveis na seção **typeProperties** da atividade para cada tipo de atividade. Para a Atividade de Cópia, as propriedades variam conforme os tipos de fonte de dados e coletor.
+Para obter uma lista das seções e propriedades disponíveis para definir as atividades de cópia, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades da Atividade de Cópia, como **name**, **description**, tabela **inputs**, tabela **outputs** e **policy** estão disponíveis para todos os tipos de atividade. As propriedades que estão disponíveis na seção **typeProperties** da atividade variam conforme cada tipo de atividade. Para a Atividade de Cópia, as propriedades variam conforme os tipos de fonte de dados e coletor.
 
 Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estarão disponíveis na seção **typeProperties**:
 
@@ -350,7 +350,8 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-reads-from-relational-sources"></a>Leituras repetidas de fontes relacionais
-Ao copiar dados de um armazenamento de dados relacional, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a propriedade **policy** de repetição para um conjunto de dados, de modo a executar novamente uma fatia quando uma falha ocorre. Certifique-se de que os mesmos dados sejam lidos, não importa quantas vezes a fatia seja executada e independentemente de como você executa novamente a fatia. Para saber mais, confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de um armazenamento de dados relacional, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a propriedade **policy** de repetição para um conjunto de dados, a fim de executar novamente uma fatia quando ocorrer uma falha. Certifique-se de que os mesmos dados sejam lidos, não importa quantas vezes a fatia seja executada e independentemente de como você executa novamente a fatia. Para saber mais, confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
-Saiba mais sobre os principais fatores que afetam o desempenho da Atividade de Cópia e maneiras de otimizar o desempenho no [Guia Desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).
+Saiba mais sobre os principais fatores que afetam o desempenho da Atividade de Cópia e maneiras de otimizar o desempenho no [Guia de Desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).
+
