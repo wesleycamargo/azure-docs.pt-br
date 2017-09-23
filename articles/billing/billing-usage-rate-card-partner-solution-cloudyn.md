@@ -3,7 +3,7 @@ title: "APIs de uso e do RateCard do Microsoft Azure permitem que o Cloudyn forn
 description: "Fornece uma perspectiva exclusiva do parceiro de cobrança Cloudyn do Microsoft Azure, em suas experiências para integrar as APIs de cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e Cloudyn que estejam interessados em usar/experimentar o Cloudyn para serviços do Azure."
 services: 
 documentationcenter: 
-author: BryanLa
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
-ms.author: mobandyo;bryanla
+ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fac0ee2e9cbc87c8b3d04675551bba61f7a532b6
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="microsoft-azure-usage-and-ratecard-apis-enable-cloudyn-to-provide-itfm-for-customers"></a>APIs de Uso do Microsoft Azure e RateCard permitem que o Cloudyn forneça ITFM para os clientes
