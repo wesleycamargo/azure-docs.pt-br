@@ -3,7 +3,7 @@ title: "Vários VIPs para um serviço de nuvem"
 description: "Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
@@ -22,6 +22,8 @@ ms.lasthandoff: 07/06/2017
 ---
 
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs para um serviço de nuvem
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Você pode acessar os serviços de nuvem do Azure pela Internet pública usando um endereço IP fornecido pelo Azure. Este endereço IP público é conhecido como um VIP (IP virtual), uma vez que está vinculado ao Azure Load Balancer, e não às instâncias VM (máquina virtual) no serviço de nuvem. Você pode acessar qualquer instância VM dentro de um serviço de nuvem usando um único VIP.
 

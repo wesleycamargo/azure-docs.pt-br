@@ -3,7 +3,7 @@ title: "Visão geral do IPv6 para o Azure Load Balancer | Microsoft Docs"
 description: Entender o suporte a IPv6 para o Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
@@ -24,6 +24,9 @@ ms.lasthandoff: 07/14/2017
 ---
 
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Balanceadores de carga voltados para a Internet podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
 
