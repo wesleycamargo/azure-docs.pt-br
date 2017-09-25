@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 5/31/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/13/2017
 ---
 
 # <a name="understanding-outbound-connections-in-azure"></a>Entendendo as conexões de saída no Azure
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Uma VM (Máquina Virtual) no Azure pode se comunicar com pontos de extremidade fora do Azure no espaço de endereço IP público. Quando uma VM inicia um fluxo de saída para um destino no espaço de endereço IP público, o Azure mapeia um endereço IP privado da VM para um endereço IP público e permite que o tráfego de retorno chegue à VM.
 
