@@ -3,7 +3,7 @@ title: "Visão geral do balanceador de carga interno | Microsoft Docs"
 description: "Visão geral do balanceador de carga interno e seus recursos. Como um balanceador de carga funciona no Azure e possíveis cenários para configurar pontos de extremidade internos"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
-ms.lasthandoff: 04/13/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>Visão geral do balanceador de carga interno
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Ao contrário do balanceador de carga voltado para a Internet, o ILB (Balanceador de Carga Interno) direciona o tráfego somente para os recursos dentro do serviço de nuvem ou usa VPN para acessar a infraestrutura do Azure. A infraestrutura restringe o acesso aos VIPs (endereços IP virtuais) de balanceamento de carga de um Serviço de nuvem ou uma Rede virtual, de modo que nunca será exposta diretamente a um ponto de extremidade da Internet. Isso permite que aplicativos LOB (linha de negócios) internos sejam executados no Azure e acessados na nuvem ou nos recursos locais.
 

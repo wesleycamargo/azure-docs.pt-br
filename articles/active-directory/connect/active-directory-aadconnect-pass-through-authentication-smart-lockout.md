@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -79,7 +79,7 @@ Siga estas etapas para definir os valores de do Bloqueio Inteligente de seu loca
 1. Entre no Explorador do Graph como um Administrador Global de seu locatário. Se solicitado, conceda acesso para as permissões solicitadas.
 2. Clique em "Modificar permissões" e selecione a permissão "Directory.ReadWrite.All".
 3. Configure a solicitação da API do Graph da seguinte maneira: defina a versão como "BETA", o tipo de solicitação como "POST" e a URL como `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copie e cole a seguinte solicitação JSON no campo "Corpo da Solicitação". Altere os valores do Bloqueio Inteligente conforme apropriado e use um GUID aleatório para `templateId`.
+4. Copie e cole a seguinte solicitação JSON no campo "Corpo da Solicitação".
 5. Clique em "Executar Consulta" para ver os valores do Bloqueio Inteligente de seu locatário.
 
 ```

@@ -3,7 +3,7 @@ title: "Configurar modo de distribuição do Balanceador de Carga | Microsoft Do
 description: "Como configurar o modo de distribuição do balanceador de carga do Azure para dar suporte à afinidade de IP de origem"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -11,15 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 664e668d6660fae956d4b6bdf0179abf67d743b1
-ms.openlocfilehash: 1bc28b6f2979f47284a27a5a25becb8599b2ffab
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>Configurar modo de distribuição para o balanceador de carga
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseado em hash
 
@@ -147,7 +151,7 @@ Você pode configurar a distribuição do balanceador de carga usando a API de g
 
 O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas, sourceIPProtocol para afinidade de 3 tuplas ou nenhum (para nenhuma afinidade. por exemplo, 5 tuplas)
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>Resposta
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -164,9 +168,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 [Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
