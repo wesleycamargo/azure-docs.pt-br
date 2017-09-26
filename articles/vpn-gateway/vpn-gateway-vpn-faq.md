@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 6a66289ee52eca02a7ab416f5bcf55e6cff8b720
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
@@ -113,9 +113,9 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 * Portal do Azure: navegue até a rede virtual clássica > Conexões VPN > Conexões VPN Site a Site > Nome do site Local > Site local > Espaço de endereço do cliente. 
 * Portal clássico: adicione cada intervalo que você deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Posso configurar o Túnel Forçado?
+### <a name="can-i-configure-force-tunneling"></a>Posso configurar o Túnel Forçado?
 
-Sim. Consulte [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
+Sim. Confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 
@@ -159,9 +159,13 @@ Há suporte para servidores RRAS (Roteamento e Acesso Remoto) do Windows Server 
 
 Outras soluções VPN de software devem funcionar com nosso gateway, contanto que estejam em conformidade com implementações de IPsec padrão do setor. Contate o fornecedor do software para obter instruções de configuração e suporte.
 
-## <a name="P2S"></a>Conexões Ponto a Site
+## <a name="P2S"></a>Ponto a Site - Autenticação de certificado nativa do Azure
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="point-to-site---radius-authentication"></a>Ponto a Site - Autenticação RADIUS
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Conexões Rede Virtual para Rede Virtual e Multissite
 
@@ -191,9 +195,9 @@ Sim, mas você deve configurar o BGP em ambos os túneis para o mesmo local.
 
 Sim, as VPNs P2S (ponto a site) podem ser usadas com os gateways de VPN conectando a vários sites locais e outras redes virtuais.
 
-### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Posso conectar uma rede virtual com VPNs IPsec a meu circuito Rota Expressa?
+### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Posso conectar uma rede virtual com VPNs IPsec a meu circuito ExpressRoute?
 
-Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
+Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de ExpressRoute que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## <a name="ipsecike"></a>Política do IPsec/IKE
 
