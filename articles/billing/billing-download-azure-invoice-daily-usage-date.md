@@ -18,14 +18,14 @@ ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 4160b9ef6cda1efd6c76ce1b283c78b4d43a5187
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
-É possível baixar sua fatura no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por email. Para baixar o uso diário, acesse o [Centro de Contas do Azure](https://account.windowsazure.com). Somente certas funções como o administrador da conta têm permissão para obter as informações de uso e a fatura de cobrança. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
+É possível baixar sua fatura no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por email. Para baixar o uso diário, acesse o [Centro de Contas do Azure](https://account.azure.com/Subscriptions). Somente certas funções como o administrador da conta têm permissão para obter as informações de uso e a fatura de cobrança. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
 >[!NOTE]
 >Este artigo não se aplica aos clientes do EA (Enterprise Agreement). Se você for um cliente do EA, suas faturas serão enviadas diretamente para os Administradores de Registro.

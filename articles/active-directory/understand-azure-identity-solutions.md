@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: b7328eea378dde886419be8a4ab5b6f69c0b0d24
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
@@ -40,7 +40,7 @@ Antes de tomar uma decisão quanto à solução de identidade do Azure para a su
 |Diretório do AD do Azure | Cada locatário do Azure tem um diretório do Azure AD e confiável que contém os usuários, os grupos e os aplicativos do locatário. Ele é usado para realizar as funções de gerenciamento de acesso e identidade para recursos de locatário. Uma vez que um diretório do Azure AD exclusivo é provisionado automaticamente para representar sua organização quando você se inscreve para um serviço de nuvem da Microsoft como o Azure, o Microsoft Intune ou o Office 365, às vezes você verá os termos *locatário*, *Azure AD* e *diretório do Azure AD* serem usados de maneira intercambiável. |
 |Domínio personalizado | Quando você se inscreve pela primeira vez para uma assinatura de serviço de nuvem da Microsoft, seu locatário (organização) usa um nome de domínio *.onmicrosoft.com*. No entanto, a maioria das organizações tem um ou mais nomes de domínio que são usados para fazer negócios e que os usuários finais usam para acessar os recursos da empresa. Você pode adicionar seu nome de domínio personalizado ao Azure AD para que o nome de domínio seja familiar para seus usuários, como *alice@contoso.com*, em vez de *alice@contoso.onmicrosoft.com*. |
 |Conta do AD do Azure | Essas são as identidades criadas usando o Azure AD ou outro serviço de nuvem da Microsoft, como o Office 365. Elas são armazenadas no Azure AD e ficam acessíveis a qualquer uma das assinaturas do serviço de nuvem da organização. |
-|Administrador de assinatura do Azure| O administrador da conta é a pessoa que assinou ou comprou a assinatura do Azure. Eles podem usar o [Centro de Contas](https://account.windowsazure.com/Home/Index) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. |
+|Administrador de assinatura do Azure| O administrador da conta é a pessoa que assinou ou comprou a assinatura do Azure. Eles podem usar o [Centro de Contas](https://account.azure.com/Subscriptions) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. |
 |Administrador Global do Azure AD | Os administradores globais do Azure AD têm acesso completo a todos os recursos administrativos do Azure AD. A pessoa que se inscreve para uma assinatura de serviço de nuvem da Microsoft automaticamente se torna um administrador global por padrão. Você pode ter mais de um administrador global, mas somente administradores globais podem atribuir qualquer uma das [outras funções de administrador](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) a usuários. |
 |Conta da Microsoft | Contas da Microsoft (criadas por você para seu uso pessoal) fornecem acesso a todos os produtos e serviços de nuvem voltados ao consumidor, por exemplo, Outlook (Hotmail), OneDrive, Xbox LIVE ou Office 365. Essas identidades são criadas e armazenadas no sistema conta de identidade do consumidor da Microsoft executado pela Microsoft.|
 |Contas corporativas ou de estudante | Contas corporativas ou de estudante (emitidas por um administrador para uso comercial/acadêmico) dão acesso a todos os serviços de nuvem da Microsoft no nível corporativo, como Azure, Intune ou Office 365.|
@@ -116,7 +116,7 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
-* [O que é o licenciamento do Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
+* [O que é o licenciamento do Active Directory do Microsoft Azure?](active-directory-licensing-what-is.md)
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
 ## <a name="next-steps"></a>Próximas etapas

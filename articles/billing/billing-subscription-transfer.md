@@ -18,10 +18,10 @@ ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: e918e2863384d44533efaee25d3fea3cceedba77
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 15c6d3b8a335be068ead512c9b9d93940086c9ab
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
@@ -104,7 +104,7 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
 
 ### <a name="whoisaa"></a> Quem é o administrador da conta da assinatura?
 
-O Administrador da Conta é a pessoa que se inscreveu ou comprou a assinatura do Azure. Ele está autorizado a acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. Se você não tiver certeza de quem é o administrador da conta de uma assinatura, use as etapas a seguir para descobrir.
+O Administrador da Conta é a pessoa que se inscreveu ou comprou a assinatura do Azure. Ele está autorizado a acessar o [Centro de Contas](https://account.azure.com/Subscriptions) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. Se você não tiver certeza de quem é o administrador da conta de uma assinatura, use as etapas a seguir para descobrir.
 
 1. Acesse a [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a assinatura que você deseja verificar e olhe as **Configurações**.
