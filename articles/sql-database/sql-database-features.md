@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 968a7d3611d050d15ee398f9c3c5830d5c8e85fb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-sql-database-features"></a>Recursos do Banco de Dados SQL do Azure
@@ -120,7 +120,6 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Partições de tabela](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sim - somente no grupo de arquivos primário |
 | [Tabelas temporárias](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | Somente tabelas locais e temporárias globais no escopo do banco de dados |
 | [Tabelas temporais](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sim |
-| [Transações](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | Não |
 | [Variáveis](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sim | 
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sim |
 | [Clustering de Failover do Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Não - veja [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md) |
