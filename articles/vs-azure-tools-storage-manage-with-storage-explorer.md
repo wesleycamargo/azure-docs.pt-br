@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de armazenamento (visualização)
@@ -68,7 +68,7 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Conexão com uma assinatura do Azure Stack
 
-Para obter informações sobre como se conectar a uma assinatura do Azure Stack, confira [Conectar o Gerenciador de Armazenamento para uma assinatura do Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Para obter informações sobre como se conectar a uma assinatura do Azure Stack, confira [Conectar o Gerenciador de Armazenamento para uma assinatura do Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Trabalhar com o armazenamento de desenvolvimento local
 O Gerenciador de armazenamento (visualização) permite que você trabalhe no armazenamento local usando o Emulador de Armazenamento do Azure. Isso permite que você escreva códigos e teste o armazenamento sem necessariamente ter uma conta de armazenamento implantada no Azure, uma vez que a conta de armazenamento está sendo emulada pelo Emulador de Armazenamento do Azure.

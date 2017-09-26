@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao Servidor R e recursos de R de software livre no HDInsight
@@ -32,7 +32,7 @@ O R Server no HDInsight fornece os recursos mais recentes para análise de R em 
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-las em todos os nós do cluster usando o Hadoop Map Reduce do ScaleR ou os contextos de computação do Spark.
 
-Os modelos ou previsões que resultam de análises podem ser baixados para uso no local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md) no [Azure Machine Learning Studio](http://studio.azureml.net).
+Os modelos ou previsões que resultam de análises podem ser baixados para uso no local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../machine-learning/studio/publish-a-machine-learning-web-service.md) no [Azure Machine Learning Studio](http://studio.azureml.net).
 
 ## <a name="get-started-with-r-on-hdinsight"></a>Introdução ao R no HDInsight
 Para incluir o Servidor R em um cluster HDInsight, selecione o tipo de cluster do Servidor de R ao criar um cluster HDInsight usando o Portal do Azure. O tipo de cluster do R Server inclui o R Server nos mesmos nós de dados do cluster e em um nó de borda, que serve como uma zona de aterrissagem para análise com base no R Server. Veja [Introdução ao uso do R Server no HDInsight](hdinsight-hadoop-r-server-get-started.md) para ver um passo a passo sobre como criar o cluster.
@@ -57,7 +57,7 @@ Quando sua modelagem de dados estiver concluída, você poderá operacionalizar 
 Para pontuar no HDInsight, escreva uma função R que chame seu modelo para fazer previsões para um novo arquivo de dados que você carregou na conta de armazenamento. Em seguida, salve as previsões na conta de armazenamento. Você pode executar a rotina sob demanda no nó de borda do seu cluster ou usando um trabalho agendado.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Pontuação no AML (Azure Machine Learning)
-Para pontuar usando um serviço Web do AML, use o pacote R do Azure Machine Learning de software livre conhecido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) para publicar seu modelo como um serviço Web do Azure. Para sua conveniência, este pacote é pré-instalado no nó de borda. Em seguida, use os recursos no Aprendizado de Máquina para criar uma interface de usuário para o serviço Web e chame o serviço Web conforme necessidade para pontuação.
+Para pontuar usando um serviço Web do AML, use o pacote R do Azure Machine Learning de software livre conhecido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) para publicar seu modelo como um serviço Web do Azure. Para sua conveniência, este pacote é pré-instalado no nó de borda. Em seguida, use os recursos no Machine Learning para criar uma interface de usuário para o serviço Web e chame o serviço Web conforme necessidade para pontuação.
 
 Se você escolher essa opção, será preciso converter qualquer objeto de modelo do ScaleR em objeto de modelo de software livre equivalente para uso com o serviço Web. Use as funções de coerção do ScaleR, tais como `as.randomForest()` para modelos baseados em combinação, para essa conversão.
 

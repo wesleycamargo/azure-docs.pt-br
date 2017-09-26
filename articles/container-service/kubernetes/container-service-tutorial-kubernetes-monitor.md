@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -140,7 +140,7 @@ No portal do OMS, procure um bloco de resumo **Contêineres** no painel do OMS. 
 
 Da mesma forma, no portal do Azure, acesse o **Log Analytics** e selecione o nome do espaço de trabalho. Para ver o bloco de resumo **Contêineres** clique em **Soluções** > **Contêineres**. Para ver os detalhes, clique no bloco.
 
-Consulte a [documentação do Azure Log Analytics](../../log-analytics/index.md) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
+Consulte a [documentação do Azure Log Analytics](../../log-analytics/index.yml) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
