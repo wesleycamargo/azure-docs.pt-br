@@ -12,7 +12,7 @@
 
 * Convém aumentar a cota de núcleos (por região) na sua assinatura do Azure e aumentar a cota separada para núcleos NC ou NV. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitamente. Os limites padrão podem variar dependendo de sua categoria de assinatura.
 
-* Uma imagem VM que você pode implantar nas VMs da série N é a [Máquina Virtual de Ciência de Dados do Azure](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md). A Máquina Virtual de Ciência de Dados pré-instala e configura muitas ferramentas conhecidas de ciência de dados e de aprendizado. Ele também pré-instala drivers NVIDIA Tesla GPU para instâncias de NC.
+* Uma imagem VM que você pode implantar nas VMs da série N é a [Máquina Virtual de Ciência de Dados do Azure](../articles/machine-learning/data-science-virtual-machine/overview.md). A Máquina Virtual de Ciência de Dados pré-instala e configura muitas ferramentas conhecidas de ciência de dados e de aprendizado. Ele também pré-instala drivers NVIDIA Tesla GPU para instâncias de NC.
 
 
 
