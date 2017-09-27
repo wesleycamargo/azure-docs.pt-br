@@ -146,7 +146,8 @@ Você precisa abrir um arquivo U-SQL ou uma pasta para trabalhar com o U-SQL.
                       D( DepID, DepName );
          
         OUTPUT @departments
-            TO “/Output/departments.csv”
+            TO "/Output/departments.csv"
+        USING Outputters.Csv();
 
     O script cria um arquivo departments.csv com alguns dados incluídos na pasta /output.
 
