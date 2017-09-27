@@ -8,6 +8,7 @@
 # Introdução
 
 ## [Tutorial para iniciantes](sql-data-warehouse-get-started-tutorial.md)
+## [Tutorial de consulta elástica](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [práticas recomendadas](sql-data-warehouse-best-practices.md)
 ## [Gerenciar](sql-data-warehouse-overview-manage.md)
 
@@ -19,8 +20,8 @@
 
 ### [Visão geral do Backup](sql-data-warehouse-backups.md)
 ### [Visão geral de Restauração](sql-data-warehouse-restore-database-overview.md)
-#### [portal do Azure](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Portal do Azure](sql-data-warehouse-restore-database-portal.md)
+#### [PowerShell do Azure](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Connect
@@ -34,7 +35,7 @@
 
 ## Criação
 ### [Portal do Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [PowerShell do Azure](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Desenvolver
@@ -74,11 +75,14 @@
 
 ### [Visão geral](sql-data-warehouse-overview-integrate.md)
 ### [Fábrica de dados](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Aprendizado de máquina](sql-data-warehouse-integrate-azure-machine-learning.md)
+### 
+            [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
 ### [Tutorial de Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Visualização do Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Consulta elástica com Banco de Dados SQL e SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Carregar
 

@@ -70,7 +70,7 @@
     - name: Alemanha
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: Portal
+    - name: Portal do Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Gerenciador de Recursos
@@ -79,6 +79,9 @@
     - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+    - name: Usuário do Azure Stack
+      tocHref: /azure/azure-stack/user/
+      topicHref: /azure/azure-stack/user/
     - name: Capacidade de suporte
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
@@ -207,6 +210,19 @@
     - name: Machine Learning
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
+      items:
+        - name: Serviços (Versão Prévia)
+          tocHref: /azure/machine-learning/preview
+          topicHref: /azure/machine-learning/preview/
+        - name: Estúdio
+          tocHref: /azure/machine-learning/studio
+          topicHref: /azure/machine-learning/studio/
+        - name: Processo de ciência de dados de equipe
+          tocHref: /azure/machine-learning/team-data-science-process
+          topicHref: /azure/machine-learning/team-data-science-process/overview
+        - name: Máquina Virtual de Ciência de Dados
+          tocHref: /azure/machine-learning/data-science-virtual-machine
+          topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: Consumo do Marketplace
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/

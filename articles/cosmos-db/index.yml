@@ -75,6 +75,7 @@ sections:
           - html: 'Consultar dados com o Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>'
           - html: 'Replicação de banco de dados global com o Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>'
           - html: <a href="local-emulator">Desenvolver seu aplicativo localmente usando o emulador</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Criar um Gatilho de HTTP com uma associação de entrada do Azure Cosmos DB</a>
   - title: Exemplos
     items:
       - type: list

@@ -18,23 +18,23 @@
 # Como
 ## Criar e modificar um circuito
 ### [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [PowerShell do Azure](expressroute-howto-circuit-arm.md)
 ### [CLI do Azure](howto-circuit-cli.md)
 ## Criar e modificar a configuração de emparelhamento
 ### [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [PowerShell do Azure](expressroute-howto-routing-arm.md)
 ### [CLI do Azure](howto-routing-cli.md)
-## Vincular uma rede virtual a um circuito de Rota Expressa
+## Vincular uma rede virtual a um circuito de ExpressRoute
 ### [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [PowerShell do Azure](expressroute-howto-linkvnet-arm.md)
 ### [CLI do Azure](howto-linkvnet-cli.md)
 ## Configurar um gateway de rede virtual para ExpressRoute
 ### [Portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [PowerShell do Azure](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurar conexões coexistentes Site a Site e de ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## Configurar os filtros de rota para o emparelhamento da Microsoft
 ### [Portal do Azure](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [PowerShell do Azure](how-to-routefilter-powershell.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
 ## [Migrar redes virtuais associadas do clássico para o Gerenciador de recursos](expressroute-migration-classic-resource-manager.md)
 ## Configurar um roteador para o ExpressRoute
@@ -53,7 +53,7 @@
 ### [Como obter tabelas ARP (Clássico)](expressroute-troubleshooting-arp-classic.md)
 
 # Referência
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [PowerShell do Azure](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [CLI do Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (clássico)](https://msdn.microsoft.com/library/azure/dn606310)

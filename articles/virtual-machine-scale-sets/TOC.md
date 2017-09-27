@@ -2,7 +2,7 @@
 ## [O que são conjuntos de escala de máquina virtual?](virtual-machine-scale-sets-overview.md)
 
 # Introdução
-## [Implantar um conjunto de dimensionamento no portal](virtual-machine-scale-sets-portal-create.md)
+## [Implantar um conjunto de dimensionamento no Portal do Azure](virtual-machine-scale-sets-portal-create.md)
 ## [Implantar um conjunto de dimensionamento usando a CLI do Azure ou PowerShell](virtual-machine-scale-sets-create.md)
 ## [Implantar um aplicativo de dimensionamento automático usando um modelo](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Usar o dimensionamento automático com base no convidado com um modelo de conjunto de dimensionamento do Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implantar
-### [Criar com o portal](virtual-machine-scale-sets-portal-create.md)
+### [Criar com o Portal do Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Criar com o Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Criar com o PowerShell ou a CLI do Azure](virtual-machine-scale-sets-create.md)
+### [Criar com o Azure PowerShell ou a CLI do Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de dimensionamento com discos gerenciados](virtual-machine-scale-sets-managed-disks.md)
 ### [Conjunto de dimensionamento Linux com dimensionamento automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de dimensionamento do Windows com dimensionamento automático](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Gerenciar
-### [Conjunto de dimensionamento do Windows usando PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Conjunto de dimensionamento do Windows usando o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Dimensionamento automático e conjuntos de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Dimensionamento automático avançado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Colocação em escala vertical em um conjunto de dimensionamento](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Perguntas frequentes do conjunto de dimensionamento](virtual-machine-scale-sets-faq.md)
 
 # Referência
-## [PowerShell](/powershell/azure/overview)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [CLI do Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

@@ -56,8 +56,8 @@
 ## [Dimensionar seu laboratório](devtest-lab-scale-lab.md)
 
 # Referência
-## [CLI 2.0](/cli/azure/lab)
-## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI do Azure](/cli/azure/lab)
+## [PowerShell do Azure](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Criar ou modificar laboratórios automaticamente](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [API REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Modelos do Gerenciador de Recursos](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
