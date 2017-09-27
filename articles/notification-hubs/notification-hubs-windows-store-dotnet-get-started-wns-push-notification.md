@@ -214,7 +214,7 @@ Para enviar notificações usando um aplicativo de console .NET, faça o seguint
 Você pode encontrar todos os conteúdos suportados nos tópicos do [catálogo de notificações do sistema], [catálogo de blocos] e [visão geral da notificação] no MSDN.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo simples, você envia notificações para todos os seus dispositivos Windows usando o portal ou um aplicativo de console. Como a próxima etapa, recomendamos o tutorial [Usar os Hubs de Notificação para enviar notificações por push aos usuários]. Ele demonstra como enviar notificações de um back-end do ASP.NET usando marcas para direcionar usuários específicos.
+Neste exemplo simples, você envia notificações para todos os seus dispositivos Windows usando o portal ou um aplicativo de console. Como a próxima etapa, recomendamos o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários]. Ele demonstra como enviar notificações de um back-end do ASP.NET usando marcas para direcionar usuários específicos.
 
 Se desejar segmentar os usuários por grupos de interesse, você poderá ler [Usar Hubs de Notificação para enviar notícias mais recentes]. 
 
@@ -233,6 +233,6 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[visão geral da notificação]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
