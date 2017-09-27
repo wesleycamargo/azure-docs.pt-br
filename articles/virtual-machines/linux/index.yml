@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: 'As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Linux com nossos guias de início rápido, tutoriais e exemplos.'
+  description: 'As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha. Saiba como criar, configurar, gerenciar, atualizar e dimensionar VMs do Linux com nossos guias de início rápido, tutoriais e amostras.'
   aside:
     image:
       alt: null
@@ -61,29 +61,32 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">VMs de balanceamento de carga</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Gerencie VMs e redes virtuais</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Fazer backup das VMs</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorar VMs</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorar e atualizar VMs</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Gerenciar segurança nas VMs</a>
           - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Criar uma infra-estrutura de CI/CD com Jenkins, Docker e GitHub</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD com Serviços para Equipes</a>
           - html: 'Criar uma pilha de servidores web com <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> ou <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Proteger um servidor web com SSL</a>
-  - title: Treinamento em vídeo PluralSight gratuito
+  - title: Treinamento em Vídeo Pluralsight gratuito
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Gerir Infraestrutura</a></p>'
+          - title: Gerenciando Infraestrutura no Azure
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introdução às Máquinas Virtuais</a></p>'
+          - title: Introdução às Máquinas Virtuais do Azure
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introdução ao Monitoramento de IaaS</a></p>'
+          - title: Introdução ao Monitoramento de IaaS
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: Exemplos
     items:

@@ -39,7 +39,8 @@
 ### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 ### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-### [Previsão do tempo usando o Aprendizado de Máquina do Azure](iot-hub-weather-forecast-machine-learning.md)
+### 
+            [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
@@ -109,23 +110,24 @@
 ### Usar trabalhos do dispositivo para atualizar o firmware do dispositivo
 #### [Back-end do Nó/Dispositivo do Nó](iot-hub-node-node-firmware-update.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Dispositivo Java/Back-end de Java](iot-hub-java-java-firmware-update.md)
 ### Agendar e transmitir trabalhos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Gerenciar
 ### Crie um hub IoT 
-#### [Usar o portal](iot-hub-create-through-portal.md)
-#### [Usar o PowerShell](iot-hub-create-using-powershell.md)
-#### [Usar a CLI 2.0](iot-hub-create-using-cli.md)
+#### [Usar o Portal do Azure](iot-hub-create-through-portal.md)
+#### [Usar o Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Usar a CLI do Azure](iot-hub-create-using-cli.md)
 #### [Usar a CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Usar a API REST](iot-hub-rm-rest.md)
-#### [Usar um modelo do PowerShell](iot-hub-rm-template-powershell.md)
+#### [Usar um modelo do Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Usar um modelo do .NET](iot-hub-rm-template.md)
 ### Configurar o upload de arquivo
-#### [Usar o portal](iot-hub-configure-file-upload.md)
-#### [Usar o PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Usar a CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Usar o Portal do Azure](iot-hub-configure-file-upload.md)
+#### [Usar o Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Usar a CLI do Azure](iot-hub-configure-file-upload-cli.md)
 ### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Monitoramento de operações](iot-hub-operations-monitoring.md)
@@ -179,7 +181,8 @@
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## 
+            [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Recursos
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)

@@ -7,8 +7,12 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar instância de contêiner
+    - name: Criar contêiner – CLI
       href: container-instances-quickstart.md
+    - name: Criar contêiner – Portal
+      href: container-instances-quickstart-portal.md
+    - name: Criar contêiner – PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Tutoriais
   items:
     - name: Criar e implantar um contêiner
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Referência
   items:
-    - name: CLI do Azure 2.0
+    - name: CLI do Azure
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

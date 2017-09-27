@@ -74,6 +74,7 @@
 
 ## Proteções de nuvem
 ### [Acesso just in time](security-center-just-in-time.md)
+### [Controles de aplicativo adaptável](security-center-adaptive-application.md)
 
 ## Automação e Orquestração
 ### [Guias estratégicos](security-center-playbooks.md)

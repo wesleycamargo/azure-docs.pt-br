@@ -12,7 +12,7 @@
 
 # Exemplos
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Implantar modelo](resource-manager-samples-powershell-deploy.md)
 
 ## CLI do Azure
@@ -35,7 +35,7 @@
 
 
 ## Implantar
-### PowerShell
+### Azure PowerShell
 #### [Implantar modelo](resource-group-template-deploy.md)
 #### [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md)
 #### [Exportar modelo e reimplantar](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Implantar modelo](resource-group-template-deploy-cli.md)
 #### [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md)
 #### [Exportar modelo e reimplantar](resource-manager-export-template-cli.md)
-### Portal
+### Portal do Azure
 #### [Implantar recursos](resource-group-template-deploy-portal.md)
 #### [Exportar modelo](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md)
 
 ## Gerenciar
-### [PowerShell](powershell-azure-resource-manager.md)
+### [PowerShell do Azure](powershell-azure-resource-manager.md)
 ### [CLI do Azure](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Portal do Azure](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Controlar Acesso
 ### Criar uma entidade de serviço
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [PowerShell do Azure](resource-group-authenticate-service-principal.md)
+#### [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [CLI 1.0 do Azure](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Portal do Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
 
 ## Definir políticas de recursos
 ### [O que são políticas de recursos?](resource-manager-policy.md)
-### [Usar o portal para atribuir a política](resource-manager-policy-portal.md)
+### [Usar o Portal do Azure para atribuir a política](resource-manager-policy-portal.md)
 ### [Usar scripts para atribuir a política](resource-manager-policy-create-assign.md)
 ### Exemplos
 #### [Marcas](resource-manager-policy-tags.md)
