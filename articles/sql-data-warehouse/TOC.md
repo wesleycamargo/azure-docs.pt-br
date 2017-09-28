@@ -75,8 +75,7 @@
 
 ### [Visão geral](sql-data-warehouse-overview-integrate.md)
 ### [Fábrica de dados](sql-data-warehouse-integrate-azure-data-factory.md)
-### 
-            [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
+### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
 ### [Tutorial de Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Visualização do Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
