@@ -15,16 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
+ms.contentlocale: pt-br
 ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Introdução ao exemplo do Power BI Embedded
 
-Com o **Microsoft Power BI Embedded**, você pode integrar relatórios do Power BI diretamente a seus aplicativos móveis ou Web. Neste artigo, apresesntaremos a você o exemplo de introdução do **Power BI Embedded** .
+Com o **Microsoft Power BI Embedded**, você pode integrar relatórios do Power BI diretamente a seus aplicativos móveis ou Web. Neste artigo, apresentaremos a você o exemplo de introdução do **Power BI Embedded**.
 
 Antes de continuarmos, convém salvar os recursos a seguir. Eles o ajudarão ao integrar relatórios do Power BI ao aplicativo de exemplo e a seus próprios aplicativos também.
 
