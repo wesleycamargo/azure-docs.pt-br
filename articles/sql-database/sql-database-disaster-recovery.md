@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
@@ -64,7 +64,7 @@ Use um dos guias a seguir para fazer failover para um banco de dados secundário
 
 * [Fazer failover para um secundário replicado geograficamente usando o Portal do Azure](sql-database-geo-replication-portal.md)
 * [Fazer failover para um secundário replicado geograficamente usando o PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Fazer failover para um secundário replicado geograficamente usando o T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [Fazer failover para um secundário replicado geograficamente usando o T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>Recuperação usando a restauração geográfica
 Se o tempo de inatividade do aplicativo não resultar em responsabilidade de negócios, você poderá usar a [restauração geográfica](sql-database-recovery-using-backups.md) como método de recuperar os bancos de dados do aplicativo. Ela cria uma cópia do banco de dados com base em seu último backup com redundância geográfica.

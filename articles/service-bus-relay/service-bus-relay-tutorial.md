@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 5347bf85cad32b59677369d51a1f36529aef6662
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Retransmissão de WCF do Azure
@@ -695,13 +694,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Eis aqui um exemplo de saída da janela do console. Observe que os valores fornecidos aqui são apenas para fins de exemplificação.
 
-    `Your Service Namespace: myNamespace`
-    `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     O aplicativo de serviço imprime na janela do console o endereço no qual ele está escutando, como visto no exemplo a seguir.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. Na janela do console **EchoClient**, digite as mesmas informações inseridas anteriormente para o aplicativo de serviço. Siga as etapas anteriores para inserir os mesmos valores para o namespace de serviço e a chave SAS do aplicativo do cliente.
 11. Depois de inserir esses valores, o cliente abre um canal para o serviço e solicita que você digite algum texto, como visto no exemplo de saída do console a seguir.
 
@@ -725,8 +722,6 @@ Para saber mais sobre a Retransmissão do Azure, consulte os tópicos a seguir.
 * [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
 * [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 4580bda5633f84a7c7af0dc85f3cea4951024836
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: d1a1a03042d657231fe7704842b2635e8107623c
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (Nó)
@@ -48,7 +47,7 @@ Ao fim deste tutorial, você executará dois aplicativos de console do Node.js:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Node.js versão 0.10.x ou posterior.
+* Node.js versão 4.0.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Receber mensagens no aplicativo do dispositivo simulado

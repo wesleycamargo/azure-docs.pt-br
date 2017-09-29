@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f47ee59d72ea49d62be2cb435ebaf8bc841e4198
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: b087003b3a1e236e4a306678904107b8bf99395e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -109,7 +109,7 @@ Nesta seção, você criará uma entidade de serviço do Azure que será usada p
    ```azurecli
    az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
    ```
-   No qual `uuuuuuuu` é o nome de usuário, e `pppppppp` é a senha para a entidade de serviço.
+   Onde `uuuuuuuu` é o nome de usuário e `pppppppp` é a senha para a entidade de serviço.
 
 1. O Azure responde com um JSON parecido com o exemplo a seguir:
    ```json
@@ -208,7 +208,7 @@ Nesta seção, você criará uma entidade de serviço do Azure que será usada p
    `<client>` | Contém o valor `appId` de sua entidade de serviço.
    `<tenant>` | Contém o valor `tenant` de sua entidade de serviço.
    `<key>` | Contém o valor `password` de sua entidade de serviço.
-   `<environment>` | Define o ambiente de nuvem do Azure de destino, `AZURE` neste exemplo. (Uma lista completa dos ambientes está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure])
+   `<environment>` | Define o ambiente de nuvem do Azure de destino, que é `AZURE` neste exemplo. (Uma lista completa dos ambientes está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure])
 
 1. Salve e feche o arquivo *settings.xml*.
 
@@ -301,14 +301,14 @@ Abra o arquivo `pom.xml` de seu aplicativo Spring Boot em um editor de texto e l
    </plugin>
    ```
 
-Você pode modificar vários valores do plug-in do Maven, e há uma descrição detalhada de cada um desses elementos disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure]. Dito isso, vale a pena destacar vários valores neste artigo:
+Você pode modificar diversos valores do plug-in do Maven, e há uma descrição detalhada de cada um desses elementos disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure]. Dito isso, vale a pena destacar diversos valores neste artigo:
 
 Elemento | Descrição
 ---|---|---
 `<version>` | Especifica a versão do [Plug-in do Maven para Aplicativos Web do Azure]. Você deve verificar a versão listada no [Repositório Central do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) para garantir que esteja usando a versão mais recente.
 `<authentication>` | Especifica as informações de autenticação do Azure, que, neste exemplo, contêm um elemento `<serverId>` contendo `azure-auth`; o Maven usa esse valor para procurar os valores de entidade de serviço do Azure em seu arquivo *settings.xml* do Maven, que você definiu em uma seção anterior deste artigo.
 `<resourceGroup>` | Especifica o grupo de recursos de destino, que é `wingtiptoysresources` neste exemplo. Esse grupo de recursos será criado durante a implantação, caso ainda não exista.
-`<appName>` | Especifica o nome de destino de seu aplicativo Web. Neste exemplo, o nome de destino é `maven-linux-app-${maven.build.timestamp}`, no qual o sufixo `${maven.build.timestamp}` é acrescentado neste exemplo para evitar conflitos. (O carimbo de data/hora é opcional; você pode especificar qualquer cadeia de caracteres exclusiva para o nome do aplicativo.)
+`<appName>` | Especifica o nome de destino de seu aplicativo Web. Neste exemplo, o nome de destino é `maven-linux-app-${maven.build.timestamp}`, no qual o sufixo `${maven.build.timestamp}` é acrescentado neste exemplo para evitar conflitos. (O carimbo de data/hora é opcional; você pode especificar qualquer cadeia de caracteres exclusiva para o nome do aplicativo).
 `<region>` | Especifica a região de destino, que neste exemplo é `westus`. (Uma lista completa está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure])
 `<containerSettings>` | Especifica as propriedades que contêm o nome e a URL de seu contêiner.
 `<appSettings>` | Especifica quaisquer configurações exclusivas para o Maven usar ao implantar seu aplicativo Web no Azure. Neste exemplo, um elemento `<property>` contém um par de nome/valor de elementos filho que especifique a porta para o seu aplicativo.
@@ -354,15 +354,15 @@ Após a implantação de sua Web, você poderá gerenciá-la usando o [Portal do
 
 * Seu aplicativo Web será listado nos **Serviços de Aplicativos**:
 
-   ![Aplicativo Web listado nos Serviços de Aplicativos do Portal do Azure][AP01]
+   ![Aplicativo Web listado nos Serviços de Aplicativos do portal do Azure][AP01]
 
 * E a URL para seu aplicativo Web será listada na **Visão geral** de seu aplicativo Web:
 
-   ![Determinar a URL de seu aplicativo Web][AP02]
+   ![Como determinar a URL de seu aplicativo Web][AP02]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as diversas tecnologias discutidas neste artigo, consulte os artigos a seguir:
+Para saber mais sobre as diversas tecnologias discutidas neste artigo, veja os artigos a seguir:
 
 * [Plug-in do Maven para Aplicativos Web do Azure]
 
@@ -382,7 +382,7 @@ Para saber mais sobre as diversas tecnologias discutidas neste artigo, consulte 
 [Portal do Azure]: https://portal.azure.com/
 [Plug-in do Maven para Aplicativos Web do Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: tutorial-custom-docker-image.md
 [Docker]: https://www.docker.com/
 [Plug-in do Docker para o Maven]: https://github.com/spotify/docker-maven-plugin
 [conta gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/

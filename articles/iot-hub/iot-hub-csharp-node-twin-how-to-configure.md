@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 8f9626fc47e7d32cb104b960bea9b7de9efa6f3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>Usar as propriedades desejadas para configurar os dispositivos
@@ -37,7 +37,7 @@ No fim deste tutorial, você terá dois aplicativos de console:
 Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Node.js versão 0.10.x ou posterior.
+* Node.js versão 4.0.x ou posterior.
 * Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
 Caso tenha seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**. Nesse caso, você pode pular para a seção [Criar o aplicativo do dispositivo simulado][lnk-how-to-configure-createapp].

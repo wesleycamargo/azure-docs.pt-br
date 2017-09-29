@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2bdec82891bbd61e3526bd4498f802a0de068f87
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 95e31d0ca5983e0946ad6fb993e7a89a6a63d2c3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes
@@ -113,7 +113,7 @@ Para máquinas virtuais e servidores físicos que estão sendo replicados entre 
 O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. A replicação não ocorre através de uma VPN site a site. Você pode criar uma VPN site a site, com uma rede virtual do Azure. Isso não interfere na replicação do Site Recovery.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>É possível usar o ExpressRoute para replicar máquinas virtuais no Azure?
-Sim, o ExpressRoute pode ser usado para replicar máquinas virtuais no Azure. O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#public-peering) para usar o ExpressRoute para replicação de Site Recovery. Após o failover das máquinas virtuais para uma rede virtual do Azure, é possível acessá-las usando a configuração de [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#private-peering) com a rede virtual do Azure.
+Sim, o ExpressRoute pode ser usado para replicar máquinas virtuais no Azure. O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para usar o ExpressRoute para replicação de Site Recovery. Após o failover das máquinas virtuais para uma rede virtual do Azure, é possível acessá-las usando a configuração de [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) com a rede virtual do Azure.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Há algum pré-requisito para replicar máquinas virtuais no Azure?
 As máquinas virtuais que você deseja replicar no Azure devem estar em conformidade com os [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).

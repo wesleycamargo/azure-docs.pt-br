@@ -15,11 +15,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 1f335b8b04821e1c0ab26af3df20c3318e9c26cd
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Agendar e difundir trabalhos (.NET/Node.js)
@@ -53,7 +52,7 @@ Ao final deste tutorial, você terá um aplicativo de dispositivo de console Nod
 Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Node.js versão 0.12.x ou posterior. O artigo [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 4.0.x ou posterior. O artigo [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

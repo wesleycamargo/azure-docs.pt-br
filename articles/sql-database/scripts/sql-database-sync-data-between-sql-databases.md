@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ac4dde8c175b1632de8c309f01f8dac7fde6426b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3a2fe08706ea5bea10da0c8f42188397a2f9f2f4
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL do Azure
  
 Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre vários bancos de dados SQL do Azure.
 
-Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Execute `Login-AzureRmAccount` para criar uma conexão com o Azure. 
 

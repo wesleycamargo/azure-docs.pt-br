@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 07/25/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 2c42ff5b7ab87e8ef8af2c244a1313fb55503c37
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: a4d2f0bd548ae98b564f1e0f23476cfde225c209
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
@@ -66,7 +66,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     No Portal do Azure, selecione sua VM. Role para baixo no painel de configurações até a seção **Suporte + Solução de Problemas**, próximo à parte inferior da lista. Clique no botão **Redefinir senha**. Defina o **Modo** como **Redefinir somente configuração** e, em seguida, clique no botão **Atualizar**:
    
     ![Redefinir a configuração de RDP no Portal do Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verifique as regras de Grupo de Segurança de Rede**. Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra em um Grupo de Segurança de Rede está bloqueando o tráfego de ou para uma máquina virtual. Você também pode analisar as regras de grupo de segurança efetivas para garantir que a regra "Permitir" NSG existe e é priorizada para a porta RDP(padrão 3389). Para saber mais, confira [Usar regras de segurança efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+2. **Verifique as regras de Grupo de Segurança de Rede**. Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra em um Grupo de Segurança de Rede está bloqueando o tráfego de ou para uma máquina virtual. Você também pode examinar as regras de grupo de segurança efetivas para garantir que a regra "Permitir" NSG existe e é priorizada para a porta RDP(padrão 3389). Para saber mais, confira [Usar regras de segurança efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 3. **Examine o diagnóstico de inicialização da VM**. Essa etapa de solução de problemas examina os logs do console da VM para determinar se a VM está reportando um problema. Nem todas as VMs têm diagnóstico de inicialização habilitado, portanto, essa etapa de solução de problemas pode ser opcional.
    

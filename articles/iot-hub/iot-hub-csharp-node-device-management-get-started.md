@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: def3feb2760c0ec2bb9ff39c6ef8a85bb142a0a7
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: caab61a18fd5bb27ecc62cf1126823f79c3fdf4d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="get-started-with-device-management-netnode"></a>Introdução ao gerenciamento de dispositivos (.NET/Node)
@@ -40,7 +40,7 @@ Ao final deste tutorial, você terá um aplicativo de dispositivo de console Nod
 Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 4.0.x ou posterior, <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
