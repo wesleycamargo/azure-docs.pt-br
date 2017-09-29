@@ -3,7 +3,7 @@ title: "APIs Enterprise de cobrança do Azure – PriceSheet | Microsoft Docs"
 description: "Saiba mais sobre as APIs de Relatório que permitem a clientes Enterprise do Azure efetuar pull dos dados de consumo de modo programático."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

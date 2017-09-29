@@ -3,7 +3,7 @@ title: "APIs Enterprise de cobrança do Azure – saldo e resumo | Microsoft Doc
 description: "Aprenda sobre as APIs RateCard e de Uso de Cobrança do Azure, que são usadas para fornecer informações sobre o consumo de recursos e as tendências do Azure."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
