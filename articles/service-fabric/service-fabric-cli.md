@@ -9,15 +9,17 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
 A interface de linha de comando do Azure Service Fabric (CLI) é um utilitário de linha de comando para interagir com e gerenciar entidades do Service Fabric. A CLI do Service Fabric pode ser usada com clusters do Windows ou Linux. A CLI do Service Fabric é executada em qualquer plataforma onde Python tem suporte.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 Para a área de trabalho do Ubuntu 16.04, você pode instalar o Python 3.6 usando um arquivo de pacote pessoal de terceiros (PPA).
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 Estas etapas não afetam a instalação do sistema do Python 3.5 e 2.7. Não tente modificar essas instalações se não estiver familiarizado com o Ubuntu.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 Estas etapas não modificam a instalação do sistema do Python 2.7.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 O ponto de extremidade do cluster deve ser antecedido por `http` ou `https`. Ele deve incluir a porta para o gateway HTTP. Essa porta e o endereço são os mesmos da URL do Service Fabric Explorer.
 
-Para clusters protegidos com um certificado, você pode especificar um certificado PEM codificado. O certificado pode ser especificado como um único arquivo ou como um par de certificado e chave.
+Para clusters protegidos com um certificado, você pode especificar um certificado PEM codificado. O certificado pode ser especificado como um único arquivo ou como um par de certificado e chave. Se for um certificado autoassinado que não é assinado pela autoridade de certificação, você pode passar a `--no-verify` opção para ignorar a verificação de autoridade de certificação.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Para saber mais, confira [Conectar-se a um cluster seguro do Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +200,12 @@ A CLI do Service Fabric dá suporte aos certificados do cliente como arquivos PE
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Da mesma forma, para converter um arquivo PEM para um arquivo PFX, você pode usar o seguinte comando (nenhuma senha está sendo fornecida aqui):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Para saber mais, confira a [documentação OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Problemas de conexão
@@ -202,6 +233,16 @@ Veja outro exemplo:
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>Atualizar a CLI do Service Fabric 
+
+Para atualizar a CLI do Service Fabric, execute os seguintes comandos (substitua `pip` com `pip3` dependendo do escolhido durante a instalação original):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
