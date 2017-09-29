@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure (Versão prévia)
@@ -33,6 +33,9 @@ Os controles de aplicativo adaptáveis ajudam a controlar quais aplicativos pode
 - Evite a execução de aplicativos antigos e sem suporte.
 - Impeça o uso de ferramentas de software específicas que não são permitidas em sua organização.
 - Habilite a TI a controlar o acesso a dados confidenciais pelo uso do aplicativo.
+
+> [!NOTE]
+> Os Controles de aplicativo adaptáveis estão disponíveis aos clientes Standard da Central de Segurança do Azure como uma versão prévia pública limitada. Envie-[nos](mailto:ASC_appcontrol@microsoft.com) um email com suas IDs de assinatura para ingressar na versão prévia.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como habilitar os controles de aplicativo adaptáveis?
 Os controles de aplicativo adaptáveis o ajudam a definir um conjunto de aplicativos que podem ser executados em grupos de recursos configurados. Este recurso só está disponível para máquinas Windows (todas as versões, clássica ou Azure Resource Manager). Siga as etapas abaixo para configurar a lista de permissões de aplicativos na Central de Segurança:
@@ -112,7 +115,7 @@ Essa lista inclui:
     - **ViolationsBlocked**: quando a solução está ativada no modo Impor e há uma tentativa de executar aplicativo que não está na lista de permissões.
     - **ViolationsAudited**: quando a solução está ativada no modo Impor e há uma execução de aplicativo que não está na lista de permissões.
     - **RulesViolatedManually**: quando um usuário tentou configurar regras manualmente nas máquinas virtuais e não por meio do portal de gerenciamento do ASC.
-- **Nº DE VMS**: o número de máquinas virtuais com esse tipo de problema.
+- **NÃO. DE VMS**: o número de máquinas virtuais com esse tipo de problema.
 
 Se você clicar em cada um dessas linhas, será redirecionado para a página [Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), onde pode ver informações sobre todas as VMs com esse tipo de violação. Se você clicar nas reticências no final de cada linha, poderá excluir essa entrada específica. A seção **Máquinas virtuais configuradas** lista as VMs às quais essas regras se aplicam. 
 
@@ -144,10 +147,6 @@ A Central de Segurança só recomendará a adição de aplicativos à lista de p
 A lista contém:
 - **NOME**: o nome da assinatura, do grupo de recursos ou do recurso.
 - **VMs**: o número de máquinas virtuais no grupo de recursos.
-
-## <a name="preview-registration"></a>Registro para versão prévia
-
-Os Controles de aplicativo adaptáveis estão disponíveis aos clientes Standard da Central de Segurança do Azure como uma versão prévia pública limitada. Envie-[nos](mailto:ASC_appcontrol@microsoft.com) um email com suas IDs de assinatura para ingressar na versão prévia.
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu a usar controles de aplicativo adaptáveis na Central de Segurança do Azure para colocar aplicativos em execução em VMs do Azure na lista de permissões. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:

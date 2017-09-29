@@ -1,4 +1,4 @@
-Crie um [aplicativo Web](../articles/app-service-web/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). 
+No Cloud Shell, crie um [aplicativo Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp list-runtimes](/cli/azure/webapp#create). 
 
 O aplicativo Web fornece um espaço de hospedagem para seu código e fornece uma URL para exibir o aplicativo implantado.
 
