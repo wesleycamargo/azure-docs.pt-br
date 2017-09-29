@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação
@@ -37,7 +37,7 @@ Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperaç
 * VMs de armazenamento Padrão
 * VMs de armazenamento Premium
 * VMs em execução em discos gerenciados
-* VMs criptografadas usando o Azure Disk Encryption, com BEK e KEK
+* VMs criptografadas usando o Azure Disk Encryption
 * Backup consistente de aplicativos de VMs do Windows que usam o VSS, e de VMs do Linux que usam scripts personalizados pré e pós-instantâneo
 
 Para saber mais sobre como proteger VMs de Armazenamento Premium, confira o artigo [Backup e restauração de VMs de Armazenamento Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para obter mais informações sobre o suporte para VMs de disco gerenciado, consulte [Backup e restauração de VMs em discos gerenciados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para saber mais sobre a estrutura pré e pós-script para backup de uma VM do Linux, confira [Backup consistente de aplicativos de VM do Linux que usam pré e pós-script] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
