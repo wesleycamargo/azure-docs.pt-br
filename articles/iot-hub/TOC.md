@@ -83,7 +83,7 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Carregar arquivos de dispositivos]
+### Carregar arquivos de dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 ### Introdução a dispositivos gêmeos

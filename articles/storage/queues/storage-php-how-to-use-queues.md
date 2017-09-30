@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12ebb905184e74da534cd44e8314335145f7042d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3900a023f03eb9ce22fdf71030291c7ab5f6f30b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são gravados usando classes do SDK do Windows para PHP. Os cenários abrangidos incluem inserir, exibir, obter e excluir mensagens da fila, bem como criar e excluir filas.
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos usando classes da [Biblioteca do Cliente de Armazenamento do Azure para PHP][download]. Os cenários abrangidos incluem inserir, exibir, obter e excluir mensagens da fila, bem como criar e excluir filas.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
-O único requisito para a criação de um aplicativo PHP que acessa o armazenamento de Filas do Azure é a referência das classes do SDK do Azure para PHP de dentro de seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
+O único requisito para a criação de um aplicativo PHP que acessa o armazenamento de Filas do Azure é a referência de classes no [Biblioteca do Cliente de Armazenamento do Azure para PHP][download] em seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
 
-Neste guia, você usará os recursos do armazenamento de Filas que podem ser chamados dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, função de trabalho ou no site.
+Neste guia, você usará os recursos do serviço de armazenamento de Filas que podem ser chamados dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, função de trabalho ou no site.
 
 ## <a name="get-the-azure-client-libraries"></a>Obter as bibliotecas de cliente do Azure
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -49,18 +49,13 @@ Para usar as APIs de armazenamento de Filas do Azure, você precisa:
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder** .
 
-> [!NOTE]
-> Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se tiver instalado as bibliotecas manualmente, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php` .
-> 
-> 
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes que são necessárias para executar o exemplo serão referenciadas.
+Nos seguintes exemplos, a instrução `require_once` é mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
 Para criar uma instância de um cliente de armazenamento de Filas do Azure, você deve primeiramente ter uma cadeia de conexão válida. O formato da cadeia de conexão do serviço Fila é o seguinte.
@@ -80,17 +75,15 @@ UseDevelopmentStorage=true
 Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder** . É possível usar qualquer uma das técnicas a seguir:
 
 * Passar a cadeia de conexão diretamente para ele.
-* Use **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
-  * Por padrão, ele é fornecido com suporte para uma fonte externa – variáveis de ambiente.
-  * É possível adicionar novas origens ao estender a classe **ConnectionStringSource** .
-
-Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
+* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service-web/web-sites-configure.md) para configurar cadeias de conexão.
+Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 ```
 
@@ -100,9 +93,11 @@ O objeto **QueueRestProxy** permite que você crie uma fila com o método **crea
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -137,9 +132,11 @@ Para adicionar uma mensagem para uma fila, use **QueueRestProxy->createMessage**
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -165,9 +162,11 @@ Você pode exibir uma mensagem (ou mensagens) na frente de uma fila sem removê-
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -206,13 +205,15 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>Remover a próxima mensagem da fila
-Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanecerá invisível por 30 segundos. (Se a mensagem não for excluída neste período de tempo, ela se tornará visível na fila novamente.) Para terminar de remover a mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. (Se a mensagem não for excluída neste período de tempo, ela se tornará visível na fila novamente.) Para terminar de remover a mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -250,11 +251,13 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila chamando **QueueR
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
 $listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -293,9 +296,11 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -341,8 +346,10 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -370,8 +377,10 @@ Para excluir uma fila e todas as mensagens nela, chame o método **QueueRestProx
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -393,11 +402,12 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
 
-* Visite o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+* Visite a [referência de API para a biblioteca de clientes PHP do armazenamento do Azure](http://azure.github.io/azure-storage-php/)
+* Consulte o [exemplo de Fila avançado](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

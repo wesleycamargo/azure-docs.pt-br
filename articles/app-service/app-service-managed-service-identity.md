@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 7aaf611a562d373a8cc1dad33963050d246b2882
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6e1fa23bffc03a8a77c0c9e3342609c042fc4a5b
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -103,12 +103,13 @@ Há um protocolo REST simples para obter um token no Serviço de Aplicativo e no
 
 Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade de serviço gerenciado é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Essa biblioteca também permitirá testar o código localmente no computador de desenvolvimento, usando a conta de usuário da [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) ou Autenticação Integrada do Active Directory. Esta seção mostra começar a usar a biblioteca.
 
-1. Adicione uma referência ao pacote NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) no aplicativo.
+1. Adicione uma referência aos pacotes NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) no aplicativo.
 
 2.  Adicione o código a seguir à sua página:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
 string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");

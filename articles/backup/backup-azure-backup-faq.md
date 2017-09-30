@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
@@ -47,7 +47,7 @@ Não. O cofre é criado no nível da assinatura e não pode ser reatribuído a o
 Todos os cofres de Backup existentes no [Portal Clássico](https://manage.windowsazure.com) continuarão com suporte. No entanto, não é mais possível usar o Portal Clássico para implantar novos cofres de Backup. A Microsoft recomenda o uso de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação. Se você tentar criar um cofre de Backup no Portal Clássico, será redirecionado ao [Portal do Azure](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Pode migrar um cofre de Backup para um cofre dos Serviços de Recuperação? <br/>
-Infelizmente não, você não pode migrar o conteúdo de um cofre de Backup para um cofre dos Serviços de Recuperação. Estamos trabalhando na adição dessa funcionalidade, mas ela não está disponível atualmente.
+Sim, agora você pode atualizar o cofre de Backup para um cofre dos Serviços de Recuperação. Para obter detalhes, consulte o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre de Backup. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
 Os pontos de recuperação de VM em um cofre de backup não migrarão automaticamente para o cofre dos serviços de recuperação quando você migrar a VM do modo clássico para o modo do Resource Manager. Siga estas etapas para transferir seus backups de VM:

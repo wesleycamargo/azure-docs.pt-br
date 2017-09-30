@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/18/2017
 ms.author: raprasa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 89dc30c5475786d89554f5ec9e10e555267e6d78
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup e restauração online automáticos com o Azure Cosmos DB
@@ -39,7 +39,7 @@ A imagem a seguir ilustra o alto grau de redundância com o Cosmos DB.
 ![Alto grau de redundância com o Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Backups online completos, automáticos
-Opa, excluí meu contêiner ou banco de dados! Com o Cosmos DB, não apenas os dados, mas também os backups dos dados ficam altamente redundantes e resilientes em desastres regionais. Esses backups automatizados são feitos atualmente a cada quatro horas, aproximadamente, e os últimos 2 backups são armazenados o tempo todo. Se os dados forem acidentalmente descartados ou estiverem corrompidos, [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/) em até 8 horas. 
+Opa, excluí meu contêiner ou banco de dados! Com o Cosmos DB, não apenas os dados, mas também os backups dos dados ficam altamente redundantes e resilientes em desastres regionais. Esses backups automatizados são feitos atualmente a cada quatro horas, aproximadamente, e os últimos 2 backups são armazenados o tempo todo. Se os dados forem acidentalmente descartados ou estiverem corrompidos, [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/) em até oito horas. 
 
 Os backups são feitos sem afetar o desempenho ou a disponibilidade de suas operações de banco de dados. O Cosmos DB faz o backup em segundo plano, sem consumir as RUs provisionadas nem afetar o desempenho e sem afetar a disponibilidade do banco de dados. 
 
@@ -50,15 +50,15 @@ A imagem a seguir ilustra os backups completos periódicos de todas as entidades
 ![Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Período de retenção do backup
-Conforme descrito acima, o Azure Cosmos DB usa instantâneos dos seus dados a cada quatro horas e retém os últimos dois instantâneos de cada partição por 30 dias. De acordo com nossas regulamentações de conformidade, os instantâneos são limpos após 90 dias.
+Conforme descrito acima, o Azure Cosmos DB usa instantâneos dos seus dados a cada quatro horas no nível da partição. A qualquer momento, somente os últimos dois instantâneos são mantidos. No entanto, se a coleção/banco de dados é excluída, mantemos os instantâneos existentes para todas as partições excluídas dentro de determinada coleção/banco de dados por 30 dias.
 
-Se você quiser manter seus próprios instantâneos, pode usar o opção Exportar para JSON na [ferramenta de Migração de Dados](import-data.md#export-to-json-file) do Azure Cosmos DB para agendar backups adicionais. 
+Se você quiser manter seus próprios instantâneos, pode usar o opção Exportar para JSON na [ferramenta de Migração de Dados](import-data.md#export-to-json-file) do Azure Cosmos DB para agendar backups adicionais.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauração de um banco de dados de um backup online
-Caso exclua seu banco de dados ou coleção acidentalmente, você pode [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [ligar para o suporte do Azure](https://azure.microsoft.com/support/options/) a fim de restaurar os dados usando o último backup automático. Se você precisar restaurar seu banco de dados devido a problema de corrupção de dados, veja [tratamento corrupção de dados](#handling-data-corruption) conforme necessário executar etapas adicionais para impedir que os dados corrompidos penetrem os backups. Para que um instantâneo específico do backup seja restaurado, o Cosmos DB exige que os dados estejam disponíveis durante o ciclo de backup do instantâneo.
+Caso exclua seu banco de dados ou coleção acidentalmente, você pode [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [ligar para o suporte do Azure](https://azure.microsoft.com/support/options/) a fim de restaurar os dados usando o último backup automático. Se você precisar restaurar seu banco de dados devido a problema de corrupção de dados (inclui casos em que os documentos em uma coleção são excluídos), veja [tratamento corrupção de dados](#handling-data-corruption) conforme necessário executar etapas adicionais para impedir que os dados corrompidos substituam os backups existentes. Para que um instantâneo específico do backup seja restaurado, o Cosmos DB exige que os dados estejam disponíveis durante o ciclo de backup do instantâneo.
 
 ## <a name="handling-data-corruption"></a>Manipulação de dados corrompidos
-O Azure Cosmos DB retém os últimos dois backups de todas as partições no sistema. Esse modelo funciona muito bem quando um contêiner (coleção de documentos, grafo, tabela) ou um banco de dados forem excluído acidentalmente desde que uma das últimas versões pode ser restaurada. No entanto, no caso de quando os usuários podem apresentar um problema de corrupção de dados, o Azure Cosmos DB pode não estar ciente de que a corrupção de dados, e é possível que o dano pode entram os backups. Assim que a corrupção for detectada, o usuário deverá excluir o contêiner corrompido (coleção/grafo/tabela) para que os backups sejam protegidos contra a substituição por dados corrompidos. Desde o último backup pode ser antiga de quatro horas, o usuário pode empregar [alterar feed](change-feed.md) para capturar e armazenar as últimas quatro horas vale a pena de dados antes de excluir o contêiner.
+O Azure Cosmos DB retém os últimos dois backups de todas as partições na conta do banco de dados. Esse modelo funciona bem quando um contêiner (coleção de documentos, grafo, tabela) ou um banco de dados forem excluído acidentalmente desde que uma das últimas versões pode ser restaurada. No entanto, caso os usuários introduzam um problema de corrupção de dados, o Azure Cosmos DB pode não estar ciente da corrupção de dados, e é possível que a corrupção possa ter substituído os backups existentes. Assim que a corrupção for detectada, o usuário deverá excluir o contêiner corrompido (coleção/grafo/tabela) para que os backups sejam protegidos contra a substituição por dados corrompidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

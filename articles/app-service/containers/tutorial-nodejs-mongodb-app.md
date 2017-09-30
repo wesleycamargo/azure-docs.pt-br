@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web Node.js e MongoDB nos Aplicativos Web para Contêineres do Azure | Microsoft Docs"
-description: "Saiba como fazer com que um aplicativo Node.js funcione nos Aplicativos Web para Contêineres do Azure, com uma conexão a um banco de dados do Cosmos DB com uma cadeia de conexão do MongoDB."
+title: "Criar um aplicativo Web Node.js e MongoDB no Aplicativo Web para Contêineres do Azure | Microsoft Docs"
+description: "Saiba como fazer com que um aplicativo Node.js funcione no Aplicativo Web para Contêineres do Azure, com uma conexão a um banco de dados do Cosmos DB com uma cadeia de conexão do MongoDB."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1203a77ebc117c646f587f0d64466364f0e47751
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>Criar um aplicativo Web Node.js e MongoDB nos Aplicativos Web para Contêineres do Azure
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Criar um aplicativo Web Node.js e MongoDB no Aplicativo Web para Contêineres do Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web Node.js e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) em execução nos Aplicativos Web para Contêineres. Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](http://meanjs.org/).
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web Node.js e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) em execução no Aplicativo Web para Contêineres. Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](http://meanjs.org/).
 
 ![Aplicativo MEAN.js em execução no Serviço de Aplicativo do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Navegue até http://localhost:3000 em um navegador. Clique em **Criar Conta** no menu superior e crie um usuário de teste. 
+Navegue até `http://localhost:3000` em um navegador. Clique em **Criar Conta** no menu superior e crie um usuário de teste. 
 
 O aplicativo de exemplo MEAN.js armazena dados do usuário no banco de dados. Se tiver êxito na criação de um usuário e ao entrar, seu aplicativo estará gravando dados no banco de dados local MongoDB.
 
@@ -228,7 +228,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navegue até http://localhost:8443 em um navegador. Clique em **Criar Conta** no menu superior e crie um usuário de teste. Se tiver êxito na criação de um usuário e ao entrar, seu aplicativo estará gravando dados no banco de dados do Cosmos DB no Azure. 
+Navegue até `http://localhost:8443` em um navegador. Clique em **Criar Conta** no menu superior e crie um usuário de teste. Se tiver êxito na criação de um usuário e ao entrar, seu aplicativo estará gravando dados no banco de dados do Cosmos DB no Azure. 
 
 No terminal, pare o Node.js digitando `Ctrl+C`. 
 
@@ -479,5 +479,5 @@ O que você aprendeu:
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
 
 > [!div class="nextstepaction"] 
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service-web-tutorial-custom-domain.md)
 

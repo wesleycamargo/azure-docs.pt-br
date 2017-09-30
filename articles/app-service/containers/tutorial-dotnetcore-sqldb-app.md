@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web .NET Core e do Banco de Dados SQL nos Aplicativos Web para Contêineres do Azure | Microsoft Docs"
-description: "Saiba como executar um aplicativo .NET Core nos Aplicativos Web para Contêineres do Azure, com uma conexão a um Banco de Dados SQL."
+title: "Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Aplicativo Web para Contêineres do Azure | Microsoft Docs"
+description: "Saiba como executar um aplicativo .NET Core no Aplicativo Web para Contêineres do Azure, com uma conexão a um Banco de Dados SQL."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,17 +16,17 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7683856e5ad7bf19b38d51f019e4eef106f1800c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>Criar um aplicativo Web .NET Core e do Banco de Dados SQL nos Aplicativos Web para Contêineres do Azure
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Aplicativo Web para Contêineres do Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web .NET Core e conectá-lo a um Banco de Dados SQL. Quando terminar, você terá um aplicativo MVC .NET Core em execução nos Aplicativos Web para Contêineres. 
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web .NET Core e conectá-lo a um Banco de Dados SQL. Quando terminar, você terá um aplicativo MVC .NET Core em execução no Aplicativo Web para Contêineres. 
 
-![aplicativo em execução nos Aplicativos Web para Contêineres](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplicativo em execução no Aplicativo Web para Contêineres](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 Você aprenderá a:
 
@@ -74,7 +74,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Navegue para http://localhost:5000 em um navegador. Selecione o link **Criar novo** e crie alguns itens _de tarefas_.
+Navegue até `http://localhost:5000` em um navegador. Selecione o link **Criar novo** e crie alguns itens _de tarefas_.
 
 ![conecta-se com êxito ao Banco de Dados SQL](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -151,7 +151,7 @@ Esta é a cadeia de conexão do aplicativo .NET Core. Copie-a para uso posterior
 
 ## <a name="deploy-app-to-azure"></a>Implantar o aplicativo no Azure
 
-Nesta etapa, você implanta seu aplicativo .NET Core conectado ao Banco de Dados SQL nos Aplicativos Web para Contêineres.
+Nesta etapa, você implanta seu aplicativo .NET Core conectado ao Banco de Dados SQL no Aplicativo Web para Contêineres.
 
 ### <a name="configure-local-git-deployment"></a>Configurar a implantação do git local 
 
@@ -251,9 +251,9 @@ http://<app_name>.azurewebsites.net
 
 Adicione alguns itens de tarefas.
 
-![aplicativo em execução nos Aplicativos Web para Contêineres](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplicativo em execução no Aplicativo Web para Contêineres](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Parabéns!** Você está executando um aplicativo .NET Core controlado por dados nos Aplicativos Web para Contêineres.
+**Parabéns!** Você está executando um aplicativo .NET Core controlado por dados no Aplicativo Web para Contêineres.
 
 ## <a name="update-locally-and-redeploy"></a>Atualizar localmente e reimplantar
 
@@ -335,7 +335,7 @@ Execute o aplicativo localmente.
 dotnet run
 ```
 
-No navegador, navegue para http://local:5000/. Agora você pode adicionar um item de tarefas e marcar **Concluído**. Em seguida, ele deverá aparecer na sua página inicial como um item concluído. Lembre-se de que a exibição `Edit` não mostra o campo `Done`, porque você não alterou a exibição `Edit`.
+No navegador, navegue até `http://localhost:5000/`. Agora você pode adicionar um item de tarefas e marcar **Concluído**. Em seguida, ele deverá aparecer na sua página inicial como um item concluído. Lembre-se de que a exibição `Edit` não mostra o campo `Done`, porque você não alterou a exibição `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publicar alterações no Azure
 
@@ -381,5 +381,5 @@ O que você aprendeu:
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
 
 > [!div class="nextstepaction"] 
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service-web-tutorial-custom-domain.md)
 

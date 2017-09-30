@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Retransmissão de WCF](relay-wcf-dotnet-get-started.md)
+## [Tutorial de Retransmissão de WCF](service-bus-relay-tutorial.md)
+## [Tutorial do REST de Retransmissão do WCF](service-bus-relay-rest-tutorial.md)
 
 # Como
 ## Planejar e projetar

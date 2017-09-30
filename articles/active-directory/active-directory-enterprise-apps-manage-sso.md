@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
@@ -40,7 +40,7 @@ Para gerenciar as configurações de logon único, selecione **Logon único**.
 ## <a name="single-sign-on-modes"></a>Modos de logon único
 **Logon único** começa com um menu **Modo**, que permite que o modo de logon único seja configurado. As opções disponíveis incluem:
 
-* **Logon baseado em SAML** – essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0.
+* **Logon baseado em SAML** – essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0, WS-Federation, ou protocolos de conexão OpenID.
 * **Logon baseado em senha** – essa opção está disponível se o Azure AD dá suporte ao preenchimento de formulário de senha para este aplicativo.
 * **Logon vinculado** – anteriormente conhecida como "Logon único existente", essa opção permite que os administradores coloquem um link para esse aplicativo no painel de acesso do Azure AD ou no iniciador de aplicativo do Office 365 do usuário.
 

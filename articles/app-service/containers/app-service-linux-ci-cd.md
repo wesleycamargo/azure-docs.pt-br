@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 69eb021014c2ae04fc71a03cd27c0e113a2b062b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web do Azure para Contêineres
@@ -38,7 +38,7 @@ Você pode habilitar o recurso de implantação contínua usando a [CLI do Azure
 az webapp deployment container config -n sname -g rgname -e true
 ``` 
 
-No ** [portal do Azure](https://portal.azure.com/)**, clique a opção **Serviço de Aplicativo** à esquerda da página.
+No  **[portal do Azure](https://portal.azure.com/)**, clique a opção **Serviço de Aplicativo** à esquerda da página.
 
 Clique no nome do aplicativo para o qual você deseja configurar a implantação contínua do Hub do Docker.
 
@@ -86,11 +86,11 @@ Quando a imagem é atualizada, o aplicativo Web é atualizado automaticamente co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que são os Aplicativos Web para Contêineres do Azure?](./app-service-linux-intro.md)
+* [O que é o Aplicativo Web do Azure para Contêineres?](./app-service-linux-intro.md)
 * [Registro de Contêiner do Azure](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Usando o .NET Core nos Aplicativos Web para Contêineres do Azure](quickstart-dotnetcore.md)
-* [Usando o Ruby nos Aplicativos Web para Contêineres do Azure](quickstart-ruby.md)
-* [Como usar uma imagem personalizada do Docker para os Aplicativos Web para Contêineres do Azure](quickstart-custom-docker-image.md)
-* [Perguntas frequentes sobre os Aplicativos Web do Serviço de Aplicativo do Azure para Contêineres](./app-service-linux-faq.md) 
-* [Gerenciar Aplicativos Web para Contêineres usando a CLI do Azure 2.0](./app-service-linux-cli.md)
+* [Usando o .NET Core no aplicativo Web para Contêineres do Azure](quickstart-dotnetcore.md)
+* [Usando o Ruby no aplicativo Web para Contêineres do Azure](quickstart-ruby.md)
+* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure](quickstart-custom-docker-image.md)
+* [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](./app-service-linux-faq.md) 
+* [Gerenciar aplicativo Web para Contêineres usando a CLI do Azure 2.0](./app-service-linux-cli.md)
 

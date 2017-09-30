@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
@@ -156,7 +156,7 @@ Uma abordagem chave para o Service Fabric é reutilizar o código existente, o q
 
 ![Migração para Microsserviços][Image3]
 
-É importante enfatizar novamente, que você pode **iniciar e interromper em qualquer um desses estágios**, você não é obrigado a ir para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
+É importante enfatizar novamente, que você pode **iniciar e parar em qualquer um desses estágios**. Você não é forçado a passar para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
 
 **Lift and Shift** - um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões;
 

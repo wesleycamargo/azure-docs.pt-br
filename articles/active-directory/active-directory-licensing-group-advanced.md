@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ Essa saída de exemplo mostra o início do processamento, todas as alterações 
 
 >[!TIP]
 > Se você clicar nos itens relacionados a *Alterar licença de usuário*, os detalhes das alterações de licença aplicadas a cada usuário individual serão mostrados.
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>Excluir um grupo com uma licença atribuída
+
+Não é possível excluir um grupo com uma licença ativa atribuída. Um administrador pode excluir um grupo sem perceber que fará com que a licenças sejam removidas dos usuários; por esse motivo, precisamos que as licenças sejam removidas do grupo primeiro, antes que ele possa ser excluído.
+
+Ao tentar excluir um grupo no portal do Azure, pode ser que você veja uma notificação de erro como esta: ![Falha na exclusão do grupo de captura de tela](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Vá para a guia **Licenças** no grupo e verifique se há alguma licença atribuída. Em caso afirmativo, remova essas licenças e tente excluir o grupo novamente.
+
+Você pode ver erros semelhantes ao tentar excluir o grupo por meio do PowerShell ou API do Graph. Se você estiver usando um grupo sincronizado do local, o Azure AD Connect também pode relatar erros se houver falha ao excluir o grupo no Azure AD. Em todos esses casos, lembre-se de verificar se há licenças atribuídas ao grupo e remova-as primeiro.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
