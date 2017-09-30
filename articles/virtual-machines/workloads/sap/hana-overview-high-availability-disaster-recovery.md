@@ -3,7 +3,7 @@ title: "Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (i
 description: "Estabeleça a alta disponibilidade e planeje a recuperação de desastre do SAP HANA no Azure (instâncias grandes)"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
@@ -41,9 +41,9 @@ A tabela a seguir mostra os métodos e combinações de recuperação de desastr
 | Failover automático de host: N + m<br /> incluindo 1 + 1 | Possível com em espera usando a função ativa.<br /> O HANA controla a opção de função. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito.<br /> Sincronização da recuperação de desastre usando a replicação de armazenamento. | Os conjuntos de volumes do HANA são anexados a todos os nós (n + m).<br /> O local de recuperação de desastre deve ter o mesmo número de nós. |
 | Replicação do sistema HANA | Possível com a instalação primária ou secundária.<br /> A secundária move para a função primária em um caso de failover.<br /> Replicação do sistema HANA e controle de failover do SO. | Instalação da recuperação de desastre dedicada.<br /> Instalação da recuperação de desastre multipropósito.<br /> Sincronização da recuperação de desastre usando a replicação de armazenamento.<br /> A recuperação de desastre usando replicação do sistema HANA ainda não é possível sem componentes de terceiros. | Conjunto separado de volumes de disco são anexados a cada nó.<br /> Somente os volumes de disco de réplica secundária no local de produção são replicados para o local da recuperação de desastre.<br /> Um conjunto de volumes é necessário no local da recuperação de desastre. | 
 
-É em uma configuração de recuperação de desastre dedicada que a unidade da Instância Grande do HANA no local da recuperação de desastre não é usada para executar nenhuma outra carga de trabalho ou sistema de não produção. A unidade é passiva e é implantada apenas se um failover de desastre é executado. Até agora, não temos nenhum cliente com essa configuração.
+É em uma configuração de recuperação de desastre dedicada que a unidade da Instância Grande do HANA no local da recuperação de desastre não é usada para executar nenhuma outra carga de trabalho ou sistema de não produção. A unidade é passiva e é implantada apenas se um failover de desastre é executado. No entanto, isso não é uma opção preferencial para muitos clientes.
 
-É em uma configuração de recuperação de desastre multipropósito que a unidade de Instância Grande do HANA no local da recuperação de desastre executa uma carga de trabalho de não produção. Em caso de desastre, você desliga o sistema de não produção, monta os conjuntos de volume de armazenamento replicado (adicional) e inicia a instância HANA de produção. Até agora, todos os clientes que usam a funcionalidade de recuperação de desastre de Instância Grande do HANA usam essa alternativa de configuração. 
+É em uma configuração de recuperação de desastre multipropósito que a unidade de Instância Grande do HANA no local da recuperação de desastre executa uma carga de trabalho de não produção. Em caso de desastre, você desliga o sistema de não produção, monta os conjuntos de volume de armazenamento replicado (adicional) e inicia a instância HANA de produção. A maioria dos clientes que usam a funcionalidade de recuperação de desastre de Instância Grande do HANA usam essa configuração. 
 
 
 É possível encontrar mais informações sobre a alta disponibilidade do SAP HANA nos seguintes artigos do SAP: 
@@ -221,7 +221,15 @@ Nesta etapa, autorize a conta de usuário do SAP HANA que você criou para que o
 
 Insira o comando `hdbuserstore` da seguinte maneira:
 
-![Digite comando hdbuserstore](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**Para a instalação do HANA não MDC**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**Para a instalação do HANA MDC**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 No exemplo a seguir, o usuário é **SCADMIN01**, o nome do host é **lhanad01** e o número da instância é **01**:
 ```
@@ -231,8 +239,8 @@ Se tiver uma configuração de expansão do SAP HANA, você deverá gerenciar to
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Etapa 6: Obter os scripts de instantâneo, configurar os instantâneos e testar a configuração e a conectividade
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Se o instantâneo de teste foi executado com êxito com o script, você poderá 
 Como todas as etapas de preparação estão concluídas, é possível começar a configurar a configuração de instantâneo de armazenamento real. O script a ser agendado funciona com as configurações de expansão e escalável do SAP HANA. Agende a execução dos scripts por meio de cron. 
 
 Podem ser criados três tipos de backups de instantâneo:
-- **HANA**: backup de instantâneo combinado no qual os volumes que contêm o /hana/data, /hana/log e /hana/shared (que contém /usr/sap também) são cobertos pelo instantâneo coordenado. Uma restauração de arquivo único é possível desse instantâneo.
+- **HANA**: backup de instantâneo combinado no qual os volumes que contêm o /hana/data e /hana/shared (que também contém /usr/sap) são cobertos pelo instantâneo coordenado. Uma restauração de arquivo único é possível desse instantâneo.
 - **Logs**: backup de instantâneo do volume /hana/logbackups. Nenhum instantâneo HANA é acionado para executar esse instantâneo de armazenamento. Este volume de armazenamento é o volume que deve conter os backups de log de transações do SAP HANA. Os backups de log de transações do SAP HANA são executados com mais frequência para restringir o crescimento do log e ara evitar a perda de dados. Uma restauração de arquivo único é possível desse instantâneo. Você não deve reduzir a frequência para menos de cinco minutos.
 - **Inicialização**: o instantâneo do volume que contém o LUN (número de unidade lógica) de inicialização da Instância Grande do HANA. Esse backup de instantâneo só é possível com os SKUs tipo I das Instâncias Grandes HANA. Você não pode executar restaurações de arquivo único do instantâneo do volume que contém o LUN de inicialização.  
 
 
 A sintaxe de chamada para esses três tipos diferentes de instantâneos tem esta aparência:
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 Os parâmetros a seguir precisam ser especificados:
 
 - O primeiro parâmetro caracteriza o tipo de backup de instantâneo. Os valores permitidos são **hana**, **logs** e **boot**. 
-- O segundo valor é o SID do HANA (como HM3). Esse parâmetro não é necessário para executar um backup do volume de inicialização.
+- O segundo parâmetro é **SID do HANA** (como HM3) ou **nenhum**. Se o primeiro valor de parâmetros fornecido é **hana** ou **logs**, o valor desse parâmetro é a **SID do HANA** (como HM3), caso contrário, para o backup do volume de inicialização, o valor é **nenhum**. 
 - O terceiro parâmetro é um rótulo de backup ou de instantâneo para o tipo de instantâneo. Ele tem duas finalidades. A primeira finalidade para você é dar um nome a ele para que você saiba do que se tratam esses instantâneos. A segunda finalidade é para o script azure\_hana\_backup.pl determinar o número de instantâneos de armazenamento retidos de acordo com esse rótulo específico. Se você agendar dois backups de instantâneo de armazenamento do mesmo tipo (como **hana**), com dois rótulos diferentes e definir que esses 30 instantâneos devem ser mantidos para cada um, você vai terminar com 60 instantâneos de armazenamento dos volumes afetados. 
 - O quarto parâmetro define a retenção dos instantâneos indiretamente definindo o número de instantâneos com o mesmo prefixo de instantâneo (rótulo) a ser mantido. Esse parâmetro é importante para uma execução agendada por meio de cron. 
 
@@ -428,7 +436,7 @@ Nas considerações e recomendações a seguir, vamos supor que você *não* usa
 - O número de instantâneos por volume é limitado a 255.
 
 
-Para clientes que não usam a funcionalidade de recuperação de desastre de Instâncias Grandes HANA, o período de instantâneo é menos frequente. Nesses casos, vemos clientes executando os instantâneos combinados em /hana/data, /hana/log e /hana/shared (inclui /usr/sap) em período de 12 horas ou 24 horas e eles mantêm esses instantâneos para abranger um mês inteiro. O mesmo acontece com os instantâneos do volume de backup de log de transações. No entanto, a execução de backups de log de transações do SAP HANA no volume do backup de log ocorre em períodos de 5 minutos a 15 minutos.
+Para clientes que não usam a funcionalidade de recuperação de desastre de Instâncias Grandes HANA, o período de instantâneo é menos frequente. Nesses casos, vemos clientes executando os instantâneos combinados em /hana/data e /hana/shared (que inclui /usr/sap) em períodos de 12 horas ou 24 horas e eles mantêm esses instantâneos para abranger um mês inteiro. O mesmo acontece com os instantâneos do volume de backup de log de transações. No entanto, a execução de backups de log de transações do SAP HANA no volume do backup de log ocorre em períodos de 5 minutos a 15 minutos.
 
 Incentivamos você a executar instantâneos de armazenamento agendado usando cron. Também recomendamos que você use o mesmo script de todos os backups e necessidades de recuperação de desastre. É necessário modificar as entradas de script para corresponder os vários tempos de backup solicitados. Esses instantâneos são todos agendados de forma diferente no cron dependendo de seu tempo de execução: por hora, 12 horas, diária ou semanal. 
 
@@ -440,9 +448,9 @@ Um exemplo de um agendamento de cron em /etc/crontab poderia ter a seguinte apar
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-No exemplo anterior, há um instantâneo combinado por hora que aborda os volumes que contêm os locais /hana/data, /hana/log e /hana/shared (inclui /usr/sap). Esse tipo de instantâneo seria usado para uma recuperação pontual mais rápida dentro dos últimos dois dias. Além disso, há um instantâneo diário nesses volumes. Assim, você tem dois dias de cobertura por instantâneos por hora além de quatro semanas de cobertura por instantâneos diários. Além disso, o volume de backup de log de transações tem seu backup feito uma vez por dia. Esses backups também são mantidos por quatro semanas. Como você pode ver na terceira linha de crontab, o backup de log de transações HANA está agendado para ser executado a cada cinco minutos. Os minutos de início dos trabalhos de cron diferentes que executam os instantâneos de armazenamento são alternados, assim, os instantâneos não são executados simultaneamente em um determinado ponto no tempo. 
+No exemplo anterior, há um instantâneo combinado por hora que aborda os volumes que contêm as localizações /hana/data e /hana/shared (que inclui /usr/sap). Esse tipo de instantâneo seria usado para uma recuperação pontual mais rápida dentro dos últimos dois dias. Além disso, há um instantâneo diário nesses volumes. Assim, você tem dois dias de cobertura por instantâneos por hora além de quatro semanas de cobertura por instantâneos diários. Além disso, o volume de backup de log de transações tem seu backup feito uma vez por dia. Esses backups também são mantidos por quatro semanas. Como você pode ver na terceira linha de crontab, o backup de log de transações HANA está agendado para ser executado a cada cinco minutos. Os minutos de início dos trabalhos de cron diferentes que executam os instantâneos de armazenamento são alternados, assim, os instantâneos não são executados simultaneamente em um determinado ponto no tempo. 
 
-No exemplo a seguir, você executa um instantâneo combinado que cobre os volumes que contêm os locais /hana/data, /hana/log e /hana/shared (inclui /usr/sap) por hora. Mantenha esses instantâneos por dois dias. Os instantâneos dos volumes de backup de log de transações são executados em uma base de cinco minutos e são mantidos por quatro horas. Como antes, o backup do arquivo de log de transação do HANA está agendado para ser executado a cada cinco minutos. O instantâneo do volume de backup de log de transações é executado com um atraso de dois minutos após o backup de log de transações ter sido inciado. Dentro desses dois minutos, o backup de log de transações do SAP HANA deverá ser concluído sob circunstâncias normais. Como antes, o volume que contém o LUN de inicialização tem seu backup feito uma vez por dia por um instantâneo de armazenamento e é mantido por quatro semanas.
+No exemplo a seguir, você executa um instantâneo combinado que cobre os volumes que contêm as localizações /hana/data e /hana/shared (que inclui /usr/sap) por hora. Mantenha esses instantâneos por dois dias. Os instantâneos dos volumes de backup de log de transações são executados em uma base de cinco minutos e são mantidos por quatro horas. Como antes, o backup do arquivo de log de transação do HANA está agendado para ser executado a cada cinco minutos. O instantâneo do volume de backup de log de transações é executado com um atraso de dois minutos após o backup de log de transações ter sido inciado. Dentro desses dois minutos, o backup de log de transações do SAP HANA deverá ser concluído sob circunstâncias normais. Como antes, o volume que contém o LUN de inicialização tem seu backup feito uma vez por dia por um instantâneo de armazenamento e é mantido por quatro semanas.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ No exemplo a seguir, você executa um instantâneo combinado que cobre os volume
 
 O gráfico a seguir ilustra as sequências do exemplo anterior, excluindo o LUN de inicialização:
 
-![Relação entre os backups e os instantâneos](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![Relação entre os backups e os instantâneos](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-O SAP HANA executa gravações regulares no volume /hana/log para documentar as alterações confirmadas no banco de dados. Regularmente, o SAP HANA grava um ponto de salvamento para o volume /hana/data. Conforme especificado em crontab, um backup de log de transações do SAP HANA é executado a cada cinco minutos. Você também pode ver que um instantâneo SAP HANA é executado a cada hora, como resultado do acionamento de um instantâneo de armazenamento combinado nos volumes /hana/data, /hana/log e /hana/shared. Depois do êxito do instantâneo do HANA, o instantâneo de armazenamento combinado é executado. Conforme instruído em crontab, o instantâneo de armazenamento no volume /hana/logbackup é executado a cada cinco minutos, aproximadamente dois minutos após o backup de log de transações do HANA.
+O SAP HANA executa gravações regulares no volume /hana/log para documentar as alterações confirmadas no banco de dados. Regularmente, o SAP HANA grava um ponto de salvamento para o volume /hana/data. Conforme especificado em crontab, um backup de log de transações do SAP HANA é executado a cada cinco minutos. Você também pode ver que um instantâneo SAP HANA é executado a cada hora, como resultado do acionamento de um instantâneo de armazenamento combinado nos volumes /hana/data e /hana/shared. Depois do êxito do instantâneo do HANA, o instantâneo de armazenamento combinado é executado. Conforme instruído em crontab, o instantâneo de armazenamento no volume /hana/logbackup é executado a cada cinco minutos, aproximadamente dois minutos após o backup de log de transações do HANA.
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ O SAP HANA executa gravações regulares no volume /hana/log para documentar as 
 
 Se você firmou um compromisso com os usuários de uma recuperação pontual de 30 dias, faça o seguinte:
 
-- Em casos extremos, é necessário ter a capacidade de acessar um instantâneo de armazenamento combinado no /hana/data, /hana/log e /hana/shared que tem 30 dias.
+- Em casos extremos, é necessário ter a capacidade de acessar um instantâneo de armazenamento combinado no /hana/data e /hana/shared que tem 30 dias.
 - Tenha backups de log de transações contíguos que abrangem o tempo entre todos os instantâneos de armazenamento combinado. Portanto, o instantâneo mais antigo do volume de backup de log de transações deve ser de 30 dias. Esse não será o caso se você copiar os backups de log de transações para outro compartilhamento NFS localizado no armazenamento do Azure. Nesse caso, você pode efetuar pull de backups de log de transações antigos desse compartilhamento NFS.
 
 Para se beneficiar de instantâneos de armazenamento e replicação de armazenamento eventual dos backups de log de transações, você precisa alterar o local no qual o SAP HANA grava os backups de log de transações. É possível fazer essa alteração no HANA Studio. Embora o SAP HANA faça backup de segmentos de log completos automaticamente, você deve especificar um intervalo de backup de log para ser determinístico. Isso é especialmente verdadeiro quando você usa a opção de recuperação de desastre, porque geralmente convém executar backups de log com um período determinístico. No caso abaixo, usamos 15 minutos como o intervalo de backup de log.

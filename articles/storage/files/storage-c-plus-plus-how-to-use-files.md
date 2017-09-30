@@ -1,6 +1,6 @@
 ---
-title: Desenvolvimento para o Armazenamento de Arquivos do Azure com o C++ | Microsoft Docs
-description: "Saiba como desenvolver aplicativos e serviços C++ que usam o Armazenamento de Arquivos do Azure para armazenar dados de arquivo."
+title: Desenvolvimento para o Arquivos do Azure com C++ | Microsoft Docs
+description: "Saiba como desenvolver aplicativos e serviços C++ que usam o Arquivos do Azure para armazenar dados de arquivo."
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-c"></a>Desenvolvimento para o Armazenamento de Arquivos do Azure com o C++
+# <a name="develop-for-azure-files-with-c"></a>Desenvolvimento para o Arquivos do Azure com C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
 
-Neste tutorial, você aprenderá a executar operações básicas no Armazenamento de Arquivos do Azure. Por meio de exemplos escritos em C++, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você for novo no Armazenamento de Arquivos do Azure, será muito útil percorrer os conceitos nas seções a seguir para entender os exemplos.
+Neste tutorial, você aprenderá a executar operações básicas no Arquivos do Azure. Por meio de exemplos escritos em C++, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você for novo no Arquivos do Azure, será muito útil percorrer os conceitos nas seções a seguir para entender os exemplos.
 
 
 * Criar e excluir Compartilhamentos de Arquivos do Azure
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá a executar operações básicas no Armazenament
 * Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso compartilhado definida no compartilhamento.
 
 > [!Note]  
-> Como o Armazenamento de Arquivos do Azure pode ser acessado via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do C++. Este artigo descreverá como criar aplicativos que usam o SDK do Armazenamento do Azure C++, que usa a [API REST do Armazenamento de Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com o Armazenamento de Arquivos do Azure.
+> Como o Arquivos do Azure pode ser acessado via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do C++. Este artigo descreverá como criar aplicativos que usam o SDK do Armazenamento do Azure C++, que usa a [API REST de Arquivo](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com o Arquivos do Azure.
 
 ## <a name="create-a-c-application"></a>Criar um aplicativo em C++
 Para criar os exemplos, você precisará instalar a Biblioteca do Cliente de Armazenamento do Azure 2.4.0 para C++. Você também deverá ter criado uma conta de armazenamento do Azure.
@@ -54,8 +54,8 @@ Para instalar o Cliente de Armazenamento do Azure 2.4.0 para C++, você poderá 
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Configurar seu aplicativo para usar o Armazenamento de Arquivos do Azure
-Adicione as seguintes instruções include na parte superior do arquivo de origem C++ no qual você deseja manipular o Armazenamento de Arquivos do Azure:
+## <a name="set-up-your-application-to-use-azure-files"></a>Configurar seu aplicativo para usar os Arquivos do Azure
+Adicione as seguintes instruções include na parte superior do arquivo de origem C++ no qual você deseja manipular Arquivos do Azure:
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,15 +81,15 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Criar um Compartilhamento de Arquivos do Azure
-Todos os arquivos e diretórios do Armazenamento de Arquivos do Azure residem em um contêiner chamado **Compartilhamento**. Sua conta de armazenamento pode a quantidade de compartilhamentos que a capacidade da conta permitir. Para obter acesso a um compartilhamento e seu conteúdo, é necessário usar um cliente de Armazenamento de Arquivos do Azure.
+Todos os arquivos e diretórios em um compartilhamento de Arquivos do Azure residem em um contêiner chamado **Compartilhamento**. Sua conta de armazenamento pode a quantidade de compartilhamentos que a capacidade da conta permitir. Para obter acesso a um compartilhamento e seu conteúdo, é necessário usar um cliente de Arquivos do Azure.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Usando o cliente do Armazenamento de Arquivos do Azure, será possível obter uma referência a um compartilhamento.
+Usando o cliente do Arquivos do Azure, será possível obter uma referência a um compartilhamento.
 
 ```cpp
 // Get a reference to the file share
@@ -120,7 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Também é possível organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. O Armazenamento de Arquivos do Azure permite que você crie quantos diretórios a conta permitir. O código a seguir criará um diretório chamado **my-sample-directory** no diretório raiz, bem como um subdiretório nomeado **my-sample-subdirectory**.
+Também é possível organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código a seguir criará um diretório chamado **my-sample-directory** no diretório raiz, bem como um subdiretório nomeado **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +241,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Excluir um arquivo
-Outra operação comum do Armazenamento de Arquivos do Azure é a exclusão de arquivos. O código a seguir exclui um arquivo chamado my-sample-file-3 armazenado no diretório raiz.
+Outra operação comum do Arquivos do Azure é a exclusão de arquivos. O código a seguir exclui um arquivo chamado my-sample-file-3 armazenado no diretório raiz.
 
 ```cpp
 // Get a reference to the root directory for the share.    

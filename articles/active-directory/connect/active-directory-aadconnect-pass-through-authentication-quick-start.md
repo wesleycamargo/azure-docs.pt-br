@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 A autenticação de passagem do Azure AD (Azure Active Directory) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Ela permite a entrada de usuários validando suas senhas diretamente no Active Directory local.
 
 >[!IMPORTANT]
->A autenticação de passagem do Azure AD está atualmente na versão prévia. Se você está usando esse recurso por meio da versão prévia, é necessário atualizar as versões prévias dos Agentes de autenticação usando as instruções fornecidas [aqui](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Se você está usando esse recurso por meio da versão prévia, é necessário atualizar as versões prévias dos Agentes de autenticação usando as instruções fornecidas [aqui](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
 Você precisa seguir estas instruções para implantar a Autenticação de passagem:
 
@@ -130,7 +130,7 @@ Se você planeja implantar autenticação de passagem em um ambiente de produç�
 >Você também pode baixar o Agente de Autenticação [aqui](https://aka.ms/getauthagent). Certifique-se de ler e aceitar os [Termos de Serviço](https://aka.ms/authagenteula) do Agente de Autenticação _antes_ de instalá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.
+- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.

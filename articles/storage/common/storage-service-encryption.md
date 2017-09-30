@@ -3,7 +3,7 @@ title: "Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 description: "Use o recurso de Criptografia do Serviço de Armazenamento do Azure para criptografar seu Armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados, e descriptografá-lo ao recuperar os dados."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bac7b3292f21aa97d02a18dd58f79a4f10485b7d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
@@ -84,7 +84,7 @@ O AzCopy é um utilitário de linha de comando do Windows projetado para copiar 
 Para saber mais, visite [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Como usar o SMB
-O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Você pode montar um compartilhamento de arquivo de um cliente no local ou no Azure. Uma vez montado, use ferramentas como o Robocopy para copiar arquivos para os compartilhamentos de arquivos do Azure. Para obter mais informações, consulte [Como montar um Compartilhamento de Arquivos do Azure no Windows](../files/storage-how-to-use-files-windows.md) e [Como montar um Compartilhamento de Arquivos do Azure no Linux](../storage-how-to-use-files-linux.md).
+Os Arquivos do Azure oferecem compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Você pode montar um compartilhamento de arquivo de um cliente no local ou no Azure. Uma vez montado, use ferramentas como o Robocopy para copiar arquivos para os compartilhamentos de arquivos do Azure. Para obter mais informações, consulte [Como montar um Compartilhamento de Arquivos do Azure no Windows](../files/storage-how-to-use-files-windows.md) e [Como montar um Compartilhamento de Arquivos do Azure no Linux](../files/storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Como usar as Bibliotecas de Cliente de Armazenamento

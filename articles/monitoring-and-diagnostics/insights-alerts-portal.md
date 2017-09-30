@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – Portal do Azure
@@ -30,12 +30,12 @@ ms.lasthandoff: 03/31/2017
 >
 
 ## <a name="overview"></a>Visão geral
-Este artigo mostra como configurar alertas de métrica do Azure usando o Portal do Azure.   
+Este artigo mostra como configurar alertas de métrica do Azure usando o Portal do Azure. 
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
 * **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
-* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Saiba mais sobre os [alertas do log de atividades](monitoring-activity-log-alerts.md).
 
 Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
 
@@ -43,6 +43,11 @@ Você pode configurar um alerta de métrica para fazer o seguinte quando ele dis
 * enviar email para outros emails que você especificar.
 * chamar um webhook
 * iniciar a execução de um runbook do Azure (apenas no Portal do Azure)
+
+> [!NOTE]
+> O Azure Monitor agora dá suporte a Alertas de Métrica Quase em Tempo Real em visualização pública. Esses alertas usam Grupos de Ações. Saiba mais sobre [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md).
+>
+>
 
 Você pode configurar e obter informações sobre regras de alerta de métrica usando
 
@@ -64,7 +69,7 @@ Você pode configurar e obter informações sobre regras de alerta de métrica u
 
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
 
-5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procura por CPU acima de 80%, o alerta disparará quando a CPU estiver consistentemente acima de 80% por cinco minutos. Após o primeiro gatilho, ele disparará novamente quando a CPU permanecer abaixo de 80% durante cinco minutos. A medição da CPU ocorre a cada um minuto.   
+5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "Pelos últimos 5 minutos" e o alerta procura por CPU acima de 80%, o alerta disparará quando a CPU estiver consistentemente acima de 80% por 5 minutos. Após o primeiro gatilho, ele disparará novamente quando a CPU permanecer abaixo de 80% durante cinco minutos. A medida de métrica de CPU ocorre a cada um minuto.
 
 6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.
 
@@ -87,6 +92,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
+* Saiba mais sobre os novos [alertas de métrica quase em tempo real (versão prévia)](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
 * Saiba mais sobre [Configurar alertas em eventos de Log de Atividades](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).

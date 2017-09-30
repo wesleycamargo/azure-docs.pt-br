@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: mfussell
+ms.date: 09/20/2017
+ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
@@ -50,12 +50,14 @@ O Service Fabric pode ser executado em qualquer lugar. Você pode criar clusters
 
 ![Plataforma Service Fabric][Image1]
 
-Para saber mais sobre a criação de clusters locais, leia sobre [como criar um cluster no Windows Server ou no Linux](service-fabric-deploy-anywhere.md) ou, para o Azure, como criar um cluster [por meio do Portal do Azure](service-fabric-cluster-creation-via-portal.md).
+Para desenvolvimento no Windows, o SDK .NET do Service Fabric é integrado com o Visual Studio e com o PowerShell. Consulte [Prepare your development environment on Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md) (Prepare seu ambiente de desenvolvimento no Windows). Para desenvolvimento no Linux, o SDK de Java do Service Fabric é integrado com o Eclipse e o Yeoman é usado para gerar modelos para Java, .NET Core e aplicativos de contêiner. Consulte [Prepare your development environment on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md) (Preparar seu ambiente de desenvolvimento no Linux)
+
+Para obter mais informações sobre a criação de clusters, leia sobre [como criar um cluster no Windows Server ou no Linux](service-fabric-deploy-anywhere.md) ou, para o Azure, como criar um cluster [por meio do Portal do Azure](service-fabric-cluster-creation-via-portal.md).
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microsserviços com e sem estado para o Service Fabric
 O Service Fabric permite compilar aplicativos que consistam em microsserviços ou contêineres. Os microsserviços sem estado (como gateways de protocolo e proxies Web) não mantêm um estado mutável fora de uma solicitação e sua resposta do serviço. As funções de trabalho dos Serviços de Nuvem do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de usuário, bancos de dados, dispositivos, carrinhos de compra e filas) mantêm um estado mutável e autoritativo além da solicitação e sua resposta. Os aplicativos em escala da Internet de hoje consistem em uma combinação de microsserviços com e sem estado. 
 
-Uma diferença chave com o Service Fabric é seu foco forte na criação de serviços com monitoração de estado, com [modelos de programação internos](service-fabric-choose-framework.md) ou com serviços em contêineres com monitoração de estado. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
+Uma diferença importante com o Service Fabric é seu foco na criação de serviços com estado, com os [modelos de programação internos ](service-fabric-choose-framework.md) ou com serviços com estado em contêineres. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
 
 
 ## <a name="application-lifecycle-management"></a>Gerenciamento do ciclo de vida de aplicativos
@@ -89,7 +91,8 @@ Ao usar a Malha do Serviço, você pode:
 * Para mais informações:
   * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
   * [Visão geral da terminologia](service-fabric-technical-overview.md)
-* Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md)  
+* Configurando o [ambiente de desenvolvimento do Windows](service-fabric-get-started.md)  
+* Configurando o [ambiente de desenvolvimento do Linux](service-fabric-get-started-linux.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

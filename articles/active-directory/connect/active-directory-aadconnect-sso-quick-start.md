@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="how-to-deploy-seamless-sso"></a>Como implantar o SSO Contínuo
 
 O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos desktops corporativos conectados à rede corporativa. Ele fornece aos usuários acesso fácil a seus aplicativos baseados em nuvem sem a necessidade de nenhum componente local adicional.
-
->[!IMPORTANT]
->Atualmente, o recurso SSO Contínuo está em visualização.
 
 Para implantar o SSO Contínuo, você precisa seguir estas etapas:
 
@@ -73,7 +70,7 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
-Para distribuir o recurso aos seus usuários, você precisará adicionar duas URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) às configurações de zona de Intranet dos usuários por meio da Política de Grupo no Active Directory.
+Para implementar o recurso para os usuários, você precisa adicionar algumas URLs do Azure AD às configurações de zona de Intranet dos usuários usando a Política de Grupo no Active Directory.
 
 >[!NOTE]
 > As instruções a seguir só funcionam para o Internet Explorer e Google Chrome no Windows (se ele compartilha o conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções para configurar o Mozilla Firefox e Google Chrome no Mac.
@@ -122,7 +119,7 @@ Para o Google Chrome no Mac OS e outras plataformas que não sejam Windows, cons
 
 O uso de extensões de Política de Grupo do Active Directory de terceiros para distribuir as URLs do Azure AD para o Firefox e o Google Chrome em usuários do Mac está fora do escopo deste artigo.
 
-#### <a name="known-limitations"></a>Limitações conhecidas
+#### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
 O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
 
@@ -146,7 +143,7 @@ Para testar o cenário em que o usuário não tenha que inserir o nome de usuár
 
 ## <a name="step-5-roll-over-keys"></a>Etapa 5: Sobrepor chaves
 
-Na etapa 2, o Azure AD Connect cria contas de computador (representando o AD do Azure) em todas as florestas do AD no qual você habilitou o SSO contínuo. Saiba mais detalhes [aqui](active-directory-aadconnect-sso-how-it-works.md). Para maior segurança, é recomendável que você sobreponha frequentemente chaves de descriptografia Kerberos dessas contas de computador.
+Na etapa 2, o Azure AD Connect cria contas de computador (representando o AD do Azure) em todas as florestas do AD no qual você habilitou o SSO contínuo. Saiba mais detalhes [aqui](active-directory-aadconnect-sso-how-it-works.md). Para maior segurança, é recomendável que você sobreponha periodicamente chaves de descriptografia Kerberos dessas contas de computador. As instruções sobre como reverter estão [aqui](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >Você não precisa executar essa etapa _imediatamente_ depois de habilitar o recurso. Sobrepor as chaves de descriptografia Kerberos pelo menos a cada 30 dias.

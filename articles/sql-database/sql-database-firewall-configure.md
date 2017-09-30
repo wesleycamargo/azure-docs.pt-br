@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/12/2017
+ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 445689cb067d33b0da45d63730e5e755bc799909
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regras de firewall de nível do servidor de banco de dados do Banco de Dados SQL do Azure 
 
 O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação.
+
+#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Regras de rede virtual como alternativas às regras IP
+
+Além das regras IP, o firewall também gerencia *regras de rede virtual*. Regras de rede virtual são baseadas nos pontos de extremidade de serviço da rede virtual. Regras de rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, consulte [Pontos de extremidade de serviço de rede virtual para o Banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="overview"></a>Visão geral
 
@@ -223,4 +227,3 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

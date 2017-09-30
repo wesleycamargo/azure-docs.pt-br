@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9fcf2756dee8a19ee3fd6013ccbb427fcef99ae1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 08/01/2017
 
 A autenticação de passagem do Azure AD (Azure Active Directory) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Esse recurso fornece aos usuários uma experiência melhor – uma senha a menos para se lembrar – e reduz os custos de suporte técnico de TI porque os usuários têm menor probabilidade de se esquecer como entrar. Quando os usuários entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no seu Active Directory local.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Esse recurso é uma alternativa à [Sincronização de Hash de Senha do Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, as políticas de conformidade e segurança de certas organizações não permitirem que essas organizações enviem as senhas dos usuários, mesmo em um formato com hash, para fora de seus limites internos. A Autenticação de Passagem é a solução ideal para essas organizações.
 
 ![O que é a Autenticação de Passagem do Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon único) Contínuo](active-directory-aadconnect-sso.md). Dessa forma, quando os usuários estiverem acessando aplicativos em seus computadores corporativos dentro de sua rede corporativa, eles não precisarão digitar senhas para entrar.
-
->[!IMPORTANT]
->A autenticação de passagem do Azure AD está atualmente na versão prévia.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Principais benefícios de usar a Autenticação de Passagem do Azure AD
 
@@ -59,6 +58,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - Dá suporte à entrada do usuário em todos os aplicativos baseados em navegador da Web e em aplicativos de cliente do Microsoft Office que usam [autenticação moderna](https://aka.ms/modernauthga).
 - Os nomes de usuário de entrada podem ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
 - O recurso funciona diretamente com recursos de [acesso condicional](../active-directory-conditional-access.md), como a MFA (Autenticação Multifator), para ajudar a proteger seus usuários.
+- Integrado com [gerenciamento de senha de autoatendimento](../active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
 - Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Ele pode ser habilitado por meio do [Azure AD Connect](active-directory-aadconnect.md).
@@ -69,7 +69,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
-- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.
+- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.

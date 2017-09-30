@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Visão geral detalhada de planos de serviço de aplicativo do Azure
@@ -31,22 +31,36 @@ Os Planos do Serviço de Aplicativo definem:
 - Região (Oeste dos EUA, Leste dos EUA, etc.)
 - Contagem da escala (uma, duas, três instâncias, etc.)
 - Tamanha da instância (Pequena, Média, Grande)
-- SKU (Gratuito, Compartilhado, Básico, Standard, Premium)
+- SKU (Gratuito, Compartilhado, Básico, Standard, Premium, PremiumV2, Isolado)
 
 Aplicativos Web, Aplicativos Móveis, Aplicativos de API, Aplicativos de Funções (ou Funções) no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) todos executados em um plano do Serviço de Aplicativo.  Aplicativos na mesma assinatura e região podem compartilhar um Plano do Serviço de Aplicativo. 
 
 Todos os aplicativos atribuídos a um **Plano do Serviço de Aplicativos** compartilham os recursos definidos pelo plano. Esse compartilhamento economiza dinheiro ao hospedar vários aplicativos em um único plano do Serviço de Aplicativo.
 
-O seu **Plano do Serviço de Aplicativo** pode ser dimensionado dos SKUs **Gratuito** e **Compartilhado** para os SKUs **Básico**, **Standard** e **Premium**, dando a você mais recursos e funções ao longo do caminho.
+O **Plano do Serviço de Aplicativo** pode ser escalonado dos tipos de preço **Gratuito** e **Compartilhado** até os tipos de preço **Básico**, **Standard**, **Premium** e **Isolado**. Cada tipo de preço superior dará a você acesso a mais recursos e funcionalidades.
 
-Depois que seu Plano do Serviço de Aplicativo for definido como um SKU **Básico** ou superior, então será possível controlar o **tamanho** e dimensionar a contagem de VMs.
+Depois que seu Plano do Serviço de Aplicativo for definido como um tipo de preço **Básico** ou superior, você poderá controlar o **tamanho** e escalonar a contagem das VMs.
 
-Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" na camada de serviço padrão, todos os aplicativos associados a esse plano serão executados em ambas as instâncias. Os aplicativos também terão acesso aos recursos da camada de serviço padrão. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
+Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" no tipo de preço **Standard**, todos os aplicativos associados a esse plano serão executados em ambas as instâncias. Os aplicativos também têm acesso aos recursos do tipo de preço **Standard**. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
 
 > [!IMPORTANT]
-> O **SKU** e a **Escala** do plano do Serviço de Aplicativo determina o custo e não o número de aplicativos hospedados nele.
+> O tipo de preço (SKU) do Plano do Serviço de Aplicativo determina o custo e não o número de aplicativos hospedados nele.
 
-Neste artigo, exploraremos as principais características, como camada e dimensionamento de um Plano do Serviço de Aplicativo e como elas entram em jogo ao gerenciar seus aplicativos.
+Neste artigo, exploraremos as principais características de um Plano do Serviço de Aplicativo, tais como tipos de preço e escala, e como elas funcionam ao gerenciar seus aplicativos.
+
+## <a name="new-pricing-tier-premiumv2"></a>Novo tipo de preço: PremiumV2
+
+O novo tipo de preço **PremiumV2** fornece [VMs de série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series), com processadores mais rápidos, armazenamento SSD e relação memória/núcleo duas vezes maior quando comparado ao tipo de preço **Standard**. O **PremiumV2** também dá suporte a uma escala maior por meio da maior contagem de instâncias e ainda fornece todas as funcionalidades avançadas encontradas no plano Standard. Todos os recursos disponíveis no tipo de preço **Premium** existente estão incluídos no **PremiumV2**.
+
+Semelhante a outros tipos de preço dedicados, três tamanhos de VM estão disponíveis para esse tipo de preço:
+
+- Pequeno (1 núcleo de CPU, 3,5 GiB de memória) 
+- Médio (2 núcleos de CPU, 7 GiB de memória) 
+- Grande (4 núcleos de CPU, 14 GiB de memória)  
+
+Para obter informações de preço do **PremiumV2**, confira [Preço do Serviço de Aplicativo](/pricing/details/app-service/).
+
+Para uma introdução ao novo tipo de preço **PremiumV2**, consulte [Configurar o tipo de preço PremiumV2 no Serviço de Aplicativo](app-service-configure-premium-tier.md).
 
 ## <a name="apps-and-app-service-plans"></a>Aplicativos e planos do Serviço de Aplicativo
 
@@ -64,9 +78,7 @@ Por exemplo, um aplicativo altamente disponível executando em duas regiões inc
 
 ## <a name="create-an-app-service-plan-or-use-existing-one"></a>Criar um Plano do Serviço de Aplicativo ou usar um existente
 
-Ao criar um aplicativo, você deverá considerar a criação de um grupo de recursos. Por outro lado, se esse aplicativo for um componente para um aplicativo maior, crie-o dentro do grupo de recursos alocado ao aplicativo maior.
-
-Independentemente do aplicativo ser totalmente novo ou fazer parte de um aplicativo maior, é possível optar por usar um plano existente para hospedá-lo ou criar um novo. Essa decisão é mais uma questão de capacidade e carga esperada.
+Ao criar um novo aplicativo Web no Serviço de Aplicativo, você pode compartilhar recursos de hospedagem colocando o aplicativo em um Plano do Serviço de Aplicativo existente. Para determinar se o novo aplicativo terá ou não os recursos necessários, você precisa compreender a capacidade do Plano do Serviço de Aplicativo existente e a carga esperada para o novo aplicativo. A alocação excessiva de recursos tem potencial de causar tempo de inatividade para seus aplicativos novos e existentes.
 
 É recomendável isolar seu aplicativo em um novo Plano do Serviço de Aplicativo quando:
 
@@ -79,9 +91,9 @@ Dessa forma, você pode alocar um novo conjunto de recursos para seu aplicativo 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
 > [!TIP]
-> Se você tiver um Ambiente do Serviço de Aplicativo, poderá examinar a documentação específica para Ambientes do Serviço de Aplicativo aqui: [Criar um Plano do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+> Se você tem um Ambiente do Serviço de Aplicativo, consulte [Criar um Plano do Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-É possível criar um plano do Serviço de Aplicativo vazio por meio da experiência de navegação do plano do Serviço de Aplicativo ou como parte da criação do aplicativo.
+Você pode criar um Plano do Serviço de Aplicativo vazio ou como parte da criação de um aplicativo.
 
 No [Portal do Azure](https://portal.azure.com), clique em **Novo** > **Web + Móvel** e, em seguida, selecione **Aplicativo Web** ou outra variante de aplicativo de Serviço de Aplicativo.
 
@@ -95,7 +107,7 @@ Para criar um Plano do Serviço de Aplicativo, clique em **[+] Criar Novo**, dig
 
 ## <a name="move-an-app-to-a-different-app-service-plan"></a>Mover um aplicativo para um plano de Serviço de Aplicativo diferente
 
-Você pode mover um aplicativo para um Plano do Serviço de Aplicativo diferente no [Portal do Azure](https://portal.azure.com). Você pode mover aplicativos entre planos, desde que os planos estejam no mesmo grupo de recursos e na mesma região geográfica.
+Você pode mover um aplicativo para um Plano do Serviço de Aplicativo diferente no [Portal do Azure](https://portal.azure.com). Você pode mover aplicativos entre planos, desde que os planos estejam no _mesmo grupo de recursos e na mesma região geográfica_.
 
 Para mover um aplicativo para outro plano:
 
@@ -103,16 +115,7 @@ Para mover um aplicativo para outro plano:
 - No **Menu**, procure a seção **Plano do Serviço de Aplicativo**.
 - Selecione **Alterar plano do Serviço de Aplicativo** para iniciar o processo.
 
-**Alterar Plano do Serviço de Aplicativo** abre o seletor **Plano do Serviço de Aplicativo**. Neste ponto, você pode escolher um plano existente para mover esse aplicativo.
-
-> [!IMPORTANT]
-> A interface do usuário de seleção de Plano do Serviço de Aplicativo é filtrada pelos seguintes critérios:
-> - Existe dentro do mesmo grupo de recursos
-> - Existe na mesma região geográfica
-> - Existe dentro do mesmo espaço da Web
->
-> Um espaço Web é uma construção lógica dentro do Serviço de Aplicativo que define um agrupamento de recursos do servidor. Uma região geográfica (por exemplo, Oeste dos EUA) contém muitos espaços na Web para alocar os clientes que usam o Serviço de Aplicativo. No momento, os recursos do Serviço de Aplicativo não podem ser movidos entre espaços da Web.
->
+**Alterar Plano do Serviço de Aplicativo** abre o seletor **Plano do Serviço de Aplicativo**. Neste ponto, você pode escolher um plano existente para mover esse aplicativo. Somente planos no mesmo grupo de recursos e região são exibidos.
 
 ![Seletor de plano do Serviço de Aplicativo.][change]
 
@@ -125,7 +128,7 @@ Se desejar mover o aplicativo para uma região diferente, uma alternativa será 
 É possível localizar **Clonar aplicativo** na seção **Ferramentas de Desenvolvimento** do menu.
 
 > [!IMPORTANT]
-> A clonagem tem algumas limitações que você pode ler a respeito em [Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o portal do Azure](../app-service-web/app-service-web-app-cloning-portal.md).
+> A clonagem tem algumas limitações sobre as quais você pode ler em [Clonagem de aplicativo do Serviço de Aplicativo do Azure](app-service-web-app-cloning.md).
 
 ## <a name="scale-an-app-service-plan"></a>Dimensionar um plano de Serviço de Aplicativo
 
@@ -144,7 +147,7 @@ Há três maneiras de dimensionar um plano:
 > [!IMPORTANT]
 > Os **Planos do Serviço de Aplicativo** que não têm aplicativos associados a eles ainda incorrerão em encargos, pois continuam a reservar a capacidade de computação.
 
-Para evitar encargos inesperados, quando o último aplicativo hospedado em um Plano do Serviço de Aplicativo é excluído, o Plano do Serviço de Aplicativo vazio resultante também é excluído.
+Para evitar encargos inesperados, quando o último aplicativo hospedado em um Plano do Serviço de Aplicativo é excluído, o Plano do Serviço de Aplicativo vazio resultante também é excluído por padrão.
 
 ## <a name="summary"></a>Resumo
 
