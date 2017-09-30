@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/22/2017
 
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Como resolver problemas de autoatendimento de redefinição de senha
 
 Se você estiver tendo problemas com o autoatendimento de redefinição de senha, os itens a seguir poderão ajudá-lo a resolver tudo rapidamente.
@@ -152,17 +151,21 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 | 33008| ADPasswordPolicyError| Esse evento ocorre quando o serviço Write-back de Senha tenta definir uma senha no diretório local que não atende à idade, ao histórico, à complexidade da senha ou aos requisitos de filtragem do domínio. <br> <br> Se você tiver uma duração mínima da senha e tiver alterado a senha recentemente nessa janela de tempo, não poderá alterar a senha novamente até que ela atinja a duração especificada no domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, verá uma falha. Para fins de teste, o histórico deve ser definido como 0. <br> <br> Se você tiver requisitos de complexidade de senha, todos eles serão impostos quando o usuário tentar alterar ou redefinir uma senha. <br> <br> Se você tiver filtros de senha habilitados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.|
 | 33009| ADConfigurationError| Esse evento indica que houve um problema na gravação de senha no seu diretório local devido a um problema de configuração com o Active Directory. Verifique as mensagens do serviço ADSync no log de eventos de aplicativo do Azure AD Connect do computador para saber mais sobre o erro.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>Solucionar problemas de conectividade de write-back de senha
 
 Se você estiver enfrentando interrupções de serviço com o componente de write-back de senha do Azure AD Connect, abaixo estão algumas etapas rápidas que você pode seguir para resolver esse problema:
 
+* [Verificar a conectividade de rede](#confirm-network-connectivity)
 * [Reiniciar o serviço de sincronização do Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Desabilitar e reabilitar o recurso de write-back de senha](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalar a versão mais recente do Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback)
 
 Em geral, recomendamos que você execute essas etapas na ordem acima para recuperar o serviço da maneira mais rápida.
+
+### <a name="confirm-network-connectivity"></a>Verificar a conectividade de rede
+
+O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e portas de proxy estão configuradas incorretamente. Revise os requisitos de rede no artigo [autoatendimento redefinição de senha no AD deep dive do Azure](active-directory-passwords-how-it-works.md#network-requirements) para obter mais informações.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço de sincronização do Azure AD Connect
 

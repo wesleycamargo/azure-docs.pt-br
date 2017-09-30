@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 Servidor de configuração atua como um coordenador entre os serviços do Site Recovery e sua infraestrutura local. Este artigo descreve como você pode definir, configurar e gerenciar o servidor de configuração.
 
-## <a name="prerequisites"></a>Pré-requisitos
-A seguir está os mínimos de hardware, software e configuração de rede necessária para configurar um servidor de configuração.
-
 > [!NOTE]
 > [Planejamento de capacidade](site-recovery-capacity-planner.md) é uma etapa importante para garantir que você implantar o servidor de configuração com uma configuração que conjuntos de seus requisitos de carga. Leia mais sobre [requisitos para um servidor de configuração de dimensionamento](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+A seguir está os mínimos de hardware, software e configuração de rede necessária para configurar um servidor de configuração.
+> [!IMPORTANT]
+> Ao implantar um Servidor de Configuração para proteger máquinas virtuais VMware, recomendamos que você implante-o como máquina virtual **altamente disponível (HA)**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Baixar o software de servidor de configuração
+
 1. Faça logon no portal do Azure e navegue até seu Cofre de serviços de recuperação.
 2. Navegue até **Infraestrutura do Site Recovery** > **Servidores de Configuração** (sob Para Máquinas VMware e Físicas).
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. Faça logon no Servidor de Configuração.
 2. em um prompt de comando de administrador, execute o comando
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Inicie o cspsconfigtool.exe usando o atalho.
 4. Clique na guia **Registro do Cofre**.
 5. Download de um novo arquivo de registro no portal e fornecê-la como entrada para a ferramenta.
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>Atualizar um Servidor de Configuração
+
+> [!WARNING]
+> Há suporte para atualizações somente até a versão N-4th. Por exemplo, se a versão mais recente no mercado for 9.11, em seguida, você pode atualizar da versão 9.10, 9.9, 9.8 ou 9.7 diretamente para 9.11. Mas se você estiver em qualquer versão menor ou igual a 9.6, em seguida, você precisa atualizar para pelo menos 9.7 antes de você poder aplicar as atualizações mais recentes no seu servidor de configuração. Links de download para a versão anterior podem ser encontrados em [updaes de serviço do Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+
+1. Baixe o instalador de atualização em seu servidor de configuração.
+2. Inicie o instalador clicando duas vezes o instalador.
+3. O instalador irá detectar a versão dos componentes do Site Recovery presentes no computador & sinalizar por uma confirmação. 
+4. Clique no botão Ok para fornecer a confirmação & continuar com a atualização.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>Encerramento de um Servidor de Configuração
 Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
