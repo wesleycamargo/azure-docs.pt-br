@@ -9,17 +9,11 @@
 4. Em **Registro**, selecione a chave de registro que você baixou do cofre.
 
     ![Registro](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. Em **Configurações da Internet**, especifique como o Provedor em execução no servidor de configuração se conecta ao Azure Site Recovery pela Internet.
+5. Em **Configurações da Internet**, especifique como o Provedor em execução no servidor de configuração se conecta ao Azure Site Recovery pela Internet. Verifique se você permitiu as URLs necessárias.
 
-   a. Se você desejar se conectar ao proxy que está configurado atualmente no computador, selecione **Conectar-se ao Azure Site Recovery usando um servidor proxy**.
-
-   b. Se quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente o Azure Site Recovery sem um servidor proxy**.
-
-   c. Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, escolha **Conectar-se com configurações de proxy personalizadas**.
-
-     * Se você usar um proxy personalizado, especifique o endereço, a porta e as credenciais.
-     * Se estiver usando um proxy, você já deverá ter concedido as URLs descritas em [Pré-requisitos](#prerequisites).
-
+    - Se você desejar se conectar ao proxy que está configurado atualmente no computador, selecione **Conectar-se ao Azure Site Recovery usando um servidor proxy**.
+    - Se quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente o Azure Site Recovery sem um servidor proxy**.
+    - Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do provedor, selecione **Conectar-se com as configurações de proxy personalizadas** e especifique o endereço, a porta e as credenciais.
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 

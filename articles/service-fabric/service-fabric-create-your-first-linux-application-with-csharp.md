@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (versão prévia)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (versão prévia)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando C# (.NET Core).
+O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando C# no .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
 
 Você também desejará instalar a [CLI do Service Fabric](service-fabric-cli.md)
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Instalar e configurar os geradores para CSharp
-O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo em CSharp do Service Fabric no terminal usando gerador de modelos Yeoman. Execute as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric para CSharp funcionando em seu computador.
+### <a name="install-and-set-up-the-generators-for-c"></a>Instalar e configurar os geradores para C#
+O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo do Service Fabric no terminal usando gerador de modelos Yeoman. Siga estas etapas para configurar os geradores de modelo do Yeoman para C#:
+
 1. Instalar o nodejs e o NPM em seu computador
 
   ```bash
@@ -56,7 +57,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
   ```
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O gerador [Yeoman](http://yeoman.io/) do Service Fabric para CSharp, instalado na última etapa, que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
+Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O gerador [Yeoman](http://yeoman.io/) do Service Fabric para C#, instalado na última etapa, que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
 
 1. Em um terminal, digite o comando a seguir para começar a criar o scaffolding: `yo azuresfcsharp`
 2. Nome do seu aplicativo.
@@ -126,7 +127,6 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interação com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
