@@ -33,6 +33,7 @@
 
 ## Depurar programas U-SQL
 ### [Monitorar e solucionar problemas de trabalhos](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Solucionar problemas de um trabalho recorrente anormal](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Depurar o código C# em U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Usar Navegador de Trabalho e a Exibição de Trabalho](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Usar Exibição de execução de vértice](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
