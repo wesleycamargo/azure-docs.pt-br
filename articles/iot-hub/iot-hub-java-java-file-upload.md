@@ -284,7 +284,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
+[Central de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
