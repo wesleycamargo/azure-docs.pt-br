@@ -425,6 +425,6 @@ Para saber mais, consulte os recursos a seguir.
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[SDK do Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[SDK de Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  
 
