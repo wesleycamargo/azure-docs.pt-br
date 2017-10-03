@@ -3,7 +3,7 @@ title: "Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs |
 description: "Compare e contraste os serviços de integração na nuvem da Microsoft e decida quais deles você deve usar."
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: "microsoft flow, flow, aplicativos lógicos, azure functions, functions, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor"
