@@ -3,7 +3,7 @@
 
 Bem vindo ao Microsoft Azure e à IoT (Internet das Coisas). Este artigo apresenta as características comuns de uma solução IoT, que você pode implantar usando os serviços do Azure. Uma solução de IoT exige uma comunicação bidirecional segura entre uma grande variedade de dispositivos e um back-end da solução. Um back-end da solução pode usar análise preditiva automatizada para revelar insights do fluxo de eventos do dispositivo para a nuvem.
 
-[IoT Hub do Azure] [ lnk-iot-hub] é um componente fundamental de qualquer solução de IoT que use os serviços do Azure. O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end da solução. 
+[IoT Hub do Azure][lnk-iot-hub] é um componente fundamental de qualquer solução de IoT que use os serviços do Azure. O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end da solução. 
 
 O [IoT Suite do Azure][lnk-iot-suite] fornece implementações completas de ponta a ponta dessa arquitetura para cenários específicos de IoT. Por exemplo:
 
