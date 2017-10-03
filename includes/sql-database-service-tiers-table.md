@@ -19,7 +19,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier"></a>Camada de serviço Standard
 | **Nível de desempenho** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Número máximo de DTUs | 10 | 20 | 50 | 100 |
+| Número máximo de DTUs** | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D  |
@@ -31,7 +31,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier-continued"></a>Camada de serviço Standard (continuação)
 | **Nível de desempenho** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Número máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
+| Número máximo de DTUs** | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D  |
@@ -69,3 +69,5 @@ sql-database-single-database-resources.md
 >
 >\* Na camada Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
+>\*\* O máx de DTUs por banco de dados, começando em 200 DTUs e acima em Standard, está na versão prévia.
+>

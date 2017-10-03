@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Como as assinaturas do Azure são associadas ao Azure Active Directory
@@ -48,13 +48,14 @@ Você obtém o serviço gratuito do Azure AD quando se inscreve em qualquer um d
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Para adicionar uma assinatura existente ao diretório do Azure AD
 Você deve entrar com uma conta existente tanto no diretório atual ao qual a assinatura está associada quanto no diretório ao qual deseja adicioná-la. 
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Home/Index) com uma conta que seja o Administrador da Conta da assinatura cuja propriedade você deseja transferir.
+1. Entre no [Centro de Contas do Azure](https://account.azure.com/Subscriptions) com uma conta que seja o Administrador da Conta da assinatura cuja propriedade você deseja transferir.
 2. Certifique-se de que o usuário que você deseja que seja o proprietário da assinatura esteja no diretório de destino.
 3. Clique em **Transferir assinatura**.
 4. Especifique o destinatário. O destinatário recebe automaticamente um email com um link de aceitação.
 5. O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento. Quando o destinatário for bem-sucedido, a assinatura será transferida. 
 6. O diretório padrão da assinatura é alterado para o diretório no qual o usuário está.
 
+Para saber mais, consulte [Transferir a propriedade de assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Sugestões para gerenciar uma assinatura e um diretório
 As funções administrativas para uma assinatura do Azure gerenciam recursos vinculados à assinatura do Azure. Esta seção explica as diferenças entre os administradores de assinatura do Azure e os administradores de diretório do Azure AD. Funções administrativas e outras sugestões para usá-las para gerenciar sua assinatura estão descritas em [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).

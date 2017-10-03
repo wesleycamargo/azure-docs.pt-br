@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montagem do compartilhamento de arquivos do Azure no SMB com macOS
-O [Armazenamento de arquivos do Azure](../storage-dotnet-how-to-use-files.md) é um serviço da Microsoft que permite criar e usar compartilhamentos de arquivos de rede no Azure usando o padrão do setor. Os compartilhamentos de arquivos do Azure podem ser montados em macOS Sierra (10.12) e El Capitan (10.11). Este artigo mostra duas maneiras diferentes para montar um compartilhamento de arquivos do Azure no macOS com a interface do usuário do Localizador e usando o Terminal.
+[Arquivos do Azure](storage-files-introduction.md) é um serviço da Microsoft que permite criar e usar compartilhamentos de arquivos de rede no Azure usando o padrão do setor. Os compartilhamentos de arquivos do Azure podem ser montados em macOS Sierra (10.12) e El Capitan (10.11). Este artigo mostra duas maneiras diferentes para montar um compartilhamento de arquivos do Azure no macOS com a interface do usuário do Localizador e usando o Terminal.
 
 > [!Note]  
 > Antes de montar um compartilhamento de arquivos do Azure no SMB, é recomendável desabilitar a assinatura de pacote SMB. Isso pode resultar em baixo desempenho ao acessar o compartilhamento de arquivos do Azure no macOS. Sua conexão SMB será criptografada para que isso não afete a segurança de sua conexão. No terminal, os comandos a seguir desabilitarão a assinatura de pacotes SMB, conforme descrito por este [Artigo do suporte da Apple sobre como desabilitar a assinatura de pacote SMB](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ O [Armazenamento de arquivos do Azure](../storage-dotnet-how-to-use-files.md) é
     ![Um instantâneo do compartilhamento de arquivos montado do Azure](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.
+Veja estes links para obter mais informações sobre os Arquivos do Azure.
 
 * [Artigo de suporte da Apple - Como conectar-se com o compartilhamento de arquivos em seu Mac](https://support.apple.com/HT204445)
 * [Perguntas frequentes](../storage-files-faq.md)

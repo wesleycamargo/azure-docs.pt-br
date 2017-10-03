@@ -12,16 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guia para usar o PolyBase no SQL Data Warehouse
@@ -46,21 +44,9 @@ Depois de migrar todas as tabelas externas para a nova fonte de dados externa, v
 2. Remover a primeira credencial no escopo do banco de dados na chave de acesso de armazenamento primário
 3. Fazer logon no Azure e regenerar a chave de acesso primária pronta para a próxima vez
 
-## <a name="query-azure-blob-storage-data"></a>Consultar dados de armazenamento de blob do Azure
-As consultas em tabelas externas simplesmente usam o nome da tabela como se ele fosse uma tabela relacional.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> Uma consulta em uma tabela externa pode falhar com o erro *“Consulta anulada – o limite de rejeição máximo foi atingido durante a leitura de uma fonte externa”*. Isso indica que os dados externos contêm registros *sujos* . Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>Carregar dados do armazenamento de blob do Azure
+## <a name="load-data-with-external-tables"></a>Carregar dados com Tabelas Externas
 Este exemplo carrega dados do armazenamento de blob do Azure no banco de dados do SQL Data Warehouse.
 
 Armazenar dados diretamente elimina o tempo de transferência de dados para consultas. Armazenar dados com um índice columnstore melhora o desempenho de consultas de análise em até 10 vezes.
@@ -86,6 +72,12 @@ FROM   [ext].[CarSensor_Data]
 
 Consulte [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
+> [!NOTE]
+> Um carregamento usando uma tabela externa pode falhar com o erro *“Consulta anulada – o limite de rejeição máximo foi atingido durante a leitura de uma fonte externa”*. Isso indica que os dados externos contêm registros *sujos* . Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>Criar estatísticas sobre os dados recém-carregados
 O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados.  Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Statistics] no grupo de tópicos Desenvolver.  Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
 
@@ -97,8 +89,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Exportar dados no armazenamento de blob do Azure
-Esta seção mostra como exportar dados do SQL Data Warehouse para o armazenamento de blob do Azure. Este exemplo usa CREATE EXTERNAL TABLE AS SELECT, que é uma instrução Transact-SQL de alto desempenho, para exportar os dados em paralelo de todos os nós de computação.
+## <a name="export-data-with-external-tables"></a>Exportar dados com Tabelas Externas
+Esta seção mostra como exportar dados do SQL Data Warehouse para o armazenamento de blobs do Azure usando tabelas externas. Este exemplo usa CREATE EXTERNAL TABLE AS SELECT, que é uma instrução Transact-SQL de alto desempenho, para exportar os dados em paralelo de todos os nós de computação.
 
 O exemplo a seguir cria uma tabela Weblogs2014 externa usando definições de coluna e dados da tabela dbo.Weblogs. A definição da tabela externa é armazenada no SQL Data Warehouse e os resultados da instrução SELECT são exportados para o diretório "/archive/log2014 /" no contêiner de blob especificado pela fonte de dados. Os dados são exportados no formato de arquivo de texto especificado.
 
@@ -132,6 +124,21 @@ Os criadores dos esquemas A e B agora bloquearam seus esquemas usando DENY:
 ```   
  Com isso, user_A e user_B devem agora ser bloqueados do esquema do outro departamento.
  
+## <a name="polybase-performance-optimizations"></a>Otimizações de desempenho do PolyBase
+Para obter o desempenho de carregamento ideal com o PolyBase, sugerimos o seguinte:
+- Dividir arquivos compactados grandes em arquivos compactados menores. Os tipos de compactação com suporte no momento não são divisíveis. Como resultado, o desempenho será afetado com o carregamento de um único arquivo grande.
+- Para maior velocidade de carregamento, carregue-o em uma tabela de preparo de heap, round_robin. Essa será a maneira mais eficiente para mover os dados da camada de armazenamento para o data warehouse.
+- Todos os formatos de arquivo têm características diferentes de desempenho. Para o carregamento mais rápido, use arquivos de texto delimitados compactados. A diferença entre o desempenho de UTF-16 e UTF-8 é mínima.
+- Colocalizar a camada de armazenamento e o data warehouse para minimizar a latência
+- Aumente o data warehouse se esperar um trabalho de carregamento grande.
+
+## <a name="polybase-limitations"></a>Limitações do PolyBase
+O PolyBase no SQL DW tem as seguintes limitações que precisam ser levadas em consideração durante a criação de um trabalho de carregamento:
+- Uma única linha não pode ser maior que 1.000.000 bytes. Isso é verdadeiro, independentemente do esquema de tabela definido, incluindo colunas (n)varchar(max). Isso significa que, para Tabelas Externas, as colunas (n)varchar(max) podem ter, no máximo, 1.000.000 bytes de largura, não o limite de 2 GB definido pelo tipo de dados.
+- Ao exportar dados para um Formato de Arquivo ORC do SQL Server ou do SQL Data Warehouse do Azure, as colunas pesadas de texto podem ser limitadas a apenas 50 colunas, devido a erros de memória insuficiente do Java. Para resolver isso, exporte apenas um subconjunto das colunas.
+
+
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

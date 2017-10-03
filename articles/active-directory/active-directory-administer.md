@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gerenciar seu diretório do Azure AD
@@ -59,12 +59,14 @@ Se você ainda não tiver uma assinatura para um serviço de nuvem da Microsoft,
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Como alterar o diretório padrão para uma assinatura
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Home/Index) com uma conta que seja o Administrador da Conta da assinatura para transferir a propriedade da assinatura.
+1. Entre no [Centro de Contas do Azure](https://account.azure.com/Subscriptions) com uma conta que seja o Administrador da Conta da assinatura para transferir a propriedade da assinatura.
 2. Certifique-se de que o usuário que você deseja que seja o proprietário da assinatura esteja no diretório de destino.
 3. Clique em **Transferir assinatura**.
 4. Especifique o destinatário. O destinatário recebe automaticamente um email com um link de aceitação.
 5. O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento. Quando o destinatário for bem-sucedido, a assinatura será transferida. 
 6. Se a transferência de propriedade de assinatura for bem-sucedida, o diretório padrão da assinatura é alterado para o diretório onde o usuário está.
+
+Para saber mais, consulte [Transferir a propriedade de assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
 
 ### <a name="manage-the-default-directory-in-azure"></a>Gerenciar o diretório padrão no Azure
 Quando você se inscrever no Azure, um diretório do Azure AD padrão é associado à sua assinatura. Não há custos para usar o Azure AD e os diretórios são um recurso gratuito. Existem serviços do Azure AD pagos que são licenciados separadamente e fornecem funcionalidade adicional, como a identidade visual da empresa no momento do logon e redefinição de senha através de autoatendimento. Você também pode criar um domínio personalizado usando um nome DNS que você possui em vez do domínio padrão *.onmicrosoft.com.

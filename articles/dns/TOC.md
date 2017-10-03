@@ -4,31 +4,34 @@
 ## [Registros e zonas DNS](dns-zones-records.md)
 ## [Delegação de DNS com o DNS do Azure](dns-domain-delegation.md)
 ## [PERGUNTAS FREQUENTES SOBRE O DNS](dns-faq.md)
+## [Usando zonas DNS privadas](private-dns-overview.md)
 
 # Introdução
 
 ## Criar uma zona e registro de DNS
-### [Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Portal do Azure](dns-getstarted-portal.md)
+### [PowerShell do Azure](dns-getstarted-powershell.md)
 ### [CLI 1.0 do Azure](dns-getstarted-cli-nodejs.md)
-### [CLI 2.0 do Azure](dns-getstarted-cli.md)
+### [CLI do Azure](dns-getstarted-cli.md)
 
+## Criar uma zona DNS e registro de DNS
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegar seu domínio ao DNS do Azure](dns-delegate-domain-azure-dns.md)
 ## [Criar registros DNS personalizados para um aplicativo Web](dns-web-sites-custom-domain.md)
 
 # Como
 
 ## Gerenciar zonas DNS
-### [Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Portal do Azure](dns-operations-dnszones-portal.md)
+### [PowerShell do Azure](dns-operations-dnszones.md)
 ### [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md)
-### [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
+### [CLI do Azure](dns-operations-dnszones-cli.md)
 
 ## Gerenciar registros DNS
-### [Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Portal do Azure](dns-operations-recordsets-portal.md)
+### [PowerShell do Azure](dns-operations-recordsets.md)
 ### [CLI 1.0 do Azure](dns-operations-recordsets-cli-nodejs.md)
-### [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
+### [CLI do Azure](dns-operations-recordsets-cli.md)
 
 ## Gerenciar DNS reverso
 ### [Visão geral](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [PowerShell do Azure](/powershell/module/azurerm.dns)
 ## [CLI do Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -61,7 +64,7 @@
 ## [Máquina Virtual](/azure/virtual-machines/)
 ## [Balanceador de Carga](/azure/load-balancer/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
-## [Aplicativos Web](/azure/app-service-web/)
+## [Aplicativos Web](/azure/app-service/)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=networking)

@@ -3,7 +3,7 @@ title: "Visão geral do monitoramento de integridade do Gateway de Aplicativo do
 description: Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
+ms.contentlocale: pt-br
 ms.lasthandoff: 03/27/2017
-
 
 ---
 

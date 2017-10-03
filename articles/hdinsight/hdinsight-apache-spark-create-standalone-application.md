@@ -125,7 +125,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
     2. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
        
         ![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
-    3. Na caixa de diálogo **Criar JAR de Módulos![, clique no botão de reticências (**reticências](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png)) em relação à **Classe Principal**.
+    3. Na caixa de diálogo **Criar JAR de Módulos** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png) ) em relação à **Classe Principal**.
     4. Na caixa de diálogo **Selecionar Classe Principal**, selecione a classe que é exibida por padrão e, em seguida, clique em **OK**.
        
         ![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)

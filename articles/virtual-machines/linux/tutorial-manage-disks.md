@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ Discos de dados podem ser criados e anexados no momento da criação de VM ou a 
 
 ### <a name="attach-disk-at-vm-creation"></a>Anexar disco na criação da VM
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ Criar um instantâneo cria uma cópia, de apenas leitura, de um ponto no tempo d
 
 ### <a name="create-snapshot"></a>Como criar um instantâneo
 
-Antes de criar um instantâneo de disco da máquina vitual, você deve ter a ID ou o nome do disco. Utilize o comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) para obter a Id do disco. Neste exemplo, a Id do disco é armazenada em uma variável e utilizada em uma etapa posterior.
+Antes de criar um instantâneo de disco da máquina vitual, você deve ter a ID ou o nome do disco. Utilize o comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) para obter a Id do disco. Neste exemplo, a Id do disco é armazenada em uma variável e utilizada em uma etapa posterior.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Todos os discos de dados precisam ser anexados novamente à máquina virtual.
 
-Primeiro, utilize o comando [az disk list](https://docs.microsoft.com/cli/azure/disk#list) para encontrar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada *datadisk*, que será usada na próxima etapa.
+Primeiro, utilize o comando [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) para encontrar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada *datadisk*, que será usada na próxima etapa.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Use o comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) para anexar o disco.
+Use o comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) para anexar o disco.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk

@@ -1,6 +1,6 @@
 ---
-title: "Monitorar máquinas virtuais Linux no Azure | Microsoft Docs"
-description: "Saiba como monitorar o diagnóstico de inicialização e as métricas de desempenho em uma máquina virtual do Linux no Azure"
+title: "Monitorar e atualizar máquinas virtuais do Linux no Azure | Microsoft Docs"
+description: "Saiba como monitorar as métricas de desempenho e diagnóstico de inicialização e gerenciar atualizações de pacote em uma máquina virtual do Linux no Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -17,15 +17,15 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Como monitorar uma máquina virtual do Linux no Azure
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Como monitorar e atualizar uma máquina virtual do Linux no Azure
 
-Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executadas corretamente, examine o diagnóstico de inicialização e as métricas de desempenho. Neste tutorial, você aprenderá como:
+Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executadas corretamente, examine o diagnóstico de inicialização e as métricas de desempenho e gerencie as atualizações de pacote. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Habilitar o diagnóstico de inicialização na VM
@@ -34,6 +34,7 @@ Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executada
 > * Habilitar a extensão de diagnóstico na VM
 > * Exibir métricas de VM
 > * Criar alertas com base nas métricas de diagnóstico
+> * Gerenciar atualizações de pacote
 > * Configurar monitoramento avançado
 
 
@@ -49,7 +50,7 @@ Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Pri
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVM*:
+Agora, crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -82,7 +83,7 @@ Ao habilitar o diagnóstico de inicialização, o URI do contêiner de armazenam
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
+Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -106,7 +107,7 @@ Agora, inicie a VM com o comando [az vm start]( /cli/azure/vm#stop) da seguinte 
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) da seguinte maneira:
+Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) da seguinte maneira:
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -163,6 +164,92 @@ O exemplo a seguir cria um alerta para uso médio da CPU.
 6. Opcionalmente, marque a caixa de *Proprietários, colaboradores e leitores de email* para enviar uma notificação por email. A ação padrão é apresentar uma notificação no portal.
 7. Clique no botão **OK**.
 
+## <a name="manage-package-updates"></a>Gerenciar atualizações de pacote
+
+Usando o Gerenciamento de Atualizações, você pode gerenciar patches e atualizações de pacote para as VMs do Linux do Azure. Diretamente de sua VM, você pode rapidamente avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM.
+
+Para obter informações sobre preços, consulte [Preços de automação de Gerenciamento de Atualizações](https://azure.microsoft.com/pricing/details/automation/)
+
+### <a name="enable-update-management-preview"></a>Habilitar o Gerenciamento de Atualizações (versão prévia)
+
+Habilitar o Gerenciamento de Atualizações para a VM
+
+1. No lado esquerdo da tela, selecione **Máquinas virtuais**.
+1. Na lista, selecione uma VM.
+1. Na tela da VM, na seção **Operações**, clique em **Gerenciamento de Atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
+
+Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
+
+Um espaço de trabalho do Log Analytics é usado para coletar dados que são gerados pelos recursos e serviços, como o Gerenciamento de Atualizações. O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes. Para executar uma ação adicional em VMs que exigem atualizações, a Automação do Azure permite executar scripts em VMs, como baixar e aplicar atualizações.
+
+O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Worker. Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização. 
+
+Se esses pré-requisitos não forem atendidos, será exibida uma faixa oferecendo a opção para habilitar a solução.
+
+![Faixa de configuração integrada do Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+
+Clique na faixa para habilitar a solução. Se algum dos seguintes pré-requisitos estiver ausente após a validação, ele será adicionado automaticamente:
+
+* Espaço de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* [Automação](../../automation/automation-offering-get-started.md)
+* Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
+
+A tela **Habilitar Gerenciamento de Atualizações** é aberta. Defina as configurações e clique em **Habilitar**.
+
+![Habilitar a solução de Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
+
+A habilitação da solução pode levar até 15 minutos e, durante esse período, você não deve fechar a janela do navegador. Depois que a solução for habilitada, as informações sobre atualizações ausentes do gerenciador de pacotes na VM fluirão para o Log Analytics.
+Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
+
+### <a name="view-update-assessment"></a>Exibir avaliação de atualização
+
+Depois que a solução **Gerenciamento de Atualizações** for habilitada, a tela **Gerenciamento de Atualizações** será exibida. Você pode ver uma lista de atualizações ausentes na guia **Atualizações ausentes**.
+
+![Exibir o status de atualização](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+
+### <a name="schedule-an-update-deployment"></a>Agendar uma implantação de atualização
+
+Para instalar atualizações, agende uma implantação que siga o agendamento de versão e a janela de manutenção.
+
+Agende uma nova implantação de atualização para a VM clicando em **Agendar implantação de atualização** na parte superior da tela **Gerenciamento de Atualizações**. Na tela **Nova implantação de atualização**, especifique as seguintes informações:
+
+* **Nome** – forneça um nome exclusivo para identificar a Implantação de atualizações.
+* **Atualizações a serem excluídas** – selecione esta opção para inserir os nomes de pacotes a serem excluídos da atualização.
+* **Configurações de agenda** – você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual ou especificar um horário diferente. Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Clique na opção Recorrente em Recorrência para configurar um agendamento recorrente.
+
+  ![Tela de configurações de agenda de atualização](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
+
+* **Janela de manutenção (minutos)** – especifique o período de tempo em que deseja que a implantação de atualização ocorra.  Isso ajuda a garantir que as alterações sejam executadas dentro das janelas de manutenção definidas. 
+
+Depois de concluir a configuração da agenda, clique no botão **Criar** e retorne ao painel de status.
+Observe que a tabela **Agendado** mostra a agenda de implantação criada.
+
+> [!WARNING]
+> A VM será reiniciada automaticamente após a instalação das atualizações, se houver tempo suficiente na janela de manutenção.
+
+O Gerenciamento de Atualizações usa o gerenciador de pacotes existente na sua VM para instalar pacotes.
+
+### <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
+
+Após o início da implantação agendada, você pode ver o status dessa implantação na guia **Implantações de atualização** na tela **Gerenciamento de Atualizações**.
+Se ela estiver em execução, seu status será mostrado como **Em andamento**. Após a conclusão, em caso de êxito, ele será alterado para **Êxito**.
+Se houver uma falha com uma ou mais atualizações na implantação, o status será **Com falha**.
+Clique na implantação de atualização concluída para ver o painel dessa implantação de atualização.
+
+![Painel de status de implantação de atualização para implantação específica](./media/tutorial-monitoring/manage-updates-view-results.png)
+
+No bloco **Resultados de atualização** há um resumo do número total de atualizações e os resultados da implantação na VM.
+Na tabela à direita há uma análise detalhada de cada atualização e os resultados da instalação, que podem ser um dos seguintes valores:
+
+* **Não foi tentada** – a atualização não foi instalada devido a tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Êxito** – a atualização foi baixada e instalada na VM com êxito
+* **Com falha** – falha da atualização ao ser baixada ou instalada na VM.
+
+Clique em **Todos os logs** para ver todas as entradas de log que a implantação criou.
+
+Clique no bloco **Saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização na VM de destino.
+
+Clique em **Erros** para ver informações detalhadas sobre os erros da implantação.
 
 ## <a name="advanced-monitoring"></a>Monitoramento avançado 
 
@@ -187,7 +274,7 @@ Na folha Pesquisa de Logsdo portal do OMS, você deve ver *myVM*, como mostra a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurou e revisou VMs com a Central de Segurança do Azure. Você aprendeu como:
+Neste tutorial, você configurou, examinou e gerenciou atualizações para uma VM. Você aprendeu como:
 
 > [!div class="checklist"]
 > * Habilitar o diagnóstico de inicialização na VM
@@ -196,9 +283,11 @@ Neste tutorial, você configurou e revisou VMs com a Central de Segurança do Az
 > * Habilitar a extensão de diagnóstico na VM
 > * Exibir métricas de VM
 > * Criar alertas com base nas métricas de diagnóstico
+> * Gerenciar atualizações de pacote
 > * Configurar monitoramento avançado
 
 Avance para o próximo tutorial para saber mais sobre a Central de Segurança do Azure.
 
 > [!div class="nextstepaction"]
 > [Gerenciar a segurança da VM](./tutorial-azure-security.md)
+

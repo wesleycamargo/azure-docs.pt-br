@@ -1,13 +1,13 @@
 ---
-title: "Consumo do Azure Functions e planos de Serviço de Aplicativo | Microsoft Docs"
-description: "Entenda como os Azure Functions escalam para atender às necessidades das cargas de trabalho orientadas por eventos."
+title: "Comparação de planos de hospedagem do Azure Functions | Microsoft Docs"
+description: "Saiba como escolher entre o plano de Consumo do Azure Functions e o plano do Serviço de Aplicativo."
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+keywords: "azure functions, functions, plano de consumo, plano do serviço de aplicativo, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -18,13 +18,13 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41ebbe944213373c028b7410baa86e6c55db0d8c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="azure-functions-consumption-and-app-service-plans"></a>Consumo do Azure Functions e planos de Serviço de Aplicativo 
+# <a name="azure-functions-hosting-plans-comparison"></a>Comparação de planos de hospedagem do Azure Functions
 
 ## <a name="introduction"></a>Introdução
 
@@ -56,7 +56,7 @@ O plano de Consumo é o padrão e oferece os seguintes benefícios:
 
 ## <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 
-No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas, em SKUs Basic, Standard e Premium, assim como os Aplicativos Web. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução.
+No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas em SKUs Basic, Standard ou Premium e isoladas, assim como os Aplicativos Web. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução.
 
 Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
@@ -67,7 +67,7 @@ Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 
 Uma VM separa o custo do tempo de execução e do tamanho da memória. Como resultado, você não paga mais do que o custo da instância da VM alocada. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Com um plano do Serviço de Aplicativo, você pode escalar horizontalmente manualmente adicionando mais instâncias de VM ou você pode habilitar o dimensionamento automático. Para obter mais informações, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service-web/web-sites-scale.md). Se você estiver planejando executar funções do JavaScript em um plano do Serviço de Aplicativo, deverá escolher um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-core-app-service-plans).  
+Com um plano do Serviço de Aplicativo, você pode escalar horizontalmente manualmente adicionando mais instâncias de VM ou você pode habilitar o dimensionamento automático. Para obter mais informações, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/web-sites-scale.md). Se você estiver planejando executar funções do JavaScript em um plano do Serviço de Aplicativo, deverá escolher um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-core-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -96,7 +96,7 @@ Ao usar o plano de hospedagem de Consumo, os arquivos do código de função sã
 
 ### <a name="runtime-scaling"></a>Escalonamento de tempo de execução
 
-O Azure Functions usa um componente chamado *controlador de escala* para monitorar a taxa de eventos e determinar se deve escalar horizontalmente ou verticalmente. O controlador de escala usa heurística para cada tipo de gatilho. Por exemplo, ao usar um gatilho do armazenamento de Filas do Azure, ele escala com base no tamanho da fila e na idade da mensagem em fila mais antiga.
+O Azure Functions usa um componente chamado *controlador de escala* para monitorar a taxa de eventos e determinar se deve aumentar ou reduzir. O controlador de escala usa heurística para cada tipo de gatilho. Por exemplo, ao usar um gatilho do armazenamento de Filas do Azure, ele escala com base no tamanho da fila e na idade da mensagem em fila mais antiga.
 
 A unidade de escala é o aplicativo de funções. Quando o aplicativo de funções é dimensionado na horizontal, mais recursos são alocados para executar várias instâncias do host do Azure Functions. Em contrapartida, quando a demanda por computação é reduzida, o controlador de escala remove as instâncias do host de função. O número de instâncias é eventualmente reduzido a zero quando nenhuma função está em execução em um aplicativo de funções.
 
@@ -104,9 +104,9 @@ A unidade de escala é o aplicativo de funções. Quando o aplicativo de funçõ
 
 ### <a name="billing-model"></a>Modelo de cobrança
 
-A cobrança do plano de Consumo é descrita detalhadamente na [página de preços do Azure Functions]. O uso é agregado no nível do aplicativo de funções e conta apenas o tempo durante o qual o código de função está em execução. Veja a seguir as unidades de cobrança: 
+A cobrança do plano de Consumo é descrita detalhadamente na [página de preços do Azure Functions]. O uso é agregado no nível do aplicativo de funções e conta apenas o tempo durante o qual o código de função é executado. Veja a seguir as unidades de cobrança: 
 * **Consumo de recursos em GB/s (gigabyte por segundo)**. Calculado como uma combinação do tamanho da memória e o tempo de execução para todas as funções dentro de um aplicativo de Funções. 
 * **Execuções**. Contadas toda vez que uma função é executada em resposta a um evento, disparado por uma associação.
 
-[página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

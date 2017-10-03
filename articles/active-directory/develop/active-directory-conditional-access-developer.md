@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b8fac1b258535fd668b45acbe2c1c8580fb8a340
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -90,7 +90,7 @@ As seguintes informações se aplicam apenas nestes cenários de acesso condicio
 
 Nas seções a seguir, vamos explorar cenários comuns mais complexos.  O princípio operacional básico é que as políticas de acesso condicional são avaliadas no momento em que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada, a menos que ele esteja sendo acessado por meio do Microsoft Graph.
 
-### <a name="scenario-app-accessing-the-microsoft-graph"></a>Cenário: aplicativo acessando o Microsoft Graph
+### <a name="scenario-app-accessing-microsoft-graph"></a>Cenário: aplicativo acessando o Microsoft Graph
 
 Nesse cenário, acompanharemos o caso em que um aplicativo Web solicita acesso ao Microsoft Graph. A política de acesso condicional, nesse caso, pode ser atribuída ao SharePoint, Exchange ou a algum outro serviço que seja acessado como uma carga de trabalho por meio do Microsoft Graph.  Neste exemplo, vamos supor que haja uma política de acesso condicional no Sharepoint Online.
 

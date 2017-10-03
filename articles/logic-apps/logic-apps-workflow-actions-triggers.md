@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -148,23 +148,23 @@ Os gatilhos HTTP sondam um ponto de extremidade especificado e verifica a respos
 |retryPolicy|Não|Um objeto que permite personalizar o comportamento de repetição para os erros 4xx ou 5xx.|Objeto|  
 |autenticação|Não|Representa o método com o qual a solicitação deve ser autenticada. Para obter detalhes sobre esse objeto, consulte [Autenticação de Saída do Agendador](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Além do Agendador, há mais uma propriedade com suporte: `authority` por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um público diferente como `https://login.windows\-ppe.net`|Objeto|  
   
-O gatilho HTTP requer a API HTTP em conformidade com um padrão específico para funcionar bem com seu aplicativo lógico. Requer os seguintes campos:  
+O gatilho HTTP requer a API HTTP em conformidade com um padrão específico para funcionar bem com seu aplicativo lógico. Ele reconhece as seguintes propriedades:  
   
-|Resposta|Descrição|  
-|------------|---------------|  
-|Código de status|Código de status 200 \(OK\) para fazer uma execução. Qualquer outro código de status não provoca uma execução.|  
-|Repetir\-após o cabeçalho|Número de segundos até o aplicativo lógico sondar o ponto de extremidade novamente.|  
-|Cabeçalho do local|A URL a chamar no próximo intervalo de sondagem. Se não for especificada, a URL original será usada.|  
+|Resposta|Obrigatório|Descrição|  
+|------------|------------|---------------|  
+|Código de status|Sim|Código de status 200 \(OK\) para fazer uma execução. Qualquer outro código de status não provoca uma execução.|  
+|Repetir\-após o cabeçalho|Não|Número de segundos até o aplicativo lógico sondar o ponto de extremidade novamente.|  
+|Cabeçalho do local|Não|A URL a chamar no próximo intervalo de sondagem. Se não for especificada, a URL original será usada.|  
   
 Aqui estão alguns exemplos de comportamentos diferentes para diferentes tipos de solicitações:  
   
 |Código de resposta|Repetir\-Após|Comportamento|  
 |-----------------|----------------|------------|  
-|200|\(nenhum\)|Não é um gatilho válido, Repetir\-Após é necessário ou o mecanismo nunca irá sondar a próxima solicitação.|  
-|202|60|Não dispara o fluxo de trabalho. A próxima tentativa ocorrerá em um minuto.|  
+|200|\(nenhum\)|Execute o fluxo de trabalho e verifique novamente se há mais conteúdo após a recorrência definida.|  
 |200|10|Execute o fluxo de trabalho e verifique novamente para obter mais conteúdo em 10 segundos.|  
-|400|\(nenhum\)|Solicitação inválida, não execute o fluxo de trabalho. Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Depois do número de repetições ter sido atingido, o gatilho não será mais válido.|  
-|500|\(nenhum\)|Erro do servidor, não execute o fluxo de trabalho.  Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Depois do número de repetições ter sido atingido, o gatilho não será mais válido.|  
+|202|60|Não dispara o fluxo de trabalho. A próxima tentativa ocorre em um minuto, sujeito à recorrência definida. Se a recorrência definida for inferior a um minuto, o cabeçalho retry-after terá precedência. Caso contrário, a recorrência definida será seguida.|  
+|400|\(nenhum\)|Solicitação inválida, não execute o fluxo de trabalho. Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Após a quantidade de novas tentativas, o gatilho buscará novamente o conteúdo após a recorrência definida.|  
+|500|\(nenhum\)|Erro do servidor, não execute o fluxo de trabalho.  Se não houver nenhuma **Política de Repetição** definida, a política padrão será usada. Após a quantidade de novas tentativas, o gatilho buscará novamente o conteúdo após a recorrência definida.|  
   
 As saídas de um gatilho HTTP são parecidas com este exemplo:  
   

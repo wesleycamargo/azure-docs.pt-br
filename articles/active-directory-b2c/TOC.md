@@ -67,12 +67,17 @@
 ### Integrar APIs RESTful
 #### [Validar entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obter declarações adicionais](active-directory-b2c-rest-api-step-custom.md)
-### Personalizar o logon
+### Fluxos de usuário
 #### [Configurar a entrada do usuário](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Atributos personalizados](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizar tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Personalizar senha](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Complexidade de senha](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Alteração de senha](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Habilitar mantenha-me conectado](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Solucionar problemas
 #### [Coletar logs usando o Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referência

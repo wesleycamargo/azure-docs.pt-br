@@ -24,13 +24,22 @@ Um gateway de IoT Edge pode resolver esses problemas das seguintes maneiras:
 
 O diagrama a seguir mostra os principais componentes do exemplo, incluindo os módulos do Edge IoT:
 
-![][1]
+![Diagrama - mensagem de dispositivo simulado passa pelo gateway para o Hub IoT][1]
+
+Este exemplo contém três módulos que compõem o gateway:
+1. Módulo de ingestão de protocolo
+1. Módulo de identificação do MAC &lt;-&gt; Hub IoT
+1. Módulo de comunicação do Hub IoT
 
 Os módulos não transmitem mensagens diretamente entre si. Os módulos publicam mensagens em um agente interno, que entrega as mensagens para outros módulos usando um mecanismo de assinatura. Para obter mais informações, consulte [Introdução ao Edge IoT do Azure][lnk-gw-getstarted].
 
+![Diagrama - módulos de gateway se comunicam com o agente][2]
+
 ### <a name="protocol-ingestion-module"></a>Módulo de ingestão de protocolo
 
-Esse módulo é o ponto de partida para obtenção de dados de dispositivos, por meio do gateway, e inserção na nuvem. No exemplo, o módulo:
+Esse módulo de ingestão de protocolo é o ponto de partida para o processo de obtenção de dados de dispositivos, por meio do gateway, e inserção na nuvem. 
+
+No exemplo, esse módulo:
 
 1. Cria dados de temperatura simulados. Se você estiver usando dispositivos físicos, o módulo lerá os dados desses dispositivos físicos.
 1. Cria uma mensagem.
@@ -38,31 +47,40 @@ Esse módulo é o ponto de partida para obtenção de dados de dispositivos, por
 1. Adiciona uma propriedade com um endereço MAC falso para a mensagem.
 1. Disponibiliza a mensagem para o próximo módulo na cadeia.
 
-O módulo chamado **Ingestão de protocolo X**, no diagrama acima, é chamado de **Dispositivo simulado** no código-fonte.
+O módulo de ingestão de protocolo é **simulated_device.c** no código-fonte.
 
 ### <a name="mac-lt-gt-iot-hub-id-module"></a>Módulo de identificação do MAC &lt;-&gt; Hub IoT
 
-Este módulo procura mensagens que tenham uma propriedade de endereço Mac. No exemplo, o módulo de inclusão de protocolo adiciona a propriedade de endereço MAC. Se o módulo encontrar essa propriedade, ele adicionará outra propriedade com uma chave de dispositivo do Hub IoT para a mensagem. Então, o módulo disponibiliza a mensagem para o próximo módulo na cadeia.
+O módulo de ID de Hub IoT MAC &lt;-&gt; funciona como conversor. Esta amostra usa um endereço MAC como um identificador de dispositivo exclusivo e o correlaciona com uma identidade de dispositivo Hub IoT. No entanto, é possível escrever seu próprio módulo que usa um identificador exclusivo diferente. Por exemplo, os dispositivos podem ter números de série exclusivos ou os dados telemétricos podem incluir um nome de dispositivo incorporado exclusivo.
+
+No exemplo, esse módulo:
+
+1. Procura mensagens que tenham uma propriedade de endereço MAC.
+1. Se houver um endereço MAC, adicionará outra propriedade com uma chave de dispositivo do Hub IoT para a mensagem. 
+1. Disponibiliza a mensagem para o próximo módulo na cadeia.
 
 O desenvolvedor configura um mapeamento entre endereços MAC e as identidades de Hub IoT para associar os dispositivos simulados com identidades de dispositivo Hub IoT. O desenvolvedor adiciona o mapeamento manualmente como parte da configuração do módulo.
 
-> [!NOTE]
-> Esta amostra usa um endereço MAC como um identificador de dispositivo exclusivo e o correlaciona com uma identidade de dispositivo Hub IoT. No entanto, é possível escrever seu próprio módulo que usa um identificador exclusivo diferente. Por exemplo, os dispositivos podem ter números de série exclusivos ou os dados telemétricos podem incluir um nome de dispositivo incorporado exclusivo.
+O módulo de ID de Hub IoT MAC &lt;-&gt; é **identitymap.c** no código-fonte. 
 
 ### <a name="iot-hub-communication-module"></a>Módulo de comunicação do Hub IoT
 
-Este módulo usa mensagens com uma propriedade de chave de dispositivo Hub IoT que foi atribuída pelo módulo anterior. O módulo envia o conteúdo da mensagem ao Hub IoT usando o protocolo HTTP. HTTP é um dos três protocolos compreendidos pelo Hub IoT.
+O módulo de comunicação de IoT Hub abre uma conexão HTTP única do gateway para o Hub IoT. HTTP é um dos três protocolos compreendidos pelo Hub IoT. Esse módulo evita a necessidade de abrir uma conexão para cada dispositivo usando multiplexação das conexões de todos os dispositivos através de uma única conexão. Essa abordagem permite que um único gateway se conecte com diversos dispositivos. 
 
-Em vez de abrir uma conexão para cada dispositivo simulado, esse módulo abre uma conexão HTTP única do gateway para o Hub IoT. Então, o módulo multiplica as conexões de todos os dispositivos simulados por essa conexão. Essa abordagem permite que um único gateway se conecte com diversos dispositivos.
+No exemplo, esse módulo:
+
+1. Obtém mensagens com uma propriedade de chave de dispositivo Hub IoT que foi atribuída pelo módulo anterior. 
+1. Envia o conteúdo da mensagem ao Hub IoT usando o protocolo HTTP. 
+
+O módulo de comunicação do Hub IoT é **iothub.c** no código-fonte.
 
 ## <a name="before-you-get-started"></a>Antes de começar
 
 Antes de começar, é necessário:
 
-* [Crie um Hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisará do nome do hub para concluir este passo a passo. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* Adicione dois dispositivos ao hub IoT e anote as IDs e chaves de dispositivo. É possível usar o [gerenciador de dispositivo][lnk-device-explorer] ou a ferramenta [iothub-explorer][lnk-iothub-explorer] para adicionar seus dispositivos ao Hub IoT criado na etapa anterior e recuperar suas chaves.
+* [Criar um Hub IoT][lnk-create-hub] em sua assinatura do Azure. É necessário ter o nome do seu hub para este passo a passo de exemplo. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Adicione dois dispositivos ao hub IoT e anote as IDs e chaves de dispositivo. É possível usar o [gerenciador de dispositivo][lnk-device-explorer] ou a ferramenta [iothub-explorer][lnk-iothub-explorer] para adicionar dispositivos ao Hub IoT e recuperar suas chaves.
 
-![][2]
 
 <!-- Images -->
 [1]: media/iot-hub-iot-edge-simulated-selector/image1.png

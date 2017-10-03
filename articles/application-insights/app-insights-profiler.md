@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Criação de perfil de aplicativos Web do Azure ativos com o Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Descubra quanto tempo é gasto em cada método no seu aplicativo Web ao vivo usando a ferramenta de criação de perfil de [Azure Application Insights](app-insights-overview.md). Ele mostra perfis detalhados de solicitações ao vivo que foram atendidas por seu aplicativo e realça o 'hot path' que está usando mais tempo. Ele seleciona automaticamente exemplos que têm tempos de resposta diferentes. O criador de perfil usa várias técnicas para minimizar a sobrecarga.
 
-O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico. 
+O criador de perfil atualmente funciona para aplicativos Web do ASP.NET em execução no serviços de aplicativo do Azure, pelo menos o tipo de preço Básico.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Habilitar o criador de perfil
@@ -65,11 +65,17 @@ Quando você [habilita o Application Insights para os Serviços de Aplicativos d
 Há uma [versão prévia do Criador de Perfil para os recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Limites
+## <a name="limitations"></a>Limitações
 
 A retenção de dados padrão é de 5 dias. Máximo de 10 GB ingeridos por dia.
 
 Não há cobrança pelo serviço de Criador de Perfil. Seu aplicativo Web deve estar hospedado pelo menos na camada Básica dos Serviços de Aplicativos.
+
+## <a name="overhead-and-sampling-algorithm"></a>Algoritmo de sobrecarga e amostragem
+
+O Profiler é executado aleatoriamente durante dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo com o Profiler habilitado, a fim capturar os rastreamentos. Quando o Profiler estiver em execução, ele adicionará uma sobrecarga de 5 a 15% de CPU ao servidor.
+Quanto mais servidores estiverem disponíveis para hospedar o aplicativo, menor será o impacto do Profiler sobre o desempenho geral do aplicativo. Isso porque o algoritmo de amostragem resulta na execução do Profiler em apenas 5% dos servidores a qualquer momento, assim, mais servidores estarão disponíveis para atender às solicitações da Web para compensar os servidores com sobrecarga do Profiler.
+
 
 ## <a name="viewing-profiler-data"></a>Exibindo dados do criador de perfil
 
@@ -191,6 +197,21 @@ Quando você vir threads paralelos em seus rastreamentos, você precisa determin
 ### <a name="error-report-in-the-profiling-viewer"></a>Relatório de erro no Visualizador de criação de perfil
 
 Emita um tíquete de suporte do portal. Inclua a ID de correlação da mensagem de erro.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implantação Diretório Não Vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Se você estiver reimplantando seu aplicativo Web em um recurso dos Serviços de Aplicativos com o Profiler habilitado, poderá encontrar um erro semelhante ao seguinte: Diretório Não Vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs' Esse erro ocorrerá se você executar a Implantação da Web a partir de scripts ou no Pipeline de Implantação do VSTS.
+A solução para esse problema é adicionar estes parâmetros de implantação à tarefa de Implantação da Web:
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+Isso excluirá a pasta usada pelo App Insights Profiler e desbloqueará o processo de reimplantação. Isso não afetará a instância em execução no momento do Profiler.
+
 
 ## <a name="manual-installation"></a>Instalação manual
 

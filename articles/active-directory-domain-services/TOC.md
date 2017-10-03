@@ -7,17 +7,16 @@
 ## [Software de terceiros compatível](active-directory-ds-compatible-software.md)
 
 # Introdução
-## Portal do Azure (Versão prévia)
-### [Tarefa 1: definir as configurações básicas](active-directory-ds-getting-started.md)
-### [Tarefa 2: definir as configurações de rede](active-directory-ds-getting-started-network.md)
-### [Tarefa 3: configurar o grupo de administradores e habilitar os Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Tarefa 4: atualizar configurações de DNS para a rede virtual](active-directory-ds-getting-started-dns.md)
-### [Tarefa 5: habilitar sincronização de senha](active-directory-ds-getting-started-password-sync.md)
+## [Tarefa 1: definir as configurações básicas](active-directory-ds-getting-started.md)
+## [Tarefa 2: definir as configurações de rede](active-directory-ds-getting-started-network.md)
+## [Tarefa 3: configurar o grupo de administradores e habilitar os Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Tarefa 4: atualizar configurações de DNS para a rede virtual](active-directory-ds-getting-started-dns.md)
+## [Tarefa 5: habilitar sincronização de senha](active-directory-ds-getting-started-password-sync.md)
 
 # Como
 ## Ingressar em um domínio gerenciado
-### [Ingressar em uma VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
-### [Ingressar em uma VM do Windows usando o PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Ingressar em uma VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Ingressar em uma VM do Windows Server usando o Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Ingressar em VM do Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
@@ -25,8 +24,7 @@
 ### Configurar LDAP seguro para um domínio gerenciado
 #### [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Tarefa 3: habilitar o LDAP seguro para o domínio gerenciado usando o portal clássico do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Tarefa 3: habilitar o LDAP seguro para o domínio gerenciado usando o portal clássico do Azure (versão prévia)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Tarefa 3: habilitar o LDAP seguro para o domínio gerenciado usando o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Criar uma UO em um domínio gerenciado](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrar a política de grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)

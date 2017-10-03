@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -42,9 +42,9 @@ Se suas políticas de segurança não permitem que computadores em sua rede se c
 ## <a name="system-requirements"></a>Requisitos do sistema
 Antes de começar, examine os detalhes a seguir para verificar se você atende aos pré-requisitos.
 
-* O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior.  Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR10 e superior e ao Operations Manager 2012 R2 UR11 e superior.
 * Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão em dia pelo menos até a atualização mínima, caso contrário o tráfego de agente do Windows poderão falhar e muitos erros poderão lotar o log de eventos do Operations Manager.
-* Uma assinatura do OMS.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
+* Uma assinatura do Azure Log Analytics.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Rede
 As informações abaixo listam as informações de configuração de proxy e firewall necessárias para o agente do Operations Manager, servidores de gerenciamento e console de Operações para se comunicar com o OMS.  O tráfego de cada componente sai da rede para o serviço OMS.     

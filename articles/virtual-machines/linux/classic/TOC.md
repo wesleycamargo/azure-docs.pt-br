@@ -5,7 +5,7 @@
 ## [Perguntas frequentes](faq.md)
 
 # Introdução
-## [Criar uma VM do Linux com o portal](createportal.md)
+## [Criar uma VM do Linux com o Portal do Azure](createportal.md)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
 ## [Criar chaves SSH](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Redefinir senhas ou chaves do Linux, corrigir SSH e verificar discos](reset-access.md)
 ### [Manutenção](planned-maintenance-schedule.md)
 ### [Criar um host do Docker usando a CLI](cli-use-docker.md)
-### [Criar um host do Docker usando o portal](portal-use-docker.md)
+### [Criar um host do Docker usando o Portal do Azure](portal-use-docker.md)
 ### [Como usar o docker com o swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Usar o Armazenamento
@@ -67,7 +67,7 @@
 ### [Anexar um disco rígido virtual para solucionar problemas da VM](troubleshoot-recovery-disks-portal.md)
 
 # Referência
-## [PowerShell](/powershell/azure/overview)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Criar modelos do Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

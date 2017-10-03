@@ -27,8 +27,6 @@ Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 Além disso, o back-end da solução pode consultar dispositivos gêmeos com base em todos os dados acima.
 Consulte [Entender dispositivos gêmeos][lnk-twins] para obter mais informações sobre dispositivos gêmeos e a referência de [Linguagem de consulta do Hub IoT][lnk-query] para consultas.
 
-> [!NOTE]
-> Neste momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
 
 Este tutorial mostra como:
 

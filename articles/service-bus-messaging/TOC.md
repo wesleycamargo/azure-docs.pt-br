@@ -37,11 +37,13 @@
 ### [Aplicativos que usam filas](service-bus-create-queues.md)
 ### [Aplicativos que usam tópicos/assinaturas](service-bus-create-topics-subscriptions.md)
 ### [Autenticação e autorização](service-bus-authentication-and-authorization.md)
+#### [Migrar do ACS para o SAS](service-bus-migrate-acs-sas.md)
 #### [Autenticação com assinaturas de acesso compartilhado](service-bus-sas.md)
 ### [Filas e tópicos particionados](service-bus-partitioning.md)
 ### [Filas de mensagens mortas](service-bus-dead-letter-queues.md)
 ### [Processamento de transação](service-bus-transactions.md)
 ### [Logs de diagnóstico](service-bus-diagnostic-logs.md)
+### [Implementação do namespace emparelhado](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Visão geral do AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
@@ -59,13 +61,14 @@
 #### [Criar uma regra de autorização do namespace e da fila](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Criar um namespace com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Usando o PowerShell para provisionar entidades](service-bus-manage-with-ps.md)
+### [Usando o Azure PowerShell para provisionar entidades](service-bus-manage-with-ps.md)
 
 # Referência
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Padrão)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [PowerShell do Azure](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceções](service-bus-messaging-exceptions.md)
 ## [Cotas](service-bus-quotas.md)

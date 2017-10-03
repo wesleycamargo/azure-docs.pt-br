@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 4752199803f1fab04608e6a8618e3294e85fb38a
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -29,7 +28,7 @@ Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança
 Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
 
 ## <a name="monitoring-security-health"></a>Monitoramento de integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Pode levar uma hora ou mais para que informações sobre a configuração de máquina virtual, como segurança de atualização de status e configuração do sistema operacional, se tornem disponíveis. Você pode exibir o estado de segurança de seus recursos e quaisquer problemas na seção **Prevenção**. Você também pode exibir uma lista desses problemas no bloco **Recomendações** .
+Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode exibir o estado de segurança de seus recursos e quaisquer problemas na seção **Prevenção**. Você também pode exibir uma lista desses problemas no bloco **Recomendações** .
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
@@ -39,41 +38,39 @@ Na seção **Prevenção**, você pode monitorar o estado de segurança dos seus
 
 
 ### <a name="monitor-compute"></a>Monitorar a computação
-Quando você clica no bloco **Computação**, a folha **Computação** que abre mostra três guias:
+Ao clicar no bloco **Computação**, você verá três guias:
 
-- **Visão geral**: recomendações de monitoramento e da máquina virtual.
-- **Máquinas Virtuais**: lista todas as máquinas virtuais e seu estado de segurança atual.
+- **Visão Geral**: monitoramento e recomendações.
+- **VMs e computadores**: lista de todas as máquinas virtuais, computadores e seu estado de segurança atual.
 - **Serviços de Nuvem**: lista todas as funções da Web e de trabalho monitoradas pela Central de Segurança.
 
-![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
 Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico. 
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitoramento
-Esta seção mostra o número total de máquinas virtuais que foram inicializadas para coleta de dados e seu status atual. Depois que todas as máquinas virtuais tiverem inicializado a coleta de dados, estarão prontas para receber as políticas de segurança da Central de Segurança. Quando você clica nessa entrada, a folha **O agente de VM está faltando ou não está respondendo** é aberta. 
+Esta seção mostra o número total de máquinas virtuais e computadores que foram inicializados para provisionamento automático e seus status atuais. Quando você clica nessa entrada, a folha **O agente de VM está faltando ou não está respondendo** é aberta. 
 
 ![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Recomendações de máquina virtual
-Esta seção tem um conjunto de [recomendações para cada máquina virtual](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais que são afetadas por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela a seguir.
+#### <a name="recommendations"></a>Recomendações
+Esta seção tem um conjunto de [recomendações para cada máquina virtual e computador](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela abaixo:
 
-![Recomendações de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Recomendações de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas na folha **Integridade de Rede** na lista **Topologia de rede**.
+> Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas em **Integridade de Rede** na lista **Topologia de rede**.
 >
->
 
-Cada recomendação tem um conjunto de ações que podem ser executadas depois que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta. Ele lista as máquinas virtuais que estão sem patches e a gravidade da atualização ausente, conforme mostrado na captura de tela a seguir.
+Cada recomendação tem um conjunto de ações que podem ser executadas depois que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, uma lista de máquinas virtuais e computadores com patches ausentes e a gravidade da atualização ausente será exibida, conforme mostrado na seguinte captura de tela:
 
-![Atualizações de sistema ausentes para máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Atualizações de sistema ausentes para máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-A folha **Atualizações de sistema ausentes** mostra uma tabela com as seguintes informações:
+As **Atualizações de sistema ausentes** têm um resumo de atualizações críticas em formato de gráfico, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
 
-* **MÁQUINA VIRTUAL**: o nome da máquina virtual com atualizações ausentes.
-* **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que estão ausentes.
-* **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez a máquina virtual para detectar atualizações.
+* **NOME**: nome da atualização ausente.
+* **NÃO. DE VMs E COMPUTADORES**: número total de máquinas virtuais e computadores que não têm essa atualização.
 * **ESTADO**: o estado atual da recomendação:
   * **Aberta**: a recomendação ainda não foi resolvida.
   * **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é necessário que você realize nenhuma ação.
@@ -83,38 +80,49 @@ A folha **Atualizações de sistema ausentes** mostra uma tabela com as seguinte
   * **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade.
   * **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
 
-Para exibir os detalhes de recomendação, clique no nome da máquina virtual. Uma nova folha para a máquina virtual é aberta com a lista de atualizações, conforme mostrado na captura de tela a seguir.
+Para exibir os detalhes de recomendação, clique no nome da atualização ausente na lista. 
 
-![Atualizações de sistema ausentes para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Atualizações de sistema ausentes para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> As recomendações de segurança são as mesmas na folha de **Recomendações**. Confira o artigo [Implementar recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver as recomendações. Isso é aplicável não apenas a máquinas virtuais, mas também a todos os recursos que estão disponíveis no bloco **Integridade de Recursos**.
+> As recomendações de segurança são as mesmas na opção de **Recomendações**. Confira o artigo [Implementar recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver as recomendações. Isso é aplicável não apenas a máquinas virtuais e computadores, mas também a todos os recursos que estão disponíveis no bloco **Integridade de Recursos**.
 >
->
 
-#### <a name="virtual-machines-section"></a>Seção Máquinas virtuais
-A seção de máquinas virtuais fornece uma visão geral de todas as máquinas virtuais e recomendações. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:
+#### <a name="vms--computers-section"></a>Seção VMs e computadores
+A seção de máquinas virtuais e computadores fornece uma visão geral de todas as máquinas virtuais e recomendações de computadores. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:
 
-![Visão geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Visão geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-O ícone que aparece em cada recomendação o ajuda a identificar rapidamente as máquinas virtuais que precisam de atenção e o tipo de recomendação.
+Há quatro tipos de ícones representados, conforme explicado nesta lista:
 
-No exemplo anterior, uma máquina virtual tem uma recomendação crítica relacionada à proteção de ponto de extremidade. Para obter mais informações sobre a máquina virtual, clique nela. Será aberta uma nova folha que representa essa máquina virtual, conforme mostrado na captura de tela a seguir.
+![icon1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Computador não Azure.
 
-![Detalhes de segurança de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![icon2](./media/security-center-monitoring/security-center-monitoring-icon2.png) VM do Azure Resource Manager.
 
-Esta folha tem os detalhes de segurança para a máquina virtual. Na parte inferior dessa folha, você pode ver a ação recomendada e a gravidade de cada problema.
+![icon3](./media/security-center-monitoring/security-center-monitoring-icon3.png) VM clássica do Azure.
+
+![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) VMs identificadas somente pelo espaço de trabalho que faz parte da assinatura exibida. Isso inclui VMs de outras assinaturas que se reportam ao espaço de trabalho nesta assinatura e VMs que foram instaladas com o agente direto SCOM e não têm nenhuma ID de recurso.
+
+O ícone que aparece em cada recomendação o ajuda a identificar rapidamente as máquinas virtuais e computadores que precisam de atenção e o tipo de recomendação. Você também pode usar a opção **Filtrar** para selecionar as opções disponíveis nessa tela.
+
+![Filter](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+No exemplo anterior, uma máquina virtual tem uma recomendação crítica relacionada à proteção de ponto de extremidade. Para saber mais sobre a máquina virtual, clique nela:
+
+![Detalhes de segurança de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Aqui, você pode ver os detalhes de segurança da máquina virtual ou do computador. Na parte inferior, você pode ver a ação recomendada e a gravidade de cada problema.
 
 #### <a name="cloud-services-section"></a>Seção Serviços de nuvem
 Para os serviços de nuvem, uma recomendação é criada quando a versão do sistema operacional está desatualizada, conforme mostra a captura de tela a seguir:
 
 ![Status de integridade de serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Em um cenário no qual você há uma recomendação (que não é o caso do exemplo anterior), você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Quando uma atualização estiver disponível, você terá um alerta (vermelho ou laranja - depende da gravidade do problema). Ao clicar nesse alerta vermelho nas linhas WebRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS) ou WorkerRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS), uma nova folha será aberta com mais detalhes sobre essa recomendação, conforme mostrado na seguinte captura de tela:
+Em um cenário no qual você há uma recomendação (que não é o caso do exemplo anterior), você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Quando uma atualização estiver disponível, você terá um alerta (vermelho ou laranja - depende da gravidade do problema). Ao clicar nesse alerta vermelho nas linhas WebRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS) ou WorkerRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS), você verá mais detalhes sobre essa recomendação, conforme mostrado na seguinte captura de tela:
 
 ![Detalhes do serviço de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver uma explicação mais detalhada sobre essa recomendação, clique em **Atualizar versão do sistema operacional** na coluna **DESCRIÇÃO**. A folha **Atualizar versão do sistema operacional (visualização)** é aberta com mais detalhes.
+Para ver uma explicação mais detalhada sobre essa recomendação, clique em **Atualizar versão do sistema operacional** na coluna **DESCRIÇÃO**. 
 
 ![Recomendações dos serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -124,7 +132,7 @@ Quando você clica no bloco **Rede** a folha **Rede** é aberta com mais detalhe
 ![Blog da rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Recomendações de rede
-Assim como as informações de integridade de recursos de máquinas virtuais, essa folha fornece uma lista resumida dos problemas na parte superior da folha e uma lista de redes monitoradas na parte inferior.
+Assim como as informações de integridade de recursos de máquinas virtuais, aqui você pode ver uma lista resumida dos problemas e uma lista de redes monitoradas na parte inferior.
 
 A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece [recomendações](security-center-network-recommendations.md). Os possíveis problemas podem incluir:
 
@@ -134,13 +142,11 @@ A seção de divisão de status de rede lista os problemas de segurança potenci
 * Restringir o acesso externo por meio do ponto de extremidade externo público
 * Pontos de extremidade voltados para a Internet íntegra
 
-Quando você clica em uma recomendação, uma nova folha é aberta com mais detalhes sobre a recomendação, conforme mostrado no exemplo a seguir.
+Quando você clica em uma recomendação, pode ver mais detalhes sobre a recomendação, conforme mostrado no exemplo abaixo:
 
-![Detalhes de uma recomendação na folha Rede](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Detalhes de uma recomendação em Rede](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-Neste exemplo, a folha **Configurar grupos de segurança de rede ausentes para sub-redes** tem uma lista de sub-redes e máquinas virtuais que estão sem proteção do grupo de segurança de rede. Se você clicar na sub-rede à qual deseja aplicar o grupo de segurança de rede, outra folha será aberta.
-
-Na folha **Escolher grupo de segurança da rede**, você pode selecionar o grupo de segurança da rede mais apropriado para a sub-rede ou pode criar um novo grupo de segurança da rede.
+Neste exemplo, **Configurar grupos de segurança de rede ausentes para sub-redes** tem uma lista de sub-redes e máquinas virtuais que estão sem proteção do grupo de segurança de rede. Se você clicar na sub-rede à qual deseja aplicar o grupo de segurança de rede, verá **Escolher grupo de segurança de rede**. Aqui, você pode selecionar o grupo de segurança de rede mais apropriado para a sub-rede ou criar um novo grupo de segurança de rede.
 
 #### <a name="internet-facing-endpoints-section"></a>Seção dos pontos de extremidade voltados para a Internet
 Na seção **Pontos de extremidade voltados para a Internet**, você pode ver as máquinas virtuais configuradas no momento com um ponto de extremidade voltado para a Internet e seu status atual.
@@ -172,7 +178,7 @@ A parte inferior da folha tem as recomendações para essa máquina virtual, que
 
 ### <a name="monitor-storage--data"></a>Monitorar Armazenamento e dados
 
-Quando você clica em **Armazenamento e dados** na seção **Prevenção** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
+Quando você clica em **Armazenamento e dados** na seção **Prevenção**, a opção **Recursos de Dados** abre com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 ![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -180,7 +186,7 @@ Em **Recomendações de SQL**, você pode clicar em qualquer recomendação e ob
 
 ![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-A folha **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL** contém as seguintes informações:
+A opção **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL** contém as seguintes informações:
 
 * Uma lista de bancos de dados SQL
 * O servidor no qual eles estão localizados
@@ -188,23 +194,23 @@ A folha **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL**
 * O estado atual
 * A gravidade do problema
 
-Quando você clicar no banco de dados para lidar com essa recomendação, a folha **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na tela a seguir.
+Quando você clicar no banco de dados para lidar com essa recomendação, a opção **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na tela a seguir.
 
-![Folha de Auditoria e Detecção de Ameaça](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Auditoria e Detecção de ameaças](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 
 ### <a name="monitor-applications"></a>Monitorar aplicativos
 
-Se sua carga de trabalho do Azure tiver aplicativos localizados em [máquinas virtuais (criadas por meio do Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança em potencial e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção **Recomendações do Aplicativo**. Ele também mostra a divisão de aplicativo por IP virtual/host, conforme mostrado na captura de tela a seguir.
+Se sua carga de trabalho do Azure tiver aplicativos localizados em [máquinas virtuais (criadas por meio do Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança em potencial e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a opção **Aplicativos** será aberta com uma série de recomendações na seção **Recomendações do Aplicativo**. Ele também mostra a análise de aplicativo por host, o IP/domínio e se há uma solução WAF instalada:
 
-![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Como fez com as outras recomendações, você pode clicar em uma delas para ver mais detalhes sobre o problema e como corrigi-lo. O exemplo mostrado na figura a seguir é um aplicativo que foi identificado como aplicativo Web não seguro. Quando você selecionar o aplicativo que foi considerado não seguro, outra folha será aberta com a seguinte opção disponível:
+Como fez com as outras recomendações, você pode clicar em uma delas para ver mais detalhes sobre o problema e como corrigi-lo. O exemplo mostrado na figura a seguir é um aplicativo que foi identificado como aplicativo Web não seguro. Quando você selecionar o aplicativo que foi considerado não seguro, a seguinte opção ficará disponível:
 
-![Detalhes sobre um aplicativo que não é seguro](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Detalhes](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Esta folha terá uma lista de todas as recomendações para este aplicativo. Quando você clica na recomendação **Adicionar um firewall de aplicativo Web**, a folha **Adicionar um Firewall de Aplicativo Web** é aberta com opções para instalar um WAF (firewall de aplicativo Web) de um parceiro, conforme mostrado na captura de tela a seguir.
+Aqui, você vê uma lista de todas as recomendações para o aplicativo. Quando você clica na recomendação **Adicionar um firewall de aplicativo Web**, a opção **Adicionar um Firewall de Aplicativo Web** é aberta com opções para instalar um WAF (firewall de aplicativo Web) de um parceiro, conforme mostrado na captura de tela a seguir.
 
 ![Caixa de diálogo Adicionar Firewall de Aplicativo Web](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 

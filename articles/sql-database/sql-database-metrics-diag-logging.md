@@ -13,13 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/16/2017
 ms.author: vvasic
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bf41aa530c68ea0e94a09d1dab63237c6f42bce7
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
@@ -47,6 +47,13 @@ Quando você habilitar o log de diagnóstico e métricas, você precisa especifi
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de selecionar o recurso de armazenamento, você precisa especificar quais dados coletar. As opções disponíveis incluem:
 
 - **[métricas de 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics)**  - contém o percentual DTU, o limite DTU, o percentual de CPU, porcentagem de leitura de dados físicos, porcentagem de gravação de log, êxito/falha/bloqueados por conexões de firewall, porcentagem de sessões, porcentagem de funcionários, armazenamento, porcentagem de armazenamento, porcentagem de armazenamento XTP
+- **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)** – contém informações sobre as estatísticas de tempo de execução da consulta, como uso de cpu, duração da consulta, etc.
+- **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)**  – contém informações sobre as estatísticas de espera da consulta que informa você sobre o que suas consultas aguardaram, como CPU, LOG, LOCKING...
+- **[Erros](sql-database-metrics-diag-logging.md#errors-dataset)** – contém informações sobre erros de SQL que ocorreram neste banco de dados.
+- **[DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)** – contém informações sobre a quantidade de tempo de espera de um banco de dados em diferentes tipos de espera.
+- **[Tempos limite](sql-database-metrics-diag-logging.md#timeouts-dataset)** – contém informações sobre a quantidade de tempo de espera de um banco de dados em diferentes tipos de espera.
+- **[Bloqueios](sql-database-metrics-diag-logging.md#blockings-dataset)**  – contém informações sobre eventos de bloqueio ocorridos em um banco de dados.
+- **[SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)** –contém o recurso Insights inteligentes. [Saiba mais sobre Insights inteligentes](sql-database-intelligent-insights.md)
 
 Se você especificar uma conta de AzureStorage ou Hub de eventos, você pode especificar uma política de retenção para especificar que os dados mais antigos do que um período de tempo selecionado é excluído. Se você especificar a análise de Log, a política de retenção depende do tipo de preço selecionado. Saiba mais sobre [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -57,6 +64,10 @@ Recomendamos que você leia os artigos [Visão geral de métricas no Microsoft A
 Para habilitar as métricas e coleta de logs de diagnóstico no portal do Azure, navegue até o banco de dados SQL Azure ou página de pool elástico e, em seguida, clique em **Configurações de diagnóstico**.
 
    ![habilitar no portal do Azure](./media/sql-database-metrics-diag-logging/enable-portal.png)
+
+Crie uma nova configuração ou edite configurações de diagnóstico existentes selecionando o destino e a telemetria.
+
+   ![configurar definições de diagnóstico](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -96,7 +107,7 @@ Para habilitar as métricas e o log de diagnóstico usando o PowerShell, use os 
 
 Você pode combinar esses parâmetros para permitir várias opções de saída.
 
-### <a name="cli"></a>CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Para habilitar as métricas e o log de diagnóstico usando o CLI do Azure, use os seguintes comandos:
 
@@ -143,9 +154,9 @@ Métricas de banco de dados SQL do Azure e logs de diagnóstico podem ser transm
 
 Monitorar fleet de banco de dados SQL do Azure é simples com Log Analytics. Três etapas são necessárias:
 
-1.  Criar recursos de Log Analytics
-2.  Configurar bancos de dados para gravar logs de diagnóstico e métricas para o Log Analytics criado
-3.  Instalar a solução de **Análise de SQL do Azure** na galeria do Log Analytics
+1. Criar recursos de Log Analytics
+2. Configurar bancos de dados para gravar logs de diagnóstico e métricas para o Log Analytics criado
+3. Instalar a solução de **Análise de SQL do Azure** na galeria do Log Analytics
 
 ### <a name="create-log-analytics-resource"></a>Criar recursos de Log Analytics
 
@@ -170,8 +181,7 @@ A maneira mais fácil de configurar onde os bancos de dados registram suas métr
 
 ### <a name="using-azure-sql-analytics-solution"></a>Usando a solução de Análise de SQL do Azure
 
-Análise de SQL do Azure é um painel hierárquico que permite navegar pela hierarquia de recursos de banco de dados SQL do Azure. Esse recurso permite que você faça o monitoramento de alto nível, mas ele também permite definir o escopo de seu monitoramento para o conjunto correto de recursos.
-O painel contém a lista de recursos diferentes sob o recurso selecionado. Por exemplo, para uma assinatura selecionada, você pode ver todos os servidores, pools elásticos e bancos de dados que pertencem à assinatura selecionada. Além disso, para Pools Elásticos e bancos de dados, você pode ver as métricas de uso de recursos daquele recurso. Isso inclui gráficos para DTU, CPU, IO, LOG, sessões, operadores, conexões e armazenamento em GB.
+Análise de SQL do Azure é um painel hierárquico que permite navegar pela hierarquia de recursos de banco de dados SQL do Azure. [Clique aqui para saber como usar a solução de Análise de SQL do Azure.](../log-analytics/log-analytics-azure-sql.md)
 
 ## <a name="stream-into-azure-event-hub"></a>Fluxo no Hub de eventos do Azure
 
@@ -186,9 +196,9 @@ Depois que os dados selecionados são transmitidos para o Hub de eventos, você 
 
 Veja algumas maneiras de usar o recurso de streaming:
 
--   Exibir a integridade do serviço transmitindo dados de "afunilamento" para o Power BI - Usando os Hubs de Eventos, Stream Analytics e o Power BI, é fácil transformar suas métricas e dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Para uma visão geral de como configurar um Hubs de Eventos, processar dados com o Stream Analytics e usar o Power BI como uma saída, consulte [Stream Analytics e Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
--   Logs de fluxo para fluxos de log e telemetria de terceiros – Usando a transmissão de Hubs de eventos, você pode obter suas métricas e logs de diagnóstico para soluções de log analytics e monitoramento de terceiros diferentes. 
--   Criar uma plataforma de registro em log e telemetria personalizada – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de logs de diagnóstico. Consulte [o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+-             Exibir a integridade do serviço transmitindo dados de "afunilamento" para o Power BI - Usando os Hubs de Eventos, Stream Analytics e o Power BI, é fácil transformar suas métricas e dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Para uma visão geral de como configurar um Hubs de Eventos, processar dados com o Stream Analytics e usar o Power BI como uma saída, consulte [Stream Analytics e Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+-             Logs de fluxo para fluxos de log e telemetria de terceiros – Usando a transmissão de Hubs de eventos, você pode obter suas métricas e logs de diagnóstico para soluções de log analytics e monitoramento de terceiros diferentes. 
+-             Criar uma plataforma de registro em log e telemetria personalizada – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de logs de diagnóstico. Consulte [o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-azure-storage"></a>Fluxo no Armazenamento do Azure
 
@@ -224,14 +234,212 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 Consulte [Baixar métricas e logs de diagnósticos do Armazenamento do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 
-## <a name="1-minute-metrics"></a>métricas de 1 minuto
+## <a name="metrics-and-logs-available"></a>Métricas e logs disponíveis
 
-| |  |
-|---|---|
+### <a name="1-minute-metrics"></a>métricas de 1 minuto
+
 |**Recurso**|**Métricas**|
+|---|---|
 |Banco de dados|porcentagem de DTU, DTU usado, o limite DTU, o porcentagem de CPU, porcentagem de leitura de dados físicos, porcentagem de gravação de log, êxito/falha/bloqueados por conexões de firewall, porcentagem de sessões, porcentagem de funcionários, armazenamento, porcentagem de armazenamento, porcentagem de armazenamento XTP, deadlocks |
 |Pool elástico|porcentagem de eDTU, eDTU usado, o limite eDTU, porcentagem de CPU, porcentagem de leitura de dados físicos, porcentagem de gravação de log, porcentagem de sessões, porcentagem de funcionários, armazenamento, porcentagem de armazenamento, limite de armazenamento, porcentagem de armazenamento XTP |
 |||
+
+### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do Repositório de consultas
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|query_hash_s|Hash de consulta|
+|query_plan_hash_s|Hash do plano de consulta|
+|statement_sql_handle_s|Identificador de sql da instrução|
+|interval_start_time_d|Inicie o datetimeoffset do intervalo em número de tiques de 1900-1-1.|
+|interval_end_time_d|Encerre o datetimeoffset do intervalo em número de tiques de 1900-1-1.|
+|logical_io_writes_d|Número total de gravações lógicas de E/S.|
+|max_logical_io_writes_d|Número máximo de gravações lógicas de E/S por execução.|
+|physical_io_reads_d|Número total de leituras físicas de E/S.|
+|max_physical_io_reads_d|Número máximo de leituras lógicas de E/S por execução.|
+|logical_io_reads_d|Número total de leituras lógicas de E/S.|
+|max_logical_io_reads_d|Número máximo de leituras lógicas de E/S por execução.|
+|execution_type_d|Tipo de execução|
+|count_executions_d|Número de execuções da consulta.|
+|cpu_time_d|Tempo total de CPU consumido pela consulta em microssegundos.|
+|max_cpu_time_d|Tempo máximo de CPU do consumidor por uma execução única em microssegundos.|
+|dop_d|Soma de graus de paralelismo.|
+|max_dop_d|Grau máximo de paralelismo usado para execução única.|
+|rowcount_d|Número total de linhas retornadas.|
+|max_rowcount_d|Número máximo de linhas retornadas em uma única execução.|
+|query_max_used_memory_d|Quantidade total de memória usada em KB.|
+|max_query_max_used_memory_d|Quantidade máxima de memória usada por uma única execução em KB.|
+|duration_d|Tempo total de execução em microssegundos.|
+|max_duration_d|Tempo máximo de execução de uma única execução.|
+|num_physical_io_reads_d|Número total de leituras físicas.|
+|max_num_physical_io_reads_d|Número máximo de leituras físicas por execução.|
+|log_bytes_used_d|Quantidade total de bytes de log usados.|
+|max_log_bytes_used_d|Quantidade máxima de bytes de log usados por execução.|
+|query_id_d|ID da consulta no Repositório de consultas|
+|plan_id_d|ID do plano no Repositório de consultas|
+
+[Saiba mais sobre os dados de estatísticas de tempo de execução do Repositório de consultas.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
+
+### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|wait_category_s|Categoria da espera.|
+|is_parameterizable_s|É a consulta parametrizável.|
+|statement_type_s|Tipo da instrução.|
+|statement_key_hash_s|Hash de chave de instrução.|
+|exec_type_d|Tipo de execução|
+|total_query_wait_time_ms_d|Tempo total de espera da consulta na categoria de espera específica.|
+|max_query_wait_time_ms_d|Tempo máximo de espera da consulta em execução individual na categoria de espera específica|
+|query_param_type_d|0|
+|query_hash_s|Hash de consulta no Repositório de consultas.|
+|query_plan_hash_s|Hash de plano de consulta no Repositório de consultas|
+|statement_sql_handle_s|Identificador de instrução no Repositório de consultas|
+|interval_start_time_d|Inicie o datetimeoffset do intervalo em número de tiques de 1900-1-1.|
+|interval_end_time_d|Encerre o datetimeoffset do intervalo em número de tiques de 1900-1-1.|
+|count_executions_d|Contagem de execuções da consulta|
+|query_id_d|ID da consulta no Repositório de consultas|
+|plan_id_d|ID do plano no Repositório de consultas|
+
+[Clique aqui para saber mais sobre dados de estatísticas de espera no Repositório de consultas.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
+
+### <a name="errors-dataset"></a>Conjunto de dados de erros
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|Mensagem|Mensagem de erro em texto sem formatação|
+|user_defined_b|É o bit de erro definido pelo usuário|
+|error_number_d|Código do erro|
+|Severity|Gravidade do erro|
+|state_d|Estado do erro|
+|query_hash_s|Hash de consulta da consulta com falha, se disponível|
+|query_plan_hash_s|Hash do plano de consulta da consulta com falha, se disponível|
+
+[Mensagens de erro do SQL Server](https://msdn.microsoft.com/en-us/library/cc645603.aspx)
+
+### <a name="database-waits-dataset"></a>O banco de dados aguarda o conjunto de dados
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|wait_type_s|Nome do tipo de espera|
+|start_utc_date_t [UTC]|Hora de início do período de medida.|
+|end_utc_date_t [UTC]|Hora de término do período de medida.|
+|delta_max_wait_time_ms_d|Tempo máximo de espera por execução|
+|delta_signal_wait_time_ms_d|Tempo total de espera do sinal|
+|delta_wait_time_ms_d|Tempo total de espera no período|
+|delta_waiting_tasks_count_d|Número de tarefas em espera|
+
+[Clique aqui para saber mais sobre estatísticas de espera no banco de dados.](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
+
+### <a name="timeouts-dataset"></a>Conjunto de dados de tempo limite
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|error_state_d|Código do estado de erro|
+|query_hash_s|Hash de consulta, se disponível|
+|query_plan_hash_s|Hash do plano de consulta, se disponível|
+
+### <a name="blockings-dataset"></a>Conjunto de dados de boqueios
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|Sua id de locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nome do recurso|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados|
+|ResourceId|URI de recurso|
+|lock_mode_s|Modo de bloqueio usado pela consulta|
+|resource_owner_type_s|Proprietário do bloqueio.|
+|blocked_process_filtered_s|XML de relatório de processo bloqueado.|
+|duration_d|Duração do bloqueio em milissegundos.|
+
+### <a name="intelligent-insights-dataset"></a>Conjunto de dados do Insights inteligentes
+[Clique aqui para saber mais sobre formato de log do Insights inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: "Benefício de Uso Híbrido do Azure para o Windows Server e o Windows Client | Microsoft Docs"
+title: "Benefício do Uso Híbrido do Azure para Window Server | Microsoft Docs"
 description: "Saiba como maximizar os benefícios do Windows Software Assurance para colocar as licenças locais no Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,28 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/26/2017
+ms.date: 9/13/2017
 ms.author: xujing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: f34f65eb1d5375caae8831aedaed8a4b6a9cd098
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>Benefício de Uso Híbrido do Azure para o Windows Server e o Windows Client
-Para clientes com o Software Assurance, o Benefício de Uso Híbrido do Azure permite usar as licenças locais do Windows Server e do Windows Client e executar máquinas virtuais Windows no Azure a um custo reduzido. O Benefício de Uso Híbrido do Azure para o Windows Server inclui o Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. O Benefício de Uso Híbrido do Azure para o Windows Client inclui o Windows 10. Para obter mais informações, consulte a página [Licenciamento de Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+# <a name="azure-hybrid-use-benefit-for-windows-server"></a>Benefício do uso híbrido do Azure para Windows Server
+Para clientes com o Software Assurance, o Benefício de Uso Híbrido do Azure permite usar as licenças locais do Windows Server e do Windows Client e executar máquinas virtuais Windows no Azure a um custo reduzido. O Benefício de Uso Híbrido do Azure para o Windows Server inclui o Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Para obter mais informações, consulte a página [Licenciamento de Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
->[!IMPORTANT]
->Os Benefícios de Uso Híbrido do Cliente do Azure para Windows está atualmente em Visualização usando a imagem do Windows 10 no Azure Marketplace. Somente clientes Enterprise com o Windows 10 Enterprise E3/E5 por usuário ou o Windows VDA por usuário (Licenças de Assinatura de Usuário ou Licenças de Assinatura de Usuário Complementares) (“Licenças Aplicáveis”) são qualificados.
+> [!IMPORTANT]
+> As imagens '[HUB]' do Windows Server que foram publicadas para clientes com o Contrato Enterprise no Azure Marketplace foram desativadas a partir de 11/9/2017. Use o Windows Server padrão com a opção "Economize Dinheiro" para usar o Benefício de Uso Híbrido do Azure. Para obter mais informações, consulte este [artigo.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
+
+> [!NOTE]
+> Este artigo mostra a você como implementar o benefício de licenciamento de imagens do Windows Server. Você também pode executar estas etapas para [imagens do Windows 10 Desktop](#windows-desktop-multitenant-hosting-deployment).
 >
 
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Maneiras de usar o Benefício de Uso Híbrido do Azure
 Existem algumas maneiras diferentes para implantar VMs Windows com o Benefício de Uso Híbrido do Azure:
 
-1. Você pode implantar VMs das [imagens específicas do Marketplace](#deploy-a-vm-using-the-azure-marketplace) que são pré-configuradas com o benefício de uso do Azure Hybrid – Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008SP1.
+1. Você pode implantar VMs de [imagens específicas do Marketplace](
 2. Você pode [carregar uma VM personalizada](#upload-a-windows-vhd) e [implantar usando um modelo do Resource Manager](#deploy-a-vm-via-resource-manager) ou [do Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Implantar uma VM usando o Azure Marketplace

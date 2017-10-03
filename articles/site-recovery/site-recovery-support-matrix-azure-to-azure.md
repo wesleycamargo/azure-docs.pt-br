@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
@@ -49,12 +49,20 @@ Este artigo resume as configurações e os componentes com suporte no Azure Site
 **Mover Computação, Armazenamento e Rede entre grupos de recursos** | Sem suporte |Se você mover uma máquina virtual (ou seus componentes associados, como armazenamento e rede) depois de habilitar a replicação, precisará desabilitar a replicação e habilitá-la novamente na máquina virtual.
 
 
+
 ## <a name="support-for-deployment-models"></a>Suporte para modelos de implantação
 
 **Modelo de implantação** | **Com suporte/Sem suporte** | **Comentários**  
 --- | --- | ---
 **Clássico** | Suportado | É possível replicar apenas uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina de virtual do Resource Manager. Se você implantar uma VM clássica sem uma rede virtual e diretamente em uma região do Azure, não haverá suporte para essa opção.
 **Gerenciador de Recursos** | Suportado |
+
+>[!NOTE]
+>
+> 1. Não há suporte para a replicação de máquinas virtuais do Azure de uma assinatura para outra em cenários de recuperação de desastre.
+> 2. Não há suporte para migrar máquinas virtuais do Azure entre assinaturas.
+> 3. Não há suporte para migrar máquinas virtuais do Azure dentro da mesma região.
+> 4. Não há suporte para migrar máquinas virtuais do Azure do modelo de implantação clássico para o modelo de implantação do Resource Manager.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões do SO do computador replicado
 

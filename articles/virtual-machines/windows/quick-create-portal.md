@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Na folha de configurações, mantenha os padrões e clique em **OK**.
+5. Em **configurações**, mantenha os padrões e clique em **OK**. 
 
 6. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 
-7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abre automaticamente.
+7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abrirá automaticamente.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
@@ -94,13 +94,13 @@ Um Grupo de Segurança de Rede (NSG) protege o tráfego de entrada e saída. Qua
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 aberta para a sua VM, o servidor Web agora pode ser acessado da Internet. Abra o navegador Web e insira o endereço IP público da VM. o endereço IP público pode ser encontrado na folha da VM no portal do Azure.
+Com o IIS instalado e a porta 80 aberta para a sua VM, o servidor Web agora pode ser acessado da Internet. Abra o navegador Web e insira o endereço IP público da VM. O endereço IP público que pode ser encontrado em *Máquinas Virtuais* no portal do Azure.
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos na folha da máquina virtual e clique em **Excluir**.
+Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da VM e clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,6 +8,8 @@ Esta página descreve como o Microsoft Azure executa os dois tipos de manutenç�
 
 Aplicativos em execução em uma máquina virtual podem coletar informações sobre atualizações futuras por meio do Serviço de Metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
 
+Para obter instruções sobre como gerenciar a manutenção planejada, consulte “Administrando notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+
 ## <a name="in-place-vm-migration"></a>Migração de VM local
 
 Quando as atualizações não exigem uma reinicialização completa, uma migração ao vivo local é usada. Durante a atualização a máquina virtual será pausada por aproximadamente 30 segundos, preservando a memória RAM, enquanto o ambiente de hospedagem aplica os patches e as atualizações necessárias. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente.

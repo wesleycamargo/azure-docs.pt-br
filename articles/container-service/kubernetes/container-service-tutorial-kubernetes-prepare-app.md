@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -56,16 +56,22 @@ Use o git para baixar uma cópia do aplicativo em seu ambiente de desenvolviment
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Dentro do diretório clonado está o código-fonte do aplicativo, um arquivo Docker Compose pré-criado e um arquivo de manifesto Kubernetes. Esses arquivos são usados para criar ativos em todo o conjunto de tutoriais. 
+Altere os diretórios pois você está trabalhando no diretório clonado.
+
+```
+cd azure-voting-app-redis
+```
+
+Dentro do diretório está o código-fonte do aplicativo, um arquivo Docker Compose pré-criado e um arquivo de manifesto Kubernetes. Esses arquivos são usados em todo o conjunto do tutorial. 
 
 ## <a name="create-container-images"></a>Criar imagens de contêiner
 
 O [Docker Compose](https://docs.docker.com/compose/) pode ser utilizado para automatizar a compilação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
 
-Execute o arquivo docker-compose.yml para criar a imagem de contêiner, baixe a imagem Redis e inicie o aplicativo.
+Execute o arquivo `docker-compose.yml` para criar a imagem de contêiner, baixe a imagem Redis e inicie o aplicativo.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 Quando completado, use o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para ver as imagens criadas.
@@ -74,7 +80,7 @@ Quando completado, use o comando [docker images](https://docs.docker.com/engine/
 docker images
 ```
 
-Observe que três imagens foram baixadas ou criadas. A imagem *azure-vote-front* contém o aplicativo. Foi derivado da imagem *nginx-flask*. A imagem Redis foi baixada do Hub do Docker.
+Observe que três imagens foram baixadas ou criadas. A imagem `azure-vote-front` contém o aplicativo e usa a imagem `nginx-flask` como base. A imagem `redis` é usada para iniciar uma instância do Redis.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +111,18 @@ Navegue até http://localhost:8080 para ver o aplicativo em execução.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens de contêiner. A imagem *azure-vote-front* serão carregada em uma instância do Registro de Contêiner do Azure no próximo tutorial.
+Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens de contêiner. A imagem `azure-vote-front` será carregada em uma instância do Registro de Contêiner do Azure no próximo tutorial.
 
 Execute o seguinte para interromper os contêineres em execução.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-Exclua os contêineres com o comando a seguir.
+Exclua os contêineres e recursos interrompidos com o comando a seguir.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 Ao concluir, você terá uma imagem de contêiner que contém o aplicativo Azure Vote.
@@ -134,3 +140,4 @@ Avance para o próximo tutorial para saber mais sobre como armazenar imagens de 
 
 > [!div class="nextstepaction"]
 > [Enviar imagens por push ao Registro de Contêiner do Azure](./container-service-tutorial-kubernetes-prepare-acr.md)
+

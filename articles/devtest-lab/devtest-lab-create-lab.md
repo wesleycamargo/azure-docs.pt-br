@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/30/2017
+ms.date: 09/07/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 265a968f902f53c7561c8c7e937f8eacfdb37167
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Criar Laboratórios de Desenvolvimento/Teste do Azure
@@ -38,21 +38,22 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
     ![Opção do menu Mais serviços](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. Na lista de serviços disponíveis, **DevTest Labs**.
-1. Na folha **Laboratórios de Desenvolvimento/Teste**, selecione **Adicionar**.
+1. Na área **DevTest Labs**, selecione **Adicionar**.
    
     ![Adicionar um laboratório](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. Na folha **Criar um Laboratório de Desenvolvimento/Teste** :
+1. Em **Criar um Laboratório de Desenvolvimento/Teste**:
    
     1. Insira um **Nome do Laboratório** para o novo laboratório.
     2. Selecione a **Assinatura** para associar ao laboratório.
     3. Selecione um **Local** no qual o laboratório será armazenado.
     4. Selecione **Desligamento Automático** para especificar se você deseja ativar e definir os parâmetros de desligamento automático de todas as VMs do laboratório. O recurso de autodesligamento é principalmente um recurso de economia de custos no qual você pode especificar quando deseja que a VM seja desligada automaticamente. Você pode alterar as configurações de autodesligamento após criar o laboratório seguindo as etapas descritas no artigo [Gerenciar todas as políticas de um laboratório no Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+    1. Insira as informações de **NOME** e **VALOR** de **Marcas** se você quiser criar uma marcação personalizada que é adicionada a cada recurso que você criará no laboratório. As marcas são úteis para ajudá-lo a gerenciar e organizar recursos de laboratório por categoria. Para saber mais sobre marcas, incluindo como adicionar marcas depois de criar o ambiente de laboratório, veja [Adicionar marcas a um laboratório](devtest-lab-add-tag.md).
     5. Selecione **Fixar no painel** se você deseja exibir um atalho do laboratório no painel do portal.
     6. Selecione **Opções de automação** para obter modelos do Azure Resource Manager para automação da configuração. 
-    7. Selecione **Criar**. Depois de selecionar **Criar**, a folha **DevTest Labs** é exibida. Você pode monitorar o status do processo de criação do laboratório vendo a área **Notificações**. Depois de concluído, atualize a página para ver o laboratório recém-criado na lista de laboratórios.  
+    7. Selecione **Criar**. Você pode monitorar o status do processo de criação do laboratório vendo a área **Notificações**. Depois de concluído, atualize a página para ver o laboratório recém-criado na lista de laboratórios.  
     
-    ![Criar uma folha de laboratório](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    ![Criar uma seção de laboratório do DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

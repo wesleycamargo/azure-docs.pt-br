@@ -1,19 +1,25 @@
 # [Visão geral](overview.md)
 
-# [Início rápido](quickstart.md)
+# Início rápido
+## [Guia de início rápido do Bash](quickstart.md)
+## [Guia de início rápido do PowerShell](quickstart-powershell.md)
 
 # Conceitos
-## [Ferramentas e recursos](features.md)
+## [Ferramentas e recursos no Bash](features.md)
+## [Ferramentas e recursos no PowerShell](features-powershell.md)
 ## [Limitações](limitations.md)
+## [Solução de problemas](troubleshooting.md)
 
 # Instruções
-## [Armazenamento persistente](persisting-shell-storage.md)
+## [Armazenamento persistente no Bash](persisting-shell-storage.md)
+## [Armazenamento persistente no PowerShell](persisting-shell-storage-powershell.md)
 ## [Usando a janela](using-the-shell-window.md)
 
 # [Preços](pricing.md)
 
 # Referência
-## [CLI 2.0 do Azure](/cli/azure) 
+## [CLI do Azure](/cli/azure)
+## [PowerShell do Azure](/powershell/azure)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

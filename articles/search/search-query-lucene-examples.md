@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -41,7 +41,7 @@ Para executá-los, clique com o botão direito do mouse nas URLs de exemplo de c
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Como invocar a análise completa do Lucene
 
-Todos os exemplos deste artigo especificam o parâmetro de pesquisa **queryType=full**, indicando que a sintaxe completa, tratada pelo Analisador de Consulta Lucene. 
+Todos os exemplos deste artigo especificam o parâmetro de pesquisa **queryType=full**, indicando que a sintaxe completa é tratada pelo Analisador de Consulta Lucene. 
 
 **Exemplo 1** : clique com o botão direito do mouse no seguinte trecho de código da consulta para abri-la em uma nova página do navegador que carrega o JSFiddle e executa a consulta:
 

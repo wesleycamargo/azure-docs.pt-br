@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -91,7 +91,7 @@ O analisador de consulta separa os operadores (como `*` e `+` no exemplo) dos te
 + *consulta de frase* para termos entre aspas (vista para o mar, por exemplo)
 + *consulta de prefixo* por termos seguidos por um operador de prefixo `*` (ar-condicio, por exemplo)
 
-Para obter uma lista completa dos tipos de consulta com suporte, consulte [sintaxe da consulta do Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Para obter uma lista completa dos tipos de consulta com suporte, veja [sintaxe da consulta do Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 Os operadores associados com uma subconsulta determinam se a consulta deve ser obrigatoriamente satisfeita ou não para um documento ser considerado uma correspondência. Por exemplo, `+"Ocean view"` é "obrigatória" devido ao operador `+`. 
 
@@ -238,7 +238,13 @@ Suponhamos ainda que esse índice contém os quatro documentos a seguir:
 
 Para entender a recuperação, é útil conhecer algumas noções básicas sobre indexação. A unidade de armazenamento é um índice invertido, um para cada campo pesquisável. Dentro de um índice invertido está uma lista classificada de todos os termos de todos os documentos. Cada termo é mapeado para a lista de documentos nos quais ele ocorre, tão evidente no exemplo a seguir.
 
-Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa a análise léxica do o conteúdo dos documentos, de forma semelhante ao que acontece durante o processamento da consulta. As entradas de texto são passadas para um analisador, em letras minúsculas, sem pontuação e assim por diante, dependendo da configuração do analisador. É comum, mas não obrigatório, usar os mesmo analisadores para operações de indexação para que os termos da consulta pareçam mais com os termos dentro do índice.
+Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa a análise léxica do o conteúdo dos documentos, de forma semelhante ao que acontece durante o processamento da consulta:
+
+1. As *entradas de texto* são passadas para um analisador, em letras minúsculas, sem pontuação e assim por diante, dependendo da configuração do analisador. 
+2. *Tokens* são a saída da análise de texto.
+3. *Termos* são adicionados ao índice.
+
+É comum, mas não obrigatório, usar os mesmo analisadores para operações de indexação para que os termos da consulta pareçam mais com os termos dentro do índice.
 
 > [!Note]
 > O Azure Search permite especificar diferentes analisadores para indexação e pesquisa através dos parâmetros de campo adicionais `indexAnalyzer` e `searchAnalyzer`. Se não forem especificados, o analisador definido com a propriedade `analyzer` é usado para indexação e pesquisa.  
@@ -391,11 +397,11 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. E
 
 ## <a name="see-also"></a>Consulte também
 
-[API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+[API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
-[Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+[Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintaxe de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+[Sintaxe de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Controlar os resultados da pesquisa](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

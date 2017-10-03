@@ -30,11 +30,12 @@ Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um ba
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
-   * JDK 1.7 + (execute `apt-get install default-jdk` se você não tiver o JDK)
-   * Maven (execute `apt-get install maven` se você não tiver o Maven)
+Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
+* JDK 1.7 + (execute `apt-get install default-jdk` se você não tiver o JDK)
+* Maven (execute `apt-get install maven` se você não tiver o Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
@@ -44,7 +45,7 @@ Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um ba
 
 Nomeie o novo banco de dados, **db** e sua nova coleção, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 

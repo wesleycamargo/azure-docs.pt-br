@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 04ac46498c912b0503036f70b7f3d0e28e5a82b8
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
@@ -27,7 +26,7 @@ Para enviar notificações unidirecionais para o aplicativo do dispositivo do ba
 
 Você pode enviar mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço (**/messages/devicebound**). Um dispositivo recebe as mensagens através de um ponto de extremidade específico do dispositivo (**/devices/{deviceId}/messages/devicebound**).
 
-Cada mensagem da nuvem para o dispositivo é direcionada a um único dispositivo definindo a propriedade **to** como **/devices/{deviceId}/messages/devicebound**.
+Para que cada mensagem da nuvem para o dispositivo seja direcionada a um único dispositivo, o Hub IoT define a propriedade **to** como **/devices/{deviceId}/messages/devicebound**.
 
 Cada fila de dispositivo contém no máximo 50 mensagens da nuvem para o dispositivo. Tentar enviar mais mensagens para o mesmo dispositivo resultará em um erro.
 
@@ -48,17 +47,28 @@ Um dispositivo também pode escolher:
 
 Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens passam automaticamente do estado **Invisível** de volta para o estado **Enfileirada** após um *tempo limite de visibilidade (ou de bloqueio)*. O valor padrão desse tempo limite é um minuto.
 
-Uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível**, no máximo, pelo número de vezes especificado na propriedade **contagem máx. de entregas** no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morto**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morto** após o tempo de expiração (confira [Vida útil][lnk-ttl]).
+A propriedade **max delivery count** no Hub IoT determina o número de vezes que uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível**. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morto**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morto** após o tempo de expiração (confira [Vida útil][lnk-ttl]).
 
 O [Como enviar mensagens de nuvem para o dispositivo com o Hub IoT][lnk-c2d-tutorial] mostra como enviar mensagens de nuvem a dispositivo da nuvem e recebê-las em um dispositivo.
 
-Normalmente, um dispositivo completa uma mensagem de nuvem para o dispositivo quando a perda da mensagem não afeta a lógica de aplicativo. Por exemplo, quando o dispositivo persistiu o conteúdo da mensagem localmente ou executou uma operação com êxito. A mensagem também poderia portar informações transitórias cuja perda não afetaria a funcionalidade do aplicativo. Às vezes, para tarefas de longa duração, você pode concluir a mensagem do dispositivo para a nuvem depois de manter a descrição da tarefa no armazenamento local. Em seguida, você pode notificar o back-end da solução com uma ou mais mensagens de dispositivo para a nuvem em vários estágios de progresso da tarefa.
+Normalmente, um dispositivo completa uma mensagem de nuvem para o dispositivo quando a perda da mensagem não afeta a lógica de aplicativo. Por exemplo, quando o dispositivo persistiu o conteúdo da mensagem localmente ou executou uma operação com êxito. A mensagem também poderia portar informações transitórias cuja perda não afetaria a funcionalidade do aplicativo. Às vezes, para tarefas de execução longa, você pode:
+
+* Completar a mensagem do dispositivo para a nuvem depois de manter a descrição da tarefa no armazenamento local.
+* Notificar o back-end da solução com uma ou mais mensagens de dispositivo para a nuvem em vários estágios de progresso da tarefa.
 
 ## <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 
-Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Esse tempo é definido pelo serviço (na propriedade **ExpiryTimeUtc**) ou pelo Hub IoT usando a *vida útil* padrão especificada como uma propriedade do Hub IoT. Consulte [Opções de configuração da nuvem para o dispositivo][lnk-c2d-configuration].
+Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Esse tempo é definido por um dos seguintes:
 
-Uma maneira comum de tirar proveito da expiração da mensagem e evitar enviar mensagens para dispositivos desconectados é definir valores de vida útil baixos. Essa abordagem proporciona o mesmo resultado que a manutenção do estado de conexão do dispositivo, enquanto é mais eficiente. Quando você solicita confirmações de mensagem, o Hub IoT notifica você sobre quais dispositivos podem receber mensagens e quais dispositivos não estão online ou apresentam falha.
+* A propriedade **ExpiryTimeUtc** no serviço.
+* O Hub IoT usando a *vida útil* padrão especificada como uma propriedade do Hub IoT.
+
+Consulte [Opções de configuração da nuvem para o dispositivo][lnk-c2d-configuration].
+
+Uma maneira comum de tirar proveito da expiração da mensagem e evitar enviar mensagens para dispositivos desconectados é definir valores de vida útil baixos. Essa abordagem proporciona o mesmo resultado que a manutenção do estado de conexão do dispositivo, enquanto é mais eficiente. Quando você solicita confirmações de mensagem, o Hub IoT notifica quais dispositivos:
+
+* São capazes de receber mensagens.
+* Não estão online ou falharam.
 
 ## <a name="message-feedback"></a>Comentários da mensagem
 
@@ -66,11 +76,11 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 | Propriedade Ack | Comportamento |
 | ------------ | -------- |
-| **positivo** | O Hub IoT gera uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo tenha alcançado o estado **Concluído**. |
-| **negativo** | O Hub IoT gera uma mensagem de comentários, se e somente se, a mensagem da nuvem para o dispositivo alcançar o estado **Morto**. |
+| **positivo** | Se a mensagem da nuvem para o dispositivo alcança o estado **Concluído**, o Hub IoT gera uma mensagem de comentários. |
+| **negativo** | Se a mensagem da nuvem para o dispositivo alcança o estado **Morto**, o Hub IoT gera uma mensagem de comentários. |
 | **completo**     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
-Se **Ack** estiver definida como **total** e você não receber uma mensagem de comentários, isso significará que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de expiração é de dois dias, o que permite tempo suficiente para restabelecer a execução do problema caso ocorra uma falha.
+Se **Ack** estiver definida como **total** e você não receber uma mensagem de comentários, isso significará que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, tempo suficiente para restabelecer a execução do serviço caso ocorra uma falha.
 
 Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [Ciclo de vida da mensagem][lnk-lifecycle]. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 

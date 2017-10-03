@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -184,7 +184,7 @@ Agora que você sabe como usar a CLI do Azure em seu pipeline Jenkins, você pod
 
 O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implantação, que é usar o Docker. Para implantar, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução do serviço em uma imagem do Docker. O plug-in, então, compilará a imagem, a enviará por push a um registro de Docker e a implantará em seu aplicativo Web.
 
-* Siga as etapas [aqui](/azure/app-service-web/app-service-linux-how-to-create-web-app) para criar um aplicativo Web do Azure em execução no Linux.
+* Siga as etapas [aqui](../app-service/containers/quickstart-nodejs.md) para criar um aplicativo Web do Azure em execução no Linux.
 * Instale o Docker em sua instância do Jenkins seguindo as instruções deste [artigo](https://docs.docker.com/engine/installation/linux/ubuntu/).
 * Crie um registro de contêiner no Portal do Azure seguindo as etapas [aqui](/azure/container-registry/container-registry-get-started-azure-cli).
 * No mesmo repositório bifurcado do [Aplicativo Web Java Simples para o Azure](https://github.com/azure-devops/javawebappsample), edite o arquivo **Jenkinsfile2**:

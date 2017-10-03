@@ -1,5 +1,5 @@
 
-Crie um [aplicativo de API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/appservice/web#create). 
+Crie um aplicativo no `myAppServicePlan` plano do Serviço de Aplicativo com o comando [az webapp create](/cli/azure/appservice/web#create). 
 
 O aplicativo Web fornece um espaço de hospedagem para sua API e fornece uma URL para exibir o aplicativo implantado.
 

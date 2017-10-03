@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
@@ -60,31 +60,22 @@ A combinação de uma instrução de condição com seus controles representa um
 
 Em uma política de acesso condicional, os controles definem o que é que deverá acontecer quando uma instrução de condição tiver sido atendida.  
 Com controles, você pode bloquear o acesso ou permitir acesso com requisitos adicionais.
-Quando você configura uma política que permita o acesso, precisa selecionar pelo menos um requisito.   
+Quando você configura uma política que permita o acesso, precisa selecionar pelo menos um requisito.  
 
-### <a name="grant-controls"></a>Controles de concessão
+Há dois tipos de controle: 
+
+- **Controles de concessão** - Os controles de concessão determinam se um usuário pode ou não concluir a autenticação e acessar os recursos aos quais ele está tentando se conectar. Se você tiver vários controles selecionados, você pode configurar se todos eles serão obrigatórios quando sua política for processada.
 A implementação atual do Azure Active Directory permite que você configure os seguintes requisitos de controles de concessão:
 
-![Controle](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Controle](./media/active-directory-conditional-access-azure-portal/73.png)
 
-- **Autenticação Multifator** - você pode exigir autenticação forte por meio da autenticação multifator. Como o provedor, você pode usar a Autenticação Multifator do Azure ou um provedor de autenticação multifator local, combinados com os serviços de Federação do Active Directory (AD FS). Usar a autenticação multifator ajuda a proteger recursos para impedir que sejam acessados por um usuário não autorizado que obteve acesso às credenciais de um usuário válido.
+- **Controles de sessão** - Os controles de sessão permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
 
-- **Dispositivo compatível** - Você pode configurar políticas de acesso condicional que têm base no dispositivo. O objetivo de uma política de acesso condicional baseada em dispositivo é conceder acesso aos recursos configurados somente de dispositivos confiáveis. Exigir um dispositivo compatível é uma opção para a qual você precisa definir, o que é um dispositivo confiável. Para obter mais detalhes, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+    ![Controle](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **Dispositivo ingressado no domínio** – Exigir um dispositivo ingressado no domínio é outra opção para a qual você precisa configurar as políticas de acesso condicional com base no dispositivo. Esse requisito se refere a desktops, laptops e tablets corporativos com Windows que ingressaram em um Active Directory local. Para obter mais detalhes, confira [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-Se você tiver vários controles selecionados, também será possível configurar se todos eles serão obrigatórios quando sua política for processada.
+Para saber mais, confira [Controles de acesso condicional no Azure Active Directory](active-directory-conditional-access-controls.md).
 
-![Controle](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>Controles de sessão
-Controles de sessão permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
-
-![Controle](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>Usar restrições de aplicativo impostas
-Você pode usar esse controle para exigir que o Azure AD passe as informações de dispositivo para o aplicativo na nuvem. Isso ajuda o aplicativo de nuvem a saber se o usuário vem de um dispositivo em conformidade ou um dispositivo ingressado no domínio. Esse controle atualmente só tem suporte com o SharePoint como o aplicativo na nuvem. O SharePoint usa as informações do dispositivo para fornecer uma experiência completa ou limitada aos usuários, dependendo do estado do dispositivo.
-Para saber mais sobre como exigir acesso limitado com o SharePoint, confira [controlar o acesso de dispositivos não gerenciados](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Instrução de condição
 
@@ -117,7 +108,7 @@ Para obter uma lista completa dos aplicativos de nuvem que você pode usar em su
 
 Desde que o acesso a seus aplicativos seja executado sob condições que você pode controlar, talvez não haja necessidade de impor controles adicionais sobre como seus aplicativos em nuvem são acessados pelos usuários. No entanto, tudo pode mudar se o acesso aos seus aplicativos de nuvem for executado, por exemplo, de redes não confiáveis ou de dispositivos não compatíveis. Em uma instrução de condição, você pode definir certas condições de acesso com requisitos adicionais sobre a execução do acesso aos seus aplicativos.
 
-![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>Condições
@@ -128,12 +119,13 @@ Na implementação atual do Azure Active Directory, você pode definir condiçõ
 - Plataformas de dispositivo
 - Locais
 - Aplicativos cliente
+- Hora
 
-![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
+![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>Risco de entrada
 
-Um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais detalhes, veja [Entradas arriscadas](active-directory-identityprotection.md#risky-sign-ins).  
+Um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais informações, consulte [Entradas de risco](active-directory-identityprotection.md#risky-sign-ins).  
 Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional. 
 
 ![Condições](./media/active-directory-conditional-access-azure-portal/22.png)
@@ -156,22 +148,35 @@ Para usar as plataformas de dispositivo na política, primeiro altere a configur
 
 ### <a name="locations"></a>Locais
 
-O local é identificado pelo endereço IP do cliente que você usou para se conectar ao Azure Active Directory. Essa condição exige que você esteja familiarizado com **locais nomeados** e **IPs confiáveis de MFA**.  
+Com localizações, você tem a opção de definir condições com base no local dedo qual uma tentativa de conexão foi iniciada. As entradas na lista de locais são **localizações nomeadas** ou **IPs confiáveis de MFA**.  
 
-**Locais nomeados** é um recurso do Azure Active Directory que permite rotular os intervalos de endereços IP confiáveis em suas organizações. Em seu ambiente, você pode usar localizações nomeadas no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md), bem como o acesso condicional. Para obter mais detalhes sobre a configuração dos locais nomeados no Azure Active Directory, veja [locais nomeados no Azure Active Directory](active-directory-named-locations.md).
+**Localizações nomeadas** é um recurso do Azure Active Directory que permite que você defina rótulos para as localizações das quais as tentativas de conexão locais feitas. Para definir uma localização, você pode configurar um intervalo de endereços IP ou selecionar um país / região.  
 
-O número de locais que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
+![Condições](./media/active-directory-conditional-access-azure-portal/42.png)
+
+Além disso, você pode marcar uma localização nomeado como uma localização confiável. Para uma política de acesso condicional, a localização confiável é outra opção de filtro que permite que você selecione *Todas as localizações confiáveis* na sua condição de localizações.
+As localizações nomeadas também são importantes no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos para o evento de risco Viagem impossível a localizações atípicas. 
+
+O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
  
  - Um local nomeado com até 500 intervalos de IP
  - Um máximo de 60 locais nomeados (visualização) com um intervalo IP atribuído a cada um deles 
 
-
-**IPs confiáveis do MFA** é um recurso de autenticação multifator que permite que você defina intervalos de endereços IP confiáveis que representam a intranet local da sua organização. Quando você configura as condições de um local, IPs Confiáveis permite distinguir entre conexões feitas desde a rede da sua organização e de todos os outros locais. Para obter mais detalhes, veja [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
+Para obter mais informações, consulte [Localizações nomeadas no Azure Active Directory](active-directory-named-locations.md).
 
 
-Você pode incluir todos os locais ou todos os IPs confiáveis e pode excluir todos os IPs confiáveis.
+**IPs confiáveis do MFA** é um recurso de autenticação multifator que permite que você defina intervalos de endereços IP confiáveis que representam a intranet local da sua organização. Quando você configura uma condição de localização, IPs Confiáveis permite distinguir entre conexões feitas desde a rede da sua organização e de todos os outros locais. Para obter mais informações, confira [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
+Em sua política de acesso condicional, você pode:
+
+- Incluir
+    - Qualquer local
+    - Todos os locais confiáveis
+    - Locais selecionados
+- Excluir
+    - Todos os locais confiáveis
+    - Locais selecionados
+     
 ![Condições](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -183,7 +188,8 @@ A autenticação herdada refere-se aos clientes usando a autenticação básica,
 ![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-conditions).
+Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+
 
 
 
@@ -215,3 +221,4 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 - Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+

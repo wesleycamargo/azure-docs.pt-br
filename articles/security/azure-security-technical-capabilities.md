@@ -1,5 +1,4 @@
 ---
-
 title: "Funcionalidades técnicas de segurança do Azure | Microsoft Docs"
 description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
@@ -320,12 +318,10 @@ Algumas das vulnerabilidades da Web comuns contra as quais o firewall do aplicat
 
 O Azure fornece vários recursos fáceis de usar para ajudar a proteger o tráfego de entrada e de saída do seu aplicativo. O Azure também ajuda os clientes a proteger o código de seu aplicativo fornecendo funcionalidade externa para verificar se há vulnerabilidades em seu aplicativo Web.
 
-- [Proteger seu aplicativo Web usando vários meios de autenticação e autorização](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [Configurar a autenticação do Active Directory do Azure para seu aplicativo](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [Configurar a autenticação do Active Directory do Azure para seu aplicativo](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Proteger o tráfego para seu aplicativo, habilitando o protocolo TLS (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [Proteger o tráfego para seu aplicativo, habilitando o protocolo TLS (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [Forçar todo o tráfego recebido por conexão HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -338,15 +334,15 @@ O Azure fornece vários recursos fáceis de usar para ajudar a proteger o tráfe
 
 - [Examinar o código do aplicativo Web em busca de vulnerabilidades usando a Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Configurar a autenticação mútua TLS para exigir que certificados de cliente se conectem ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [Configurar a autenticação mútua TLS para exigir que certificados de cliente se conectem ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [Configurar um certificado de cliente para usar em seu aplicativo para se conectar com segurança a recursos externos](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [Remover cabeçalhos de servidor padrão para evitar que ferramentas coloquem impressão digital em seu aplicativo](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando VPN Ponto a Site](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando VPN Ponto a Site](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
-- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando Conexões Híbridas](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Conectar seu aplicativo com segurança com recursos em uma rede privada usando Conexões Híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 O Serviço de Aplicativo do Azure usa a mesma solução Antimalware usada pelos Serviços de Nuvem do Azure e pelas máquinas virtuais. Para saber mais sobre isso, confira nossa [documentação antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 

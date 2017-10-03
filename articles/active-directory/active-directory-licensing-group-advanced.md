@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -200,6 +200,16 @@ Essa saída de exemplo mostra o início do processamento, todas as alterações 
 >[!TIP]
 > Se você clicar nos itens relacionados a *Alterar licença de usuário*, os detalhes das alterações de licença aplicadas a cada usuário individual serão mostrados.
 
+## <a name="deleting-a-group-with-an-assigned-license"></a>Excluir um grupo com uma licença atribuída
+
+Não é possível excluir um grupo com uma licença ativa atribuída. Um administrador pode excluir um grupo sem perceber que fará com que a licenças sejam removidas dos usuários; por esse motivo, precisamos que as licenças sejam removidas do grupo primeiro, antes que ele possa ser excluído.
+
+Ao tentar excluir um grupo no portal do Azure, pode ser que você veja uma notificação de erro como esta: ![Falha na exclusão do grupo de captura de tela](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Vá para a guia **Licenças** no grupo e verifique se há alguma licença atribuída. Em caso afirmativo, remova essas licenças e tente excluir o grupo novamente.
+
+Você pode ver erros semelhantes ao tentar excluir o grupo por meio do PowerShell ou API do Graph. Se você estiver usando um grupo sincronizado do local, o Azure AD Connect também pode relatar erros se houver falha ao excluir o grupo no Azure AD. Em todos esses casos, lembre-se de verificar se há licenças atribuídas ao grupo e remova-as primeiro.
+
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
 Se você usa o licenciamento baseado em grupo, convém se familiarizar com a lista de limitações e problemas conhecidos a seguir.
@@ -213,6 +223,8 @@ Se você usa o licenciamento baseado em grupo, convém se familiarizar com a lis
 - Quando um usuário é removido de um grupo e perde a licença, os planos de serviço dessa licença (por exemplo, SharePoint Online) são definidos como um estado **Suspenso**. Os planos de serviço não são definidos com um estado final desabilitado. Essa precaução pode evitar a remoção acidental de dados do usuário, caso um administrador cometa um erro no gerenciamento de associação a um grupo.
 
 - Quando as licenças são atribuídas ou modificadas para um grupo grande (por exemplo, 100.000 usuários), isso pode afetar o desempenho. Especificamente, o volume de alterações geradas pela automação do Azure AD pode afetar negativamente o desempenho da sincronização de diretório entre o Azure AD e sistemas locais.
+
+- Em determinadas situações de carga alta, o processamento de licença pode ser atrasado e alterações, como adição/remoção de um grupo de licenças ou adicionar/remover usuários do grupo, podem levar muito tempo para serem processadas. Se você observar que suas alterações estão demorando mais do que 24 horas para serem processadas, por favor, [abra um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que possamos investigar. Nós melhoraremos as características de desempenho desse recurso antes de atingir a *Disponibilidade geral*.
 
 - A automação de gerenciamento de licença não reage automaticamente a todos os tipos de alteração no ambiente. Por exemplo, você pode ficar sem licenças, colocando alguns usuários em um estado de erro. Para liberar a contagem de estações disponíveis, você pode remover algumas licenças atribuídas diretamente de outros usuários. No entanto, o sistema não reage automaticamente a essa alteração e corrige os usuários nesse estado de erro.
 

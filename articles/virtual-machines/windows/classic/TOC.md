@@ -3,11 +3,11 @@
 ## [Discos e VHDs](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Redes Virtuais](../../../virtual-network/virtual-networks-overview.md)
 ## [Perguntas frequentes](faq.md)
-## [Comparar VMs, sites e serviços de nuvem](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Comparar VMs, sites e serviços de nuvem](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Contêineres](../../virtual-machines-windows-containers.md)
 
 # Introdução
-## [Criar uma VM usando o portal](tutorial.md)
+## [Criar uma VM usando o Portal do Azure](tutorial.md)
 ## [Fazer logon em uma VM](connect-logon.md)
 ## [Instale o Azure PowerShell](/powershell/azure/overview)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Anexar um disco rígido virtual para solucionar problemas da VM](troubleshoot-recovery-disks-portal.md)
 
 # Referência
-## [PowerShell](/powershell/azure/overview)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

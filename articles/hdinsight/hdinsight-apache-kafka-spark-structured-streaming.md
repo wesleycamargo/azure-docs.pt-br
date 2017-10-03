@@ -12,16 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Use o Streaming Estruturado do Spark com o Kafka (versão prévia) no HDInsight
 
 Saiba como usar o Streaming Estruturado do Spark para ler dados do Apache Kafka no Azure HDInsight.
@@ -61,7 +60,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     > [!IMPORTANT]
     > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
 
-2. Use as seguintes informações para preencher as entradas na folha de **Implantação personalizada** :
+2. Use as seguintes informações para preencher as entradas na seção **Implantação personalizada**:
    
     ![Implantação personalizada do HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -83,16 +82,16 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
 
-Depois que os recursos tiverem sido criados, você será redirecionado para a folha do grupo de recursos.
+Depois que os recursos tiverem sido criados, uma página de resumo será exibida.
 
-![Folha do grupo de recursos para rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Informações de grupo de recursos para a VNet e os clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Observe que os nomes dos clusters HDInsight são **spark-BASENAME** e **kafka-BASENAME**, em que BASENAME é o nome fornecido para o modelo. Você usa esses nomes em etapas posteriores ao se conectar aos clusters.
 
 ## <a name="get-the-kafka-brokers"></a>Obter os agentes de Kafka
 
-O código neste exemplo conecta-se aos hosts de agente Kafka no cluster Kafka. Para localizar os hosts de agente Kafka, use o exemplo do PowerShell ou Bash a seguir:
+O código neste exemplo conecta-se aos hosts de agente Kafka no cluster do Kafka. Para localizar os endereço dos dois hosts de agente Kafka, use o exemplo do PowerShell ou Bash a seguir:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -100,22 +99,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+Quando solicitado, insira a senha para a conta de logon do cluster (admin)
+
 > [!NOTE]
-> Este exemplo espera `$PASSWORD` para conter a senha para o logon de cluster e `$CLUSTERNAME` para conter o nome do cluster Kafka.
+> Este exemplo espera `$CLUSTERNAME` para conter o nome do cluster Kafka.
 >
 > Este exemplo usa o utilitário [jq](https://stedolan.github.io/jq/) para analisar dados fora do documento JSON.
 
 A saída é semelhante ao texto a seguir:
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 Salve essas informações, pois elas são usadas nas diversas etapas deste documento.
 
@@ -141,7 +142,7 @@ Use as etapas a seguir para carregar os blocos de anotações do projeto para o 
 
 3. Localize a entrada __Stream-Tweets-To_Kafka.ipynb__ na lista de blocos de anotações e selecione o botão __Carregar__ ao lado dela.
 
-    ![Use o botão Carregar ao lado da entrada KafkaStreaming.ipynb para carregá-la para o servidor de notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![Para carregar o notebook, use o botão carregar da entrada KafkaStreaming.ipynb](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. Repita as etapas de 1 a 3 para carregar o bloco de anotações __Spark-Structured-Streaming-From-Kafka.ipynb__.
 

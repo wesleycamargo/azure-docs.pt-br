@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: pt-br
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
@@ -55,8 +55,8 @@ Se você estiver pronto, comece com o Azure AD SSPR usando nosso [guia de iníci
 
 A redefinição de senha por autoatendimento do Azure AD está disponível em três camadas, dependendo de sua assinatura.
 
-* **Azure AD Gratuito**: os administradores somente de nuvem podem redefinir suas próprias senhas
-* **Azure AD Básico** ou qualquer **assinatura paga do O365**: usuários somente de nuvem e administradores somente de nuvem podem redefinir suas próprias senhas
+* **Azure AD Gratuito**: os administradores somente de nuvem podem redefinir suas próprias senhas.
+* **Azure AD Básico** ou qualquer **assinatura paga do O365**: usuários somente de nuvem podem alterar suas próprias senhas e administradores somente de nuvem podem redefinir suas próprias senhas.
 * **Azure AD Premium**: qualquer usuário ou administrador, incluindo somente nuvem, federado ou usuários com sincronização de senha, pode redefinir sua própria senha. As senhas locais exigem a habilitação do write-back de senha.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Redefinição de senha por autoatendimento do Azure AD, uma soma das partes

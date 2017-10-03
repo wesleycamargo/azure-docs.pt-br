@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -28,7 +28,7 @@ Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quis
 
 ![Modelo funcional da Grade de Eventos](./media/overview/event-grid-functional-model.png)
 
-Atualmente, o Armazenamento de Blobs não está disponível publicamente como um publicador.
+Atualmente, o Armazenamento de Blobs não está disponível publicamente como um publicador. Você deve se registrar para a versão prévia para reagir a eventos de armazenamento de blob. Para obter mais informações, consulte [Encaminhar eventos do Armazenamento de Blobs para um ponto de extremidade da Web personalizado (versão prévia)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>Conceitos
 
@@ -78,6 +78,7 @@ No momento, os seguintes serviços do Azure têm suporte interno ao manipulador 
 * Aplicativos Lógicos
 * Automação do Azure
 * WebHooks
+* Microsoft Flow
 
 Outros serviços do Azure serão adicionados neste ano.
 
@@ -119,7 +120,11 @@ A Grade de Eventos custa US $0,60 por milhão de operações (US $0,30 durante a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar e assinar eventos personalizados](custom-event-quickstart.md) comece imediatamente a enviar seus próprios eventos personalizados para qualquer ponto de extremidade usando o início rápido da Grade de Eventos do Azure.
-* [Usar Aplicativos Lógicos como um Manipulador de Eventos](monitor-virtual-machine-changes-event-grid-logic-app.md) Um tutorial sobre como compilar um aplicativo usando os Aplicativos Lógicos para reagir a eventos enviados pela Grade de Eventos.
+* [Criar e assinar eventos personalizados](custom-event-quickstart.md)  
+  Comece imediatamente a enviar seus próprios eventos personalizados para qualquer ponto de extremidade usando o início rápido da Grade de Eventos do Azure.
+* [Usando Aplicativos Lógicos como um Manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Um tutorial sobre como compilar um aplicativo usando os Aplicativos Lógicos para reagir a eventos enviados por push pela Grade de Eventos.
+* [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)  
+  Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o SQL Data Warehouse.
 * [Referência da API REST da Grade de Eventos](/rest/api/eventgrid)  
   Fornece mais informações técnicas sobre a Grade de Eventos do Azure e uma referência para o gerenciamento de assinaturas, roteamento e filtragem de Evento.

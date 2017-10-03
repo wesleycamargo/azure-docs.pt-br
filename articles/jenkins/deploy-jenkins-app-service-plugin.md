@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: dfb1abd4eefdb2baea8cdbd497bc8fcc95d200e6
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd4e629e522fb9acea5601be8eac7c70ae61d042
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -76,7 +76,7 @@ Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço
 
 
 1. Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando a CLI de comando [az appservice plan create](/cli/azure/appservice/plan#create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos.
-2. Crie um aplicativo Web. Você pode usar o [Portal do Azure](/azure/app-service-web/web-sites-configure) ou use o seguinte comando da CLI do Azure:
+2. Crie um aplicativo Web. Você pode usar o [Portal do Azure](/azure/app-service/web-sites-configure) ou use o seguinte comando da CLI do Azure:
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
@@ -142,7 +142,7 @@ O aplicativo Web no Linux também dá suporte a modos tradicionais, como Git e F
 
 Antes de configurar o trabalho no Jenkins, você precisa de um Serviço de Aplicativo do Azure no Linux. Um registro de contêiner também é necessário para armazenar e gerenciar suas imagens privadas de contêiner Docker. Você pode usar o DockerHub; estamos usando o Registro de Contêiner do Azure para este exemplo.
 
-* Você pode seguir as etapas [aqui](/azure/app-service-web/app-service-linux-how-to-create-web-app) para criar um aplicativo Web no Linux 
+* Você pode seguir as etapas [aqui](../app-service/containers/quickstart-nodejs.md) para criar um aplicativo Web no Linux 
 * O Registro de Contêiner do Azure é um serviço gerenciado de [registro do Docker] (https://docs.docker.com/registry/) com base no software livre Docker Registry 2.0. Siga as etapas [aqui] (/azure/container-registry/container-registry-get-started-azure-cli) para mais diretrizes sobre como fazer isso. Você também pode usar o DockerHub.
 
 ### <a name="to-deploy-using-docker"></a>Para implantar usando o docker:

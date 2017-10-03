@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - Fazer o backup de máquinas virtuais
       href: tutorial-backup-vms.md
-    - name: 10 - Monitorar máquinas virtuais
+    - name: 10 – Monitorar e atualizar VMs
       href: tutorial-monitoring.md
     - name: 11 - Gerenciar a segurança da VM
       href: tutorial-azure-security.md
@@ -49,56 +49,33 @@
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: Gerenciador de Recursos do Azure
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Regiões e disponibilidade
       href: regions-and-availability.md
+    - name: Tamanhos e tipos de VM
+      href: sizes.md
+    - name: Manutenção e atualizações
+      href: maintenance-and-updates.md
     - name: Armazenamento
       href: about-disks-and-vhds.md
     - name: Rede
       href: network-overview.md
-    - name: Conjuntos de Dimensionamento da VM
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Contêineres
-      href: containers.md
-    - name: Gerenciador de Recursos
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: Modelos de implantação
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Modelos para VMs
-          href: template-description.md
-    - name: Agente do Windows Azure
-      href: agent-user-guide.md
-    - name: Central de Segurança do Azure
-      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Recuperação de desastre
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Manutenção planejada
-      href: planned-maintenance.md
-    - name: Tamanhos de VM
-      href: sizes.md
-      items:
-        - name: Propósito geral
-          href: sizes-general.md
-        - name: Otimizado para computação
-          href: sizes-compute.md
-        - name: Otimizado para memória
-          href: sizes-memory.md
-        - name: Otimizado para armazenamento
-          href: sizes-storage.md
-        - name: GPU otimizada
-          href: sizes-gpu.md
-          items:
-            - name: Drivers de GPU
-              href: n-series-driver-setup.md
-        - name: Computação de alto desempenho
-          href: sizes-hpc.md
-        - name: ACU (Unidades de computação do Azure)
-          href: acu.md
-        - name: Calcular pontuações de parâmetro de comparação
-          href: compute-benchmark-scores.md
+    - name: Aplicativos de dimensionamento automático
+      href: autoscale.md
+    - name: Automação de infraestrutura
+      href: infrastructure-automation.md
+    - name: Segurança e política
+      href: security-policy.md
+    - name: Monitoramento
+      href: monitor.md
+    - name: Backup e recuperação
+      href: backup-recovery.md
+    - name: Computação de alto desempenho
+      href: high-performance-computing.md
     - name: Considerações de implantação
       items:
-        - name: Exemplo de implantação básica
+        - name: Diretrizes de infraestrutura
           href: infrastructure-example.md
 - name: Guias de instruções
   items:
@@ -154,6 +131,8 @@
           href: download-template.md
         - name: Agente de VM do Azure
           href: agent-user-guide.md
+        - name: Manutenção planejada
+          href: maintenance-notifications.md
         - name: Eventos agendados
           href: scheduled-events.md
         - name: Monitorizar metadados
@@ -184,6 +163,12 @@
           href: manage-availability.md
         - name: Como dimensionar verticalmente
           href: vertical-scaling-automation.md
+        - name: Criar VM em zona de disponibilidade
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portal
+              href: create-portal-availability-zone.md
     - name: Como usar as ferramentas de automação
       items:
         - name: Chef
@@ -191,7 +176,7 @@
     - name: Executar aplicativos
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP no Azure
@@ -363,7 +348,7 @@
   items:
     - name: CLI do Azure
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -68,7 +68,7 @@ Antes do upgrade, ao selecionar um valor em um gráfico, ele retornava uma lista
 ## <a name="log-search-api"></a>API da Pesquisa de Log
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Pergunta: a API da Pesquisa de Logs é atualizada após o upgrade?
-A [API da Pesquisa de Logs](log-analytics-log-search-api.md) ainda não foi atualizada para a nova linguagem de pesquisa.  Continue usando a linguagem de consulta herdada com essa API, mesmo depois de fazer upgrade do espaço de trabalho.  A documentação atualizada estará disponível para a API da Pesquisa de Logs quando ela for atualizada.
+A [API de pesquisa de Logs](log-analytics-log-search-api.md) herdada deixará de funcionar quando você tiver atualizado seu espaço de trabalho.  Consulte [API REST do Azure Log Analytics](https://dev.loganalytics.io/) para obter detalhes sobre a nova API.
 
 
 ## <a name="portals"></a>Portais
@@ -130,6 +130,9 @@ A [solução Integridade do Dispositivo](https://docs.microsoft.com/windows/depl
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
 Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.
+
+### <a name="known-issue-backup-solution"></a>Problema conhecido: solução de backup
+A solução de backup não coletará dados em um espaço de trabalho atualizado. Uma nova solução de backup que funciona com o espaço de trabalho atualizado será anunciada em breve.
 
 ## <a name="upgrade-process"></a>Processo de atualização
 

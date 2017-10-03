@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 8496bd61d0133a428ce8e522faef5b538f19d4fc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -44,13 +44,14 @@ Para criar uma regra de balanceador de carga, você precisa coletar as seguintes
 - Porta interna.
 
 ## <a name="azure-cli"></a>CLI do Azure
+É preciso apenas um único comando para criar uma regra de balanceador de carga com a **CLI do Azure**. Você só precisa saber o nome do balanceador de carga e do grupo de recursos para criar uma nova regra.
+
 >[!NOTE]
 >Se precisar determinar o nome do balanceador de carga, use esse comando para obter rapidamente uma lista de todos os balanceadores de carga e os grupos de recursos associados.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-É preciso apenas um único comando para criar uma regra de balanceador de carga com a **CLI do Azure**. Você só precisa saber o nome do balanceador de carga e do grupo de recursos para criar uma nova regra.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -64,7 +65,7 @@ O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte 
 | `--frontend-port` | A porta que o balanceador de carga expõe para conexões externas. |
 | `-lb-name` | O nome do balanceador de carga a ser alterado. |
 | `-g`       | O grupo de recursos que tem o cluster do Service Fabric e do balanceador de carga. |
-| `-n`       | O nome escolhido da regra. |
+| `-n`       | O nome desejado da regra. |
 
 
 >[!NOTE]
@@ -72,17 +73,17 @@ O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte 
 
 ## <a name="powershell"></a>PowerShell
 
->[!NOTE]
->Se precisar determinar o nome do balanceador de carga, use esse comando para obter rapidamente uma lista de todos os balanceadores de carga e os grupos de recursos associados.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-O PowerShell é um pouco mais complicado do que a CLI do Azure. Conceitualmente, execute as etapas a seguir para criar uma regra.
+O PowerShell é um pouco mais complicado do que a CLI do Azure. Siga estas etapas conceituais para criar uma regra:
 
 1. Obtenha o balanceador de carga do Azure.
 2. Criar uma regra.
 3. Adicione a regra ao balanceador de carga.
 4. Atualize o balanceador de carga.
+
+>[!NOTE]
+>Se precisar determinar o nome do balanceador de carga, use esse comando para obter rapidamente uma lista de todos os balanceadores de carga e os grupos de recursos associados.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -106,4 +107,6 @@ Em relação ao comando `New-AzureRmLoadBalancerRuleConfig`, o `-FrontendPort` r
 >[!NOTE]
 >Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
+## <a name="next-steps"></a>Próximas etapas
 
+Saiba mais sobre [rede no Service Fabric](service-fabric-patterns-networking.md).

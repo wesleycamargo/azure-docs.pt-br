@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para o acesso condicional no Azure Active Directory
@@ -98,28 +98,90 @@ Em seu ambiente, evite as configurações a seguir:
 - **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
 
 
-## <a name="common-scenarios"></a>Cenários comuns
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Exibir a autenticação multifator para aplicativos
+## <a name="policy-migration"></a>Migração de política
 
-Muitos ambientes têm aplicativos que exigem um nível mais alto de proteção do que outros.
-Isso é, por exemplo, o caso para aplicativos que têm acesso a dados confidenciais.
-Se você quiser adicionar outra camada de proteção para esses aplicativos, poderá configurar uma política de acesso condicional que exija a autenticação multifator quando os usuários acessarem esses aplicativos.
+Se você tiver políticas configuradas no Portal Clássico do Azure, você deverá migrá-las para o Portal do Azure porque:
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exigir autenticação multifator para acesso de redes que não são confiáveis
+- Um usuário que está em uma política do Portal Clássico do Azure e em uma política do Portal do Azure precisa atender aos requisitos em ambas as políticas 
 
-Esse cenário é semelhante ao cenário anterior porque adiciona um requisito para a autenticação multifator.
-No entanto, a principal diferença é a condição para esse requisito.  
-Embora o foco do cenário anterior fosse aplicativos com acesso a dados confidenciais, o foco deste cenário é em locais confiáveis.  
-Em outras palavras, você pode ter um requisito para autenticação multifator se um aplicativo for acessado por um usuário de uma rede em que você não confia.
+- Se você não migrar as políticas existentes, não será capaz de implementar políticas que estejam concedendo acesso
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Somente os dispositivos confiáveis podem acessar os serviços do Office 365
+### <a name="migration-from-the-azure-classic-portal"></a>Migração do Portal Clássico do Azure
 
-Se você estiver usando o Intune em seu ambiente, poderá começar imediatamente usando a interface de política de acesso condicional no console do Azure.
+Neste cenário: 
 
-Muitos clientes do Intune estão usando o acesso condicional para garantir que somente os dispositivos confiáveis possam acessar os serviços do Office 365. Isso significa que os dispositivos móveis estão registrados no Intune e atendem aos requisitos da política de conformidade e que os computadores com Windows fazem parte de um domínio local. Uma melhoria-chave é que você não precisa definir a mesma política para cada um dos serviços do Office 365.  Quando você criar uma nova política, configure os aplicativos de nuvem para incluir cada um dos aplicativos do O365 que você deseja proteger com o acesso condicional.
+- No seu [Portal Clássico do Azure](https://manage.windowsazure.com), você configurou:
+
+    - SharePoint Online
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Uma política de acesso condicional com base em dispositivo
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Você deseja configurar uma política de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure 
+ 
+
+#### <a name="configuration"></a>Configuração 
+
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Adicionar políticas de acesso condicional de gerenciamento de aplicativos móveis
+
+
+### <a name="migrating-from-intune"></a>Migrando do Intune 
+
+Neste cenário:
+
+- No [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), você tem uma política de acesso condicional de gerenciamento de aplicativos móveis para o Exchange Online ou para o SharePoint Online configurada
+
+    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Você deseja migrar para o uso de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
+
+
+#### <a name="configuration"></a>Configuração 
+ 
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Examinar as políticas de acesso condicional de gerenciamento de aplicativos móveis configuradas para o Exchange Online ou para o SharePoint Online no Intune
+
+- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrando do Portal Clássico do Azure e do Intune
+
+Neste cenário:
+
+- Você tem os seguintes itens configurados:
+
+    - **Portal Clássico do Azure:** condicional com base no dispositivo 
+
+    - **Intune:** políticas de acesso condicional de gerenciamento de aplicativos móveis 
+    
+- Você deseja migrar ambas as políticas para o uso de políticas de acesso condicional de gerenciamento de aplicativos móveis no Portal do Azure
+
+
+#### <a name="configuration"></a>Configuração
+
+- Examinar as políticas de acesso condicional com base no dispositivo
+
+- Migrá-las para o Portal do Azure 
+
+- Examinar a política de acesso condicional de gerenciamento de aplicativos móveis configurada para o Exchange Online ou para o SharePoint Online no Intune
+
+- Adicionar o controle para **Exigir aplicativos aprovados** além do controle baseado em dispositivo 
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar o ReportViewer em um site da Web hospedado no Azure
@@ -79,7 +78,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base em máquina virtual do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar o aplicativo Web ASP.NET no Azure
-Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure, confira [Como migrar e publicar um aplicativo Web no Azure por meio do Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure, confira [Como migrar e publicar um aplicativo Web no Azure por meio do Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Se o comando Adicionar Projeto de Implantação do Azure ou Adicionar Projeto de Serviço de Nuvem do Azure não aparecer no menu de atalho do Gerenciador de Soluções, talvez seja necessário alterar a estrutura de destino do projeto para o .NET Framework 4.

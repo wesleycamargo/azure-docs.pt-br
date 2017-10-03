@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: Criar Banco de dados - CLI do Azure
       href: sql-database-get-started-cli.md
-    - name: Criar Banco de dados - PowerShell
+    - name: Criar Banco de dados – Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Conectar e consultar
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: CLI do Azure
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Conceitos
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Regras de firewall
           href: sql-database-firewall-configure.md
+        - name: Regras de rede virtual do firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTUs e eDTUs
           href: sql-database-what-is-a-dtu.md
         - name: Parâmetro de comparação de DTU
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Trabalhos elásticos
           href: sql-database-elastic-jobs-overview.md
+        - name: Avaliação de vulnerabilidade do SQL
+          href: sql-vulnerability-assessment.md
         - name: Recursos comuns do SQL Server
           href: sql-database-features.md
     - name: Segurança
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Ajuste automático
           href: sql-database-automatic-tuning.md
+        - name: Insights Inteligentes
+          href: sql-database-intelligent-insights.md
+        - name: Log de diagnóstico dos Insights Inteligentes
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Ajuste manual
           href: sql-database-performance-guidance.md
         - name: Operar repositório de consultas
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: Criar trabalho - Portal
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Criar trabalho - PowerShell
+        - name: Criar trabalho – Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: Criar trabalho - Aplicativo de exemplo
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,24 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Configurar autenticação multifator
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Regras de rede virtual pelo PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuidade dos negócios
-      items:
-        - name: Configurar o cofre - backups
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Replicação geográfica - Portal
-          href: sql-database-geo-replication-portal.md
-        - name: Replicação geográfica - T-SQL - Configurar
-          href: sql-database-geo-replication-transact-sql.md
-        - name: Replicação geográfica - T-SQL - Failover
-          href: sql-database-geo-replication-failover-transact-sql.md
-        - name: Recuperar uma tabela única
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Carregar e mover dados
       items:
         - name: Carregar dados com o BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Carregar dados com o ADF
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Sincronizar dados
           href: sql-database-get-started-sql-data-sync.md
     - name: Monitorar e ajustar
@@ -285,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Habilitar o ajuste automático
           href: sql-database-automatic-tuning-enable.md
+        - name: Solução de problemas de desempenho dos Insights Inteligentes
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Usar DMVs para monitorar o desempenho
           href: sql-database-monitoring-with-dmvs.md
         - name: Criar alertas
@@ -299,8 +299,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Automação do Azure
           href: sql-database-manage-automation.md
-        - name: RemoteApp do Azure
-          href: sql-database-ssms-remoteapp.md
     - name: Expansão
       items:
         - name: Criar aplicativo fragmentado
@@ -349,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Referência
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (Banco de dados Elástico)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

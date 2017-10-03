@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)
@@ -42,7 +42,7 @@ O Kafka fornece as seguintes funcionalidades:
 
 * Integração com os Azure Managed Disks: os discos gerenciados fornecem maior escala e taxa de transferência para os discos usados pelas máquinas virtuais no cluster HDInsight.
 
-    Os discos gerenciados são habilitados por padrão para o Kafka no HDInsight e o número de discos usados por nó pode ser configurado durante a criação do HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Os discos gerenciados são habilitados por padrão para Kafka no HDInsight. O número de discos usados por nó pode ser configurado durante a criação de HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Para saber mais sobre como configurar discos gerenciados com o Kafka no HDInsight, veja [Aumentar a escalabilidade do Kafka no HDInsight](hdinsight-apache-kafka-scalability.md).
 
@@ -55,6 +55,15 @@ O Kafka fornece as seguintes funcionalidades:
 * **Agregação**: usando processamento de fluxo, você pode agregar informações de fluxos diferentes para combinar e centralizar as informações em dados operacionais.
 
 * **Transformação**: usando processamento de fluxo, você pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.
+
+## <a name="architecture"></a>Arquitetura
+
+![Configuração do cluster Kafka](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Este diagrama mostra uma configuração típica de Kafka que usa grupos de consumidores, particionamento e a replicação oferece leitura paralela de eventos com tolerância a falhas. O Apache ZooKeeper é criado para transações simultâneas, flexíveis e de baixa latência, já que ele gerencia o estado do cluster Kafka. O Kafka armazena registros em *tópicos*. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores recuperam registros de *agentes* do Kafka. Cada nó de trabalho no cluster HDInsight é um agente do Kafka. Uma partição é criada para cada consumidor, permitindo que o processamento paralelo de fluxo de dados. A replicação é utilizada para distribuir as partições entre os nós, protegendo contra falhas de nó (agente). Uma partição marcada com um *(L)* é líder para determinada partição. O produtor tráfego é roteado para o preenchimento de cada nó, usando o estado gerenciado pelo ZooKeeper.
+
+> [!IMPORTANT]
+> O Kafka não está ciente do hardware subjacente (rack) no data center do Azure. Para garantir que partições sejam balanceadas corretamente do hardware subjacente, veja [configurar a alta disponibilidade de dados (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

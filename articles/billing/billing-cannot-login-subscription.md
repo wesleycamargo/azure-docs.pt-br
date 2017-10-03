@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/21/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f67be9b59ab42e10c4cd755998795a72b711da6
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9bed14975ea54c44876fd604f1fc04ca2c2a264f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>Não consigo entrar para gerenciar minha assinatura do Azure
@@ -30,22 +30,26 @@ Se a página do navegador da Internet parar, experimente cada uma das etapas a s
 
 * Atualize a página.
 * Use um navegador de Internet diferente.
-* Se você estiver usando o Microsoft Internet Explorer, navegue até o portal do Azure usando o modo de Navegação InPrivate. 
-  
-  R. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
-  
+* Use o modo de navegação privada do seu navegador. Para o Internet Explorer: A. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
   B. Navegue até o [portal do Azure](https://portal.azure.com)e entre no portal.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Você está automaticamente conectado como um usuário diferente
+
 Esse problema poderá ocorrer se você estiver usando mais de uma conta de usuário em um navegador da Internet.
 
 Para resolver o problema, tente usar um dos seguintes métodos:
 
 * Limpe o cache e exclua cookies da Internet. No Internet Explorer, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opções da Internet** > **Excluir**. Verifique se as caixas de seleção dos arquivos temporários, dos cookies, das senha e do histórico de navegação estão marcadas e clique em Excluir.
 * Redefina as configurações do Internet Explorer para reverter todas as configurações pessoais que você tenha feito. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opções da Internet** > **Avançado** > selecione a caixa **Excluir configurações pessoais** > **Redefinir**.
-* Navegue até o portal do Azure no modo de Navegação InPrivate. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
+* Use o modo de navegação privada do seu navegador. Para o Internet Explorer: A. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
+  B. Navegue até o [portal do Azure](https://portal.azure.com)e entre no portal.
+
+## <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Consigo entrar, mas vejo “Nenhuma assinatura encontrada”
+
+Para resolver esse problema, consulte [Erro “Nenhuma assinatura encontrada” no Portal do Azure ou no Centro de Contas](billing-no-subscriptions-found.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+
 Se ainda tiver dúvidas, [entre em contato com o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente. 
 
 

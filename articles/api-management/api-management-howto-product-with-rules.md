@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
@@ -148,7 +148,7 @@ Para configurar a política **Definir cota de uso por assinatura**, posicione se
 </quota>
 ```
 
-Assim como a política **Definir cota de uso por assinatura**, a política **Definir cota de uso por assinatura** permite a definição de limites para em operações e APIs do produto. Neste tutorial, não usaremos esse recurso, por isso, exclua os elementos **api** e **operation** do elemento **quota**, como mostra o exemplo a seguir.
+Assim como a política **Limitar taxa de chamada por assinatura**, a política **Definir cota de uso por assinatura** permite a definição de limites para em operações e APIs do produto. Neste tutorial, não usaremos esse recurso, por isso, exclua os elementos **api** e **operation** do elemento **quota**, como mostra o exemplo a seguir.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

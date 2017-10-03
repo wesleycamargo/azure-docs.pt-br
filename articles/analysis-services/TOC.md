@@ -8,7 +8,7 @@
 
 # Introdução
 ## [Criar um servidor no portal do Azure](analysis-services-create-server.md)
-## [Criar um servidor com o PowerShell](analysis-services-create-powershell.md)
+## [Criar um servidor com o Azure PowerShell](analysis-services-create-powershell.md)
 ## [Implantar um modelo no Visual Studio](analysis-services-deploy.md)
 ## [Criar um modelo no portal do Azure (versão prévia)](analysis-services-create-model-portal.md)
 
@@ -16,6 +16,7 @@
 ## [Gerenciar um servidor](analysis-services-manage.md)
 ## [Gerenciar usuários de banco de dados](analysis-services-database-users.md)
 ## [Gerenciar administradores de servidor](analysis-services-server-admins.md)
+## [Monitorar métricas do servidor](analysis-services-monitor.md)
 ## [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)
 ## [Obter bibliotecas de cliente](analysis-services-data-providers.md)
 ## [Backup e restauração](analysis-services-backup.md)
@@ -42,7 +43,7 @@
 ### [Lição suplementar - hierarquias desbalanceadas](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referência
-## [PowerShell](analysis-services-powershell.md)
+## [PowerShell do Azure](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

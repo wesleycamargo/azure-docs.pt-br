@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
@@ -33,7 +34,7 @@ Esta é a arquitetura geral da solução (generalizado com vários aplicativos m
 ## <a name="architecture"></a>Arquitetura
 ![][1]
 
-A parte mais importante neste diagrama de arquitetura é o Barramento de Serviço do Azure que fornece um modelo de programação de tópicos/assinaturas (falaremos mais sobre isso em [Programação Pub/Sub do Barramento de Serviço]). O receptor, que nesse caso, é o back-end móvel (normalment, [Serviço Móvel do Azure], que iniciará um envio por push para os aplicativos móveis) não recebe mensagens diretamente dos sistemas de back-end, mas em vez disso, temos uma camada de abstração intermediária fornecida pelo [Barramento de Serviço do Azure], que permite que o back-end móvel receba mensagens de um ou mais sistemas de back-end. Um Tópico do Barramento de Serviço precisa ser criada para cada um dos sistemas de back-end, por exemplo, Conta, RH, Finanças, que são basicamente "tópicos" de interesse que iniciarão o envio de mensagens como notificação por push. Os sistemas de back-end enviarão mensagens para esses tópicos. Um Back-end Móvel pode assinar um ou mais tópicos criando uma assinatura do Barramento de Serviço. Isso permitirá que o back-end móvel receba uma notificação do sistema de back-end correspondente. O back-end móvel continua a escutar mensagens em suas assinaturas e, assim que uma mensagem chega, ela volta e é enviada como notificação para seu hub de notificação. Os hubs de notificação eventualmente entregam a mensagem para o aplicativo móvel. Portanto, para resumir os principais componentes, nós temos:
+A parte mais importante neste diagrama de arquitetura é o Barramento de Serviço do Azure que fornece um modelo de programação de tópicos/assinaturas (falaremos mais sobre isso em [Programação do Barramento de Serviço Pub/Sub]). O receptor, que nesse caso, é o back-end móvel (normalment, [Serviço Móvel do Azure], que iniciará um envio por push para os aplicativos móveis) não recebe mensagens diretamente dos sistemas de back-end, mas em vez disso, temos uma camada de abstração intermediária fornecida pelo [Barramento de Serviço do Azure], que permite que o back-end móvel receba mensagens de um ou mais sistemas de back-end. Um Tópico do Barramento de Serviço precisa ser criada para cada um dos sistemas de back-end, por exemplo, Conta, RH, Finanças, que são basicamente "tópicos" de interesse que iniciarão o envio de mensagens como notificação por push. Os sistemas de back-end enviarão mensagens para esses tópicos. Um Back-end Móvel pode assinar um ou mais tópicos criando uma assinatura do Barramento de Serviço. Isso permitirá que o back-end móvel receba uma notificação do sistema de back-end correspondente. O back-end móvel continua a escutar mensagens em suas assinaturas e, assim que uma mensagem chega, ela volta e é enviada como notificação para seu hub de notificação. Os hubs de notificação eventualmente entregam a mensagem para o aplicativo móvel. Portanto, para resumir os principais componentes, nós temos:
 
 1. Sistemas de back-end (sistemas de LoB/herdados)
    * Cria um tópico do barramento de serviço
@@ -54,14 +55,14 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 Você deve concluir os tutoriais a seguir para se familiarizar com os conceitos, bem como etapas de criação e configuração comuns:
 
 1. [Programação Pub/Sub do Barramento de Serviço] - explica os detalhes de como trabalhar com Tópicos/Assinaturas do Barramento de Serviço, como criar um namespace para conter tópicos/assinaturas e como enviar e receber mensagens deles.
-2. [Hubs de Notificação - tutorial do Windows Universal] - isso explica como configurar um aplicativo da Windows Store e usar Hubs de Notificação para se registrar e receber notificações.
+2. [Hubs de Notificação - tutorial universal do Windows] - isso explica como configurar um aplicativo da Windows Store e usar Hubs de Notificação para se registrar e receber notificações.
 
 ### <a name="sample-code"></a>Exemplo de código
 O código de exemplo completo está disponível em [Exemplos do Hub de Notificação]. Ele é dividido em três componentes:
 
 1. **EnterprisePushBackendSystem**
    
-    a. Esse projeto usa o pacote *WindowsAzure.ServiceBus* do Nuget e é baseado na [Programação Pub/Sub do Barramento de Serviço].
+    a. Esse projeto usa o pacote *WindowsAzure.ServiceBus* do Nuget e é baseado na [programação do Barramento de Serviço Pub/Sub].
    
     b. Isso é um console de aplicativo em C# simples para simular um sistema LoB que inicia a mensagem a ser entregue ao aplicativo móvel.
    
@@ -124,7 +125,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
         }
 2. **ReceiveAndSendNotification**
    
-    a. Esse projeto usa os pacotes *WindowsAzure.ServiceBus* e *Microsoft.Web.WebJobs.Publish* do Nuget e se baseia na [Programação Pub/Sub do Barramento de Serviço].
+    a. Esse projeto usa os pacotes *WindowsAzure.ServiceBus* e *Microsoft.Web.WebJobs.Publish* do Nuget e se baseia na [Programação do Barramento de Serviço Pub/Sub].
    
     b. Esse é outro console aplicativo em C# que podemos executar como um [Trabalho Web do Azure] porque ele precisa ser executado continuamente para ouvir mensagens dos sistemas LoB/back-end. Isso fará parte do back-end do celular.
    
@@ -261,13 +262,8 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Exemplos do Hub de Notificação]: https://github.com/Azure/azure-notificationhubs-samples
 [Serviço Móvel do Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Barramento de Serviço do Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programação Pub/Sub do Barramento de Serviço]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Trabalho Web do Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[Hubs de Notificação - tutorial do Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Programação do Barramento de Serviço Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Trabalho Web do Azure]: ../app-service/web-sites-create-web-jobs.md
+[Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

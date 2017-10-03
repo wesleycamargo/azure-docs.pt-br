@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
@@ -38,6 +38,8 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="september-14-2017"></a>**14 de setembro de 2017**
+A distribuição do SO convidado de setembro começará no dia 14 de setembro de e tem lançamento previsto para 9 de outubro.
 
 ###### <a name="august-24-2017"></a>**24 de agosto de 2017**
 O SO convidado de agosto foi lançado.
@@ -65,12 +67,6 @@ A distribuição do SO convidado de maio começa dia 12 de maio e está projetad
 
 ###### <a name="april-18-2017"></a>**18 de abril de 2017**
 A distribuição do SO convidado de abril começa dia 18 de abril e está projetada para ser lançada em 9 de maio.
-
-###### <a name="april-10-2017"></a>**10 de abril de 2017**
-A distribuição do SO convidado de março começou em 14 de março de 2017, sendo lançada em 10 de abril de 2017.
-
-###### <a name="january-10-2017"></a>**10 de janeiro de 2017**
-O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (Windows 2008 Server R2). Portanto, lançamos apenas a imagem da Família de Sistemas Operacionais 2 (WA-GUEST-OS-2.59_201701-01) para este mês. Para todas as outras famílias de sistemas operacionais, o sistema operacional de dezembro (201612-01) permanece como a versão mais recente.
 
 
 ## <a name="releases"></a>Lançamentos

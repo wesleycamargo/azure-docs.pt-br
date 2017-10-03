@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Otimização de streaming de mídia por meio da Rede de Distribuição de Conteúdo do Azure 
@@ -61,7 +61,7 @@ Se a Rede de Distribuição de Conteúdo do Azure da Akamai detectar que o ativo
 O tempo de cache negativo curto é útil para descarregamento de origem quando muitos usuários solicitam um fragmento que ainda não existe. Um exemplo é um transmissão ao vivo em que os pacotes não estão disponíveis na origem nesse segundo. O intervalo de cache mais longo também ajuda a descarregar as solicitações da origem, já que o conteúdo de vídeo normalmente não é modificado.
  
 
-|    | Geral<br> web<br>entrega contínua | Geral<br> mídia<br> streaming | Vídeo por demanda <br>mídia<br> streaming  
+|   | Distribuição na Web geral | Streaming de mídia geral | Streaming de mídia de vídeo por demanda  
 --- | --- | --- | ---
 Cache: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
 Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo

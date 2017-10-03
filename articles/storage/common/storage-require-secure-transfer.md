@@ -15,10 +15,10 @@ ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc5b7fc79869c632db96958f17aaf953a5fd3b19
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 96c641672ce6515fad3abc3fc0b8a6af037de346
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="require-secure-transfer"></a>Requer transferência segura
@@ -53,15 +53,15 @@ Você pode habilitar a "Transferência segura obrigatória" configurando ambos a
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>Habilitar "Transferência segura obrigatória" Programaticamente
 
-O nome da configuração é _supportsHttpsTrafficOnly_ nas propriedades da conta de armazenamento. Você pode habilitar a configuração "Transferência segura obrigatória" com a API REST, ferramentas ou bibliotecas:
+O nome da configuração é _supportsHttpsTrafficOnly_ nas propriedades da conta de armazenamento. Você pode habilitá-lo com a API REST, ferramentas ou bibliotecas:
 
-* **API REST** (Versão: 2016-12-01): [pacote de lançamento](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)
-* **PowerShell** (Versão: 4.1.0): [pacote de lançamento](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
-* **CLI** (Versão: 2.0.11): [pacote de lançamento](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)
-* **NodeJS** (Versão: 1.1.0): [pacote de lançamento](https://www.npmjs.com/package/azure-arm-storage/)
-* **SDK do .NET SDK** (Versão: 6.3.0): [pacote de lançamento](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)
-* **SDK do Python** (Versão: 1.1.0): [pacote de lançamento](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)
-* **SDK do Ruby** (Versão: 0.11.0): [pacote de lançamento](https://rubygems.org/gems/azure_mgmt_storage)
+* [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Versão: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Versão: 4.1.0)
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (Versão: 2.0.11)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (Versão: 1.1.0)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (Versão: 6.3.0)
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (Versão: 1.1.0)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (Versão: 0.11.0)
 
 ### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>Habilitar a configuração "Transferência segura obrigatória" com a API REST
 
@@ -79,6 +79,7 @@ Para simplificar o teste com a API REST, você pode usar [ArmClient](https://git
 Em resposta, você pode encontrar a configuração _supportsHttpsTrafficOnly_. Exemplo:
 
 ```Json
+
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
   "kind": "Storage",
@@ -89,24 +90,30 @@ Em resposta, você pode encontrar a configuração _supportsHttpsTrafficOnly_. E
   },
   "type": "Microsoft.Storage/storageAccounts"
 }
+
 ```
 
 Você pode usar a linha de comando abaixo para habilitar a configuração com a API REST:
 
 ```
+
 # Login Azure and proceed with your credentials
 > armclient login
 
 > armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
+
 ```
+
 Exemplo de Input.json:
 ```Json
+
 {
   "location": "westus",
   "properties": {
     "supportsHttpsTrafficOnly": true
   }
 }
+
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

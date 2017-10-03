@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: b0d4615a9b8ab566f69b27e4879b6e2d597b4990
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e46b4bdcf7b55c31afe5e7bc84a1fb95ad98701
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -37,16 +37,9 @@ Um serviço com estado tem algum estado associado a ele. Na malha de serviço, u
 
 Pode haver apenas uma réplica Primária, mas pode haver várias réplicas Secundárias Ativas. O número de réplicas Secundárias Ativas é configurável e um número maior de réplicas pode tolerar um número maior de falhas simultâneas de hardware e de software.
 
-Se uma réplica Primária falhar, o Service Fabric torna uma das réplicas Secundárias Ativas a nova réplica Primária. Essa réplica Secundária Ativa já tem a versão atualizada do estado (via *replicação*) e pode continuar processando operações de leitura e de gravação posteriores.
+Se uma réplica Primária falhar, o Service Fabric torna uma das réplicas Secundárias Ativas a nova réplica Primária. Essa réplica Secundária Ativa já tem a versão atualizada do estado (via *replicação*) e pode continuar processando operações de leitura e de gravação posteriores. Esse processo é conhecido como reconfiguração e é descrito mais detalhadamente em [Reconfiguração](service-fabric-concepts-reconfiguration.md).
 
-Esse conceito de réplica Primária ou Secundária Ativa é conhecido como Função de Réplica.
-
-### <a name="replica-roles"></a>Funções de réplica
-A função de uma réplica é usada para gerenciar o ciclo de vida do estado que está sendo gerenciado por essa réplica. Uma réplica cuja função é Primária atende a solicitações de leitura. A Primária também trata de todas as solicitações de leitura atualizando seu estado e replicando as alterações. Essas alterações são aplicadas nas Secundárias Ativas no conjunto de réplicas. O trabalho de uma Secundária Ativa é receber alterações de estado que a Primária replicou e atualizar a respectiva exibição do estado.
-
-> [!NOTE]
-> Os modelos de programação de nível mais alto, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md), ocultam o conceito de função de réplica do desenvolvedor. Em Actors, a noção de função é desnecessária, enquanto em Services, ela é amplamente simplificada para a maioria dos cenários.
->
+Esse conceito de réplica Primária ou Secundária Ativa é conhecido como Função de Réplica. Esses são descritos mais detalhadamente em [Réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:

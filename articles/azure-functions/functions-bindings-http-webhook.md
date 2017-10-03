@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
@@ -202,7 +202,7 @@ Por padrão, todas as rotas de função são prefixadas com *api*. Você também
 
 Para obter informações detalhadas sobre como atualizar o arquivo *host.json* de sua função, consulte [Como atualizar os arquivos de aplicativo de funções](functions-reference.md#fileupdate). 
 
-Para obter informações sobre outras propriedades que você pode configurar no seu arquivo *host.json*, consulte [referência host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Para obter informações sobre outras propriedades que você pode configurar no seu arquivo *host.json*, consulte [referência host.json](functions-host-json.md).
 
 
 <a name="keys"></a>

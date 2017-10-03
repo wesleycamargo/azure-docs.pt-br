@@ -16,7 +16,7 @@
     Configuração|Valor sugerido|Descrição
     ---|---|---
     ID|*Valor exclusivo*|Um nome exclusivo que identifica essa conta do Azure Cosmos DB. Como *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, use uma ID exclusiva mas identificável. A ID pode conter apenas letras minúsculas, números e hifens (-), e deve conter de três a 50 caracteres.
-    API|SQL (DocumentDB)|Nós programaremos a [API do DocumentDB](../articles/documentdb/documentdb-introduction.md) posteriormente neste artigo.|
+    API|SQL (DocumentDB)|Nós programaremos a [API do DocumentDB](../articles/cosmos-db/documentdb-introduction.md) posteriormente neste artigo.|
     Assinatura|*Sua assinatura*|A assinatura do Azure que você deseja usar para essa conta do Azure Cosmos DB. 
     Grupo de recursos|*O mesmo valor que a ID*|O novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual à sua ID. 
     Local|*A região mais próxima de seus usuários*|A localização geográfica na qual hospedar a sua conta do BD Cosmos do Azure. Escolha o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
@@ -27,5 +27,5 @@
 
 6.  Quando a janela Notificações indicar que a implantação foi bem-sucedida, feche a janela de notificação e abra a nova conta no bloco **Todos os Recursos** no painel. 
 
-    ![Conta do DocumentDB no bloco Todos os Recursos](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![A conta do Azure Cosmos DB no bloco Todos os Recursos](./media/cosmos-db-create-dbaccount/all-resources.png)
  

@@ -27,6 +27,7 @@
 ### [Você já tem o Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Gerenciar o Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renovar certificados para O365 e Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Atualizar o certificado SSL para um farm dos Serviços de Federação do Active Directory (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Habilitar write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opções de entrada do usuário](active-directory-aadconnect-user-signin.md)
 #### [Logon Único Contínuo](active-directory-aadconnect-sso.md)

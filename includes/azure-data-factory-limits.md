@@ -16,7 +16,7 @@ O Data factory é um serviço multilocatário que tem os seguintes limites padr�
 
 <sup>2</sup> Os núcleos sob demanda HDInsight são alocados da assinatura que contém o data factory. Como resultado, o limite acima é o limite de núcleo imposto pelo Data Factory para núcleos HDInsight sob demanda e é diferente do limite de núcleo associado à assinatura do Azure.
 
-<sup>3</sup> A DMU (unidade de movimentação de dados de nuvem) está sendo usada em uma operação de cópia de nuvem para nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Você pode obter uma taxa de transferência de cópia mais alta aproveitando mais DMUs em alguns cenários. Veja a seção [Unidades de movimentação de dados em nuvem](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) para exibir os detalhes.
+<sup>3</sup> A DMU (unidade de movimentação de dados de nuvem) está sendo usada em uma operação de cópia de nuvem para nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Você pode obter uma taxa de transferência de cópia mais alta aproveitando mais DMUs em alguns cenários. Veja a seção [Unidades de movimentação de dados em nuvem](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) para exibir os detalhes.
 
 | **Recurso** | **Limite inferior padrão** | **Limite mínimo** |
 | --- | --- | --- |

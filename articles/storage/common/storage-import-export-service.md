@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 09/14/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5696c99b719fb1c5ca9c3da7dbf23d365cc64a2e
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: d96c2f565e6462716ccf702188bdac03dcde9dce
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/16/2017
 
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de blobs
-O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento de blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento do Azure
+O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
 
 O serviço requer que as unidades de disco rígido sejam criptografadas com BitLocker para a segurança dos seus dados. O serviço oferece suporte às contas de armazenamento Clássica e do Azure Resource Manager (tipo padrão e dinâmico) presentes em todas as regiões do Azure Público. Você deve enviar as unidades de disco rígido para um dos locais com suporte especificados posteriormente neste artigo.
 
@@ -36,7 +36,7 @@ Você pode usar esse serviço em cenários como:
 * Migrando dados para a nuvem: mover grandes quantidades de dados para Azure de forma rápida e econômica.
 * Distribuição de conteúdo: enviar rapidamente dados para seus sites de clientes.
 * Backup: fazer backups dos seus dados locais para guardar no armazenamento de blobs do Azure.
-* Recuperação de dados: recuperar uma grande quantidade de dados guardados no armazenamento de blobs e enviá-los para seu local.
+* Recuperação de dados: recuperar uma grande quantidade de dados guardados no armazenamento e enviá-los para seu local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Nesta seção, listamos os pré-requisitos necessários para usar esse serviço. Examine-os cuidadosamente antes de enviar suas unidades.
@@ -44,11 +44,11 @@ Nesta seção, listamos os pré-requisitos necessários para usar esse serviço.
 ### <a name="storage-account"></a>Conta de armazenamento
 Você deve ter uma assinatura do Azure existente e uma ou mais contas de armazenamento para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
-### <a name="blob-types"></a>Tipos de blob
-Você pode usar o serviço de Importação/Exportação do Azure para copiar os dados para blobs de **Bloco** ou blobs de **Página**. Por outro lado, você pode exportar apenas os blobs de **Bloco**, blobs de **Página** ou blobs de **Acréscimo** do armazenamento do Azure usando esse serviço.
+### <a name="data-types"></a>Tipos de dados
+Você pode usar o serviço de Importação/Exportação do Azure para copiar os dados para blobs de **Bloco** ou blobs de **Página** ou **Arquivos**. Por outro lado, você pode exportar apenas os blobs de **Bloco**, blobs de **Página** ou blobs de **Acréscimo** do armazenamento do Azure usando esse serviço. O serviço não dá suporte à exportação de arquivos do Azure e só pode importar arquivos no armazenamento do Azure.
 
 ### <a name="job"></a>Trabalho
-Para começar o processo de importação para o armazenamento de Blob ou de exportação desse armazenamento, primeiro crie um trabalho, que pode ser um trabalho de importação ou um trabalho de exportação:
+Para começar o processo de importação para o armazenamento ou de exportação desse armazenamento, primeiro crie um trabalho. que pode ser um trabalho de importação ou um trabalho de exportação:
 
 * Crie um trabalho de importação quando desejar transferir dados locais para blobs em sua conta de armazenamento do Azure.
 * Criar um trabalho de exportação quando desejar transferir os dados atualmente armazenados como blobs na conta de armazenamento para unidades de disco rígido que são enviados para você. Quando você criar um trabalho, notifique o serviço de Importação/Exportação que você enviará um ou mais unidades de disco rígido para um data center do Azure.
@@ -154,7 +154,7 @@ Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Az
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Como funciona o serviço de Importação/Exportação do Azure?
-Você pode transferir dados entre o site local e o armazenamento de blobs do Azure usando o serviço de Importação/Exportação do Azure criando trabalhos e enviando as unidades de disco rígido para um data center do Azure. Cada unidade de disco rígido que você enviar estará associada a um único trabalho. Cada trabalho é associado uma única conta de armazenamento. Examine a [seção de pré-requisitos](#pre-requisites) cuidadosamente para conhecer as especificações desse serviço, como tipos de blob, tipos de disco, localizações e envio com suporte.
+Você pode transferir dados entre o site local e o armazenamento do Azure usando o serviço de Importação/Exportação do Azure criando trabalhos e enviando as unidades de disco rígido para um data center do Azure. Cada unidade de disco rígido que você enviar estará associada a um único trabalho. Cada trabalho é associado uma única conta de armazenamento. Examine a [seção de pré-requisitos](#pre-requisites) cuidadosamente para conhecer as especificações desse serviço, como tipos de dados, tipos de disco, localizações e envio com suporte.
 
 Nesta seção, descrevemos em um nível alto, as etapas envolvidas nos trabalhos de importação e exportação. Posteriormente na [seção Início Rápido](#quick-start), fornecemos instruções passo a passo para criar um trabalho de importação e exportação.
 
@@ -162,7 +162,7 @@ Nesta seção, descrevemos em um nível alto, as etapas envolvidas nos trabalhos
 Em um alto nível, um trabalho de importação envolve as seguintes etapas:
 
 * Determine os dados a serem importados e o número de unidades necessárias.
-* Identifique o local do blob de destino para seus dados no Armazenamento de Blobs.
+* Identifique o local do blob ou arquivo de destino para seus dados no Armazenamento do Azure.
 * Use a Ferramenta WAImportExport para copiar seus dados para uma ou mais unidades de disco rígido e criptografá-los com o BitLocker.
 * Crie um trabalho de importação na sua conta de armazenamento de destino usando o Portal do Azure ou a API REST de Importação/Exportação. Se você usar o Portal do Azure, carregue os arquivos de diário da unidade.
 * Forneça o endereço de retorno e o número da conta da transportadora a ser usado para enviar de volta as unidades para você.
@@ -174,6 +174,12 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
     ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>Dentro de um trabalho de exportação
+> [!IMPORTANT]
+79 O serviço só oferece suporte à exportação de Blobs do Azure e não oferece suporte à exportação de arquivos do Azure.
+> 80
+> 
+81
+> 
 Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 
 * Determine os dados a serem exportados e o número de unidades necessárias.
@@ -267,15 +273,22 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
     
     **Arquivo CSV do conjunto de dados**
     
-    Veja abaixo um exemplo de arquivo CSV de conjunto de dados:
+  Abaixo está um exemplo de arquivo CSV de conjunto de dados para importar dados como blobs do Azure:
     
     ```
-    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
-   
-    No exemplo acima, 100M_1.csv.txt será copiado para a raiz do contêiner chamado “containername”. Se o nome do contêiner “containername” não existir, ele será criado. Todos os arquivos e pastas em 50M_original serão copiados recursivamente em containername. A estrutura de pastas será mantida.
+  
+  Abaixo está um exemplo de arquivo CSV de conjunto de dados para importar dados como arquivos do Azure:
+  
+    ```
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
+    ```
+   No exemplo acima, 100M_1.csv.txt será copiado para a raiz do contêiner chamado “containername” ou “fileshare”. Se o nome do contêiner “containername” ou “Fileshare” não existir, ele será criado. Todos os arquivos e pastas em 50M_original serão copiados recursivamente em containername ou fileshare. A estrutura de pastas será mantida.
 
     Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -431,7 +444,7 @@ Leia a seção de perguntas frequentes abaixo, que abrange as perguntas mais com
 
 **Posso copiar o armazenamento de Arquivos do Azure usando o serviço de Importação/Exportação do Azure?**
 
-Não, o serviço de Importação/Exportação do Azure só dá suporte a Blobs de Bloco e Blobs de Página. Não há suporte para todos os outros tipos de armazenamento, incluindo o armazenamento de Arquivos do Azure, o Armazenamento de Tabelas e o Armazenamento de Filas.
+Sim, o serviço de importação/exportação do Azure dá suporte à importação no Armazenamento de Arquivo do Azure. Ele não dá suporte à exportação de Arquivos do Azure no momento.
 
 **O serviço de Importação/Exportação do Azure está disponível para as assinaturas de CSP?**
 

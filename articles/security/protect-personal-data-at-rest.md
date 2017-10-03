@@ -1,4 +1,4 @@
-Cu---title: Azure Proteger dados pessoais em repouso com criptografia | Microsoft Docs description: Este artigo faz parte de uma série de artigos para ajudá-lo a usar o Azure para proteger serviços de dados pessoais: services: segurança documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
+title: Dados pessoais da Proteção do Azure em repouso com criptografia | Microsoft Docs description: Esse artigo é parte de uma série que o ajuda a usar o Azure para proteger serviços de dados pessoais: security documentationcenter: na author: gerente do Barclayn: MBaldwin editor: TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 

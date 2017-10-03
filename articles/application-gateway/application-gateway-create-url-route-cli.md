@@ -1,9 +1,9 @@
 ---
 title: "Criar um Gateway de Aplicativo usando as regras de roteamento de URL – CLI do Azure 2.0 | Microsoft Docs"
-description: "Esta página oferece instruções para criar, configurar um gateway de aplicativo do Azure usando as regras de roteamento de URL"
+description: "Esta página oferece instruções sobre como criar e configurar um gateway de aplicativo usando as regras de roteamento de URL."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -12,36 +12,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 958049830d6753ec26635f18f8f8b2fabdec0733
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="create-an-application-gateway-using-path-based-routing-with-azure-cli-20"></a>Criar um Gateway de Aplicativo usando roteamento com base em caminho com a CLI do Azure 2.0
+# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Criar um Gateway de Aplicativo usando roteamento com base em caminho com a CLI do Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 > * [CLI 2.0 do Azure](application-gateway-create-url-route-cli.md)
 
-O roteamento com base em caminho de URL permite que você associe rotas com base no caminho de URL de uma solicitação Http. Ele verifica se há uma rota para um pool de back-end configurado para a URL apresentada no Gateway de Aplicativo e envia o tráfego de rede para o pool de back-end definido. Um uso comum para o roteamento com base em URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
+Com o roteamento com base em caminho de URL, você associa rotas com base no caminho de URL das solicitações HTTP. Ele verifica se há uma rota para um pool de servidores back-end configurado para a URL listada no gateway de aplicativo e envia o tráfego de rede para o pool definido. Um uso comum para o roteamento com base em caminho de URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
 
-O roteamento com base em URL apresenta um novo tipo de regra ao gateway de aplicativo. O gateway de aplicativo tem dois tipos de regra: básica e PathBasedRouting. O tipo de regra básica fornece o serviço de round robin para os pools de back-end, enquanto o PathBasedRouting também leva em consideração, além de distribuição round robin, o padrão de caminho da URL da solicitação ao escolher o pool de back-end.
+O Gateway de Aplicativo do Azure usa dois tipos de regra: básica e com base no caminho de URL. O tipo de regra básica fornece serviço round robin para os pools de back-end. As regras com base no caminho, além da distribuição round robin, também usam o padrão de caminho da URL de solicitação para escolher o pool de back-ends apropriado.
 
 ## <a name="scenario"></a>Cenário
 
-No exemplo a seguir, o Gateway de Aplicativo está fornecendo o tráfego para contoso.com com dois pools de servidor back-end: o pool de servidores padrão e o pool de servidores de imagem.
+No exemplo a seguir, um gateway de aplicativo fornece o tráfego para contoso.com com dois pools de servidor back-end: o pool de servidores padrão e o pool de servidores de imagem.
 
-Solicitações de http://contoso.com/image* serão roteadas para o pool de servidores de imagem (imagesBackendPool) e, se o padrão de caminho não corresponder, um pool de servidores padrão (appGatewayBackendPool) será selecionado.
+Solicitações para http://contoso.com/image* são roteadas para o pool de servidores de imagem (**imagesBackendPool**). Se o padrão de caminho não corresponder, o gateway de aplicativo selecionará o pool padrão de servidor (**appGatewayBackendPool**).
 
-![roteamento de url](./media/application-gateway-create-url-route-cli/scenario.png)
+![Roteamento de URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Abra o **Prompt de comando do Microsoft Azure**e faça logon. 
+Abra o **Prompt de comando do Microsoft Azure** e entre:
 
 ```azurecli
 az login -u "username"
@@ -50,25 +50,24 @@ az login -u "username"
 > [!NOTE]
 > Você também pode usar `az login` sem a opção de logon de dispositivo que exige a inserção de um código em aka.ms/devicelogin.
 
-Depois de digitar o exemplo anterior, um código será fornecido. Navegue até https://aka.ms/devicelogin em um navegador para continuar o processo de logon.
+Depois de inserir o comando anterior, você receberá um código. Acesse https://aka.ms/devicelogin em um navegador para continuar o processo de entrada.
 
-![cmd mostrando logon de dispositivo][1]
+![Cmd mostrando logon do dispositivo][1]
 
-No navegador, digite o código recebido. Você será redirecionado para uma página de entrada.
+No navegador, digite o código recebido. Isso o redireciona para uma página de entrada.
 
-![navegador para inserir código][2]
+![Navegador para inserir código][2]
 
-Depois que o código foi inserido, você estará conectado. Feche o navegador para continuar com o cenário.
+Insira o código para entrar e, em seguida, feche o navegador para continuar.
 
-![conectado com êxito][3]
+![Conectado com êxito][3]
 
 ## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>Adicionar uma regra com base em caminho a um Gateway de Aplicativo existente
 
-Criar um Gateway de Aplicativo com uma regra com base em caminho definida
-
+As etapas a seguir mostram como adicionar uma regra com base em caminho a um gateway de aplicativo existente.
 ### <a name="create-a-new-back-end-pool"></a>Criar um novo pool de back-end
 
-Defina a configuração de Gateway de Aplicativo **imagesBackendPool** para o tráfego de rede com balanceamento de carga no pool de back-end. Neste exemplo, defina as diferentes configurações de pool de back-end para o novo pool de back-end. Cada pool de back-end pode ter sua própria configuração de pool de back-end.  As configurações HTTP de back-end são usadas pelas regras para rotear o tráfego para os membros do pool de back-end corretos. Isso determina o protocolo e a porta usados ao enviar tráfego para os membros do pool de back-end. As sessões baseadas em cookies também são determinadas pelas configurações HTTP de back-end.  Se habilitada, a afinidade de sessão baseada em cookies envia o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
+Defina a configuração de gateway de aplicativo **imagesBackendPool** para o tráfego de rede com balanceamento de carga no pool de back-end. Neste exemplo, defina as diferentes configurações de pool de back-end para o novo pool de back-end. Cada pool de back-end pode ter sua própria configuração. As regras com base em caminho usam as configurações HTTP de back-end rotear o tráfego para os membros do pool de back-end corretos. Isso determina o protocolo e a porta usados ao enviar tráfego aos membros do pool de back-ends. As configurações de HTTP do back-end também determinam as sessões baseadas em cookies.  Se habilitada, a afinidade de sessão baseada em cookies envia o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -78,9 +77,9 @@ az network application-gateway address-pool create \
 --servers 10.0.0.6 10.0.0.7
 ```
 
-### <a name="create-a-new-front-end-port"></a>Criar uma nova porta de front-end
+### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>Criar uma nova porta de front-end para um gateway de aplicativo
 
-Configure a porta front-end para um gateway de aplicativo. O objeto de configuração de porta front-end é usado por um ouvinte para definir a porta cujo tráfego deve ser ouvido pelo Gateway de Aplicativo.
+O objeto de configuração de porta front-end é usado por um ouvinte para definir a porta cujo tráfego deve ser ouvido pelo gateway de aplicativo.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
@@ -88,7 +87,7 @@ az network application-gateway frontend-port create --port 82 --gateway-name Ada
 
 ### <a name="create-a-new-listener"></a>Criar um novo ouvinte
 
-Crie o ouvinte. Esta etapa configura o ouvinte para o endereço IP público, e a porta usada para receber o tráfego de rede. O exemplo a seguir usa a configuração de IP de front-end definida anteriormente, uma configuração de porta front-end e um protocolo (http ou https) e configura o ouvinte. Neste exemplo, o ouvinte ouve o tráfego HTTP na porta 82 no endereço IP público que foi criado anteriormente.
+Esta etapa configura o ouvinte para o endereço IP público, e a porta usada para receber o tráfego de rede. O exemplo a seguir usa a configuração de IP de front-end definida anteriormente, uma configuração de porta front-end e um protocolo (http ou https, que diferencia maiúsculas de minúsculas) e configura o ouvinte. Neste exemplo, o ouvinte ouve o tráfego HTTP na porta 82 no endereço IP público que foi criado anteriormente neste cenário.
 
 ```azurecli-interactive
 az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
@@ -96,12 +95,12 @@ az network application-gateway http-listener create --name imageListener --front
 
 ### <a name="create-the-url-path-map"></a>Criar o mapa de caminho de URL
 
-Configure os caminhos de regra de URL para os pools de back-end. Esta etapa configura o caminho relativo usado pelo gateway de aplicativo para definir o mapeamento entre o caminho da URL e qual pool de back-end será atribuído para lidar com o tráfego de entrada.
+Esta etapa configura o caminho relativo de URL usado pelo gateway de aplicativo para definir o mapeamento entre o caminho e o pool de back-end atribuído para lidar com o tráfego de entrada.
 
 > [!IMPORTANT]
-> Cada caminho deve começar com /, sendo que o único lugar no qual um "\*" é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
+> Cada caminho deve começar com "/", e o único lugar no qual um asterisco é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
 
-O exemplo a seguir cria uma regra simples para o tráfego de roteamento do caminho "/images/*" para o "imagesBackendPool" do back-end. Essa regra garante que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://adatum.com/images/figure1.jpg vai para "imagesBackendPool". A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://adatum.com/shoppingcart/test.html vai para o pool1, já que ele está definido como o pool padrão para tráfego sem correspondência.
+O exemplo a seguir cria uma regra para o caminho /images/*, roteando o tráfego para o **imagesBackendPool** do back-end. Essa regra garante que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://adatum.com/images/figure1.jpg vai para **imagesBackendPool**. A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://adatum.com/shoppingcart/test.html vai para o **pool1**, já que ele está definido como o pool padrão para tráfego sem correspondência.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \

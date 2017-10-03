@@ -17,22 +17,22 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters Hadoop sob demanda usando o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-[Azure Data Factory](../data-factory/data-factory-introduction.md) é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação dos dados. Ele pode criar um cluster HDInsight Hadoop just-in-time para processar uma fatia de entrada de dados e excluir o cluster quando o processamento for concluído. Estes são alguns dos benefícios do uso de um cluster HDInsight Hadoop sob demanda:
+[Azure Data Factory](../data-factory/introduction.md) é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação dos dados. Ele pode criar um cluster HDInsight Hadoop just-in-time para processar uma fatia de entrada de dados e excluir o cluster quando o processamento for concluído. Estes são alguns dos benefícios do uso de um cluster HDInsight Hadoop sob demanda:
 
 - Você só paga pelo tempo em que o trabalho está em execução no cluster HDInsight Hadoop (além de um curto período ocioso configurável). A cobrança dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Quando você usa um serviço vinculado do HDInsight sob demanda no Data Factory, os clusters são criados sob demanda. E os clusters são excluídos automaticamente após a conclusão dos trabalhos. Portanto, você paga apenas pelo tempo de execução do trabalho e pelo tempo ocioso breve (configuração de vida útil).
 - Você pode criar um fluxo de trabalho usando um pipeline do Data Factory. Por exemplo, você pode ter o pipeline para copiar dados de um SQL Server local para um armazenamento de blobs do Azure, processar os dados executando um script Hive e um script Pig em um cluster Hadoop do HDInsight sob demanda. Em seguida, copie os dados de resultado para um Azure SQL Data Warehouse para que aplicativos de BI o consumam.
 - Você pode agendar o fluxo de trabalho para ser executado periodicamente (por hora, diariamente, semanalmente, mensalmente etc.).
 
-No Azure Data Factory, um data factory pode ter um ou mais pipelines de dados. Um pipeline de dados tem uma ou mais atividades. Há dois tipos de atividades: [Atividades de Movimentação de Dados](../data-factory/data-factory-data-movement-activities.md) e [Atividades de Transformação de Dados](../data-factory/data-factory-data-transformation-activities.md). Você pode usar as atividades de movimentação de dados (atualmente, apenas Copiar Atividade) para mover dados de um repositório de dados de origem para um repositório de dados de destino. Você pode usar as atividades de transformação de dados para transformar/processar dados. A atividade do HDInsight Hive é uma das atividades de transformação com suporte pelo Data Factory. Você pode usar a atividade de transformação do Hive neste tutorial.
+No Azure Data Factory, um data factory pode ter um ou mais pipelines de dados. Um pipeline de dados tem uma ou mais atividades. Há dois tipos de atividades: [Atividades de Movimentação de Dados](../data-factory/copy-activity-overview.md) e [Atividades de Transformação de Dados](../data-factory/transform-data.md). Você pode usar as atividades de movimentação de dados (atualmente, apenas Copiar Atividade) para mover dados de um repositório de dados de origem para um repositório de dados de destino. Você pode usar as atividades de transformação de dados para transformar/processar dados. A atividade do HDInsight Hive é uma das atividades de transformação com suporte pelo Data Factory. Você pode usar a atividade de transformação do Hive neste tutorial.
 
 Você pode configurar uma atividade hive para usar seu próprio cluster HDInsight Hadoop ou um cluster HDInsight Hadoop sob demanda. Neste tutorial, a atividade do Hive no pipeline do data factory é configurada para usar um cluster HDInsight sob demanda. Portanto, quando a atividade é executada para processar uma fatia de dados, aqui está o que acontece:
 
@@ -62,7 +62,7 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-Para obter uma lista das atividades de transformação de dados do Data Factory, além da atividade do Hive, confira [Transformar e analisar usando o Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md).
+Para obter uma lista das atividades de transformação de dados do Data Factory, além da atividade do Hive, confira [Transformar e analisar usando o Azure Data Factory](../data-factory/transform-data.md).
 
 > [!NOTE]
 > No momento, você só pode criar o cluster HDInsight versão 3.2 do Azure Data Factory.
@@ -188,7 +188,7 @@ Se você precisar de ajuda com o script do PowerShell, confira [Como usar o Azur
 7. Abra a pasta e verifique os arquivos nas pastas. O inputdata contém o arquivo input.log com dados de entrada, e a pasta de script contém o arquivo de script HiveQL.
 
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Criar um data factory usando o modelo do Resource Manager
-Com a conta de armazenamento, os dados de entrada e o script HiveQL preparados, você está pronto para criar um data factory do Azure. Há vários métodos para criar um data factory. Neste tutorial, você cria um data factory implantando um modelo do Azure Resource Manager usando o portal do Azure. Você também pode implantar um modelo do Resource Manager usando a [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e o [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Para conferir outros métodos de criação de data factory, consulte [Tutorial: compilar seu primeiro data factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Com a conta de armazenamento, os dados de entrada e o script HiveQL preparados, você está pronto para criar um data factory do Azure. Há vários métodos para criar um data factory. Neste tutorial, você cria um data factory implantando um modelo do Azure Resource Manager usando o portal do Azure. Você também pode implantar um modelo do Resource Manager usando a [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e o [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Para conferir outros métodos de criação de data factory, consulte [Tutorial: compilar seu primeiro data factory](../data-factory/quickstart-create-data-factory-dot-net.md).
 
 1. Clique na imagem a seguir para entrar no Azure e abra o modelo do Resource Manager no Portal do Azure. O modelo está localizado em https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Confira a seção [Entidades de Data Factory no modelo](#data-factory-entities-in-the-template) para obter informações detalhadas sobre as entidades definidas no modelo. 
 
@@ -278,7 +278,7 @@ As seguintes entidades de Data Factory são definidas no modelo JSON:
 * [Pipeline com a Atividade de cópia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
-O serviço vinculado ao Armazenamento do Azure vincula sua conta de armazenamento do Azure ao data factory. Neste tutorial, a mesma conta de armazenamento é usada como a conta de armazenamento do HDInsight padrão, o armazenamento de dados de entrada e o armazenamento de dados de saída. Portanto, você define somente um serviço vinculado do Armazenamento do Azure. Na definição de serviço vinculado, você pode especificar o nome e a chave da conta de armazenamento do Azure. Confira [Serviço vinculado de armazenamento do Azure](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes sobre os elementos JSON para definir um serviço vinculado de armazenamento do Azure.
+O serviço vinculado ao Armazenamento do Azure vincula sua conta de armazenamento do Azure ao data factory. Neste tutorial, a mesma conta de armazenamento é usada como a conta de armazenamento do HDInsight padrão, o armazenamento de dados de entrada e o armazenamento de dados de saída. Portanto, você define somente um serviço vinculado do Armazenamento do Azure. Na definição de serviço vinculado, você pode especificar o nome e a chave da conta de armazenamento do Azure. Confira [Serviço vinculado de armazenamento do Azure](../data-factory/connector-azure-blob-storage.md) para obter detalhes sobre os elementos JSON para definir um serviço vinculado de armazenamento do Azure.
 
 ```json
 {
@@ -297,7 +297,7 @@ O serviço vinculado ao Armazenamento do Azure vincula sua conta de armazenament
 A **connectionString** usa os parâmetros storageAccountName e storageAccountKey. Você pode especificar valores para esses parâmetros durante a implantação do modelo.  
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Serviço vinculado do HDInsight sob demanda
-Na definição do serviço HDInsight vinculado sob demanda, você deve especificar valores para parâmetros de configuração que são usados pelo serviço Data Factory para criar um cluster HDInsight Hadoop em tempo de execução. Confira o artigo [Serviços vinculados de computação](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON usadas para definir um serviço vinculado do HDInsight sob demanda.  
+Na definição do serviço HDInsight vinculado sob demanda, você deve especificar valores para parâmetros de configuração que são usados pelo serviço Data Factory para criar um cluster HDInsight Hadoop em tempo de execução. Confira o artigo [Serviços vinculados de computação](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON usadas para definir um serviço vinculado do HDInsight sob demanda.  
 
 ```json
 
@@ -330,13 +330,13 @@ Observe os seguintes pontos:
 * Perceba a configuração *timeToLive* . O data factory exclui o cluster automaticamente após ele ficar ocioso por 30 minutos.
 * O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
 
-Confira [Serviço vinculado do HDInsight sob demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
+Confira [Serviço vinculado do HDInsight sob demanda](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 
 > [!IMPORTANT]
 > Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de dados de entrada de Blob do Azure
-Na definição de conjunto de dados de entrada, você especifica os nomes do contêiner de blob, da pasta e do arquivo que contém os dados de entrada. Confira [Propriedades de conjunto de dados de Blob do Azure](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados de Blob do Azure.
+Na definição de conjunto de dados de entrada, você especifica os nomes do contêiner de blob, da pasta e do arquivo que contém os dados de entrada. Confira [Propriedades de conjunto de dados de Blob do Azure](../data-factory/connector-azure-blob-storage.md) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados de Blob do Azure.
 
 ```json
 
@@ -378,7 +378,7 @@ Observe as seguintes configurações específicas na definição de JSON:
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída de Blob do Azure
-Na definição de conjunto de dados de saída, especifique os nomes de contêiner de blob e a pasta que contém os dados de saída. Confira [Propriedades de conjunto de dados de Blob do Azure](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados de Blob do Azure.  
+Na definição de conjunto de dados de saída, especifique os nomes de contêiner de blob e a pasta que contém os dados de saída. Confira [Propriedades de conjunto de dados de Blob do Azure](../data-factory/connector-azure-blob-storage.md) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados de Blob do Azure.  
 
 ```json
 
@@ -415,7 +415,7 @@ FolderPath especifica o caminho para a pasta que contém os dados de saída:
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-A configuração [disponibilidade do conjunto de dados](../data-factory/data-factory-create-datasets.md#dataset-availability) é a seguinte:
+A configuração [disponibilidade do conjunto de dados](../data-factory/concepts-datasets-linked-services.md) é a seguinte:
 
 ```json
 "availability": {
@@ -425,10 +425,10 @@ A configuração [disponibilidade do conjunto de dados](../data-factory/data-fac
 },
 ```
 
-No Azure Data Factory, a disponibilidade do conjunto de dados de saída conduz o pipeline. Neste exemplo, a fatia é produzida mensalmente no último dia do mês (EndOfInterval). Para saber mais, confira [Agendamento e execução do Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
+No Azure Data Factory, a disponibilidade do conjunto de dados de saída conduz o pipeline. Neste exemplo, a fatia é produzida mensalmente no último dia do mês (EndOfInterval). 
 
 #### <a name="data-pipeline"></a>Pipeline de dados
-Você define um pipeline que transforma dados executando o script Hive em um cluster do Azure HDInsight sob demanda. Confira [JSON de Pipeline](../data-factory/data-factory-create-pipelines.md#pipeline-json) para obter descrições dos elementos JSON usados para definir um pipeline neste exemplo.
+Você define um pipeline que transforma dados executando o script Hive em um cluster do Azure HDInsight sob demanda. Confira [JSON de Pipeline](../data-factory/concepts-pipelines-activities.md) para obter descrições dos elementos JSON usados para definir um pipeline neste exemplo.
 
 ```json
 {
@@ -480,7 +480,7 @@ Você define um pipeline que transforma dados executando o script Hive em um clu
 }
 ```
 
-O pipeline contém uma atividade, a atividade HDInsightHive. Como as datas de início e término são em janeiro de 2016, os dados de apenas um mês (uma fatia) são processados. O *início* e o *término* da atividade têm uma data passada; portanto, o Data Factory processa os dados para o mês imediatamente. Se o valor de fim for uma data futura, o data factory cria outra fatia quando chegar o momento. Para saber mais, confira [Agendamento e execução do Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
+O pipeline contém uma atividade, a atividade HDInsightHive. Como as datas de início e término são em janeiro de 2016, os dados de apenas um mês (uma fatia) são processados. O *início* e o *término* da atividade têm uma data passada; portanto, o Data Factory processa os dados para o mês imediatamente. Se o valor de fim for uma data futura, o data factory cria outra fatia quando chegar o momento. Para saber mais, confira [Agendamento e execução do Data Factory](../data-factory/v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="clean-up-the-tutorial"></a>Limpar o tutorial
 

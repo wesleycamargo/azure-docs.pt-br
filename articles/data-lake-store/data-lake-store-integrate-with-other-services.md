@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrando o Repositório Data Lake com outros Serviços do Azure
@@ -41,7 +41,7 @@ Para obter instruções sobre como usar a Análise Data Lake com o Repositório 
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Usar o Repositório Data Lake com o Azure Data Factory
 É possível usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para receber dados de tabelas do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Blobs de Armazenamento do Azure e bancos de dados locais. Como cidadão de primeira classe no ecossistema do Azure, o Azure Data Factory pode ser usado para orquestrar a ingestão de dados dessas fontes no Repositório Azure Data Lake.
 
-Para obter instruções sobre como usar o Azure Data Factory com o Repositório Data Lake , veja [Mover dados para e do Repositório Data Lake usando o Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
+Para obter instruções sobre como usar o Azure Data Factory com o Repositório Data Lake , veja [Mover dados para e do Repositório Data Lake usando o Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
 O Repositório Data Lake do Azure fornece uma ferramenta de linha de comando, AdlCopy, que permite copiar dados do Armazenamento de Blobs do Azure para o Repositório Data Lake. Para saber mais, confira [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md).

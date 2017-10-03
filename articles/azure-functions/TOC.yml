@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Functions
       href: functions-overview.md
-    - name: 'Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs'
+    - name: Comparação sem servidor
       href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guia de início rápido
   expanded: true
@@ -17,21 +17,23 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Gatilhos
       items:
+        - name: Armazenamento de blob
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
         - name: Timer
           href: functions-create-scheduled-function.md
         - name: Webhook genérico
           href: functions-create-generic-webhook-triggered-function.md
         - name: Webhook do GitHub
           href: functions-create-github-webhook-triggered-function.md
-        - name: Armazenamento de blob
-          href: functions-create-storage-blob-triggered-function.md
         - name: Armazenamento de filas
           href: functions-create-storage-queue-triggered-function.md
     - name: Integração
       items:
         - name: Armazenamento
           href: functions-integrate-storage-queue-output-binding.md
-        - name: Banco de Dados Cosmos
+        - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutoriais
   items:
@@ -41,6 +43,8 @@
       href: functions-create-serverless-api.md
     - name: 3 - Criar uma definição da OpenAPI
       href: functions-openapi-definition.md
+    - name: 4 – Redimensionamento de imagem com a Grade de Eventos
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -100,16 +104,20 @@
         - name: Criar uma definição Open API 2.0
           href: functions-api-definition-getting-started.md
         - name: Exportar para o PowerApps e para o Microsoft Flow
-          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Chamar uma função do PowerApps
           href: functions-powerapps-scenario.md
+        - name: Chamar uma função do Microsoft Flow
+          href: functions-flow-scenario.md
+        - name: Usar o Managed Service Identity
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referência
   items:
     - name: Associações
       items:
         - name: Armazenamento de blob
           href: functions-bindings-storage-blob.md
-        - name: Banco de Dados Cosmos
+        - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
         - name: Hubs de Eventos
           href: functions-bindings-event-hubs.md
@@ -119,6 +127,8 @@
           href: functions-bindings-external-table.md
         - name: HTTP e webhooks
           href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
         - name: Aplicativos Móveis
           href: functions-bindings-mobile-apps.md
         - name: Hubs de Notificação
@@ -147,6 +157,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Vídeos
+      href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
     - name: Stack Overflow

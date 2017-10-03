@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Aspectos técnicos de implementações do cliente do Banco de Dados SQL do Azure
@@ -37,4 +37,6 @@ ms.lasthandoff: 07/18/2017
 - [Quest](https://customers.microsoft.com/en-US/story/quest): o Quest oferece o Spotlight no serviço SQL Server Enterprise com um objetivo em mente: fornecer as melhores ferramentas disponíveis aos profissionais de banco de dados para proteção de dados, movimentação dos dados e monitoramento de operações de bancos de dados. Com o Spotlight, usando o Microsoft Azure e Banco de Dados SQL do Azure, os administradores de Banco de Dados do SQL Server podem monitorar, detectar, diagnosticar e fornecer uma maneira de resolver problemas de desempenho no SQL Server, seja de suas mesas de trabalho ou em casa.
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as práticas recomendadas e lições aprendidas com a experiência da equipe do produto Dynamics 365 for Operations em migrar para o Banco de Dados SQL do Azure a fim de fornecer aos clientes uma oferta de SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
+
+- [Microsoft OneDrive e SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): esse breve estudo de caso conta a história por trás da decisão do Microsoft OneDrive e do SharePoint Online de migrar para o Banco de Dados SQL do Azure e descreve como essa migração proporcionou um gerenciamento de capacidade elástica quase ilimitadas, reduzindo também de forma significativa os custos operacionais e a sobrecarga de infraestrutura.
 

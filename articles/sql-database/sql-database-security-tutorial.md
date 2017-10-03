@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
@@ -188,7 +188,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 5. Clique em **Salvar**.
 
 > [!IMPORTANT]
-> Se desejar personalizar os eventos auditados, você pode fazer isso por meio do PowerShell ou API REST. Consulte a seção [Automação (PowerShell/API REST)](sql-database-auditing.md#subheading-7) para obter mais detalhes.
+> Se desejar personalizar os eventos auditados, será possível fazer isso por meio do PowerShell ou da API REST – consulte [Auditoria do banco de dados SQL](sql-database-auditing.md) para obter mais detalhes.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitar a detecção de ameaças do Banco de Dados SQL
@@ -240,7 +240,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
+Neste tutorial, você aprendeu a aprimorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples.  Você aprendeu como: 
 
 > [!div class="checklist"]
 > * Configurar regras de firewall para seu servidor e/ou banco de dados
@@ -250,7 +250,9 @@ Você pode melhorar a proteção do banco de dados contra usuários mal-intencio
 > * Habilitar a auditoria do Banco de Dados SQL
 > * Habilitar a detecção de ameaças do Banco de Dados SQL
 
+Avance para o próximo tutorial para saber como implementar um banco de dados distribuído geograficamente.
+
 > [!div class="nextstepaction"]
->[Melhore o desempenho do banco de dados SQL](sql-database-performance-tutorial.md)
+>[Implementar um banco de dados distribuído geograficamente](sql-database-implement-geo-distributed-database.md)
 
 

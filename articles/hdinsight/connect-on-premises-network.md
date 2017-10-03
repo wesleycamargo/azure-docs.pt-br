@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -34,9 +34,6 @@ Saiba como conectar o HDInsight à sua rede local por meio de redes virtuais do 
 * Portas fornecidas pelo HDInsight na rede virtual.
 
 ## <a name="create-the-virtual-network-configuration"></a>Criar a configuração de rede Virtual
-
-> [!IMPORTANT]
-> Se estiver buscando orientações passo a passo sobre como conectar o HDInsight à sua rede local usando uma Rede Virtual do Azure, consulte o documento [Conectar o HDInsight à sua rede local](connect-on-premises-network.md).
 
 Use os documentos a seguir para aprender a criar uma Rede Virtual do Azure conectada à sua rede local:
     
@@ -74,7 +71,10 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 Para criar uma VM Linux que usa o software DNS [Bind](https://www.isc.org/downloads/bind/), use as seguintes etapas:
 
 > [!NOTE]
-> Use as etapas a seguir no [Portal do Azure](https://portal.azure.com) para criar uma Máquina Virtual do Azure. Para outras maneiras de criar uma máquina virtual, consulte os documentos [Criar VM – CLI do Azure](../virtual-machines/linux/quick-create-cli.md) e [Criar VM – Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).
+> Use as etapas a seguir no [Portal do Azure](https://portal.azure.com) para criar uma Máquina Virtual do Azure. Para outras maneiras de criar uma máquina virtual, consulte os seguintes documentos:
+>
+> * [Criar VM - CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
+> * [Criar VM – Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. Do [portal do Azure](https://portal.azure.com), selecione __+__, __Computação__ e __Ubuntu Server 16.04 LTS__.
 
@@ -300,6 +300,8 @@ Use as etapas no documento [Criar um cluster HDInsight usando o portal do Azure]
 ## <a name="connecting-to-hdinsight"></a>Conectando-se ao HDInsight
 
 A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em https://NOMEDOCLUSTER.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
+
+Alguns documentos também fazem referência `headnodehost` ao se conectarem ao cluster de uma sessão SSH. Esse endereço só está disponível de nós em um cluster e não é utilizável em clientes conectados através da rede virtual.
 
 Para conectar-se diretamente ao HDInsight por meio da rede virtual, use as seguintes etapas:
 

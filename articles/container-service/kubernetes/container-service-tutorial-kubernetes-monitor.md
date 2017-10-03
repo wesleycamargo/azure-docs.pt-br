@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -40,9 +40,9 @@ Este tutorial, parte sete de sete, aborda as seguintes tarefas:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, um aplicativo foi empacotado em um cluster de contêiner, essas imagens foram carregadas no Registro de Contêiner do Azure e um cluster do Kubernetes foi criado. Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
+Nos tutoriais anteriores, um aplicativo foi empacotado em um cluster de contêiner, essas imagens foram carregadas no Registro de Contêiner do Azure e um cluster do Kubernetes foi criado. 
 
-No mínimo, este tutorial requer um cluster do Kubernetes com nós de agente do Linux e uma conta do OMS (Operations Management Suite). Se necessário, inscreva-se em uma [avaliação gratuita do OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="get-workspace-settings"></a>Obter configurações de espaço de trabalho
 
@@ -140,7 +140,7 @@ No portal do OMS, procure um bloco de resumo **Contêineres** no painel do OMS. 
 
 Da mesma forma, no portal do Azure, acesse o **Log Analytics** e selecione o nome do espaço de trabalho. Para ver o bloco de resumo **Contêineres** clique em **Soluções** > **Contêineres**. Para ver os detalhes, clique no bloco.
 
-Consulte a [documentação do Azure Log Analytics](../../log-analytics/index.md) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
+Consulte a [documentação do Azure Log Analytics](../../log-analytics/index.yml) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

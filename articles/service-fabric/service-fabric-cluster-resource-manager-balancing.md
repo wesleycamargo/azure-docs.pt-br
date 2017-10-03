@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: dfe0de1bc4cdfcbc0d175f1a3268601bde4da21a
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
@@ -175,6 +175,10 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 Limites de balanceamento e atividade estão ambos vinculados a uma métrica específica - balanceamento é disparado somente se o limite de balanceamento e atividade limite é excedido para a mesma métrica.
+
+> [!NOTE]
+> Quando não especificado, o limite de balanceamento para uma métrica é 1 e o limite de atividade é 0. Isso significa que o Gerenciador de Recursos de Cluster tentará manter essa métrica perfeitamente balanceada para qualquer carga fornecida. Se você estiver usando métricas personalizadas, é recomendável que você defina explicitamente seus próprios limites de balanceamento e de atividade para suas métricas. 
+>
 
 ## <a name="balancing-services-together"></a>Balanceamento dos serviços em conjunto
 Se o cluster estiver desequilibrado ou não for uma decisão de todo o cluster. No entanto, a maneira como nós vamos corrigi-lo é mover réplicas de serviço individuais e instâncias. Isso faz sentido, certo? Se a memória é empilhada em um nó, várias réplicas ou instâncias podem contribuir para ela. Corrigir o desequilíbrio pode exigir a movimentação de qualquer uma das réplicas com monitoração de estado ou instâncias sem monitoração de estado que usam a métrica desequilibrada.

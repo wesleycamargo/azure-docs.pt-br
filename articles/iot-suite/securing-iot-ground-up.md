@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -49,7 +49,7 @@ Nossos sistemas oferecem detecção e previsão de intrusão contínua, prevenç
 
 O Microsoft Azure IoT Suite tira proveito da segurança e da privacidade incorporadas à plataforma do Azure juntamente com nossos processos de SDL e OSA para o desenvolvimento e a operação com segurança de todos os softwares da Microsoft. Esses procedimentos fornecem proteção da infraestrutura, proteção da rede e recursos de gerenciamento e identidades fundamentais para a segurança de qualquer solução. 
 
-O [Hub IoT do Azure](../iot-hub/iot-hub-what-is-iot-hub.md) no [IoT Suite](iot-suite-what-is-azure-iot.md) oferece um serviço completamente gerenciado que habilita uma comunicação bidirecional confiável e segura entre os dispositivos de IoT e os serviços do Azure, como o [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) e o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), ao usar as credenciais de segurança por dispositivo e o controle de acesso.
+O [Hub IoT do Azure](../iot-hub/iot-hub-what-is-iot-hub.md) no [IoT Suite](iot-suite-what-is-azure-iot.md) oferece um serviço completamente gerenciado que habilita uma comunicação bidirecional confiável e segura entre os dispositivos de IoT e os serviços do Azure, como o [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) e o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), ao usar as credenciais de segurança por dispositivo e o controle de acesso.
 
 Para comunicar melhor os recursos de segurança e privacidade incorporados ao Azure IoT Suite, nós dividimos o pacote em três áreas de segurança principais. 
 

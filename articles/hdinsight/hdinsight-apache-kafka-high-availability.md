@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
@@ -21,13 +21,11 @@ ms.contentlocale: pt-br
 ms.lasthandoff: 06/29/2017
 
 ---
-# Alta disponibilidade de seus dados com o Apache Kafka (versão prévia) no HDInsight
-<a id="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
+# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Alta disponibilidade de seus dados com o Apache Kafka (versão prévia) no HDInsight
 
 Saiba como configurar réplicas da partição para tópicos Kafka a fim de tirar proveito da configuração de rack do hardware subjacente. Essa configuração garante a disponibilidade dos dados armazenados no Apache Kafka no HDInsight.
 
-## Domínios de falha e atualização com Kafka
-<a id="fault-and-update-domains-with-kafka" class="xliff"></a>
+## <a name="fault-and-update-domains-with-kafka"></a>Domínios de falha e atualização com Kafka
 
 Um domínio de falha é um agrupamento lógico de hardware subjacente em um data center do Azure. Cada domínio de falha tem um comutador de rede e uma fonte de alimentação em comum. As máquinas virtuais e os discos gerenciados que implementam os nós em um cluster HDInsight são distribuídos entre esses domínios de falha. Essa arquitetura limita o possível impacto de falhas físicas de hardware.
 
@@ -36,8 +34,7 @@ Cada região do Azure tem um número específico de domínios de falha. Para obt
 > [!IMPORTANT]
 > O Kafka não está ciente dos domínios de falha. Quando você cria um tópico no Kafka, ele pode armazenar todas as réplicas da partição no mesmo domínio de falha. Para resolver esse problema, fornecemos a [ferramenta de rebalanceamento de partição do Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
-## Quando rebalancear réplicas da partição
-<a id="when-to-rebalance-partition-replicas" class="xliff"></a>
+## <a name="when-to-rebalance-partition-replicas"></a>Quando rebalancear réplicas da partição
 
 Para garantir a mais alta disponibilidade de seus dados do Kafka, você deve rebalancear as réplicas de partição do tópico nas seguintes situações:
 
@@ -45,8 +42,7 @@ Para garantir a mais alta disponibilidade de seus dados do Kafka, você deve reb
 
 * Quando você expande um cluster
 
-## Fator de replicação
-<a id="replication-factor" class="xliff"></a>
+## <a name="replication-factor"></a>Fator de replicação
 
 > [!IMPORTANT]
 > É recomendável usar uma região do Azure que contenha três domínios de falha e um fator de replicação de 3.
@@ -55,15 +51,13 @@ Se você precisa usar uma região que contém apenas dois domínios de falha, us
 
 Para obter um exemplo como criar tópicos e configurar o fator de replicação, consulte o documento [Introdução ao Kafka no HDInsight](hdinsight-apache-kafka-get-started.md).
 
-## Como rebalancear réplicas da partição
-<a id="how-to-rebalance-partition-replicas" class="xliff"></a>
+## <a name="how-to-rebalance-partition-replicas"></a>Como rebalancear réplicas da partição
 
 Use a [ferramenta de rebalanceamento de partição do Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) para rebalancear tópicos selecionados. Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do cluster Kafka.
 
 Para saber mais sobre como se conectar ao HDInsight usando SSH, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 
 * [Escalabilidade do Kafka no HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Espelhamento com o Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)

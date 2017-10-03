@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referência técnica do acesso condicional ao Azure Active Directory
@@ -28,7 +28,11 @@ Este tópico fornece informações de suporte para os seguintes itens de uma pol
 
 - Atribuições de aplicativos de nuvem
 
-- Condições de aplicativos do cliente
+- Condição de plataforma de dispositivo 
+
+- Condição de aplicativos cliente
+
+- Requisito de aplicativo cliente aprovado 
 
 
 
@@ -75,7 +79,27 @@ Além de aplicativos de nuvem da Microsoft, você pode atribuir uma política de
 - Aplicativos que usam o Proxy de Aplicativo do Azure AD. 
 
 
-## <a name="client-apps-conditions"></a>Condições de aplicativos do cliente 
+## <a name="device-platforms-condition"></a>Condição de plataformas de dispositivo
+
+Em uma política de acesso condicional, você pode configurar a condição de plataforma de dispositivo para associar a política ao sistema operacional que está sendo executado em um cliente.
+
+![Controle](./media/active-directory-conditional-access-technical-reference/41.png)
+
+O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispositivo:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (versão prévia)
+
+
+
+## <a name="client-apps-condition"></a>Condição de aplicativos cliente 
 
 Quando você configura uma política de acesso condicional, pode definir um [condição de aplicativos de cliente](active-directory-conditional-access-azure-portal.md#client-apps). A condição de aplicativos de cliente permite que você conceda ou bloqueie o acesso quando uma tentativa de acesso for feita desses tipos de aplicativos de cliente:
 
@@ -83,7 +107,6 @@ Quando você configura uma política de acesso condicional, pode definir um [con
 - Aplicativos móveis e de da área de trabalho
 
 ![Controle](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>Navegadores com suporte 
 
@@ -124,11 +147,11 @@ Os aplicativos móveis e clientes de área de trabalho a seguir oferecem suporte
 
 
 | Aplicativos cliente| Serviço de Destino| Plataforma |
-| :-- | --- | --- |
+| --- | --- | --- |
 | Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte.| Qualquer serviço de aplicativo de Meus Aplicativos| Android e iOS|
 | Aplicativo Remoto do Azure| Serviço de Aplicativo Remoto do Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 | Aplicativo Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
-| Microsoft Team Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, MAC OS X, iOS, Android, WP e cliente da Web| Equipes da Microsoft| Windows 10, Windows 8.1, Windows 7, iOS/Android e MAC OSX|
+| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web| Equipes da Microsoft| Windows 10, Windows 8.1, Windows 7, iOS e Android|
 | Aplicativo de Calendário/Email/Pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Aplicativo móvel do Outlook| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ Os aplicativos móveis e clientes de área de trabalho a seguir oferecem suporte
 
 
 
+## <a name="approved-client-app-requirement"></a>Requisito de aplicativo cliente aprovado 
+
+Quando você configura uma política de acesso condicional, você pode selecionar a necessidade de conceder acesso somente se uma tentativa de conexão foi feita por um aplicativo cliente aprovado. 
+
+![Controle](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Os aplicativos de cliente aprovados para essa configuração são:
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft Skype for Business
+
+- Equipes da Microsoft
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**Comentários:**
 
+- Esses aplicativos dão suporte ao MAM (gerenciamento de aplicativo móvel) do Microsoft Intune.
 
+- Esse requisito:
 
+    - Só dá suporte a IOS e Android como a [condição de plataformas de dispositivo](#device-platforms-condition) selecionada 
 
-
-
-
+    - Não dá suporte a **Navegador** como a [condição do aplicativo cliente](#supported-browsers) selecionada 
+    
+    - Substitui a [condição do aplicativo cliente](#supported-mobile-apps-and-desktop-clients) de **aplicativos móveis e clientes de área de trabalho** se ela for selecionada  
 
 
 ## <a name="next-steps"></a>Próximas etapas

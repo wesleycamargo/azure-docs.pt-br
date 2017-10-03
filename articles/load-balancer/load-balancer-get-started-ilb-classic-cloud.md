@@ -3,7 +3,7 @@ title: "Criar um balanceador de carga interno para serviços de nuvem do Azure| 
 description: "Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
-
-# Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -34,9 +32,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
-
-## Configurar o balanceador de carga interno para os serviços de nuvem
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Configurar o balanceador de carga interno para os serviços de nuvem
 
 Há suporte para o balanceador de carga interno tanto para máquinas virtuais quanto para serviços de nuvem. Um ponto de extremidade de balanceador de carga interno criado no serviço de nuvem que está fora de uma rede virtual regional só estará acessível no serviço de nuvem.
 
@@ -45,9 +41,7 @@ A configuração do balancedor de carga interno deve ser definida durante a cria
 > [!IMPORTANT]
 > Um pré-requisito para executar as etapas a seguir é ter uma rede virtual já criada para a implantação em nuvem. Será necessário o nome de rede virtual e de sub-rede para criar o Balanceamento de Carga Interno.
 
-<a id="step-1" class="xliff"></a>
-
-### Etapa 1
+### <a name="step-1"></a>Etapa 1
 
 Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de nuvem no Visual Studio e adicione a seção a seguir para criar o Balanceamento de Carga Interno no último item "`</Role>`" para a configuração de rede.
 
@@ -75,9 +69,7 @@ Vamos adicionar os valores para o arquivo de configuração de rede para mostrar
 
 Para obter mais informações sobre o esquema do balanceador de carga, confira [Adicionar balanceador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-<a id="step-2" class="xliff"></a>
-
-### Etapa 2
+### <a name="step-2"></a>Etapa 2
 
 Altere o arquivo de definição de serviço (.csdef) para adicionar pontos de extremidade ao Balanceamento de Carga Interno. No momento em que uma instância de função é criada, o arquivo de definição de serviço adiciona as instâncias de função ao Balanceamento de Carga Interno.
 
@@ -101,9 +93,7 @@ Seguindo os mesmos valores do exemplo acima, vamos adicionar os valores ao arqui
 
 O tráfego de rede terá a carga equilibrada usando o balanceador de carga testLB com a porta 80 para solicitações de entrada, enviando a instâncias de função de trabalho também na porta 80.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Configurar um modo de distribuição do balanceador de carga usando a afinidade de IP de origem](load-balancer-distribution-mode.md)
 

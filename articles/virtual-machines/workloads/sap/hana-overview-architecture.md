@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (Instâncias Grandes) no Azure
@@ -148,7 +148,7 @@ A partir de julho de 2017, o SAP HANA no Azure (Instâncias Grandes) está dispo
 
 As diferentes configurações acima, que estão em estado Disponível ou 'Não é mais oferecido', são referenciadas na [Observação de Suporte do SAP No. 2316233 – SAP HANA no Microsoft Azure (Instâncias Grandes)](https://launchpad.support.sap.com/#/notes/2316233/E). As configurações que são marcadas como 'Pronto para Ordem' encontrarão a respectiva entrada na Nota SAP em breve. No entanto, esses SKUs de instância já podem ser solicitados para as seis diferentes regiões do Azure nas quais o serviço de Instância Grande do HANA está disponível.
 
-As configurações específicas de escolhido dependem da carga de trabalho, recursos de CPU e memória desejada. É possível que a carga de trabalho OLTP aproveite os SKUs otimizados para cargas de trabalho OLAP. 
+As configurações específicas de escolhido dependem da carga de trabalho, recursos de CPU e memória desejada. É possível que a carga de trabalho OLTP use os SKUs otimizados para carga de trabalho OLAP. 
 
 A base de hardware para todas as ofertas é certificada pelo TDI do SAP HANA. No entanto, fazemos distinção entre duas classes diferentes de hardware, as quais dividem os SKUs em:
 
@@ -189,6 +189,18 @@ Alguns exemplos de como executar várias instâncias do SAP HANA seriam semelhan
 
 
 Já é suficiente pra entender o princípio. Certamente, há também outras variações. 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>Usando nós de extensão e camadas de dados do SAP HANA
+O SAP dá suporte a um modelo de camadas de dados para SAP BW de diferentes versões do SAP NetWeaver e SAP BW/4HANA. Detalhes sobre o modelo de hierarquia de dados podem ser encontrados neste documento e blog mencionados neste documento pelo SAP: [SAP BW/4HANA e SAP BW EM HANA COM NÓS DE EXTENSÃO SAP HANA](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
+Com instâncias do HANA grandes, você pode usar a configuração de opção 1 de nós de extensão do SAP HANA, conforme detalhado nestas Perguntas Frequentes e documentos de blog de SAP. Configurações de opção 2 podem ser definidas com os SKUs de instâncias do HANA grandes: S72m, S192, S192m, S384 e S384m.  
+Ao examinar a documentação, a vantagem pode não ser aparente à primeira vista. Mas observando as diretrizes de dimensionamento do SAP, você pode ver uma vantagem usando nós de extensão do SAP HANA de opção-1 e opção 2. Aqui está um exemplo:
+
+- Diretrizes de dimensionamento do SAP HANA geralmente exigem duas vezes mais volume de dados do que memória. Portanto, quando você estiver executando a instância do SAP HANA com os dados ativos, você só tem 50% ou menos da memória preenchida com os dados. Idealmente, o restante da memória é mantido para o SAP HANA fazer seu trabalho.
+- Isso significa que, em uma unidade de instância do HANA grande S192 com 2 TB de memória executando um banco de dados do SAP BW, você tem apenas 1 TB como volume de dados.
+- Se você usar um nó de extensão SAP HANA adicional da opção 1, bem como um SKU de instância do HANA grande S192, ele oferecerá a você uma capacidade adicional de 2 TB para o volume de dados. Na configuração de opção 2, oferecerá até mesmo 4 TB adicionais para o volume de dados mornos. Em comparação com o nó quente, a capacidade total de memória do nó de extensão 'morno' pode ser usada para armazenamento de dados para a opção 1 e o dobro da memória pode ser usada para o volume de dados na configuração de nó da extensão de SAP HANA da opção 2.
+- Como resultado, você acabará com uma capacidade de 3 TB para seus dados e uma taxa de quente para morno de 1:2 para a opção 1 e 5 TB de dados e uma taxa de 1:4 na configuração de nó de extensão da opção 2.
+
+No entanto, quanto maior o volume de dados em comparação com a memória, maior a probabilidade de que os dados mornos que você está solicitando sejam armazenados no armazenamento em disco.
 
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilidades e modelo de operações

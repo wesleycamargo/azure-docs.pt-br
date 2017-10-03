@@ -42,7 +42,7 @@
 #### [Executar um trabalho e tarefas](./scripts/batch-cli-sample-run-job.md)
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [PowerShell do Azure](/powershell/module/azurerm.batch)
 ## [CLI do Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,12 +63,11 @@
 
 # Relacionados
 ## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
-## [Processamento de dados com Lote e Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Processamento de dados com Lote e Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Soluções de Lote e HPC na nuvem do Azure](batch-hpc-solutions.md)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
-## [Recursos de Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

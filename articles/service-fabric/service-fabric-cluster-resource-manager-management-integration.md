@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
@@ -188,7 +188,7 @@ O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas e
 Se o ambiente estiver configurado corretamente, todas as restrições serão totalmente respeitadas, mesmo durante as atualizações. O mais importante é que o Gerenciador de Recursos de Cluster esteja observando suas restrições. Ao detectar uma violação, ele imediatamente informa e tenta corrigir o problema.
 
 ## <a name="the-preferred-location-constraint"></a>A restrição do local preferencial
-A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. Outro uso da restrição PreferredLocation destina-se à `PreferredPrimaryDomain`política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) do [. Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
+A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. Outro uso da restrição PreferredLocation destina-se à [`PreferredPrimaryDomain` política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) do. Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
 
 ## <a name="upgrades"></a>Atualizações
 O Cluster Resource Manager também ajuda durante atualizações de aplicativos e clusters, quando então ele tem dois trabalhos:

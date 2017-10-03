@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ A seguir, temos pesquisas de exemplo que você pode salvar como um grupo de comp
 >[!NOTE]
 > Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então, as seguintes alterações serão feitas no procedimento para criar um novo grupo de computadores.
 >  
-> - A consulta para criar um grupo de computadores deve incluir `distinct Computer`.  A seguir, é apresentado um exemplo de uma consulta para criar um grupo de computadores.<br>`Heartbeat | where Computer contains "srv" `
+> - A consulta para criar um grupo de computadores deve incluir `distinct Computer`.  A seguir, é apresentado um exemplo de uma consulta para criar um grupo de computadores.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - Ao criar um novo grupo de computadores, você deverá especificar um alias além do nome.  Você utilizará o alias ao usar o grupo de computadores em uma consulta, conforme descrito abaixo.  
 
 ### <a name="log-search-api"></a>API da Pesquisa de Log
@@ -104,7 +104,7 @@ Grupos de computadores normalmente são usados com a cláusula **IN** na pesquis
 >[!NOTE]
 > Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então, você utilizará um grupo de Computador em uma consulta tratando seu alias como uma função, como no exemplo a seguir:
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
 Um registro é criado no repositório do OMS para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.

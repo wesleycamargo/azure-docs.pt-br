@@ -1,30 +1,30 @@
 ---
 title: Esquema de eventos da Grade de Eventos do Azure
-description: "Descreve as propriedades que são fornecidas para eventos com a Grade de Eventos do Azure."
+description: "Descreve as propriedades que são fornecidas para eventos com a Grade de Eventos do Azure"
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6736c6a60021b51db612f0a596086a9e988d7aef
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
+# <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
-Este artigo fornece as propriedades e o esquema de eventos. Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto **data** obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto **data** contém propriedades que são específicas a cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento ou Hub de Eventos.
+Este artigo fornece as propriedades e o esquema de eventos. Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto data contém propriedades que são específicas a cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento do Azure ou Hub de Eventos do Azure.
 
-Os eventos são enviados à Grade de Eventos do Azure em uma matriz, que pode conter vários objetos de evento. Se houver apenas um único evento, o comprimento da matriz será 1. 
+Os eventos são enviados à Grade de Eventos do Azure em uma matriz, que pode conter vários objetos de evento. Se houver apenas um único evento, o comprimento da matriz será 1. A matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB.
  
 ## <a name="event-properties"></a>Propriedades do evento
 
-Todos os eventos conterão os mesmos dados de nível superior a seguir.
+Todos os eventos conterão os mesmos dados de nível superior a seguir:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
@@ -55,7 +55,7 @@ As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Res
 - **Microsoft.Resources.ResourceWriteCancel**: gerado quando uma operação de criação ou atualização de recurso é cancelada.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: gerado quando uma operação de exclusão de recurso é bem-sucedida.  
 - **Microsoft.Resources.ResourceDeleteFailure**: gerado quando uma operação de exclusão de recurso falha.  
-- **Microsoft.Resources.ResourceDeleteCancel**: "gerado quando uma exclusão de recurso é cancelada. Isso ocorre quando a implantação de modelo é cancelada.
+- **Microsoft.Resources.ResourceDeleteCancel**: gerado quando uma operação de exclusão de recurso é cancelada. Isso ocorre quando a implantação de um modelo é cancelada.
 
 ### <a name="example-event-schema"></a>Exemplo do esquema de evento
 
@@ -96,7 +96,7 @@ Os Grupos de Recursos agora podem emitir eventos de gerenciamento do Azure Resou
 - **Microsoft.Resources.ResourceWriteCancel**: gerado quando uma operação de criação ou atualização de recurso é cancelada.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: gerado quando uma operação de exclusão de recurso é bem-sucedida.  
 - **Microsoft.Resources.ResourceDeleteFailure**: gerado quando uma operação de exclusão de recurso falha.  
-- **Microsoft.Resources.ResourceDeleteCancel**: "gerado quando uma exclusão de recurso é cancelada. Isso ocorre quando a implantação de modelo é cancelada.
+- **Microsoft.Resources.ResourceDeleteCancel**: gerado quando uma operação de exclusão de recurso é cancelada. Isso ocorre quando a implantação de um modelo é cancelada.
 
 ### <a name="example-event"></a>Exemplo de evento
 
@@ -128,7 +128,7 @@ Os Grupos de Recursos agora podem emitir eventos de gerenciamento do Azure Resou
 
 ## <a name="event-hubs"></a>Hubs de Eventos
 
-Os eventos dos Hubs de Eventos, atualmente, são emitidos apenas quando um arquivo é enviado automaticamente para o armazenamento usando o recurso Capturar.
+Os eventos dos Hubs de Eventos, atualmente, são emitidos apenas quando um arquivo é enviado automaticamente para o armazenamento por meio do recurso Capturar.
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -136,7 +136,7 @@ Os eventos dos Hubs de Eventos, atualmente, são emitidos apenas quando um arqui
 
 ### <a name="example-event"></a>Exemplo de evento
 
-Este exemplo de evento mostra o esquema de um evento dos Hubs de Eventos gerado quando Capturar armazena um arquivo. 
+Este exemplo de evento mostra o esquema de um evento dos Hubs de Eventos gerado quando o recurso Capturar armazena um arquivo: 
 
 ```json
 [
@@ -163,10 +163,11 @@ Este exemplo de evento mostra o esquema de um evento dos Hubs de Eventos gerado 
 ```
 
 
+## <a name="azure-blob-storage"></a>Armazenamento do Blob do Azure
 
-## <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
+>[!IMPORTANT]
+>Você deve estar registrado na versão prévia de eventos do Armazenamento de Blobs para usar eventos de armazenamento de blobs. Para obter mais informações sobre o programa de visualização, consulte [eventos de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
 
-Armazenamento de Blobs do Azure na versão prévia privada com inscrição para integração à Grade de Eventos.
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -175,7 +176,7 @@ Armazenamento de Blobs do Azure na versão prévia privada com inscrição para 
 
 ### <a name="example-event"></a>Exemplo de evento
 
-Este exemplo de evento mostra o esquema de um evento de armazenamento gerado quando um blob é criado. 
+Este exemplo de evento mostra o esquema de um evento de armazenamento gerado quando um blob é criado: 
 
 ```json
 [
@@ -208,7 +209,7 @@ Este exemplo de evento mostra o esquema de um evento de armazenamento gerado qua
 
 ## <a name="custom-topics"></a>Tópicos personalizados
 
-O conteúdo dos dados dos seus eventos personalizados é definido por você e pode ser qualquer JSON formatado corretamente. Os dados de nível superior devem conter os mesmos campos do que os eventos definidos pelo recurso padrão. Ao publicar eventos em tópicos personalizados, você deve considerar a modelagem do assunto dos eventos para auxiliar no roteamento e na filtragem.
+O conteúdo dos dados dos seus eventos personalizados é definido por você e pode ser qualquer objeto JSON formatado corretamente. Os dados de nível superior devem conter os mesmos campos do que os eventos definidos pelo recurso padrão. Ao publicar eventos em tópicos personalizados, você deve considerar a modelagem do assunto dos eventos para auxiliar no roteamento e na filtragem.
 
 ### <a name="example-event"></a>Exemplo de evento
 
@@ -232,6 +233,6 @@ O seguinte exemplo mostra um evento para um tópico personalizado:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)
-* Para saber como criar uma assinatura da Grade de Eventos, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).
+* Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md).
+* Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).
 

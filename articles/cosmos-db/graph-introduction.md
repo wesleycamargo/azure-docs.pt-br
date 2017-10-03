@@ -1,6 +1,6 @@
 ---
 title: "Introdução às APIs do Graph do BD Cosmos do Azure | Microsoft Docs"
-description: "Saiba como você pode usar o BD Cosmos do Azure para armazenar, consultar e percorrer gráficos grandes com baixa latência usando a linguagem de consulta gráfico Gremlin do Apache TinkerPop."
+description: "Saiba como você pode usar o Azure Cosmos DB para armazenar, consultar e percorrer gráficos grandes com baixa latência usando a linguagem de consulta gráfico Gremlin do Apache TinkerPop."
 services: cosmos-db
 author: dennyglee
 documentationcenter: 
@@ -13,30 +13,39 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: af4c67accf43c2f4f1498e3cafad6e9087a923af
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 02d4042803bdbc3b982019e0e5d3bcd7ed3e0173
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao BD Cosmos do Azure: API do Graph
 
-O [BD Cosmos do Azure](introduction.md) é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft para aplicativos de missão crítica. O BD Cosmos do Azure fornece com tudo incluído[ distribuição global](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partition-data.md) mundialmente, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e suporta modelos de dados de colunas, gráficos, valores-chave e documentos.
+O [Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft para aplicativos de missão crítica. O Azure Cosmos DB fornece os seguintes recursos, que são apoiados por [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
 
-É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra como começar a usar os gráficos do Azure Cosmos DB.
+* [Distribuição global turnkey](distribute-data-globally.md)
+* [Dimensionamento elástico de taxa de transferência e armazenamento](partition-data.md) em todo o mundo
+* Latências de dígito único em milissegundos no percentil 99
+* [Cinco níveis de consistência bem definidos](consistency-levels.md)
+* Alta disponibilidade garantida 
+
+O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele é multimodelo e dá suporte a modelos de dados de colunas, gráficos, valores-chave e documentos.
+
+É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra uma introdução aos gráficos do Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
 > 
 > 
+
 O BD Cosmos do Azure API do Graph fornece:
 
-- Modelagem de gráfico
-- APIs transversais
-- Distribuição global com tudo incluído
-- Escala elástica de armazenamento e taxa de transferência com latências de leitura menores que 10 ms e menores que 15 ms no 99º percentil
-- Indexação automática com disponibilidade imediata de consulta
-- Níveis de consistência ajustáveis
-- SLAs abrangentes, incluindo 99,99% de disponibilidade
+- Modelagem de gráfico.
+- APIs transversais.
+- Distribuição global turnkey.
+- Escala elástica de armazenamento e taxa de transferência com latências de leitura menores do que 10 ms e menores do que 15 ms no 99º percentil.
+- Indexação automática com disponibilidade imediata de consulta.
+- Níveis de consistência ajustáveis.
+- SLAs abrangentes, incluindo 99,99% de disponibilidade.
 
 Para consultar o BD Cosmos do Azure, você pode usar o [Apache TinkerPop](http://tinkerpop.apache.org) idioma de passagem gráfica, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), ou outros sistemas de gráfico compatível com TinkerPop como [Apache Spark GraphX](spark-connector-graph.md).
 
@@ -45,9 +54,9 @@ Este artigo fornece uma visão geral da API do Graph do BD Cosmos do Azure e exp
 ## <a name="graph-database"></a>Banco de dados do gráfico
 Os dados da forma como aparecem no mundo real são conectados naturalmente. A modelagem de dados tradicional se concentra em entidades. Para muitos aplicativos, também há a necessidade de modelar as relações e as entidades.
 
-Um [gráfico](http://mathworld.wolfram.com/Graph.html) é uma estrutura composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [bordas](http://mathworld.wolfram.com/GraphEdge.html). Os vértices e as bordas podem ter um número arbitrário de propriedades. Os vértices denotam objetos individuais, como uma pessoa, um lugar ou um evento. As bordas indicam relações entre os vértices. Por exemplo, uma pessoa pode conhecer a outra pessoa, estar envolvida em um evento e foi recentemente a um local. As propriedades expressam informações sobre os vértices e as bordas. Propriedades de exemplo incluem um vértice que tem um nome, uma idade e uma borda que tem um carimbo de data e/ou um peso. Mais formalmente, esse modelo é conhecido como um [gráfico de propriedade](http://tinkerpop.apache.org/docs/current/reference/#intro). O BD Cosmos do Azure dá suporte ao modelo de gráfico da propriedade.
+Um [gráfico](http://mathworld.wolfram.com/Graph.html) é uma estrutura composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [bordas](http://mathworld.wolfram.com/GraphEdge.html). Os vértices e as bordas podem ter um número arbitrário de propriedades. Os vértices denotam objetos individuais, como uma pessoa, um lugar ou um evento. As bordas indicam relações entre os vértices. Por exemplo, uma pessoa pode conhecer a outra pessoa, estar envolvida em um evento e foi recentemente a um local. As propriedades expressam informações sobre os vértices e as bordas. As propriedades de exemplo incluem um vértice com um nome, uma idade e um limite que tem um carimbo de data/hora ou um peso. Mais formalmente, esse modelo é conhecido como um [gráfico de propriedade](http://tinkerpop.apache.org/docs/current/reference/#intro). O BD Cosmos do Azure dá suporte ao modelo de gráfico da propriedade.
 
-Por exemplo, o gráfico de exemplo a seguir mostra as relações entre pessoas, dispositivos móveis, interesses e sistemas de operação.
+Por exemplo, o gráfico de exemplo a seguir mostra as relações entre pessoas, dispositivos móveis, interesses e sistemas de operação:
 
 ![Banco de dados de exemplo mostrando interesses, dispositivos e pessoas](./media/graph-introduction/sample-graph.png)
 
@@ -58,7 +67,7 @@ Os gráficos oferecem uma nova e avançada técnica de modelagem de dados. No en
 É possível combinar as passagens rápidas fornecidas pelos bancos de dados de gráfico com algoritmos de gráfico, como pesquisa por profundidade, pesquisa por amplitude e algoritmo de Dijkstra, a fim de solucionar problemas em vários domínios como redes sociais, geoespacial, gerenciamento de conteúdo e recomendações.
 
 ## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>Gráficos de escala planetária com o BD Cosmos do Azure
-O BD Cosmos do Azure é um banco de dados de gráfico totalmente gerenciado que oferece distribuição global, dimensionamento elástico do armazenamento e da taxa de transferência, indexação e consulta automática, níveis de consistência ajustáveis e suporte ao padrão TinkerPop.  
+O BD Cosmos do Azure é um banco de dados de gráfico totalmente gerenciado que oferece distribuição global, dimensionamento elástico do armazenamento e da taxa de transferência, indexação e consulta automática, níveis de consistência ajustáveis e suporte ao padrão TinkerPop.
 
 ![Arquitetura de gráfico do BD Cosmos do Azure](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
@@ -78,11 +87,11 @@ O BD Cosmos do Azure oferece os seguintes recursos diferenciados em comparação
 
 * Totalmente gerenciado
 
- O BD Cosmos do Azure elimina a necessidade de gerenciar recursos do computador e do banco de dados. Com um serviço totalmente gerenciado do Microsoft Azure, você não precisa gerenciar máquinas virtuais, implantar e configurar software, gerenciar o dimensionamento ou lidar com complexas atualizações de camadas de dados. Cada gráfico é salvo em backup automaticamente e protegido contra falhas regionais. Você pode adicionar facilmente uma conta do BD Cosmos do Azure e provisionar a capacidade conforme for necessário, permitindo que você se concentre em seu aplicativo sem se preocupar com a operação e com o gerenciamento do banco de dados.
+ O BD Cosmos do Azure elimina a necessidade de gerenciar recursos do computador e do banco de dados. Como um serviço do Microsoft Azure totalmente gerenciado, você não precisa gerenciar máquinas virtuais, implantar e configurar software,gerenciar o dimensionamento nem lidar com atualizações de camadas de dados complexas. Cada gráfico é salvo em backup automaticamente e protegido contra falhas regionais. Você pode adicionar facilmente uma conta do BD Cosmos do Azure e provisionar a capacidade conforme for necessário, permitindo que você se concentre em seu aplicativo sem se preocupar com a operação e com o gerenciamento do banco de dados.
 
 * Indexação automática
 
- Por padrão, o BD Cosmos do Azure indexa automaticamente todas as propriedades dentro dos nós e bordas do gráfico e não espera ou exige qualquer esquema ou criação de índices secundários.
+ Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós e bordas do gráfico e não espera ou exige qualquer esquema ou criação de índices secundários.
 
 * Compatibilidade com o Apache TinkerPop
 
@@ -94,8 +103,8 @@ O BD Cosmos do Azure oferece os seguintes recursos diferenciados em comparação
 
 O BD Cosmos do Azure também possibilita usar vários modelos, como documento e gráfico, nos mesmos contêineres/bancos de dados. Você pode usar uma coleção de documentos para armazenar dados de gráfico lado a lado com documentos. Você pode usar tanto consultas SQL em vez de consultas JSON e Gremlin para consultar os mesmos dados como um gráfico.
 
-## <a name="getting-started"></a>Introdução
-É possível criar contas do BD Cosmos do Azure por meio da interface de linha de comando (CLI) do Azure, do Azure Powershell ou do portal do Azure com suporte para a API do Graph. Após a criação, o portal do Azure fornece um ponto de extremidade de serviço, como o `https://<youraccount>.graphs.azure.com`, que fornece um front-end do WebSocket para Gremlin. Você pode configurar suas ferramentas compatíveis com TinkerPop, como o [console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para se conectar a esse ponto de extremidade e criar aplicativos no Java, Node.js ou qualquer driver de cliente Gremlin.
+## <a name="get-started"></a>Introdução
+É possível criar contas do Azure Cosmos DB por meio da interface de linha de comando (CLI) do Azure, do Azure PowerShell ou do portal do Azure com suporte para a API do Graph. Após a criação, o portal do Azure fornece um ponto de extremidade de serviço, como o `https://<youraccount>.graphs.azure.com`, que fornece um front-end do WebSocket para Gremlin. Você pode configurar suas ferramentas compatíveis com TinkerPop, como o [Console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para se conectar a esse ponto de extremidade e criar aplicativos no Java, Node.js ou qualquer driver de cliente Gremlin.
 
 A tabela a seguir mostra drivers Gremlin populares que você pode usar com o BD Cosmos do Azure:
 
@@ -111,7 +120,10 @@ O BD Cosmos do Azure também fornece uma biblioteca .NET com métodos de extens�
 | --- | --- |
 | [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 
-Usando o [Emulador BD Cosmos do Azure](local-emulator.md), você pode usar a API do Graph para desenvolver e testar local sem criar uma assinatura Azure ou incorrer qualquer custo. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador, você pode passar a usar uma conta do BD Cosmos do Azure na nuvem.
+Usando o [Emulador do Azure Cosmos DB](local-emulator.md), você pode usar a API do Graph .NET acima para desenvolver e testar local sem criar uma assinatura Azure ou incorrer qualquer custo. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador, você pode passar a usar uma conta do BD Cosmos do Azure na nuvem.
+
+> [!NOTE]
+> O suporte para validar consultas Gremlin no [emulador do Azure Cosmos DB](local-emulator.md) só está disponível por meio da API do Graph .NET.
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Cenários de suporte a gráfico do BD Cosmos do Azure
 Veja alguns cenários em que o suporte para gráfico do BD Cosmos do Azure pode ser usado:
@@ -130,11 +142,11 @@ Veja alguns cenários em que o suporte para gráfico do BD Cosmos do Azure pode 
 
 * Internet das coisas
 
- Com a rede e as conexões entre dispositivos IoT modeladas como um gráfico, é possível ter uma melhor compreensão do estado de seus dispositivos e ativos, e de como alterações em uma parte da rede podem afetar outra parte.
+ Com a rede e as conexões entre os dispositivos IoT modelados como um gráfico, você pode criar uma melhor compreensão do estado de seus dispositivos e ativos. Você também pode saber mais como as alterações em uma parte da rede podem afetar potencialmente outra parte.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o suporte para gráfico no BD Cosmos do Azure, consulte:
 
 * Introdução ao [Tutorial de gráfico do BD Cosmos do Azure](create-graph-dotnet.md).
-* Saiba como [consultar gráficos no BD Cosmos do Azure usando o Gremlin](gremlin-support.md).
+* Saiba como [consultar gráficos no Azure Cosmos DB usando o Gremlin](gremlin-support.md).
 

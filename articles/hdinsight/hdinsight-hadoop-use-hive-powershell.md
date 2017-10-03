@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Executar consultas Hive usando o PowerShell
@@ -48,13 +48,13 @@ O PowerShell do Azure fornece *cmdlets* que lhe permitem executar remotamente as
 
 Os cmdlets a seguir são usados ao executar consultas do Hive em um cluster HDInsight remoto:
 
-* **Add-AzureRmAccount**: autentica o Azure PowerShell para a sua assinatura do Azure
-* **New-AzureRmHDInsightHiveJobDefinition**: cria uma *definição de trabalho* usando as instruções HiveQL especificadas
-* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para o HDInsight, inicia o trabalho e retorna um objeto *job* que pode ser usado para verificar o status do trabalho
+* **Add-AzureRmAccount**: autentica o Azure PowerShell para a sua assinatura do Azure.
+* **New-AzureRmHDInsightHiveJobDefinition**: cria uma *definição de trabalho* usando as instruções HiveQL especificadas.
+* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 * **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
-* **Get-AzureRmHDInsightJobOutput**: usado para recuperar a saída do trabalho
-* **Invoke-AzureRmHDInsightHiveJob**: usado para executar instruções HiveQL. Esse cmdlet bloqueará a consulta até que ela seja concluída e, em seguida, retornará os resultados
-* **Use-AzureRmHDInsightCluster**: define o cluster atual a ser usado para o comando **Invoke-AzureRmHDInsightHiveJob**
+* **Get-AzureRmHDInsightJobOutput**: usado para recuperar a saída do trabalho.
+* **Invoke-AzureRmHDInsightHiveJob**: usado para executar instruções HiveQL. Esse cmdlet bloqueia a consulta até que ela seja concluída e, em seguida, retorna os resultados.
+* **Use-AzureRmHDInsightCluster**: define o cluster atual a ser usado para o comando **Invoke-AzureRmHDInsightHiveJob**.
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight:
 
@@ -94,7 +94,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **hivejob.ps1** , salve-o e execute-o novamente.
+Se nenhuma informação for retornada quando o trabalho for concluído, exiba os logs de erro. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **hivejob.ps1** , salve-o e execute-o novamente.
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Esse cmdlet retorna as informações gravadas em STDERR no servidor quando o trabalho foi executado.
+Esse cmdlet retorna as informações gravadas em STDERR durante o processamento do trabalho.
 
 ## <a name="summary"></a>Resumo
 

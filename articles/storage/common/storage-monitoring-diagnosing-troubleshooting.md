@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12db22d1444dc07a45db430c01407f9398e13bad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -30,7 +30,7 @@ Questões de diagnóstico e de solução de problemas em um aplicativo distribu�
 Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e entenda todos os aspectos de como se faz o diagnóstico e a solução de problemas deles e de suas tecnologias dependentes. Como usuário dos serviços de Armazenamento do Azure, monitore continuamente o serviços de Armazenamento que o seu aplicativo utiliza para qualquer mudança inesperada em comportamento (como um tempo maior de resposta do que o normal) e faça o login para coletar mais dados detalhados para analisar o problema em profundidade. As informações de diagnósticos que você obtiver tanto do monitoramento como do registro em log irão ajudá-lo a determinar a raiz do problema que o seu aplicativo encontrou. Você poderá solucionar o problema e determinar as etapas apropriadas que você pode tomar para corrigi-lo. O Armazenamento do Azure é um serviço básico do Azure e é parte importante da maioria das soluções que os clientes implantam para a infraestrutura Azure. O Armazenamento do Azure inclui capacidades de simplificar questões de monitoramento, diagnóstico e de soluções de problemas de armazenamento em seus aplicativos em nuvem.
 
 > [!NOTE]
-> O Armazenamento de Arquivos do Azure não dá suporte ao registro em log no momento.
+> No momento, o Arquivos do Azure não dá suporte a registro em log.
 > 
 
 Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](../storage-e2e-troubleshooting.md).
@@ -71,8 +71,8 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
   * [Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste]
   * [Você encontrou problemas ao instalar o SDK do Azure para .NET]
   * [Você tem um problema diferente com um serviço de armazenamento]
-  * [Solução de problemas de Armazenamento de Arquivos do Azure com Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Solução de problemas de Armazenamento de Arquivos do Azure com Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [Solução de problemas do Arquivos do Azure com Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Solução de problemas do Arquivos do Azure com Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Anexos]
   * [Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]
   * [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]
@@ -236,29 +236,29 @@ Em muitos casos, os dados de log a partir do log de armazenamento e da bibliotec
 O rastreamento de ponta a ponta usando uma variedade de arquivos de log é uma técnica útil para a investigação de potenciais problemas. Você pode usar as informações de dia/hora de seus dados de métrica como uma indicação de onde começar a procurar nos arquivos de log para informações mais detalhadas que irão ajudá-lo a solucionar o problema.
 
 ### <a name="correlating-log-data"></a>Correlacionamento de dados de log
-Ao exibir os logs dos aplicativos do cliente, rastreamento de rede e log de armazenamento do servidor é fundamental ser capaz de correlacionar as solicitações com os diferentes arquivos de log. Os arquivos de log incluem inúmeros campos diferentes que são úteis como identificadores de correlação. A id de solicitação do cliente é o campo mais útil para usa para correlacionar entradas em logs diferentes. Entretanto, algumas vezes, pode ser útil usar ou a id de solicitação do servidor ou os carimbos de data/hora. As seções a seguir fornecem mais detalhes sobre essas opções.
+Ao exibir os logs dos aplicativos do cliente, rastreamento de rede e log de armazenamento do servidor é fundamental ser capaz de correlacionar as solicitações com os diferentes arquivos de log. Os arquivos de log incluem inúmeros campos diferentes que são úteis como identificadores de correlação. A ID de solicitação do cliente é o campo mais útil para usa para correlacionar entradas em logs diferentes. Entretanto, algumas vezes, pode ser útil usar ou a ID de solicitação do servidor ou os carimbos de data/hora. As seções a seguir fornecem mais detalhes sobre essas opções.
 
 ### <a name="client-request-id"></a>ID de solicitação do cliente
-A biblioteca de cliente de armazenamento gera automaticamente uma única id de solicitação do cliente para cada solicitação.
+A Biblioteca de Clientes de Armazenamento gera automaticamente uma ID de solicitação do cliente exclusiva para cada solicitação.
 
-* No log do lado do cliente que a biblioteca do cliente de armazenamento cria, a id de solicitação do cliente aparece no campo **ID de solicitação do cliente** de cada entrada de log relacionada à solicitação.
-* No rastreamento da rede tal como uma capturada pelo Fiddler, a id de solicitação do cliente está visível em mensagens de solicitação como no valor do cabeçalho HTTP **x-ms-client-request-id** .
-* No log de armazenamento do lado do servidor, a id de solicitação do cliente aparece na coluna de id de solicitação do cliente.
+* No log do lado do cliente criado pela Biblioteca de Clientes de Armazenamento, a ID de solicitação do cliente aparece no campo **ID de solicitação do cliente** de cada entrada de log relacionada à solicitação.
+* No rastreamento da rede tal como uma capturada pelo Fiddler, a ID de solicitação do cliente está visível em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-client-request-id**.
+* No log de armazenamento do lado do servidor, a ID de solicitação do cliente aparece na coluna ID da solicitação do cliente.
 
 > [!NOTE]
-> É possível que solicitações múltiplas compartilharem a mesma ID de solicitação do cliente porque o cliente pode atribuir esse valor (embora a biblioteca do cliente de armazenamento atribua um novo valor automaticamente). No caso de novas tentativas do cliente, todas as tentativas compartilham a mesma ID de solicitação do cliente. No caso de um lote enviado pelo cliente, o lote tem uma ID de solicitação de cliente único.
+> É possível que várias solicitações compartilhem a mesma ID de solicitação do cliente porque o cliente pode atribuir esse valor (embora a Biblioteca de Clientes de Armazenamento atribua um novo valor automaticamente). No caso de novas tentativas do cliente, todas as tentativas compartilham a mesma ID de solicitação do cliente. No caso de um lote enviado pelo cliente, o lote tem uma única ID de solicitação de cliente.
 > 
 > 
 
 ### <a name="server-request-id"></a>ID de solicitação do servidor
 O serviço de armazenamento automaticamente gera ids de solicitação do servidor.
 
-* No log de armazenamento do lado do servidor, a id de solicitação do servidor aparece na coluna **Cabeçalho da id de solicitação do** .
-* No rastreamento da rede tal como uma capturada pelo Fiddler, a id de solicitação do servidor está visível em mensagens de solicitação como no valor do cabeçalho HTTP **x-ms-request-id** .
-* No log do lado do cliente que a biblioteca do cliente de armazenamento cria, a id de solicitação do cliente aparece na coluna **Texto de operação** para a entrada de log mostrando a resposta do servidor.
+* No log de armazenamento do lado do servidor, a ID de solicitação do servidor aparece na coluna **Cabeçalho da ID de solicitação**.
+* Em um rastreamento de rede tal como um capturado pelo Fiddler, a ID de solicitação do servidor aparece em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-request-id**.
+* No log do lado do cliente criado pela Biblioteca de Clientes de Armazenamento, a ID de solicitação do cliente aparece na coluna **Texto de Operação** para a entrada de log mostrando detalhes da resposta do servidor.
 
 > [!NOTE]
-> O serviço de armazenamento sempre atribui uma única id de solicitação de servidor para cada solicitação recebida, para que cada tentativa do cliente de para cada operação incluída no lote tenha uma única id de solicitação do servidor.
+> O serviço de armazenamento sempre atribui uma única ID de solicitação de servidor para cada solicitação recebida, de modo que cada tentativa do cliente e cada operação incluída no lote tenha uma ID de solicitação do servidor exclusiva.
 > 
 > 
 
@@ -574,7 +574,7 @@ A tabela a seguir mostra um exemplo de mensagem d log do lado do servidor a part
 | Tipo de autenticação.| Sas                          |
 | Tipo de serviço       | Blob                         |
 | URL de Solicitação        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho da id de solicitação do   | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de solicitação do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -653,7 +653,7 @@ As métricas de **PercentSuccess** capturam a porcentagem das operações que ti
 Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página [Códigos de erro comuns da API REST](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento
-Se você ver mudanças repentinas, inesperadas na capacidade de uso na sua conta de armazenamento, você pode investigar as razões, primeiramente, olhando suas métricas de disponibilidade; por exemplo, um aumento no número de falhas de solicitações de exclusão pode levar a um aumento na quantidade de armazenamento de blob que você está usando como aplicativo específico de operações de limpeza, o qual você esperava estar liberando espaço, pode não estar funcionando como esperado (por exemplo, porque os tokens de SAS usados para liberação de espaço expiraram).
+Se você vê mudanças repentinas, inesperadas na capacidade de uso na sua conta de armazenamento, você pode investigar as razões, primeiramente olhando as métricas de disponibilidade; por exemplo, um aumento no número de falhas de solicitações de exclusão pode levar a um aumento na quantidade de armazenamento de blobs que você está usando, já que operações de limpeza específicas de aplicativo que você esperava que estivessem liberando espaço podem não estar funcionando como esperado (por exemplo, porque os tokens SAS usados para liberação de espaço expiraram).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Você está enfrentando reinicializações inesperadas das máquinas virtuais do Azure que contêm um grande número de VHDs anexados
 Se uma máquina virtual (VM) do Azure tem um grande número de VHDs anexados que estão na mesma conta de armazenamento, você pode exceder os alvos de escalabilidade de uma conta de armazenamento individual causando uma falha na VM. Verifique as métricas de minuto da conta de armazenamento ((**TotalRequests**/**TotalIngress**/**TotalEgress**) para ver se há picos que excedem as metas de escalabilidade de uma conta de armazenamento. Consulte a seção "[As métricas mostram um aumento em PercentThrottlingError]" para ajudar a determinar se a limitação ocorreu na sua conta de armazenamento.
@@ -674,7 +674,7 @@ O emulador de armazenamento não é compatível com todos os recursos dos servi�
 Para os recursos que não são compatíveis com o emulador de armazenamento, use o serviço de armazenamento do Azure em nuvem.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento
-Você está testando o seu aplicativo que usa a biblioteca de cliente de armazenamento em relação ao emulador de armazenamento local e o método chama **CreateIfNotExists** falha com uma mensagem de erro "O valor para um dos cabeçalhos HTTP não está no formato correto”. Isso indica que a versão do emulador de armazenamento que você está usando não é compatível com a versão da biblioteca do cliente de armazenamento que você está usando. A biblioteca do cliente de armazenamento adiciona um cabeçalho **x-ms-version** em todas as solicitações que ela faz. Se o emulador de armazenamento não reconhecer o valor no cabeçalho **x-ms-version** , ele rejeita a solicitação.
+Você está testando o seu aplicativo (que usa a Biblioteca de Clientes de Armazenamento) no emulador de armazenamento local e chamadas de método como **CreateIfNotExists** falham com uma mensagem de erro "O valor para um dos cabeçalhos HTTP não está no formato correto". Isso indica que a versão do emulador de armazenamento que você está usando não é compatível com a versão da biblioteca do cliente de armazenamento que você está usando. A biblioteca do cliente de armazenamento adiciona um cabeçalho **x-ms-version** em todas as solicitações que ela faz. Se o emulador de armazenamento não reconhecer o valor no cabeçalho **x-ms-version** , ele rejeita a solicitação.
 
 Você pode usar os log de clientes de biblioteca de armazenamento para ver o valor do **cabeçalho x-ms-version** que está enviando. Você também pode ver o valor do **cabeçalho x-ms-version** se você usar o Fiddler para rastrear as solicitações do aplicativo do cliente.
 
@@ -756,7 +756,7 @@ O Wireshark irá realçar qualquer erro que existir na janela **packetlist** . V
 
 ![][7]
 
-Você também pode escolher para exibir os dados de TCP enquanto a camada do aplicativo vê isso ao clicar com o botão direito nos dados de TCP e ao selecionar **Siga o Fluxo TCP**. Isso é bastante útil se você capturou o seu despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Você também pode escolher exibir os dados de TCP conforme vistos pela camada de aplicativo, clicando com o botão direito do mouse nos dados de TCP e selecionando **Seguir o Fluxo TCP**. Isso é bastante útil se você capturou o seu despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -816,7 +816,7 @@ Você pode também usar o recurso Application Insights no Visual Studio Team Ser
 * Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
 * Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós poderemos lhe enviar um email. Você pode monitorar os serviços Web .NET e Java.
 
-Você pode encontrar mais informações em [O que é o Application Insights?](../../application-insights/app-insights-overview.md).
+Você pode encontrar mais informações em [O que é o Application Insights](../../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introdução]: #introduction

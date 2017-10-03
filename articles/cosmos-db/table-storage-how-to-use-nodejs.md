@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 539212c6abe7738c022d67245f8992516f0899ff
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como usar o armazenamento de Tabela do Azure por meio do Node.js
@@ -30,8 +30,7 @@ Este tópico mostra como executar cenários comuns usando o serviço Tabela do A
 
 Os exemplos de código neste tópico pressupõem que você já tenha um aplicativo do Node.js. Para obter informações sobre como criar um aplicativo do Node.js no Azure, confira um destes tópicos:
 
-* [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Criar e implantar um aplicativo Node.js para um serviço de nuvem do AzureServiço de nuvem do Node.js](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando o Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -66,8 +65,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão do Armazenamento do Azure
 O módulo do Azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
-
-Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure](https://portal.azure.com) para um Site do Azure, consulte [Aplicativo Web Node.js com o Serviço Tabela do Azure](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Criar uma tabela
 O código a seguir cria um objeto **TableService** e utiliza-o para criar uma nova tabela. Adicione o seguinte próximo à parte superior do **server.js**.
@@ -453,4 +450,4 @@ Para saber mais, consulte os recursos a seguir.
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * [SDK do Armazenamento do Azure para Node](https://github.com/Azure/azure-storage-node) no GitHub.
 * [Centro de desenvolvedores do Node. js](/develop/nodejs/)
-* [Criar e implantar um aplicativo Node.js em um site do Azure](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Criar e implantar um aplicativo Node.js em um site do Azure](../app-service/app-service-web-get-started-nodejs.md)

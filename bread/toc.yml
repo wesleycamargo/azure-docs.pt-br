@@ -34,15 +34,18 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
+        - name: Aplicativo Web para Contêineres
+          tocHref: /azure/app-service/containers/
+          topicHref: /azure/app-service/containers/
+        - name: Ambientes de Serviço de Aplicativo
+          tocHref: /azure/app-service/environment/
+          topicHref: /azure/app-service/environment/
         - name: Aplicativos Web
-          tocHref: /azure/app-service-web/
-          topicHref: /azure/app-service-web/
+          tocHref: /azure/app-service/
+          topicHref: /azure/app-service/
         - name: Aplicativos Móveis
           tocHref: /azure/app-service-mobile/
           topicHref: /azure/app-service-mobile/
-        - name: Aplicativos de API
-          tocHref: /azure/app-service-api/
-          topicHref: /azure/app-service-api/
     - name: Supervisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
@@ -67,7 +70,7 @@
     - name: Alemanha
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: Portal
+    - name: Portal do Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Gerenciador de Recursos
@@ -76,6 +79,9 @@
     - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+    - name: Usuário do Azure Stack
+      tocHref: /azure/azure-stack/user/
+      topicHref: /azure/azure-stack/user/
     - name: Capacidade de suporte
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
@@ -125,6 +131,9 @@
         - name: Serviço Inteligente de Reconhecimento Vocal (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
+        - name: Análise de texto
+          tocHref: /azure/cognitive-services/text-analytics/
+          topicHref: /azure/cognitive-services/text-analytics/overview
         - name: Indexador de Vídeo
           tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
           topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
@@ -201,6 +210,19 @@
     - name: Machine Learning
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
+      items:
+        - name: Serviços (Versão Prévia)
+          tocHref: /azure/machine-learning/preview
+          topicHref: /azure/machine-learning/preview/
+        - name: Estúdio
+          tocHref: /azure/machine-learning/studio
+          topicHref: /azure/machine-learning/studio/
+        - name: Processo de ciência de dados de equipe
+          tocHref: /azure/machine-learning/team-data-science-process
+          topicHref: /azure/machine-learning/team-data-science-process/overview
+        - name: Máquina Virtual de Ciência de Dados
+          tocHref: /azure/machine-learning/data-science-virtual-machine
+          topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: Consumo do Marketplace
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/

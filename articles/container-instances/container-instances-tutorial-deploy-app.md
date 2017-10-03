@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 08/08/2017
 Esta é a última parte de um tutorial de três partes. Nas seções anteriores [uma imagem de contêiner foi criada ](container-instances-tutorial-prepare-app.md) e [enviada por push a um Registro de Contêiner do Azure](container-instances-tutorial-prepare-acr.md). Esta seção conclui o tutorial implantando o contêiner em Instâncias de Contêiner do Azure. As etapas concluídas incluem:
 
 > [!div class="checklist"]
-> * Definição de um grupo de contêiner usando um modelo do Azure Resource Manager
-> * Implantação do grupo de contêiner usando a CLI do Azure
-> * Exibição de logs de contêiner
+> * Implantar o contêiner do Registro de Contêiner do Azure usando a CLI do Azure
+> * Exibição do aplicativo no navegador
+> * Exibição dos logs de contêiner
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Implantar o contêiner usando a CLI do Azure
 

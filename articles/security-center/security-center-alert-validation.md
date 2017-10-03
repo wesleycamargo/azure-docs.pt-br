@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validação de alertas na Central de Segurança do Azure
@@ -35,12 +35,15 @@ Depois que o agente da Central de Segurança for instalado no seu computador, si
 3. Abra o prompt de comando e execute o arquivo com um argumento (apenas um nome de argumento falso), como: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Aguarde 5 a 10 minutos e abra Alertas da Central de Segurança. Lá você deve encontrar um alerta semelhante ao seguinte:
 
-    ![Validação de alerta](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Validação de alerta](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Ao revisar o alerta, verifique se o campo Auditoria de Argumentos Habilitada aparece como true. Se ele mostra false, você precisa habilitar a auditoria de argumentos na linha de comando. Você pode habilitar essa opção usando a seguinte linha de comando:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Assista ao vídeo [Validação de alerta na Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) para ver uma demonstração desse recurso. 
 
 ## <a name="see-also"></a>Consulte também
 Este artigo apresentou a você o processo de validação de alertas. Agora que você está familiarizado com esse tipo de validação, experimente os seguintes artigos:

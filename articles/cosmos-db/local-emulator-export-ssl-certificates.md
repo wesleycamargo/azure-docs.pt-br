@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -105,8 +104,8 @@ Neste tutorial, você fez o seguinte:
 > * Exportou o certificado SSL
 > * Aprendeu a usar o certificado no Java, Python e Node.js
 
-Agora você pode seguir para a seção Conceitos para obter mais informações sobre o Cosmos DB.
+Você pode continuar a criar um gatilho de HTTP de Azure Functions com um tutorial de associação de entrada do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribuição global](distribute-data-globally.md) 
+> [Criar uma função do Azure com entrada do Azure Cosmos DB](tutorial-functions-http-trigger.md) 
 

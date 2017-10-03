@@ -1,10 +1,10 @@
 ---
-title: "Introdução Wingtip SaaS - aplicativo de multilocatário do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba por meio de um aplicativo de multilocatário de exemplo que usa o banco de dados SQL do Azure, o aplicativo SaaS Wingtip"
+title: "Exemplo de aplicativo de multilocatário do Banco de Dados SQL do Azure – Wingtip SaaS | Microsoft Docs"
+description: "Aprenda usando um aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo do Wingtip SaaS"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 68a9d97a881f3a7628a08b66091c3feb4c4dbbfe
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Introdução ao aplicativo SaaS Wingtip
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introdução a um exemplo de aplicativo SaaS multilocatário do Banco de Dados SQL
 
 O aplicativo *SaaS Wingtip* é um aplicativo multilocatário de exemplo que demonstra as vantagens exclusivas do Banco de Dados SQL. O aplicativo usa um padrão de aplicativo SaaS de um banco de dados por locatário para atender a vários locatários. O aplicativo foi projetado para demonstrar os recursos do Banco de Dados SQL do Azure que habilitam cenários de SaaS, incluindo vários padrões de design e gerenciamento de SaaS. Para obter rapidamente e executar, o aplicativo Wingtip SaaS é implantado em menos de cinco minutos!
 
@@ -59,7 +58,7 @@ Ao percorrer os tutoriais e trabalhar com o aplicativo, é importante ter em men
 
 Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, ***siga as etapas abaixo para desbloquear o arquivo. zip antes da extração***. Isso garante que os scripts podem ser executados.
 
-1. Navegue até [o repositório github do SaaS Wingtip](https://github.com/Microsoft/WingtipSaaS).
+1. Navegue até [o repositório github SaaS do Wingtip](https://github.com/Microsoft/WingtipSaaS).
 1. Clique em **Clonar ou baixar**.
 1. Clique em **Baixar ZIP** e salve o arquivo.
 1. Clique com botão direito no arquivo **WingtipSaaS master.zip** e selecione **Propriedades**.

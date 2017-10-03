@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
 ms.contentlocale: pt-br
-ms.lasthandoff: 02/17/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
@@ -96,7 +96,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Extensão |Insira o nome do atributo que contém o ramal do número de telefone em um registro de usuário.  O valor do campo de ramal só será usado como ramal do número de telefone principal.  O padrão é em branco. <br><br>Se o atributo Ramal não for especificado, os ramais poderão ser incluídos como parte do atributo de telefone. Nesse caso, preceda a extensão com um 'x' para que ele é analisado corretamente.  Por exemplo, 3123-4567 x890 resultaria em 3123-4567 como o número de telefone e 890 como o ramal. |
 | Botão Restaurar Padrões |Clique em **Restaurar Padrões** para retornar todos os atributos ao valor padrão.  Os padrões devem funcionar corretamente com o esquema do Active Directory ou do ADAM normal. |
 
-Para editar atributos, clique em **editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **...** ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
+Para editar atributos, clique em **editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **... ** ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
 
 ![Editar Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 

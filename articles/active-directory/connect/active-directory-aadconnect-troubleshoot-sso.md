@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
+- Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
+- O suporte ao navegador Edge não está disponível.
+- Ativação de licença em clientes do Office, especialmente em situações de computador compartilhado, gera prompts de entrada adicionais para usuários.
+- O SSO Contínuo não funciona no modo de navegação particular no Firefox. e 
+- O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
+- O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se você estiver sincronizando 30 ou mais florestas do AD, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
 - Adicionar URLs do serviço Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à zona "Sites confiáveis" em vez da zona "Intranet Local" **bloqueia a entrada dos usuários**.
-- O SSO Contínuo não funciona no modo de navegação particular no Firefox e no Edge. E também no Internet Explorer quando o modo de Proteção Avançada está ativado.
-
->[!IMPORTANT]
->Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
 
 ## <a name="check-status-of-the-feature"></a>Verificar o status do recurso
 

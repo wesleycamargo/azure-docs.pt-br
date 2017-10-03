@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
@@ -30,7 +30,7 @@ O AD do Azure dá suporte ao [protocolo de autorização do OAuth 2.0](active-di
 
 Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora a autenticação com o AD do Azure seja necessária para receber um token de portador, as etapas devem ser executadas para proteger o token, para impedir a interceptação por uma parte não intencional. Como os tokens de portador não têm um mecanismo interno para evitar que partes não autorizadas os utilizem, eles devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado para adquirir o token e ganhar acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
 
-Muitos dos tokens emitidos pelo Azure AD são implementados como Tokens Web JSON, ou JWTs.  Um JWT é um meio compacto e protegido por URL de transferir informações entre duas partes.  As informações contidas em JWTs são conhecidas como "declarações" ou asserções de informações sobre o portador e o assunto do token.  As declarações em JWTs são objetos JSON codificados e serializados para transmissão.  Uma vez que os JWTs emitidos pelo Azure AD são assinados, mas não criptografados, você pode inspecionar com facilidade o conteúdo de um JWT para fins de depuração.  Há várias ferramentas disponíveis para isso, como [jwt.calebb.net](http://jwt.calebb.net). Para obter mais informações sobre JWTs, você pode consultar a [Especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muitos dos tokens emitidos pelo Azure AD são implementados como Tokens Web JSON, ou JWTs.  Um JWT é um meio compacto e protegido por URL de transferir informações entre duas partes.  As informações contidas em JWTs são conhecidas como "declarações" ou asserções de informações sobre o portador e o assunto do token.  As declarações em JWTs são objetos JSON codificados e serializados para transmissão.  Uma vez que os JWTs emitidos pelo Azure AD são assinados, mas não criptografados, você pode inspecionar com facilidade o conteúdo de um JWT para fins de depuração.  Há várias ferramentas disponíveis para isso, como [jwt.ms](https://jwt.ms/). Para obter mais informações sobre JWTs, você pode consultar a [Especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Id_tokens
 Id_tokens são uma forma de token de segurança de conexão que seu aplicativo recebe ao executar a autenticação usando o [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Eles são representados como [JWTs](#types-of-tokens)e contêm declarações que você pode usar para conectar o usuário ao aplicativo.  Você pode usar as declarações em um id_token como julgar conveniente — geralmente elas são usadas para exibir informações de conta ou tomar decisões de controle de acesso em um aplicativo.
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> Para praticar, tente inspecionar as declarações no exemplo de id_token colando-o em [calebb.net](http://jwt.calebb.net).
+> Para praticar, tente inspecionar as declarações no token de ID de exemplo colando-o em [jwt.ms](https://jwt.ms/).
 > 
 > 
 

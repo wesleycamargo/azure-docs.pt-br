@@ -79,7 +79,7 @@ Um Instantâneo Gerenciado é uma cópia completa somente leitura de um disco ge
 Para saber mais sobre como criar instantâneos com o Managed Disks, consulte estes recursos:
 
 * [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Imagens

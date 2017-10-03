@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -58,18 +58,18 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Na folha de configurações, mantenha os padrões e clique em **OK**.
+5. Na folha de **Configurações**, mantenha os padrões e clique em **OK**.
 
 6. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 
-7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abre automaticamente.
+7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, o resumo da VM abre automaticamente.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Crie uma conexão SSH com a máquina virtual.
 
-1. Clique no botão **Conectar** na folha da máquina virtual. O botão conectar exibe uma cadeia de conexão SSH que pode ser usada para conectar-se à máquina virtual.
+1. Clique no botão **Conectar** nas propriedades da máquina virtual. O botão conectar exibe uma cadeia de conexão SSH que pode ser usada para conectar-se à máquina virtual.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +110,13 @@ Um Grupo de Segurança de Rede (NSG) protege o tráfego de entrada e saída. Qua
 
 ## <a name="view-the-nginx-welcome-page"></a>Exibir a página de boas-vindas do NGINX
 
-Com o NGINX instalado e a porta 80 aberta para a sua VM, o servidor Web agora pode ser acessada da Internet. Abra o navegador Web e insira o endereço IP público da VM. O endereço IP público pode ser encontrado na folha da VM no portal do Azure.
+Com o NGINX instalado e a porta 80 aberta para a sua VM, o servidor Web agora pode ser acessada da Internet. Abra o navegador Web e insira o endereço IP público da VM. O endereço IP público pode ser encontrado nas propriedades da VM no Portal do Azure.
 
 ![Site padrão NGINX](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos na folha da máquina virtual e clique em **Excluir**.
+Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da máquina virtual e clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

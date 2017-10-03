@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: e54861dbc851bc3d5629e84ddb61f26a06782ad4
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b1e08e79c7fe2acbdb9c17607641612ffa2934ee
 ms.contentlocale: pt-br
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure
@@ -164,14 +164,14 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 <!-- URL List -->
 
-[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[usar um aplicativo Web leve]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service/choose-web-site-cloud-service-vm.md
+[usar um aplicativo Web leve]: ../app-service/app-service-web-get-started-nodejs.md
 [Powershell do Azure]: /powershell/azureps-cmdlets-docs
 [SDK do Azure para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Conecte o PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Visão geral da criação de um serviço hospedado para o Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Centro de desenvolvedores do Node.js]: https://azure.microsoft.com/develop/nodejs/
+[Centro de desenvolvedores do Node. js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 

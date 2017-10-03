@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ Faça logon no Portal do Azure em [http://portal.azure.com](http://portal.azure.
 
     Você pode ver o progresso da criação nas notificações. (Clique no ícone de "Sino" próximo à barra de status no canto superior direito da tela). Se você clicou em **Fixar no Quadro Inicial** durante a criação do cluster, verá **Implantando o Cluster do Service Fabric** fixado na tela **Inicial**.
 
-### <a name="view-cluster-status"></a>Exibir o status do cluster
-Depois de criar o cluster, você pode inspecionar o cluster na folha **Visão geral** no portal. Agora você pode ver os detalhes do cluster no painel, inclusive o ponto de extremidade público do cluster e um link para o Service Fabric Explorer.
-
-![Status do cluster][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualizar o cluster usando o Service Fabric Explorer
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o cluster e gerenciar os aplicativos.  O Service Fabric Explorer é um serviço executado no cluster.  Acesse-o usando um navegador da Web clicando no link **Service Fabric Explorer** da página **Visão geral** do cluster no portal.  Você também pode digitar o endereço diretamente no navegador: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-O painel do cluster fornece uma visão geral do cluster, incluindo um resumo do aplicativo e a integridade do nó. A exibição de nós mostra o layout físico do cluster. Para um nó específico, você pode inspecionar quais aplicativos têm código implantado naquele nó.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Conectar o cluster usando o PowerShell
 Verifique se o cluster está em execução conectando e usando o PowerShell.  O módulo ServiceFabric PowerShell é instalado com o [SDK do Service Fabric](service-fabric-get-started.md).  O cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) estabelece uma conexão com o cluster.   
 
@@ -112,7 +100,7 @@ Exclua um grupo de recursos no portal do Azure:
     ![Excluir o grupo de recursos][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Usar o Azure Powershell para implantar um cluster seguro
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Usar o Azure Powershell para implantar um cluster do Windows seguro
 1. Baixe o [módulo Azure PowerShell, versão 4.0 ou mais recente](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), em seu computador.
 
 2. Abra uma janela do Windows PowerShell, execute os seguintes comandos. 
@@ -205,10 +193,6 @@ Execute o seguinte comando para verificar se você está conectado e o cluster e
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publicar seus aplicativos para o cluster a partir do Visual Studio
-
-Agora que você configurou um cluster do Azure, você pode publicar seus aplicativos a partir do Visual Studio, seguindo o documento [Publicar para um cluster](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Remover o cluster
 Um cluster é composto por outros recursos do Azure, além do próprio recurso do cluster. A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos. 
 
@@ -217,12 +201,62 @@ Um cluster é composto por outros recursos do Azure, além do próprio recurso d
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Usar a CLI do Azure para implantar um cluster seguro do Linux
+
+1. Instalar a [CLI do Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador.
+2. Faça logon no Azure e selecione a assinatura na qual você deseja criar o cluster.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Execute o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) para criar um cluster seguro.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
+Execute o seguinte comando da CLI para se conectar ao cluster usando o certificado.  Ao usar um certificado do cliente para autenticação, os detalhes do certificado devem corresponder a um certificado implantado para os nós de cluster.  Use a opção `--no-verify` para um certificado autoassinado.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Execute o seguinte comando para verificar se você está conectado e o cluster está íntegro.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você configurou um cluster de desenvolvimento, tente o seguinte:
-* [Criar um cluster seguro no portal](service-fabric-cluster-creation-via-portal.md)
-* [Criar um cluster a partir de um modelo](service-fabric-cluster-creation-via-arm.md) 
+* [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Remover um cluster](service-fabric-cluster-delete.md) 
 * [Implantar aplicativos usando o PowerShell](service-fabric-deploy-remove-applications.md)
+* [Implantar aplicativos usando a CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

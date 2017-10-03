@@ -30,7 +30,7 @@ Como discutido no artigo [Controle de acesso baseado em função do Azure](../ac
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
-Por exemplo, para conceder a permissão de leitura/gravação aos usuários para a política **Tamanhos de VM Permitidos**, você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/***, em seguida, atribua aos usuários adequados essa função personalizada no escopo de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Por exemplo, para conceder a permissão de leitura/gravação aos usuários para a política **Tamanhos de VM Permitidos** , você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/** *, em seguida, atribua aos usuários adequados essa função personalizada no escopo de* *Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../active-directory/role-based-access-control-custom-roles.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Conexões de ITSM no conector de gerenciamento de serviço de TI OMS | Microsoft Docs"
-description: "Conecte seus produtos/serviços ITSM com conector de gerenciamento de serviço de TI na OMS para monitorar e gerenciar os itens de trabalho ITSM centralmente."
+title: "Conexões com suporte do Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs"
+description: "Conecte seus produtos/serviços de ITSM com o Conector de Gerenciamento de Serviço de TI no Azure Log Analytics para monitorar e gerenciar os itens de trabalho ITSM de forma centralizada."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conectar produtos/serviços ITSM ao Conector de Gerenciamento do Serviço de TI (Versão Prévia)
@@ -39,7 +39,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto System Ce
 Verifique se você cumpriu os seguintes pré-requisitos:
 
 - Conector de Gerenciamento do Serviço de TI instalado.
-Mais informações: [Configuração](log-analytics-itsmc-overview.md#configuration).
+Mais informações: [Adicionando a solução Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - O aplicativo Web do Service Manager (aplicativo da Web) é implantado e configurado. Veja informações sobre o aplicativo Web [aqui](#create-and-deploy-service-manager-web-app-service).
 - Conexão híbrida criada e configurada. Mais informações: [Configurar a Conexão híbrida](#configure-the-hybrid-connection).
 - Versões do Service Manager com suporte: 2012 R2 ou 2016.
@@ -176,7 +176,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNo
 
 Verifique se você cumpriu os seguintes pré-requisitos:
 
-- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Configuração.](log-analytics-itsmc-overview.md#configuration)
+- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versões com suporte do ServiceNow – Fuji, Geneva, Helsinki.
 
 Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow:
@@ -269,8 +269,10 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto Provance 
 
 Verifique se você cumpriu os seguintes pré-requisitos:
 
-- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Configuração](log-analytics-itsmc-overview.md#configuration).
+
+- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
 - Função de usuário: Administrador.
 
 ### <a name="connection-procedure"></a>Procedimento de Conexão
@@ -293,7 +295,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 | **Nome de Usuário**   | Digite o nome de usuário que pode se conectar ao Conector de Gerenciamento do Serviço de TI.    |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação:** nome de usuário e senha são usados para gerar tokens de autenticação apenas e não são armazenados em qualquer lugar no serviço OMS. _|
 | **URL do Servidor**   | Digite a URL da sua instância do Provance que você deseja conectar ao Conector de Gerenciamento do Serviço de TI. |
-| **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância de Provance.  Para saber mais sobre a ID do cliente, consulte [como configurar a autenticação do active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância de Provance.  Para saber mais sobre a ID do cliente, consulte [como configurar a autenticação do active directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Escopo de Sincronização de Dados**   | Selecione os itens de trabalho do Provance que você deseja sincronizar com o OMS, por meio do Conector de Gerenciamento do Serviço de TI.  Esses itens de trabalho são importados para o Log Analytics.   **Opções:** Incidentes, Solicitações de Alteração.|
 | **Sincronizar Dados** | Digite o número de dias anteriores dos quais você deseja dados. **Limite máximo** 120 dias. |
 | **Criar um novo item de configuração na solução ITSM** | Selecione esta opção se você deseja criar os itens de configuração no produto ITSM. Quando selecionado, o OMS cria os CIs afetados como itens de configuração (no caso de CIs inexistentes) no sistema de ITSM com suporte. **Padrão**: desabilitado.|
@@ -313,7 +315,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell 
 
 Verifique se você cumpriu os seguintes pré-requisitos:
 
-- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Configuração](log-analytics-itsmc-overview.md#configuration).
+- Conector de Gerenciamento do Serviço de TI instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ID do Cliente gerada. Mais informações: [Gerar a ID de cliente do Cherwell](#generate-client-id-for-cherwell).
 - Função de usuário: Administrador.
 

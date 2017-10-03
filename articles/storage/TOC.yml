@@ -1,3 +1,5 @@
+- name: Documentação do Armazenamento do Azure
+  href: index.yml
 - name: Visão geral
   items:
     - name: Introdução

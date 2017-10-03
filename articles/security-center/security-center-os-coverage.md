@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas com suporte na Central de Segurança do Azure
@@ -39,12 +38,6 @@ Sistemas operacionais Windows com suporte:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-> [!NOTE]
->
-* Avaliações de vulnerabilidade do sistema operacional ainda não estão disponíveis para o Windows Server 2016.
-* Detecções de análise de falha só têm suporte no Windows Server 2012 e Windows Server 2012 R2.
->
->
 
 ## <a name="supported-platforms-for-linux-vms"></a>Plataformas com suporte para VMs Linux
 Sistemas operacionais Linux com suporte:

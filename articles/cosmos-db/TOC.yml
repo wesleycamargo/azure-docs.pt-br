@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Exportar certificados
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - Integrar com as Funções
+      items:
+        - name: Gatilho HTTP
+          href: tutorial-functions-http-trigger.md
 - name: Exemplos
   items:
-    - name: CLI do Azure 2.0
+    - name: CLI do Azure
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Banco de dados sem servidor
+      href: serverless-computing-database.md
     - name: Distribuição global
       href: distribute-data-globally.md
     - name: Particionamento
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: Indexação
           href: indexing-policies.md
+        - name: Serviço conectado no Visual Studio
+          href: connected-service.md
     - name: Gerenciar
       items:
         - name: Gravações e leituras econômicas
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: SLAs do monitor
           href: monitor-accounts.md
+        - name: Usar métricas
+          href: use-metrics.md
+        - name: Registro em log de diagnóstico
+          href: logging.md
         - name: Gerenciar chaves e consistência
           href: manage-account.md
+        - name: Gerenciador de Armazenamento do Azure
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Segurança
           items:
             - name: Criptografia em repouso
@@ -309,7 +323,7 @@
         - name: Integrar ao Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Mover dados com o Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Analisar dados em tempo real com o Stream Analytics do Azure
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Obter o registro FHIR HL7 alterado usando Aplicativos Lógicos
@@ -358,6 +372,8 @@
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Experimente o Azure Cosmos DB gratuitamente
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Perguntas frequentes

@@ -3,7 +3,7 @@ title: "Depurador de Instantâneos do Application Insights do Azure para aplicat
 description: "Depure instantâneos são coletados automaticamente quando exceções forem geradas na produção de aplicativos .NET"
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
@@ -68,26 +68,13 @@ Coleta de instantâneo está disponível para:
 
 1. [Habilite o Application Insights no seu aplicativo web Núcleo do ASP.NET](app-insights-asp-net-core.md), se você ainda não tiver feito isso.
 
+> [!NOTE]
+> Verifique se o seu aplicativo faz referência à versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
+
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
-3. Modifique o `ConfigureServices` método na classe do seu aplicativo `Startup` para adicionar o processador de telemetria do coletor de instantâneo. O código que você deve adicionar depende na versão do pacote do NuGet Microsoft.ApplicationInsights.ASPNETCore referenciado.
+3. Modifique o `ConfigureServices` método na classe do seu aplicativo `Startup` para adicionar o processador de telemetria do coletor de instantâneo.
 
-   Para Microsoft.ApplicationInsights.AspNetCore 2.1.0, adicione:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   Para Microsoft.ApplicationInsights.AspNetCore 2.1.1, adicione:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
@@ -175,7 +162,7 @@ O instantâneo baixado contém os arquivos de símbolo que foram encontrados no 
 
 ## <a name="how-snapshots-work"></a>Como os instantâneos funcionam
 
-Quando seu aplicativo é iniciado, é criado um processo separado de carregador de instantâneos que monitora seu aplicativo quanto a solicitações de instantâneos. Quando um instantâneo é solicitado, é feita uma cópia de sombra do processo em execução em cerca de 10 a 20 minutos. O processo de sombra é analisado e um instantâneo é criado enquanto o processo principal continua sendo executado e fornecendo tráfego para os usuários. O instantâneo, então, é carregado para o Application Insights em conjunto com os arquivos de símbolo (.pdb) relevantes necessários para exibir o instantâneo.
+Quando seu aplicativo é iniciado, é criado um processo separado de carregador de instantâneos que monitora seu aplicativo quanto a solicitações de instantâneos. Quando um instantâneo é solicitado, é feita uma cópia de sombra do processo em execução em cerca de 10 a 20 milissegundos. O processo de sombra é analisado e um instantâneo é criado enquanto o processo principal continua sendo executado e fornecendo tráfego para os usuários. O instantâneo, então, é carregado para o Application Insights em conjunto com os arquivos de símbolo (.pdb) relevantes necessários para exibir o instantâneo.
 
 ## <a name="current-limitations"></a>Limitações atuais
 

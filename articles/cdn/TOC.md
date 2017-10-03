@@ -6,7 +6,7 @@
 
 # Como
 ## Integração
-### [Aplicativos Web](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Aplicativos Web](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Serviços de Nuvem](cdn-cloud-service-with-cdn.md)
 ### [Armazenamento](cdn-create-a-storage-account-with-cdn.md)
 ### [Compartilhamento de recursos entre origens](cdn-cors.md)
@@ -19,7 +19,7 @@
 ####[Aceleração de site dinâmica](cdn-dynamic-site-acceleration.md)
  
 ## Gerenciar
-### [Gerenciar com o PowerShell](cdn-manage-powershell.md)
+### [Gerenciar com o Azure PowerShell](cdn-manage-powershell.md)
 ### Configurar vida útil
 #### [Conteúdo de Aplicativos Web/Serviços de Nuvem, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Conteúdo do serviço Blob de armazenamento](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [PowerShell do Azure](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

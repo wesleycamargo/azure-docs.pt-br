@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/22/2017
 
 Este artigo descreve como um perfil com tipo de roteamento **Prioridade** pode ser criado para rotear usuários para dois pontos de extremidade de aplicativos Web do Azure. Usando o tipo de roteamento **Prioridade**, todo o tráfego é roteado para o primeiro ponto de extremidade, enquanto o segundo é mantido como um backup. Como resultado, os usuários podem ser roteados para o segundo ponto de extremidade, caso o primeiro ponto de extremidade se torne não íntegro.
 
-Neste artigo, dois pontos de extremidade de aplicativo Web do Azure anteriormente criados são associados a esse perfil do Gerenciador de Tráfego recém-criado. Para saber mais sobre como criar pontos de extremidade de aplicativo Web do Azure, visite a [página de documentação de aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/). Você pode adicionar qualquer ponto de extremidade que tenha um nome DNS e possa ser acessado pela Internet pública. Assim, estamos usando pontos de extremidade de Aplicativos Web do Azure como um exemplo.
+Neste artigo, dois pontos de extremidade de aplicativo Web do Azure anteriormente criados são associados a esse perfil do Gerenciador de Tráfego recém-criado. Para saber mais sobre como criar pontos de extremidade de aplicativo Web do Azure, visite a [página de documentação de aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/). Você pode adicionar qualquer ponto de extremidade que tenha um nome DNS e possa ser acessado pela Internet pública. Assim, estamos usando pontos de extremidade de Aplicativos Web do Azure como um exemplo.
 
 ### <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 1. Usando um navegador, entre no [portal do Azure](http://portal.azure.com). Caso ainda não tenha uma conta, você pode se inscrever para obter uma [avaliação gratuita por um mês](https://azure.microsoft.com/free/). 
@@ -54,13 +55,13 @@ Neste artigo, dois pontos de extremidade de aplicativo Web do Azure anteriorment
     5. Para **Prioridade**, selecione **1**. Isso faz com que todo o tráfego passe para esse ponto de extremidade, se ele estiver íntegro.
     6. Mantenha a opção **Adicionar como desabilitado** desmarcada.
     7. Clique em **OK**
-5.    Repita as etapas 3 e 4 para o próximo ponto de extremidade de Aplicativos Web do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
-6.    Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+5.  Repita as etapas 3 e 4 para o próximo ponto de extremidade de Aplicativos Web do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
+6.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
     ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de Tráfego
-1.    Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
+1.  Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
 2. Na folha **Perfil do Gerenciador de Tráfego**, clique em **Visão Geral**.
 3. A folha **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o primeiro ponto de extremidade e, se o Gerenciador de Tráfego detectá-lo como não íntegro, o tráfego fará failover automaticamente para o próximo ponto de extremidade.
 

@@ -12,10 +12,10 @@ ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 6a4c32d73050795a70a86f745840536bb3fc2a49
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -51,6 +51,6 @@ Use os plug-ins do Jenkins para implantar seus aplicativos no Azure como parte d
  Plug-ins estão disponíveis para serem implantados nos seguintes serviços e ambientes:
 
 - [Aplicativo Web do Azure no Linux](/azure/app-service-web/app-service-linux-intro). Consulte o [tutorial](java-deploy-webapp-tutorial.md) para começar.
-- [Aplicativo Web do Azure](/azure/app-service-web/app-service-web-overview). Consulte as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.
+- [Aplicativo Web do Azure](/azure/app-service/app-service-web-overview). Consulte as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.
 
 

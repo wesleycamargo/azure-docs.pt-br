@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager
@@ -591,7 +591,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 O nome da referência do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Essa correspondência é necessária para fornecer um SSL para os pontos de extremidade de gerenciamento de HTTPS e o Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma AC para o domínio `.cloudapp.azure.com` . Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-Esses nomes de referência são as entradas necessárias para criar um cluster do Service Fabric seguro (sem o Azure AD), conforme descrito em [Configurar parâmetros de modelo do Resource Manager](#configure-arm). Você pode se conectar ao cluster seguro seguindo as instruções para [autenticar o acesso de cliente a um cluster](service-fabric-connect-to-secure-cluster.md). Os clusters de visualização do Linux não dão suporte à autenticação do Azure AD. Você pode atribuir funções de administrador e cliente, conforme descrito na seção [Atribuir funções a usuários](#assign-roles). Quando você especifica funções de administrador e cliente para um cluster de visualização do Linux, precisa fornecer as impressões digitais de certificado para autenticação. (Você não fornece o nome da entidade porque nenhuma validação ou revogação de cadeia está sendo executada nessa versão de visualização.)
+Esses nomes de referência são as entradas necessárias para criar um cluster do Service Fabric seguro (sem o Azure AD), conforme descrito em [Configurar parâmetros de modelo do Resource Manager](#configure-arm). Você pode se conectar ao cluster seguro seguindo as instruções para [autenticar o acesso de cliente a um cluster](service-fabric-connect-to-secure-cluster.md). Os clusters do Linux não dão suporte à autenticação do Azure AD. Você pode atribuir funções de administrador e cliente, conforme descrito na seção [Atribuir funções a usuários](#assign-roles). Quando você especifica funções de administrador e de cliente para um cluster do Linux, é necessário fornecer as impressões digitais de certificado para autenticação. Você não fornece o nome da entidade, porque nenhuma validação ou revogação de cadeia está sendo executada.
 
 Se quiser usar um certificado autoassinado para testes, você poderá usar o mesmo script para gerá-lo. Em seguida, você pode carregar o certificado no cofre de chaves fornecendo o sinalizador `ss` em vez do caminho e do nome do certificado. Por exemplo, consulte o seguinte comando para criar e carregar um certificado autoassinado:
 
