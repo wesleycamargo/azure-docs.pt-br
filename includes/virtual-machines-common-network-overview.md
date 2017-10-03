@@ -110,7 +110,7 @@ Ao criar um balanceador de carga, você também deve considerar estes elementos 
 - **Pool de endereços de back-end** – endereços IP que estão associados à NIC para a qual a carga é distribuída.
 - **Regras de NAT** - define como o tráfego flui pelo IP de front-end e é distribuído para o IP de back-end.
 - **Regras do balanceador de carga** -mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Um balanceador de carga único pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e IP de porta e back-end e porta associada a VMs.
-- **[Sondas](../articles/load-balancer/load-balancer-custom-probe-overview.md) ** - monitora a integridade das VMs. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para a VM não íntegra. As conexões existentes não são afetadas e novas conexões são enviadas para VMs íntegras.
+- **[Sondas](../articles/load-balancer/load-balancer-custom-probe-overview.md)** - monitora a integridade das VMs. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para a VM não íntegra. As conexões existentes não são afetadas e novas conexões são enviadas para VMs íntegras.
 
 Esta tabela lista os métodos que você pode usar para criar um balanceador de carga voltado para a Internet.
 

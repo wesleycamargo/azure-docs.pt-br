@@ -326,7 +326,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use 'az account list --all' a fim de listar as assinaturas disponíveis para sua conta e use 'az account set --subscription<subscriptionID>' a fim de alternar para a assinatura que você deseja usar.
 
-1. **[Assinatura 1] ** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
+1. **[Assinatura 1]** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
   ```azurecli
   az network vnet-gateway show -n VNet1GW -g TestRG1
@@ -340,7 +340,7 @@ Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e 
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
   ```
 
-2. **[Assinatura 5] ** Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
+2. **[Assinatura 5]** Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
   ```azurecli
   az network vnet-gateway show -n VNet5GW -g TestRG5

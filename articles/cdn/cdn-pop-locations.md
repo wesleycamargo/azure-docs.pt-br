@@ -22,7 +22,7 @@ ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-cdn-pop-locations"></a>Locais POP da CDN do Azure
-Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e ** Azure CDN da Akamai**.
+Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e **Azure CDN da Akamai**.
 
 > [!IMPORTANT]
 > \*Os locais de cidade POP do **Azure CDN da Akamai** não são divulgados individualmente.  

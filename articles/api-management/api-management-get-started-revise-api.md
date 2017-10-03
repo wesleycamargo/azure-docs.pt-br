@@ -37,7 +37,7 @@ Neste passo a passo, adicionamos uma nova revisão, adicionamos uma operação a
 3. Selecione **+ Adicionar Revisão**
 
     > [!TIP]
-    > Você também pode escolher **Adicionar Revisão** no menu de contexto (**... **) na API.
+    > Você também pode escolher **Adicionar Revisão** no menu de contexto (**...**) na API.
 ![Menu Revisões perto da parte superior da tela](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Forneça uma descrição para a nova revisão, para ajudar você a se lembrar de sua função.

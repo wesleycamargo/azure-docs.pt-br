@@ -32,7 +32,7 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
     * *Não quer instalar o código do servidor? Apenas [crie um recurso do Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. ** Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
+2. **Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
 
     ![Copie o script no cabeçalho da página da web mestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
