@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 9eed7d3da5cc9a5d94c6f5cd11e69a1b6b293733
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
@@ -37,7 +37,7 @@ Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura par
 
 Os clientes que se conectam podem usar os seguintes métodos de autenticação:
 
-* Servidor RADIUS
+* Servidor RADIUS - atualmente em versão prévia
 * Autenticação de certificado nativa do Azure de Gateway de VPN
 
 Este artigo ajudará você a definir uma configuração de P2S com autenticação usando a autenticação de certificado nativa do Azure. Se você quiser usar RADIUS para autenticar usuários conectados, confira [P2S usando a autenticação RADIUS](point-to-site-how-to-radius-ps.md).
@@ -48,7 +48,11 @@ As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP volt
 
 * O SSTP é um túnel de VPN baseado em SSL que tem suporte apenas em plataformas de cliente do Windows. Ele pode entrar em firewalls, tornando-o uma opção ideal para se conectar ao Azure de qualquer lugar. No lado do servidor, há suporte para as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide qual versão usar. Por padrão, para Windows 8.1 e posterior, o SSTP usa 1.2.
 
-* Os túneis IKEv2 P2S têm suporte nas plataformas Windows e Mac. Se você tiver uma combinação de dispositivos em sua organização, o IKEv2 será a opção mais adequada. Windows e Mac usam o cliente de VPN IKEv2 nativo.
+* VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima). No momento, o IKEv2 está em versão prévia.
+
+>[!NOTE]
+>Atualmente, o IKEv2 para P2S está em Versão Prévia.
+>
 
 Conexões de autenticação de certificado nativa de Ponto a Site do Azure exigem o seguinte:
 
@@ -166,7 +170,7 @@ Configurar e criar o gateway de rede virtual para sua rede virtual.
 
 * O *-GatewayType* deve ser **Vpn** e o *-VpnType* deve ser **RouteBased**.
 * O -VpnClientProtocols é usado para especificar os tipos de túneis que você deseja habilitar. As duas opções de túneis são **SSTP** e **IKEv2**. Você pode habilitar um deles ou ambos. Se você quiser habilitar os dois, especifique os dois nomes separados por uma vírgula. O cliente Strongswan no Android e no Linux, e o cliente VPN IKEv2 nativo no iOS e no OSX usarão somente o túnel IKEv2 para se conectar. Os clientes Windows tentam o IKEv2 primeiro e, se isso gerar a conexão, retornarão ao SSTP.
-* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado.
+* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Neste exemplo, usamos IKEv2, que está atualmente disponível em versão prévia.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

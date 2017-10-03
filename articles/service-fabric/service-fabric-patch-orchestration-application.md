@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -71,7 +71,7 @@ O aplicativo de orquestração de patch exige que o serviço do sistema do geren
 Clusters do Azure na camada de durabilidade prata têm o serviço do gerenciador de reparo habilitado por padrão. Clusters do Azure na camada de durabilidade ouro podem ou não ter o serviço do gerenciador de reparo habilitado, dependendo de quando esses clusters foram criados. Cluster do Azure na camada de durabilidade bronze, por padrão, não têm o serviço do gerenciador de reparo habilitado. Se o serviço já está habilitado, você pode ver ele em execução na seção de serviços do sistema no Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Portal do Azure
-Você pode habilitar o Gerenciador de reparo do portal do Azure no momento da configuração do cluster. Selecione a opção `Include Repair Manager` em `Add on features` no momento da configuração de Cluster.
+Você pode habilitar o Gerenciador de reparo do portal do Azure no momento da configuração do cluster. Selecione a opção `Include Repair Manager` em `Add on features` no momento da configuração de cluster.
 ![Imagem do Gerenciador de reparo de habilitação do portal do Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
@@ -274,6 +274,17 @@ O aplicativo de orquestração de patch expõe as APIs REST para exibir os resul
   ...
 ]
 ```
+
+Campos do JSON são descritos abaixo.
+
+Campo | Valores | Detalhes
+-- | -- | --
+OperationResult | 0 - Êxito<br> 1 - Êxito com erros<br> 2 - Falha<br> 3 - Anulado<br> 4 - Anulado com tempo limite | Indica o resultado da operação geral (normalmente envolvendo a instalação de uma ou mais atualizações).
+ResultCode | O mesmo que OperationResult | Este campo indica o resultado da operação de instalação para uma atualização individual.
+OperationType | 1 - Instalação<br> 0 - Pesquisar e baixar.| A instalação é o único OperationType exibido por padrão nos resultados.
+WindowsUpdateQuery | O padrão é "IsInstalled=0" |Consulta do Windows Update que foi usada para procurar atualizações. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+RebootRequired | true - a reinicialização foi necessária<br> false - a reinicialização não foi necessária | Indica se a reinicialização foi necessária para concluir a instalação de atualizações.
+
 Se nenhuma atualização estiver agendada ainda, o resultado JSON estará vazio.
 
 Faça logon no cluster para consultar os resultados do Windows Update. Em seguida, descubra o endereço de réplica para o primário do Serviço do Coordenador e pressione a URL do navegador: http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
@@ -361,9 +372,9 @@ R. O tempo que o aplicativo de orquestração de patch leva depende principalmen
 - O tempo médio necessário para baixar e instalar uma atualização, que não deve exceder alguma horas.
 - O desempenho da VM e largura da banda de rede.
 
-P. **Por que vejo algumas atualizações no Windows Update resultados obtidos por meio da api REST, mas não sob o histórico do Windows Update no computador?**
+P. **Por que vejo algumas atualizações no Windows Update resultados obtidos por meio da API REST, mas não sob o histórico do Windows Update no computador?**
 
-R. Algumas atualizações de produto precisam ser verificadas no seu respectivo histórico de atualização/aplicação de patch. Por exemplo: Atualizações do Windows Defender não aparecem no histórico do Windows Update no Windows Server 2016.
+R. Algumas atualizações de produto precisam ser verificadas no seu respectivo histórico de atualização/aplicação de patch. Por exemplo, atualizações do Windows Defender não aparecem no histórico do Windows Update no Windows Server 2016.
 
 ## <a name="disclaimers"></a>Avisos de Isenção de Responsabilidade
 
@@ -403,7 +414,7 @@ Uma atualização do Windows com falha pode reduzir a integridade de um aplicati
 
 Um administrador deve intervir e determinar por que o aplicativo ou cluster se tornou não íntegro devido ao Windows Update.
 
-## <a name="release-notes-"></a>Notas de Versão:
+## <a name="release-notes"></a>Notas de versão
 
 ### <a name="version-110"></a>Version 1.1.0
 - Versão pública

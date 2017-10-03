@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -35,13 +35,18 @@ Neste artigo, você aprenderá a habilitar e a remover o MSI de uma VM do Window
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Habilitar o MSI durante a criação de uma VM do Azure
 
-Na data em que este artigo foi inscrito, habilitar MSI durante a criação de uma VM no portal do Azure não é suportado. Em vez disso, consulte a seção de Início rápido para [Criar uma máquina virtual do Windows com o portal do Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) para obter detalhes sobre a criação de uma máquina virtual. Vá para a próxima seção para obter detalhes sobre como habilitar o MSI.
+Na data em que este artigo foi inscrito, habilitar MSI durante a criação de uma VM no portal do Azure não é suportado. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VM para primeiro criar uma VM:
+
+- [Criar uma máquina virtual do Windows com o Portal do Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual Linux com o Portal do Azure](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+Vá para a próxima seção para obter detalhes sobre como habilitar o MSI numa VM.
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Habilitar MSI em uma VM do Azure existente
 
 Se você tiver uma VM que foi originalmente provisionada sem um MSI:
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure sob a qual você gostaria de implantar a VM.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
 
 2. Navegue até a Máquina Virtual desejada.
 
@@ -53,7 +58,7 @@ Se você tiver uma VM que foi originalmente provisionada sem um MSI:
 
 Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure sob a qual você gostaria de implantar a VM.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
 
 2. Navegue até a Máquina Virtual desejada.
 
@@ -64,7 +69,6 @@ Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
 ## <a name="related-content"></a>Conteúdo relacionado
 
 - Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](msi-overview.md).
-- Este artigo é adaptado do Início rápido [Criar uma máquina virtual do Windows com o portal do Azure](../virtual-machines/windows/quick-create-portal.md), e foi modificado para incluir instruções específicas ao MSI. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

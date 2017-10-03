@@ -1,6 +1,6 @@
 ---
 title: "Diferenças no Azure Service Fabric entre Linux e Windows | Microsoft Docs"
-description: "As diferenças entre a visualização do Azure Service Fabric no Linux e do Azure Service Fabric no Windows."
+description: "As diferenças entre o Azure Service Fabric no Linux e o Azure Service Fabric no Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferenças entre o Service Fabric no Linux (visualização) e no Windows (geralmente disponível)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>As diferenças entre o Service Fabric no Linux e no Windows
 
-Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux. Nas futuras versões, esse intervalo de recursos será reduzido. Existem as seguintes diferenças entre as versões mais recentes disponíveis (ou seja, entre a versão 5.6 para Windows e a versão 5.5 no Linux): 
+Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventualmente, os conjuntos de recursos estarão em paridade e com cada versão esse intervalo de recursos será reduzido. Existem as seguintes diferenças entre as versões mais recentes disponíveis (ou seja, entre a versão 6.0 para Windows e a versão 6.0 no Linux): 
 
-* Coleções Confiáveis (e Serviços Confiáveis com Estado) 
-* ReverseProxy 
-* Instalador autônomo 
-* Validação do esquema XML para os arquivos de manifesto 
-* Redirecionamento do console 
-* Serviço de Análise de Falha (FAS)
-* Docker Compose, volume e drivers de log para contêineres 
-* Governança de recursos para contêineres e serviços 
-* Serviço DNS
-* Suporte ao Azure Active Directory
-* Equivalentes de comando da CLI de certos comandos do Powershell 
-* Somente um subconjunto de comandos do Powershell pode ser executado em um cluster do Linux (como explicado na próxima seção).
+* Todos os modelos de programação estão na versão prévia (Java/C# Reliable Actors, Reliable Stateless Services e Reliable Stateful Services)
+* O Envoy (ReverseProxy) está em versão prévia no Linux
+* O instalador autônomo para Linux ainda não está disponível no Linux
+* Redirecionamento de console (sem suporte em clusters de produção do Linux ou Windows)
+* O Serviço de Análise de Falha (FAS) no Linux
+* Serviço DNS para serviços do Service Fabric (o serviço DNS tem suporte para contêineres no Linux)
+* Equivalentes de comando da CLI de determinados comandos do Powershell (lista abaixo, a maior parte se aplica somente aos clusters autônomos)
 
->[!NOTE]
->O redirecionamento de console não tem suporte em clusters de produção, mesmo no Windows.
-
-As ferramentas de desenvolvimento também são diferente entre o Windows e o Linux. VisualStudio, Powershell, VSTS e ETW são usados no Windows, enquanto Yeoman, Eclipse, Jenkins e LTTng são usados no Linux.
+As ferramentas de desenvolvimento também são diferente entre o Windows e o Linux. O Visual Studio, o Powershell, o VSTS e o ETW são usados no Windows, enquanto o Yeoman, o Eclipse, o Jenkins e o LTTng são usados no Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam em um cluster Linux do Service Fabric
 
@@ -67,7 +59,6 @@ As ferramentas de desenvolvimento também são diferente entre o Windows e o Lin
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

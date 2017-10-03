@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -57,7 +57,6 @@ Os seguintes serviços do Azure oferecem suporte à Identidade de Serviço Geren
 | O Barramento de | Status | Data |
 | --- | --- | --- |
 | Máquinas Virtuais do Azure | Visualização | Setembro de 2017 |
-| Conjuntos de dimensionamento de máquina virtual do Azure | Visualização | Setembro de 2017 |
 | Serviço de aplicativo do Azure | Visualização | Setembro de 2017 |
 | Funções do Azure | Visualização | Setembro de 2017 |
 
@@ -69,7 +68,6 @@ Os seguintes serviços possuem suporte à autenticação do Azure AD e foram tes
 | --- | --- | --- | --- |
 | Gerenciador de Recursos do Azure | https://management.azure.com/ | Disponível | Setembro de 2017 |
 | Cofre da Chave do Azure | https://vault.azure.net/ | Disponível | Setembro de 2017 |
-| SQL do Azure | https://database.windows.net/ | Disponível | Setembro de 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Disponível | Setembro de 2017 |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto custa a Identidade de Serviço Gerenciado?
@@ -85,28 +83,35 @@ Adoraríamos ouvir o que você tem para nos dizer!
 
 ## <a name="try-managed-service-identity"></a>Experimente a Identidade de Serviço Gerenciado
 
-Agora que você entende as noções básicas, experimente um tutorial de Identidade de Serviço Gerenciado para saber como acessar os diferentes recursos do Azure.
+Tente um tutorial de identidade de serviço gerenciado para saber os cenários de ponta a ponta para acessar recursos do Azure diferentes:
 
-- [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-arm.md)
-- [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-arm.md)
-- [Acessar o Armazenamento do Azure com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-storage.md)
-- [Acessar o Armazenamento do Azure com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-storage.md)
-- [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-nonaad.md)
-- [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-nonaad.md)
-- [Identidade de Serviço Gerenciado do Usuário com o Serviço de Aplicativo do Azure ou o Azure Functions](/azure/app-service/app-service-managed-service-identity)
+| De recurso de permissão MSI | Saiba como |
+| ------- | -------- |
+| VM do Azure (Windows) | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Acessar o Armazenamento do Azure com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Windows e um Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| VM do Azure (Linux)   | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Acessar o Armazenamento do Azure com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+| Serviço de aplicativo do Azure  | [Use a identidade de Serviço Gerenciado do Usuário com o Serviço de Aplicativo do Azure ou o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [Use a identidade de Serviço Gerenciado do Usuário com o Serviço de Aplicativo do Azure ou o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
+Se você quiser apenas para aprender os fundamentos da habilitação do MSI em um recurso do Azure:
 
+| Para recurso do Azure | Habilitar ou remover usando o MSI |
+| ------------------ | ------------------------------------ |
+| VM do Azure (Windows) | [O portal do Azure](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [CLI do Azure](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Modelos do Gerenciador de Recursos do Azure](msi-qs-configure-template-windows-vm.md) |
 
+Em seguida, aprenda a usar o controle de acesso com base da função (RBAC) para conceder uma permissão de MSI para acessar outro recurso do Azure:
 
-
-
-
-
-
-
-
-
-
+| De recurso de permissão MSI | Atribuir acesso a outro recurso do Azure usando |
+| ------------------------ | ---------------------------------------------------------- |
+| VM do Azure (Windows) | [O portal do Azure](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [CLI do Azure](msi-howto-assign-access-CLI.md) |
 
 
 

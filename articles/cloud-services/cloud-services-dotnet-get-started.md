@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
@@ -36,7 +36,7 @@ O aplicativo é um painel de anúncios eletrônico. Os usuários criam um anúnc
 O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Arquitetura alternativa: sites e trabalhos Web
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em versão prévia) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service-web/choose-web-site-cloud-service-vm.md).
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em versão prévia) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>O que você aprenderá
 * Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.

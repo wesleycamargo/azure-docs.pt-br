@@ -18,7 +18,7 @@
 > - Europa Ocidental
 > - Sudeste do Pacífico Asiático
 
-Da VM expansível série B é ideal para cargas de trabalho que não é necessário o desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B fornece esses clientes a possibilidade de comprar um tamanho VM com um preço consciência da linha de base de desempenho que permite que a instância VM criar créditos quando a VM é menor que o desempenho de base. Quando a VM tiver acumulado crédito, poderá disparar acima da linha de base da VM usando até 100% da CPU quando seu aplicativo requer o maior desempenho de CPU.
+As VMs expansíveis série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B fornece esses clientes a possibilidade de comprar um tamanho VM com um preço consciência da linha de base de desempenho que permite que a instância VM criar créditos quando a VM é menor que o desempenho de base. Quando a VM tiver acumulado crédito, poderá disparar acima da linha de base da VM usando até 100% da CPU quando seu aplicativo requer o maior desempenho de CPU.
 
 
 | Tamanho             | vCPU  | Memória: GiB | SSD local: GiB | Desempenho base de um núcleo | Créditos armazenados/hora | Máximo de créditos armazenados | Discos de dados máximos | Desempenho de disco local máx: IOPS/MBps | Máximo desempenho de disco eliminado do cache: IOPS/MBps | Máximo de NICs |          

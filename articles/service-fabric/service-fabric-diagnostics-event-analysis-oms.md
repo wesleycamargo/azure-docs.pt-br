@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -92,7 +92,7 @@ Este artigo aborda as etapas necessárias para configurar o monitoramento de con
 
 Para configurar a solução de Contêiner no espaço de trabalho, verifique se o agente do OMS foi implantado nos nós do cluster, seguindo as etapas mencionadas acima. Quando o cluster estiver pronto, implante um contêiner nele. Tenha em mente que na primeira vez que uma imagem de contêiner é implantada em um cluster, ela leva vários minutos para baixar a imagem, dependendo de seu tamanho.
 
-No Azure Marketplace, procure *Contêineres* e crie um recurso de contêineres (na categoria Monitoramento + Gerenciamento).
+No Azure Marketplace, pesquise *Solução de monitoramento de contêiner* e crie o resultado da **Solução de monitoramento de contêiner** que deverá surgir, na categoria Monitoramento + Gerenciamento.
 
 ![Adicionando a solução de Contêineres](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

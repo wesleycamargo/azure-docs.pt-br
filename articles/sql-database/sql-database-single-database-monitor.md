@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/10/2017
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: e11ed3275413b428523eef78a5a89b537f6a4afc
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure
 O monitoramento do desempenho de um banco de dados SQL no Azure começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. O monitoramento ajuda você a determinar se o seu banco de dados tem excesso de capacidade ou se está enfrentando problemas por ter atingido o máximo de recursos. Com essas informações, você pode decidir se é hora de ajustar o nível do desempenho e a [camada de serviço](sql-database-service-tiers.md) do banco de dados. Você pode monitorar o banco de dados usando ferramentas gráficas no [Portal do Azure](https://portal.azure.com) ou as [exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
+
+> [!TIP]
+> Use [Insights inteligentes do SQL do Azure](sql-database-intelligent-insights.md) para monitoramento automático do desempenho do banco de dados. Quando um problema de desempenho é detectado, um log de diagnóstico é gerado com detalhes e RCA (Análise da Causa Raiz) do problema. Recomendação de melhoria de desempenho é fornecida quando possível.
+>
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorar bancos de dados usando o Portal do Azure
 No [Portal do Azure](https://portal.azure.com/), é possível monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico **Monitoramento** . Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
@@ -209,4 +212,9 @@ Se você estiver analisando uma carga de trabalho local do SQL Server, modifique
 Novamente, essas consultas retornam uma contagem pontual. Se coletar várias amostras ao longo do tempo, você terá a melhor compreensão do uso de sua sessão.
 
 Para a análise do Banco de Dados SQL, é possível obter estatísticas históricas sobre sessões consultando a visualização [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e revisando a coluna **active_session_count**. 
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Ajuste automaticamente índices e planos de execução de consulta do banco de dados usando o [ajuste automático de Banco de dados SQL do Azure](sql-database-automatic-tuning.md).
+- Monitore automaticamente o desempenho do banco de dados usando [Insights inteligentes de SQL do Azure](sql-database-intelligent-insights.md). Esse recurso fornece informações de diagnóstico e análise da causa raiz de problemas de desempenho.
 

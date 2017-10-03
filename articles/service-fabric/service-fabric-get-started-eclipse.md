@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -45,6 +45,10 @@ Se já tiver o plug-in do Service Fabric instalado, verifique se você tem a ver
 
 > [!NOTE]
 > Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local do plug-in do Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
+
+> [!NOTE]
+>Se o Eclipse não está funcionando conforme o esperado no seu Mac ou você precisa executar como superusuário), vá para a pasta **ECLIPSE_INSTALLATION_PATH** e navegue até a subpasta **Eclipse.app/Contents/MacOS**. Inicie o Eclipse executando `./eclipse`.
+
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Criar um aplicativo do Service Fabric no Eclipse
 

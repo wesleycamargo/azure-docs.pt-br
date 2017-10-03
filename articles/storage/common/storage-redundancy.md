@@ -3,7 +3,7 @@ title: "Replicação de dados no Armazenamento do Azure | Microsoft Docs"
 description: "Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c35f53c5c80a67cb33b457e9e3235d0e745536cf
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 09c6f525bb608d95c60ba7907aae4b4e70923544
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
 
+# <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
 Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A replicação copia os dados no mesmo data center ou em um segundo data center, dependendo de qual opção de replicação você escolher. A replicação protege seus dados e preserva o tempo de atividade do aplicativo no caso de falhas transitórias de hardware. Se os seus dados forem replicados para um segundo data center, eles estarão protegidos contra uma falha catastrófica no local principal.
 
 A replicação garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas. Consulte o SLA para obter informações sobre as garantias do Armazenamento do Azure para disponibilidade e durabilidade.
@@ -51,17 +51,7 @@ Consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing
 >
 
 ## <a name="locally-redundant-storage"></a>Armazenamento com redundância local
-O LRS (armazenamento com redundância local) replica os dados três vezes em uma unidade de escala de armazenamento, que é hospedada em um datacenter na região em que você criou a conta de armazenamento. Uma solicitação de gravação retorna com êxito somente depois que tiver sido gravada nas três réplicas. Essas três réplicas residem em domínios de falha e domínios de atualização separados dentro de uma unidade de escala de armazenamento.
-
-Uma unidade de escala de armazenamento é uma coleção de racks de nós de armazenamento. Um domínio de falha (FD) é um grupo de nós que representam uma unidade física de falha e podem ser considerados nós que pertencem ao mesmo rack físico. Um domínio de atualização (UD) é um grupo de nós atualizados em conjunto durante o processo de atualização de um serviço (distribuição). As três réplicas estão difundidas entre UDs e FDs em uma única unidade de escala de armazenamento para garantir que os dados estejam disponíveis, mesmo se a falha de hardware afetar um único rack ou quando os nós forem atualizados durante uma distribuição.
-
-O LRS é a opção de custo mais baixo e oferece durabilidade menor em comparação com outras opções. Em caso de desastre no nível de datacenter (incêndio, inundação etc.), as três réplicas podem ser perdidas ou ficar irrecuperáveis. Para reduzir esse risco, o GRS (armazenamento com redundância geográfica) é a opção recomendada para a maioria dos aplicativos.
-
-O armazenamento com redundância local ainda pode ser desejável em determinados cenários:
-
-* Fornece largura de banda máxima das opções de replicação do Armazenamento do Azure.
-* Se seu aplicativo armazenar dados que possam ser facilmente reconstruídos, você pode optar por LRS.
-* Alguns aplicativos são restritos à replicação de dados somente em um país devido a requisitos de governança de dados. Uma região emparelhada poderia estar em outro país. Para obter mais informações sobre pares de regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
 O ZRS (armazenamento com redundância de zona) replica os dados de modo assíncrono entre datacenters em uma ou duas regiões, além de armazenar três réplicas semelhantes ao LRS, fornecendo assim maior durabilidade que o LRS. Os dados armazenados no ZRS são duráveis, mesmo se o datacenter primário estiver indisponível ou não for recuperável.
@@ -74,61 +64,7 @@ Os clientes que planejam usar o ZRS deve estar ciente de que:
 * As contas do ZRS não têm recursos de log ou métricas.
 
 ## <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
-O GRS (armazenamento com redundância geográfica) replica seus dados para uma região secundária a centenas de quilômetros da região primária. Se sua conta de armazenamento tem GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região principal não possa ser recuperada.
-
-Para uma conta de armazenamento com GRS habilitado, uma atualização primeiro é confirmada para a região primária, na qual é replicada três vezes. Em seguida, a atualização é replicada de modo assíncrono para a região secundária, onde ela também é replicada três vezes.
-
-Com o GRS, as regiões primária e secundária gerenciam réplicas entre domínios de falha e domínios de atualização separados em uma unidade de escala de armazenamento, conforme descrito com o LRS.
-
-Considerações:
-
-* Como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária.
-* A réplica não estará disponível, a menos que a Microsoft inicie o failover para a região secundária. Se a Microsoft iniciar um failover para a região secundária, você terá acesso de leitura e gravação aos dados após o failover ter sido concluído. Para obter mais informações, confira [Guia de Recuperação de Desastres](../storage-disaster-recovery-guidance.md). 
-* Se um aplicativo quiser ler na região secundária, o usuário deverá habilitar o RA-GRS.
-
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias.
-
-| Primário | Secundário |
-| --- | --- |
-| Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
-| Centro-Sul dos Estados Unidos |Centro-Norte dos EUA |
-| Leste dos EUA |Oeste dos EUA |
-| Oeste dos EUA |Leste dos EUA |
-| Leste dos EUA 2 |Centro dos EUA |
-| Centro dos EUA |Leste dos EUA 2 |
-| Norte da Europa |Europa Ocidental |
-| Europa Ocidental |Norte da Europa |
-| Sudeste da Ásia |Ásia Oriental |
-| Ásia Oriental |Sudeste da Ásia |
-| China Oriental |Norte da China |
-| Norte da China |China Oriental |
-| Leste do Japão |Oeste do Japão |
-| Oeste do Japão |Leste do Japão |
-| Sul do Brasil |Centro-Sul dos Estados Unidos |
-| Leste da Austrália |Sudeste da Austrália |
-| Sudeste da Austrália |Leste da Austrália |
-| Sul da Índia |Centro da Índia |
-| Centro da Índia |Sul da Índia |
-| Oeste da Índia |Sul da Índia |
-| Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
-| Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
-| Governo dos EUA do Texas |Governo dos EUA do Arizona |
-| Governo dos EUA do Arizona |Governo dos EUA do Texas |
-| Canadá Central |Leste do Canadá |
-| Leste do Canadá |Canadá Central |
-| Oeste do Reino Unido |Sul do Reino Unido |
-| Sul do Reino Unido |Oeste do Reino Unido |
-| Alemanha Central |Nordeste da Alemanha |
-| Nordeste da Alemanha |Alemanha Central |
-| Oeste dos EUA 2 |Centro-Oeste dos EUA |
-| Centro-Oeste dos EUA |Oeste dos EUA 2 |
-
-Para obter informações atualizadas sobre regiões com suporte do Azure, confira [Regiões do Azure](https://azure.microsoft.com/regions/).
-
->[!NOTE]  
-> A região secundária do US Gov - Virgínia é US Gov - Texas. Anteriormente, o US Gov - Virgínia utilizada o US Gov - Iowa como uma região secundária. As contas de armazenamento que ainda utilizam US Gov - Iowa como uma região secundária estão sendo migradas para US Gov - Texas como uma segunda região. 
-> 
-> 
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Armazenamento com redundância geográfica com acesso de leitura
 O RA-GRS (armazenamento com redundância geográfica de acesso de leitura) maximiza a disponibilidade da sua conta de armazenamento, fornecendo acesso somente leitura aos dados no local secundário, além de replicação em duas regiões fornecido por GRS.
@@ -167,7 +103,7 @@ Considerações:
 <a id="lastsynctime"></a>
 #### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Há uma maneira de descobrir o tempo necessário para replicar meus dados da região primária para a secundária?
    
-   Se você estiver utilizando o armazenamento RA-GRS, você poderá verificar a Hora da Última Sincronização de sua conta de armazenamento. A Hora da Última Sincronização é um valor de data/hora GMT; todas as gravações primárias antes da hora da última sincronização foram gravadas com êxito para o local secundário, significando que estão disponíveis para serem lidas a partir do local secundária. As gravações primárias após a hora da última sincronização podem ou não estarem disponíveis para leituras. Você pode consultar esse valor utilizando o [Portal do Azure](https://portal.azure.com/), o [Azure PowerShell](storage-powershell-guide-full.md), ou programaticamente, utilizando a API REST ou uma das Bibliotecas de Clientes de Armazenamento. 
+   Se você estiver utilizando o armazenamento RA-GRS, você poderá verificar a Hora da Última Sincronização de sua conta de armazenamento. A Hora da Última Sincronização é um valor de data/hora GMT, todas as gravações primárias antes da Hora da Última Sincronização foram gravadas com êxito na localização secundária, o que significa que estão disponíveis para serem lidas usando a localização secundária. As gravações primárias após a hora da última sincronização podem ou não estarem disponíveis para leituras. Você pode consultar esse valor utilizando o [Portal do Azure](https://portal.azure.com/), o [Azure PowerShell](storage-powershell-guide-full.md), ou programaticamente, utilizando a API REST ou uma das Bibliotecas de Clientes de Armazenamento. 
 
 <a id="outage"></a>
 #### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Como posso mudar para a região secundária se houver uma interrupção na região principal?
@@ -177,7 +113,7 @@ Considerações:
 <a id="rpo-rto"></a>
 #### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. O que é RPO e RTO com GRS?
    
-   RPO (Objetivo de Ponto de Recuperação): no GRS e no RA-GRS, o serviço de armazenamento sincroniza de maneira assíncrona os dados do local primário para o secundário. Se houver um grande desastre regional e for necessário realizar um failover, as recentes alterações delta que não foram replicadas geograficamente poderão ser perdidas. O número de minutos de dados potencialmente perdidos é referido como o RPO (o que significa o momento em que os dados podem ser recuperados). Normalmente, temos um RPO inferior a 15 minutos, embora atualmente não exista SLA em quanto tempo demora a replicação geográfica.
+   RPO (Objetivo de Ponto de Recuperação): no GRS e no RA-GRS, o serviço de armazenamento sincroniza de maneira assíncrona os dados do local primário para o secundário. Se houver um grande desastre regional e for necessário realizar um failover, as recentes alterações delta que não foram replicadas geograficamente poderão ser perdidas. O número de minutos de dados potencialmente perdidos é referido como o RPO (o que significa o momento em que os dados podem ser recuperados). Normalmente, temos um RPO inferior a 15 minutos, embora atualmente não exista SLA sobre quanto tempo demora a replicação geográfica.
 
    RTO (Objetivo de Tempo de Recuperação): essa é uma medida de quanto tempo demora para fazer o failover e recuperar a conta de armazenamento online, caso seja necessário realizar um failover. O tempo para realizar o failover inclui o seguinte:
     * O tempo que demora para investigar e determinar se será possível recuperar os dados no local principal ou, se haverá a necessidade de realizar um failover.

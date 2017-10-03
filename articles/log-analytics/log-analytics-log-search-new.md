@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Compreendendo as pesquisas de logs no Log Analytics
@@ -77,6 +77,13 @@ E quanto a um gráfico de linhas com a utilização do processador para cada com
     | render timechart    
 
 É possível consultar essas amostras rápidas que, independentemente do tipo de dados com o qual você está trabalhando, a estrutura da consulta é similar.  Você pode dividir em etapas distintas onde os dados resultantes de um comando são enviados através do pipeline para o próximo comando.
+
+Você também pode consultar dados em espaços de trabalho do Log Analytics dentro de sua assinatura.
+
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
+
 
 Para obter a documentação completa sobre a linguagem de consulta do Azure Log Analytics, incluindo tutoriais e referência de linguagem, consulte a [Documentação da linguagem de consulta do Azure Log Analytics](https://docs.loganalytics.io/).
 

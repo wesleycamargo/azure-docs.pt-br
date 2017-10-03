@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: cd5608ceda95a0bcca4416d2836c3deb3eb51e00
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 95f14f2b77565b53c6e270f6afbf9873cdac606a
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
 Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows ou Mac IKEv2 para se conectar a uma rede virtual Ponto a Site que usa a autenticação de certificado nativa do Azure.
+
+>[!NOTE]
+>Atualmente, o IKEv2 para P2S está em Versão Prévia.
+>
 
 ### <a name="workflow"></a>Fluxo de trabalho de P2S
 

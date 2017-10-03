@@ -3,7 +3,7 @@ title: "Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs |
 description: "Compare e contraste os serviços de integração na nuvem da Microsoft e decida quais deles você deve usar."
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: "microsoft flow, flow, aplicativos lógicos, azure functions, functions, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
@@ -29,7 +29,7 @@ Este artigo compara e contrasta os seguintes serviços na nuvem da Microsoft, qu
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
-* [WebJobs no Serviço de Aplicativo do Azure](../app-service-web/web-sites-create-web-jobs.md)
+* [WebJobs no Serviço de Aplicativo do Azure](../app-service/web-sites-create-web-jobs.md)
 
 Todos esses serviços são úteis para "unir" sistemas diferentes. Todos eles definem entrada e saída, condições e ações. Você pode executar cada um em um cronograma ou gatilho. No entanto, cada serviço tem vantagens exclusivas e compará-los não é uma questão de "Qual serviço é o melhor?" mas de "qual serviço é o mais adequado para essa situação?" Geralmente, uma combinação desses serviços é a melhor maneira de criar rapidamente uma solução escalonável de integração completa.
 

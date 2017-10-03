@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2017
+ms.date: 09/13/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5db3f6dc28da9a07d0193db58b37def8c03a8c46
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -134,6 +134,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Obtém as regras de firewall para um servidor|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Modifica uma regra de firewall em um servidor|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Exclui uma regra de firewall de um servidor.|
+| New-AzureRmSqlServerVirtualNetworkRule | Cria um [*regra de rede virtual*](sql-database-vnet-service-endpoint-rule-overview.md), com base em uma sub-rede que é um ponto de extremidade de serviço de rede virtual. |
 
 > [!TIP]
 > Para obter um tutorial de início rápido do PowerShell, confira [Criar um único banco de dados SQL do Azure usando o PowerShell](sql-database-get-started-portal.md). Para scripts de exemplo do PowerShell, consulte [Usar o PowerShell para criar um único Banco de Dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar de um único Banco de Dados SQL usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -231,4 +232,3 @@ Para criar e gerenciar servidores, bancos de dados e firewalls SQL do Azure, use
 - Para obter informações sobre o serviço do Banco de Dados SQL do Azure, consulte [O que é o Banco de Dados SQL?](sql-database-technical-overview.md).
 - Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).
-

@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -39,6 +39,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configurar CI/CD usando o Visual Studio Team Services
+> * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
@@ -159,10 +160,9 @@ Neste tutorial, você aprendeu como:
 > * Criar uma definição de versão
 > * Implantar e atualizar automaticamente um aplicativo
 
-Agora que você implantou um aplicativo e configurou a integração contínua, experimente o seguinte:
-- [Atualizar um aplicativo](service-fabric-application-upgrade.md)
-- [Testar um aplicativo](service-fabric-testability-overview.md) 
-- [Monitorar e diagnosticar](service-fabric-diagnostics-overview.md)
+Prosseguir para o próximo tutorial:
+> [!div class="nextstepaction"]
+> [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

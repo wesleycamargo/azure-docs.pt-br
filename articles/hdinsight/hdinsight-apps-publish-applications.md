@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
@@ -41,16 +41,17 @@ Também é necessário registrar sua conta de desenvolvedor. Para obter mais inf
 ## <a name="define-the-application"></a>Definir o aplicativo
 Duas etapas são envolvidas na publicação de aplicativos no Marketplace. Primeiro, defina um arquivo *createUiDef.json*. O arquivo createUiDef.json indica com quais clusters seu aplicativo é compatível. Em seguida, publique o modelo no Portal do Azure. Veja um exemplo do arquivo createUiDef.json:
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Campo | Descrição | Valores possíveis |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ Quando um aplicativo é instalado em um cluster (em um cluster existente ou em u
   > [!IMPORTANT]
   > O nome do script de instalação do aplicativo deve ser único para um cluster específico. O nome do script deve ter o seguinte formato:
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > O nome do script tem três partes:
   > 

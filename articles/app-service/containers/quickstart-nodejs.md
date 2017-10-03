@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web Node.js em um contêiner do Linux no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este guia de início rápido mostra como implantar um aplicativo Node.js nos Aplicativos Web do Azure para Contêineres. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Node.js no aplicativo Web.
+Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este guia de início rápido mostra como implantar um aplicativo Node.js no Aplicativo Web do Azure para Contêineres. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Node.js no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -62,7 +63,7 @@ Execute o aplicativo localmente abrindo uma janela do terminal e usando o script
 npm start
 ```
 
-Abra um navegador da Web e navegue até o aplicativo de exemplo em http://localhost:1337.
+Abra um navegador da Web e navegue até o aplicativo de exemplo em `http://localhost:1337`.
 
 Você vê a mensagem **Olá, Mundo** no aplicativo de exemplo exibido na página.
 
@@ -82,7 +83,7 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
 
-Navegue até o site para ver seu Aplicativo Web recém-criado. Substitua _&lt;app name>_ por um nome exclusivo do aplicativo.
+Navegue até o site para ver seu Aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
 
 ```bash
 http://<app name>.azurewebsites.net

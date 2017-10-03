@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f17f3084138d667b2584142ed90ecc8fc1586189
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
@@ -61,7 +60,7 @@ Caso você precise criar uma cadeia de conexão do Hub de Eventos usando as info
 
 Os SDKs e integrações que você pode usar com os pontos de extremidade compatíveis com o Hub de Eventos expostos pelo Hub IoT incluem os itens a seguir na lista:
 
-* [Cliente Java dos Hubs de Eventos](https://github.com/hdinsight/eventhubs-client).
+* [Cliente Java dos Hubs de Eventos](https://github.com/Azure/azure-event-hubs-java).
 * [Spout do Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Você pode exibir a [fonte do spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração do Apache Spark](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -130,6 +130,9 @@ A [solução Integridade do Dispositivo](https://docs.microsoft.com/windows/depl
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
 Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.
+
+### <a name="known-issue-backup-solution"></a>Problema conhecido: solução de backup
+A solução de backup não coletará dados em um espaço de trabalho atualizado. Uma nova solução de backup que funciona com o espaço de trabalho atualizado será anunciada em breve.
 
 ## <a name="upgrade-process"></a>Processo de atualização
 

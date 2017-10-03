@@ -16,49 +16,37 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurar dispositivos adicionados ao Azure Active Directory
 
-O gerenciamento de dispositivos no Azure Active Directory (Azure AD) pode ajudar a garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
+Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
 
-Com os [dispositivos ingressados no Azure AD](device-management-introduction.md#azure-ad-joined-devices), você pode colocar os dispositivos Windows 10 pertencentes à sua organização sob o controle do Azure AD. Esses dispositivos não devem estar já [ingressados em um AD local](device-management-introduction.md#hybrid-azure-ad-joined-devices).
+Se desejar colocar os dispositivos Windows 10 de trabalho sob o controle do Azure AD, poderá fazer isso por meio da configuração de dispositivos do Azure AD associados. Esse tópico fornece as etapas relacionadas. 
 
-Este tópico fornece instruções sobre como registrar dispositivos Windows 10 no Azure AD. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve verificar se:
-
-- Você tem permissões para ingressar dispositivos no Azure AD.
-
-    ![Conectado](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- Você ainda não excedeu o número máximo de dispositivos por usuário 
-
-    ![Conectado](./media/device-management-azuread-joined-devices-setup/22.png)
-
-
-Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
+Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
 
 
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
 
-- O Windows registra o dispositivo no diretório da organização no Azure AD.
+- O Windows adiciona o dispositivo no diretório da organização no Azure AD.
 
-- Talvez seja necessário percorrer o desafio de autenticação multifator. Seu administrador de TI pode configurar esse desafio.
+- Você talvez precise percorrer o desafio de autenticação multifator. Esse desafio é configurável por um administrador de TI.
 
-- O Azure AD verifica se um dispositivo exige o registro de gerenciamento de dispositivo móvel. Ele registra o dispositivo, se aplicável.
+- O Azure AD verifica se o dispositivo requer o registro de gerenciamento de dispositivo móvel e faz o registro, se aplicável.
 
-- O Windows redireciona os usuários gerenciados por meio de entrada automática no desktop.
+- Se você for um usuário gerenciado, o Windows levará para a área de trabalho por meio da conexão automático.
 
-- Os usuários federados são redirecionados para uma página de logon do Windows para inserir credenciais.
+- Se você for um usuário federado, precisará entrar usando suas credenciais.
 
 
 ## <a name="joining-a-device"></a>Ingressar em um dispositivo
@@ -135,9 +123,8 @@ Para obter mais informações, consulte [Localizar dispositivos](device-manageme
 Para obter mais informações, consulte: 
 
 - A [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md)
-
 - [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)
-
+- 
 
 
 

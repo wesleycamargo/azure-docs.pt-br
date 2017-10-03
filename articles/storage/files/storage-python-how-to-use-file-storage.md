@@ -1,9 +1,9 @@
 ---
-title: Desenvolvimento para o Armazenamento de Arquivos do Azure com Python | Microsoft Docs
-description: "Saiba como desenvolver aplicativos e serviços Python que usam o Armazenamento de Arquivos do Azure para armazenar dados de arquivo."
+title: Desenvolvimento para Arquivos do Azure com Python | Microsoft Docs
+description: "Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo."
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3dd14e8d3ea7d1e50f41633a7920a6d36becf789
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-python"></a>Desenvolvimento para o Armazenamento de Arquivos do Azure com Python
+# <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
-Este tutorial demonstrará as noções básicas para usar o Python para desenvolver aplicativos ou serviços que usam o Armazenamento de Arquivos do Azure para armazenar dados de arquivo. Neste tutorial, criaremos um aplicativo de console simples e mostraremos como executar ações básicas com Python e o Armazenamento de Arquivos do Azure:
+Este tutorial demonstrará as noções básicas do uso do Python para desenvolver aplicativos ou serviços que usam os Arquivos do Azure para armazenar dados de arquivo. Neste tutorial, criaremos um aplicativo de console simples e mostraremos como executar ações básicas com Python e os Arquivos do Azure:
 
 * Criar Compartilhamentos de Arquivos do Azure
 * Criar diretórios
@@ -36,16 +36,16 @@ Este tutorial demonstrará as noções básicas para usar o Python para desenvol
 * Carregar, baixar e excluir um arquivo
 
 > [!Note]  
-> Como o Armazenamento de Arquivos do Azure pode ser acessado via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do Python. Este artigo descreverá como criar aplicativos que usam o SDK do Python do Armazenamento do Azure, que usa a [API REST do Armazenamento de Arquivos do Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com o Armazenamento de Arquivos do Azure.
+> Como os Arquivos do Azure podem ser acessados via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do Python. Este artigo descreverá como criar aplicativos que usam o SDK do Python do Armazenamento do Azure, que usa a [API REST dos Arquivos do Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com os Arquivos do Azure.
 
-### <a name="set-up-your-application-to-use-azure-file-storage"></a>Configurar seu aplicativo para usar o Armazenamento de Arquivos do Azure
+### <a name="set-up-your-application-to-use-azure-files"></a>Configurar seu aplicativo para usar os Arquivos do Azure
 Adicione o seguinte próximo à parte superior de qualquer arquivo de origem Python no qual você deseja acessar o Armazenamento do Azure com programação.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-file-storage"></a>Configurar uma conexão com o Armazenamento de Arquivos do Azure 
+### <a name="set-up-a-connection-to-azure-files"></a>Configurar uma conexão com os Arquivos do Azure 
 O objeto `FileService` permite que você trabalhe com compartilhamentos, diretórios e arquivos. O código a seguir cria um objeto `FileService` usando o nome da conta de armazenamento e a chave de conta. Substitua `<myaccount>` e `<mykey>` pelo nome e pela chave da sua conta.
 
 ```python
@@ -60,7 +60,7 @@ file_service.create_share('myshare')
 ```
 
 ### <a name="create-a-directory"></a>Criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. O Armazenamento de Arquivos do Azure permite que você crie quantos diretórios a conta permitir. O código a seguir criará um subdiretório chamado **sampledir** no diretório raiz.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código a seguir criará um subdiretório chamado **sampledir** no diretório raiz.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -111,7 +111,7 @@ file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu como manipular o Armazenamento de Arquivos do Azure com o Python, siga estes links para saber mais.
+Agora que você aprendeu como manipular s Arquivos do Azure com o Python, siga estes links para saber mais.
 
 * [Centro de desenvolvedores do Python](/develop/python/)
 * [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)

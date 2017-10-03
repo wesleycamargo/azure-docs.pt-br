@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: c6981b8059f11afbce0492aac5acdf06b3ca4858
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web PHP e MySQL no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web PHP e conectá-lo a um banco de dados MySQL. Quando terminar, você terá um aplicativo [Laravel](https://laravel.com/) em execução nos Aplicativos Web para Contêineres.
+Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial mostra como criar um aplicativo Web PHP e conectá-lo a um banco de dados MySQL. Quando terminar, você terá um aplicativo [Laravel](https://laravel.com/) em execução no Aplicativo Web para Contêineres.
 
 ![Aplicativo PHP em execução no Serviço de Aplicativo do Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -612,5 +612,5 @@ Neste tutorial, você aprendeu a:
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para um aplicativo Web.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service-web-tutorial-custom-domain.md)
 

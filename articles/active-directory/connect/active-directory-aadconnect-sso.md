@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: dd619ddf62b079ecc06bdf3699e3e32c35313284
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ ms.lasthandoff: 08/07/2017
 
 O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Quando habilitado, os usuários não precisam digitar as senhas para entrar no Azure AD e, geralmente, nem precisam digitar os nomes de usuário. Esse recurso fornece aos usuários acesso fácil a seus aplicativos baseados em nuvem sem a necessidade de nenhum componente local adicional.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO Contínuo do Azure AD está atualmente em versão de visualização. Esse recurso _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
+>O SSO contínuo _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -64,9 +66,6 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 |Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
 
 \*Exige [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
-
->[!IMPORTANT]
->Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../active-directory-azureadjoin-overview.md) para obter a experiência ideal de logon único com o Azure AD.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
 ms.contentlocale: pt-br
-ms.lasthandoff: 03/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -43,6 +43,7 @@ As métricas têm as seguintes características:
 * Todas as métricas têm uma **frequência de um minuto**. Você recebe um valor da métrica a cada minuto de seu recurso, fornecendo uma visibilidade quase em tempo real do estado e da integridade do recurso.
 * As métricas são **disponibilizadas imediatamente**. Isso significa que você não precisa aceitar nem configurar diagnósticos adicionais.
 * Você pode acessar **30 dias do histórico** para cada métrica. Você pode examinar rapidamente as tendências recentes e mensais no desempenho ou na integridade do recurso.
+* Algumas métricas podem ter atributos de par nome-valor chamados **dimensões**. Elas permitem segmentar ainda mais e explorar uma métrica de maneira mais significativa.
 
 Você também pode:
 
@@ -85,14 +86,16 @@ Veja a seguir um rápido passo a passo de como criar um gráfico de métricas us
 >
 >
 
+O Azure Monitor também tem uma nova experiência de criação de gráficos de métricas disponível na versão prévia. Essa experiência permite aos usuários sobrepor métricas de vários recursos em um só gráfico. Os usuários também podem plotar, segmentar e filtrar métricas multidimensionais usando essa nova experiência de criação de gráficos de métricas. Para saber mais, [clique aqui](https://aka.ms/azuremonitor/new-metrics-charts)
+
 ## <a name="access-metrics-via-the-rest-api"></a>Acessar métricas pela API REST
 As Métricas do Azure podem ser acessadas pelas APIs do Azure Monitor. Há duas APIs que ajudam você a descobrir e acessar as métricas:
 
-* Use a [API REST de definições da Métrica do Azure Monitor](https://msdn.microsoft.com/library/mt743621.aspx) para acessar a lista de métricas disponíveis para um serviço.
-* Use a [API REST de Métricas do Azure Monitor](https://msdn.microsoft.com/library/mt743622.aspx) para acessar os dados de métricas reais.
+* Use a [API REST de definições de Métrica do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) para acessar a lista de métricas e dimensões disponíveis em um serviço.
+* Use a [API REST de Métricas do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) para segmentar, filtrar e acessar os dados de métricas reais.
 
 > [!NOTE]
-> Este artigo aborda as métricas por meio da [nova API para métricas](https://msdn.microsoft.com/library/dn931930.aspx) dos recursos do Azure. A versão da API para a nova API de definições da métrica é 2016-03-01 e a versão para a API das métricas é 2016-09-01. As definições de métrica herdadas e as métricas podem ser acessadas com a versão da 2014-04-01 da API.
+> Este artigo aborda as métricas por meio da [nova API para métricas](https://docs.microsoft.com/en-us/rest/api/monitor/) dos recursos do Azure. A versão de API das novas definições de métrica e das APIs de métricas é 2017-05-01-preview. As definições de métrica herdadas e as métricas podem ser acessadas com a versão da 2014-04-01 da API.
 >
 >
 
@@ -109,9 +112,14 @@ Você pode configurar isso usando os modelos do Resource Manager, o [PowerShell]
 Para receber notificações ou executar ações automatizadas com base nos dados de métrica, você pode definir regras de alerta ou configurações de dimensionamento automático.
 
 ### <a name="configure-alert-rules"></a>Configurar regras de alerta
-Você pode configurar regras de alerta sobre as métricas. Essas regras de alerta podem verificar se uma métrica ultrapassou um determinado limite. Desse modo, elas podem notificar você por email ou disparar um webhook que pode ser usado para executar qualquer script personalizado. Também é possível usar o webhook para configurar integrações de produtos de terceiros.
+Você pode configurar regras de alerta sobre as métricas. Essas regras de alerta podem verificar se uma métrica ultrapassou um determinado limite. Há duas funcionalidades de alertas de métrica oferecidas pelo Azure Monitor.
+
+Alertas de métrica: em seguida, eles podem notificá-lo por email ou disparar um webhook que pode ser usado para executar qualquer script personalizado. Também é possível usar o webhook para configurar integrações de produtos de terceiros.
 
  ![Métricas e regras de alerta no Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+Alertas quase em tempo real (versão prévia): eles têm a capacidade de monitorar várias métricas e vários limites de um recurso e, em seguida, notificá-lo por meio de um [Grupo de Ação](/monitoring-action-groups.md). Saiba mais sobre [alertas de métrica quase em tempo real aqui](https://aka.ms/azuremonitor/near-real-time-alerts).
+
 
 ### <a name="autoscale-your-azure-resources"></a>Dimensionar automaticamente os recursos do Azure
 Alguns recursos do Azure aceitam o dimensionamento vertical ou horizontal de várias instâncias para tratamento das cargas de trabalho. O dimensionamento automático aplica-se aos Serviços de Aplicativo (Aplicativos Web), aos conjuntos de dimensionamento de máquinas virtuais e aos Serviços de Nuvem clássicos do Azure. Você pode configurar regras de dimensionamento automático para escalar horizontal ou verticalmente quando uma determinada métrica que afeta sua carga de trabalho cruza um limite especificado. Para obter mais informações, consulte [Visão geral do dimensionamento automático](monitoring-overview-autoscale.md).

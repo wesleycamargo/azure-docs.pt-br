@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas de Armazenamento de Arquivos do Azure no Windows | Microsoft Docs"
-description: "Solução de problemas de Armazenamento de Arquivos do Azure File no Windows"
+title: Solucionar problemas de Arquivos do Azure no Windows | Microsoft Docs
+description: "Solução de problemas de Arquivos do Azure no Windows"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 0e3bbf5ad2ae9cda72876af6bdf880e3aa4f63ac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Solução de problemas de Armazenamento de Arquivos do Azure File no Windows
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
-Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos do Microsoft Azure quando você se conecta a partir de clientes Windows. Ele também fornece possíveis causas e soluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows possui os pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações na [Solução de problemas de Compartilhamentos de Arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece as etapas para ajudar você a resolver problemas de conexão/mapeamento/montagem de Compartilhamentos de Arquivos do Azure.
+Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows possui os pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações na [Solução de problemas de Compartilhamentos de Arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece as etapas para ajudar você a resolver problemas de conexão/mapeamento/montagem de Compartilhamentos de Arquivos do Azure.
 
 
 <a id="error53-67-87"></a>
@@ -50,7 +50,7 @@ Conecte-se a partir de um cliente que faz o seguinte:
 
 ### <a name="cause-2-port-445-is-blocked"></a>Causa 2: A porta 445 está bloqueada
 
-Pode ocorrer um erro de sistema 53 ou erro de sistema 67 se a comunicação de saída na porta 445 para o datacenter do Armazenamento de Arquivos do Azure estiver bloqueada. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Pode ocorrer um erro de sistema 53 ou erro de sistema 67 se a comunicação de saída na porta 445 para o datacenter de Arquivos do Azure estiver bloqueada. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para entender se esse é o motivo da mensagem "Erro de sistema 53", você pode usar o Portqry para consultar o ponto de extremidade TCP:445. Se o ponto de extremidade TCP:445 é exibido como filtrado, a porta TCP está bloqueada. Veja um exemplo de consulta:
 
@@ -68,7 +68,7 @@ Trabalhar com o seu departamento de TI para abrir a porta 445 com saída para [i
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>Causa 3: NTLMv1 está habilitado
 
-O erro de sistema 53 ou erro de sistema 87 também pode ocorrer se a comunicação NTLMv1 está habilitada no cliente. O Armazenamento de Arquivos do Azure dá suporte apenas à autenticação NTLMv2. Ter NTLMv1 habilitado faz com que o cliente esteja menos seguro. Portanto, a comunicação será bloqueada para o Armazenamento de Arquivos do Azure. 
+O erro de sistema 53 ou erro de sistema 87 também pode ocorrer se a comunicação NTLMv1 está habilitada no cliente. Os Arquivos do Azure dão suporte apenas a autenticação NTLMv2. Ter NTLMv1 habilitado faz com que o cliente esteja menos seguro. Portanto, a comunicação será bloqueada para Arquivos do Azure. 
 
 Para verificar se essa é a causa do erro, verifique se a seguinte subchave do registro está definida como um valor de 3:
 
@@ -91,10 +91,10 @@ O Erro 1816 ocorre quando você atingir o limite superior de identificadores abe
 
 ### <a name="solution"></a>Solução
 
-Reduza o número de identificadores abertos simultâneos fechando alguns identificadores e tentando novamente. Para obter mais informações, veja [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Reduza o número de identificadores abertos simultâneos fechando alguns identificadores e tentando novamente. Para obter mais informações, consulte [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-windows"></a>Cópia de arquivos mais lenta para e do Armazenamento de Arquivos do Azure no Windows
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Windows
 
 Você pode ver o desempenho lento ao tentar transferir arquivos para o Serviço de Arquivos do Azure.
 
@@ -153,7 +153,7 @@ Você pode usar qualquer uma das seguintes etapas para contornar o problema:
 - Colocando aspas duplas em torno da chave para contornar esse problema, a menos que a barra seja o primeiro caractere. Se for, use o modo interativo e digite sua senha separadamente ou regenere as chaves para obter uma chave que não comece com uma barra.
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-file-storage-drive"></a>O aplicativo ou serviço não pode acessar a unidade montada dos Arquivos do Azure
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>O aplicativo ou serviço não pode acessar uma unidade de Arquivos do Azure montada
 
 ### <a name="cause"></a>Causa
 
@@ -174,7 +174,7 @@ Depois de seguir estas instruções, você pode receber a seguinte mensagem de e
 Quando um arquivo é copiado pela rede, o arquivo é descriptografado no computador de origem, transmitido em texto não criptografado e criptografado novamente no destino. No entanto, você pode ver o seguinte erro quando estiver tentando copiar um arquivo criptografado: "Você está copiando o arquivo para um destino que não dá suporte à criptografia".
 
 ### <a name="cause"></a>Causa
-Esse problema pode ocorrer se você estiver usando o sistema de arquivos com criptografia (EFS). Os arquivos criptografados pelo BitLocker podem ser copiados para o Armazenamento de Arquivos do Azure. No entanto, o Armazenamento de Arquivos do Azure não dá suporte a EFS NTFS.
+Esse problema pode ocorrer se você estiver usando o sistema de arquivos com criptografia (EFS). Os arquivos criptografados pelo BitLocker podem ser copiados para os Arquivos do Azure. No entanto, os Arquivos do Azure não dão suporte a EFS NTFS.
 
 ### <a name="workaround"></a>Solução alternativa
 Para copiar um arquivo pela rede, você deve primeiro descriptografá-lo. Use um dos seguintes métodos:

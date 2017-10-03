@@ -1,4 +1,4 @@
-* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service-web/web-sites-scale.md)
+* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service/web-sites-scale.md)
   
   * Noções Básicas Sobre Confiabilidade e Redundância
   * Aplicativos Com monitoração de estado vs aplicativos Sem monitoração de estado

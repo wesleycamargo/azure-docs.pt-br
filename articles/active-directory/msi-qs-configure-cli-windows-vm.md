@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -35,7 +35,7 @@ Neste artigo, você aprenderá a habilitar e a remover o MSI de uma VM do Window
 
 Para executar os exemplos de script da CLI, você tem três opções:
 
-- Usar o [Azure Cloud Shell](../cloud-shell/overview.md) no portal do Azure (veja a próxima seção).
+- Usar o [Azure Cloud Shell](../cloud-shell/overview.md) no Portal do Azure (confira a próxima seção).
 - Usar o Azure Cloud Shell inserido por meio do botão "Experimentar", localizado no canto superior direito de cada bloco de código.
 - [Instale a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se você preferir usar um console local da CLI. 
 
@@ -43,7 +43,7 @@ Para executar os exemplos de script da CLI, você tem três opções:
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Habilitar o MSI durante a criação de uma VM do Azure
 
-Um novo recurso de Máquina Virtual do Windows habilitado para MSI é criado em um novo grupo de recursos, usando os parâmetros de configuração especificados. Observe também que muitas dessas funções podem ser executadas por vários segundos/minutos antes de retornar.
+Para criar uma VM habilitado MSI:
 
 1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
 
@@ -67,7 +67,7 @@ Um novo recurso de Máquina Virtual do Windows habilitado para MSI é criado em 
 
 Se você precisar habilitar o MSI em uma máquina virtual existente:
 
-1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
+1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ Se você precisar habilitar o MSI em uma máquina virtual existente:
 
 Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
 
-1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
+1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```azurecli-interactive
    az login
    ```
 
-2. Use a opção `-n ManagedIdentityExtensionForWindows` com [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) para remover a MSI:
+2. Use o `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` alterne (dependendo do tipo de VM) com [exclusão de extensão de vm az](https://docs.microsoft.com/cli/azure/vm/#assign-identity) para remover o MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
 ## <a name="related-content"></a>Conteúdo relacionado
 
 - [Visão geral da Identidade do Serviço Gerenciado](msi-overview.md)
-- Este artigo é adaptado do Início Rápido [Criar uma máquina virtual do Windows com CLI](../virtual-machines/windows/quick-create-cli.md), modificado para incluir instruções específicas da MSI. 
+- Para os guias de início rápido completos sobre VM do Azure, consulte: 
+
+  - [Crie máquinas virtuais Windows com o CLI](../virtual-machines/windows/quick-create-cli.md)  
+  - [Crie máquinas virtuais Linux com o CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

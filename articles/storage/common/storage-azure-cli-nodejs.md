@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 837cf0f2b8db011b38de795339560574027030f8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Usando a CLI 1.0 do Azure com o Armazenamento do Azure
@@ -183,7 +183,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Criar e gerenciar compartilhamentos de arquivos
-O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](../storage-dotnet-how-to-use-files.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](../storage-how-to-use-files-linux.md).
+Os Arquivos do Azure ofereciam o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre Arquivos do Azure, consulte [Introdução aos Arquivos do Azure](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.

@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -36,6 +36,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * Implantar o aplicativo em um cluster remoto
 > * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
@@ -54,6 +55,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. Gratuitamente!
 
 Para obter acesso a um Cluster Party, navegue até este site: http://aka.ms/tryservicefabric e siga as instruções para obter acesso a um cluster. Você precisa de uma conta do Facebook ou GitHub para obter acesso a um Cluster Party.
+
+Você pode usar seu próprio cluster em vez do Cluster Party, se desejar.  O front-end web ASP.NET core usa o proxy reverso para se comunicar com o back-end do serviço com estado.  Clusters Party e o cluster de desenvolvimento local têm proxy reverso habilitado por padrão.  Se você implantar o aplicativo de exemplo Votação em seu próprio cluster, você deverá [habilitar o proxy reverso no cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
 > Os clusters Party não são protegidos, portanto seus aplicativos e os dados que você colocar neles poderão ficar visíveis para outras pessoas. Não implante nada que você não queira que outras pessoas vejam. Certifique-se de ler nossos Termos de Uso para conhecer todos os detalhes.

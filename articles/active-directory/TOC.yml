@@ -1,3 +1,5 @@
+- name: Gerenciar visão geral do acesso
+  href: manage-access-to-azure-resources.md
 - name: Acesso a recursos no Azure
   href: active-directory-understanding-resource-access.md
 - name: RBAC (Controle de Acesso Baseado em Função)

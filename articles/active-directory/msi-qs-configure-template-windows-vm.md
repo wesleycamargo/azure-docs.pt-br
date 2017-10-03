@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 266458323ca54d9805aea12108faed79e69d30b0
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 8b599c3e0e7d4fa3ae5bdb156191bff0553249ee
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -44,15 +44,17 @@ Assim como com o Portal do Azure e o script, os modelos do Azure Resource Manage
 
 Independentemente do caminho escolhido, a sintaxe do modelo é a mesma durante a implantação inicial e a reimplantação, portanto a habilitação do MSI em uma máquina virtual nova ou existente é feita da mesma maneira. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) para implantações:
 
-1. Depois de carregar o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. O seu pode parecer um pouco diferente do mostrado nesta captura de tela dependendo do editor usado, e se você está editando um modelo para uma implantação nova ou existente:
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
+
+2. Depois de carregar o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. O seu pode parecer um pouco diferente do mostrado nesta captura de tela dependendo do editor usado, e se você está editando um modelo para uma implantação nova ou existente:
 
    >[!NOTE] 
-   > A Etapa 2 também pressupõe que as variáveis `vmName`, `storageAccountName` e `nicName` estão definidas no modelo.
+   > Este exemplo supõe que variáveis como `vmName`, `storageAccountName`, e `nicName` foram definidas no modelo.
    >
 
    ![Modelo antes da captura de tela - localizar VM](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-2. Adicione a propriedade `"identity"` ao mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"` usando a seguinte sintaxe:
+3. Adicione a propriedade `"identity"` ao mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"` usando a seguinte sintaxe:
 
    ```JSON
    "identity": { 
@@ -60,10 +62,10 @@ Independentemente do caminho escolhido, a sintaxe do modelo é a mesma durante a
    },
    ```
 
-3. Depois, adicione a extensão do MSI da VM como um elemento `resources` usando a seguinte sintaxe:
+4. Depois, adicione a extensão do MSI da VM como um elemento `resources` usando a seguinte sintaxe:
 
    >[!NOTE] 
-   > O exemplo a seguir pressupõe que uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está sendo implantada. Você também pode configurar isso para Linux usando `ManagedIdentityExtensionForLinux` no lugar.
+   > O exemplo a seguir pressupõe que uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está sendo implantada. Você também pode configurar para Linux usando `ManagedIdentityExtensionForLinux` no lugar, para os elementos `"name"` e `"type"`.
    >
 
    ```JSON
@@ -88,17 +90,21 @@ Independentemente do caminho escolhido, a sintaxe do modelo é a mesma durante a
    }
    ```
 
-4. Quando terminar, seu modelo deverá ser semelhante à imagem a seguir:
+5. Quando terminar, seu modelo deverá ser semelhante à imagem a seguir:
 
    ![Modelo após a captura](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Remover o MSI de uma VM do Azure
 
-Se você tiver uma máquina virtual que não precisa mais de um MSI, basta remover os dois elementos adicionados no exemplo anterior: a propriedade `"identity"` e o recurso `"Microsoft.Compute/virtualMachines/extensions"` da VM.
+Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
+
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
+
+2. Remova os dois elementos que foram adicionados na seção anterior: a propriedade da VM `"identity"` e o `"Microsoft.Compute/virtualMachines/extensions"` recurso.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-- [Visão geral da Identidade de Serviço Gerenciada](msi-overview.md)
+- [Visão geral da Identidade do Serviço Gerenciado](msi-overview.md)
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

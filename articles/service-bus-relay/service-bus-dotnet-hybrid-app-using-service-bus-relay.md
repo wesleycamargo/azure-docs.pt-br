@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicativo híbrido .NET local/na nuvem usando a Retransmissão do WCF do Azure
@@ -232,7 +231,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
     ![][18]
 
 7. De volta ao diálogo **Novo aplicativo Web ASP.NET**, clique em **OK** para criar o aplicativo MVC.
-8. Agora você deve configurar os recursos do Azure para um novo aplicativo Web. Siga as etapas da [seção Publicar no Azure deste artigo](../app-service-web/app-service-web-get-started-dotnet.md). Em seguida, retorne a este tutorial e prossiga para a próxima etapa.
+8. Agora você deve configurar os recursos do Azure para um novo aplicativo Web. Siga as etapas da [seção Publicar no Azure deste artigo](../app-service/app-service-web-get-started-dotnet.md). Em seguida, retorne a este tutorial e prossiga para a próxima etapa.
 10. No Gerenciador de Soluções, clique com o botão direito do mouse em **Modelos**, clique em **Adicionar** e em **Classe**. Na caixa **Nome**, digite o nome **Product.cs**. Clique em **Adicionar**.
 
     ![][17]

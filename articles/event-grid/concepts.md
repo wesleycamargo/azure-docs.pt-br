@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 83b9b2c7bb4134e1d9bdf857449bfb85884333d0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -22,7 +22,7 @@ Os principais conceitos da Grade de Eventos do Azure são:
 
 ## <a name="events"></a>Eventos
 
-Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema.  Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo.  Cada evento também apresenta informações específicas que são relevantes somente para o evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Microsoft Azure contém detalhes sobre o arquivo, como o valor lastTimeModified. Ou, um evento sobre a reinicialização de uma máquina virtual contém o nome da máquina virtual e o motivo da reinicialização.
+Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema.  Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo.  Cada evento também apresenta informações específicas que são relevantes somente para o evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Microsoft Azure contém detalhes sobre o arquivo, como o valor lastTimeModified. Ou, um evento sobre a reinicialização de uma máquina virtual contém o nome da máquina virtual e o motivo da reinicialização. Cada evento é limitado a 64 KB de dados.
 
 ## <a name="event-sourcespublishers"></a>Origens/fornecedores do evento
 

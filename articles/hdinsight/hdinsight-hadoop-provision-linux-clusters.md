@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com Hadoop, Spark, Kafka e mais
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Saiba como instalar e configurar clusters HDInsight com Hadoop, Spark, Kafka, Hive Interativo, HBase, R Server ou Storm. Além disso, saiba como personalizar clusters e adicionar segurança ingressando-os em um domínio.
+Saiba como instalar e configurar clusters HDInsight com Hadoop, Spark, Kafka, Consulta Interativa, HBase, R Server ou Storm. Além disso, saiba como personalizar clusters e adicionar segurança ingressando-os em um domínio.
 
 Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para processamento distribuído de tarefas. O Azure HDInsight manipula os detalhes de implementação da instalação e configuração de nós individuais, portanto, você precisa fornecer apenas informações de configuração geral. 
 
@@ -83,7 +83,7 @@ Atualmente, o Azure HDInsight apresenta os seguintes tipos de cluster, cada um c
 | [Spark](hdinsight-apache-spark-overview.md) |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
 | [Kafka (Visualização)](hdinsight-apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real |
 | [Servidor R](hdinsight-hadoop-r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
-| [Hive Interativo (Visualização)](hdinsight-hadoop-use-interactive-hive.md) |Caching na memória para consultas de Hive interativas e mais rápidas |
+| [Consulta Interativa](hdinsight-hadoop-use-interactive-hive.md) |Caching na memória para consultas de Hive interativas e mais rápidas |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nós para cada tipo de cluster
 Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster e tamanho da VM padrão. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.

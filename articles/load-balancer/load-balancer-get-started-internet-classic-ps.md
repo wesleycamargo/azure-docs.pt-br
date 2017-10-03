@@ -3,7 +3,7 @@ title: "Criar um balanceador de carga voltado para a Internet - Azure PowerShell
 description: "Saiba como criar um balanceador de carga para a Internet no modo clássico usando o PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Configurar o balanceador de carga usando o PowerShell
 
-Para configurar um balanceador de carga usando o powershell, siga as etapas abaixo:
+Para configurar um balanceador de carga usando o powershell, conclua as seguintes etapas:
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Depois de criar uma máquina virtual, você pode usar os cmdlets do PowerShell para adicionar um balanceador de carga a uma máquina virtual no mesmo serviço de nuvem.

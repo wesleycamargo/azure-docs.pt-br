@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/30/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: ac40775ca62362a32184207857a0b965a798e135
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f141c3d22275ff04d7161415e9c9f879d85dbc08
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Atualize seu cluster autônomo do Azure Service Fabric no Windows Server
@@ -219,6 +219,7 @@ Tecnicamente, há três opções com suporte:
 1. Atualização de um certificado: o caminho de atualização é 'Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->...'.   
 2. Atualização de dois certificados: o caminho de atualização é 'Certificado A (Primário) - > Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário)->...'.
 3. Atualização do tipo de certificado: configuração de certificados com base em CommonName configuração <-> com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
+4. Atualização da impressão digital do emissor do certificado: o caminho de atualização é 'Certificado CN=A,IssuerThumbprint=IT1 (Principal) -> Certificado CN=A,IssuerThumbprint=IT1,IT2 (Principal) -> Certificado CN=A,IssuerThumbprint=IT2 (Principal)'
 
 
 ## <a name="next-steps"></a>Próximas etapas

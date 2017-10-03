@@ -3,7 +3,7 @@ title: "Visão geral do balanceador de carga para a Internet | Microsoft Docs"
 description: "Visão geral do balanceador de carga para a Internet e seus recursos. Como um balanceador de carga funciona no Azure usando máquinas virtuais e serviços de nuvem."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
@@ -12,23 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internet-facing-load-balancer-overview"></a>Visão geral do balanceador de carga para a Internet
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 O balanceador de carga do Azure mapeia o endereço IP público e o número da porta do tráfego de entrada até o endereço IP privado e o número da porta da máquina virtual e vice-versa no tráfego de resposta da máquina virtual. As regras de balanceamento de carga permitem que você distribua tipos específicos de tráfego entre várias máquinas virtuais ou serviços. Por exemplo, você pode difundir a carga de tráfego de solicitação da web em vários servidores web ou funções web.
 
 Para um serviço de nuvem que contenha instâncias de funções web ou funções de trabalho, você pode definir um ponto de extremidade público no arquivo de definição de serviço (.csdef).
 
 O arquivo *servicedefinition.csdef* contém a configuração do ponto de extremidade e quando existem várias instâncias de função para uma implantação de função de trabalho ou da Web, o balanceador de carga é instalado para ele. A maneira de adicionar instâncias à sua implantação de nuvem está alterando a contagem de instâncias no arquivo de configuração de serviço (.csfg).
+
+## <a name="example-of-an-internet-facing-load-balancer"></a>Exemplo de um Load Balancer voltado para a Internet
 
 A figura a seguir mostra um ponto de extremidade de balanceamento de carga para tráfego na Web compartilhado entre três máquinas virtuais para a porta TCP pública e privada de número 80. Essas três máquinas virtuais estão em um conjunto de balanceamento de carga.
 

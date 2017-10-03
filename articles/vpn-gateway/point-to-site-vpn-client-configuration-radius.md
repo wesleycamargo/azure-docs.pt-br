@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 7484d42eae8364cf248bbf2e60eab8fb3a43d107
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S (Versão Prévia)
 
 Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows ou Mac IKEv2 para se conectar a uma rede virtual Ponto a Site. O servidor RADIUS fornece várias opções de autenticação e por isso, a configuração de cliente VPN varia para cada opção.
 
@@ -39,16 +39,18 @@ Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. 
 
 ## <a name="adeap"></a>Autenticação de nome de usuário e senha
 
-* **Autenticação do AD:** Um cenário comum é a autenticação de domínio do AD. Nesse cenário, os usuários usam suas credenciais de domínio para se conectar às redes virtuais do Azure. Você pode criar arquivos de configuração de cliente VPN para autenticação RADIUS do AD. Certifique-se de que todos os usuários que se conectam possuem credenciais de nome de usuário e senha que podem ser autenticadas por meio do RADIUS. Você só pode criar uma configuração para o protocolo de autenticação EAP-MSCHAPv2 de nome de usuário e senha. '-AuthenticationMethod' é especificado como 'EapMSChapv2'.
+* **Autenticação do AD:** Um cenário comum é a autenticação de domínio do AD. Nesse cenário, os usuários usam suas credenciais de domínio para se conectar às redes virtuais do Azure. Você pode criar arquivos de configuração de cliente VPN para autenticação RADIUS do AD.
 
 * **Autenticação sem AD:** Você também pode configurar o cenário de autenticação de RADIUS do nome de usuário e senha sem AD.
+
+Certifique-se de que todos os usuários que se conectam possuem credenciais de nome de usuário e senha que podem ser autenticadas por meio do RADIUS. Você só pode criar uma configuração para o protocolo de autenticação EAP-MSCHAPv2 de nome de usuário e senha. '-AuthenticationMethod' é especificado como 'EapMSChapv2'.
 
 ### <a name="usernamefiles"></a>Gerar os arquivos de configuração de cliente VPN
 
 Criar a configuração de cliente VPN usando o seguinte comando:
 
 ```powershell 
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 Depois de executar o comando, ele retornará um link. Copie e cole o link em um navegador da Web para baixar um arquivo compactado, chamado 'VpnClientConfiguration.zip'. Descompacte o arquivo para ver as seguintes pastas: 
@@ -121,7 +123,7 @@ Você pode criar arquivos de configuração de cliente VPN para autenticação d
 Criar a configuração de cliente VPN usando o seguinte comando:
  
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 O resultado do cmdlet retorna um link. Copie e cole o link em um navegador da Web para baixar um arquivo compactado, chamado 'VpnClientConfiguration.zip'. Descompacte o arquivo para ver as seguintes pastas:

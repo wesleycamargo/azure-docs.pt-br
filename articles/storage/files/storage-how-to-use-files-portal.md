@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar o Armazenamento de Arquivos do Azure no portal do Azure | Microsoft Docs
-description: Saiba como usar o portal do Azure para gerenciar o Armazenamento de Arquivos do Azure.
+title: Como gerenciar os Arquivos do Azure no portal do Azure | Microsoft Docs
+description: Saiba como usar o portal do Azure para gerenciar os Arquivos do Azure.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Como usar o Armazenamento de Arquivos do Azure do Portal do Azure
-O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Como usar os Arquivos do Azure desde o Portal do Azure
+O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário para gerenciar os Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
 
 * Criar um compartilhamento de arquivos
 * Carregar e baixar arquivos de e para o compartilhamento de arquivos.
@@ -49,7 +49,7 @@ O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário 
 
     ![Captura de tela que mostra como criar o compartilhamento de arquivos no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Preencha o nome e o tamanho do compartilhamento de arquivos (até 5120 GB) para criar o primeiro compartilhamento de arquivos. Quando o compartilhamento de arquivos tiver sido criado, você poderá montá-lo em qualquer sistema de arquivos que dê suporte a SMB 2.1 ou SMB 3.0. Você pode clicar em **Cota** no compartilhamento de arquivos para alterar o tamanho do arquivo até 5120 GB. Consulte [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) para estimar o custo de armazenamento ao usar o Armazenamento de Arquivos do Azure.
+6. Preencha o nome e o tamanho do compartilhamento de arquivos (até 5120 GB) para criar o primeiro compartilhamento de arquivos. Quando o compartilhamento de arquivos tiver sido criado, você poderá montá-lo em qualquer sistema de arquivos que dê suporte a SMB 2.1 ou SMB 3.0. Você pode clicar em **Cota** no compartilhamento de arquivos para alterar o tamanho do arquivo até 5120 GB. Consulte [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/) para estimar o custo de armazenamento ao usar os Arquivos do Azure.
 
     ![Captura de tela que mostra como criar o compartilhamento de arquivos no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +63,7 @@ O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário 
     ![Captura de tela que mostra como carregar arquivos do portal](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Conectar-se ao compartilhamento de arquivos
--  Clique em **Conectar** para obter a linha de comando para montar o compartilhamento de arquivos do Windows e do Linux. Para os usuários do Linux, você também pode consultar [Como usar o Armazenamento de Arquivos do Azure com Linux](../storage-how-to-use-files-linux.md) para obter mais instruções de montagem para outras distribuições do Linux.
+-  Clique em **Conectar** para obter a linha de comando para montar o compartilhamento de arquivos do Windows e do Linux. Para os usuários do Linux, você também pode consultar [Como usar os Arquivos do Azure com Linux](../storage-how-to-use-files-linux.md) para obter mais instruções de montagem para outras distribuições do Linux.
 
     ![Captura de tela que mostra como montar o compartilhamento de arquivos](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  Você pode copiar os comandos para montagem do compartilhamento de arquivos no Windows ou Linux e executá-los da VM do Azure ou do computador local.
@@ -74,7 +74,7 @@ O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário 
 Para localizar a chave de acesso de conta de armazenamento para montagem, clique em **Exibir as teclas de acesso para esta conta de armazenamento** na parte inferior da página de conexão.
 
 ## <a name="see-also"></a>Consulte também
-Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.
+Veja estes links para obter mais informações sobre os Arquivos do Azure.
 
 * [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

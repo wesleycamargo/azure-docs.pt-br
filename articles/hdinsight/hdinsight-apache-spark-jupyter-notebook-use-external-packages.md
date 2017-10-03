@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/22/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 5d566e7b84723bacf575ade8ea6947cfdaf8b606
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: dfcab23d19d74dfff92b7e9b696a4e5c39ee8d90
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar pacotes externos com blocos de anotações Jupyter em clusters Apache Spark no HDInsight
@@ -71,7 +71,7 @@ Você deve ter o seguinte:
     | Versão do HDInsight | Command |
     |-------------------|---------|
     |Para HDInsight 3.3 e HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
-    | Para HDInsight 3.5 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
+    | Para HDInsight 3.5 e HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
 6. O trecho de código acima espera as coordenadas do maven para o pacote externo no Repositório Central do Maven. Nesse trecho de código, `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para o pacote **spark-csv** . Veja como você constrói as coordenadas de um pacote.
    
@@ -92,6 +92,13 @@ Você deve ter o seguinte:
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
+    Para o HDInsight 3.6, você deve usar o trecho de código a seguir.
+
+        val df = spark.read.format("com.databricks.spark.csv").
+        option("header", "true").
+        option("inferSchema", "true").
+        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
 8. Você pode executar os trechos de código, como mostrado abaixo, para exibir os dados do dataframe que você criou na etapa anterior.
    
         df.show()
@@ -103,8 +110,10 @@ Você deve ter o seguinte:
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* 
+            [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* 
+            [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 

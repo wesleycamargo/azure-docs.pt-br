@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory
@@ -57,7 +57,9 @@ Em uma política de acesso condicional com base no dispositivo, é possível exi
 Os dispositivos podem ser marcados como em conformidade no diretório por um destes recursos:
 
 - Intune 
-- Um sistema de gerenciamento de dispositivo móvel de terceiros que se integre ao Azure AD  
+- Um sistema gerenciado por dispositivo móvel de terceiros que gerencia os dispositivos Windows 10 por meio da integração do Azure AD 
+ 
+  
 
 Somente dispositivos que são conectados ao Azure AD podem ser marcados como em conformidade. Para conectar um dispositivo ao Azure Active Directory, você tem as seguintes opções: 
 

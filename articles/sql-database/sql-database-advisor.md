@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="performance-recommendations"></a>Recomendações do desempenho
 
 O Banco de Dados SQL do Azure aprende e adapta-se ao seu aplicativo e fornece recomendações personalizadas permitindo que você maximize o desempenho dos bancos de dados SQL. O desempenho é avaliado continuamente analisando seu histórico de uso do Banco de Dados SQL. As recomendações fornecidas são baseadas em um padrão de carga de trabalho exclusiva do banco de dados e ajudam a melhorar o desempenho.
 
-> [!NOTE]
-> A maneira recomendada de usar as recomendações é habilitar o 'Ajuste automático' no banco de dados. Para obter detalhes, confira [Ajuste automático](sql-database-automatic-tuning.md).
+> [!TIP]
+> [Ajuste automático](sql-database-automatic-tuning.md) é a maneira recomendada de ajustar o desempenho. [Insights inteligentes](sql-database-intelligent-insights.md) é a maneira recomendada de monitoramento de desempenho. 
 >
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice
@@ -78,12 +77,10 @@ Recomendações para “Corrigir problemas do esquema” aparecem quando o servi
 ## <a name="next-steps"></a>Próximas etapas
 Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O assistente do Banco de Dados SQL continua a monitorar e fornecer recomendações que podem potencialmente melhorar o desempenho do seu banco de dados. 
 
+* Consulte [Ajuste automático do banco de dados SQL do Azure](sql-database-automatic-tuning.md) para ajuste automático de índices do banco de dados e planos de execução de consulta.
+* Consulte [Insights inteligentes do SQL Azure](sql-database-intelligent-insights.md) para monitorar automaticamente o desempenho do banco de dados com diagnóstico automatizado e análise de causa raiz de problemas de desempenho.
 * Confira [Recomendações de desempenho no portal do Azure](sql-database-advisor-portal.md) para obter etapas sobre como usar as recomendações de desempenho no portal do Azure.
 * Consulte [Análise de desempenho de consultas](sql-database-query-performance.md) para saber mais e visualizar o impacto no desempenho de suas principais consultas.
 
-## <a name="additional-resources"></a>Recursos adicionais
-* [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)
 
 

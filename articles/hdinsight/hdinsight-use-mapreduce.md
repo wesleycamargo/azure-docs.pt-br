@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: df8ac578a56de72df667b1fa7f90f981c79d9999
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 625bbf802888b70ccac57b7da3d7060a9706ddec
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Usar o MapReduce no Hadoop do HDInsight
@@ -40,7 +39,7 @@ Saiba como executar trabalhos do MapReduce em clusters HDInsight. Use a tabela a
 
 ## <a id="whatis"></a>O que é o MapReduce
 
-O MapReduce do Hadoop é uma estrutura de software para escrever trabalhos que processam grandes quantidades de dados. Os dados de entrada são divididos em partes independentes e processados em paralelo em todos os nós no cluster. Um trabalho do MapReduce consiste em duas funções:
+O MapReduce do Hadoop é uma estrutura de software para escrever trabalhos que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada bloco é processado em paralelo em todos os nós no cluster. Um trabalho do MapReduce consiste em duas funções:
 
 * **Mapeador**: consome dados de entrada, analisa-os (normalmente com operações de classificação e filtro) e emite tuplas (pares chave-valor)
 
@@ -50,7 +49,7 @@ Um exemplo básico de trabalho de contagem de palavras do MapReduce está ilustr
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-A saída deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto que foi analisado.
+A saída deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
 
 * O mapeador utiliza cada linha do texto de entrada como uma entrada e a divide em palavras. Ele emite um par de chave/valor cada vez que ocorre uma palavra seguida de um 1. A saída será classificada antes de ser enviada ao redutor.
 * Em seguida, o redutor soma essas contagens individuais para cada palavra e emite um par de chave/valor único que contém a palavra seguido pela soma de suas ocorrências.

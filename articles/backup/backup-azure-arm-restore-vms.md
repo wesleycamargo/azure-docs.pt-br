@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
@@ -164,7 +164,7 @@ Para exibir a operação durante o processamento ou para exibir quando for concl
 Após a [conclusão da operação de restauração dos discos](#Track-the-restore-operation), você pode usar o modelo gerado como parte da operação de restauração para criar uma nova VM com uma configuração diferente da configuração de backup ou para personalizar os nomes de recursos criados, como criar uma nova VM do ponto de restauração. 
 
 > [!NOTE]
-> Os modelos serão adicionados como parte da Restauração de Discos para pontos de recuperação feitos após 1º de março de 2017. Eles são aplicáveis para VMs de disco não criptografado e não gerenciados. O suporte para VMs criptografadas e VMs de disco gerenciado estará disponível em versões futuras. 
+> Os modelos serão adicionados como parte da Restauração de Discos para pontos de recuperação feitos após 1º de março de 2017. Eles são aplicáveis a VMs de disco não gerenciado. O suporte para VMs de disco gerenciado estará disponível em versões futuras. 
 >
 >
 

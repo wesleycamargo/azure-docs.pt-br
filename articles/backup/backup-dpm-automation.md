@@ -261,7 +261,7 @@ Cada Agente do DPM conhece a lista de fontes de dados no servidor em que está i
 A lista dos servidores nos quais o Agente do DPM está instalado e sendo gerenciado pelo servidor DPM é obtida usando o cmdlet [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) . Neste exemplo, filtraremos e configuraremos apenas o PS com o nome *productionserver01* para o backup.
 
 ```
-PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
+PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”}
 ```
 
 Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *D:\*, que desejamos configurar para o backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o objeto de grupo de proteção *modificável*```$MPG``` para fazer as adições.

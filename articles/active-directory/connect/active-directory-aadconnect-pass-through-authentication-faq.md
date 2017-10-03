@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
 Neste artigo, respondemos perguntas frequentes sobre a Autenticação de Passagem do Azure AD (Azure Active Directory). Continue verificando para ver novo conteúdo.
-
->[!IMPORTANT]
->O recurso de Autenticação de Passagem está atualmente na versão de atualização.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>Qual dos métodos de entrada no Azure AD – Autenticação de Passagem, Sincronização de Hash de Senha e Serviços de Federação do Active Directory (AD FS) – devo escolher?
 
@@ -132,7 +129,7 @@ Execute novamente o assistente Azure AD Connect e altere o método de entrada do
 Desinstalar um Agente de Autenticação de Passagem de um servidor faz com que ele pare de aceitar solicitações de entrada. Verifique se você tem outro Agente de Autenticação em execução antes de realizar essa operação, a fim de evitar a interrupção de entrada de usuários em seu locatário.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.
+- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.

@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75e66f0832ae82a35387b471d591f9ef14155fac
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 9ca423e8d752271fadbb5b51f38e691a0316576c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurar uma conexão ponto a site com uma VNet usando a autenticação RADIUS: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação RADIUS: PowerShell (Versão Prévia)
 
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site que usa a autenticação RADIUS. Essa configuração está disponível somente para o modelo de implantação do Gerenciador de Recursos.
+
+>[!NOTE]
+>Atualmente, a autenticação RADIUS P2S está em Versão Prévia.
+>
 
 Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Uma VPN P2S também é uma solução útil para usar em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
@@ -41,7 +45,7 @@ As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP volt
 
 * O SSTP é um túnel de VPN baseado em SSL que tem suporte apenas em plataformas de cliente do Windows. Ele pode entrar em firewalls, tornando-o uma opção ideal para se conectar ao Azure de qualquer lugar. No lado do servidor, há suporte para as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide qual versão usar. Por padrão, para Windows 8.1 e posterior, o SSTP usa 1.2.
 
-* Os túneis P2S IKEv2 têm suporte para a plataforma Mac e usam o cliente VPN IKEv2 nativo.
+* VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima).
 
 Conexões P2S exigem o seguinte:
 

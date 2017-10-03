@@ -1,6 +1,6 @@
 ---
 title: "Criar um aplicativo Web .NET Core em um contêiner do Linux no Azure | Microsoft Docs"
-description: "Implante seu primeiro aplicativo .NET Core Olá, Mundo nos Aplicativos Web para Contêineres em alguns minutos."
+description: "Implante seu primeiro aplicativo .NET Core Olá, Mundo no Aplicativo Web para Contêineres em alguns minutos."
 keywords: "serviço de aplicativo do azure, aplicativo web, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web .NET Core em um contêiner do Linux no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este guia de início rápido mostra como criar um aplicativo [.NET Core](https://docs.microsoft.com/aspnet/core/) nos Aplicativos Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código .NET Core no aplicativo Web.
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este guia de início rápido mostra como criar um aplicativo [.NET Core](https://docs.microsoft.com/aspnet/core/) no Aplicativo Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código .NET Core no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-Abra um navegador da Web e navegue para o aplicativo em http://localhost:5000.
+Abra um navegador da Web e navegue até o aplicativo em `http://localhost:5000`.
 
 Você vê a mensagem **Olá, Mundo** no aplicativo de exemplo exibido na página.
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-Crie um [aplicativo Web](../../app-service-web/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). Não se esqueça de substituir `<app name>` por um nome exclusivo do aplicativo.
+Crie um [aplicativo Web](../app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). Não se esqueça de substituir `<app name>` por um nome exclusivo do aplicativo.
 
 O tempo de execução no comando a seguir é definido como `DOTNETCORE|1.1`. Para ver todos os tempos de execução com suporte, execute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
 
@@ -99,7 +100,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ![Página de aplicativo Web vazia](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-Você criou um novo aplicativo Web vazio em um contêiner do Linux, com a implantação do Git habilitada.
+Você criou um novo aplicativo Web vazio em um contêiner do Linux com a implantação do Git habilitada.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -184,5 +185,5 @@ O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web .NET Core e do Banco de Dados SQL nos Aplicativos Web para Contêineres do Azure](tutorial-dotnetcore-sqldb-app.md)
+> [Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Aplicativo Web para Contêineres do Azure](tutorial-dotnetcore-sqldb-app.md)
 

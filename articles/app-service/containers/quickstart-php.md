@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web PHP em um contêiner do Linux no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web com aplicação de patch automática e altamente escalonável usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP nos Aplicativos Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
+Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no aplicativo Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ Execute o aplicativo localmente abrindo uma janela do terminal e usando o comand
 php -S localhost:8080
 ```
 
-Abra um navegador da Web e navegue até o aplicativo de exemplo no http://localhost:8080.
+Abra um navegador da Web e navegue até o aplicativo de exemplo em `http://localhost:8080`.
 
 Você verá o **Olá, Mundo!** mensagem do aplicativo de exemplo exibida na página.
 
@@ -76,7 +76,7 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
-Navegue até o site para ver seu Aplicativo Web recém-criado. Substitua _&lt;app name>_ por um nome exclusivo do aplicativo.
+Navegue até o site para ver seu Aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -84,7 +84,7 @@ http://<app name>.azurewebsites.net
 
 ![Página de aplicativo Web vazia](media/quickstart-php/app-service-web-service-created.png)
 
-Você criou um novo aplicativo Web vazio em um contêiner do Linux, com a implantação do Git habilitada.
+Você criou um novo aplicativo Web vazio em um contêiner do Linux com a implantação do Git habilitada.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

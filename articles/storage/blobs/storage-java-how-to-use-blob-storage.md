@@ -3,7 +3,7 @@ title: Como usar o Armazenamento de Blobs do Azure (armazenamento de objeto) do 
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: java
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e4de1bc57adf668f383d1fbaf4a721a61576d2a0

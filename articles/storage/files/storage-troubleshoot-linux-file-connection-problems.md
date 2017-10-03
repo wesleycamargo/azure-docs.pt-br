@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas de armazenamento de Arquivos do Azure no Linux | Microsoft Docs"
-description: "Solução de problemas de armazenamento de Arquivos do Azure no Linux"
+title: Solucionar problemas de Arquivos do Azure no Linux | Microsoft Docs
+description: "Solução de problemas de Arquivos do Azure no Linux"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Solucionar problemas de armazenamento de Arquivos do Azure no Linux
+# <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
-Este artigo lista os problemas comuns relacionados ao armazenamento de Arquivos do Microsoft Azure quando você se conecta em clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas.
+Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>“[permissão negada] Cota de disco excedida” ao tentar abrir um arquivo
@@ -41,7 +41,7 @@ Você atingiu o limite máximo de identificadores abertos simultâneos permitido
 Reduza o número de identificadores abertos simultâneos fechando alguns deles e repita a operação. Para obter mais informações, consulte [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-linux"></a>Cópia de arquivos bidirecional lenta no armazenamento de Arquivos do Azure no Linux
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Linux
 
 -   Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
 -   Se você sabe o tamanho final de um arquivo que está estendendo com gravações e o software não apresenta problemas de compatibilidade quando a parte final não escrita do arquivo contém zeros, defina o tamanho do arquivo antecipadamente, em vez de realizar cada gravação como uma gravação de extensão.
@@ -79,15 +79,15 @@ Resolva esse problema especificando uma montagem rígida. Isso força o cliente 
 Se você não pode atualizar para as últimas versões do kernel, resolva esse problema mantendo um arquivo no compartilhamento de arquivos do Azure no qual se grava a cada 30 segundos ou menos. Essa deve ser uma operação de gravação, como regravar a data de criação ou de modificação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a reconexão.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-file-storage-by-using-smb-30"></a>“Erro de montagem (115): operação em andamento” durante a montagem do armazenamento de Arquivos do Azure usando o SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>“Erro de montagem (115): operação em andamento” durante a montagem dos Arquivos do Azure usando o SMB 3.0
 
 ### <a name="cause"></a>Causa
 
-Algumas distribuições do Linux ainda não dão suporte para os recursos de criptografia do SMB 3.0, por isso os usuários poderão receber uma mensagem de erro “115” se tentarem montar o Armazenamento de Arquivos do Azure usando o SMB 3.0, devido a um recurso ausente.
+Algumas distribuições do Linux ainda não dão suporte para os recursos de criptografia do SMB 3.0, por isso os usuários poderão receber uma mensagem de erro “115” se tentarem montar os Arquivos do Azure usando o SMB 3.0, devido a um recurso ausente.
 
 ### <a name="solution"></a>Solução
 
-O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. Se seu cliente SMB do Linux não der suporte à criptografia, monte o Armazenamento de Arquivos do Azure usando o SMB 2.1 em uma VM Linux do Azure que esteja no mesmo datacenter que a conta de Armazenamento de Arquivos.
+O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. Se seu cliente SMB do Linux não der suporte à criptografia, monte os Arquivos do Azure usando o SMB 2.1 em uma VM Linux do Azure que esteja no mesmo datacenter que a conta de Armazenamento de Arquivos.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em um compartilhamento de arquivos do Azure montado em uma VM Linux
@@ -110,7 +110,7 @@ Também verifique se as opções corretas estão sendo usadas executando o coman
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se a opção **cache=strict** ou **serverino** não estiver presente, desmonte e monte o armazenamento de Arquivos do Azure novamente executando o comando de montagem da [documentação](../storage-how-to-use-files-linux.md). Em seguida, verifique novamente se a entrada **/etc/fstab** tem as opções corretas.
+Se a opção **cache=strict** ou **serverino** não estiver presente, desmonte e monte os Arquivos do Azure novamente executando o comando de montagem da [documentação](../storage-how-to-use-files-linux.md). Em seguida, verifique novamente se a entrada **/etc/fstab** tem as opções corretas.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Os carimbos de data/hora foram perdidos durante a cópia de arquivos do Windows para o Linux
