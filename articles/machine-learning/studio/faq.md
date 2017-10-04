@@ -30,22 +30,19 @@ Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o 
 O aprendizado de máquina do Azure tem um fórum no MSDN onde membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para encontrar respostas ou publique uma pergunta nova.
 
 ## <a name="general-questions"></a>Perguntas gerais
-
-            **O que é Azure Machine Learning?**
+**O que é Azure Machine Learning?**
 
 O Azure Machine Learning é um serviço totalmente gerenciado que você pode usar para criar, testar, operar e gerenciar soluções analíticas preditivas na nuvem. Com apenas um navegador, agora você pode entrar, fazer upload de dados e iniciar imediatamente experimentos de aprendizado de máquina. Modelagem de previsão do tipo "arrastar e soltar", um grande palete de módulos e uma biblioteca de modelos de início tornam as tarefas comuns de Aprendizado de Máquina algo rápido e simples. Para saber mais, consulte [Visão geral do serviço de Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Para obter uma introdução ao aprendizado de máquina que explica os conceitos e a terminologia principal, confira [Introdução ao Azure Machine Learning](what-is-machine-learning.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-
-            **O que é o Machine Learning Studio?**
+**O que é o Machine Learning Studio?**
 
 O Machine Learning Studio é um ambiente de trabalho que você acessa usando um navegador da Web. O Machine Learning Studio hospeda uma paleta de módulos em uma interface de composição visual que o habilita a criar um fluxo de trabalho de ciência de dados de ponta a ponta na forma de um teste.
 
 Para saber mais sobre o Estúdio do Machine Learning, confira [O que é o Machine Learning Studio](what-is-ml-studio.md)
 
-
-            **O que é a o serviço de API de Machine Learning do Azure?**
+**O que é a o serviço de API de Machine Learning do Azure?**
 
 O serviço de API do Machine Learning permite implantar modelos preditivos, como os internos do Machine Learning Studio, como serviços Web escalonáveis e tolerantes a falhas. Os serviços Web criados pelo serviço de API do Machine Learning são APIs REST, que fornecem uma interface para comunicação entre aplicativos externos e seu modelo de análise preditiva.
 
@@ -81,8 +78,7 @@ Para ver as atualizações mais recentes, confira [O que há de novo no Azure Ma
 
 ## <a name="machine-learning-studio-questions"></a>Perguntas sobre o Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importar e exportar dados para o Machine Learning
-
-            **Para quais fontes de dados o Machine Learning dá suporte?**
+**Para quais fontes de dados o Machine Learning dá suporte?**
 
 Você pode baixar os dados para um experimento do Machine Learning Studio de três maneiras:
 
@@ -130,8 +126,7 @@ Você pode aprender sobre a funcionalidade de entrada de imagem na referência [
 
 Você pode acessar o [fórum de comentários dos usuários](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, você pode usar o suporte interno para R e Python para criar transformações personalizadas quando necessário.
 
-
-            **Posso trazer meu código existente para o Machine Learning Studio?**
+**Posso trazer meu código existente para o Machine Learning Studio?**
 
 Sim, é possível levar seus códigos existentes de R ou Python para o Machine Learning Studio, executá-los no mesmo teste com os aprendizes fornecidos pelo Azure Machine Learning e implantar a solução como um serviço Web por meio do Azure Machine Learning. Para obter mais informações, consulte [Estender seu experimento com R](extend-your-experiment-with-r.md) e [Executar scripts Python de aprendizado de máquina no Azure Machine Learning Studio](execute-python-scripts.md).
 
@@ -153,13 +148,11 @@ Clique na saída de um módulo para visualizar os dados e obter estatísticas.
 Como grandes quantidades de dados podem ser enviadas a um navegador, o tamanho dos dados é limitado para evitar a lentidão no Machine Learning Studio. Para visualizar todos os dados/resultados, é melhor baixar os dados e usar o Excel ou outra ferramenta.
 
 ### <a name="algorithms"></a>Algoritmos
-
-            **Quais algoritmos existentes têm suporte no Machine Learning Studio?**
+**Quais algoritmos existentes têm suporte no Machine Learning Studio?**
 
 O Machine Learning Studio fornece algoritmos de última geração, como Árvores de Decisão Aumentadas Escalonáveis, sistemas de Recomendação Bayesiana, Redes Neurais Profundas e Selvas de Decisão desenvolvidos na Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. O Machine Learning Studio dá suporte a algoritmos de aprendizado de máquina para classificação binária e de múltiplas classes, de regressão e de clustering. Consulte a lista completa de [Módulos do Machine Learning][machine-learning-modules].
 
-
-            **Vocês sugerem automaticamente o algoritmo correto do Machine Learning para usar com meus dados?**
+**Vocês sugerem automaticamente o algoritmo correto do Machine Learning para usar com meus dados?**
 
 Não, mas o Machine Learning Studio tem várias maneiras de comparar os resultados de cada algoritmo para determinar o que é adequado para o seu problema.
 
@@ -188,8 +181,7 @@ Não.
 No momento, você só pode usar R para criar novos módulos personalizados.
 
 ### <a name="r-module"></a>Módulo R
-
-            **Quais pacotes de R estão disponíveis no Machine Learning Studio?**
+**Quais pacotes de R estão disponíveis no Machine Learning Studio?**
 
 O Machine Learning Studio dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Consulte também [Estender seu experimento com R](extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote desejado não estiver nessa lista, forneça o nome do pacote no [fórum de comentários do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
 
@@ -309,8 +301,7 @@ O Machine Learning Studio depende de uma conta de armazenamento do Azure forneci
 Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do espaço de trabalho usando o portal clássico do Azure.  
 
 ## <a name="support-and-training"></a>Suporte e treinamento
-
-            **Onde posso obter treinamento para o Azure Machine Learning?**
+**Onde posso obter treinamento para o Azure Machine Learning?**
 
 O [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo apresentam os serviços e explicam o ciclo de vida de ciência de dados de importação de dados, limpeza de dados, criação de modelos de previsão e sua implantação em produção usando o Azure Machine Learning.
 
@@ -318,16 +309,14 @@ Incluímos novo material continuamente no Machine Learning Center. Você pode en
 
 Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
 
-
-            **Como fazer para obter suporte ao Azure Machine Learning?**
+**Como fazer para obter suporte ao Azure Machine Learning?**
 
 Para obter suporte técnico para o Azure Machine Learning, vá para [Suporte do Azure](/support/options/) e selecione **Machine Learning**.
 
 O Azure Machine Learning também possui um fórum de comunidade no MSDN, em que é possível fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Perguntas sobre cobrança
-
-            **Como a cobrança do Machine Learning funciona?**
+**Como a cobrança do Machine Learning funciona?**
 
 O Azure Machine Learning tem dois componentes: Machine Learning e serviços Web do Machine Learning Studio.
 
@@ -348,8 +337,7 @@ As quantidades incluídas são realocadas a cada 30 dias e as quantidades não u
 
 Para saber mais sobre preços e cobrança, confira [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-
-            **O Machine Learning tem uma avaliação gratuita?**
+**O Machine Learning tem uma avaliação gratuita?**
 
  O Azure Machine Learning tem uma opção de assinatura gratuita que é explicada em [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). O Machine Learning Studio tem uma avaliação rápida de oito horas que está disponível quando você entra no [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2).
 
@@ -483,8 +471,7 @@ Por exemplo, suponha que Standard S1 seja excedente e você envie 100 trabalhos 
 Sim, os serviços Web clássicos ainda estão disponíveis no Azure Machine Learning.  
 
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Camadas Gratuita e Standard do Machine Learning
-
-            **O que está incluído na Camada gratuita do Azure Machine Learning?**
+**O que está incluído na Camada gratuita do Azure Machine Learning?**
 
 A camada Gratuita do Azure Machine Learning tem o objetivo de fornecer uma introdução abrangente ao Azure Machine Learning Studio. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Azure Machine Learning Studio por [conta da Microsoft](https://www.microsoft.com/account/default.aspx). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
 
@@ -494,8 +481,7 @@ Os espaços de trabalho da camada gratuita têm as limitações a seguir:
 * Não é possível implantar os serviços Web base do Novo Gerenciador de Recursos.
 
 
-
-            **O que está incluso na camada e nos planos Standard do Azure Machine Learning?**
+**O que está incluso na camada e nos planos Standard do Azure Machine Learning?**
 
 A camada Standard do Azure Machine Learning é uma versão paga do Azure Machine Learning Studio. A taxa mensal do Azure Machine Learning Studio é cobrada por estação, por mês e rateada em meses parciais. Horas de experimento do Azure Machine Learning Studio são cobradas por hora de computação por experimento ativo. A cobrança é rateada em horas parciais.  
 
@@ -561,8 +547,7 @@ As cobranças referentes a espaços de trabalho são divididas em separado para 
 O Machine Learning é um serviço multilocatário. Os recursos de computação real que são usados no back-end variam e são otimizados para desempenho e previsibilidade.
 
 ### <a name="guest-access"></a>Acesso de Convidado
-
-            **O que é o acesso de convidado para o Machine Learning Studio Azure?**
+**O que é o acesso de convidado para o Machine Learning Studio Azure?**
 
 O Acesso de Convidado é uma experiência de avaliação restrita. Você pode criar e executar experimentos no Azure Machine Learning Studio sem custo adicional e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito anteriormente, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Para escolher sua experiência do Machine Learning gratuita, clique em **Introdução** em [https://studio.azureml.net](https://studio.azureml.net)e selecione **Acesso de convidado** ou entre com uma conta da Microsoft.
 
