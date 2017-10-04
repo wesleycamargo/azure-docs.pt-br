@@ -31,8 +31,7 @@ Para abrir um espaço de trabalho no Machine Learning Studio, você deve estar c
 
 Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning].
 
-
-            [Gerenciar um espaço de trabalho do Azure Machine Learning]: manage-workspace.md
+[Gerenciar um espaço de trabalho do Azure Machine Learning]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Regiões permitidas
 No momento, o Machine Learning está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro "Você não tem assinaturas nas regiões permitidas".
