@@ -63,7 +63,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI 2.0</a></p><p><a href="/powershell/module/azurem.insights">PowerShell do Azure</a></p>
+            html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.insights">PowerShell do Azure</a></p>
           - title: REST
             html: <p><a href="/rest/api/monitor/">REST</a></p>
           - title: Monitoramento

@@ -101,7 +101,7 @@ As entradas para adicionar o serviço usado são todas mostradas:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: suhuruli.azurecr.io/azure-vote-back:v1
+? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
