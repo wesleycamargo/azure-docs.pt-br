@@ -1,5 +1,4 @@
 ---
-
 title: "Resolver problemas de licença para um grupo no Azure Active Directory | Microsoft Docs"
 description: "Como identificar e resolver problemas de atribuição de licença quando você estiver usando o licenciamento baseado em grupo do Azure Active Directory"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 955efc9e6b209195935d1f7c13f96c6a42536b2a
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -108,6 +106,35 @@ Você pode atribuir mais de uma licença de produto a um grupo. Por exemplo, voc
 O Azure AD tenta atribuir todas as licenças que são especificadas no grupo para cada usuário. Se o Azure AD não puder atribuir um dos produtos devido a problemas de lógica de negócios (por exemplo, se não houver licenças suficientes para todos ou se houver conflitos com outros serviços que estão habilitados no usuário), ele também não atribuirá outras licenças no grupo.
 
 Você poderá ver os usuários que não foram atribuídos e verificar quais produtos foram afetados por isso.
+
+## <a name="how-to-manage-licenses-for-products-with-prerequisites"></a>Como gerenciar licenças de produtos com pré-requisitos?
+
+Alguns produtos do Microsoft Online que talvez você tenha são "complementos" - eles exigem que um plano de serviço de pré-requisito seja habilitado para um usuário, ou um grupo, antes que possam ser atribuídos. Com o licenciamento baseado em grupo, o sistema exige que tanto os planos de serviço de complemento como de pré-requisito estejam presentes no mesmo grupo. Isso é feito para garantir que qualquer usuário adicionado ao grupo possa receber o produto totalmente funcional. Considere o seguinte exemplo:
+
+O *Microsoft Workplace Analytics* é um produto complementar. Contém um único plano de serviço com o mesmo nome. Esse plano de serviço somente pode ser atribuído a um usuário, ou grupo, quando um dos seguintes pré-requisitos também forem atribuídos:
+- *Exchange Online (Plano 1)*
+- ou, *Exchange Online (Plano 2)*
+
+Se tentarmos atribuir esse produto por conta própria a um grupo, o portal retornará um erro - ao clicar na notificação de erro, os seguintes detalhes serão exibidos:
+
+![Grupo, pré-requisito ausente](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+
+Ao clicar nos detalhes, a seguinte mensagem de erro será exibida:
+
+*Falha na operação de licença. Certifique-se de que o grupo possua os serviços necessários, antes de adicionar ou remover um serviço dependente. **O serviço do Microsoft Workplace Analytics exige que o Exchange Online (Plano 2) também seja habilitado.***
+
+Para atribuir essa licença complementar a um grupo, é necessário garantir que o grupo também contenha o plano de serviço de pré-requisito. Por exemplo, é possível atualizar um grupo existente que já contenha o produto *Office 365 E3* completo e adicionar o produto complementar.
+
+Adicionalmente, é possível criar um grupo autônomo que contenha apenas os produtos mínimos necessários para fazer o trabalho de complemento - ele pode ser utilizado para licenciar apenas os usuários selecionados para o produto complementar. Nesse exemplo, atribuímos os seguintes produtos ao mesmo grupo:
+- *Office 365 Enterprise E3*, com apenas o plano de serviço do *Exchange Online (Plano 2)* habilitado
+- *Microsoft Workplace Analytics*
+
+![Grupo, pré-requisito incluído](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+
+A partir de agora, qualquer usuário adicionado a este grupo consumirá 1 licença do produto E3 e uma licença do produto Workplace Analytics. Ao mesmo tempo, esses usuários poderão ser membros de outro grupo que lhes forneça o produto E3 completo e continuarão consumindo apenas uma licença para esse produto.
+
+> [!TIP]
+> É possível criar vários grupos para cada plano de serviço de pré-requisito. Por exemplo, se você utilizar tanto o *Office 365 Enterprise **E1*** como o *Office 365 Enterprise **E3*** para seus usuários, você poderá criar dois grupos para licença do *Microsoft Workplace Analytics*; um utilizando E1 como pré-requisito e o outro, utilizando o E3. Isso permitirá que o complemento seja distribuído aos usuários E1 e E3 sem consumir licenças adicionais.
 
 ## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>A atribuição de licença falha silenciosamente para um usuário devido a endereços de proxy duplicados no Exchange Online
 
