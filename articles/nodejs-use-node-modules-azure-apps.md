@@ -90,5 +90,5 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/nodejs/azure/
 
 [especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
 [Como usar a Interface de Linha de Comando do Azure para Mac e Linux]:cli-install-nodejs.md
-[Scripts de implantação de site personalizado com o Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[Scripts de implantação de site personalizado com Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 
