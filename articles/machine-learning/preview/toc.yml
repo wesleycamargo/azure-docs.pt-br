@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Execute as métricas de modelo e histórico de execuções
           href: how-to-use-run-history-model-metrics.md
+        - name: Como localizar execuções com a precisão e a menor duração
+          href: how-to-find-best-accuracy-cli.md
         - name: Ler e gravar arquivos
           href: how-to-read-write-files.md
         - name: Biblioteca de MMLSpark
