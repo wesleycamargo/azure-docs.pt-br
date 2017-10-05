@@ -25,8 +25,7 @@ ms.lasthandoff: 09/25/2017
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de visão geral dos recursos do Estúdio do Azure Machine Learning
 O diagrama **Visão geral dos recursos do Microsoft Azure Machine Learning Studio** fornece uma visão geral de alto nível sobre como você pode usar o Machine Learning para desenvolver o modelo da análise preditiva na nuvem do Azure.
 
-
-            [Azure Machine Learning Studio](https://studio.azureml.net/) tem disponível um grande número de algoritmos de aprendizado de máquina, juntamente com os módulos que ajudam com dados de entrada, saída, preparação e visualização. Usando esses componentes você pode desenvolver uma experiência de análise preditiva, itere sobre ela e usá-la para treinar o modelo.
+[Azure Machine Learning Studio](https://studio.azureml.net/) tem disponível um grande número de algoritmos de aprendizado de máquina, juntamente com os módulos que ajudam com dados de entrada, saída, preparação e visualização. Usando esses componentes você pode desenvolver uma experiência de análise preditiva, itere sobre ela e usá-la para treinar o modelo.
 Em seguida, com um clique você pode colocar em operação o seu modelo na nuvem do Azure para que ele possa ser usado para pontuar novos dados.
 
 Este diagrama demonstra como todas essas peças se encaixam.
