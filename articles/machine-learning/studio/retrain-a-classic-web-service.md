@@ -145,7 +145,6 @@ Usando as APIs de Readaptação, você pode atualizar o modelo treinado de um Se
 * A distribuição de um modelo para os clientes com o objetivo de permitir que eles recuperem o modelo usando seus próprios dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-            [Solução de problemas de readaptação de um serviço Web clássico de Azure Machine Learning](troubleshooting-retraining-models.md)
+[Solução de problemas de readaptação de um serviço Web clássico de Azure Machine Learning](troubleshooting-retraining-models.md)
 
 

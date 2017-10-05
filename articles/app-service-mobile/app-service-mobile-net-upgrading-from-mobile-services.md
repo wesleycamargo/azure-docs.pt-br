@@ -260,7 +260,7 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 
 [Portal do Azure]: https://portal.azure.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
-[O que são Aplicativos Móveis?]: app-service-mobile-value-prop.md
+[O que são os Aplicativos Móveis?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [SDK do Servidor de Aplicativos Móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
@@ -271,6 +271,6 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Visão geral do SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

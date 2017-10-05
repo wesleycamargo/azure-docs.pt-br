@@ -36,3 +36,4 @@ sections:
         items:
           - html: <a href="tutorial-review-usage">Analise o uso e os custos para detectar anomalias e eficiência</a>
           - html: <a href="tutorial-user-access">Atribuir acesso aos dados de Gerenciamento de Custos</a>
+          - html: <a href="tutorial-forecast-spending">Previsão de despesas futuras</a>

@@ -25,16 +25,21 @@
 ### [Integrar UDFs de JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrar API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Criar saídas](stream-analytics-define-outputs.md)
-### [Enviar para Azure Functions](stream-analytics-functions-redis.md)
 ### [Saída para o Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Saída para o Cosmos DB](stream-analytics-documentdb-output.md)
+
+## Usar as ferramentas do Visual Studio
+### [Instalar](stream-analytics-tools-for-visual-studio-install.md)
+### [Introdução](stream-analytics-tools-for-visual-studio.md)
+### [Configurar os pipelines de CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitorar e otimizar
 ### [Adicionar alertas](stream-analytics-set-up-alerts.md)
 ### [Monitorar trabalhos](stream-analytics-monitoring.md)
 ### [Monitorar trabalhos de maneira programática](stream-analytics-monitor-jobs.md)
 ### [Monitorar trabalhos com o PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Otimizar unidades de streaming](stream-analytics-streaming-unit-consumption.md)
+### [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md)
+### [Aproveitar a paralelização de consultas](stream-analytics-parallelization.md)
 ### [Escalar para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
 ### [Escalar para funções de Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
@@ -52,7 +57,6 @@
 ### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 
 ## Automatizar
-### [Ferramentas para Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Usar o SDK do .NET de Gerenciamento](stream-analytics-dotnet-management-sdk.md)
 ### [Um clique do Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
