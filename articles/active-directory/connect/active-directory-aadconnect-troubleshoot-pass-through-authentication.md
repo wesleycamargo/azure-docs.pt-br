@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -51,9 +51,9 @@ Se o usuário não consegue entrar usando a autenticação de passagem, ele pode
 |AADSTS80005|Validação encontrou WebException imprevisível|Um erro transitório. Tente novamente a solicitação. Caso a falha persista, contate o Suporte da Microsoft.
 |AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs do agente para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário licença Premium)
 
-Inicie a solução de problemas de conexão de usuários, observando o [relatório de atividade de conexão](../active-directory-reporting-activity-sign-ins.md) no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o locatário possuir uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory - relatório Entradas](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 

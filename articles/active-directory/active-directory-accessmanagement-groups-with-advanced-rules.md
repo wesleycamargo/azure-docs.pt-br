@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -239,7 +239,8 @@ Um exemplo de uma regra que usa um atributo personalizado:
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo. No momento, não oferecemos suporte a atributos com valores múltiplos sincronizados a partir do Active Directory local. 
+O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
+No momento, não oferecemos suporte a atributos com valores múltiplos sincronizados a partir do Active Directory local.
 
 ## <a name="direct-reports-rule"></a>Regra de "subordinados diretos"
 Você pode criar um grupo contendo todos os subordinados diretos de um gerente. Quando os subordinados diretos do gerente forem alterados no futuro, a associação do grupo será ajustada automaticamente.
@@ -287,6 +288,19 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 > Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
 >
 >
+
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Alterando a associação dinâmica para estática e vice-versa
+É possível alterar como a associação é gerida em um grupo. Isso é útil quando você quer manter o mesmo ID e nome de grupo no sistema, então, todas as referências existentes no grupo ainda serão válidas; criar um novo grupo exigiria atualizar essas referências.
+
+> [!WARNING]
+> Ao alterar um grupo estático existente para um grupo dinâmico, todos os membros existentes serão removidos do grupo e, em seguida, a regra de associação será processada para adicionar novos membros. Se o grupo for utilizado para controlar o acesso a aplicativos ou recursos, os membros originais poderão perder o acesso até que a regra de associação seja totalmente processada.
+>
+> É uma prática recomendada testar previamente a nova regra de associação para garantir que a nova associação no grupo seja conforme o esperado.
+
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com), abra o grupo.
+2. Selecione a guia **Configurar** para visualizar o estado atual da associação dinâmica.
+3. Para tornar um grupo estático, simplesmente alterne **Habilitar associações dinâmicas** definindo para **NÃO**. Para confirmar, clique no botão **Salvar** na barra de ferramentas abaixo. Os membros existentes serão mantidos no grupo e, a partir de agora, a regra de associação não será processada.
+4. Para tornar um grupo dinâmico, alterne a configuração para **SIM**, especifique a regra de associação desejada e clique em **Salvar**. Os membros existentes serão removidos e a nova regra iniciará o processamento para adicionar novos membros.
 
 ## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.

@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -81,7 +81,7 @@ O Proxy de Aplicativo Azure AD oferece SSO (logon único ) a aplicativos que usa
 Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### <a name="managing-apps"></a>Gerenciando aplicativos
-Assim que o aplicativo é publicado com o Proxy de Aplicativo, você pode gerenciá-lo como qualquer outro aplicativo corporativo no Portal do Azure. Você pode usar recursos de segurança do Azure Active Directory como a verificação em duas etapas e o acesso condicional, controlar permissões de usuário e personalizar a identidade visual do seu aplicativo. 
+Assim que o aplicativo for publicado com o Proxy de Aplicativo, será possível gerenciá-lo como qualquer outro aplicativo corporativo no Portal Azure. Você pode usar recursos de segurança do Azure Active Directory como a verificação em duas etapas e o acesso condicional, controlar permissões de usuário e personalizar a identidade visual do seu aplicativo. 
 
 ## <a name="get-started"></a>Introdução
 
