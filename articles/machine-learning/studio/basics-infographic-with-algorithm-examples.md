@@ -26,8 +26,7 @@ ms.lasthandoff: 09/25/2017
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares no Machine Learning Studio
-
-            [Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. O infográfico identifica quatro famílias populares de algoritmos – regressão, detecção de anomalias, clustering e classificação – e fornece links para exemplos em funcionamento na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/). A Galeria contém testes de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados a muitas soluções do mundo real.
+[Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. O infográfico identifica quatro famílias populares de algoritmos – regressão, detecção de anomalias, clustering e classificação – e fornece links para exemplos em funcionamento na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/). A Galeria contém testes de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados a muitas soluções do mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Baixe o infográfico com exemplos de algoritmo
 **[Baixe: infográfico dos conceitos básicos de aprendizado de máquina com exemplos de algoritmo (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
