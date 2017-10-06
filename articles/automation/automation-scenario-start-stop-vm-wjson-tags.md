@@ -3,7 +3,7 @@ title: Usar marcas formatada em JSON para agendar o estado da VM do Azure | Micr
 description: "Este artigo demonstra como usar cadeias de caracteres JSON em marcações para automatizar o agendamento do desligamento e inicialização de VM."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
 ms.contentlocale: pt-br
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Cenário de Automação do Azure: usando marcações formatadas JSON para criar um agendamento para inicialização e desligamento de VM do Azure

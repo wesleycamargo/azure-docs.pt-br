@@ -3,7 +3,7 @@ title: "Solução de Problemas do Hybrid Runbook Workers da Automação do Azure
 description: "Descreve os sintomas, causas e solução dos problemas mais comuns do Hybrid Runbook Worker na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9

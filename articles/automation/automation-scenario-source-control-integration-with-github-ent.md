@@ -3,7 +3,7 @@ title: "Integração de controle de origem da Automação do Azure com o GitHub 
 description: "Descreve os detalhes de como configurar a integração com o GitHub Enterprise para controle de origem de runbooks da Automação."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

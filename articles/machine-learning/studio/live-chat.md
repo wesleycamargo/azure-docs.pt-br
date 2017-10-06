@@ -22,8 +22,7 @@ ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Obtenha ajuda sobre o Machine Learning no suporte por chat ao vivo
-
-            [Azure Machine Learning Studio](what-is-ml-studio.md) fornece uma interface intuitiva para criar modelos de aprendizado de máquina. Há uma [Galeria](gallery-how-to-use-contribute-publish.md) exemplos enviados pela comunidade para ajudá-lo a começar. Também há um [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) em que você pode fazer perguntas para ajudá-lo a continuar. 
+[Azure Machine Learning Studio](what-is-ml-studio.md) fornece uma interface intuitiva para criar modelos de aprendizado de máquina. Há uma [Galeria](gallery-how-to-use-contribute-publish.md) exemplos enviados pela comunidade para ajudá-lo a começar. Também há um [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) em que você pode fazer perguntas para ajudá-lo a continuar. 
 
 Mas, às vezes, você só precisa fazer uma pergunta rápida para deslanchar. No [Machine Learning Studio](http://studio.azureml.net/Home), procure o ícone de chat no painel de navegação superior.  Se você vir este ícone, significa que um membro da equipe do produto está online para ajudá-lo em tempo real.
 

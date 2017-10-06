@@ -3,7 +3,7 @@ title: "O que é a Automação do Azure | Microsoft Docs"
 description: "Saiba qual valor a Automação do Azure fornece e obtenha respostas para perguntas comuns para que você pode começar a criar usando runbooks e DSC de Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "o que é automação, automação do azure, exemplos de automação do azure"
@@ -20,7 +20,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="azure-automation-overview"></a>Visão geral da Automação do Azure

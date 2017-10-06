@@ -3,7 +3,7 @@ title: "Atualizar módulos do Azure na Automação do Azure | Microsoft Docs"
 description: "Este artigo descreve como você pode atualizar módulos comuns do Azure PowerShell fornecidos por padrão na Automação do Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/14/2017
-
 
 ---
 

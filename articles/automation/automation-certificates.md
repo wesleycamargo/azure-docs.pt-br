@@ -3,7 +3,7 @@ title: "Ativos de certificado na Automação do Azure | Microsoft Docs"
 description: "Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC para serem autenticados em recursos do Azure e de terceiros.  Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: ac9c22ae-501f-42b9-9543-ac841cf2cc36

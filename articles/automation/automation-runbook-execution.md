@@ -3,7 +3,7 @@ title: "Execução de runbook na Automação do Azure | Microsoft Docs"
 description: "Descreve os detalhes de como um runbook na Automação do Azure é processado."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca

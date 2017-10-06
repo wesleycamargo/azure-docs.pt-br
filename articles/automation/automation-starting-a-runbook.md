@@ -3,7 +3,7 @@ title: "Como iniciar um runbook na Automação do Azure | Microsoft Docs"
 description: "Resume os métodos diferentes que podem ser usados para iniciar um runbook na Automação do Azure e fornece detalhes sobre como usar o portal do Azure e o Windows PowerShell."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b

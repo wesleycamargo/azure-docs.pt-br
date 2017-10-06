@@ -3,7 +3,7 @@ title: "Hybrid Runbook Worker Windows da Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece informações sobre como instalar um Hybrid Runbook Worker da Automação do Azure que permita executar runbooks em computadores Windows no seu datacenter local ou ambiente de nuvem."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 

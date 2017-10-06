@@ -3,7 +3,7 @@ title: "Validar a conta de automação do Azure | Microsoft Docs"
 description: "Este artigo descreve como confirmar se a configuração de sua conta de automação está configurada corretamente."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
