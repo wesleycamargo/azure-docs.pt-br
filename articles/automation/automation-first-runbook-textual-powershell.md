@@ -3,7 +3,7 @@ title: "Meu primeiro runbook do PowerShell na Automação do Azure | Microsoft D
 description: "Tutorial que orienta você pela criação, pelos testes e pela publicação de um runbook simples do PowerShell."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "azure powershell, tutorial de script do powershell, automação do powershell"

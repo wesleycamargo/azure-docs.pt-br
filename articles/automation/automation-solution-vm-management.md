@@ -3,7 +3,7 @@ title: "Solução Iniciar/Parar VMs fora do horário comercial [versão prévia]
 description: "As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

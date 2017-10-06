@@ -3,7 +3,7 @@ title: "Gerenciando os dados de Automação do Azure | Microsoft Docs"
 description: "Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.  Atualmente, inclui a Retenção de dados e o backup da Recuperação de desastres na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/03/2017
-
 
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure

@@ -3,7 +3,7 @@ title: "Ativos de credenciais na Automação do Azure | Microsoft Docs"
 description: "Os ativos de credenciais na Automação do Azure contêm credenciais de segurança que podem ser usadas para a autenticação em recursos acessados pelo runbook ou pela configuração DSC. Este artigo descreve como criar ativos de credenciais e usá-los em um runbook ou uma configuração DSC."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd

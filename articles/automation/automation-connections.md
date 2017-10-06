@@ -3,7 +3,7 @@ title: "Ativos de conexão na Automação do Azure | Microsoft Docs"
 description: "Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
