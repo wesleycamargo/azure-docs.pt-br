@@ -203,6 +203,6 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
 [serviço de email baseado em nuvem]: https://sendgrid.com/solutions
-[entrega de e-mail transacional]: https://sendgrid.com/use-cases/transactional-email
+[entrega de email transacional]: https://sendgrid.com/use-cases/transactional-email
 
 
