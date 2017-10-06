@@ -327,7 +327,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Criar e implantar um aplicativo Node.js em um site da Web do Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 
