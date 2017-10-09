@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
 ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Usando bibliotecas de classes .NET com o Azure Functions
@@ -36,7 +36,7 @@ Este artigo tem os seguintes pré-requisitos:
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
-No Visual Studio, crie um novo projeto do Azure Functions. O novo modelo de projeto cria os arquivos *host.json* e *local.settings.json*. Você pode [personalizar as configurações de tempo de execução do Azure Functions no host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+No Visual Studio, crie um novo projeto do Azure Functions. O novo modelo de projeto cria os arquivos *host.json* e *local.settings.json*. Você pode [personalizar as configurações de tempo de execução do Azure Functions no host.json](functions-host-json.md). 
 
 O arquivo *local.settings.json* armazena as configurações do aplicativo, as cadeias de conexão e as configurações para as Ferramentas Básicas do Azure Functions. Para saber mais sobre a estrutura, consulte [Codificar e testar as funções do Azure localmente](functions-run-local.md#local-settings).
 
@@ -46,7 +46,7 @@ O atributo [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-sdk/
 
 ### <a name="conversion-to-functionjson"></a>Conversão para function.json
 
-Quando um projeto do Azure Functions é criado, ele produz um arquivo `function.json` na pasta correspondente ao nome de função definido pelo `[FunctionName]`. Especifica os gatilhos e associações e aponta para o arquivo de assembly do projeto.
+Quando você compila um projeto do Azure Functions, um arquivo *function.json* é criado no diretório da função. O nome do diretório é o mesmo que o nome da função especificado pelo atributo `[FunctionName]`. O arquivo *function.json* contém gatilhos e associações e aponta para o arquivo de assembly do projeto.
 
 Essa conversão é executada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). A fonte está disponível no repositório GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
