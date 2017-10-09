@@ -1,6 +1,6 @@
 ---
-title: "Associações do Banco de Dados Cosmos do Azure Functions | Microsoft Docs"
-description: "Entenda como usar associações do Banco de Dados Cosmo do Azure no Azure Functions."
+title: "Associações do Azure Cosmos DB para Functions | Microsoft Docs"
+description: "Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -9,33 +9,105 @@ editor:
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ad058929eb888920823fddf549ada4ce2c6d9eee
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-functions-cosmos-db-bindings"></a>Associações do Banco de Dados Cosmos do Azure Functions
+# <a name="azure-cosmos-db-bindings-for-functions"></a>Associações do Azure Cosmos DB para Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do Banco de Dados Cosmos do Azure no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para o Banco de Dados Cosmos.
+Este artigo explica como configurar e codificar associações do Banco de Dados Cosmos do Azure no Azure Functions. O Functions dá suporte a associações de entrada, saída e gatilho para o Azure Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Para saber mais sobre o Banco de Dados Cosmos, veja [Introdução ao Banco de Dados Cosmos](../documentdb/documentdb-introduction.md) e [Criar um aplicativo de console do Banco de Dados Cosmos](../documentdb/documentdb-get-started.md).
+Para obter mais informações sobre computação sem servidor com o Azure Cosmos DB, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](..\cosmos-db\serverless-computing-database.md).
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## <a name="azure-cosmos-db-trigger"></a>Gatilho do Azure Cosmos DB
+
+O gatilho do Azure Cosmos DB usa o [Feed de Alterações do Azure Cosmos DB](../cosmos-db/change-feed.md) para escutar alterações entre partições. O gatilho requer uma segunda coleção que ele usa para armazenar _concessões_ sobre as partições.
+
+Tanto a coleção que está sendo monitorada quanto a coleção que contém as concessões devem estar disponíveis para o gatilho funcionar.
+
+O gatilho do Azure Cosmos DB dá suporte às seguintes propriedades:
+
+|Propriedade  |Descrição  |
+|---------|---------|
+|**tipo** | Deve ser definido como `cosmosDBTrigger`. |
+|**name** | O nome da variável usado no código de função que representa a lista de documentos com alterações. | 
+|**direction** | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**connectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
+|**databaseName** | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
+|**collectionName** | O nome da coleção que está sendo monitorada. |
+| **leaseConnectionStringSetting** | (Opcional) O nome de uma configuração de aplicativo que contém a cadeia de conexão para o serviço com a coleção de concessão. Quando não definido, o valor `connectionStringSetting` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. |
+| **leaseDatabaseName** | (Opcional) O nome do banco de dados que contém a coleção usada para armazenar as concessões. Quando não definido, o valor da configuração `databaseName` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. |
+| **leaseCollectionName** | (Opcional) O nome da coleção usada para armazenar as concessões. Quando não definido, o valor `leases` é usado. |
+| **createLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando ela ainda não existe. O valor padrão é `false`. |
+| **leaseCollectionThroughput** | (Opcional) Define a quantidade de Unidades de Solicitação a atribuir quando a coleção de concessões for criada. Essa configuração é usada apenas quando `createLeaseCollectionIfNotExists` é definido como `true`. Esse parâmetro é definido automaticamente quando a associação é criada usando o portal.
+
+>[!NOTE] 
+>A cadeia de conexão usada para conectar-se à coleção concessões deve ter permissões de gravação.
+
+Essas propriedades podem ser definidas na guia de Integração para a função no portal do Azure ou editando o arquivo de projeto `function.json`.
+
+## <a name="using-an-azure-cosmos-db-trigger"></a>Como usar um gatilho do Azure Cosmos DB
+
+Esta seção contém exemplos de como usar o gatilho do Azure Cosmos DB. Os exemplos presumem um gatilho de metadados semelhante ao seguinte:
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+Para obter um exemplo de como criar um gatilho do Azure Cosmos DB de um aplicativo de função no portal, consulte [Criar uma função disparada pelo Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
+
+### <a name="trigger-sample-in-c"></a>Exemplo de gatilho em C# #
+```cs 
+    #r "Microsoft.Azure.Documents.Client"
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using System;
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+    }
+```
+
+
+### <a name="trigger-sample-in-javascript"></a>Exemplo de gatilho em JavaScript
+```javascript
+    module.exports = function (context, documents) {
+        context.log('First document Id modified : ', documents[0].id);
+
+        context.done();
+    }
+```
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>Associação de entrada da API do DocumentDB
-A associação de entrada da API do DocumentDB recupera um documento do Banco de Dados Cosmos e o passa ao parâmetro de entrada nomeada da função. A ID do documento pode ser determinada com base no gatilho que invoca a função. 
+A associação de entrada de API do DocumentDB recupera um documento do Azure Cosmos DB e o envia ao parâmetro de entrada nomeada da função. A ID do documento pode ser determinada com base no gatilho que invoca a função. 
 
 A associação de entrada da API do DocumentDB tem as seguintes propriedades em *function.json*:
 
@@ -46,8 +118,8 @@ A associação de entrada da API do DocumentDB tem as seguintes propriedades em 
 |**databaseName** | O banco de dados que contém o documento.        |
 |**collectionName**  | O nome da coleção que contém o documento. |
 |**ID**     | A ID do documento a ser recuperado. Essa propriedade dá suporte a parâmetros de associações. Para saber mais, consulte [Associar propriedades personalizadas de entrada em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | Uma consulta SQL do Cosmos DB usada para recuperar vários documentos. A consulta dá suporte a associações de tempo de execução, como no exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Cosmos DB.        |
+|**sqlQuery**     | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A consulta dá suporte a associações de tempo de execução, como no exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**direction**     | Deve ser definido como `in`.         |
 
 Não é possível definir ambas as propriedades **id** e **sqlQuery**. Se nenhuma estiver definida, toda a coleção será recuperada.
@@ -189,7 +261,7 @@ A associação de saída da API do DocumentDB permite que você escreva um novo 
 |**databaseName** | O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**     | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false*. Isso ocorre porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Cosmos DB.        |
+|**conexão**     |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**direction**     | Deve ser definido como `out`.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Usar uma associação de saída de API do DocumentDB
@@ -229,7 +301,7 @@ E que você tenha uma associação de entrada de fila para uma fila que recebe o
 }
 ```
 
-E você deseja criar documentos do Banco de Dados Cosmos no formato a seguir para cada registro:
+E você deseja criar documentos do Azure Cosmos DB no formato a seguir para cada registro:
 
 ```json
 {

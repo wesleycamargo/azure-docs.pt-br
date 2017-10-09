@@ -3,7 +3,7 @@ title: "Gerenciador de Tráfego do Azure — perguntas frequentes | Microsoft Do
 description: "Este artigo fornece respostas a perguntas frequentes sobre o Gerenciador de Tráfego"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 09/18/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 44762864e0a5adf568fcd4928b48661196f05b9e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/16/2017
 
 Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), o Gerenciador de Tráfego funciona no nível do DNS. Ele envia as respostas DNS para direcionar os clientes ao ponto de extremidade de serviço apropriado. Em seguida, os clientes se conectam diretamente ao ponto de extremidade de serviço, não pelo Gerenciador de Tráfego.
 
-Portanto, o Gerenciador de Tráfego não fornece um ponto de extremidade ou o endereço IP para que os clientes se conectem. Portanto, se você desejar um endereço IP estático para o serviço, isso deverá ser configurado no serviço, não no Gerenciador de Tráfego.
+Portanto, o Gerenciador de Tráfego não fornece um ponto de extremidade ou o endereço IP para que os clientes se conectem. Se você desejar um endereço IP estático para o serviço, ele deverá ser configurado no serviço, não no Gerenciador de Tráfego.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de Tráfego dá suporte a sessões “temporárias”?
 
@@ -44,7 +44,7 @@ Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manag
 
 Portanto, as investigações adicionais devem se concentrar no aplicativo.
 
-O cabeçalho de host HTTP enviado do navegador do cliente é a fonte mais comum de problemas. Verifique se o aplicativo está configurado para aceitar o cabeçalho de host correto para o nome de domínio que está sendo usado. Para pontos de extremidade que usam o Serviço de Aplicativo do Azure, consulte [Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+O cabeçalho de host HTTP enviado do navegador do cliente é a fonte mais comum de problemas. Verifique se o aplicativo está configurado para aceitar o cabeçalho de host correto para o nome de domínio que está sendo usado. Para pontos de extremidade que usam o Serviço de Aplicativo do Azure, consulte [Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Qual é o impacto no desempenho de usar o Gerenciador de Tráfego?
 
@@ -69,9 +69,8 @@ Para solucionar esse problema, recomendamos o uso de um redirecionamento HTTP pa
 O suporte completo para domínios naked no Gerenciador de Tráfego é controlado em nossa lista de pendências de recurso. Você pode registrar seu suporte para essa solicitação de recurso [votando em nosso site de comentários da comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS? 
-Não, no momento o Gerenciador de Tráfego considera apenas o endereço IP de origem da consulta DNS que ele recebe, que normalmente é o endereço IP do resolvedor DNS, ao executar pesquisas de métodos de roteamento geográfico e de desempenho.  
-Especificamente, o Gerenciador de Tráfego não dá suporte atualmente à [RFC 7871 – Sub-rede de Cliente em Consultas DNS](https://tools.ietf.org/html/rfc7871), que fornece um [Mecanismo de Extensão para DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que pode passar o endereço de sub-rede do cliente de resolvedores que dão suporte a ele para servidores DNS. Você pode registrar seu suporte para essa solicitação de recurso por meio de nosso [site de comentários da comunidade](https://feedback.azure.com/forums/217313-networking).
-
+Sim, além do endereço IP de origem da consulta DNS que ele recebe (que geralmente é o endereço IP do resolvedor de DNS), ao realizar pesquisas para métodos de roteamento geográfico e de desempenho, o Gerenciador de Tráfego também vai considerar o endereço de sub-rede do cliente se ele estiver incluído na consulta quando o resolvedor fizer a solicitação em nome do usuário final.  
+Especificamente, a [RFC 7871 – sub-rede do cliente nas consultas DNS](https://tools.ietf.org/html/rfc7871) que fornece um [Mecanismo de Extensão para DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que pode passar o endereço de sub-rede do cliente dos resolvedores com suporte.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>O que é o TTL do DNS e como ele afeta os meus usuários?
 
@@ -118,13 +117,119 @@ Todos os pontos de extremidade em um perfil com roteamento geográfico precisam 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Por que é enfaticamente aconselhável que os clientes criem perfis aninhados em vez de pontos de extremidade em um perfil com o roteamento geográfico habilitado? 
 
-Uma região poderá ser atribuída apenas a um ponto de extremidade em um perfil se ela estiver usando tipo de roteamento geográfico. Se esse ponto de extremidade não for um tipo aninhado com um perfil filho conectado a ele, caso esse ponto de extremidade se torne não íntegro, o Gerenciador de Tráfego continuará enviando tráfego a ele, pois a alternativa de não enviar tráfego não é a opção melhor. O Gerenciador de Tráfego não faz failover para outro ponto de extremidade, mesmo quando a região atribuída for um "pai" da região atribuída ao ponto de extremidade que se tornou não íntegro (por exemplo, se um ponto de extremidade que tenha a região Espanha se tornar não íntegro, não faremos failover para outro ponto de extremidade que tenha a região Europa atribuída a ele). Isso é para garantir que o Gerenciador de Tráfego respeite os limites geográficos que um cliente configurou em seu perfil. Para obter o benefício de fazer failover para outro ponto de extremidade quando um se torna não íntegro, é aconselhável que as regiões geográficas sejam atribuídas a perfis aninhados com vários pontos de extremidade neles, em vez de pontos de extremidade individuais. Dessa forma, se um ponto de extremidade no perfil filho aninhado falhar, o tráfego pode fazer failover para outro ponto de extremidade no mesmo perfil filho aninhado.
+Uma região poderá ser atribuída apenas a um ponto de extremidade em um perfil se ela estiver usando tipo de roteamento geográfico. Se esse ponto de extremidade não for um tipo aninhado com um perfil filho conectado a ele, caso esse ponto de extremidade se torne não íntegro, o Gerenciador de Tráfego continuará enviando tráfego a ele, pois a alternativa de não enviar tráfego não é a opção melhor. O Gerenciador de Tráfego não faz failover para outro ponto de extremidade, mesmo quando a região atribuída for "pai" da região atribuída ao ponto de extremidade que deixou de ser íntegro (por exemplo, se um ponto de extremidade que tenha a região Espanha deixar de ser íntegro, não ocorrerá o failover para outro ponto de extremidade que tenha a região Europa atribuída). Isso é para garantir que o Gerenciador de Tráfego respeite os limites geográficos que um cliente configurou em seu perfil. Para obter o benefício de fazer failover para outro ponto de extremidade quando um se torna não íntegro, é aconselhável que as regiões geográficas sejam atribuídas a perfis aninhados com vários pontos de extremidade neles, em vez de pontos de extremidade individuais. Dessa forma, se um ponto de extremidade no perfil filho aninhado falhar, o tráfego pode fazer failover para outro ponto de extremidade no mesmo perfil filho aninhado.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existem restrições quanto à versão de API que oferece suporte a esse tipo de roteamento?
 
 Sim, somente a versão 2017-03-01 da API e as mais recentes dão suporte ao tipo de roteamento Geográfico. Qualquer versão de API mais antiga não pode ser usada para criar perfis de tipo de roteamento Geográfico ou atribuir regiões geográficas aos pontos de extremidade. Se uma versão de API mais antiga for usada para recuperar perfis de uma assinatura do Azure, nenhum perfil de tipo de roteamento Geográfico será retornado. Além disso, ao usar versões de API mais antigas, todos os perfis retornados que tiverem pontos de extremidade com uma atribuição de região geográfica não terão essa atribuição exibida.
 
+## <a name="real-user-measurements"></a>Medidas Reais de Usuário
 
+>[!NOTE]
+>O recurso de Medidas Reais de Usuário no Gerenciador de Tráfego está na visualização pública e pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que já estão disponíveis. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para receber as notificações mais recentes sobre a disponibilidade e o status desse recurso, confira a página [Atualizações do Gerenciador de Tráfego do Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
+
+### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são os benefícios do uso de Medidas Reais de Usuário?
+Quando você usa o método de roteamento de desempenho, o Gerenciador de Tráfego escolhe a melhor região do Azure para que o usuário final se conecte, inspecionando o IP de origem e a sub-rede do cliente EDNS (se for passada) e verificando-os em relação à inteligência de latência da rede que o serviço mantém. O recurso de Medidas Reais de Usuário melhora isso para sua base de usuários finais, fazendo com que a experiência deles contribua nessa tabela de latência, além de assegurar que essa tabela abranja corretamente as redes dos usuários finais das quais os usuários finais se conectam ao Azure. Isso leva a um aumento de precisão no roteamento de seus usuários finais.
+
+### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>É possível usar as Medidas Reais de Usuário com regiões que não são do Azure?
+O recurso de Medidas Reais de Usuário mede e relata apenas a latência para alcançar as regiões do Azure. Se você estiver usando o roteamento baseado em desempenho com pontos de extremidade hospedados em regiões que não são do Azure, você ainda poderá aproveitar esse recurso com o aumento de informações de latência sobre a região do Azure representante que você selecionou para associar a esse ponto de extremidade.
+
+### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Qual método de roteamento se beneficia das Medidas Reais de Usuário?
+As informações adicionais obtidas por meio das Medidas Reais de Usuário são aplicáveis apenas aos perfis que usam o método de roteamento de desempenho. Observe que o link de Medidas Reais de Usuário está disponível em todos os perfis exibidos por meio do portal do Azure.
+
+### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>É necessário habilitar as Medidas Reais de Usuário para cada perfil separadamente?
+Não, você precisa habilitá-las uma únicas vez para cada assinatura e todas as informações de latência medidas e relatadas estarão disponíveis para todos os perfis.
+
+### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Como desligar as Medidas Reais de Usuário da minha assinatura?
+Você pode interromper o acúmulo de encargos relacionados às Medidas Reais de Usuário ao parar de coletar e enviar as medidas de latência do seu aplicativo cliente. Por exemplo, quando o JavaScript de medida está inserido em páginas da Web, você pode parar de usar esse recurso removendo o JavaScript ou desabilitando sua invocação quando a página é renderizada.
+Outra maneira de desligar as Medidas Reais de Usuário é excluir a chave. Depois de fazer isso, caso haja medidas enviadas ao Gerenciador de Tráfego com essa chave, elas serão descartadas.
+
+### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Posso usar as Medidas Reais de Usuário com aplicativos clientes que não sejam páginas da Web?
+Sim, as Medidas Reais de Usuário são projetadas para ingeir dados coletados por meio de diferentes tipos de clientes do usuário final. Estas perguntas frequentes serão atualizadas à medida que novos tipos de clientes obtenham suporte.
+
+### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quantas medidas são feitas quando uma página da Web habilitada para Medidas Reais de Usuário é renderizada?
+Quando o recurso de Medidas Reais de Usuário é usado com o JavaScript de medidas fornecido, cada página renderizada resulta em seis medidas. Em seguida, elas são retornadas ao serviço do Gerenciador de Tráfego. Observe que você será cobrado por esse recurso com base no número de medidas relatadas ao serviço do Gerenciador de Tráfego. Por exemplo, se o usuário sair da sua página da Web enquanto as medidas estiverem sendo obtidas, mas antes que elas sejam relatadas, essas medidas não serão consideradas para fins de cobrança.
+
+### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Existe algum atraso antes que o script das Medidas Reais de Usuário seja executado na minha página da Web?
+Não há nenhum atraso programado antes que o script seja invocado.
+
+### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Posso usar a configuração de Medidas Reais de Usuário apenas com as regiões do Azure que desejo medir?
+Não, sempre que o recurso é invocado, o script de Medidas Reais do Usuário mede um conjunto de seis regiões do Azure, conforme é determinado pelo serviço. Esse conjunto é alterado entre diferentes invocações e quando um grande número dessas invocações acontece, a cobertura das medidas abrange diferentes regiões do Azure.
+
+### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Posso limitar o número de medidas feitas para um número específico?
+O JavaScript de medidas é inserido em sua página da Web e você tem o controle total sobre quando iniciar e parar de usá-lo. Desde que o serviço do Gerenciador de Tráfego recebe uma solicitação para obter uma lista de regiões do Azure a serem medidas, um conjunto de regiões será retornado. Também tenha em mente que durante o período de versão prévia, você será não cobrado por nenhuma medida relatadas ao Gerenciador de Tráfego
+
+### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Posso ver as medidas obtidas pelo meu aplicativo cliente como parte das Medidas Reais de Usuário?
+Como a lógica de medida é executada no seu aplicativo cliente, você tem o controle total sobre o que acontece, incluindo observar as medições de latência. O Gerenciador de Tráfego não relata uma exibição agregada das medidas recebidas sob a chave vinculada à sua assinatura
+
+### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Posso modificar o script de medida fornecido pelo Gerenciador de Tráfego?
+Enquanto você controlar o que é inserido em sua página da Web, nós realmente recomendamos que você não faça alterações no script de medidas para garantir que ele meça e relate as latências corretamente.
+
+### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Será possível que outras pessoas vejam a chave que eu uso com as Medidas Reais de Usuário?
+Quando você inserir o script de medidas em uma página da Web, outras pessoas poderão ver o script e a sua chave de RUM (Medidas Reais de Usuário). Mas é importante saber que essa chave é diferente da ID da sua assinatura e ela é gerada pelo Gerenciador de Tráfego a ser usado apenas para essa finalidade. O fato de outras pessoas saberem qual é a sua chave de RUM não comprometerá a segurança da conta do Azure
+
+### <a name="can-others-abuse-my-rum-key"></a>Outras pessoas podem usar minha chave de RUM?
+Embora seja possível que outras pessoas usem sua chave para enviar informações erradas ao Azure, observe que algumas medidas erradas não alterarão o roteamento, pois ele é considerado em conjunto com todas as outras medidas que recebemos. Se precisar alterar as chaves, você poderá gerar a chave novamente no ponto em que a chave antiga for descartada.
+
+###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>É necessário colocar o JavaScript de medida em todas as páginas da Web?
+O recurso de Medidas Reais de Usuário oferece mais valor à medida que o número de medidas aumenta. Dito isso, fica a seu critério se é necessário colocá-lo em todas as páginas da Web ou apenas em algumas. Nossa recomendação é começar colocando-o em sua página mais visitada, na qual o usuário geralmente permanece por cinco segundos ou mais.
+
+### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>As informações sobre meus usuários finais poderão ser identificadas pelo Gerenciador de Tráfego se eu usar as Medidas Reais de Usuário?
+Quando o JavaScript de medida fornecido for usado, o Gerenciador de Tráfego terá visibilidade do endereço IP do cliente do usuário final e do endereço IP de origem do resolvedor de DNS local usado. O Gerenciador de Tráfego usa o endereço IP do cliente somente após truncá-lo para não ser capaz de identificar o usuário final específico que enviou as medidas. 
+
+### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>A página da Web que está medindo as Medidas Reais de Usuário precisa estar usando o Gerenciador de Tráfego para o roteamento?
+Não, ela não precisa usar o Gerenciador de Tráfego. O lado de roteamento do Gerenciador de Tráfego opera separadamente da parte das Medidas Reais do Usuário e embora seja uma boa ideia que ambos estejam na mesma propriedade de Web, eles não precisam estar.
+
+### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>É necessário hospedar algum serviço nas regiões do Azure a serem usadas com as Medidas Reais de Usuário?
+Não, você não precisa hospedar nenhum componente do servidor no Azure para que as Medidas Reais de Usuário funcionem. A imagem de pixel único baixada pelo JavaScript de medida e o serviço que o executa em diferentes regiões do Azure é hospedado e gerenciado pelo Azure. 
+
+### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Meu uso de largura de banda do Azure aumentará com o uso das Medidas Reais de Usuário?
+Conforme foi mencionado na resposta anterior, os componentes do servidor das Medidas Reais de Usuário pertencem ao Azure e são gerenciados pelo Azure. Isso significa que o uso de largura de banda do Azure não aumentará com o uso das Medidas Reais de Usuário. Observe que isso não inclui nenhum uso de largura de banda adicional à que é cobrada pelo Azure. Podemos minimizar a largura de banda usada baixando uma imagem de pixel único para medir a latência para uma região do Azure. 
+
+## <a name="traffic-view"></a>Exibição do Tráfego
+
+>[!NOTE]
+>O recurso de Exibição do Tráfego no Gerenciador de Tráfego está na visualização pública e pode não ter o mesmo nível de disponibilidade e confiabilidade do que os recursos que estão na versão já disponível. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para receber as notificações mais recentes sobre a disponibilidade e o status desse recurso, confira a página [Atualizações do Gerenciador de Tráfego do Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
+
+### <a name="what-does-traffic-view-do"></a>O que faz a Exibição do Tráfego faz?
+A Exibição do Tráfego é um recurso do Gerenciador de Tráfego que ajuda a saber mais sobre os usuários e suas experiências. Ele usa as consultas recebidas pelo Gerenciador de Tráfego e as tabelas de inteligência de latência de rede que o serviço mantém para fornecer o seguinte:
+- As regiões de onde os usuários se conectam aos pontos de extremidade no Azure.
+- O volume de usuários que se conectam dessas regiões.
+- As regiões do Azure às quais eles estão sendo roteados.
+- Suas experiências de latência para essas regiões do Azure.
+
+Essas informações estão disponíveis para você consumir por meio de uma exibição tabular no portal, além de estarem disponíveis como dados brutos para download.
+
+### <a name="how-can-i-benefit-from-using-traffic-view"></a>Como posso me beneficiar do uso da Exibição do Tráfego?
+
+A Exibição do Tráfego fornece a visão geral do tráfego que seus perfis do Gerenciador de Tráfego recebem. Ela pode ser usada principalmente para entender de onde sua base de usuários se conecta e também qual é a experiência de latência média desses usuários. Você pode usar essas informações para localizar áreas em que precisa se concentrar, por exemplo, expandindo sua superfície do Azure para uma região que possa atender esses usuários com uma latência mais baixa. Outras informações que você pode extrair usando a Exibição do Tráfego são os padrões de tráfego em diferentes regiões, o que pode ajudá-lo a tomar decisões sobre aumentar ou diminuir o invent. nessas regiões.
+
+### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>Por que a Exibição do Tráfego é diferente das métricas do Gerenciador de Tráfego disponíveis por meio do Azure Monitor?
+
+O Azure Monitor pode ser usado para entender, em um nível de agregação, o tráfego recebido pelo seu perfil e seus pontos de extremidade. Ele também permite que você acompanhe o status de integridade dos pontos de extremidade expondo os resultados da verificação de integridade. Quando você precisa ir além disso e entender a experiência do usuário final ao se conectar ao Azure em um nível regional, é possível usar a Exibição do Tráfego.
+
+### <a name="does-traffic-view-use-edns-client-subnet-information"></a>A Exibição do Tráfego usa informações de sub-rede de cliente EDNS?
+
+A Exibição do Tráfego não considera as informações de sub-rede de cliente EDNS durante a criação de sua saída. Ele usa o endereço IP do resolvedor de DNS local dos usuários para agrupá-los.
+
+### <a name="how-many-days-of-data-does-traffic-view-use"></a>Quantos dias de dados a Exibição do Tráfego usa?
+
+A Exibição do Tráfego cria sua saída processando os dados dos sete dias que precedem o dia anterior de sua exibição. Esse é um período móvel e os dados mais recentes serão usados sempre que você a visitar.
+
+### <a name="how-does-traffic-view-handle-external-endpoints"></a>Como a Exibição do Tráfego lida com pontos de extremidade externos?
+
+Quando você usa pontos de extremidade externos, hospedados fora das regiões do Azure em um perfil do Gerenciador de Tráfego, você pode escolher que eles sejam mapeados para uma região do Azure que seja um proxy para suas características de latência (isso na verdade é necessário quando você usa o método de roteamento de desempenho). Se houver esse mapeamento de região do Azure, as métricas de latência dessa região do Azure serão usadas para criar a saída da Exibição do Tráfego. Se não houver nenhuma região do Azure especificada, as informações de latência ficarão vazias nos dados desses pontos de extremidade externos.
+
+### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>É necessário habilitar a Exibição do Tráfego para cada perfil na minha assinatura?
+Durante o período de versão prévia, a Exibição do Tráfego será habilitada em um nível de assinatura e estará disponível para todos os perfis do Gerenciador de Tráfego na assinatura.
+
+### <a name="how-can-i-turn-off-traffic-view"></a>Como posso desligar a Exibição do Tráfego?
+Durante o período de versão prévia, solicitamos que você crie um tíquete de suporte para desabilitar a Exibição do Tráfego para sua assinatura.
+
+### <a name="how-does-traffic-view-billing-work"></a>Como funciona a cobrança da Exibição do Tráfego?
+
+O preço da Exibição do Tráfego é baseado no número de pontos de dados usados para criar a saída. Atualmente, o único tipo de dados com suporte são as consultas que o seu perfil recebe. Além disso, você será cobrado somente pelo processamento que foi feito quando a Exibição do Tráfego estava habilitada. Isso significa que, se você habilitar a Exibição do Tráfego em um certo período do mês e desabilitá-la em outros períodos, somente os pontos de dados processados enquanto o recurso estava habilitado serão cobrados.
+Durante o período de versão prévia, você não será cobrado para usar a Exibição do Tráfego.
 
 ## <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 
@@ -236,6 +341,16 @@ A lista a seguir contém os endereços IP dos quais as verificações de integri
 * 13.75.152.253
 * 104.41.187.209
 * 104.41.190.203
+* 52.173.90.107
+* 52.173.250.232
+* 104.45.149.110
+* 40.114.5.197
+* 52.240.151.125
+* 52.240.144.45
+* 13.65.95.152
+* 13.65.92.252
+* 40.78.67.110
+* 104.42.192.195
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantas verificações de integridade no meu ponto de extremidade posso esperar do Gerenciador de Tráfego?
 
