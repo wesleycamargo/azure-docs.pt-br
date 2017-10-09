@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de Instâncias de Contêiner do Azure | Azure Docs"
+title: "Visão geral das Instâncias de Contêiner do Azure | Azure Docs"
 description: "Compreender as Instâncias de Contêiner do Azure"
 services: container-instances
 documentationcenter: 
@@ -27,13 +27,13 @@ ms.lasthandoff: 07/26/2017
 
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
-Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais e adotar um serviço de nível superior.
+Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais nem adotar um serviço de nível superior.
 
-As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa operar em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêiner completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
+As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêiner completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
 
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 
-Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. Com as Instâncias de Contêiner do Azure, você pode iniciar um contêiner no Azure em segundos, sem a necessidade de provisionar e gerenciar máquinas virtuais.
+Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. Com as Instâncias de Contêiner do Azure, você pode iniciar um contêiner no Azure em segundos, sem a necessidade de provisionar nem gerenciar máquinas virtuais.
 
 ## <a name="hypervisor-level-security"></a>Segurança em nível de hipervisor
 
@@ -53,7 +53,7 @@ Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, n�
 
 ## <a name="linux-and-windows-containers"></a>Contêineres do Windows e do Linux
 
-Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
+Com Azure Container Instance, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 
