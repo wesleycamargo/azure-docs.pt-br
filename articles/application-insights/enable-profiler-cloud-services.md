@@ -1,5 +1,5 @@
 ---
-title: "Habilitar o Azure Application Insights Profiler em um recurso dos Serviços de Nuvem | Microsoft Docs"
+title: "Habilitar o Azure Application Insights Profiler em recursos de Computação do Azure | Microsoft Docs"
 description: "Saiba como configurar o criador de perfil em um aplicativo ASP.NET hospedado por um recurso dos Serviços de Nuvem do Azure."
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ Há várias maneiras de publicar um aplicativo para uma VM do Azure. Uma delas �
 
 
 ## <a name="enable-the-profiler"></a>Habilitar o criador de perfil
-1. Vá para a folha **Desempenho** do Application Insights e escolha **Configurar**.
-   
-   ![Ícone Configurar](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Vá para a folha **Desempenho** do Application Insights e clique em **Criador de Perfil** no canto superior direito para configurá-lo.
+
+   ![Botão Configurar o Criador de Perfil](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. Selecione **Habilitar o Criador de Perfil**.
-   
-   ![Ícone Habilitar o Criador de Perfil](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![Botão Habilitar o Criador de Perfil](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>Adicionar um teste de desempenho para o aplicativo
 Siga estas etapas para que seja possível coletar alguns dados de exemplo a serem exibidos no Application Insights Profiler:
@@ -134,9 +136,15 @@ Siga estas etapas para que seja possível coletar alguns dados de exemplo a sere
 
 1. Aguarde de 10 a 15 minutos para que o criador de perfil colete e analise os dados. 
 
-2. Vá para a folha **Desempenho** em seu recurso Application Insights e veja o desempenho do aplicativo quando ele está sob carga.
+2. Vá para a folha **Desempenho** em seu recurso Application Insights e veja o desempenho do aplicativo quando ele está sob carga. Concentre-se a operação lenta de interesse com uso suficiente, classificando a grade operacional pela coluna Contagem. Observe quais intervalos de duração têm rastreamentos do criador de perfil, examinando a rota do Criador de Perfil acima da distribuição de duração. Observe que quanto maior a duração pela qual você monitorar seu aplicativo, mais rastreamentos o criador de perfil coletará e, portanto, mais a distribuição será abordada pelos exemplos de nível de código avançado com suporte pelos rastreamentos do criador de perfil. 
 
-   ![Exibição do desempenho](./media/enable-profiler-compute/aiperformance.png)
+   ![Rastreamentos do criador de perfil na exibição de triagem de desempenho](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    Você pode aplicar zoom ao intervalo de duração de interesse, assim como o terceiro pico em torno do 95º percentil. Isso restringirá o número de amostras e de rastreamentos do criador de perfil nos botões Executar Ação. 
+
+    ![Aplicar zoom ao intervalo de duração](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    Agora, clique no botão **Rastreamentos do Criador de Perfil** para abrir o Criador de Perfil com o rastreamento apropriado.
 
 3. Escolha o ícone em **Exemplos** para abrir a folha **Exibição de Rastreamento**.
 

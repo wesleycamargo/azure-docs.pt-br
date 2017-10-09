@@ -18,10 +18,10 @@ ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução ao Azure Functions  
@@ -37,7 +37,7 @@ Aqui estão alguns dos principais recursos do Azure Functions:
 * **Traga suas próprias dependências** – o Functions dá suporte a NuGet e NPM e, portanto, você pode usar suas bibliotecas favoritas.  
 * **Segurança integrada** – proteja funções disparadas por HTTP com provedores de OAuth como Azure Active Directory, Facebook, Google, Twitter e Conta da Microsoft.  
 * **Integração simplificada** – aproveite facilmente as ofertas dos serviços do Azure e de SaaS (software como um serviço). Confira a [seção de integrações](#integrations) para obter alguns exemplos.  
-* **Desenvolvimento flexível** – escreva suas funções diretamente no portal ou configure a integração contínua e implante seu código por meio do GitHub, do Visual Studio Team Services e de outras [ferramentas de desenvolvimento com suporte](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
+* **Desenvolvimento flexível** – escreva suas funções diretamente no portal ou configure a integração contínua e implante seu código por meio do [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), do [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) e de outras [ferramentas de desenvolvimento com suporte](../app-service/app-service-deploy-local-git.md).  
 * **Software livre** – O Functions é um software livre e [está disponível no GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>O que posso fazer com o Functions?
@@ -47,7 +47,7 @@ O Functions fornece modelos para você poder começar em cenários chave, inclui
 
 * **HTTPTrigger** – dispara a execução do seu código usando uma solicitação HTTP. Para obter um exemplo, consulte [Criar sua primeira função](functions-create-first-azure-function.md).
 * **TimerTrigger** – execute limpeza ou outras tarefas em lotes em uma programação predefinida. Para um exemplo, consulte [Criar uma função disparada por um temporizador](functions-create-scheduled-function.md).
-* **Webhook GitHub** – responde a eventos que ocorrem em seus repositórios GitHub. Para um exemplo, consulte [Criar uma função disparada pelo webhook do GitHub](functions-create-a-web-hook-or-api-function.md).
+* **Webhook GitHub** – responde a eventos que ocorrem em seus repositórios GitHub. Para um exemplo, consulte [Criar uma função disparada pelo webhook do GitHub](functions-create-github-webhook-triggered-function.md).
 * **Webhook genérico** – processa solicitações de webhook HTTP de qualquer serviço que dá suporte a webhooks. Para um exemplo, consulte [Criar uma função disparada por um webhook genérico](functions-create-generic-webhook-triggered-function.md).
 * **BlobTrigger** – processa blobs do Armazenamento do Azure quando são adicionados a contêineres. Você pode usar essa função para o redimensionamento de imagens. Para obter mais informações, consulte [Associações de armazenamento de blobs](functions-bindings-storage-blob.md).
 * **QueueTrigger** – responde às mensagens que chegam em uma fila do Armazenamento do Azure. Para obter mais informações, consulte [Criar uma função que se conecta a outros serviços do Azure](functions-create-an-azure-connected-function.md).
@@ -87,7 +87,7 @@ Para obter mais informações sobre planos de hospedagem, consulte [Comparação
   Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
-* [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md)  
+* [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md)  
   O Azure Functions aproveita o Serviço de Aplicativo do Azure para a funcionalidade básica como implantações, variáveis de ambiente e diagnóstico. 
 
 

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
@@ -58,15 +58,19 @@ No código, observe que o CodeLens mostra dados sobre as exceções:
 ![Notificação de exceções do CodeLens.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Como diagnosticar falhas usando o Portal do Azure
-Na visão geral do Application Insights de seu aplicativo, o bloco Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
+O Application Insights vem com uma experiência APM coletada para lhe ajudar a diagnosticar falhas nos aplicativos monitorados. Para iniciar, clique na opção de falhas no menu de recurso do Application Insights localizado na seção Investigar. Você deve ver uma exibição de tela inteira que mostra as tendências de taxa de falha das solicitações, quantas delas estão falhando e quantos usuários são afetados. À direita, você verá algumas as distribuições mais úteis específicas para a operação com falha selecionada, incluindo os três principais códigos de resposta, os três principais tipos de exceção e os três principais tipos de dependência com falha. 
 
-![Escolha Configurações, Falhas.](./media/app-insights-asp-net-exceptions/012-start.png)
+![Exibição de falhas de triagem (guia operações)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Clique em um dos tipos de exceção com falha na lista para obter as ocorrências individuais da exceção, em que é possível ver os detalhes e o rastreamento de pilha:
+Em um único clique, você pode examinar exemplos representativos para cada um desses subconjuntos de operações. Em particular, para diagnosticar exceções, você pode clicar na contagem de uma exceção específica a ser apresentada com uma folha de Detalhes da exceção, como esta:
 
-![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Folha Detalhes da exceção](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**Como alternativa,** você pode começar na lista de solicitações e encontrar exceções relacionadas a ela.
+**Como alternativa,** em vez de examinar as exceções de uma operação com falha específica, você pode iniciar da visão geral de exceções, mudando para a guia Exceções:
+
+![Exibição de falhas de triagem (guia exceções)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Aqui você pode ver todas as exceções coletadas para o aplicativo monitorado.
 
 *Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
@@ -431,7 +435,7 @@ Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa
 
 O .NET Framework calcula a taxa contando o número de exceções em um intervalo e dividindo pelo comprimento do intervalo.
 
-Observe que ela será diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
+Isso é diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
 
 ## <a name="video"></a>Vídeo
 

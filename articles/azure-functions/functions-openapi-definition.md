@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -113,7 +113,7 @@ Agora você tem uma função que determina o custo-benefício de reparos de emer
 
 ## <a name="generate-the-openapi-definition"></a>Gerar a definição de OpenAPI
 
-Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como [aplicativos de API](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
+Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como aplicativos de API, [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
 
 1. Selecione apenas os *verbos* que sua API dá suporte (neste caso, POST). Isso torna a definição de API gerada mais clara.
 
@@ -175,20 +175,9 @@ Agora você está pronto para gerar a definição de OpenAPI. Essa definição p
     Essa definição é descrita como um _modelo_ porque ela requer mais metadados para ser uma definição de OpenAPI completa. Você modificará a definição na próxima etapa.
 
 ## <a name="modify-the-openapi-definition"></a>Modificar a definição de OpenAPI
-Agora que tem uma definição de modelo, você faz a modificação para fornecer metadados adicionais sobre estruturas de dados e operações da API. Para este tutorial, você pode simplesmente colar a definição modificada abaixo no painel **Definição de API** e clicar em **Salvar**.
+Agora que tem uma definição de modelo, você faz a modificação para fornecer metadados adicionais sobre estruturas de dados e operações da API. Em **definição de API**, exclua a definição gerada de `post` até a parte inferior da definição, cole o conteúdo abaixo e clique em **Salvar**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-Dito isso, é importante entender os tipos de modificações feitas por nós para o modelo padrão:
+Nesse caso você poderia apenas colar os metadados carregados, mas é importante entender os tipos de modificações que fizemos ao modelo padrão:
 
 + Foi especificado que a API produz e consome dados em um formato JSON.
 
