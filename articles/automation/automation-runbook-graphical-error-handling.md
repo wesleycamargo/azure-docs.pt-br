@@ -51,7 +51,7 @@ Por exemplo, considere um runbook que tenta iniciar uma VM e instalar um aplicat
 1. Ele envia uma notificação sobre esse problema.
 2. Ele inicia outro runbook que provisiona automaticamente uma nova VM em vez disso.
 
-Uma solução é ter um link de erro apontando para uma atividade que alças etapa um. Por exemplo, você pode conectar o **Write-Warning** cmdlet para uma atividade para a etapa&2;, como o **AzureRmAutomationRunbook início** cmdlet.
+Uma solução é ter um link de erro apontando para uma atividade que alças etapa um. Por exemplo, você pode conectar o **Write-Warning** cmdlet para uma atividade para a etapa 2, como o **AzureRmAutomationRunbook início** cmdlet.
 
 Você também pode generalizar esse comportamento para uso em vários runbooks ao colocar essas duas atividades em um runbook de tratamento de erros separado e seguir as orientações sugeridas anteriormente. Antes de chamar esse runbook de tratamento de erros, você pode criar uma mensagem personalizada com base nos dados no runbook original e, em seguida, passá-la como um parâmetro para o runbook de tratamento de erros.
 
