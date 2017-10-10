@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ Se o AD FS tiver sido configurado como o método de entrada _fora_ do assistente
 
 Sim. Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Os Agentes de Autenticação de Passagem fornecem a capacidade de balanceamento de carga?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos Agentes de Autenticação de Passagem preciso instalar?
 
-Não, a instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), mas não o balanceamento de carga. Um ou dois Agentes Autenticação poderão acabar tratando a maior parte das solicitações de entrada.
+A instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). No entanto, ela não fornece balanceamento de carga. Um ou dois Agentes Autenticação poderão acabar tratando a maior parte das solicitações de entrada.
 
-As solicitações de validação de senha com que os Agentes de Autenticação precisam lidar são leves. Portanto, as cargas máxima e média da maioria dos clientes é facilmente manipulada pelos dois ou três Agentes de Autenticação no total.
+Considere o horário de pico e a carga média de solicitações de entrada que você espera ver no seu locatário. Como um parâmetro de comparação, um único agente de autenticação pode manipular de 300 mil a 400 mil autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM. Para a maioria dos clientes, um total de dois ou três agentes de autenticação é o suficiente para alta disponibilidade e capacidade.
 
 Nós recomendamos que você instale os Agentes de Autenticação perto de seus Controladores de Domínio para melhorar a latência de entrada.
 

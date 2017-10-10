@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: a6f417ea6575b81258998ae3b31c10e9df59b603
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 45b3e2a493fd6fab54f193f8ea9bbeae1d7470ac
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Extens찾o de script personalizado para o Windows
@@ -32,7 +32,7 @@ Este documento detalha como usar a Extens찾o de Script Personalizado usando o m�
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A Extens찾o de Script Personalizado para Windows pode ser executada nas vers천es 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
+A Extens찾o de Script Personalizado para Windows pode ser executada no Windows 10 Client e nas vers천es Windows Server 2008 R2, 2012, 2012 R2 e 2016.
 
 ### <a name="script-location"></a>Local do script
 
@@ -49,7 +49,7 @@ O JSON a seguir mostra o esquema para a Extens찾o de Script Personalizado. A ext
 ```json
 {
     "apiVersion": "2015-06-15",
-    "type": "extensions",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [

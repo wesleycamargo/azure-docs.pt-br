@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
+# <a name="high-availability-ports-overview-preview"></a>Visão geral de portas de alta disponibilidade (versão prévia)
 
 O SKU Standard do Azure Load Balancer apresenta portas de HA (alta disponibilidade) – uma funcionalidade para distribuir o tráfego de todas as portas e para todos os protocolos com suporte. Ao configurar um balanceador de carga interno, os usuários podem configurar uma regra de Portas HA que pode definir as portas de front-end e de back-end para **0** e o protocolo para **Todos**, permitindo assim que todo o tráfego flua por meio do Load Balancer Interno.
+
+>[!NOTE]
+> O recurso de Portas de alta disponibilidade está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O algoritmo de balanceamento de carga ainda permanece o mesmo e o destino é selecionado com base nas cinco tuplas <endereço IP de origem, porta de origem, endereço IP de destino, porta de destino, protocolo>. No entanto, essa configuração permite que uma única regra de balanceamento de carga processe todo o tráfego disponível e reduz a complexidade da configuração, bem como os limites impostos pelo número máximo de regras de balanceamento de carga que podem ser adicionados.
 
@@ -43,6 +46,32 @@ O exemplo a seguir apresenta uma implantação de rede virtual hub e spoke, com 
 
 Figura 1 – rede virtual de hub e spoke com NVAs implantados no modo de HA
 
+
+## <a name="region-availability"></a>Disponibilidade de região
+
+Atualmente, a série D está disponível nas seguintes regiões:
+- Leste dos EUA 2
+- Centro dos EUA
+- Norte da Europa
+- Centro-Oeste dos EUA
+- Europa Ocidental
+- Sudeste Asiático 
+
+## <a name="preview-sign-up"></a>Inscrição na versão prévia
+
+Para participar da versão prévia do recurso de portas de HA no SKU do Load Balancer Standard, registre sua assinatura para obter acesso usando o PowerShell ou CLI do Azure 2.0.
+
+- Inscrever-se usando o PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Inscrever-se usando a CLI do Azure 2.0
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>Limitações
 
 A seguir estão as configurações com suporte ou exceções para portas de HA:

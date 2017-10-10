@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
 ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights 
@@ -87,9 +87,9 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | IOPS         | Solicitações de dados/s             |
 |              | Solicitações de leitura/s             |
 |              | Solicitações de gravação/s            |
-| Latência      | Média s/solicitação de dados         |
-|              | Média s/leitura                 |
-|              | Média s/gravação                |
+| Latência      | Média de solicitação de dados/s         |
+|              | Média de leitura/s                 |
+|              | Média de gravação/s                |
 | Tamanho de E/S      | Média Bytes/solicitação de dados       |
 |              | Média Bytes/leitura               |
 |              | Média Bytes/gravação              |
@@ -110,7 +110,7 @@ Quando você executa uma configuração personalizada, está executando todos os
 
 ## <a name="what-kind-of-information-is-collected-by-the-script"></a>Que tipo de informações é coletado pelo script?
 
-Informações sobre VM do Windows, configuração de discos ou pools de armazenamento, contadores de desempenho, logs e vários rastreamentos são coletadas dependendo do cenário de desempenho usado:
+Informações sobre VM do Windows, configuração de discos ou de pools de armazenamento, contadores de desempenho, logs e vários rastreamentos são coletadas dependendo do cenário de desempenho usado:
 
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -309,7 +309,7 @@ Na perspectiva Volume (*VolumeMap*), as tabelas mostram todos os discos físicos
 
 ### <a name="sql-server-tab"></a>Guia SQL Server
 
-Se a VM de destino hospedar alguma instância do SQL Server, você verá uma guia adicional no relatório chamada **SQL Server**:
+Se a VM de destino hospedar instâncias do SQL Server, você verá uma guia adicional no relatório chamada **SQL Server**:
 
 ![guia sql](media/how-to-use-perfInsights/sqltab.png)
 

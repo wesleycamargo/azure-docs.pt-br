@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
@@ -129,6 +129,32 @@ Use o usuário da conta de armazenamento para copiar os arquivos:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Não é possível conectar-se a um compartilhamento de arquivos do Azure ou montá-lo
+
+### <a name="cause"></a>Causa
+
+As causas comuns desse problema são:
+
+
+- Você está usando um cliente de distribuição Linux incompatível. Recomendamos que você use as seguintes distribuições Linux para se conectar ao compartilhamento de arquivos do Azure:
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+- Utilitários CIFS não estão instalados no cliente.
+- A versão mínima de SMB/CIFS 2.1 não está instalada no cliente.
+- Não há suporte para a criptografia do SMB 3.0 no cliente. A criptografia do SMB 3.0 está disponível no Ubuntu 16.4 e versões posteriores, bem como no SUSE 12.3 e versões posteriores. Outras distribuições exigem kernel 4.11 e versões posteriores.
+- Você está tentando se conectar a uma conta de armazenamento usando a porta TCP 445, que não tem suporte.
+- Você está tentando tentar se conectar ao compartilhamento de arquivos do Azure de uma VM do Azure e a VM não está localizada na mesma região que a conta de armazenamento.
+
+### <a name="solution"></a>Solução
+
+Para resolver o problema, use a [Ferramenta de solução de problemas para erros de montagem de Arquivos do Azure no Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Essa ferramenta ajuda a validar o cliente que está executando o ambiente, detectar a configuração de cliente incompatível que causaria falha de acesso para Arquivos do Azure, fornece diretrizes prescritivas autocorreção e coleta os rastreamentos de diagnóstico.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

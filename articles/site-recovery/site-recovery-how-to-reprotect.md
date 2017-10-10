@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Proteja Novamente do Azure para um site local
@@ -29,10 +29,13 @@ ms.lasthandoff: 09/02/2017
 Este artigo descreve como proteger novamente as máquinas virtuais do Azure para um site local. Quando estiver pronto, siga as instruções neste artigo para fazer o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure (conforme descrito em [Replicar máquinas virtuais VMware e servidores físicos para o Azure com o Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Você não pode fazer failback após [concluir a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), mover uma máquina virtual para outro grupo de recursos ou excluir uma máquina virtual do Azure.
+> Não é possível realizar o failback após [concluir a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), mover a máquina virtual para outro grupo de recursos ou excluir a máquina virtual do Azure. Se você desabilitar a proteção da máquina virtual, não é possível realizar o failback.
 
 
 Depois que o proteja novamente for concluído e as máquinas virtuais protegidas estiverem replicando, você pode iniciar um failback nas máquinas virtuais para trazê-las para o site local.
+
+> [!NOTE]
+> Você só pode proteger novamente e failback para um host ESXi. Não é possível realizar o failback da máquina virtual para hosts Hyper-v, ou estações de trabalho do VMware ou qualquer outra plataforma de virtualização.
 
 Publique comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -41,6 +44,11 @@ Para obter uma visão geral, assista a este vídeo sobre como fazer failover do 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!IMPORTANT]
+> Durante o failover para o Azure, o site local pode não estar acessível e, portanto, o servidor de configuração pode não estar disponível ou estar desligado. Durante a nova proteção e o failback, o servidor de configuração local deve estar em execução e em um estado conectado OK.
+
+
 Quando você se prepara para proteger novamente máquinas virtuais, realize ou considere as seguintes ações de pré-requisito:
 
 * Se um servidor vCenter gerencia as máquinas virtuais para as quais você deseja realizar o failback, você precisará das [permissões necessárias](site-recovery-vmware-to-azure-classic.md) para a descoberta das máquinas virtuais nos servidores vCenter.
@@ -93,13 +101,15 @@ No entanto, se você tem apenas uma VPN S2S, é recomendável implantar o servid
  ![Diagrama da arquitetura para VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-Lembre-se de que a replicação ocorre somente pela VPN S2S ou pelo emparelhamento privado da sua rede ExpressRoute. Certifique-se de que há largura de banda suficiente disponível através desse canal de rede.
+Lembre-se de que a replicação do Azure para locais pode ocorrer somente pela VPN S2S ou pelo emparelhamento privado da sua rede ExpressRoute. Certifique-se de que há largura de banda suficiente disponível através desse canal de rede.
 
 Para obter informações sobre a instalação de um servidor de processo baseado no Azure, consulte [Gerenciar um servidor de processo em execução no Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 > [!TIP]
 > É recomendável usar um servidor de processo com base no Azure durante o failback. O desempenho da replicação será maior se o servidor de processo estiver mais próximo da máquina virtual de replicação (a máquina no Azure que passou pelo failover). No entanto, durante a POC (prova de conceito) ou a demonstração, você pode usar o servidor de processo local junto com o ExpressRoute com emparelhamento privado para concluir a POC mais rapidamente.
 
+> [!NOTE]
+> Replicação a partir do local para o Azure poder rodar apenas através da internet ou ExpressRoute com emparelhamento público. Replicação do Azure para locais paa poder rodar somente acima de S2S VPN ou ExpressRoute com o emparelhamento privado
 
 
 #### <a name="what-ports-should-i-open-on-different-components-so-that-reprotection-can-work"></a>Quais portas devo abrir nos diferentes componentes para que a nova proteção possa funcionar?
@@ -248,7 +258,7 @@ Isso pode acontecer devido a duas razões
 1. A máquina virtual que você está protegendo novamente é um Windows Server 2016. Atualmente, esse sistema operacional não tem suporte para failback, mas terá suporte em breve.
 2. Já existe uma máquina virtual com o mesmo nome no servidor de destino Mestre para o qual você está fazendo failback.
 
-Para resolver esse problema, você pode selecionar um servidor de destino mestre diferente em um host diferente, de modo que a nova proteção crie a máquina em um host diferente no qual não ocorra conflito entre os nomes. Você também pode fazer vMotion do destino mestre para um host diferente no qual não ocorra conflito entre os nomes.
+Para resolver esse problema, você pode selecionar um servidor de destino mestre diferente em um host diferente, de modo que a nova proteção crie a máquina em um host diferente no qual não ocorra conflito entre os nomes. Você também pode fazer vMotion do destino mestre para um host diferente no qual não ocorra conflito entre os nomes. Se a máquina virtual existente for uma máquina isolada, você pode apenas renomeá-la para que a nova máquina virtual possa ser criada no mesmo host ESXi.
 
 ### <a name="error-code-78093"></a>Código de erro 78093
 
@@ -256,6 +266,10 @@ Para resolver esse problema, você pode selecionar um servidor de destino mestre
 
 Para proteger novamente uma máquina virtual que sofreu failover de volta para o local, é necessário que a máquina virtual do Azure esteja em execução. Isso é para que o serviço de mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (estado suspenso ou desligado), o servidor de configuração não poderá acessar o serviço de mobilidade na máquina virtual para iniciar a nova proteção. Você pode reiniciar a máquina virtual para que ela possa começar a comunicar-se de volta localmente. Reiniciar o trabalho de nova proteção depois de iniciar a máquina virtual do Azure
 
+### <a name="error-code-8061"></a>Código de erro 8061
 
+*A loja de dados não está acessível no host ESXi.*
+
+Consulte os [pré-requisitos de destino](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) e as [lojas de dados de suporte](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) para failback
 
 

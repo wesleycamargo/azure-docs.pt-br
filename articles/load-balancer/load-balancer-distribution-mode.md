@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuração de serviço de nuvem para alterar o modo de distribuição
 
-É possível aproveitar o SDK do Azure para .NET 2.5 (a ser lançado em novembro) para atualizar seu serviço de nuvem. Configurações de ponto de extremidade para serviços de nuvem são feitas na. csdef. Para atualizar o modo de distribuição do balanceador de carga para uma implantação de serviços de nuvem, é necessária uma atualização da implantação.
+Você pode aproveitar o SDK do Azure para .NET 2.5 para atualizar o serviço de nuvem. Configurações de ponto de extremidade para serviços de nuvem são feitas na. csdef. Para atualizar o modo de distribuição do balanceador de carga para uma implantação de serviços de nuvem, é necessária uma atualização da implantação.
 Aqui está um exemplo de alterações .csdef para configurações do ponto de extremidade:
 
 ```xml

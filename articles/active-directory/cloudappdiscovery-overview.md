@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 46d21ac6fe0992ebe6dca93e8ebd381931e49962
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Melhorias do Cloud App Discovery no Azure Active Directory 
@@ -34,7 +34,12 @@ Mais de 80% de funcionários admitem usar aplicativos de SaaS não aprovados par
 
 Se você não tem o Active Directory Premium, consulte [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximas etapas
-
 Use este link para explorar a [nova experiência do Cloud App Discovery no Azure AD](https://portal.cloudappsecurity.com).
 
+## <a name="next-steps"></a>Próximas etapas
+Use os links a seguir para configurar o Cloud App Discovery no Azure AD.
+
+* [Introdução ao uso do Cloud App Discovery](cloudappdiscovery-get-started.md)
+* [Criar relatórios de instantâneo](cloudappdiscovery-set-up-snapshots.md)
+* [Configurar relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Usar um analisador de log personalizado](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

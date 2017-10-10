@@ -1,3 +1,4 @@
+
 ---
 title: "Suporte à matriz para replicação em um site secundário com o Azure Site Recovery | Microsoft Docs"
 description: Resume os sistemas operacionais e componentes com suporte para o Azure Site Recovery
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
 ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
@@ -45,7 +45,7 @@ Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para
 
   >[!Note]
   > No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.
-
+  > As configurações que incluem o upgrade de um SCVMM 2012 R2 existente para 2016 não são suportadas atualmente.
 ### <a name="host-servers"></a>Servidores de host
 
 **Implantação** | **Suporte**

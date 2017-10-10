@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac702c356f0adc172674b2a3669de2a8d5dfd6ed
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics
@@ -30,6 +30,10 @@ No Log Analytics, você pode aproveitar as pesquisas de logs construindo consult
 > * Trabalhar com os dados de desempenho
 
 Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
+
+Criar e editar consultas, além de trabalhar interativamente com dados retornados, pode ser realizado de duas maneiras.  Para consultas básicas, use a página de pesquisa de logs no portal do Azure, ou para consultas avançadas, você pode usar o portal de análise avançada. Para saber mais sobre as diferenças na funcionalidade entre os dois portais, consulte [Portais para criar e editar consultas de log no Log Analytics do Azure](log-analytics-log-search-portals.md)
+
+Neste tutorial, trabalhararemos com pesquisa de logs no portal do Azure. 
 
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
 Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -44,7 +48,7 @@ Talvez você tenha observado a faixa na parte superior da página de recursos do
 
 Recentemente, o Log Analytics introduziu uma nova linguagem de consulta para facilitar a construção de consultas, correlação de dados de várias fontes e análise para identificar rapidamente as tendências ou os problemas.
 
-O upgrade é simples.  Inicie o processo clicando na faixa roxa que indica **Saber mais e fazer atualização**.  Leia as informações adicionais sobre a atualização na página de informações de atualização e, em seguida, clique em **Fazer Atualização Agora**.
+O upgrade é simples.  Inicie o processo clicando na faixa que indica **Saber mais e fazer atualização**.  Leia as informações adicionais sobre a atualização na página de informações de atualização e, em seguida, clique em **Fazer Atualização Agora**.
 
 O processo levará alguns minutos para ser concluído e, durante esse tempo, você poderá acompanhar o progresso em **Notificações** no menu. Saiba mais sobre os [Benefícios da nova linguagem de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
 

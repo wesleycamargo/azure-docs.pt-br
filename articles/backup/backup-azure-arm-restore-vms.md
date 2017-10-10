@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
@@ -95,7 +95,7 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
 ## <a name="choosing-a-vm-restore-configuration"></a>Escolhendo uma configuração de restauração de VM
 Agora que você selecionou o ponto de restauração, escolha uma configuração para a sua VM de restauração. As opções para configurar a VM restaurada são usar o portal do Azure ou o PowerShell.
 
-1. Se você ainda não estiver nesse item, vá até a folha **Restaurar** . Certifique-se de que um [Ponto de restauração](#select-restore-point-for-restore) tenha sido selecionado e clique em **Restaurar configuração** para abrir a folha **Configuração de recuperação**.
+1. Se você ainda não estiver nesse item, vá até a folha **Restaurar** . Certifique-se de que um [Ponto de restauração](#select-restore-point-for-restore) tenha sido selecionado e clique em **Restaurar configuração** para abrir a folha **Configuração de restauração**.
 
     ![o assistente de configuração de recuperação está definido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Na folha **Restaurar configuração**, você tem duas opções:

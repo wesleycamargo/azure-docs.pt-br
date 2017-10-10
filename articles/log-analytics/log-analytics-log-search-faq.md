@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ Você pode usar a ferramenta de conversão de linguagem na página de pesquisa d
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Pergunta: Por que os resultados de minha consulta não são classificados?
 Os resultados não são classificados por padrão na nova linguagem de consulta.  Use o [operador sort](https://go.microsoft.com/fwlink/?linkid=856079) para classificar os resultados por uma ou mais propriedades.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Pergunta: Para onde Minify foi desde do upgrade?
+O Minify é um recurso que fornece uma exibição resumida dos resultados da pesquisa.  Após a atualização, a opção Minify não aparece no portal de pesquisa de logs.  Você pode obter uma funcionalidade semelhante com o novo idioma de pesquisa utilizando [reduzir](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) ou [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conhecido: os resultados da pesquisa em uma lista podem incluir propriedades sem dados
 Os resultados da pesquisa de logs em uma lista podem exibir propriedades sem dados.  Antes do upgrade, essas propriedades não seriam incluídas.  Esse problema será corrigido para que propriedades vazias não sejam exibidas.
@@ -124,9 +136,6 @@ Todas as soluções continuarão funcionando em um espaço de trabalho atualizad
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema conhecido: solução Capacidade e Desempenho
 Algumas partes da exibição [Capacidade e Desempenho](log-analytics-capacity.md) podem estar vazias.  Uma correção para esse problema estará disponível em breve.
-
-### <a name="known-issue-device-health-solution"></a>Problema conhecido: solução Integridade do Dispositivo
-A [solução Integridade do Dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) não coletará dados em um espaço de trabalho atualizado.  Uma correção para esse problema estará disponível em breve.
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
 Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.

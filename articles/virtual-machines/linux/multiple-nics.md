@@ -4,7 +4,7 @@ description: "Saiba como criar uma VM Linux com várias NICs anexadas a ela usan
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 61d50f0abce0fb5c8d0b82652b488d9b79978ca8
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com várias placas de adaptador de rede
@@ -102,7 +102,7 @@ az vm create \
 ```
 
 ## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC a uma VM
-As etapas anteriores criaram uma VM com várias NICs. Você também pode adicionar NICs a uma VM existente com a CLI do Azure 2.0. 
+As etapas anteriores criaram uma VM com várias NICs. Você também pode adicionar NICs a uma VM existente com a CLI do Azure 2.0. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente. Se necessário, é possível [redimensionar uma VM](change-vm-size.md).
 
 Crie outra NIC com [az network nic create](/cli/azure/network/nic#create). O exemplo a seguir cria uma NIC chamada *myNic3* conectada à sub-rede de back-end e ao Grupo de Segurança de Rede criado nas etapas anteriores:
 
@@ -149,7 +149,7 @@ Remova a NIC com [az vm nic remove](/cli/azure/vm/nic#remove). O exemplo a segui
 ```azurecli
 az vm nic remove \
     --resource-group myResourceGroup \
-    --vm-name myVM 
+    --vm-name myVM \
     --nics myNic3
 ```
 
@@ -180,25 +180,20 @@ Você também pode usar um `copyIndex()` para acrescentar um número a um nome d
 
 Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Gerenciador de Recursos](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para várias NICs
+Quando você adiciona várias NICs a uma VM Linux, é necessário criar regras de roteamento. Essas regras permitem que a VM envie e receba tráfego pertencente a uma NIC específica. Caso contrário, o tráfego pertencente a *eth1*, por exemplo, não poderá ser processado corretamente pela rota padrão definida.
 
-Ao criar várias NICs para uma VM baseada em SO convidado Linux, é necessário criar regras de roteamentos adicionais, o que permite enviar e receber o tráfego pertencente a apenas uma NIC específica. Caso contrário, o tráfego que pertence a eth1 não pode ser processado corretamente devido à rota padrão definida.  
-
-
-### <a name="solution"></a>Solução
-
-Primeiro, adicione duas tabelas de roteamento para o arquivo /etc/iproute2/rt_tables
+Para corrigir esse problema de roteamento, primeiro adicione duas tabelas de roteamento a */etc/iproute2/rt_tables* da seguinte maneira:
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Para tornar a alteração persistente e aplicadas durante a ativação da pilha de rede, é necessário alterar os arquivos */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*.
-Altere a linha *"NM_CONTROLLED = yes"* para *"NM_CONTROLLED = no"*.
-Sem essa etapa, as regras/roteamento adicionais que adicionaremos não terão nenhum efeito.
+Para tornar a alteração persistente e aplicada durante a ativação da pilha de rede, edite */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*. Altere a linha *"NM_CONTROLLED = yes"* para *"NM_CONTROLLED = no"*. Sem essa etapa, as regras/o roteamento adicional não são aplicados automaticamente.
  
-A próxima etapa é estender as tabelas de roteamento. Para tornar as próximas etapas mais visíveis, vamos supor que temos a configuração a seguir em vigor
+Em seguida, estenda as tabelas de roteamento. Vamos supor que temos a seguinte configuração:
 
 *Roteamento*
 
@@ -209,7 +204,7 @@ default via 10.0.1.1 dev eth0 proto static metric 100
 168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
 169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
 ```
-    
+
 *Interfaces*
 
 ```bash
@@ -217,37 +212,45 @@ lo: inet 127.0.0.1/8 scope host lo
 eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 ```
-    
-    
-Com as informações acima, é possível criar os arquivos adicionais a seguir como raiz
 
-*   /etc/sysconfig/network-scripts/rule-eth0
-*   /etc/sysconfig/network-scripts/route-eth0
-*   /etc/sysconfig/network-scripts/rule-eth1
-*   /etc/sysconfig/network-scripts/route-eth1
+Então, você criaria os seguintes arquivos e adicionaria as regras e as rotas adequadas para cada um:
 
-O conteúdo de cada arquivo é o seguinte
+- */etc/sysconfig/network-scripts/rule-eth0*
+
+    ```bash
+    from 10.0.1.4/32 table eth0-rt
+    to 10.0.1.4/32 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth0*
+
+    ```bash
+    10.0.1.0/24 dev eth0 table eth0-rt
+    default via 10.0.1.1 dev eth0 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/rule-eth1*
+
+    ```bash
+    from 10.0.1.5/32 table eth1-rt
+    to 10.0.1.5/32 table eth1-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth1*
+
+    ```bash
+    10.0.1.0/24 dev eth1 table eth1-rt
+    default via 10.0.1.1 dev eth1 table eth1-rt
+    ```
+
+Para aplicar as alterações, reinicie o serviço de *rede* da seguinte maneira:
+
 ```bash
-cat /etc/sysconfig/network-scripts/rule-eth0
-from 10.0.1.4/32 table eth0-rt
-to 10.0.1.4/32 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/route-eth0
-10.0.1.0/24 dev eth0 table eth0-rt
-default via 10.0.1.1 dev eth0 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/rule-eth1
-from 10.0.1.5/32 table eth1-rt
-to 10.0.1.5/32 table eth1-rt
-
-cat /etc/sysconfig/network-scripts/route-eth1
-10.0.1.0/24 dev eth1 table eth1-rt
-default via 10.0.1.1 dev eth1 table eth1-rt
+systemctl restart network
 ```
 
-Depois que os arquivos foi criados e populados, é necessário reiniciar o serviço de rede `systemctl restart network`
+Agora as regras de roteamento estão corretamente implementadas e é possível se conectar com qualquer interface conforme necessário.
 
-Agora é possível conectar-se de fora a eth0 ou eth1
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine [Tamanhos de VM Linux](sizes.md) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -140,6 +140,24 @@ Dica 15: crie uma nova conta do Azure #CosmosDB sem jamais sair de @code. Instal
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## <a name="tip-16-functions-and-twilio-demo"></a>Dica 16: demonstração do Functions e do Twilio
+
+Dica 16: demonstração incrível! Integre o Azure #cosmosDB, o Functions e o @twilio para enviar um SMS em qualquer alteração de banco de dados. Veja os documentos em [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>Dica 17: usando discriminadores Mongoose
+
+Dica 17: otimize o custo usando discriminadores Mongoose para armazenar várias entidades em uma única coleção #CosmosDB [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+Blog: [Usando discriminadores Mongoose para armazenar várias entidades em uma única coleção do Cosmos DB por Antônio Chu](https://aka.ms/M488jm)
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ Para executar os exemplos de script da CLI, você tem três opções:
 
 Depois de habilitar o MSI em um recurso do Azure, [como uma VM do Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Se você não estiver usando o Azure Cloud Shell no Portal do Azure, primeiro entre no Azure usando [az logon](/cli/azure/#login). Use uma conta que está associada à assinatura do Azure sob a qual você deseja implantar a VM:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ Depois de habilitar o MSI em um recurso do Azure, [como uma VM do Azure](msi-qs-
 2. Neste exemplo, fornecemos um acesso da VM do Azure para uma conta de armazenamento. Primeiro, usamos [az resource list](/cli/azure/resource/#list) para obter a entidade de serviço da VM chamada "myVM", que foi criada ao habilitarmos o MSI na VM:
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. Assim que tivermos a ID da entidade de serviço, usamos [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para dar à VM acesso de "Leitor" para uma conta de armazenamento chamada "myStorageAcct":
@@ -72,7 +72,7 @@ Se um deles estiver incorreto, reimplante o MSI em seu recurso ou solucione a fa
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-- Para obter uma visão geral do MSI, confira [Visão geral da identidade de serviço gerenciada](msi-overview.md).
+- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](msi-overview.md).
 - Para habilitar o MSI em uma VM do Azure, confira [Configurar um MSI (identidade do serviço gerenciada) usando a CLI do Azure](msi-qs-configure-cli-windows-vm.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.

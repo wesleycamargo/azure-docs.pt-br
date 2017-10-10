@@ -1,5 +1,5 @@
 ---
-title: Pesquisa de logs no Log Analytics do OMS | Microsoft Docs
+title: Pesquisa de logs no Log Analytics do Azure | Microsoft Docs
 description: "Você precisará de uma pesquisa de logs para recuperar quaisquer dados do Log Analytics.  Este artigo descreve como novas pesquisas de logs são utilizadas no Log Analytics e fornece conceitos necessários para serem compreendidos antes de criar uma."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Compreendendo as pesquisas de logs no Log Analytics
@@ -33,9 +33,9 @@ Você precisará de uma pesquisa de logs para recuperar quaisquer dados do Log A
 
 As diferentes maneiras que serão utilizadas nas pesquisas de logs no Log Analytics incluem o seguinte:
 
-- **Portais.** É possível realizar análises de dados interativas no repositório com o [Portal da Pesquisa de Logs](log-analytics-log-search-log-search-portal.md) ou no [Portal de Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  A maioria das consultas criadas será iniciada em um dos portais e, depois, copiada quando você verificar se ela está funcionando conforme esperado.
+- **Portais.** É possível realizar análises de dados interativas no repositório com o Portal do Azure ou no [Portal de Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  A maioria das consultas criadas será iniciada em um dos portais e, depois, copiada quando você verificar se ela está funcionando conforme esperado.
 - **Regras de alerta** As [Regras de alerta](log-analytics-alerts.md) identificam proativamente os problemas dos dados no espaço de trabalho.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
-- **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](log-analytics-view-designer.md).  As pequisas de logs fornecem os dados utilizados por [blocos](log-analytics-view-designer-tiles.md) e [blocos de visualização](log-analytics-view-designer-parts.md) em cada exibição.  É possível fazer busca detalhada dos blocos de visualização no portal da Pesquisa de Logs para realizar análises adicionais nos dados.
+- **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](log-analytics-view-designer.md).  As pequisas de logs fornecem os dados utilizados por [blocos](log-analytics-view-designer-tiles.md) e [blocos de visualização](log-analytics-view-designer-parts.md) em cada exibição.  É possível fazer busca detalhada dos blocos de visualização na página de Pesquisa de Logs para realizar análises adicionais nos dados.
 - **Exportação.**  Ao exportar dados do espaço de trabalho do Log Analytics para o Excel ou [Power BI](log-analytics-powerbi.md), você cria uma pesquisa de logs para definir os dados a serem exportados.
 - **PowerShell.** É possível executar um script do PowerShell a partir de uma linha de comando ou um runbook de Automação do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
 - **API do Log Analytics.**  A [API da pesquisa de logs do Log Analytics](log-analytics-log-search-api.md) permite que qualquer cliente de API REST obtenha dados do espaço de trabalho.  A solicitação de API inclui uma consulta que é executada no Log Analytics para determinar os dados a serem recuperados.
@@ -43,7 +43,7 @@ As diferentes maneiras que serão utilizadas nas pesquisas de logs no Log Analyt
 ![Pesquisas de log](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## <a name="how-log-analytics-data-is-organized"></a>Como os dados do Log Analytics são organizados
-Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Cada [fonte de dados](log-analytics-data-sources.md) e [solução](../operations-management-suite/operations-management-suite-solutions.md) armazena seus dados em tabelas dedicadas no espaço de trabalho do Log Analytics.  A documentação para cada fonte de dados e solução inclui o nome do tipo de dados que ele cria e uma descrição de cada uma de suas propriedades.     Muitas consultas somente requerem dados de uma única tabela, mas outras podem utilizar uma variedade de opções para incluir dados de várias tabelas.
+Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Cada [fonte de dados](log-analytics-data-sources.md) e [solução](../operations-management-suite/operations-management-suite-solutions.md) armazena seus dados em tabelas dedicadas no espaço de trabalho do Log Analytics.  A documentação para cada fonte de dados e solução inclui o nome do tipo de dados que ele cria e uma descrição de cada uma de suas propriedades.  Muitas consultas somente requerem dados de uma única tabela, mas outras podem utilizar uma variedade de opções para incluir dados de várias tabelas.
 
 ![Tabelas](media/log-analytics-log-search-new/queries-tables.png)
 
@@ -90,5 +90,5 @@ Para obter a documentação completa sobre a linguagem de consulta do Azure Log 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [portais utilizados para criar e editar pesquisas de logs](log-analytics-log-search-portals.md).
-- Confira um [tutorial sobre como escrever consultas](https://go.microsoft.com/fwlink/?linkid=856078) utilizando a nova linguagem de consulta.
+- Confira um [tutorial sobre como escrever consultas](log-analytics-tutorial-viewdata.md) utilizando a nova linguagem de consulta.
 
