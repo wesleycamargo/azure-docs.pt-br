@@ -193,7 +193,7 @@ Argumentos globais
 
 Você pode criar uma imagem com a opção de ter criado seu manifesto antes. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Ou você pode criar o manifesto e a imagem com um único comando. 
 

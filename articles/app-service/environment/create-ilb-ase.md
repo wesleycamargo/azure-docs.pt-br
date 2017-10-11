@@ -55,7 +55,7 @@ Há algumas coisas que você não pode fazer ao usar um ASE ILB:
 
 Para criar um ASE ILB:
 
-1. No Portal do Azure, escolha **Novo** > **Web + Móvel** > **Ambiente do Serviço de Aplicativo **.
+1. No Portal do Azure, escolha **Novo** > **Web + Móvel** > **Ambiente do Serviço de Aplicativo**.
 
 2. Selecione sua assinatura.
 

@@ -171,7 +171,7 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 [Conecte o PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Visão geral da criação de um serviço hospedado para o Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Centro de desenvolvedores do Node. js]: https://azure.microsoft.com/develop/nodejs/
+[Centro de desenvolvedores do Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
