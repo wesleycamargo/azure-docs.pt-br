@@ -149,7 +149,7 @@ Use o comando CLI do Azure [az appservice list-locations](/cli/azure/appservice#
 
 Crie um servidor PostgreSQL com o comando [az postgres server create](/cli/azure/documentdb#create).
 
-No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado * \<postgresql_name >* e um nome de usuário para o espaço reservado * \<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
+No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado *\<postgresql_name >* e um nome de usuário para o espaço reservado *\<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>

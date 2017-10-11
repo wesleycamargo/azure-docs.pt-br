@@ -162,7 +162,7 @@ Observe as seguintes propriedades:
 - O **storedProcedureName** nas propriedades de tipo está definido como **sp_sample** (nome do procedimento armazenado).
 - A seção **storedProcedureParameters** contém um parâmetro chamado **DataTime**. O nome e o uso de maiúsculas e minúsculas do parâmetro no JSON devem corresponder ao nome e ao uso de maiúsculas e minúsculas do parâmetro na definição de procedimento armazenado. Se você precisar passar nulo para um parâmetro, use a sintaxe: `"param1": null` (todas as letras minúsculas).
  
-1. Clique em **... Mais ** na barra de comandos e clique em **Novo pipeline**.
+1. Clique em **... Mais** na barra de comandos e clique em **Novo pipeline**.
 2. Copie/cole o seguinte trecho de código JSON:   
 
     ```JSON

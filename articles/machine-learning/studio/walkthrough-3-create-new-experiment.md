@@ -24,8 +24,7 @@ ms.lasthandoff: 09/25/2017
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Azure Machine Learning
 Esta é a terceira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. **Criar um novo teste**
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -132,7 +131,7 @@ Podemos fazer essa replicação usando o código R:
 
 3. Clique duas vezes no módulo [Executar Script R][execute-r-script] e insira o comentário "Definir ajuste de custo".
 
-4. No painel **Propriedades**, exclua o texto padrão no parâmetro** Script R** e insira esse script:
+4. No painel **Propriedades**, exclua o texto padrão no parâmetro **Script R** e insira esse script:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]

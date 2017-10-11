@@ -26,9 +26,7 @@ O Azure Machine Learning permite compilar, testar e implantar soluções de aná
 
 Em um ponto de exibição de alto nível, isso é feito em três etapas:
 
-* 
-            **
-            [Criar um teste de treinamento]** - o Azure Machine Learning Studio é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise de previsão usando os dados de treinamento que você fornecer.
+* **[Criar um teste de treinamento]** - o Azure Machine Learning Studio é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise de previsão usando os dados de treinamento que você fornecer.
 * **[Convertê-lo em um teste preditivo]**: depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
 * **[Implantá-lo como um serviço Web]**: você pode implantar um teste preditivo como um serviço Web do Azure [novo] ou [clássico]. Os usuários podem enviar dados ao seu modelo e receber as previsões do modelo.
 

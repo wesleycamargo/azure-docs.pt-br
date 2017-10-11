@@ -257,7 +257,7 @@ O [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-sec
 
 -   **Atualizações da plataforma Antimalware -** atualiza automaticamente a plataforma Microsoft Antimalware.
 
--   **Proteção ativa - ** reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
+-   **Proteção ativa -** reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
 
 -   **Relatórios de exemplos -** fornece e relata exemplos para o serviço Microsoft Antimalware para ajudar a aprimorar o serviço e a habilitar a solução de problemas.
 

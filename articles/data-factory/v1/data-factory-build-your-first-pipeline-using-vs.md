@@ -95,7 +95,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Criar o serviço vinculado do Azure HDInsight
 1. No **Gerenciador de Soluções**, clique com botão direito em **Serviços Vinculados**, aponte para **Adicionar** e clique em **Novo Item**.
-2. Selecione **erviço Vinculado Sob Demanda do HDInsight ** e clique em **Adicionar**.
+2. Selecione **erviço Vinculado Sob Demanda do HDInsight** e clique em **Adicionar**.
 3. Substitua o **JSON** pelo seguinte JSON:
 
      ```json

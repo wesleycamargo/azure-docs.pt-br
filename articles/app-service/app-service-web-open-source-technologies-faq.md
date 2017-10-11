@@ -60,7 +60,7 @@ Para ativar o registro em log de PHP:
 2. No menu superior, selecione **Console de Depuração** > **CMD**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
-5. Selecione o ** + ** ícone e, em seguida, selecione **Novo arquivo**.
+5. Selecione o **+** ícone e, em seguida, selecione **Novo arquivo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
