@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
-ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 7361d05850cf3ae997c0c186bf9a674c139f1f9e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Como o Azure Active Directory usa o protocolo SAML
+# Como o Azure Active Directory usa o protocolo SAML
 O Azure AD (Azure Active Directory) usa o protocolo SAML 2.0 para permitir que os aplicativos forneçam uma experiência de logon único para os usuários. O perfis SAML do [Logon Único](active-directory-single-sign-on-protocol-reference.md) e do [Logout Único](active-directory-single-sign-out-protocol-reference.md) do Azure AD explicam como as declarações SAML, protocolos e vinculações são usados no serviço do provedor de identidade.
 
 O protocolo SAML requer que o provedor de identidade (Azure AD) e o provedor de serviço (o aplicativo) troquem informações sobre si mesmos.
@@ -35,4 +34,3 @@ O Azure Active Directory expõe pontos de extremidade de logon único e logout �
 * O ponto de extremidade independente do locatário está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Nesse endereço do ponto de extremidade, **comum** é exibido, em vez de um nome de domínio do locatário ou ID.
 
 Para obter informações sobre os documentos de metadados federados que o Azure AD publica, confira [Metadados Federados](active-directory-federation-metadata.md).
-

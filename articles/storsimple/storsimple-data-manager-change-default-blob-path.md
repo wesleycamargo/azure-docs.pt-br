@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Alterar o caminho de blob padrão (visualização particular)
 
 Este artigo descreve como configurar uma função do Azure para renomear um caminho de arquivo de blob padrão. 
@@ -241,4 +240,3 @@ Você criou uma função do Azure. Essa função é disparada sempre que um novo
 ## <a name="next-steps"></a>Próximas etapas
 
 [Usar a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md)
-

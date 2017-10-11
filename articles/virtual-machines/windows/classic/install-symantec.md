@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fea8d8dff9c98f928ed7c5ed2b130c7f614f3f9e
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
@@ -84,4 +81,3 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 [Logon]:connect-logon.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
-

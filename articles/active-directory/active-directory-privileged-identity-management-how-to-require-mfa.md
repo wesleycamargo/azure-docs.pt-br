@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d36fb97f22802b040d2d527ccfd7a48327fe0cb4
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: b778774fa23be8219db3f716d79bac324a7de9d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Como exigir o MFA no Azure AD Privileged Identity Management
 Recomendamos que você exija o MFA (Multi-Factor Authentication) para todos os administradores. Isso reduz o risco de um ataque devido a uma senha comprometida.
@@ -49,5 +48,4 @@ Alternativamente, se os usuários se autenticarem localmente, você poderá faze
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

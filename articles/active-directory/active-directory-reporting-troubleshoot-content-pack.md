@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: a47810d89fb3db839d1d59942ee90610afaeb6a8
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: c880e9eb6d48bd1e38075fbd867d3906ec67b547
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solução de erros do pacote de conteúdo dos Logs de atividades do Azure Active Directory 
 
 
@@ -68,6 +66,5 @@ Este tópico fornece informações sobre as possíveis causas e como corrigir es
 ## <a name="next-steps"></a>Próximas etapas
 
 Para instalar o Pacote de Conteúdo do Power BI para a Versão Prévia do Azure Active Directory, clique [aqui](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
-
 
 

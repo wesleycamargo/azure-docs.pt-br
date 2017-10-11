@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 95dba08744357f8800b05e3d4b892e3a363d5985
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar um aplicativo Maven Scala para execução no cluster do Apache Spark no HDInsight
 
@@ -125,7 +124,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
     2. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
        
         ![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
-    3. Na caixa de diálogo **Criar JAR de Módulos** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png) ) em relação à **Classe Principal**.
+    3. Na caixa de diálogo **Criar JAR de Módulos![, clique no botão de reticências (**reticências](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png)) em relação à **Classe Principal**.
     4. Na caixa de diálogo **Selecionar Classe Principal**, selecione a classe que é exibida por padrão e, em seguida, clique em **OK**.
        
         ![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
@@ -153,5 +152,4 @@ Neste artigo, você aprendeu como criar um aplicativo Spark Scala. Avance para o
 
 > [!div class="nextstepaction"]
 >[Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
 

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -200,5 +199,4 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber mais sobre os códigos de erro da atividade de entrada, confira o [Códigos de erro do relatório de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
-
 

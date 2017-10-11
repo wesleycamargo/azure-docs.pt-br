@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Procedimentos armazenados no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a muitos recursos Transact-SQL encontrados no SQL Server. Mais importante, há recursos específicos de expansão que vamos aproveitar para maximizar o desempenho da sua solução.
@@ -102,4 +101,3 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-

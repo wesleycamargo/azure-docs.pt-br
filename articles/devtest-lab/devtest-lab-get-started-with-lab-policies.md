@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar políticas básicas para um laboratório no Azure DevTest Labs
 
 O Azure DevTest Labs permite que você controle o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) para cada laboratório. Neste artigo, você começa com políticas aprendendo como definir duas das políticas mais importantes - limitando o número de VMs (máquinas virtuais) que podem ser criadas ou declaradas por um único usuário e configurando o desligamento automático. Para ver como definir cada política de laboratório, veja o artigo [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -92,4 +89,3 @@ A política de início automático permite que você especifique quando as VMs d
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md) - saiba como modificar outras políticas de laboratório 
-

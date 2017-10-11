@@ -1,5 +1,4 @@
 ---
-
 title: "Atribuir um usuário às funções de administrador no Azure Active Directory | Microsoft Docs"
 description: "Explica como alterar informações administrativas de usuário no Azure Active Directory"
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Atribuir um usuário às funções de administrador no Azure Active Directory
 Este artigo explica como atribuir uma função administrativa a um usuário no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
@@ -47,4 +44,3 @@ Este artigo explica como atribuir uma função administrativa a um usuário no A
 * [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
 * [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 * [Excluir um usuário no Azure AD](active-directory-users-delete-user-azure-portal.md)
-

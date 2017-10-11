@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 985966d26f6ed0dcd4db47589abf94260ce62bf0
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integração do Azure Active Directory com Bambu by Sprout Social
 
@@ -151,7 +150,7 @@ To ensure users can sign-in to Bambu by Sprout Social after it has been configur
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -201,7 +200,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Configurar Logon Único](./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_app.png) 
 
-3. No menu esquerdo, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -241,5 +240,4 @@ Ao clicar no bloco Bambu by Sprout Social no Painel de Acesso, você deverá ser
 [201]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_general_203.png
-
 

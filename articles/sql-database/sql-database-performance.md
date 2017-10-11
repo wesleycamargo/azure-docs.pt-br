@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorar e melhorar o desempenho
 O Banco de Dados SQL do Azure identifica possíveis problemas em seu banco de dados e recomenda ações que podem melhorar o desempenho de sua carga de trabalho, fornecendo ações de ajuste inteligente e recomendações.
@@ -78,5 +76,4 @@ Localize mais informações sobre essa página no artigo  **[Como usar a Anális
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md)
 * [Quando um pool elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
-
 

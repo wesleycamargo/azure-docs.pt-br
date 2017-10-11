@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a691aad9e4aa21799640efc9c96ac90d38d7bf31
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>Gerenciar Cofre da Chave usando a CLI
 
@@ -179,7 +177,7 @@ Para registrar seu aplicativo com o Active Directory do Azure:
 2. À esquerda, clique em **Active Directory**e selecione o diretório no qual você registrará o aplicativo. <br> <br> 
 
 >[!NOTE] 
-> Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chaves e anote o nome do diretório exibido na última coluna.
+> Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
 
 3. Clique em **APLICATIVOS**. Se nenhum aplicativo tiver sido adicionado ao seu diretório, essa página mostrará somente o link **Adicionar um Aplicativo** . Clique no link ou em **ADICIONAR** na barra de comandos.
 4. No assistente **ADICIONAR APLICATIVO** na página **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
@@ -265,5 +263,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 ## <a name="next-steps"></a>Próximas etapas
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
-
 

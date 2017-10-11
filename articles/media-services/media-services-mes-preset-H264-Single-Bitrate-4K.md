@@ -1,6 +1,6 @@
 ---
 title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Única 4K - Azure | Microsoft Docs"
-description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 4**."
+description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 4K**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 3efb26c819739cd980b278438f407bf1ec10dbc4
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 64c68363d4ba89e9ebbcaca8ff45d12f771e3a8c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-4k"></a>H264 Taxa de Bits Única 4K
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -120,4 +118,3 @@ ms.lasthandoff: 01/27/2017
   ]  
 }  
 ```
-

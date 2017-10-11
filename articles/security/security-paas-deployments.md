@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: f218fe7e59e46683b544fd83bfea505b7cbe2d59
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -111,4 +110,3 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 [2]: ./media/security-paas-deployments/responsibility-zones.png
 [3]: ./media/security-paas-deployments/advantages-of-paas.png
 [4]: ./media/security-paas-deployments/identity-perimeter.png
-

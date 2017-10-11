@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>Como configurar um aplicativo de Application Proxy para usar a delegação restrita de Kerberos
 
 Os métodos disponíveis para atingir o SSO para aplicativos publicados pode variar um pouco de aplicativo para aplicativo e uma das opções que o Application Proxy do Azure oferece é a delegação restrita de Kerberos (KCD). É onde um host do conector é configurado para realizar a autenticação restrita de kerberos para aplicativos de back-end, em nome dos usuários.
@@ -171,4 +169,3 @@ Se você ainda não conseguir progredir no problema, o suporte ficará mais do q
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar a KCD (delegação Restrita de Kerberos) em um domínio gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

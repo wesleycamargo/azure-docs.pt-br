@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passar um objeto JSON para um runbook de Automação do Azure
 
 Isso pode ser útil para armazenar os dados que você deseja passar para um runbook em um arquivo JSON.
@@ -118,6 +116,5 @@ O runbook usa os valores do arquivo JSON para iniciar uma VM.
 
 * Para saber mais sobre como editar runbooks do PowerShell e do Fluxo de Trabalho do PowerShell com um editor de texto, consulte [Editando runbooks textuais na Automação do Azure](automation-edit-textual-runbook.md) 
 * Para saber mais sobre a criação e a importação de runbooks, consulte [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md)
-
 
 

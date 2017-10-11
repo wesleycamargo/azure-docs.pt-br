@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
@@ -290,4 +289,3 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
 
 ## <a name="next-steps"></a>Próximas etapas
 Verifique as conexões. Confira [Verificar uma conexão de Gateway de VPN](vpn-gateway-verify-connection-resource-manager.md).
-

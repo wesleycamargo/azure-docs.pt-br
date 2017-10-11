@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Como colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric (versão prévia)
 
@@ -114,4 +113,3 @@ Agora você deve ter um aplicativo do Service Fabric em contêineres executando 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-get-started-containers.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.
-

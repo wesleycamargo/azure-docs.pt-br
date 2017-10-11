@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Hadoop usando a API REST do Azure
 
@@ -376,4 +375,3 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-

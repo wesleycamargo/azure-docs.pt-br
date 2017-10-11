@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 78613cc978b585a98d235245194c02371f7f3849
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegar convites para a colaboração do Azure Active Directory B2B
 
 Com a colaboração B2B (entre empresas) do Azure AD (Azure Active Directory), você não precisa ser um administrador global para enviar convites. Em vez disso, use políticas e delegue convites aos usuários cujas funções permitem o envio de convites. Uma nova maneira importante de delegar convites de usuário convidado é por meio da função Emissor do convite para convidado.
@@ -64,4 +61,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

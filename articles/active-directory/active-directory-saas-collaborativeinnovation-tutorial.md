@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 5706ba9f4e7c92de77a0edc5146aa150de379c9f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com Inovação Colaborativa
 
@@ -123,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/attribute.png)
     
-5. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** seção para expandir os atributos. Execute as seguintes etapas em cada um dos atributos exibidos
+5. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** para expandir os atributos. Realize as seguintes etapas em cada um dos atributos exibidos:
 
     | Nome do atributo | Valor do atributo |
     | ---------------| --------------- |    
@@ -248,5 +246,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_general_203.png
-
 

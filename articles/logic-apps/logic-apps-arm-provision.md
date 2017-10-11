@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 1305fdc4cf87905eef701ec5471d6329006c2b5f
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Crie um Aplicativo Lógico usando um modelo
 Os modelos fornecem uma maneira rápida de usar conectores diferentes dentro de um aplicativo lógico. Os aplicativos lógicos incluem modelos do Azure Resource Manager para criar um aplicativo lógico que pode ser usado para definir fluxos de trabalho comerciais. Você pode definir quais recursos são implantados e como definir os parâmetros quando implantar seu aplicativo lógico. Você pode usar esse modelo para seus próprios cenários de negócios ou personalizá-lo para atender às suas necessidades.
@@ -109,7 +107,6 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
 
 ### <a name="azure-cli"></a>CLI do Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
-
 
 
 

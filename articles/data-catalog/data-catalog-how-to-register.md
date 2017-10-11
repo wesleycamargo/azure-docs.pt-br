@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 3f7eb053db6b6a545990f31f64628594f7f3e2c1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 30166823b33669dda88b41a4aee2dfc34f01466f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrar fontes de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -88,4 +87,3 @@ Uma vez que ele copia metadados estruturais e descritivo de uma fonte de dados p
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o registro de fontes de dados, consulte o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
-ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/28/2017
-
+ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
 > [!NOTE]
@@ -131,5 +130,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

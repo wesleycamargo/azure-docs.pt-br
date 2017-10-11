@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opções e desempenho do Banco de Dados do Azure para MySQL: noções básicas sobre o que está disponível em cada tipo de preço
 Quando você cria um banco de dados do Azure para o servidor MySQL, você decide três principais opções para configurar os recursos alocados para o servidor. Essas opções afetam o desempenho e dimensionamento do servidor.
@@ -104,4 +103,3 @@ A duração de todo o processo de expansão depende da faixa de preço e tamanho
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais, veja [Explicação sobre Unidades de Computação](concepts-compute-unit-and-storage.md)
 - Saiba como [Monitorar e dimensionar um Banco de dados do Azure para servidor MySQL usando a CLI do Azure](scripts/sample-scale-server.md)
-

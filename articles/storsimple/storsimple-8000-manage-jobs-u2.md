@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Use o serviço do Gerenciador de Dispositivos do StorSimple para exibir e gerenciar trabalhos (Atualização 3 e posterior)
 
@@ -89,5 +87,4 @@ Realize as etapas a seguir para cancelar um trabalho em execução.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [gerenciar as políticas de backup do StorSimple](storsimple-8000-manage-backup-policies-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

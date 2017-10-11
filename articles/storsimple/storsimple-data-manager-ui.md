@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>Gerenciar usando a interface do usuário do serviço Gerenciador de Dados do StorSimple (visualização privada)
 
 Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para executar a transformação em dados que residem em dispositivos das séries StorSimple 8000. Os dados transformados podem ser consumidos por outros serviços do Azure, como os Serviços de Mídia do Azure, Azure HDInsight, Azure Machine Learning e Azure Search. 
@@ -109,8 +109,3 @@ Sempre que você precisar mover dados do StorSimple para a conta de armazenament
 ## <a name="next-steps"></a>Próximas etapas
 
 [Usar o SDK do .NET para iniciar trabalhos do Gerenciador de Dados do StorSimple](storsimple-data-manager-dotnet-jobs.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

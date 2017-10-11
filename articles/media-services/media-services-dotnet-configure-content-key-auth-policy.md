@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Criptografia dinâmica: configurar a política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -41,7 +40,8 @@ Para obter mais informações, consulte
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+<seg>
+  [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).</seg>
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
@@ -150,7 +150,7 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Ao configurar a política restrita do **token**, você deve especificar os parâmetros da **chave de verificação** primária, do **emissor** e do **público-alvo**. A **chave de verificação primária** contém a chave que o token foi assinado, o **emissor** é o serviço de token seguro que emite o token. O **público** (às vezes chamada de **escopo**) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo. 
+Ao configurar a política restrita do **token**, você deve especificar os parâmetros da** chave de verificação** primária, **emissor** e **audiência**. A **chave de verificação primária **contém a chave que o token foi assinado, o **emissor** é o serviço de token seguro que emite o token. O **público** (às vezes chamada de **escopo**) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo. 
 
 Ao usar o **SDK dos Serviços de Mídia para .NET**, você pode usar a classe **TokenRestrictionTemplate** para gerar o token de restrição.
 O exemplo a seguir cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente precisa apresentar um token que contém: chave de assinatura (VerificationKey), um emissor de token e declarações necessárias.
@@ -426,5 +426,4 @@ Para obter um token de teste com base na restrição de token que foi usada para
 
 ## <a name="next-step"></a>Próxima etapa
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md) .
-
 

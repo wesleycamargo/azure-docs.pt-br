@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 21dabdcf0697b38ad3598ee8126a1bd62007efb5
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: fd500fdd4c8642bad96dcf71eebcf1fad461a35f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
 Este artigo discute os erros que podem ocorrer durante o processo de consentimento para um aplicativo. Se você estiver procurando Solucionar Problemas de solicitações de consentimentos inesperados que não contêm mensagens de erro, consulte [Cenários de Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
@@ -78,6 +76,5 @@ Esses erros ocorrem quando o aplicativo que um usuário está tentando consentir
 [Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
 [Escopos, permissões e consentimento no Azure Active Directory (ponto de extremidade v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
 
 

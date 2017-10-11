@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 33eef1b51a5ee00b0fa67096030ed9ce92cf768e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo
 
 O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente e totalmente gerenciado para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, o Azure Cosmos DB indexa automaticamente e com eficiência todos os dados ingeridos. Isso permite consultas [SQL](documentdb-sql-query.md) (e [JavaScript](programming.md)) rápidas e consistentes em qualquer tipo de dados. 
@@ -58,5 +56,4 @@ A maioria dos repositórios de blob ou de objeto básicos cobra $ 0,40 por um mi
 ## <a name="next-steps"></a>Próximas etapas
 
 Fique atento a novos artigos sobre como otimizar o provisionamento de recursos do Azure Cosmos DB. Enquanto isso, fique à vontade para usar nossa [Calculadora de RU](https://www.documentdb.com/capacityplanner).
-
 

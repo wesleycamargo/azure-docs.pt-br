@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 038d6e051be8112b9264e7efa6485965d11e32c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 O Windows fornece uma ampla variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) como ocupação da CPU, memória, disco e uso da rede. Você também pode definir seus próprios. O [Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se o seu aplicativo estiver em execução no IIS em um host local ou máquina virtual a qual você tem acesso administrativo. Os gráficos indicam os recursos disponíveis para seu aplicativo ativo e podem ajudar a identificar uma carga sem balanceamento entre instâncias do servidor.
@@ -123,5 +122,4 @@ Assim como ocorre com outras métricas, você pode [definir um alerta](app-insig
 ## <a name="next"></a>Próximas etapas
 * [Acompanhamento de dependência](app-insights-asp-net-dependencies.md)
 * [Acompanhamento de exceções](app-insights-asp-net-exceptions.md)
-
 

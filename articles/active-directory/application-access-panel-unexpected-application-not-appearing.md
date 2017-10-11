@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Um aplicativo atribuído não aparece no painel de acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo no qual o usuário é membro para ver o aplicativo no Painel de Acesso.
@@ -671,5 +669,4 @@ Para atribuir uma licença a um grupo, siga as etapas abaixo:
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
-
 

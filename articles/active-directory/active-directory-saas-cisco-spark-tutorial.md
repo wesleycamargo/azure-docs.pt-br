@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: a0a221622afe1c801a331e2319f3a7ace3111dad
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integração do Azure Active Directory ao Cisco Spark
 
@@ -280,5 +278,4 @@ Ao clicar no bloco Cisco Spark no Painel de Acesso, você deverá ser conectado 
 [201]: ./media/active-directory-saas-cisco-spark-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cisco-spark-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cisco-spark-tutorial/tutorial_general_203.png
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -262,4 +260,3 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-

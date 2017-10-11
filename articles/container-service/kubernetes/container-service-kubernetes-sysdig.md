@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 64aff391b4fc358fac8622d4448bbb981e330e33
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: afe22b84015526f901111238e36baaa94694ccbf
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure usando Sysdig
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -91,4 +89,3 @@ $ kubectl create -f sysdig-daemonset.yaml
 Depois de instalados e em execução, os agentes devem bombear os dados de volta ao Sysdig.  Volte para o [painel sysdig](https://app.sysdigcloud.com) e você verá informações sobre seus contêineres.
 
 Você também pode instalar painéis específicos do Kubernetes por meio do [assistente de novo painel](https://app.sysdigcloud.com/#/dashboards/new).
-

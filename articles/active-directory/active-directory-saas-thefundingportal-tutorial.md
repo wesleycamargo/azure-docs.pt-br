@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: d0bfc793bb26c551f85706eaec857962a3415e1f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: Integração do Azure Active Directory ao The Funding Portal
 
@@ -245,5 +244,4 @@ Quando você clicar no bloco do The Funding Portal no Painel de Acesso, deverá 
 [201]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_203.png
-
 

@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
 Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
 
@@ -73,4 +70,3 @@ Para conhecer as etapas específicas sobre como usar a ação de script, confira
 
 * [Usar uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Aplicar uma ação de script em um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
-

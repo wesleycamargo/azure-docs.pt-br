@@ -14,13 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias de Cache Redis do Azure.
@@ -123,5 +121,4 @@ O recurso **Agendar atualizações** está disponível apenas no tipo de preço 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md) .
-
 

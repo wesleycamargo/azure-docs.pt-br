@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Referência de cmdlets do PowerShell do Agendador
 A tabela a seguir descreve a página de referência de cada um dos principais cmdlets no Agendador do Azure e contém links para eles.
@@ -77,5 +75,4 @@ Get-Help <cmdlet name> -Full
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
-
 

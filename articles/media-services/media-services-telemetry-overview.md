@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25520a447a9f2c459fd073779e4922377b6d1d4d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 1b26d7925fe5bd39905d9f51d22433b1eea43af6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-media-services-telemetry"></a>Telemetria dos Serviços de Mídia do Azure
 
 O AMS (Serviços de Mídia do Azure) permite que você acesse dados de telemetria/métricas de seus serviços. A versão atual do AMS permite a coleta de dados de telemetria para entidades **Channel**, **StreamingEndpoint** e **arquivamento** dinâmicas. 
@@ -220,4 +218,3 @@ O sistema de telemetria não oferece gerenciamento de retenção de dados ou exc
 ## <a name="provide-feedback"></a>Fornecer comentários
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

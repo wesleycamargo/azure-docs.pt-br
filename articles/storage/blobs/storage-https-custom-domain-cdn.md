@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mihauss
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6bad04df324a374f6e8473890345cf516322abd6
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPS
 
@@ -73,4 +72,3 @@ Ao examinar a [Página de preços da CDN](https://azure.microsoft.com/pricing/de
 ## <a name="next-steps"></a>Próximas etapas
 
 [Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs](storage-custom-domain-name.md)
-

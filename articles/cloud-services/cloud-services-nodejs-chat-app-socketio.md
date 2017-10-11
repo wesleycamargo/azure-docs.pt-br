@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: a85d4348a13b79b5b7542362de9956aa3398375a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Constrói um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 O Socket.IO fornece comunicação em tempo real entre seu servidor e clientes do node.js. Este tutorial explica como hospedar um aplicativo de chat baseado em socket.IO no Microsoft Azure. Para mais informações sobre o Socket.IO, consulte <http://socket.io/>.
@@ -173,6 +172,5 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
 
 

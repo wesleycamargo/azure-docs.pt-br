@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
-ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/13/2016
-
+ms.openlocfilehash: 5baba3deaf58a1a24995c60381592a9c2ffefd81
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
@@ -168,6 +167,5 @@ Agora que você configurou o projeto para enviar os rastreamentos para o Applica
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
-
 
 

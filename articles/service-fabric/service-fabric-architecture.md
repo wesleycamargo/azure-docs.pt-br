@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rsinha
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 3cf019bf9a08574c984e92985452df438f3eeb77
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-fabric-architecture"></a>Arquitetura do Service Fabric
 O Service Fabric é criado com subsistemas em camadas. Esses subsistemas permitem escrever aplicativos:
@@ -63,5 +62,4 @@ Esse subsistema fornece um sistema de mensagens confiável dentro do cluster e d
 
 ## <a name="testability-subsystem"></a>Subsistema de capacidade de teste
 Capacidade de teste é um conjunto de ferramentas desenvolvidas especificamente para testar serviços criados com base na malha de serviço. As ferramentas permitem que um desenvolvedor induza com facilidade falhas significativas e execute cenários de teste para praticar e validar os vários estados e transições pelos quais o serviço passa durante o ciclo de vida, tudo de uma maneira segura e controlada. A capacidade de teste também fornece um mecanismo para executar testes mais longos que podem iterar por várias possíveis falhas sem perder a disponibilidade. Isso fornece a você um ambiente de teste em produção.
-
 

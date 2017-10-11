@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/28/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Usar o serviço StorSimple Manager para gerenciar o catálogo de backup
 ## <a name="overview"></a>Visão geral
@@ -92,5 +90,4 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o catálogo de backup para restaurar seu dispositivo de um conjunto de backup](storsimple-restore-from-backup-set.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

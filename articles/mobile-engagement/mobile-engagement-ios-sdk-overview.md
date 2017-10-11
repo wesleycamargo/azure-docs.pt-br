@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,15 +14,14 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK do iOS para o Mobile Engagement do Azure
-Comece aqui obter todos os detalhes sobre como integrar o Mobile Engagement do Azure em um aplicativo iOS. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).
+# <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK do iOS para o Azure Mobile Engagement
+Comece aqui obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo iOS. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).
 
 Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
@@ -184,4 +183,3 @@ Por exemplo, se você implementou a proposta 1 acima:
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-

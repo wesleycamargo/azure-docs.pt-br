@@ -17,14 +17,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Diretrizes de licenciamento da colaboração B2B do Azure Active Directory
 
 Você pode usar os recursos de colaboração B2B do Azure AD para chamar usuários convidados em seu locatário do Azure AD a fim de permitir que eles acessem serviços do Azure AD e outros recursos em sua organização. Se quiser fornecer acesso a recursos pagos do Azure AD, os usuários convidados da colaboração B2B deverão ser licenciados com licenças apropriadas do Azure AD. 
@@ -86,4 +84,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-

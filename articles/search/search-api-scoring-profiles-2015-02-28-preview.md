@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 > [!NOTE]
 > Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). No momento, não há nenhuma diferença entre a versão `2016-09-01` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui, porém oferecemos este documento mesmo assim para fornecer uma abrangência de documentação em toda a API.
@@ -275,8 +274,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 * `Quadratic`: em comparação com uma interpolação Linear que tem um aumento que diminui constantemente, a opção Quadrática diminuirá inicialmente em um ritmo menor e, em seguida, à medida que se aproximar do intervalo de término, diminuirá em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de pontuação de marca.
 * `Logarithmic`: em comparação com uma interpolação Linear que tem um aumento que diminui constantemente, a opção Logarítmica diminuirá inicialmente em um ritmo maior e, em seguida, ao se aproximar do intervalo de término, será reduzida em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de pontuação de marca.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -303,4 +301,3 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

@@ -10,12 +10,11 @@ ms.topic: how to
 ms.service: multiple
 ms.custom: accessibility
 manager: timlt
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 87ef9bf72f110ea3c27d0554e461d8c12132d422
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Ativar alto contraste ou alterar o tema no portal do Azure
 Se você precisar de mais contraste, ou quiser alterar o esquema de cores no portal do Azure, acesse as configurações do portal para fazer a alteração. 
@@ -41,4 +40,3 @@ Se você precisar de mais contraste, ou quiser alterar o esquema de cores no por
 ## <a name="next-steps"></a>Próximas etapas
 - [Atalhos de teclado no portal do Azure](azure-portal-keyboard-shortcuts.md)
 - [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)
-

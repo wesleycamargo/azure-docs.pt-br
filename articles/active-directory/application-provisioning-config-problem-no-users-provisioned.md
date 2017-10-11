@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD
 
 Quando o provisionamento automático foi configurado para um aplicativo (incluindo verificar se as credenciais de aplicativo fornecidas no Azure AD para se conectar ao aplicativo são válidas). Em seguida, usuários e/ou grupos são provisionados para o aplicativo e o seguintes elementos são determinados:
@@ -69,5 +65,4 @@ Quando um usuário aparece como "ignorado" nos logs de auditoria, é muito impor
 
 ## <a name="next-steps"></a>Próximas etapas
 [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-
 

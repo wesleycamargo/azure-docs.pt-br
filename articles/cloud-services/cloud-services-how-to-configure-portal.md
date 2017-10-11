@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
 ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 > [!div class="op_single_selector"]
@@ -109,9 +109,3 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

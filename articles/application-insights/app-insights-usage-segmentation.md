@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b154a01d1690bff4950ebc1ff5a5b89894d4d111
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
 Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. Analisar a telemetria de negócios e de uso com o [Application Insights do Azure](app-insights-overview.md).
@@ -74,5 +72,4 @@ A barra lateral Insights mostra grandes clusters de usuários que compartilham p
     - [Fluxos de Usuário](app-insights-usage-flows.md)
     - [Pastas de trabalho](app-insights-usage-workbooks.md)
     - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
-
 

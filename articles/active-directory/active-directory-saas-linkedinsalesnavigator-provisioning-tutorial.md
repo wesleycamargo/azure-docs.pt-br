@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 86357949c8e6927f78ca5bb8b7e20a6b88c37ef3
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: configurar o LinkedIn Sales Navigator para provisionamento automático de usuário
 
 
@@ -48,9 +46,9 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Dicas importantes para atribuir usuários ao LinkedIn Sales Navigator
 
-*    Recomendamos a atribuição de um único usuário do Azure AD ao LinkedIn Sales Navigator para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao LinkedIn Sales Navigator para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*    Ao atribuir um usuário ao LinkedIn Sales Navigator, selecione a função **Usuário** na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um usuário ao LinkedIn Sales Navigator, selecione a função **Usuário** na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Como configurar o provisionamento de usuários no LinkedIn Sales Navigator
@@ -93,9 +91,9 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 8) Se você já tiver configurado o LinkedIn Sales Navigator para logon único, pesquise por sua instância do LinkedIn Sales Navigator usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise por **LinkedIn Sales Navigator** na galeria de aplicativos. Selecione o LinkedIn Sales Navigator nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-9)    Selecione sua instância do LinkedIn Sales Navigator e selecione a guia **Provisionamento**.
+9)  Selecione sua instância do LinkedIn Sales Navigator e selecione a guia **Provisionamento**.
 
-10)    Defina o **Modo de Provisionamento** como **Automático**.
+10) Defina o **Modo de Provisionamento** como **Automático**.
 
 ![Provisionamento do LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
@@ -126,4 +124,3 @@ Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atrib
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

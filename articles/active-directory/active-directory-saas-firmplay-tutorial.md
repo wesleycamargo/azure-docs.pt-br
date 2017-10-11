@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Azure Active Directory com FirmPlay - Employee Advocacy for Recruiting
 
@@ -121,7 +120,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
 
-    ![Configurar o logon único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![Configurar o logon único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
 
@@ -171,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-firmplay-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **usuário** caixa de diálogo.
+3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-firmplay-tutorial/create_aaduser_03.png) 
 
@@ -179,11 +178,11 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-firmplay-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Britta Simon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de Britta Simon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar Senha** e anote o valor de **Senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**. 
 
@@ -214,15 +213,15 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 
 

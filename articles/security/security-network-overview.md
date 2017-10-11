@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-network-security-overview"></a>Azure Network Security Overview (Visão geral da segurança de rede do Azure)
 O Microsoft Azure inclui uma infraestrutura de rede robusta para dar suporte a seus requisitos de conectividade de aplicativo e de serviço. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos locais e aqueles hospedados no Azure e de origem e destino à Internet e ao Azure.
@@ -132,11 +130,11 @@ As conexões VPN ponto a site e site a site são eficazes para habilitar a conec
 * As conexões VPN movem os dados pela Internet – isso expõe essas conexões a problemas potenciais de segurança envolvidos na movimentação de dados em uma rede pública. Além disso, a confiabilidade e a disponibilidade de conexões com a Internet não podem ser garantidas.
 * As conexões VPN a Redes Virtuais do Azure podem ser consideradas restritas por largura de banda para alguns aplicativos e algumas finalidades, pois seu limite máximo é em torno de 200 Mbps.
 
-As organizações que precisam do nível mais alto de segurança e disponibilidade para suas conexões entre instalações normalmente usam conexões WAN dedicadas para se conectarem a sites remotos. O Azure fornece a capacidade de usar uma conexão WAN dedicada que pode ser usada para conectar sua rede local a uma Rede Virtual do Azure. Isso é habilitado por meio da Rota Expressa do Azure.
+As organizações que precisam do nível mais alto de segurança e disponibilidade para suas conexões entre instalações normalmente usam conexões WAN dedicadas para se conectarem a sites remotos. O Azure fornece a capacidade de usar uma conexão WAN dedicada que pode ser usada para conectar sua rede local a uma Rede Virtual do Azure. Isso é habilitado por meio da Azure ExpressRoute.
 
 Saiba mais:
 
-* [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
+* [Visão Geral Técnica do ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ### <a name="connect-azure-virtual-networks-to-each-other"></a>Conectar Redes Virtuais do Azure entre si
 É possível usar várias Redes Virtuais do Azure para suas implantações. Há muitas razões pelas quais você poderia fazer isso. Uma das razões poderia ser simplificar o gerenciamento; outra razão poderia ser por motivos de segurança. Independentemente da motivação ou da lógica para colocar os recursos em diferentes Redes Virtuais do Azure, pode haver ocasiões em que você pode desejar que os recursos em cada uma das redes conectem-se entre si.
@@ -166,7 +164,7 @@ Balanceamento de carga é um mecanismo criado para distribuir as conexões igual
 ### <a name="http-based-load-balancing"></a>Balanceamento de carga baseado em HTTP
 Com frequência, as organizações que executam serviços baseados na Web desejam ter um balanceador de carga baseado em HTTP na frente desses serviços Web, a fim de ajudar a garantir níveis adequados de desempenho e de alta disponibilidade. Ao contrário dos balanceadores de carga tradicionais baseados na rede, as decisões de balanceamento de carga tomadas pelos balanceadores de carga baseados em HTTP apoiam-se nas características do protocolo HTTP, não dos protocolos de camada de transporte e de rede.
 
-Para fornecer o balanceamento de carga baseado em HTTP para seus serviços baseados na Web, o Azure fornece o Azure Application Gateway. O Azure Application Gateway dá suporte aos seguintes:
+Para fornecer o balanceamento de carga baseado em HTTP para seus serviços baseados na Web, o Azure fornece o Azure Application Gateway. O Gateway de Aplicativo do Azure dá suporte aos seguintes:
 
 * Balanceamento de carga baseado em HTTP – as decisões de balanceamento de carga são tomadas de acordo com as características especiais do protocolo HTTP
 * Afinidade de sessão baseada em cookie – essa funcionalidade garante que as conexões estabelecidas com um dos servidores por trás do balanceador de carga permanecem intactas entre o cliente e o servidor. Isso assegura a estabilidade das transações.
@@ -175,7 +173,7 @@ Para fornecer o balanceamento de carga baseado em HTTP para seus serviços basea
 
 Saiba mais:
 
-* [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md)
+* [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 
 ### <a name="network-level-load-balancing"></a>Balanceamento de carga no nível de rede
 Ao contrário do balanceamento de carga baseado em HTTP, o balanceamento de carga no nível de rede toma decisões de balanceamento de carga de acordo com o endereço IP e os números de porta (TCP ou UDP).
@@ -289,4 +287,3 @@ Você também pode usar o [Microsoft Power BI](https://powerbi.microsoft.com/wha
 Saiba mais:
 
 * [Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md)
-

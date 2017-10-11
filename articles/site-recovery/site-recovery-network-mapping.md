@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Mapeamento de plano de rede para replicação de Hyper-V VM com recuperação de Site
 
 
@@ -139,4 +136,3 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [planejar a infraestrutura de rede](site-recovery-network-design.md).
-

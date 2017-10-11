@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -171,5 +170,4 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre o StorSimple Virtual Array](storsimple-ova-overview.md).
-
 

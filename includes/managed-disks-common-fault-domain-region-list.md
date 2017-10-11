@@ -1,5 +1,4 @@
-### Número de domínios de falha por região
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
+### <a name="number-of-fault-domains-per-region"></a>Número de domínios de falha por região
 
 | Região              | Nº máximo de domínios de falha  |
 |---------------------|-------------------------|

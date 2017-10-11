@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 841257fe74dad05d6a25ec35a62e415d6c1917b4
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Manipulação de Incidentes de Segurança na Central de Segurança do Azure
 A triagem e investigação de alertas de segurança pode ser uma tarefa demorada até mesmo para os analistas de segurança mais capacitados, e, para muitos, é difícil até mesmo saber por onde começar. Usando [análise](security-center-detection-capabilities.md) para conectar as informações entre diferentes [alertas de segurança](security-center-managing-and-responding-alerts.md), a Central de Segurança pode fornecer uma exibição única de uma campanha de ataque e todos os alertas relacionados, com isso, você pode entender rapidamente quais ações o invasor executou e quais recursos foram afetados.
@@ -62,4 +61,3 @@ Neste documento, você aprendeu a usar os recursos de incidente de segurança na
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md)– encontre perguntas frequentes sobre como usar o serviço.
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.
-

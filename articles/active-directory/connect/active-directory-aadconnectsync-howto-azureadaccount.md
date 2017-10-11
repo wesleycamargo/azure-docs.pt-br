@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
-ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 8e9e8192ee4fcb636b5be91d2616acbc9120c8c0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure AD
 A conta de serviço usada pelo Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tiver redefinido a senha por engano na conta de serviço usando o PowerShell.
@@ -53,5 +52,4 @@ AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usad
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
 

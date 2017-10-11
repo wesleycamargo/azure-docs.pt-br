@@ -13,25 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 5ccb9e920ce8e1c95b9ce0ffc8626f2dcf3783d8
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 85b533584c8ec15a23be32e20db7de583fced6a0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application" class="xliff"></a>
-
-# O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
+# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
 
 Quais usuários são provisionados para o aplicativo é algo orientado principalmente por quais usuários e grupos foram **atribuídos** ao aplicativo.
 
 Use os recursos a seguir para saber como verificar quais usuários e grupos foram atribuídos a um aplicativo no Azure Active Directory.
 
-<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
-
-## Atribuir um usuário diretamente como administrador
+## <a name="assign-a-user-directly-as-an-administrator"></a>Atribuir um usuário diretamente como administrador
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -39,9 +33,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Enterprise** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -69,9 +63,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Se o provisionamento estiver configurado e em execução para um aplicativo, novos usuários deverão ser provisionados para um aplicativo em aproximadamente 10 minutos. Verifique os **Logs de auditoria** para obter detalhes.
 
-<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
-
-## Atribuir um grupo diretamente a um aplicativo como administrador
+## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Atribuir um grupo diretamente a um aplicativo como administrador
 
 Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -79,9 +71,9 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Enterprise** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -97,7 +89,7 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 10. Digite o **nome completo do grupo** que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
-11. Passe o mouse sobre o **grupo** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do grupo para adicionar o usuário à lista **Selecionado**.
+11. Passe o mouse sobre o **grupo** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção próxima ao logotipo ou ao perfil do grupo para adicionar o usuário na lista **Selecionado**.
 
 12. **Opcional:** caso queira **adicionar mais de um grupo**, digite outro **nome de grupo completo** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse grupo à lista **Selecionado**.
 
@@ -116,8 +108,5 @@ Se o provisionamento estiver configurado e em execução para um aplicativo, nov
 
 Se o provisionamento de grupos estiver habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado esteja sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, uma vez que o grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for preenchida para um grupo no Azure AD.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
-

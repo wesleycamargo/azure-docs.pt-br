@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>Implantar recursos do Azure em mais de um grupo de recursos
 
 Normalmente, você deve implantar todos os recursos em seu modelo em um único grupo de recursos. No entanto, há situações em que você deseja implantar um conjunto de recursos juntos, mas colocá-los em grupos de recursos diferentes. Por exemplo, você talvez queira implantar a máquina virtual de backup do Azure Site Recovery para um local e um grupo de recursos separados. O Resource Manager permite que você use modelos aninhados para grupos de recursos diferentes do grupo de recursos usado no modelo pai.
@@ -159,4 +156,3 @@ Se você vincular a um modelo separado, a resouceGroup() no modelo vinculado ser
 * Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md).
-

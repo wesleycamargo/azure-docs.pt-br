@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/30/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar a Atualização 4 em seu dispositivo StorSimple
 
@@ -103,5 +101,4 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a [versão da Atualização 4](storsimple-update4-release-notes.md).
-
 

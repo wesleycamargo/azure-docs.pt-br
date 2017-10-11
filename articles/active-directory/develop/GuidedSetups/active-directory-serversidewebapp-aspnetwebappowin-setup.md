@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
-ms.contentlocale: pt-br
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Esta seção mostra as etapas para instalar e configurar o pipeline de autenticação por meio do middleware OWIN em um projeto do ASP.NET usando o OpenID Connect. 
@@ -151,5 +149,4 @@ public class Startup
 
 > Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com o Azure AD. Como o middleware OpenID Connect usa cookies em segundo plano, você também precisa configurar a autenticação de cookie, conforme o código acima mostra. O valor *ValidateIssuer* informa OpenIdConnect para não restringir o acesso a uma organização específica.
 <!--end-collapse-->
-
 

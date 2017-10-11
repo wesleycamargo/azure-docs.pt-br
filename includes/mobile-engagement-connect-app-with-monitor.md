@@ -1,6 +1,6 @@
 Esta seção mostra como conectar seu aplicativo ao back-end do Mobile Engagement usando o recurso de monitoramento em tempo real do Mobile Engagement. 
 
-1. Na sua conta do **Engajamento Móvel do Azure** , selecione o aplicativo que deseja monitorar e gerenciar no portal do **Engajamento Móvel**. Navegue até o portal do Mobile Engagement clicando no botão **Acionar** na parte inferior. 
+1. Na sua conta do **Engajamento Móvel do Azure**, selecione o aplicativo que deseja monitorar e gerenciar no portal do **Engajamento Móvel**. Navegue até o portal do Mobile Engagement clicando no botão **Acionar** na parte inferior. 
    
      ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 2. Você será encaminhado para o portal do Compromisso de Mobilidade. Se a guia Monitorar não estiver selecionada, clique em **Monitorar**.

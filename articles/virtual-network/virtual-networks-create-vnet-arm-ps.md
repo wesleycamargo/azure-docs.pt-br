@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e0fb1e3fc87e3a3a93d42f9f2722696e0f9aae57
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Criar uma rede virtual usando o PowerShell
 
@@ -182,4 +181,3 @@ Saiba como se conectar:
 - Uma VM (máquina virtual) em uma rede virtual lendo o artigo [Criar uma VM Windows](../virtual-machines/virtual-machines-windows-ps-create.md). Em vez de criar uma rede virtual e sub-rede nas etapas dos artigos, você pode selecionar uma rede virtual e uma sub-rede existente para se conectar a uma VM.
 - A rede virtual para outras redes virtuais, lendo o artigo [Conectar VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo os artigos [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-

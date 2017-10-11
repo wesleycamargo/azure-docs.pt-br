@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Conectar a um sistema SAP local por meio de aplicativos lógicos com o conector do SAP 
 
 O gateway de dados local permite gerenciar dados e acessar com segurança recursos locais. Este tópico mostra como é possível conectar aplicativos lógicos a um sistema SAP local. Neste exemplo, o aplicativo lógico solicita um IDOC por HTTP e envia a resposta de volta.    
@@ -92,4 +90,3 @@ Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou en
 
 - Saiba como validar, transformar e outras funções semelhantes ao BizTalk no [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
 - [Conectar-se a dados locais](../logic-apps/logic-apps-gateway-connection.md) por meio de aplicativos lógicos
-

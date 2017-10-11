@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: dea4a174aaf3727d66e9d69d32d433ff24e0d06d
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Notas de versão do SDK do Azure para .NET 3.0
 
@@ -52,7 +51,6 @@ Nenhuma alteração significativa do Azure SDK 3.0 foi introduzida nesta versão
 ### <a name="azure-in-role-cache"></a>Cache na função do Azure 
 
 - O suporte para Cache na Função do Azure terminou em 30 de novembro de 2016. Para obter mais detalhes, clique [aqui](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
-
 
 
 

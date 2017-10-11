@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: d0441f1e96e94352d4112ec387058b47074d8b0b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de verificação de segurança do Azure Service Fabric
 Este artigo fornece uma lista de verificação fácil de usar que ajudará você a proteger seu ambiente do Azure Service Fabric.
@@ -51,4 +50,3 @@ Use a seguinte lista de verificação para ajudá-lo a garantir que você não n
 - [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Introdução ao modelo de Integridade do Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction).
-

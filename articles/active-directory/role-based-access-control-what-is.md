@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao Controle de Acesso Baseado em Função no Portal do Azure
 As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
@@ -68,4 +67,3 @@ O RBAC do Azure tem suporte somente para as operações de gerenciamento dos rec
 * Introdução ao [Controle de Acesso Baseado em Função](role-based-access-control-configure.md)no Portal do Azure.
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 * Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
-

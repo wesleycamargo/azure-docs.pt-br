@@ -15,16 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e9412caa9fed15f42a04260f12fa802caf7a2e2
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: bf6234d0810f870909957ee1c1e33c225a4922b9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-<a id="changing-the-azure-ad-connect-sync-service-account-password" class="xliff"></a>
-
-# Alteração da senha da conta do serviço de sincronização do Azure AD Connect
+# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
 
 O Azure AD Connect, como parte dos serviços de sincronização, usa uma chave de criptografia para armazenar as senhas das contas de serviço do AD DS e do Azure AD.  Essas contas são criptografadas antes de serem armazenadas no banco de dados. 
@@ -33,9 +30,7 @@ A chave de criptografia usada é protegida usando o [Data Protection do Windows 
 
 Se você precisar alterar a senha da conta do serviço, use os procedimentos em [Abandono da chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) para fazer isso.  Estes procedimentos também deverão ser usados se você precisar abandonar a chave de criptografia por algum motivo.
 
-<a id="issues-that-arise-from-changing-the-password" class="xliff"></a>
-
-##Os problemas que surgem da alteração da senha
+##<a name="issues-that-arise-from-changing-the-password"></a>Os problemas que surgem da alteração da senha
 Há duas coisas que precisam ser feitas quando você altera a senha da conta do serviço.
 
 Primeiro, você precisa alterar a senha no Gerenciador de Controle de Serviços do Windows.  Até que esse problema seja resolvido, você verá os seguintes erros:
@@ -52,17 +47,13 @@ Você verá erros, como:
 
 Para garantir que você não receba esses erros, siga os procedimentos em [Abandonando a chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha.
  
-<a id="abandoning-the-azure-ad-connect-sync-encryption-key" class="xliff"></a>
-
-## Abandono da chave de criptografia de sincronização do Azure AD Connect
+## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Abandono da chave de criptografia de sincronização do Azure AD Connect
 >[!IMPORTANT]
 >Os procedimentos a seguir aplicam-se somente ao Azure AD Connect compilação 1.1.443.0 ou anterior.
 
 Use os procedimentos a seguir para abandonar a chave de criptografia.
 
-<a id="what-to-do-if-you-need-to-abandon-the-encryption-key" class="xliff"></a>
-
-### O que fazer se você precisar abandonar a chave de criptografia
+### <a name="what-to-do-if-you-need-to-abandon-the-encryption-key"></a>O que fazer se você precisar abandonar a chave de criptografia
 
 Se você precisar abandonar a chave de criptografia, use os procedimentos a seguir para fazer isso.
 
@@ -74,9 +65,7 @@ Se você precisar abandonar a chave de criptografia, use os procedimentos a segu
 
 4. [Inicie o serviço de sincronização](#start-the-synchronization-service)
 
-<a id="abandon-the-existing-encryption-key" class="xliff"></a>
-
-#### Abandone a chave de criptografia existente
+#### <a name="abandon-the-existing-encryption-key"></a>Abandone a chave de criptografia existente
 Abandone a chave de criptografia existente para que essa nova chave de criptografia possa ser criada:
 
 1. Faça logon no seu servidor do Azure AD Connect como administrador.
@@ -89,9 +78,7 @@ Abandone a chave de criptografia existente para que essa nova chave de criptogra
 
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key5.png)
 
-<a id="provide-the-password-of-the-ad-ds-account" class="xliff"></a>
-
-#### Forneça a senha da conta do AD DS
+#### <a name="provide-the-password-of-the-ad-ds-account"></a>Forneça a senha da conta do AD DS
 Como as senhas existentes armazenadas no banco de dados não podem ser descriptografadas, você precisará fornecer ao serviço de sincronização a senha da conta do AD DS. O serviço de sincronização criptografa as senhas usando a nova chave de criptografia:
 
 1. Inicie o Synchronization Service Manager (INICIAR → Serviço de Sincronização).
@@ -104,9 +91,7 @@ Como as senhas existentes armazenadas no banco de dados não podem ser descripto
 7. Clique em **OK** para salvar a nova senha e fechar a caixa de diálogo pop-up.
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key6.png)
 
-<a id="reinitialize-the-password-of-the-azure-ad-sync-account" class="xliff"></a>
-
-#### Reinicialize a senha da conta de sincronização do Azure AD
+#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Reinicialize a senha da conta de sincronização do Azure AD
 Você não pode fornecer diretamente a senha da conta de serviço do Azure AD para o serviço de sincronização. Em vez disso, você precisa usar o cmdlet **Add-ADSyncAADServiceAccount** para reinicializar a conta de serviço do Azure AD. O cmdlet redefine a senha da conta e a torna disponível para o serviço de sincronização:
 
 1. Inicie uma nova sessão do PowerShell no servidor do Azure AD Connect.
@@ -115,21 +100,16 @@ Você não pode fornecer diretamente a senha da conta de serviço do Azure AD pa
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key7.png)
 4. Se isso for bem-sucedido, você verá o prompt de comando do PowerShell.
 
-<a id="start-the-synchronization-service" class="xliff"></a>
-
-#### Inicie o serviço de sincronização
+#### <a name="start-the-synchronization-service"></a>Inicie o serviço de sincronização
 Agora que o serviço de sincronização tem acesso à chave de criptografia e todas as senhas necessárias, você poderá reiniciar o serviço no Gerenciador de Controle de Serviços do Windows:
 
 
 1. Vá para o Gerenciador de Controle de Serviços do Windows (INICIAR → Serviços).
 2. Selecione **Sincronização do Microsoft Azure AD** e clique em Reiniciar.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

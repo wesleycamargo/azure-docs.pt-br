@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-without-vmm-to-azure-replication"></a>Etapa 2: Examinar os pré-requisitos do Hyper-V (sem o VMM) para a replicação do Azure
 
 Os pré-requisitos são resumidos na tabela.
@@ -40,4 +38,3 @@ Os pré-requisitos são resumidos na tabela.
 
 - Se estiver fazendo uma implantação completa, vá para a [Etapa 3: planejar a capacidade](hyper-v-site-walkthrough-capacity.md)
 - Se estiver fazendo uma implantação de teste simples, vá para a [Etapa 4: Planejar a rede](hyper-v-site-walkthrough-network.md).
-

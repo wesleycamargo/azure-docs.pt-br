@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.
@@ -498,5 +497,4 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 > Não há suporte para o NLB (balanceamento de carga de rede) do Windows Server no Azure.
 > 
 > 
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-ms.lasthandoff: 02/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expressões condicionais do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas das Expressões condicionais para o [Mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
@@ -44,4 +42,3 @@ ELSE IF| Uma expressão ELSE IF especifica uma condição de alternativa que dev
 * [Condições de correspondência do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
-

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
 ![Símbolo dos logs de atividades do Azure](./media/log-analytics-activity/activity-log-analytics.png)
@@ -93,10 +90,10 @@ Os dados do log de atividades aparecem apenas *depois* que você os configura pa
 
 | Folha | Descrição |
 | --- | --- |
-| Entradas de log de atividades do Azure | Mostra um gráfico de barras na parte superior dos totais de registro da entrada de log de atividades do Azure para o intervalo de datas selecionado e uma lista dos principais 10 chamadores da atividade. Clique no gráfico de barras para executar uma pesquisa de logs para <code>Type=AzureActivity</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse item. |
-| Logs de atividade por status | Mostra um gráfico de rosca do status do log de atividades do Azure para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais registros de status. Clique no gráfico para executar uma pesquisa de logs para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse registro de status. |
-| Logs de atividade por recurso | Mostra o número total de recursos com logs de atividade e lista os dez principais recursos com contagem de registro para cada recurso. Clique na área total para executar uma pesquisa de logs de <code>Type=AzureActivity &#124; measure count() by Resource</code>, que mostra todos os recursos do Azure disponíveis para a solução. Clique em um recurso para executar uma pesquisa de logs que retorna que todos os registros de atividades desse recurso. |
-| Logs de atividade por provedor de recursos | Mostra o número total de provedores de recursos que produzem logs da atividade e lista os dez principais. Clique na área total para executar uma pesquisa de logs de <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos para executar uma pesquisa de logs que retorna todos os registros de atividades desse provedor. |
+| Entradas de log de atividades do Azure | Mostra um gráfico de barras na parte superior dos totais de registro da entrada de log de atividades do Azure para o intervalo de datas selecionado e uma lista dos principais 10 chamadores da atividade. Clique no gráfico de barras para executar uma pesquisa de log para <code>Type=AzureActivity</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse item. |
+| Logs de atividade por status | Mostra um gráfico de rosca do status do log de atividades do Azure para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais registros de status. Clique no gráfico para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse registro de status. |
+| Logs de atividade por recurso | Mostra o número total de recursos com logs de atividade e lista os dez principais recursos com contagem de registro para cada recurso. Clique na área total para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by Resource</code>, que mostra todos os recursos do Azure disponíveis para a solução. Clique em um recurso para executar uma pesquisa de logs que retorna que todos os registros de atividades desse recurso. |
+| Logs de atividade por provedor de recursos | Mostra o número total de provedores de recursos que produzem logs da atividade e lista os dez principais. Clique na área total para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos para executar uma pesquisa de logs que retorna todos os registros de atividades desse provedor. |
 
 ![Painel Logs de Atividade do Azure](./media/log-analytics-activity/activity-log-dash.png)
 
@@ -104,4 +101,3 @@ Os dados do log de atividades aparecem apenas *depois* que você os configura pa
 
 - Crie um [alerta](log-analytics-alerts-creating.md) quando ocorrer uma atividade específica.
 - Use a [Pesquisa de Logs](log-analytics-log-searches.md) para exibir informações detalhadas de seus logs de atividade.
-

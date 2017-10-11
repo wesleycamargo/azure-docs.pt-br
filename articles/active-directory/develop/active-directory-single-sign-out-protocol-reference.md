@@ -15,21 +15,20 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
-ms.openlocfilehash: 7be96ed59a148f7c622551eaa66279a94e2c83f1
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
+# Protocolo SAML de Logout Único
 O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. O Azure AD usa o LogoutURL para redirecionar os usuários depois que eles são desconectados.
 
 Este diagrama mostra o fluxo de trabalho do processo de logout único do Azure AD.
 
 ![Fluxo de trabalho do Logout Único](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## <a name="logoutrequest"></a>LogoutRequest
+## LogoutRequest
 O serviço de nuvem envia uma mensagem `LogoutRequest` ao Azure AD para indicar que uma sessão foi encerrada. O trecho a seguir mostra um exemplo de elemento `LogoutRequest` .
 
 ```
@@ -39,20 +38,20 @@ O serviço de nuvem envia uma mensagem `LogoutRequest` ao Azure AD para indicar 
 </samlp:LogoutRequest>
 ```
 
-### <a name="logoutrequest"></a>LogoutRequest
+### LogoutRequest
 O elemento `LogoutRequest` enviado ao Azure AD requer os seguintes atributos:
 
 * `ID` : isso identifica a solicitação de saída. O valor de `ID` não deve começar com um número. A prática comum é acrescentar **id** à representação de cadeia de caracteres de um GUID.
 * `Version` : Defina o valor desse elemento como **2.0**. Esse valor é obrigatório.
 * `IssueInstant` : esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor desse tipo, mas não é obrigatório.
 
-### <a name="issuer"></a>Emissor
+### Emissor
 O elemento `Issuer` em uma `LogoutRequest` deve corresponder exatamente a um do **ServicePrincipalNames** no serviço de nuvem no Azure AD. Normalmente, isso é definido como o **URI da ID do aplicativo** que é especificado durante o registro do aplicativo.
 
-### <a name="nameid"></a>NameID
+### NameID
 O valor do elemento `NameID` deve corresponder exatamente ao `NameID` do usuário que está sendo desconectado.
 
-## <a name="logoutresponse"></a>LogoutResponse
+## LogoutResponse
 O Azure AD envia uma `LogoutResponse` em resposta a um elemento `LogoutRequest`. O trecho a seguir mostra um exemplo de `LogoutResponse`.
 
 ```
@@ -64,13 +63,13 @@ O Azure AD envia uma `LogoutResponse` em resposta a um elemento `LogoutRequest`.
 </samlp:LogoutResponse>
 ```
 
-### <a name="logoutresponse"></a>LogoutResponse
+### LogoutResponse
 O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `LogoutResponse`. Ele também define o elemento `InResponseTo` como o valor do atributo `ID` da `LogoutRequest` que emitiu a resposta.
 
-### <a name="issuer"></a>Emissor
+### Emissor
 O Azure AD define esse valor como `https://login.microsoftonline.com/<TenantIdGUID>/`, em que <TenantIdGUID> é a ID de locatário do locatário do Azure AD.
 
 Para avaliar o valor do elemento `Issuer` , use o valor do **URI da ID do aplicativo** fornecido durante o registro do aplicativo.
 
-### <a name="status"></a>Status
+### Status
 O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o sucesso ou a falha da desconexão. Quando a tentativa de desconexão falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.

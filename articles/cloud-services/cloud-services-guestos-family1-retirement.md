@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
@@ -75,4 +73,3 @@ Não há mais suporte para serviços de nuvem na família 1 dos sistemas operaci
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
-

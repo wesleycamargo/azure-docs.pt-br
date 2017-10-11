@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhando com os dados geoespaciais e de localização do GeoJSON no Azure Cosmos DB
 Este artigo é uma introdução à funcionalidade geoespacial do [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler este artigo, você poderá responder as seguintes perguntas:
@@ -275,7 +273,7 @@ Essas funções também podem ser usadas para validar Polígonos. Por exemplo, S
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>Consultas LINQ no SDK do .NET
-O SDK do .NET do Banco de Dados de Documentos também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do Banco de Dados de Documentos traduz essas chamadas do método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente). 
+O SDK do .NET do DocumentDB também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do DocumentDB traduz essas chamadas do método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente). 
 
 Veja um exemplo de uma consulta LINQ que localiza todos os documentos da coleção do Azure Cosmos DB cujo valor de “localização” está em um raio de 30 km do ponto especificado usando o LINQ.
 
@@ -400,5 +398,4 @@ Agora que você aprendeu a usar o suporte geoespacial no Azure Cosmos DB, poder�
 * Experimente as consultas geoespaciais no [Espaço de Consulta do Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
 * Saiba mais sobre a [Consulta do Azure Cosmos DB](documentdb-sql-query.md)
 * Saiba mais sobre as [Políticas de indexação do Azure Cosmos DB](indexing-policies.md)
-
 

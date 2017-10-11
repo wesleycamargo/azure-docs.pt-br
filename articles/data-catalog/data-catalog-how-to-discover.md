@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 1cefc0341789a4751d4e3ee687048ccd291559e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -67,4 +66,3 @@ Uma vez que registrar uma fonte de dados com o catálogo de dados copia os metad
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter detalhes passo a passo sobre como descobrir fontes de dados, consulte [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).
-

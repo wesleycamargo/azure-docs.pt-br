@@ -16,12 +16,11 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: b4baccafc0a9178223dbf64c664fc34ab9f7f916
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gerenciar as configurações para um grupo no Azure Active Directory
 Este artigo explica como alterar as configurações de um grupo no Azure AD (Azure Active Directory).
@@ -50,4 +49,3 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

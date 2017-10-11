@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e1ceaf7baef021f97f70a6b1a5203e178db613db
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 88dbb9515300f847789bc889911cdeff5f5bdb53
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights usando o PowerShell
 Este artigo mostra como automatizar a criação e atualização de recursos do [Application Insights](app-insights-overview.md) automaticamente usando o Gerenciamento de Recursos do Azure. Por exemplo, você pode fazer isso como parte de um processo de compilação. Juntamente com o recurso básico do Application Insights, é possível criar [testes na Web de disponibilidade](app-insights-monitor-web-app-availability.md), configurar [alertas](app-insights-alerts.md), definir o [esquema de preços](app-insights-pricing.md) e criar outros recursos do Azure.
@@ -451,5 +450,4 @@ Outros artigos sobre automação:
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Implantar no Azure pelo GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
 

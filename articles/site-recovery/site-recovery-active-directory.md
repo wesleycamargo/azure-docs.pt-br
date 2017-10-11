@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Proteger o Active Directory e o DNS com o Azure Site Recovery
 Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Quando você cria uma solução de recuperação de desastre para aplicativos, é importante se lembrar de que você precisa proteger e recuperar o Active Directory e o DNS antes dos outros componentes de aplicativo, para garantir que tudo funcione corretamente quando ocorrer um desastre.
@@ -209,5 +208,4 @@ Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia [Quais cargas de trabalho posso proteger?](site-recovery-workload.md) para saber mais sobre como proteger as cargas de trabalho corporativas com o Azure Site Recovery.
-
 

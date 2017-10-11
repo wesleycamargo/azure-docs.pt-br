@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 736f7c11ec3de04f1ad52ee29d0a4c952c9b0545
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover arquivos de e para uma VM Linux usando o SCP
 
 Este artigo mostra como mover arquivos da estação de trabalho para uma VM Linux do Azure ou de uma VM Linux do Azure para a estação de trabalho, usando o SCP (Cópia Segura). Mover arquivos entre a estação de trabalho e uma VM Linux, de forma rápida e segura, é uma parte crítica do gerenciamento da infraestrutura do Azure. 

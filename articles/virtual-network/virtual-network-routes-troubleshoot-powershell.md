@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Solucionar problemas de rotas usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -137,5 +135,4 @@ Algumas coisas para ter em mente ao examinar a lista de rotas retornadas:
 * Para que o tráfego do emparelhamento de VNet funcione corretamente, deve haver uma rota do sistema com **nextHopType** *VNetPeering* para o intervalo de prefixo da VNet emparelhada. Se tal rota não existir e o link de emparelhamento da VNet parecer correto:
   * Aguarde alguns segundos e tente novamente se for um link de emparelhamento recém-estabelecido. Ela ocasionalmente demora mais para propagar rotas para todos os adaptadores de rede em uma sub-rede.
   * As regras do NSG (grupo de segurança de rede) podem afetar os fluxos de tráfego. Para obter mais informações, consulte o artigo [Solucionar problemas dos grupos de segurança de rede](virtual-network-nsg-troubleshoot-powershell.md) .
-
 

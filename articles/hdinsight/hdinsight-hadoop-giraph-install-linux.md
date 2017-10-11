@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 6e2f6983e00f874420f7f0907dbc68185f0af713
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar gráficos em grande escala
 
@@ -180,4 +179,3 @@ Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemp
 * [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 
 * [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
-

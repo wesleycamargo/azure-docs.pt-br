@@ -16,12 +16,11 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
-ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 938d0b4046afa8c80eabe542f4541d0554948f5d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Resolução de problemas da extensão do painel de acesso do Internet Explorer
 Este artigo ajuda você a solucionar os problemas a seguir:
@@ -95,5 +94,4 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)
-
 

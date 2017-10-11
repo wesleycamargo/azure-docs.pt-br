@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-cryptography--mitigations"></a>Estrutura de segurança: Criptografia | Atenuações 
 | Produto/serviço | Artigo |
 | --------------- | ------- |
@@ -108,7 +106,7 @@ ms.lasthandoff: 08/23/2017
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (sem conformidade com FIPS) (usar SHA512 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (sem conformidade com FIPS) (usar SHA384 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (sem conformidade com FIPS) (usar SHA256 como nome de algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
+| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (não-compatível com FIPS) (use SHA512 como nome do algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (não-compatível com FIPS) (use SHA384 como o nome do algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (não-compatível com FIPS) (use SHA256 como nome do algoritmo em chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Usar algoritmos de criptografia forte para criptografar dados no banco de dados
 

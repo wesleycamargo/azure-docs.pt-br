@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrar o Azure AD com aplicativos da Windows Store
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -163,4 +162,3 @@ Para referência, baixe a [amostra concluída](https://github.com/AzureADQuickSt
 Agora você pode passar para cenários de identidade adicionais. Por exemplo, experimente [Proteger uma API Web .NET com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

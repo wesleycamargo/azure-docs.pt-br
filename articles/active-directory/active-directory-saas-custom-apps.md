@@ -15,12 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure
 Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado na visualização técnica de 18 de novembro de 2015 e foi incluído no [Azure Active Directory Premium](active-directory-editions.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
@@ -142,4 +141,3 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-

@@ -14,13 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Como integrar o Engagement Reach ao Android
 > [!IMPORTANT]
@@ -631,4 +629,3 @@ Como você pode ver, se tiver chamado `actionContent(this)` e então terminado a
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
-

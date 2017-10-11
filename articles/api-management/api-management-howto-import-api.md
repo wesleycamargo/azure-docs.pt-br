@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Como importar a definição de uma API com operações no Gerenciamento da API do Azure
 No Gerenciamento de API, novas APIs podem ser criadas e as operações podem ser adicionadas manualmente, ou a API pode ser importada em conjunto com as operações em uma etapa.
@@ -93,9 +94,3 @@ Após criar a API e importar as operações, você pode revisar e definir quaisq
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create APIs]: api-management-howto-create-apis.md
 [How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

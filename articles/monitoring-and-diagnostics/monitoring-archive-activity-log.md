@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
@@ -168,5 +167,4 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 * [Baixar blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Transmitir o Log de Atividades para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 * [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
-
 

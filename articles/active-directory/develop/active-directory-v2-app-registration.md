@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Como registrar um aplicativo com o ponto de extremidade v2.0
 Para criar um aplicativo que aceite entrada do AD do Azure e do MSA, você primeiro precisará registrar um aplicativo com a Microsoft.  Você não poderá usar nenhum dos seus aplicativos existentes com o Azure AD ou MSA, será necessário criar um novo.
@@ -56,5 +54,4 @@ Opcionalmente, você pode personalizar a aparência de sua página de entrada na
 Agora que você tem um aplicativo da Microsoft, poderá concluir um dos nossos tutoriais de início rápido da v2.0.  Aqui estão algumas recomendações:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
 

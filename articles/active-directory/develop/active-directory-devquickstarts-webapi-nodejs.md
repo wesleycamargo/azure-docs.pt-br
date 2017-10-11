@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 707bb2b7cd9796e0e05234aa08002bbc1820f871
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 4f58177f540c14172d7ece8b4bc8c8a2b9787f8f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-web-apis-for-nodejs"></a>Introdução às APIs Web para o Node.js
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -720,8 +718,7 @@ A maneira mais fácil de testar o seu servidor é usando ondulação em uma linh
 
 3. Em seguida, vá até o diretório e inicie a ondulação:
 
-    `$ cd azuread`
-    `$ node server.js`
+    `$ cd azuread` `$ node server.js`
 
     `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -893,8 +890,7 @@ Vamos usar `curl` novamente para ver se agora temos proteção OAuth2 para nosso
 
 2. Em seguida, vá até o diretório e inicie a ondulação.
 
-      `$ cd azuread`
-      `$ node server.js`
+      `$ cd azuread` `$ node server.js`
 
 3. Tente uma POSTAGEM básica.
 
@@ -924,4 +920,3 @@ Faça a clonagem para a sua máquina de desenvolvedor e configure conforme indic
 [ADAL para Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

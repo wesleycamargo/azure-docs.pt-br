@@ -1,4 +1,3 @@
-
 ---
 title: Proteger o IIS com certificados SSL no Azure | Microsoft Docs
 description: Saiba como proteger o servidor Web do IIS com certificados SSL em uma VM do Windows Azure
@@ -17,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Proteger o servidor Web do IIS com certificados SSL em uma máquina virtual do Windows no Azure
 Para proteger os servidores Web, um certificado SSL (Secure Sockets Layer) pode ser usado para criptografar o tráfego da Web. Esses certificados SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Windows no Azure. Neste tutorial, você aprenderá a:
 
@@ -38,9 +35,9 @@ Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Ex
 
 
 ## <a name="overview"></a>Visão geral
-O cofre da chave do Azure protege chaves criptográficas e segredos, esses certificados ou senhas. O Key Vault simplifica o processo de gerenciamento de certificados e permite que você tenha controle das chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável e existente que você já possui.
+O cofre da chave do Azure protege chaves criptográficas e segredos, esses certificados ou senhas. O Key Vault simplifica o processo de gerenciamento de certificados e permite que você mantenha o controle das chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável existente que você já tenha.
 
-Em vez de usar uma imagem de VM personalizada que inclui certificados preparados, insira os certificados em uma VM em execução. Esse processo garante a instalação dos certificados mais atualizados em um servidor Web durante a implantação. Se você renovar ou substituir um certificado, não precisará criar uma nova imagem de VM personalizada. Os certificados mais recentes serão inseridos automaticamente, conforme você criar outras VMs. Durante todo o processo, os certificados nunca deixam a plataforma do Azure ou são expostos em um script, no histórico de linha de comando ou no modelo.
+Em vez de usar uma imagem de VM personalizada que inclui certificados incorporados, você injeta certificados em uma VM em execução. Esse processo garante que os certificados mais recentes sejam instalados em um servidor Web durante a implantação. Se você renova ou substitui um certificado, também não precisa criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente, conforme você cria outras VMs. Durante todo o processo, os certificados nunca deixam a plataforma do Azure ou são expostos em um script, no histórico da linha de comando ou no modelo.
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure

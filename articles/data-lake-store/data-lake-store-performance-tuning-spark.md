@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: 29d4a361f98c63dab30155855d603a809eb804c8
 ms.openlocfilehash: 2109744fb7ffdfafb7a86bbea355e119718af099
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para o Spark no HDInsight e Azure Data Lake Store
 
@@ -118,10 +118,4 @@ Digamos que você tem atualmente um cluster composto de oito nós D4v2 e que est
     num-executors = Min (memory constraint, CPU constraint)
     num-executors = Min (16, 16)
     num-executors = 16    
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

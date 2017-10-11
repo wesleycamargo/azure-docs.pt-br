@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
 Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir os incidentes e as interrupções depende da sua capacidade de detectar os problemas rapidamente. Se relatar problemas e falhas ao gerenciador de integridade do Azure Service Fabric usando seu código de serviço, você pode usar ferramentas padrão de monitoramento de integridade fornecidas pelo Service Fabric para verificar o status de integridade.
@@ -152,5 +151,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [Aprofunde-se na integridade do Service Fabric](service-fabric-health-introduction.md)
 * [API REST para relatar a integridade do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [API REST para relatar a integridade do aplicativo](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
 

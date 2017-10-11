@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução Gerenciamento de Alertas no OMS (Operations Management Suite)
 
@@ -136,4 +135,3 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre os [Alertas no Log Analytics](log-analytics-alerts.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics.
-

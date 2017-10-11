@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: integração do Azure Active Directory ao Ceridian Dayforce HCM
 
@@ -292,5 +291,4 @@ Ao clicar no bloco Ceridian Dayforce HCM no Painel de Acesso, você deve fazer l
 [201]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_203.png
-
 

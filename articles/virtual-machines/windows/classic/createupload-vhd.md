@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Criar e carregar um VHD do Windows Server no Azure
 Esse artigo mostra como carregar sua própria imagem de VM generalizada como um VHD (disco rígido virtual) para que o use para criar outras máquinas virtuais. Para mais detalhes sobre discos e os VHDs no Microsoft Azure, confira a seção [Sobre discos e VHDs para Máquinas Virtuais](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -105,4 +104,3 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode [criar uma VM personalizada](createportal.md) usando a imagem carregada.
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 25c8b49401486edfad0a1a60fe2258a586f6adc2
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: a1b58125dafdf73f245b6a8cd0f4917513b22ea9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
 Os administradores do servidor devem ser um usuário ou grupo válido no Azure AD (Azure Active Directory) para o locatário no qual o servidor reside. Você pode usar os **Administradores do Analysis Services** na folha de controle de seu servidor no portal do Azure ou nas Propriedades do Servidor no SSMS para gerenciar os administradores de servidor. 
@@ -43,5 +42,4 @@ Os administradores do servidor devem ser um usuário ou grupo válido no Azure A
 [Autenticação e permissões de usuário](analysis-services-manage-users.md)  
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
 [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)  
-
 

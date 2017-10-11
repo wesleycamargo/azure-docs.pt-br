@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar conexões seguras para um cluster do Service Fabric do Visual Studio
 Saiba mais sobre como usar o Visual Studio para acessar com segurança um cluster do Service Fabric do Azure com políticas de controle de acesso configuradas.
@@ -72,4 +71,3 @@ Para saber mais sobre como acessar os clusters do Service Fabric, confira [Visua
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
-

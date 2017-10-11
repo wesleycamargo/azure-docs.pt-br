@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4c9de56f6daf07097c0f593db37d14dce3bce05f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto dos serviços de nuvem (serviço conectado do Armazenamento do Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas
@@ -41,5 +40,4 @@ Elementos foram criados com a cadeia de conexão e chave da conta de armazenamen
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**
 * **ServiceConfiguration.Local.cscfg**
-
 

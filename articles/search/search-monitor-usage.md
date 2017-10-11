@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 05/01/2017
 ms.author: betorres
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-an-azure-search-service"></a>Criar um serviço do Azure Search
 
@@ -158,4 +156,3 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 [2]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
 [3]: ./media/search-monitor-usage/AzureSearch-Enable-Monitoring.PNG
 [4]: ./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png
-

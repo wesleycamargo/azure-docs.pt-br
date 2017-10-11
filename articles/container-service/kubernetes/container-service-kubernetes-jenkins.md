@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 85ac34444cc54b9c6fe9d5d3fcd1ab53bf1dc0d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Integração do Jenkins com o Serviço de Contêiner do Azure e o Kubernetes 
 Neste tutorial, percorreremos o processo para configurar a integração contínua de um aplicativo de vários contêineres no Kubernetes do Serviço de Contêiner do Azure usando a plataforma Jenkins. O fluxo de trabalho atualiza a imagem de contêiner no Hub do Docker e atualiza os pods do Kubernetes usando uma distribuição de implantação. 
 
@@ -209,4 +207,3 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 - Implante o Registro de Contêiner do Azure e armazene as imagens em um repositório seguro. Confira [Documentos do Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry).
 - Crie um fluxo de trabalho mais complexo que inclua implantação lado a lado e testes automatizados no Jenkins.
 - Para obter mais informações sobre CI/CD com Jenkins e Kubernetes, consulte o [blog do Jenkins](https://jenkins.io/blog/2015/07/24/integrating-kubernetes-and-jenkins/).
-

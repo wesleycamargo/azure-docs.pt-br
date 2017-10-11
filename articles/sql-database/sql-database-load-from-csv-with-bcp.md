@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados do CSV para o Banco de Dados SQL do Azure (arquivos simples)
 Você pode usar o utilitário de linha de comando bcp para importar dados de um arquivo CSV para o Banco de Dados SQL.
@@ -119,4 +118,3 @@ Para migrar um banco de dados do SQL Server, confira [Migração de banco de dad
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

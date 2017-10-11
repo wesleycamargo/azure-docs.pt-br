@@ -1,6 +1,4 @@
-<a id="use-the-azure-portal" class="xliff"></a>
-
-## Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 1. Selecione a VM que você deseja reimplantar e clique no botão *Reimplantar* na folha *Configurações*. Talvez seja necessário rolar para baixo a fim de ver a seção **Suporte e solução de problemas** que contém o botão 'Reimplantar' como no exemplo abaixo:
    
     ![Folha VM do Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)

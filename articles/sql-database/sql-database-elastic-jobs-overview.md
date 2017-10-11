@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 0d95f9f0e0c5b69aed6ba74a2488e46540589c00
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/23/2016
-
-
+ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerenciando bancos de dados de nuvem com escalonamento horizontal
 Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso de **Trabalhos do Banco de Dados Elástico** (visualização) permite executar um script Transact-SQL (T-SQL) confiável em um grupo de bancos de dados, incluindo:
@@ -144,6 +142,5 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
-
 
 

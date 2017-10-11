@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Como fornecer um ativo por Download
 Este tópico descreve as opções para entregar os ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Você pode baixar ativos de mídia ou acessá-los usando um localizador. Você pode enviar conteúdo de mídia para outro aplicativo ou para outro provedor de conteúdo. Para melhor desempenho e escalabilidade, você também pode fornecer conteúdo usando uma CDN (Rede de Entrega de Conteúdo).
@@ -88,5 +87,4 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 
 ## <a name="see-also"></a>Consulte também
 [Fornecer conteúdo de streaming](media-services-deliver-streaming-content.md)
-
 

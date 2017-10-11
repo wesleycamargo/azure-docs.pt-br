@@ -15,12 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Trabalhando com acesso condicional no Proxy de Aplicativo do AD do Azure
 
@@ -72,4 +71,3 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 * [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
-

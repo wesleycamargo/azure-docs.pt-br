@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gerenciar o diretório para sua assinatura do Office 365 no Azure
 Este artigo descreve como gerenciar um diretório criado para uma assinatura do Office 365 usando o portal clássico do Azure. Você deve ser o Administrador de Serviços ou coadministrador de uma assinatura do Azure para entrar no portal clássico do Azure. Se ainda não tiver uma assinatura do Azure, você poderá se inscrever em uma [avaliação gratuita de 30 dias](https://azure.microsoft.com/trial/get-started-active-directory/) hoje mesmo e implantar sua primeira solução de nuvem em menos de cinco minutos, usando este link. Use a conta corporativa ou de estudante que usa para entrar no Office 365.
@@ -70,4 +69,3 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, confira [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4d35bdd88998d30435e9e5e916a18b3ce3bc7978
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure
 ## <a name="encoding-overview"></a>Visão Geral de Codificação
@@ -97,4 +96,3 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

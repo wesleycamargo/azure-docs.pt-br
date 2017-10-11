@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -85,8 +85,3 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 * [Recursos do Mecanismo de Regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Azure Fridays: novos recursos Premium poderosos do Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

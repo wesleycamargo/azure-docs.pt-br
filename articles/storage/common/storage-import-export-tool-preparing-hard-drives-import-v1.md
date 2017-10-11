@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparando discos rígidos para um trabalho de importação
 Para preparar um ou mais discos rígidos para um trabalho de importação, execute estas etapas:
 
@@ -184,4 +182,3 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
-

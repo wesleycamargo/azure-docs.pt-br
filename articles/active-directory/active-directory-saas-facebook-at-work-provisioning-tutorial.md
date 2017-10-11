@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: a347eedbf5511dc83e1bc7721667441cfb87cb59
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento de usuário
 
@@ -92,5 +91,4 @@ Agora você pode criar uma conta de teste. Aguarde até 20 minutos para verifica
 * [Gerenciamento do provisionamento de conta de usuário para aplicativos empresariais](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configurar Logon Único](active-directory-saas-facebook-at-work-tutorial.md)
-
 

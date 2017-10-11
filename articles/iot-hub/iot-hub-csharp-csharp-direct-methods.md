@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: dkshir
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 9ce1fbebb6417c10618aa182e3c1d9ddf8132fb6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="use-direct-methods-netnet"></a>Usar métodos diretos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -198,4 +197,3 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
 [Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md
-

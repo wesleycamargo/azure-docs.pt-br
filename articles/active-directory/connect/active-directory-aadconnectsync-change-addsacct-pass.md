@@ -15,16 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 427070021ac547058c2f18be0e58ef6d81822b8a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 14e16a238e60ecfeeb3cbf88c3922a79349dcc75
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-<a id="changing-the-ad-ds-account-password" class="xliff"></a>
-
-# Alterando a senha da conta do AD DS
+# <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
 A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para se comunicar com o Active Directory local. Se você alterar a senha da conta do AD DS, será necessário atualizar o Azure AD Connect Synchronization Service com a nova senha. Caso contrário, o serviço não poderá mais sincronizar corretamente com o Active Directory local e você encontrará os seguintes erros:
 
 * No Synchronization Service Manager, qualquer operação de importação ou de exportação com o AD local falha com o erro **no-start-credentials**.
@@ -32,9 +29,7 @@ A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para
 * No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID do evento 6000** e com a mensagem **'O agente de gerenciamento "contoso.com" falhou, porque as credenciais eram inválidas'**.
 
 
-<a id="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account" class="xliff"></a>
-
-## Como atualizar o Synchronization Service com a nova senha de conta do AD DS
+## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Como atualizar o Synchronization Service com a nova senha de conta do AD DS
 Para atualizar o Synchronization Service com a nova senha:
 
 1. Inicie o Synchronization Service Manager (INICIAR → Serviço de Sincronização).
@@ -54,12 +49,9 @@ Para atualizar o Synchronization Service com a nova senha:
 
 8. Reinicie o Azure AD Connect Synchronization Service no Gerenciador de Controle de Serviço Windows. Isso é para garantir que qualquer referência à senha antiga é removida do cache de memória.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

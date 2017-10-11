@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5e6b136d6bd3b11fb82126d104fd0cb149255118
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Resolver alertas de integridade do Endpoint Protection na Central de segurança do Azure
 A Central de Segurança do Azure recomendará que você resolva os alertas de integridade do Endpoint Protection detectados.  A Central de Segurança permite que você veja quais máquinas virtuais (VMs) têm falhas do Endpoint Protection e saiba a quantidade de falhas.
@@ -53,9 +53,3 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [2]: ./media/security-center-resolve-endpoint-protection/endpoint-protection-failure.png
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

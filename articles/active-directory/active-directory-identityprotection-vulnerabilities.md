@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
-ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 364873ff54099a6123e40b12e819d1745751f285
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são pontos fracos no seu ambiente que podem ser explorados por um invasor. É recomendável resolver essas vulnerabilidades para melhorar a postura de segurança de sua organização e impedir que invasores possam explorá-las.
@@ -61,5 +60,4 @@ Para obter mais detalhes, veja [Azure AD Privileged Identity Management](active-
 
 ## <a name="see-also"></a>Confira também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

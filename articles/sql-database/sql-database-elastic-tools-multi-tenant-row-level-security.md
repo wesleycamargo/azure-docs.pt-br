@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 09e3828172d06a8c7ef39c89e69653c48a7e729e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 As [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e a [RLS (segurança em nível de linha)](https://msdn.microsoft.com/library/dn765131) oferecem um conjunto avançado de funcionalidades para escalar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure de maneira flexível e eficiente. Confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para saber mais. 
@@ -318,6 +316,5 @@ Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
 
 

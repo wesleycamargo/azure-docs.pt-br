@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 4de9967b41c37bbfacf63caf0f993f625bf3c779
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
@@ -233,5 +231,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 * Como testar seu serviço
   * [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
   * [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
-
 

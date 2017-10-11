@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure
 Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake.
@@ -85,4 +83,3 @@ O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, em q
 * [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
-

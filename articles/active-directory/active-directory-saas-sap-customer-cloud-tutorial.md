@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: e4d945525a45704f34e1d9e742220928a516f341
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: integração do Azure Active Directory ao SAP Cloud for Customer
 
@@ -281,5 +280,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_203.png
-
 

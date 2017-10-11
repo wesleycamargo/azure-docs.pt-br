@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3705457e4c90f8869496f7f5177531bd128d1057
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-dns-overview"></a>Visão geral do DNS do Azure
 
 O sistema de nomes de domínio, ou DNS, é responsável por converter (ou seja, resolver) um nome do site ou serviço para seu endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
@@ -53,5 +51,4 @@ Saiba mais sobre as zonas e registros DNS visitando: [Visão geral de zonas e re
 Saiba como [criar uma zona DNS](./dns-getstarted-create-dnszone-portal.md) no DNS do Azure.
 
 Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
-
 

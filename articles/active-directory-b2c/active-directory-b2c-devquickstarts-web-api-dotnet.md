@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: chamar uma API Web de um aplicativo Web .NET
 
@@ -187,5 +186,4 @@ Siga o mesmo padrão ao enviar solicitações de `POST` e `DELETE` à API Web, u
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
 Finalmente, compile e execute ambos os aplicativos. Inscreva-se e entre e crie tarefas para o usuário conectado. Saia e entre como outro usuário. Crie tarefas para esse usuário. Observe como as tarefas são armazenados por usuário na API, pois a API extrai a identidade do usuário do token que recebe. Além disso, experimente mudar os escopos. Remova a permissão de "gravação" e, em seguida, tente adicionar uma tarefa. Apenas certifique-se de sair sempre que você alterar o escopo.
-
 

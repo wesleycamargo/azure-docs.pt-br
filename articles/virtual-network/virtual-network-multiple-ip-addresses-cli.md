@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI 2.0 do Azure
 
@@ -109,7 +108,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and    # no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -206,7 +205,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
         --dns-name mypublicdns3
         ```
 
-         Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
+        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
 
         ```bash
         az network nic ip-config create \
@@ -217,8 +216,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
         --public-ip-address myPublicIP3
         ```
 
-    - **Associar o recurso a uma configuração de IP existente**
-       Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tem um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
+    - **Associar o recurso a uma configuração de IP existente** só pode ser associado a uma configuração de IP que ainda não tiver associado um recurso de endereço IP público. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
 
         ```bash
         az network nic ip-config list \
@@ -277,4 +275,3 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
 4. Adicione os endereços IP privados que você adicionou à NIC para o sistema operacional da VM seguindo as instruções da seção [Adicionar endereços IP a um sistema operacional de VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

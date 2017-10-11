@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Usar compartilhamentos de arquivos do Azure com VMs do Windows 
 
 Você pode usar compartilhamentos de arquivos do Azure como uma maneira de armazenar e acessar arquivos na VM. Por exemplo, você pode armazenar um script ou um arquivo de configuração de aplicativo que deseja que todas as VMs compartilhem. Neste tópico, mostramos como criar e montar um compartilhamento de arquivos do Azure e como carregar e baixar arquivos.
@@ -76,4 +74,3 @@ Esta seção pressupõe que você já tenha um compartilhamento de arquivos ao q
 ## <a name="next-steps"></a>Próximas etapas
 
 Você também pode criar e gerenciar compartilhamentos de arquivos usando o PowerShell. Para obter mais informações, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
-

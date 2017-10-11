@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 6aa3ac7842df4657fca7f6b4264e1c6fe52dc0c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta a atualização de um aplicativo
 Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização têm a versão mais recente do aplicativo, enquanto outros têm a versão mais antiga do aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou, pior ainda, os dados poderão ser perdidos ou corrompidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
@@ -64,5 +62,4 @@ Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização]
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo ](service-fabric-application-upgrade-troubleshooting.md).
-
 
