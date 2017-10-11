@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ Este artigo mostra como criar um SQL Data Warehouse usando o T-SQL.
 Para começar, você precisa do seguinte:
 
 * **Conta do Azure**: visite [Avaliação gratuita do Azure][Azure Free Trial] ou [Créditos do Azure no MSDN][MSDN Azure Credits] para criar uma conta.
-* **Azure SQL Server**: consulte [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure][Create an Azure SQL Database logical server with the Azure Portal] ou [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell][Create an Azure SQL Database logical server with PowerShell] para obter mais detalhes.
+* **Servidor do SQL Azure**: consulte [criar um servidor lógico do banco de dados SQL com o Portal do Azure] [criar um servidor lógico do banco de dados SQL com o Portal do Azure] ou [criar um servidor lógico do banco de dados SQL com o PowerShell] [criar um SQL Azure Servidor lógico do banco de dados com o PowerShell] para obter mais detalhes.
 * **Grupo de recursos**: use o mesmo grupo de recursos do servidor SQL do Azure ou veja [como criar um grupo de recursos][how to create a resource group].
 * **Ambiente para executar o T-SQL**: você pode usar o [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] ou [SSMS][SSMS] para executar o T-SQL.
 
@@ -89,4 +87,3 @@ Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de exe
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

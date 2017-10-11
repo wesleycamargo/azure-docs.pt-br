@@ -15,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Os elementos do email de convite para colaboração B2B
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Você pode usá-los para aumentar a confiança do destinatário. Você pode adicionar a legitimidade e a comprovação social ao email, para certificar-se de que o destinatário sinta-se confortável com a seleção do botão **Introdução** para aceitar o convite. Essa confiança é uma maneira importante de reduzir o atrito de compartilhamento. E o email fica ótimo dessa maneira!
@@ -90,4 +86,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-

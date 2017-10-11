@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure
 
@@ -122,4 +121,3 @@ Você usou com êxito seu aplicativo Web para visualizar dados do sensor em temp
 Para obter um modo alternativo para visualizar os dados de Hub IoT do Azure, consulte [Usar o Power BI para visualizar dados de sensor em tempo real do seu Hub IoT](iot-hub-live-data-visualization-in-power-bi.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

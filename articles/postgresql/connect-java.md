@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 93ee612764e8f74943e0a847969fb1220b3bdee1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando o Java e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
@@ -391,4 +389,3 @@ public class DeleteTable {
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./howto-migrate-using-export-and-import.md)
-

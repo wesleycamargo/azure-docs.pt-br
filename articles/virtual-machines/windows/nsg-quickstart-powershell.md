@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: e818e3b3c707e1471d6f580f8379a277d3575b89
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -91,7 +90,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ## <a name="more-information-on-network-security-groups"></a>Mais informações sobre os Grupos de Segurança de Rede
 Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](tutorial-virtual-network.md#manage-internal-traffic).
 
-Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um Azure Load Balancer. O balanceador de carga distribui o tráfego para as VMs, com um Grupo de Segurança de Rede que fornece filtragem do tráfego. Para obter mais informações, confira [Como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
+Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um balanceador de carga do Azure. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para saber mais, veja [Como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
@@ -99,5 +98,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [O que é um NSG (grupo de segurança de rede)?](../../virtual-network/virtual-networks-nsg.md)
 * [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../../load-balancer/load-balancer-arm.md)
-
 

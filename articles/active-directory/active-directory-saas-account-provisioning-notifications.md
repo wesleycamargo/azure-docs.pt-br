@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: b99037fc28eca1a3ebffefb9e99991e74f52c9a5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="account-provisioning-notifications"></a>Notificações de provisionamento de conta
 Com o provisionamento de usuário, você pode automatizar o processo de gerenciar usuários em aplicativos SaaS de terceiros. <br>
- Embora esse seja um processo automatizado, sua interação com esse processo às vezes é necessária. <br>
- É, por exemplo, o caso, quando a senha da conta que você configurou para trocar dados com um aplicativo SaaS de terceiros expirou. 
+Embora esse seja um processo automatizado, sua interação com esse processo às vezes é necessária. <br>
+É, por exemplo, o caso, quando a senha da conta que você configurou para trocar dados com um aplicativo SaaS de terceiros expirou. 
 
 Ao habilitar notificações de provisionamento de conta você pode garantir que será notificado sobre problemas relacionados ao provisionamento de usuário, que exigem sua atenção.
 
@@ -52,4 +50,3 @@ Se você tiver notificações de provisionamento de conta habilitadas, receberá
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
-

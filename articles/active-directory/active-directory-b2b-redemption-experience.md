@@ -1,5 +1,4 @@
 ---
-
 title: "Resgate do convite de colaboração do Azure Active Directory B2B | Microsoft Docs"
 description: "Experiência de resgate do convite de colaboração do Azure Active Directory B2B"
 services: active-directory
@@ -16,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
 ## <a name="azure-ad-and-microsoft-account-users"></a>Usuários do Azure AD e de contas da Microsoft
@@ -52,4 +47,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-

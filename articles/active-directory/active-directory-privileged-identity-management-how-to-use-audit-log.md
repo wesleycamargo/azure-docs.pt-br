@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: a36231d9326158068e9460ed4594a79c744d3087
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-audit-log-in-pim"></a>Usar o log de auditoria no PIM
 Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](active-directory-view-access-usage-reports.md)
@@ -61,5 +59,4 @@ Marque ou desmarque a caixa de seleção **Função** ao lado de cada função p
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

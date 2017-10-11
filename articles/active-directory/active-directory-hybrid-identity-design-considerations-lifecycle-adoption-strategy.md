@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
 Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -100,5 +99,4 @@ Analise a tabela a seguir para comparar as opções de sincronização:
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

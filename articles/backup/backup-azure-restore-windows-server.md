@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
 > [!div class="op_single_selector"]
@@ -184,4 +183,3 @@ Se a recuperação ainda falhar, reinicialize o servidor/cliente. Se uma reinici
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).
-

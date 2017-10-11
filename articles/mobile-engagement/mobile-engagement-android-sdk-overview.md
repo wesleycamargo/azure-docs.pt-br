@@ -14,14 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do SDK do Android para Azure Mobile Engagement
+# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do Android SDK para Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
@@ -68,5 +67,4 @@ Para todas as versões, consulte as [notas de versão completas](mobile-engageme
 
 ## <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte os [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md).
-
 

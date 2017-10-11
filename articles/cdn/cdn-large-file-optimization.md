@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Otimização de download de arquivos grandes por meio da Rede de Distribuição de Conteúdo do Azure
 
@@ -127,4 +126,3 @@ Considere os aspectos adicionais a seguir para esse tipo de otimização.
 ### <a name="azure-content-delivery-network-from-verizon"></a>Rede de Distribuição de Conteúdo do Azure da Verizon
 
 O tipo de otimização de distribuição na Web geral pode fornecer arquivos grandes.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Armazenamento de VM do Linux e do Azure
 O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes.  Além de permitir que os desenvolvedores criem aplicativos de grande escala para dar suporte a novos cenários, o Armazenamento do Azure também fornece a base do armazenamento das Máquinas Virtuais do Azure.
@@ -212,4 +211,3 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 * [Limites de Serviço de Armazenamento](../../azure-subscription-service-limits.md#storage-limits)
-

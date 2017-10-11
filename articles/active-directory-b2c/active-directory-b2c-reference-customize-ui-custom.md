@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU de um percurso do usuário com políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -98,24 +95,24 @@ Como pré-requisito, você precisa criar uma conta de armazenamento. Você preci
 9. Selecione **Blob** como o **Tipo de acesso**. Clique em **Criar**.
 10. O contêiner que você criou aparecerá na lista da **folha de serviço Blob**.
 11. Feche a folha **Blobs** .
-12.    Na **folha da conta de armazenamento**, clique o ícone **Chave**. Uma **folha chaves de acesso** abre.  
-13.    Anote o valor de **key1**. Esse valor será referenciado mais tarde como *key1*.
+12. Na **folha da conta de armazenamento**, clique o ícone **Chave**. Uma **folha chaves de acesso** abre.  
+13. Anote o valor de **key1**. Esse valor será referenciado mais tarde como *key1*.
 
 ## <a name="downloading-the-helper-tool"></a>Como baixar a ferramenta auxiliar
 
-1.    Baixe a ferramenta auxiliar do [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
-2.    Salve o arquivo *B2C-AzureBlobStorage-Client-master.zip* no seu computador local.
-3.    Extraia o conteúdo do arquivo B2C-AzureBlobStorage-Client-master.zip no seu disco local, por exemplo, na pasta **UI-Customization-Pack**. Isso criará uma pasta *B2C-AzureBlobStorage-Client-master*.
-4.    Abra a pasta e extraia o conteúdo do arquivo *B2CAzureStorageClient.zip* nela.
+1.  Baixe a ferramenta auxiliar do [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
+2.  Salve o arquivo *B2C-AzureBlobStorage-Client-master.zip* no seu computador local.
+3.  Extraia o conteúdo do arquivo B2C-AzureBlobStorage-Client-master.zip no seu disco local, por exemplo, na pasta **UI-Customization-Pack**. Isso criará uma pasta *B2C-AzureBlobStorage-Client-master*.
+4.  Abra a pasta e extraia o conteúdo do arquivo *B2CAzureStorageClient.zip* nela.
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>Carregue os arquivos de exemplo do UI-Customization-Pack
 
-1.    Usando o Windows Explorer, navegue até a pasta *B2C-AzureBlobStorage-Client-master* localizado na pasta *UI-Customization-Pack* criada na seção anterior.
-2.    Execute o arquivo *B2CAzureStorageClient.exe*. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos.
-3.    Quando solicitado, especifique: um.    O nome da sua conta de armazenamento *storageAccountName*, por exemplo, *contoso369b2c*.
-    b.    A chave de acesso primária de seu armazenamento de BLOBs do Azure, *key1*, por exemplo, *contoso369b2c*.
-    c.    O nome do seu contêiner de armazenamento de blobs de armazenamento, *containerName*, por exemplo, *b2c*.
-    d.    O caminho dos arquivos de exemplo *Pacote Starter*, por exemplo *..\B2CTemplates\wingtiptoys*.
+1.  Usando o Windows Explorer, navegue até a pasta *B2C-AzureBlobStorage-Client-master* localizado na pasta *UI-Customization-Pack* criada na seção anterior.
+2.  Execute o arquivo *B2CAzureStorageClient.exe*. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos.
+3.  Quando solicitado, especifique: um.  O nome da sua conta de armazenamento *storageAccountName*, por exemplo, *contoso369b2c*.
+    b.  A chave de acesso primária de seu armazenamento de BLOBs do Azure, *key1*, por exemplo, *contoso369b2c*.
+    c.  O nome do seu contêiner de armazenamento de blobs de armazenamento, *containerName*, por exemplo, *b2c*.
+    d.  O caminho dos arquivos de exemplo *Pacote Starter*, por exemplo *..\B2CTemplates\wingtiptoys*.
 
 Se você seguiu as etapas acima, os HTML5 e arquivos CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** apontará para a sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra a folha de contêineres relacionados no portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
@@ -175,4 +172,3 @@ A tabela a seguir descreve o conjunto de ids de definição de conteúdo reconhe
 
 ## <a name="next-steps"></a>Próximas etapas
 [Referência: Aprenda como as políticas personalizadas trabalham com o Identity Experience Framework no B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
-

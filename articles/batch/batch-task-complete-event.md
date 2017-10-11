@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 015adf7dbc47c29a78df4e4889b2ee1ddcccdd8e
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
  Esse evento é emitido quando uma tarefa é concluída, independentemente do código de saída. Esse evento pode ser usado para determinar a duração de uma tarefa, em que ela foi executada e se foi repetida.
@@ -91,4 +90,3 @@ ms.lasthandoff: 04/22/2017
 |exitCode|Int32|O código de saída da tarefa.|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada.|
 |requeueCount|Int32|O número de vezes que a tarefa foi colocada em fila novamente pelo serviço em lotes, como resultado de uma solicitação de usuário.<br /><br /> Quando o usuário remove nós de um pool (redimensionando ou reduzindo o pool) ou quando o trabalho é desabilitado, o usuário pode especificar que as tarefas em execução nos nós sejam colocadas novamente na fila de execução. Essa contagem controla quantas vezes a tarefa foi colocada novamente em fila por esses motivos.|
-

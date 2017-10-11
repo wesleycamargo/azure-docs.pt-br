@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.lasthandoff: 03/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Padrões e práticas recomendadas de segurança do Azure
 No momento, temos os artigos de padrões e práticas recomendadas de segurança do Azure a seguir. Não deixe de visitar este site periodicamente para ver as atualizações para nossa lista crescente de padrões e práticas recomendadas de segurança do Azure:  
@@ -48,4 +47,3 @@ Para cada prática recomendada, buscamos explicar:
 * Como você pode aprender a habilitar a prática recomendada
 
 Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.
-

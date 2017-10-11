@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: fe2b84aac718ff5eddd4d73b5dc2120362952c1e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -221,4 +220,3 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 * Para ver o documento de referência da CLI 2.0 do Data Lake Analytics, veja [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
 * Para ver o documento de referência da CLI 2.0 do Data Lake Store, veja [Data Lake Store](https://docs.microsoft.com/cli/azure/dls).
 * Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
-

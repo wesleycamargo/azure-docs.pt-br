@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="pen-testing"></a>Teste de Caneta
 Uma das grandes vantagens sobre o uso do Microsoft Azure para implantação e teste de aplicativos é que não é necessário montar uma infraestrutura local para desenvolver, testar e implantar seus aplicativos. Todos os cuidados com a infraestrutura são tomados pelos serviços da plataforma Microsoft Azure. Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.
@@ -44,4 +43,3 @@ Os testes padrão que você pode executar incluem:
 Um tipo de teste que você não pode executar é qualquer tipo de ataque [DoS (negação de serviço)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Isso inclui iniciar um ataque DoS em si ou a realização de testes relacionados que podem determinar, demonstrar ou simular qualquer tipo de ataque DoS.
 
 Você está pronto para começar com testes de caneta em seus aplicativos hospedados no Microsoft Azure? Se estiver, vá diretamente para a página [Visão Geral do Teste de Penetração](https://technet.microsoft.com/library/mt784683.aspx) (e clique no botão Criar uma Solicitação de Teste na parte inferior da página). Você também encontrará mais informações sobre termos e condições para teste de caneta e links úteis sobre como relatar falhas de segurança relacionadas ao Azure ou qualquer outro serviço Microsoft.
-

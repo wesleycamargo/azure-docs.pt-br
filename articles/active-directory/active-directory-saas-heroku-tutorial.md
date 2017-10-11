@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: d30605e4757b484f327a784b73f939b62ef59373
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Tutorial: Integração do Azure Active Directory ao Heroku
 
@@ -248,4 +246,3 @@ Quando você clicar no bloco Heroku no Painel de Acesso, deverá fazer logon aut
 [201]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_203.png
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 228bb9058537af1e4eb38207c376c2eb86aee68c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este tópico aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure AD (Azure Active Directory) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
@@ -312,5 +310,4 @@ Você pode validar se o aplicativo oferece suporte à substituição automática
 
 ## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Como executar uma substituição manual se seu aplicativo não oferecer suporte à substituição automática
 Se seu aplicativo **não** der suporte à substituição automática, será necessário estabelecer um processo que monitore periodicamente as chaves de assinatura do Azure AD e execute uma substituição manual de forma adequada. [Este repositório GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazer isso.
-
 

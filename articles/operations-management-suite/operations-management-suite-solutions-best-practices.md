@@ -14,14 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no OMS (Operations Management Suite) (Preview)
 > [!NOTE]
@@ -57,5 +54,4 @@ Este artigo apresenta as práticas recomendadas para a [criação de um arquivo 
 * [Adicionar alertas e pesquisas salvas](operations-management-suite-solutions-resources-searches-alerts.md) à sua solução de gerenciamento.
 * [Adicionar exibições](operations-management-suite-solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks de automação e outros recursos](operations-management-suite-solutions-resources-automation.md) à sua solução de gerenciamento.
-
 

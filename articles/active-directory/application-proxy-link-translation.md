@@ -15,14 +15,12 @@ ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 57218346d236b376d2227e0ffaea6c6dd5ebe855
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
 O Proxy de Aplicativo do Azure AD disponibiliza seus aplicativos locais para usuários remotos ou que estão em seus próprios dispositivos. No entanto, alguns aplicativos foram desenvolvidos com links locais inseridos no HTML. Esses links não funcionam corretamente quando o aplicativo é usado remotamente. Quando você faz com que vários aplicativos locais apontem uns para os outros, os usuários esperam os links para continuar trabalhando quando não estiverem no escritório. 
@@ -92,4 +90,3 @@ Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicati
 [Usar domínios personalizados com o Proxy de Aplicativo do Azure AD](active-directory-application-proxy-custom-domains.md) para ter a mesma URL interna e externa
 
 [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
-

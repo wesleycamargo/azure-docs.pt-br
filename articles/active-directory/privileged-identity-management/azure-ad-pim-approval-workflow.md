@@ -14,14 +14,12 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 31b797361fca0c92db228f4150a6bff7e38e2b22
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
-
+ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="approvals-preview"></a>Aprovações (Visualização)
 
 ## <a name="overview"></a>Visão geral
@@ -195,4 +193,3 @@ Depois que a solicitação for aprovada, a função ficará ativa e você poder�
 ## <a name="next-steps"></a>Próximas etapas
 
 Seu comentário é valioso para nós. Fique à vontade compartilhar seus comentários conosco aqui!
-

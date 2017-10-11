@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Criptografia de banco de dados em repouso do Azure Cosmos DB
 
 A criptografia em repouso é uma frase que normalmente se refere à criptografia de dados em dispositivos de armazenamento não volátil, como SSDs (unidades de estado sólido) e HDDs (discos rígidos). O Cosmos DB armazena seus bancos de dados principais em SSDs. Seus anexos de mídia e backups são armazenados no armazenamento de Blobs do Azure, do qual geralmente é feito backup por HDDs. Com o lançamento da criptografia em repouso no Cosmos DB, todos os bancos de dados, anexos de mídia e backups são criptografados. Os dados agora são criptografados em trânsito (pela rede) e em repouso (armazenamento não volátil), fornecendo criptografia de ponta a ponta.
@@ -71,4 +68,3 @@ R: O emulador é uma ferramenta de desenvolvimento/teste independente e não usa
 
 Para obter uma visão geral da segurança do Cosmos DB e as últimas melhorias, confira [Segurança de banco de dados do Azure Cosmos DB](database-security.md).
 Para obter mais informações sobre as certificações da Microsoft, confira a [Central de Confiabilidade do Azure](https://azure.microsoft.com/en-us/support/trust-center/).
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51fac8adc2fe11aac005b4c0c0e9b67bbca8fa6e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: b0df23e040a73d18968f547eef7347f14cc577c6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemas para entrar em um aplicativo de desenvolvimento personalizado
 
 Há vários erros que podem estar causando a impossibilidade de entrar em um aplicativo. O principal motivo das pessoas se depararem com esse problema está relacionado com aplicativos configurados incorretamente.
@@ -42,4 +40,3 @@ Há vários erros que podem estar causando a impossibilidade de entrar em um apl
 [Consentimento e Permissão para Aplicativos Convergidos do Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [StackOverflow do Azure AD](http://stackoverflow.com/questions/tagged/azure-active-directory>)
-

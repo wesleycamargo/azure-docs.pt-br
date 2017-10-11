@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: b83a1621263cac0b23bbd35a49fda213d2e4271a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Tutorial: integração do Azure Active Directory ao Peoplecart
 
@@ -225,5 +224,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_203.png
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="application-gateway-redirect-overview"></a>Visão geral do redirecionamento do Gateway de Aplicativo
 
 É um cenário comum para muitos aplicativos da Web dar suporte a redirecionamento automático de HTTP para HTTPS para garantir que todas as comunicações entre o aplicativo e seus usuários ocorram em um caminho criptografado. No passado, os clientes usaram técnicas como a criação de um pool de back-end dedicado cujo único propósito é redirecionar as solicitações recebidas de HTTP para HTTPS.  O Gateway de Aplicativo agora dá suporte à capacidade de redirecionar tráfego no Gateway de Aplicativo. Isso simplifica a configuração do aplicativo, otimiza o uso de recursos e dá suporte a novos cenários de redirecionamento, incluindo redirecionamento global e baseado no caminho. O suporte a redirecionamento do Gateway de Aplicativo não está limitado apenas a redirecionamento HTTP -> HTTPS. Esse é um mecanismo de redirecionamento genérico, que permite o redirecionamento do tráfego recebido em um ouvinte para outro ouvinte no Gateway de Aplicativo. Ele também dá suporte a redirecionamento para um site externo. O suporte a redirecionamento do Gateway de Aplicativo oferece os seguintes recursos:
@@ -37,4 +35,3 @@ Com essa alteração, os clientes precisam criar um novo objeto de configuraçã
 ### <a name="next-steps"></a>Próximas etapas
 
 [Como configurar o redirecionamento de URL em um gateway de aplicativo](application-gateway-configure-redirect-powershell.md)
-

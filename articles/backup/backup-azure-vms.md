@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: pt-br
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Fazer backup de máquinas virtuais do Azure (portal clássico)
 > [!div class="op_single_selector"]
@@ -47,8 +46,8 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 >
 > [!IMPORTANT]
 > A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Depois de 15 de outubro de 2017, não será possível usar o PowerShell para criar os cofres de Backup. **Até 1º de novembro de 2017**:
->- Todos os cofres de Backup restantes serão automaticamente atualizados para os cofres dos Serviços de Recuperação.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
 >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
@@ -200,4 +199,3 @@ Se você enfrentar problemas durante o backup da sua máquina virtual, examine o
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
-

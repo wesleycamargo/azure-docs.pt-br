@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -177,4 +176,3 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: integração do Azure Active Directory com o Procore SSO
 
@@ -165,7 +164,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -199,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no portal de Gerenciament
 
 Siga as etapas abaixo para criar um usuário de teste do Procore no outro lado.
 
-1. Faça logon no site da sua empresa do Procore como administrador.    
+1. Faça logon no site da sua empresa do Procore como administrador.  
 
 2. Na lista suspensa da caixa de ferramentas, clique em **Diretório** para abrir a página do diretório da empresa.
 
@@ -283,5 +282,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 [201]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_203.png
-
 

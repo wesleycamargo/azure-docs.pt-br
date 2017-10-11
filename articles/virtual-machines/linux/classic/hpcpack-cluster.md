@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 Configure um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) no Azure que contenha um nó de cabeçalho que executa o Windows Server e vários nós de computação que executam uma distribuição do Linux com suporte. Explore as opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Saiba como enviar trabalhos do HPC Linux para o cluster.
@@ -316,4 +315,3 @@ A ferramenta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) do H
 [nfsshare]:media/hpcpack-cluster/nfsshare.png
 [nfsperm]:media/hpcpack-cluster/nfsperm.png
 [nfsmanage]:media/hpcpack-cluster/nfsmanage.png
-

@@ -1,6 +1,4 @@
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de habilitar a integração do Cofre da Chave do Azure, você poderá habilitar a criptografia do SQL Server em sua VM do SQL. Primeiro, você precisará criar uma chave assimétrica dentro de seu cofre de chave e uma chave simétrica no SQL Server em sua VM. Em seguida, você poderá executar instruções T-SQL para habilitar a criptografia para seus bancos de dados e backups.
 
@@ -12,9 +10,7 @@ Há várias formas de criptografia das quais você pode tirar proveito:
 
 Os scripts Transact-SQL a seguir fornecem exemplos para cada uma dessas áreas.
 
-<a id="prerequisites-for-examples" class="xliff"></a>
-
-### Pré-requisitos para exemplos
+### <a name="prerequisites-for-examples"></a>Pré-requisitos para exemplos
 
 Cada exemplo tem base em dois pré-requisitos: uma chave assimétrica de seu cofre de chaves chamado **CONTOSO_KEY** e uma credencial criada pelo recurso de Integração de AKV chamada **Azure_EKM_TDE_cred**. Os comandos Transact-SQL a seguir configuram os pré-requisitos para executar os exemplos.
 
@@ -55,9 +51,7 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-<a id="transparent-data-encryption-tde" class="xliff"></a>
-
-### Transparent Data Encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
 
 1. Crie um logon do SQL Server que será usado pelo Mecanismo de banco de dados para TDE e adicione a credencial a ele.
 
@@ -94,9 +88,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="encrypted-backups" class="xliff"></a>
-
-### Backups criptografados
+### <a name="encrypted-backups"></a>Backups criptografados
 
 1. Crie um logon do SQL Server que será usado pelo Mecanismo de banco de dados para criptografia de backups e adicione a credencial a ele.
 
@@ -126,9 +118,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="column-level-encryption-cle" class="xliff"></a>
-
-### Criptografia de nível de coluna (CLE)
+### <a name="column-level-encryption-cle"></a>Criptografia de nível de coluna (CLE)
 
 Esse script cria uma chave simétrica protegida pela chave assimétrica no cofre de chave e usa a chave simétrica para criptografar dados no banco de dados.
 
@@ -153,9 +143,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 Para saber mais sobre como usar esses recursos de criptografia, consulte [Usando EKM com recursos de criptografia do SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 

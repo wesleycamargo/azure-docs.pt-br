@@ -1,4 +1,3 @@
-
 ---
 title: "Agente e extensões de VM do Linux no Azure | Microsoft Docs"
 description: "Fornece uma visão geral do agente e das extensões e de como instalar o agente usando o modelo de implantação clássico em uma VM Linux."
@@ -17,16 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 06b802c408ea5d1b2b40d05321e1a0014e99ca8b
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Sobre o agente e as extensões da máquina virtual para Linux
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre agentes e extensões de VM usando o Resource Manager, veja [aqui](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-

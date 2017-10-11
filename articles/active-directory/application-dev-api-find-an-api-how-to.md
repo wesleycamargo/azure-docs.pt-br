@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 98c247a03132ad1f5bf158d257cd5ba764162112
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: e0c07fd030339d025894520500d2cd948d31af45
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como localizar uma API específica necessária para um aplicativo personalizado
 
 O acesso às APIs exigem configuração de escopos de acesso e funções. Se você quiser expor suas APIs web do aplicativo de recursos para aplicativos cliente, precisará configurar escopos de acesso e funções da API. Se desejar que um aplicativo cliente acesse uma API web, você precisará configurar permissões para acessar a API no registro de aplicativo.
@@ -38,6 +36,5 @@ Quando você adiciona permissões em seu registro de aplicativo, você pode **Ad
 -   [Integrando aplicativos com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 -   [Noções básicas sobre o manifesto de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
 
 

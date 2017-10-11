@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 13bbce6fd02979fb3b59f1dbe7f7010d3ca4b7ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 9b54236ce3446fe1c6a2a30b31f6d91ad43a92d5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Banco de Dados Cosmos do Azure: Criar uma conta da API do DocumentDB usando PowerShell
 
 Este exemplo de script do PowerShell cria uma conta de API do Banco de Dados Cosmos do Azure. 

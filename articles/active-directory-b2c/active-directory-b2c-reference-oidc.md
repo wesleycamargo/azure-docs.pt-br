@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: entrada na Web com o OpenID Connect
 O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web. Ao usar a implementação do Azure AD B2C (Azure Active Directory B2C) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade em seus aplicativos Web para o Azure AD (Azure Active Directory). Este guia mostra como fazer isso de maneira independente da linguagem. Ele descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
@@ -308,5 +307,4 @@ Se você quiser experimentar essas solicitações por conta própria, primeiro d
 1. [Criar um locatário de B2C](active-directory-b2c-get-started.md)e usar o nome do seu locatário nas solicitações.
 2. [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo. Inclui um aplicativo Web/uma API Web em seu aplicativo. Opcionalmente, criar um segredo do aplicativo.
 3. [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
-
 

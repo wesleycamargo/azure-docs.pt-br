@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 630aeba6a881c814a6afb030ad2c064055fc452f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 81713c72da037f127e81239d214d7a877247dca1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Como consultar com a API do Graph (visualização)?
 
 A [API do Graph](graph-introduction.md) (visualização) do Azure Cosmos DB oferece suporte a consultas do [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/). Este artigo fornece exemplos de documentos e consultas para você começar. Uma referência detalhada do Gremlin é fornecida no artigo [Suporte a Gremlin](gremlin-support.md).

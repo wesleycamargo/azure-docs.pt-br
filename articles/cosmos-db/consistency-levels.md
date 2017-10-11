@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. 
@@ -134,4 +133,3 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
   [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, 05-10 de junho de 2010, Toronto, Ontário, Canadá [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
 * Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, abril de 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
-

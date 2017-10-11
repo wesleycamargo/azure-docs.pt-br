@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Substituir as APIs de Nó de Início e Nó de Parada pela API de Nó de Transição
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>O que as APIs de Nó de Parada e de Início fazem?
@@ -290,4 +287,3 @@ Iniciar um nó *parado* usando a API de Transição de Nó o retornará para o f
 [nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
-

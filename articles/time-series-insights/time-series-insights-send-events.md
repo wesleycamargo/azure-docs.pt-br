@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envie eventos para um ambiente de Análise de Séries Temporais usando o hub de eventos
 
@@ -238,4 +237,3 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Exibir seu ambiente no [Portal de Análise de Séries Temporais](https://insights.timeseries.azure.com)
-

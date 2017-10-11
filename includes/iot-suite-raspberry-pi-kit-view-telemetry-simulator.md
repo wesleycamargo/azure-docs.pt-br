@@ -25,7 +25,7 @@ No painel de solução, você pode invocar métodos em seu Raspberry Pi. Quando 
 - Você pode ligar e desligar o LED usando o método **ChangeLightStatus** com **LightStatusValue** definido como **1** para ligar ou **0** para desligar.
 
 > [!WARNING]
-> Se você deixar a solução de monitoramento remoto em execução em sua conta do Azure, você receberá uma cobrança pelo tempo de execução. Para obter mais informações sobre como reduzir o consumo durante a execução da solução de monitoramento remoto, confira [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurando soluções pré-configuradas do Azure IoT Suite para fins de demonstração). Exclua a solução pré-configurada de sua conta do Azure quando terminar de usá-la.
+> Se você deixar a solução de monitoramento remoto em execução em sua conta do Azure, você receberá uma cobrança pelo tempo de execução. Para saber mais sobre como reduzir o consumo durante a execução da solução de monitoramento remoto, confira [Configuração de soluções pré-configuradas do Azure IoT Suite para fins de demonstração][lnk-demo-config]. Exclua a solução pré-configurada de sua conta do Azure quando terminar de usá-la.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

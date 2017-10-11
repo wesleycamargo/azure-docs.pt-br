@@ -15,13 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
 
@@ -451,5 +449,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
-
 

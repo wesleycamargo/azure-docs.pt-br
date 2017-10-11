@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="governance-in-azure"></a>Governança no Azure
 
 Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar sua ampla variedade de ferramentas e recursos de segurança. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure.
@@ -493,4 +491,3 @@ Estas são as ferramentas de entidade de serviço:
 - [Exemplos de implementação da governança de assinatura do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples).
 
 - [Governo do Microsoft Azure](https://docs.microsoft.com/azure/azure-government/).
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4a9bf4193017313f532b398880a84966367f0b58
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
-
+ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
 No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoas e contas profissionais do Azure Active Directory precisava fazer a integração com dois sistemas separados.  O **ponto de extremidade do Azure AD v2.0** introduz uma nova versão da API de autenticação que permite que você entre nos dois tipos de contas usando uma integração simples.  Aplicativos que usam o ponto de extremidade v2.0 também consomem APIs REST do [Microsoft Graph](https://graph.microsoft.io) usando qualquer um dos tipos de conta.
@@ -60,5 +58,4 @@ Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Ac
 
 > [!NOTE]
 > Se você precisar apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com nosso [guia do desenvolvedor do Azure AD](active-directory-developers-guide.md).  O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.
-
 

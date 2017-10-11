@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8dc7c2fb833c1c51ecef772ba1cbe5f0405fe494
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Carregar dados do SQL Server no Azure SQL Data Warehouse (arquivos simples)
 > [!div class="op_single_selector"]
@@ -201,4 +198,3 @@ Consulte [Visão geral da tabela][Table Overview] ou [Sintaxe CREATE TABLE][CREA
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

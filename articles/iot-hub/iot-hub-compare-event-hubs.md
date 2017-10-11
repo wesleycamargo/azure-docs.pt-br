@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12389b4be03b714d99edcf3fd621bd2d9c586540
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: a37df79a38a35b61cca72918d4d893a4bfc83b7e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparação do Hub IoT do Azure e Hubs de Eventos do Azure
 Um dos principais casos de uso do Hub IoT é coletar a telemetria dos dispositivos. Por esse motivo, o Hub IoT muitas vezes é comparado aos [Hubs de Eventos do Azure][Azure Event Hubs]. Assim como o Hub IoT, o Hubs de Eventos do Azure é um serviço de processamento de eventos que permite a entrada em grande escala de telemetria e de eventos na nuvem, com baixa latência e alta confiabilidade.
@@ -66,4 +65,3 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-

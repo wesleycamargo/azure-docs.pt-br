@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 93a3bba0fbc635bd04063168796eac0d89fba87c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurar políticas de entrega de ativos usando o SDK do .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -350,5 +349,4 @@ O enum a seguir descreve os valores que você pode definir para configurar as ch
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

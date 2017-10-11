@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/18/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: f4b5b6767a6f870020d558155933caef417f0639
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: cd3d87bb4384971e28d3330cd5c1a3d351129036
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Script de exemplo para carregar um VHD para o Azure e criar uma nova VM
 
 Esse script leva um arquivo .vhd local de uma VM generalizada e carrega-o para o Azure, cria uma imagem de Managed Disk e utiliza para criar uma nova VM.
@@ -158,4 +156,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

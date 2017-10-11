@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 1b96ab084acae14b35634666ae465d406c25f75a
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (Projetos do MVC)
 > [!div class="op_single_selector"]
@@ -82,5 +81,4 @@ Para adicionar controles SignIn/SignOut à exibição, é possível usar a exibi
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/) 
-
 

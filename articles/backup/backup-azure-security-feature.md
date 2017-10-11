@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 Preocupações sobre problemas de segurança, como malware, ransomware e invasão, estão aumentando. Esses problemas de segurança podem ser dispendiosos em termos de dinheiro e dados. Para se proteger contra esses ataques, o Backup do Azure agora fornece recursos de segurança para ajudar a proteger os backups híbridos. Este artigo aborda como habilitar e usar esses recursos, usando um agente dos Serviços de Recuperação do Azure e o Servidor de Backup do Azure. Esses recursos incluem:
@@ -119,4 +118,3 @@ Os recursos de Segurança mencionados neste artigo fornecem mecanismos de defesa
 * [Baixe o agente dos Serviços de Recuperação do Azure mais recente](http://aka.ms/azurebackup_agent) para ajudar a proteger computadores com Windows e proteger seus dados de backup contra ataques.
 * [Baixe o Servidor de Backup do Azure mais recente](https://aka.ms/latest_azurebackupserver) para ajudar a proteger as cargas de trabalho e proteger seus dados de backup contra ataques.
 * [Baixar UR12 para o System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [Baixar UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para ajudar a proteger as cargas de trabalho e seus dados de backup contra ataques.
-

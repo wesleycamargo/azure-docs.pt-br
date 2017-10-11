@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedagem de zonas de pesquisa de DNS reverso no Azure DNS
 
 Este artigo explica como hospedar as zonas de pesquisa inversas do DNS para seus intervalos de IP atribuídos no DNS do Azure. Os intervalos de IP representados pela zona de pesquisa inversa devem ser atribuídos à sua organização, normalmente por seu ISP.
@@ -119,7 +117,7 @@ Para zonas de pesquisa direta, o processo de delegação de uma zona DNS está d
 
 O exemplo a seguir explica o processo de criação de um registro PTR em uma zona DNS reverso no DNS do Azure. Para outros tipos de registro e para modificar os registros existentes, confira [Gerenciar registros DNS e conjuntos de registros usando o Portal do Azure](dns-operations-recordsets-portal.md).
 
-1.    Na parte superior da folha **zona DNS**, selecione **+Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
+1.  Na parte superior da folha **zona DNS**, selecione **+Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
 
  ![Zona DNS](./media/dns-reverse-dns-hosting/figure4.png)
 
@@ -269,4 +267,3 @@ Para saber mais, veja [Importar e exportar um arquivo de zona DNS usando a CLI d
 Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Saiba como [gerenciar registros DNS reversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md).
-

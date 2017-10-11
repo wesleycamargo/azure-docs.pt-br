@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Adicionar as credenciais a um aplicativo de página única do AngularJS - .NET
 Neste artigo adicionaremos a entrada com contas da plataforma Microsoft a um aplicativo AngularJS usando o ponto de extremidade v2.0 do Azure Active Directory.  O ponto de extremidade v2.0 permite executar uma integração única em seu aplicativo e autenticar usuários com contas pessoais e corporativas/de estudante.
@@ -236,5 +234,4 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
 

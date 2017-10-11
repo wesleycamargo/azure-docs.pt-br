@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c0c120a457e9eaf0e7ea44f3fc6502fa71d673e7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: e40d152821b36852c447d5a3adfd39114edbbace
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
 
@@ -137,4 +136,3 @@ Para saber mais sobre como usar o Hadoop no HDInsight, veja os seguintes documen
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-

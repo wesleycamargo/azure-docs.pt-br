@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do SQL Server com a solução de Avaliação de SQL da Log Analytics
 
@@ -249,4 +248,3 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir dados detalhados de Avaliação do SQL e recomendações.
-

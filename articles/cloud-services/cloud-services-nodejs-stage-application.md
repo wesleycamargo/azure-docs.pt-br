@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Preparando um aplicativo no Azure
 Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure para ser testado antes de movê-lo para o ambiente de produção onde o aplicativo pode ser acessado na Internet. O ambiente de preparo é exatamente igual ao ambiente de produção, exceto que você só poderá acessar o aplicativo preparado com uma URL ofuscada que é gerada pelo Azure. Após verificar que seu aplicativo está funcionando corretamente, ele pode ser implantado no ambiente de produção executando uma permuta do VIP (IP Virtual).
@@ -74,4 +73,3 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
-

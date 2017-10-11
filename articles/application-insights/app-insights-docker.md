@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: b0d98688518acd2157905fda6a9a847763e45ae7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorar aplicativos do Docker no Application Insights
 Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](app-insights-overview.md) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
@@ -130,4 +129,3 @@ Tempo do processador e contadores de desempenho de memória disponíveis, aprimo
 * [Application Insights para Java](app-insights-java-get-started.md)
 * [Application Insights para Node.js](app-insights-nodejs.md)
 * [Application Insights para ASP.NET](app-insights-asp-net.md)
-

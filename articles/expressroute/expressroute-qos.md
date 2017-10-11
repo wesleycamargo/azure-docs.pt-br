@@ -1,6 +1,6 @@
 ---
 title: Requisitos de QoS para ExpressRoute | Microsoft Docs
-description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de QoS para circuitos da Rota Expressa."
+description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de QoS para circuitos do ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
 ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="expressroute-qos-requirements"></a>Requisitos de QoS para Rota Expressa
-Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de Rota Expressa, siga os requisitos descritos abaixo.
+# <a name="expressroute-qos-requirements"></a>Requisitos de QoS para o ExpressRoute
+Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de ExpressRoute, siga os requisitos descritos abaixo.
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
@@ -47,10 +46,9 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte os requisitos para [Roteamento](expressroute-routing.md) e [NAT](expressroute-nat.md).
-* Consulte os links a seguir para configurar a conexão da Rota Expressa.
+* Consulte os links a seguir para configurar a conexão do ExpressRoute.
   
-  * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
-  * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)
 

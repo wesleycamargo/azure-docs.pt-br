@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
 Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
 
@@ -50,4 +47,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

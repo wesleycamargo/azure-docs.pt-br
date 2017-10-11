@@ -15,14 +15,12 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
 Você pode fornecer o logon único para aplicativos locais, publicados por meio do Proxy do Aplicativo, que sejam protegidos com a Autenticação Integrada do Windows. Esses aplicativos exigem um tíquete Kerberos para acessar. O Proxy do Aplicativo usa a KCD (Delegação restrita de Kerberos) para dar suporte a esses aplicativos. 
@@ -130,5 +128,4 @@ Porém, em alguns casos, a solicitação será enviada com êxito para o aplicat
 
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
-
 

@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: f8296aa92f58829da698cae8bf6e2e9191c4b257
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 
@@ -188,5 +187,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com a Área Restrita Salesforce.
 
 Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
-
 

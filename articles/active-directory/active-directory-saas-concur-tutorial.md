@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 0b44437b3dcf69dae3587529da7d12e7809b9f55
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutorial: integração do Active Directory do Azure ao Concur
 
@@ -31,7 +29,7 @@ A integração do Concur com o Azure AD oferece os seguintes benefícios:
 - É possível permitir que usuários façam logon automaticamente no Concur (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para obter mais informações sobre a integração de aplicativos de SaaS ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Caso deseje obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,7 +215,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configurar Provisionamento do Usuário](active-directory-saas-concur-provisioning-tutorial.md)
+* [Configurar Provisionamento de Usuário](active-directory-saas-concur-provisioning-tutorial.md)
 
 
 
@@ -234,5 +232,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-concur-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-concur-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-concur-tutorial/tutorial_general_203.png
-
 

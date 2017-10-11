@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015
 
 Esse novo esquema e a versão da API para Aplicativos Lógicos do Azure incluem os principais aprimoramentos que tornam a lógica de aplicativos mais confiável e fácil de usar:
 
-*    O tipo de ação **APIApp** é atualizado para um novo tipo de ação [**APIConnection**](#api-connections).
-*    **Repeat** é renomeado para [**Foreach**](#foreach).
-*    O [**aplicativo de API** Ouvinte HTTP](#http-listener) não é mais necessário.
-*    A ação de chamar fluxos de trabalho secundários usa um [novo esquema](#child-workflows).
+*   O tipo de ação **APIApp** é atualizado para um novo tipo de ação [**APIConnection**](#api-connections).
+*   **Repeat** é renomeado para [**Foreach**](#foreach).
+*   O [**aplicativo de API** Ouvinte HTTP](#http-listener) não é mais necessário.
+*   A ação de chamar fluxos de trabalho secundários usa um [novo esquema](#child-workflows).
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>Mover para conexões de API
@@ -480,4 +478,3 @@ Adicionaremos mais tipos de conteúdo em breve e, portanto, renomeamos a funçã
 ## <a name="coming-soon-enterprise-integration-apis"></a>Em breve: APIs de Integração Corporativa
 
 Não temos versões gerenciadas ainda das APIs de integração do Enterprise, como o AS2. Enquanto isso, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja "Uso dos seus aplicativos de API já implantados" no [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
-

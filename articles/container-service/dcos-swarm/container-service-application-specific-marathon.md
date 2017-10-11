@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 3134872eb59f2f6219499f3d5a92673f680af04d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
 O Serviço de Contêiner do Azure fornece um conjunto de servidores mestres no qual podemos pré-configurar o Apache Mesos e o Marathon. Eles podem ser usados para orquestrar seus aplicativos no cluster, mas é melhor não usar os servidores mestres para essa finalidade. Por exemplo, para fazer o ajuste da configuração do Marathon é necessário fazer o logon nos próprios servidores mestres e então fazer as alterações; isso incentiva a existência de servidores mestres exclusivos que sejam um pouco diferentes do padrão e que precisam ser cuidados e gerenciados de forma independente. Além disso, a configuração exigida por uma equipe pode não ser a configuração ideal para outra equipe.
@@ -58,5 +57,4 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
 Você pode verificar em qual instância do Marathon a CLI está funcionando com o comando `dcos config show` . Você pode voltar a usar o serviço Marathon mestre com o comando `dcos config unset marathon.url`.
-
 

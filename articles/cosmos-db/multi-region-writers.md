@@ -15,13 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Arquiteturas de banco de dados replicadas globalmente de vários mestres com o Azure Cosmos DB
 O Azure Cosmos DB dá suporte turnkey à [replicação global](distribute-data-globally.md), que permite que você distribua dados para várias regiões com acesso de baixa latência em qualquer lugar na carga de trabalho. Esse modelo é usado para cargas de trabalho do publisher/consumidor onde há um gravador em uma única região geográfica e leitores distribuídos globalmente em outras regiões (leitura). 
@@ -323,4 +321,3 @@ Neste artigo, descrevemos como você pode usar padrões de leitura e gravação 
 * Desenvolver com várias regiões usando o [Azure Cosmos DB – API do DocumentDB](tutorial-global-distribution-documentdb.md)
 * Desenvolver com várias regiões usando o [Azure Cosmos DB – API do MongoDB](tutorial-global-distribution-MongoDB.md)
 * Desenvolver com várias regiões usando o [Azure Cosmos DB – API da Tabela](tutorial-global-distribution-table.md)
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 Este documento fornece contexto e descrições de vários recursos encontrados no Portal de Registro de Aplicativos da Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -48,5 +46,4 @@ Quando você habilita o "Suporte ao Live SDK", qualquer segredo do aplicativo cr
 Desativar o suporte do Live SDK garantirá que o segredo do aplicativo seja gravado apenas nos armazenamentos de dados do Azure AD.  Os armazenamentos de dados do Azure AD incorporam regulamentos de nível empresarial que lhes permitem atender a determinados padrões, como a conformidade FISMA.  Se você habilitar o suporte ao Live SDK, talvez seu aplicativo não fique em conformidade com alguns desses padrões.
 
 Se você planeja usar o ponto de extremidade v2.0 do Azure AD, desabilite com segurança o suporte ao Live SDK.
-
 

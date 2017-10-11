@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 9ccac43ae365d79bfd6ac1edf4d9a799c11356a1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Executar consultas Hive usando o Console de Consulta
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -124,4 +123,3 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-

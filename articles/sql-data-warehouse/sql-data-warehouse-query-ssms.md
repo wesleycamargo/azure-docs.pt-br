@@ -15,18 +15,17 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3cf78b59dc2dd010fdf4f480b09b3f80def1e62d
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conectar-se ao SQL Data Warehouse com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * 
+            [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -102,4 +101,3 @@ Para configurar seu ambiente para a autenticação do Azure Active Directory, co
 [4]: media/sql-data-warehouse-query-ssms/new-query.png
 [5]: media/sql-data-warehouse-query-ssms/execute-query.png
 [6]: media/sql-data-warehouse-query-ssms/results.png
-

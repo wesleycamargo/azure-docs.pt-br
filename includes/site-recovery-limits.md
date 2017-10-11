@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 Os seguintes limites se aplicam ao Azure Site Recovery:
 
@@ -29,5 +29,4 @@ Os seguintes limites se aplicam ao Azure Site Recovery:
 | Número de planos de recuperação por cofre do Azure |Sem limite |
 | Número de servidores por grupo de proteção |Sem limite |
 | Número de servidores por plano de recuperação |50 |
-
 

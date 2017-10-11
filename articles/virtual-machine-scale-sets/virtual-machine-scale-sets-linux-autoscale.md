@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente computadores Linux em um conjunto de escala de máquina virtual
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para saber mais, consulte [Visão geral de conjuntos de escala de máquina virtual](virtual-machine-scale-sets-overview.md).
@@ -592,5 +591,4 @@ azure group delete vmsstestrg1
 * Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Confira o modelo de [aplicativo de demonstração de dimensionamento automático no Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) que configura um aplicativo Python/Bottle para praticar a funcionalidade de dimensionamento automático de Conjuntos de dimensionamento de máquinas virtuais.
-
 

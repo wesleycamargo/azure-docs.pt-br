@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/23/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 9099e90c402185b371495379db943d64fb82cdb8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-table-storage-overview"></a>Visão geral do armazenamento de tabelas
 
@@ -42,4 +41,3 @@ Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados fle
     * [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
     * [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
-

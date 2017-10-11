@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/30/2017
 ms.author: markgal;masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Executar uma instalação autônoma do Servidor de Backup do Azure v2
 
@@ -69,7 +67,6 @@ Você pode usar esses sinalizadores para a instalação:</br>
 Depois de instalar o Servidor de Backup, saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho.
 
 - [Preparar as cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
-- [Usar o Servidor de Backup para fazer backup de um servidor do VMware](backup-azure-backup-server-vmware.md)
+- [Usar o Servidor de Backup para fazer backup de um Servidor do VMware](backup-azure-backup-server-vmware.md)
 - [Usar o Servidor de Backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
 - [Adicionar Armazenamento de Backup Moderno para o Servidor de Backup](backup-mabs-add-storage.md)
-

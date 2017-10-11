@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Como criar e gerenciar o Cache Redis do Azure usando a Interface de Linha de Comando do Azure (CLI do Azure)
 > [!div class="op_single_selector"]
@@ -272,4 +271,3 @@ Para saber mais sobre esse comando, execute o comando `azure rediscache list-key
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
-

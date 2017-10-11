@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
-ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
@@ -175,4 +174,3 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
-

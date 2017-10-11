@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 8a7481b71df5ca407dbed5da3d3cc26991504c82
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Active Directory ao MaxxPoint
 
@@ -30,7 +29,7 @@ A integração do MaxxPoint ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no MaxxPoint (logon único) com as contas do Azure AD deles
 - Você pode gerenciar suas contas em um único local: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [o que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,9 +103,9 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo**, como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
+    ![Configurar Logon Único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
 3. Na seção **Domínio e URLs do MaxxPoint**, se você quiser configurar o aplicativo no **Modo iniciado por IDP**, não é necessário executar qualquer etapa.
 
@@ -137,7 +136,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, simplesmente clique na guia **Logon Único** e acesse a documentação inserida através da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 

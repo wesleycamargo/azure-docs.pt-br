@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
@@ -528,5 +526,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 ## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-
 

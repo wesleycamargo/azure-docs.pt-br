@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 2aeeceb61191962b62892b8409218684f76c6fa8
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Active Directory do Azure com o Replicon
 O objetivo deste tutorial é mostrar a integração do Azure com o Replicon. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
@@ -85,7 +84,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
      > 
      > 
  
-  3. Clique em **Próximo**.
+  3. Clique em **Avançar**.
 
 4. Na página **Configurar logon único no Replicon**, para baixar os metadados, clique em **Baixar metadados** e salve os metadados no computador.
    
@@ -153,5 +152,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
     ![Sim](./media/active-directory-saas-replicon-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
 

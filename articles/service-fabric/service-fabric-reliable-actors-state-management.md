@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
 Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação usados pelos Reliable Services. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
@@ -412,4 +410,3 @@ class MyActorImpl extends FabricActor implements  MyActor
 O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Em seguida, saiba mais sobre [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md).
-

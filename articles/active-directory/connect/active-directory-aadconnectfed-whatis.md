@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 589c37d4bb59ceeb37742163fad21d465b3d3827
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federação
 O Azure Active Directory (Azure AD) Connect permite a você configurar a federação com os Serviços de Federação do Active Directory (AD FS) locais e o Azure AD. Com o logon federado, você pode habilitar os usuários a entrar em serviços baseados no Azure AD com suas senhas locais sem precisar digitar suas senhas novamente enquanto estiverem na rede corporativa. Usando a opção de federação com o AD FS, você pode implantar uma nova instalação do AD FS ou você pode especificar uma instalação existente em um farm do Windows Server 2012 R2.
@@ -52,4 +51,3 @@ Este tópico é a base das informações sobre funcionalidades relacionadas à F
 * [Federando dois Azure ADs a um único AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
 * [Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>Etapa 3: Planejar a capacidade e o dimensionamento para a replicação de servidor físico para o Azure
 
@@ -148,4 +146,3 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
 ## <a name="next-steps"></a>Próximas etapas
 
 Ir para a [Etapa 4: Planejar a rede](physical-walkthrough-network.md).
-

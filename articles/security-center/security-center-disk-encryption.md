@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
 A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas serão mostrados como Alta Severidade e a recomendação é criptografar essas máquinas virtuais.
@@ -180,4 +178,3 @@ Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Pa
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-

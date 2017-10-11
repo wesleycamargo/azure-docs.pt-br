@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Sinônimos no Azure Search (versão prévia)
 
@@ -166,4 +165,3 @@ Expansões de sinônimo não se aplicam a termos de pesquisa de curinga; prefixo
 - Se houver um índice em um ambiente de desenvolvimento (não produção), experimente um dicionário pequeno para ver como a adição de sinônimos altera a experiência de pesquisa, incluindo o impacto nos perfis de pontuação, o realce de acesso e as sugestões.
 
 - [Habilite a análise de tráfego de pesquisa](search-traffic-analytics.md) e use o relatório do Power BI predefinido para saber quais termos são os mais usados e quais retornam zero documentos. Armado com essa visão, revise o dicionário para incluir sinônimos de consultas improdutivas que devem ser resolvidas para documentos no índice.
-

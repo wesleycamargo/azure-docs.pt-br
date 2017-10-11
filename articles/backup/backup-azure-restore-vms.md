@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: trinadhk; jimpark;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Restaurar máquinas virtuais no Azure
 > [!div class="op_single_selector"]
@@ -167,4 +166,3 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 * [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4fb4c7e39c0385cae7c7984eb774d6a468ee18e4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurando a Ferramenta de Importação/Exportação do Azure
 A Ferramenta de Importação/Exportação do Microsoft Azure é a ferramenta de preparação e reparo da unidade que pode ser usada com o serviço de Importação/Exportação do Microsoft Azure. É possível usar a ferramenta para as seguintes funções:  
   
@@ -262,4 +260,3 @@ Examples:
 * [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
 * [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
-

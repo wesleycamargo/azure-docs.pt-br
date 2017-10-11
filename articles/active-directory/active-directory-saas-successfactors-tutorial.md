@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
-ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com o SuccessFactors
 O objetivo desse tutorial é mostrar como integrar o SuccessFactors ao Azure AD (Azure Active Directory).
@@ -235,7 +234,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure][21]
@@ -248,7 +247,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     d. Na lista **Função**, selecione **Usuário**.
    
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure][22]
@@ -331,4 +330,3 @@ Quando você clicar no bloco SuccessFactors no Painel de Acesso, deverá fazer l
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-

@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ffab59315a5533c9df92e8b18b4db2ff2314fd59
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 04ccb4ab4e60a11cdce11ca8194c157b8e8f11f4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
 O Banco de Dados do Azure para MySQL foi desenvolvido a partir do MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/), usando o mecanismo InnoDB.  No momento, o Banco de Dados do Azure para MySQL oferece suporte às seguintes versões.
@@ -31,4 +30,3 @@ O Banco de Dados do Azure para MySQL gerencia automaticamente a aplicação de p
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](./concepts-service-tiers.md)
-

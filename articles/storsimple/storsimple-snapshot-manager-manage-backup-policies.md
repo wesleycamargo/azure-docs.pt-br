@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 88fc29b81c9502374a25cb34175ad1ee7c25423f
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
 ## <a name="overview"></a>Visão geral
@@ -95,4 +93,3 @@ Use o procedimento a seguir para excluir uma política de backup.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
-ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/14/2017
-
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrar o AD do Azure com um aplicativo Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -292,4 +291,3 @@ Para referência, o exemplo concluído (sem seus valores de configuração) est�
 Agora você pode passar para cenários mais avançados (e mais interessantes). Você talvez queira: [proteger uma API da Web Node. js com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

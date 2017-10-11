@@ -16,12 +16,11 @@ ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory
 
@@ -40,7 +39,7 @@ Os usuários adicionados não têm permissões de administrador, mas você pode 
 
    * **Usuário em outro diretório do AD do Azure** – adiciona uma conta de usuário a seu diretório originado de outro diretório do AD do Azure. Você só poderá selecionar um usuário em outro diretório se também for membro desse diretório.
    * **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório (confira [Colaboração B2B do Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Você precisará [carregar um arquivo CSV especificando endereços de email](active-directory-b2b-references-csv-file-format.md).
-5. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e uma função de usuário da lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar Multi-Factor Authentication** para o usuário.
+5. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e uma função de usuário da lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar Autenticação Multifator** para o usuário.
 6. Na página **Obter senha temporária**, selecione **Criar**.
 
 > [!IMPORTANT]
@@ -80,4 +79,3 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 * [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
-

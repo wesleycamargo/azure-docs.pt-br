@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
 Para oferecer um desempenho previsível em escala, o SQL Data Warehouse do Microsoft Azure ajuda a controlar os níveis de simultaneidade e as alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse. O gerenciamento de carga de trabalho do SQL Data Warehouse destina-se a ajudá-lo a dar suporte a ambientes com vários usuários. Ele não se destina a cargas de trabalho com vários locatários.
@@ -89,7 +88,7 @@ Mais alguns detalhes sobre classes de recurso:
 Para obter um exemplo detalhado, consulte [Alterando o exemplo de classe de recurso de usuário](#changing-user-resource-class-example).
 
 ## <a name="memory-allocation"></a>Alocação de memória
-Há prós e contras quanto ao aumento da classe de recurso do usuário. Aumentar uma classe de recurso para um usuário dá às consultas dele acesso a mais memória, o que pode significar que as consultas serão executadas mais rapidamente.  No entanto, classes de recursos superiores também reduzem o número de consultas simultâneas que podem ser executadas. Essa é a compensação entre alocar grandes quantidades de memória para uma única consulta ou permitir que outras consultas, que também precisam de alocações de memória, sejam executadas simultaneamente. Se um usuário receber alocações de memória altas para uma consulta, outros usuários não terão acesso a essa mesma memória para executar uma consulta.
+Há prós e contras quanto ao aumento da classe de recurso do usuário. O aumento de uma classe de recurso para um usuário concede às suas consultas acesso a mais memória, o que pode significar que as consultas serão executadas mais rapidamente.  No entanto, classes de recursos superiores também reduzem o número de consultas simultâneas que podem ser executadas. Essa é a compensação entre alocar grandes quantidades de memória para uma única consulta ou permitir que outras consultas, que também precisam de alocações de memória, sejam executadas simultaneamente. Se um usuário receber alocações de memória altas para uma consulta, outros usuários não terão acesso a essa mesma memória para executar uma consulta.
 
 A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e classe de recurso.
 
@@ -220,7 +219,7 @@ Aqui está a finalidade deste procedimento armazenado:
 - Esse procedimento armazenado depende das ofertas de classe de recursos existentes e se isso mudar, o procedimento armazenado não funcionará corretamente.  
 
 >  [!NOTE]  
->  Se você não estiver obtendo a saída após executar o procedimento armazenado com parâmetros fornecidos, então poderá ser dois casos. <br />1. Um parâmetro de DW contém o valor inválido de SLO <br />2. OU não há nenhuma classe de recurso correspondente para a operação CCI se o nome de tabela tiver sido fornecido. <br />Por exemplo, no DW100, a concessão de memória mais alta disponível é 400 MB e se o esquema de tabela for grande o suficiente para atravessar o requisito de 400 MB.
+>  Se nenhuma saída aparecer após a execução do procedimento armazenado com parâmetros fornecidos, isso poderá ser consequência de dois problemas. <br />1. Um parâmetro de DW contém o valor inválido de SLO <br />2. OU não há nenhuma classe de recurso correspondente para a operação CCI se o nome de tabela tiver sido fornecido. <br />Por exemplo, no DW100, a concessão de memória mais alta disponível é 400 MB e se o esquema de tabela for grande o suficiente para atravessar o requisito de 400 MB.
       
 #### <a name="usage-example"></a>Exemplo de uso:
 Sintaxe:  
@@ -842,4 +841,3 @@ Para obter mais informações sobre como gerenciar usuários de banco de dados e
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-

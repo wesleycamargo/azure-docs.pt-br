@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
 Após o failover de suas máquinas virtuais, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -401,4 +400,3 @@ Você pode prosseguir com a [nova proteção](site-recovery-how-to-reprotect.md)
 * Devido a algumas configurações de NIC personalizadas em alguns clientes, a interface de rede é desabilitada durante a inicialização, e não é possível inicializar o destino mestre. Verifique se as propriedades a seguir foram definidas corretamente. Verifique essas propriedades em /etc/sysconfig/network-scripts/ifcfg-eth* do arquivo da placa Ethernet.
     * BOOTPROTO=dhcp
     * ONBOOT=yes
-

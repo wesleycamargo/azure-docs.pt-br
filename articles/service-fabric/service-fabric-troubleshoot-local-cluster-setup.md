@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Solucionar problemas de configuração do cluster de desenvolvimento local
 Se você tiver um problema ao interagir com o cluster de desenvolvimento local do Service Fabric do Azure, examine as sugestões a seguir para ver as possíveis soluções.
@@ -91,5 +89,4 @@ Verifique se você não possui um projeto de serviço definido como projeto de i
 ## <a name="next-steps"></a>Próximas etapas
 * [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
-
 

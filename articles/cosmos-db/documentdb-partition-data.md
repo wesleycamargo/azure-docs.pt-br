@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Particionamento no Azure Cosmos DB usando a API do DocumentDB
 
@@ -229,5 +228,4 @@ Neste artigo, apresentamos uma visão geral de como trabalhar com o particioname
 * Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](performance-testing.md) para obter um exemplo.
 * Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/)
 * Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 4962c26e6bf2ed36ce670cc78f4ecfcab871a8bf
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.openlocfilehash: b7a3844ce86b4efac8a4fc3c2540e7b6460873a2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="high-performance-compute-linux-vm-sizes"></a>Tamanhos de VM Linux de computação de alto desempenho
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
@@ -85,7 +83,6 @@ Estes são os requisitos para VMs Linux compatíveis com RDMA acessarem a rede R
 - Para se familiarizar com a implantação e o uso dos tamanhos de computação intensiva com o RDMA no Linux, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 - Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
-
 
 
 

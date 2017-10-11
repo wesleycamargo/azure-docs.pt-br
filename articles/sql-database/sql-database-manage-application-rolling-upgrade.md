@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciando a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
 > [!NOTE]
@@ -139,6 +137,5 @@ Os dois métodos de atualização descritos no artigo diferem em complexidade e 
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
 * Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups automatizados](sql-database-recovery-using-backups.md).
 * Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
-
 
 

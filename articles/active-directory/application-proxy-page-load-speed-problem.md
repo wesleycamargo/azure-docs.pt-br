@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e172f55d45bccfd126928225eb9f78da61a670d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: ce462c90746e6af0dc201686557121665b82b93d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Um aplicativo de Proxy de Aplicativo demora muito para carregar
 
 Este artigo ajuda-o a entender porque um aplicativo de Proxy de Aplicativo do Azure AD pode demorar muito tempo para carregar e o que pode ser feito para resolver esse problema.
@@ -39,4 +37,3 @@ Nós estamos trabalhando em alguns recursos adicionais que ajudam a melhorar a l
 
 ## <a name="next-steps"></a>Próximas etapas
 [Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
-

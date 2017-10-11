@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Listando seu aplicativo na galeria de aplicativos do Azure Active Directory
 Para listar um aplicativo que dê suporte a logon único com o Active Directory do Azure na [galeria do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), o aplicativo primeiro precisa implementar um dos seguintes modos de integração:
@@ -95,5 +94,4 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 > 
 > 
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 25b4da6a555fa2a5e029eadbea45eb6148518e70
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -112,5 +111,4 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou W
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

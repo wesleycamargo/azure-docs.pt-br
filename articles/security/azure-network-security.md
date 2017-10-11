@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
 Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar sua ampla matriz de ferramentas e recursos de segurança. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma do Azure.
@@ -78,7 +75,7 @@ Neste documento, abordaremos os seguintes recursos corporativos de rede do Azure
 
 ### <a name="basic-network-connectivity"></a>Conectividade de rede básica
 
-O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dedicados.
+O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode se conectar VNets entre si e às suas redes locais usando VPNs site a site e dedicado [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Conectividade de rede básica](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -665,4 +662,3 @@ Saiba mais sobre a segurança lendo alguns dos tópicos detalhados sobre seguran
 -   [Como a Microsoft constrói a sua rede global rápida e confiável](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
 -   [Esclarecendo a inovação de rede](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
-

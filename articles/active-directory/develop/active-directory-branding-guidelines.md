@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 316f073019abef03227b741d9349d0ca75dda6bd
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 Este tópico discute as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure Active Directory. Essas diretrizes ajudarão a direcionar os clientes quando eles quiserem usar sua conta comercial ou de estudante, gerenciada no Azure AD, para inscrição e logon no seu aplicativo.
@@ -90,5 +88,4 @@ Você também pode usar um esquema de cores escuras para os botões.
 
 ## <a name="navigation-dos-and-donts"></a>Regras de navegação
 **Forneça** uma maneira de os usuários fazerem logout e trocarem para outra conta de usuário. Embora a maioria das pessoas tenha uma única conta pessoal da Microsoft/Facebook/Google/Twitter, as pessoas geralmente são associadas a mais de uma organização. O suporte a vários usuários conectados estará disponível em breve.
-
 

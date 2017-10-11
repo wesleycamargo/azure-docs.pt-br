@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: f894191baced710fc0f5a8c8692df98033341a48
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure usando CoScale
 
 Neste artigo, mostramos como implantar o agente [CoScale](https://www.coscale.com/) para monitorar todos os nós e contêineres em seu cluster Kubernetes do Serviço de Contêiner do Azure. Você precisa de uma conta com CoScale para essa configuração. 
@@ -89,5 +87,4 @@ O agente do CoScale é implantado automaticamente em novas máquinas no cluster.
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte a [documentação do CoScale](http://docs.coscale.com/) e o [blog](https://www.coscale.com/blog) para saber mais sobre soluções de monitoramento do CoScale. 
-
 

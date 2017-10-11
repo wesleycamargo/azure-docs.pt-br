@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1c72b0ddee636090129dab7a5c7ec6ffd452434a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Active Directory do Azure com o QuickHelp
 
@@ -259,4 +257,3 @@ Quando você clica no bloco QuickHelp no Painel de Acesso, deve fazer logon auto
 [21]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_05.png
 [22]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_06.png
 [23]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_07.png
-

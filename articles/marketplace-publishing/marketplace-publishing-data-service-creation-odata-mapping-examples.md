@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Exemplos de mapeamento de um serviço Web existente para OData por meio de CSDL
 > [!IMPORTANT]
@@ -164,5 +162,4 @@ Use implementar paginação RESTful atraves de seus dados com GET.  Paginação 
 * Se estiver interessado em entender o processo e a finalidade geral do mapeamento de OData, leia este artigo [Mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping.md) para examinar as definições, as estruturas e as instruções.
 * Se estiver interessado em aprender e em compreender os nós específicos e seus parâmetros, leia este artigo [Nós do mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para obter definições, explicações, exemplos e contexto de casos de uso.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
-
 

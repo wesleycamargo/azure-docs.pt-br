@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2a99cdddfcfa9ea7834e2f45952030b9159c700f
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 1f2f6301267c43919efc298573b6239cacf39239
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-iis-vm-with-powershell"></a>Criar uma VM IIS com o PowerShell
 
 Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016 e, em seguida, usa a Extensão de Script Personalizado da Máquina Virtual do Azure para instalar o IIS. Após a execução do script, é possível acessar o site do IIS padrão no endereço IP público da máquina virtual.
@@ -68,4 +66,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f97294d97acff6daaaeb5c4bfe77f295d356997c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 481f3efdb1cbbeba328183da7e320c7e5b819b3a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="connect-a-web-app-to-a-storage-account"></a>Conectar um aplicativo Web a uma conta de armazenamento
 
 Nesse cenário, você aprenderá como criar uma conta de armazenamento do Azure e um aplicativo Web. Em seguida, você vinculará a conta de armazenamento ao aplicativo Web usando configurações do aplicativo.
@@ -60,4 +58,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../app-service-powershell-samples.md).
-

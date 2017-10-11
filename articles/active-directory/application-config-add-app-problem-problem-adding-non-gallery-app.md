@@ -13,45 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2dd8ed2cc0cd9575dcc56f489afa19a41cc9c10a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bb3fc7877f4e7cafc3904fc67abd87b897874d8a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="problem-adding-a-non-gallery-application" class="xliff"></a>
-
-# Problema ao adicionar um aplicativo inexistente na galeria
+# <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar um aplicativo inexistente na galeria
 
 Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao adicionar **aplicativos personalizados inexistentes na galeria** e o que você pode fazer para resolvê-los. 
 
-<a id="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear" class="xliff"></a>
-
-## Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
 
 Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [Portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo**.
 
 Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado de **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
-<a id="i-clicked-the-add-button-and-my-application-didnt-appear" class="xliff"></a>
-
-## Cliquei no botão "adicionar" e meu aplicativo não apareceu
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "adicionar" e meu aplicativo não apareceu
 
 Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo falha. Você sabe que isso aconteceu quando clica no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure e vê um ícone vermelho (!) ao lado de sua notificação **Criar aplicativo**. Isso indica que ocorreu um erro ao criar o aplicativo.
 
 Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
-<a id="i-dont-know-how-to-set-up-my-application-once-ive-added-it" class="xliff"></a>
-
-## Não sei configurar meu aplicativo após tê-lo adicionado
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo após tê-lo adicionado
 
 Se você precisar de ajuda para aprender mais sobre aplicativos personalizados, a [Biblioteca de documentos de aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda a saber mais sobre o logon único com o Azure AD e como ele funciona.
 
-<a id="how-to-see-the-details-of-a-portal-notification" class="xliff"></a>
-
-## Como ver os detalhes de uma notificação do portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
@@ -72,21 +60,15 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
 
 6.  Clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
-<a id="how-to-get-help-by-sending-notification-details-to-a-support-engineer" class="xliff"></a>
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
-## Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
+É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
 
-É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte se precisar de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
-
-<a id="notification-details-explained" class="xliff"></a>
-
-## Detalhes da notificação explicados
+## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
 Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
 
-<a id="essential-notification-items" class="xliff"></a>
-
-### Itens de notificação essenciais
+### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
 -   **Título** – o título descritivo da notificação
    *  Exemplo – **Configurações do proxy do aplicativo**
@@ -123,9 +105,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
  *  Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
-<a id="detailed-notification-items" class="xliff"></a>
-
-### Itens de notificação detalhados
+### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
 -   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
@@ -141,17 +121,14 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-   *  Exemplo – **A URL interna "http://bing.com/" é inválida, uma vez que está sendo utilizada**
+   *  Exemplo – **A URL interna 'http://bing.com/' é inválida, uma vez que está sendo utilizada**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 
    *  Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
-
 
 
 

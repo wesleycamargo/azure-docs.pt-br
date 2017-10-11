@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura e conectividade para o SAP HANA (instâncias grandes) no Azure 
 
 Algumas definições prévias antes de ler este guia. Em [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), apresentamos duas classes diferentes de unidades de Instância Grande do HANA com:
@@ -299,6 +297,5 @@ Para garantir que tudo seja removido, exclua os itens a seguir:
 Para remover um circuito adicional do ExpressRoute do SAP HANA no Azure (Instâncias Grandes), abra uma solicitação de suporte do Azure com o Gerenciamento de Serviços do SAP HANA no Azure e solicite a exclusão do circuito. Na assinatura do Azure, você pode excluir ou manter a rede virtual conforme necessário. No entanto, você deve excluir a conexão entre o circuito de ExpressRoute de instâncias grandes HANA e o gateway de rede virtual vinculado.
 
 Se você também quiser remover uma rede virtual, siga as diretrizes sobre Como excluir uma rede virtual na seção acima.
-
 
 

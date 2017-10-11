@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/23/2016
-
-
+ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico
 A [biblioteca de cliente do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa três tipos diferentes de credenciais para acessar o [gerenciador de mapa de fragmento](sql-database-elastic-scale-shard-map-management.md). Dependendo da necessidade, use a credencial com o menor nível de acesso possível.
@@ -45,7 +43,7 @@ A variável **smmAdminConnectionString** é uma cadeia de conexão que contém a
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-Não use valores no formato "username@server"—instead, use somente o valor "username".  Isso ocorre porque as credenciais devem funcionar no banco de dados do Gerenciador de mapa do fragmento e fragmentos individuais, que podem estar em servidores diferentes.
+Não utilize valores na forma de "username@server" — em vez disso, use apenas o valor de "username".  Isso ocorre porque as credenciais devem funcionar no banco de dados do Gerenciador de mapa do fragmento e fragmentos individuais, que podem estar em servidores diferentes.
 
 ## <a name="access-credentials"></a>Credenciais de acesso
 Ao criar um gerenciador de mapa de fragmentos em um aplicativo que não administra mapas de fragmentos, use credenciais que tenham permissões somente leitura no mapa de fragmentos global. As informações recuperadas do mapa de fragmentos global sob essas credenciais são usadas para [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e para popular o cache do mapa de fragmentos no cliente. As credenciais são fornecidas por meio do mesmo padrão de chamada para **GetSqlShardMapManager** , conforme mostrado acima: 
@@ -68,7 +66,7 @@ Neste exemplo, **smmUserConnectionString** contém a cadeia de conexão para as 
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Assim como acontece com as credenciais de administrador, não use valores no formato "username@server". Em vez disso, use "username".  Observe que a cadeia de conexão não contém um nome do servidor e banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** redirecionará automaticamente a conexão com o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos. 
+Assim como acontece com as credenciais de administrador, não valores em forma de "username@server". Em vez disso, use "username".  Observe que a cadeia de conexão não contém um nome do servidor e banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** redirecionará automaticamente a conexão com o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos. 
 
 ## <a name="see-also"></a>Consulte 
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
@@ -78,5 +76,4 @@ Assim como acontece com as credenciais de administrador, não use valores no for
 [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

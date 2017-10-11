@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
 Você pode usar a concessão de código de autorização OAuth 2.0 em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Usando a implementação do Azure AD B2C (Azure Active Directory B2C) do OAuth 2.0, você pode adicionar tarefas de inscrição, entrada e outras de gerenciamento de identidade aos seus aplicativos móveis e da área de trabalho. Este artigo é independente de linguagem. No artigo, descreveremos como enviar e receber mensagens HTTP sem usar nenhuma biblioteca de software livre.
@@ -246,5 +245,4 @@ Para testar essas solicitações, conclua as etapas a seguir. Substitua os valor
 1. [Criar um diretório do Azure AD B2C](active-directory-b2c-get-started.md). Use o nome do seu diretório nas solicitações.
 2. [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um URI de redirecionamento. Inclua um cliente nativo em seu aplicativo.
 3. [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 27bb185d0243b1e8c0fd7697650eaf7bbd5eefa7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-map-in-application-insights"></a>Mapa de Aplicativos no Application Insights
 No [Azure Application Insights](app-insights-overview.md), o Mapa de Aplicativos é um layout visual das relações de dependência dos componentes de seu aplicativo. Cada componente mostra KPIs, como carga, desempenho, falhas e alertas, para ajudá-lo a descobrir possíveis componentes que estejam causando uma falha ou um problema de desempenho. Você pode clicar em qualquer componente para obter diagnóstico mais detalhado, como eventos do Application Insights. Se seu aplicativo usar os serviços do Azure, você também poderá clicar no diagnóstico do Azure, como nas recomendações do Assistente do Banco de Dados SQL.
@@ -129,4 +128,3 @@ Por favor, faça comentários por meio da opção Comentários no portal.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Portal do Azure](https://portal.azure.com)
-

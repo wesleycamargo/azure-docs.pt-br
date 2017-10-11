@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8087f27a692e1e2d0f2d9434b065ddb902de0d57
-
-
+ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="portals-you-will-need"></a>Portais que você precisará
 Antes de iniciar o processo de publicação de uma oferta, vamos apresentar os diversos portais que serão necessários. Abaixo está o resumo sobre os portais - Centro de Desenvolvedores, Portal de Publicação do Azure e Portal do Azure - na ordem em que você vai interagir com eles.                                                                            
@@ -35,7 +35,7 @@ Criar sua conta do Centro de Desenvolvedores da Microsoft é uma tarefa única. 
 > 
 
 ### <a name="identityaccount-used"></a>Identidade/conta usada
-De maneira ideal, isso é uma lista de distribuição ou um grupo de segurança (por exemplo, azurepublishing@*partnercompany*.com). A lista de distribuição ou um grupo de segurança **deve** ser registrado como uma conta da Microsoft.
+Idealmente, isso é uma lista de distribuição ou um grupo de segurança (por exemplo, azurepublishing @*partnercompany*.com). A lista de distribuição ou um grupo de segurança **deve** ser registrado como uma conta da Microsoft.
 
 > [!TIP]
 > Nós recomendamos usar uma lista de distribuição ou um grupo de segurança, pois ele remove a dependência de qualquer pessoa, embora uma conta individual também possa ser usada.
@@ -62,10 +62,4 @@ Enquanto você estiver preparando uma oferta do portal de publicação, um ID de
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução: Como publicar uma oferta para o Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

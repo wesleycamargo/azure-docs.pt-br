@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 51ef04e1de3337bf3505124923b4774bfb6c07f0
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Projetar sua rede para recuperação de desastre
 
@@ -167,4 +166,3 @@ A postagem [Configuração da Infraestrutura de Rede como um Site de Recuperaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) como a Recuperação de Site mapeia redes de origem e de destino quando um servidor VMM está sendo usado para gerenciar o site primário.
-

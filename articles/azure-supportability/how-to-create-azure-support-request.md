@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 70a4762383d64dc8d568c628cf260ebd8f2d179d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 ## <a name="summary"></a>Resumo
@@ -108,5 +106,4 @@ Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](
 
 ## <a name="learn-more"></a>Saiba mais
 [Perguntas frequentes sobre o suporte do Azure.](https://azure.microsoft.com/support/faq)
-
 

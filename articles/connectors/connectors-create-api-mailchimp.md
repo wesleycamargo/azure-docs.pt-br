@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 46de91881f84183d0359755f49a115e712a7033b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Introdução ao conector do MailChimp
 O MailChimp é um serviço de SaaS que permite que as empresas gerenciem e automatizem atividades de marketing de email, incluindo envio de emails de marketing, mensagens automatizadas e campanhas direcionadas.

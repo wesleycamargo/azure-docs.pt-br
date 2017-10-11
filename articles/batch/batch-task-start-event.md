@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-start-event"></a>Evento de início da tarefa
 
  Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador. Observe que, se a tarefa for repetida ou colocada novamente na fila, esse evento será emitido novamente para a mesma tarefa, mas a contagem de repetição e versão de tarefa do sistema serão atualizadas adequadamente.
@@ -83,4 +82,3 @@ ms.lasthandoff: 04/22/2017
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada|
-

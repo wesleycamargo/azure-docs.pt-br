@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -110,4 +109,3 @@ Para obter mais detalhes, veja [Relatórios do Azure Active Directory](active-di
 **R:** Os endereços IP são emitidos de uma forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador com esse endereço está localizado fisicamente. Isso é complicado por fatores como provedores móveis e VPNs que emitem endereços IP de pools centrais, frequentemente muito distantes do local no qual o dispositivo do cliente de fato é usado. Devido a esses fatores, a conversão de endereços IP em um local físico é um esforço baseado em rastreamentos, dados de registro, pesquisas inversas e outras informações. 
 
 ---
-

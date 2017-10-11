@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurar clusters HDInsight ingressados no domínio (visualização) usando o Azure PowerShell
 Saiba como configurar um cluster Azure HDInsight com o Azure AD (Azure Active Directory) e o [Apache Ranger](http://hortonworks.com/apache/ranger/) usando o Azure PowerShell. Um script do Azure PowerShell é fornecido para tornar a configuração mais rápida e menos sujeita a erros. O HDInsight ingressado em domínio só pode ser configurado em clusters baseados em Linux. Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md).
@@ -180,8 +178,8 @@ Outra opção para criar o cluster HDInsight de domínio é usar um modelo do Az
    * **DN da Unidade Organizacional**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
    * **DNs do Grupo de Usuários do Cluster**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
    * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName**: (Insira o nome de usuário do administrador do domínio)
-   * **DomainAdminPassword**: (Insira a senha de usuário do administrador do domínio)
+   * **DomainAdminUserName**: (Insira o nome do usuário administrador do domínio)
+   * **DomainAdminPassword**: (Insira a senha do usuário administrador do domínio)
    * **Concordo com os termos e condições declarados acima**: (Marcar)
    * **Fixar no painel**: (Marcar)
 3. Clique em **Comprar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo**. A criação de um cluster demora cerca de 20 minutos. Após a criação do cluster, você pode clicar na folha do cluster no portal para abri-la.
@@ -192,5 +190,4 @@ Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDIn
 
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
 * Para usar o SSH para se conectar a clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

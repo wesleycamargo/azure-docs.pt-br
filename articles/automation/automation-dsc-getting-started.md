@@ -14,12 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introdução ao DSC de Automação do Azure
 Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação da DSC, consulte [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
@@ -219,5 +218,4 @@ Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do
 * [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
 * [cmdlets da DSC de Automação do Azure](/powershell/module/azurerm.automation/#automation)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
-
 

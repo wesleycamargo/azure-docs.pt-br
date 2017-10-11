@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/07/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: aa2d4f671bab46929ccc4444f8fe9de98a3e0eb2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Configurar drivers GPU para VMs da série N executando o Windows Server
 Para aproveitar os recursos de GPU das VMs série N do Azure que estão executando o Windows Server 2016 ou o Windows Server 2012 R2, instale os drivers gráficos NVIDIA com suporte. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -79,6 +78,5 @@ A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (M
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (para VMs NV do Azure)
 
 * Os desenvolvedores que criam aplicativos com aceleração de GPU para GPUs NVIDIA Tesla também podem baixar e instalar o CUDA Toolkit 8 para [Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) ou [Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
-
 
 

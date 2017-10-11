@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 72cd94ba16cb4fe234c898b093c7de6a08f71239
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 095411a7fc854f4dce11921adb0f57c5389a8e13
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 > [!div class="op_single_selector"]
@@ -159,5 +158,4 @@ Seu Aplicativo do Azure Active Directory foi atualizado para incluir a permissã
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 129d08c8a7b4228d4d5f1a3b7938ab649b2747a7
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integração do Azure Active Directory com o SmarterU
 
@@ -263,5 +261,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_203.png
-
 

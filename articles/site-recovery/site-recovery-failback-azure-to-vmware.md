@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 
@@ -68,7 +67,7 @@ Ao realizar o failback para um local alternativo, os dados são recuperados no m
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Para realizar failbacks de VMs VMware e servidores físicos, você vai precisar de um ambiente VMware. Não há suporte para a realização de failback para um servidor físico.
-* Para realizar o failback, você precisa ter criado uma rede do Azure durante a configuração inicial da proteção. O failback precisa de uma conexão VPN ou de Rota Expressa da rede do Azure onde estão as VMs do Azure para o site local.
+* Para realizar o failback, você precisa ter criado uma rede do Azure durante a configuração inicial da proteção. O failback precisa de uma conexão VPN ou de ExpressRoute da rede do Azure onde estão as VMs do Azure para o site local.
 * Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, verifique se você tem as permissões necessárias para a descoberta das VMs nos servidores vCenter. Para obter mais informações, consulte [Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Se houver instantâneos em uma VM, a nova proteção vai falhar. Você pode excluir os instantâneos ou os discos.
 * Antes de realizar o failback, crie estes componentes:
@@ -244,4 +243,3 @@ Você pode realizar o failback em uma conexão VPN ou usando uma conexão Expres
 
 * A conexão ExpressRoute deve ser configurada na rede virtual do Azure em que as máquinas de origem realizam failover e onde as VMs do Azure ficam após o failover.
 * Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Para usar uma conexão ExpressRoute, configure o emparelhamento público no ExpressRoute com o data center de destino para replicação do Site Recovery.
-

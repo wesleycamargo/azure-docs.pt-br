@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 1a30cadaab7e053184f0be133f1da5bfddc1fd91
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-to-azure"></a>Etapa 5: preparar os recursos do Azure para a replicação do Hyper-V para o Azure
 
 Use as instruções neste artigo para preparar recursos do Azure para que você possa replicar VMs Hyper-V locais no Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
@@ -63,4 +61,3 @@ Não se esqueça de ler os [pré-requisitos](hyper-v-site-walkthrough-prerequisi
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 6: preparar recursos do Hyper-V](hyper-v-site-walkthrough-prepare-hyper-v.md)
-

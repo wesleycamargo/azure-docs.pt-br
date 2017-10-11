@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerenciar fórmulas do Azure DevTest Labs
 
@@ -138,5 +136,4 @@ Para excluir uma fórmula, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de criar uma fórmula para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm-with-artifacts.md).
-
 

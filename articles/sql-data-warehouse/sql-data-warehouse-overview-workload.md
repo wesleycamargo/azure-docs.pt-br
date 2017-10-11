@@ -1,6 +1,6 @@
 ---
 title: "Saiba mais sobre as operações do Azure SQL Data Warehouse | Microsoft Docs"
-description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
+description: "A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs. "
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabalho do data warehouse
 Uma carga de trabalho do data warehouse refere-se a todas as operações que são realizadas em um data warehouse. A carga de trabalho em um data warehouse abrange todo o processo de carregamento de dados, a execução de análise e relatórios, o gerenciamento de dados e a exportação de dados. O detalhamento e a amplitude desses componentes, muitas vezes, são proporcionais ao nível de maturidade do data warehouse.
@@ -79,4 +77,3 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um S
 <!--MSDN references-->
 
 <!--Other web references-->
-

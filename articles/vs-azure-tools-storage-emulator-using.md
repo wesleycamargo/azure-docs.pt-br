@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 729e953cae9d65e637be0fdaec9027312fdb6c6a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: f4cd8ccc3b186cf2b4178b7d8a98d8928c705cbc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -56,5 +55,4 @@ O emulador de armazenamento fornece uma interface do usuário para exibir o stat
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Exibindo dados do emulador de armazenamento no Gerenciador de Servidores
 O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Consulte [Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Versão Prévia)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
-
 

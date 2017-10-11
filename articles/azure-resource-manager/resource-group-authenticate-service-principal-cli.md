@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 3c5826d58887ff1af4df8e66999d9c1a1643bcc7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos
 
@@ -296,4 +295,3 @@ Para obter informações sobre como fazer logon no aplicativo por meio de difere
 * Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter mais informações sobre como usar os certificados e a CLI do Azure, consulte [Autenticação baseada em certificados com as Entidades de Serviço do Azure a partir da linha de comando do Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
-ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
@@ -518,4 +517,3 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-

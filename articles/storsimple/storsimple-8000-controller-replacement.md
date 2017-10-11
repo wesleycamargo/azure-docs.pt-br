@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substituir um módulo de controlador em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -239,5 +237,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: adc10ade79af3087a8b24ea5b6709182cb1edb92
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tag-resources-in-azure-resource-manager-templates"></a>Marque recursos em modelos do Azure Resource Manager
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
@@ -31,5 +30,4 @@ ms.lasthandoff: 07/21/2017
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações o gerenciamento de marcações, consulte [Usar marcações para organizar seus recursos do Azure](resource-group-using-tags.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
 

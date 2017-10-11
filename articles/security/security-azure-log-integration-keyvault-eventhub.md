@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de log do Azure: processar eventos do Azure Key Vault usando Hubs de Eventos
 
 Você pode usar a Integração de Log do Azure para recuperar eventos registrados e disponibilizá-los ao seu SIEM (sistema de informações de segurança e gerenciamento de evento). Este tutorial mostra um exemplo de como a Integração de Log do Azure pode ser usada para processar os logs adquiridos por meio de Hubs de Eventos do Azure.
@@ -182,4 +180,3 @@ Após um minuto ou mais de execução dos dois últimos comandos, você verá os
 - [Perguntas frequentes sobre a integração de log do Azure](security-azure-log-integration-faq.md)
 - [Introdução à integração de log do Azure](security-azure-log-integration-get-started.md)
 - [Integrar logs de recursos do Azure nos seus sistemas SIEM](security-azure-log-integration-overview.md)
-

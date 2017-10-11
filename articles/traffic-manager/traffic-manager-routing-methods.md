@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
 
 O Gerenciador de Tráfego do Azure dá suporte a três métodos de roteamento de tráfego para determinar como rotear o tráfego de rede para os vários pontos de extremidade de serviço. O Gerenciador de Tráfego aplica o método de roteamento de tráfego para cada consulta DNS recebida. O método de roteamento de tráfego determina qual ponto de extremidade foi retornado na resposta DNS.
@@ -136,7 +134,6 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-pr
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

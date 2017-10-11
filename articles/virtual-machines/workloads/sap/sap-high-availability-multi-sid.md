@@ -17,15 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: b48df78df9f53ac7bf0804f55a8d36a2fe2f86b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
 
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
@@ -274,4 +271,3 @@ O procedimento de alto nível é o seguinte:
 - [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Múltiplos VIPs para o Azure Load Balancer][load-balancer-multivip-overview]
 - [Guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide]
-

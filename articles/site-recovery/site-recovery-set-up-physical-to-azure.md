@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurar o ambiente de origem (servidor físico para Azure)
 > [!div class="op_single_selector"]
 > * [VMware no Azure](./site-recovery-set-up-vmware-to-azure.md)
@@ -83,4 +81,3 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 ## <a name="next-steps"></a>Próximas etapas
 
 A próxima etapa envolve a [configuração do ambiente de destino](./site-recovery-prepare-target-physical-to-azure.md) no Azure.
-

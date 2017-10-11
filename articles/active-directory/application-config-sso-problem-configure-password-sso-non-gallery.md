@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
 Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo que não seja da Galeria.
@@ -47,23 +45,23 @@ Configurar **Logon único baseado em senha** para um aplicativo usando **captura
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação à esquerda do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Selecione o modo **Logon com base na senha.**
+8.  Selecione o modo **Logon baseado em senha.**
 
-9.  Introduza a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+9.  Insira a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
 10. Clique no botão **Salvar** .
 
@@ -77,23 +75,23 @@ Para configurar **Logon único baseado em senha** para um aplicativo usando **ca
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação à esquerda principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação à esquerda do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Selecione o modo **Logon com base na senha.**
+8.  Selecione o modo **Logon baseado em senha.**
 
-9.  Introduza a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+9.  Insira a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
 10. Clique no botão **Salvar** .
 
@@ -151,7 +149,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  clique no **aplicativo de SSO com senha** no Painel de Acesso.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -258,6 +256,5 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
     -   Exemplo – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
-
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

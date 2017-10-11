@@ -16,15 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
 Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure. O tutorial completo cria um Grupo de Disponibilidade com uma réplica do banco de dados em dois SQL Servers.
@@ -58,7 +55,7 @@ Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Criar o cluster
+##Criar o cluster
 
 Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de failover do Windows Server que inclui dois SQL Servers e um servidor testemunha.  
 
@@ -503,4 +500,3 @@ A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar um endereço IP a um balanceador de carga para um segundo grupo de disponibilidade](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
-

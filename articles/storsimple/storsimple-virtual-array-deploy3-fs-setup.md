@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -210,5 +209,4 @@ Agora, você precisará conectar-se a um ou mais compartilhamentos que você cri
 
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
 

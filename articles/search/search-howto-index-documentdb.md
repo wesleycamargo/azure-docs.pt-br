@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conectando o Cosmos DB ao Azure Search usando indexadores
 
@@ -78,7 +77,7 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 * **container**:
   
   * **name**: obrigatório. Especifique a ID da coleção do Cosmos DB a ser indexada.
-  * **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar.
+  * **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
 * **dataChangeDetectionPolicy**: recomendado. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).
 * **dataDeletionDetectionPolicy**: opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).
 
@@ -117,7 +116,7 @@ Consulta de mesclagem de matriz:
 
 <a name="CreateIndex"></a>
 ## <a name="step-2-create-an-index"></a>Etapa 2: Criar um índice
-Se ainda não tiver um, crie um índice de destino do Azure Search. Você pode criar um índice usando a [interface do usuário do portal do Azure](search-create-index-portal.md), a [API REST de Criação de Índices](/rest/api/searchservice/create-index) ou a [classe Index](/dotnet/api/microsoft.azure.search.models.index).
+Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode criar um índice usando a [interface do usuário do portal do Azure](search-create-index-portal.md), a [API REST de Criação de Índices](/rest/api/searchservice/create-index) ou a [classe Index](/dotnet/api/microsoft.azure.search.models.index).
 
 O exemplo a seguir cria um índice com um campo de descrição e ID:
 
@@ -149,7 +148,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 > 
 > 
 
-### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados do Azure Search
+### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados da Pesquisa do Azure
 | TIPO DE DADOS JSON | TIPOS DE CAMPOS DE ÍNDICE DE DESTINO COMPATÍVEIS |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -297,5 +296,4 @@ O seguinte exemplo cria uma fonte de dados com uma política de exclusão revers
 Parabéns! Você aprendeu a integrar o Azure Cosmos DB ao Azure Search usando o indexador do Cosmos DB.
 
 * Para saber mais sobre o Azure Cosmos DB, consulte a [página de serviço do Cosmos DB](https://azure.microsoft.com/services/documentdb/).
-* Para saber mais sobre o Azure Search, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
-
+* Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).

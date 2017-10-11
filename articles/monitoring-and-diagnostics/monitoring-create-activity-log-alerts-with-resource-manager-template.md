@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Criar um alerta do log de atividades com um modelo do Resource Manager
 Este artigo mostra como usar um [modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) para configurar alertas do log de atividades. Usando modelos, você pode facilmente configurar vários alertas que são ativados com base em condições específicas de evento de log de atividades como parte do processo de implantação automática.
@@ -106,4 +105,3 @@ Visite nossa [Galeria de Início Rápido](https://azure.microsoft.com/resources/
 - Saiba como adicionar [grupos de ações usando um modelo do Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - Saiba como [criar um alerta do log de atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
 - Saiba como [criar um alerta do log de atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
-

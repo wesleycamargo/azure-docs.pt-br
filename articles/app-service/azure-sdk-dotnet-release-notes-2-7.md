@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
 ## <a name="overview"></a>Visão geral
@@ -63,7 +63,7 @@ Nesta versão, as seguintes atualizações foram feitas às extensões de ferram
 #### <a name="known-issues"></a>Problemas conhecidos
 Nós de slot de implantação de aplicativo Web não aparecem sob o nó de Slots no Gerenciador de Servidores, e nós filho de slots de implantação de aplicativo Web não carregaram no Gerenciador de nuvem. Esse problema foi resolvido e preparado para a próxima versão do SDK. 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Gerenciador de nuvem para Visual Studio 2015
+### <a name="cloud_explorer"></a>Gerenciador de nuvem para Visual Studio 2015
 O SDK 2.7 do Azure inclui o Gerenciador de Nuvem para Visual Studio 2015, que permite exibir os recursos do Azure, inspecionar suas propriedades e executar ações chave do desenvolvedor de dentro do Visual Studio. 
 
 O Gerenciador de Nuvem dá suporte a:
@@ -136,10 +136,4 @@ Projetos do LightSwitch não são compatíveis com esta versão. Esse problema s
 [Postagem de anúncio do SDK 2.7 do Azure](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

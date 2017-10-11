@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a55bec84bebf9d86886fcd255b84a665b6d04638
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6ac3bda5101593b5ca66b4c9035e2fdac9d1e833
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
@@ -199,4 +198,3 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-

@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: d4a7e6658ec65a70bd7e07859e2a69acee58b7b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
 
 > [!IMPORTANT]
@@ -85,4 +82,3 @@ O novo ponto de extremidade IP do banco de dados dependerá da região de banco 
 | Leste do Canadá |40.86.227.82, 40.86.225.194 |
 | Norte do Reino Unido |13.87.101.18, 13.87.100.232 |
 | Sul do Reino Unido 2 |13.87.32.202, 13.87.32.226 |
-

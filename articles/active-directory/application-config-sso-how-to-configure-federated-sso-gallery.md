@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 76078566c93f2b0359c1157cdcdb5b15a1402996
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 1b1d00718981b2c7d11f5b88428d02e16dd0b34d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
 Todos os aplicativos na galeria do Azure AD habilitados com o recurso de logon único Corporativo possuem um tutorial passo a passo disponível. É possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo detalhada.
@@ -147,7 +145,7 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -213,7 +211,6 @@ Para saber como personalizar as declarações de atributo SAML enviadas para seu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-
 
 
 

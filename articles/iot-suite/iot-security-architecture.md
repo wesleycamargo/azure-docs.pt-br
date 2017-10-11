@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É especialmente importante projetar o produto desde o início com segurança em mente porque a compreensão de como um invasor pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início. 
 

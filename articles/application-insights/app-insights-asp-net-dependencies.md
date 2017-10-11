@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependências
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -213,4 +212,3 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 * [Exceções](app-insights-asp-net-exceptions.md)
 * [Dados do usuário e da página](app-insights-javascript.md)
 * [Disponibilidade](app-insights-monitor-web-app-availability.md)
-

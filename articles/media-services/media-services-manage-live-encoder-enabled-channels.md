@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 2f052ea5ff50cf584f9116f2802eca1fd077dcbb
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
@@ -417,5 +415,4 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
 

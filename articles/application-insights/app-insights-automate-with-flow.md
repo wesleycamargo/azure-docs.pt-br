@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d0cd0cc97fa61d3401f6101292b82132622c9e81
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 510f4f284bbd0dbe4171896899f7ade7dee19e39
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Azure Application Insights com o conector para o Microsoft Flow
 
 Você está executando repetidamente as mesmas consultas nos dados telemétricos para verificar se o serviço está funcionando corretamente? Deseja automatizar essas consultas para descobrir tendências e anomalias e então criar seus próprios fluxos de trabalho para elas? O conector do Azure Application Insights (versão prévia) para o Microsoft Flow é a ferramenta certa para esses fins.
@@ -132,7 +130,6 @@ Quando o fluxo é executado, os destinatários que você especificou na lista de
 
 
 <!--Link references-->
-
 
 
 

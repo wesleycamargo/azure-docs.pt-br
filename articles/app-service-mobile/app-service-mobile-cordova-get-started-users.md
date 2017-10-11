@@ -14,12 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: f2073819fe60aa51b88feeaf3b0ff0e8d052b4c7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Adicionar autenticação ao aplicativo Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -111,4 +110,3 @@ Saiba como usar os SDKs.
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-

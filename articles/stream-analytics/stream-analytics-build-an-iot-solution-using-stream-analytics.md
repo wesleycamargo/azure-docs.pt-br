@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 ## <a name="introduction"></a>Introdução
 Neste tutorial, você aprenderá a usar o Stream Analytics do Azure para aprofundar-se em seus dados em tempo real. Os desenvolvedores podem facilmente combinar fluxos de dados, como fluxos de cliques, logs e eventos gerados pelo dispositivo, com registros históricos ou dados de referência para gerar insights comerciais. Como um serviço de computação de fluxo em tempo real totalmente gerenciado e hospedado no Microsoft Azure, o Stream Analytics do Azure fornece resiliência interna, baixa latência e escalabilidade para você colocar tudo em funcionamento em minutos.
@@ -442,6 +440,5 @@ Consulte a [documentação online](https://azure.microsoft.com/documentation/ser
    > Os recursos são identificados pelo nome. Certifique-se de examinar cuidadosamente cada item antes de confirmar a remoção.
    > 
    > 
-
 
 

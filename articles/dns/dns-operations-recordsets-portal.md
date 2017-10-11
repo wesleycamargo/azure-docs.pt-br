@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
 > [!div class="op_single_selector"]
@@ -127,4 +125,3 @@ Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (no
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 * Para saber mais sobre os registros DNS reversos, veja [Visão geral de DNS reverso e suporte no Azure](dns-reverse-dns-overview.md).
-

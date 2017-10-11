@@ -14,13 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c024d8d47ab9b78399d8eb8b4df1f764f2877339
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Usar um comando do Azure PowerShell para criar um contêiner de serviço de nuvem vazio
 Este artigo explica como criar rapidamente um contêiner de Serviços de Nuvem usando cmdlets do Azure PowerShell. Siga as etapas abaixo:
@@ -54,4 +52,3 @@ Get-help New-AzureService
 ### <a name="next-steps"></a>Próximas etapas
 * Para gerenciar a implantação do serviço de nuvem, consulte os comandos [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) e [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Você também pode consultar [Como configurar os serviços de nuvem](cloud-services-how-to-configure.md) para saber mais.
 * Para publicar seu projeto de serviço de nuvem no Azure, consulte o exemplo de código **PublishCloudService.ps1** em [Fornecimento contínuo de serviço de nuvem no Azure](cloud-services-dotnet-continuous-delivery.md).
-

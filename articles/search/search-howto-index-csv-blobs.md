@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b56317fe8326a20fccfff4687f518d1e847122f
 ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexando blobs CSV com o indexador de blobs da Pesquisa do Azure
 Por padrão, o [indexador de blobs da Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) analisa blobs de texte delimitado como um único bloco de texto. No entanto, com blobs contendo dados CSV, o ideal é tratar cada linha no blob como um documento separado. Por exemplo, considerando o seguinte texto delimitado: 
@@ -92,5 +90,4 @@ Indexador:
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
 

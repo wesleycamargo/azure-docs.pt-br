@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-service-publishing-guide-for-the-azure-marketplace"></a>Guia de publicação do Serviço de Dados para o Azure Marketplace
 > [!IMPORTANT]
@@ -159,9 +159,3 @@ Agora que você criou sua oferta de Serviço de Dados, não deixe de concluir as
 * Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 
 [link-pubportal]:https://publish.windowsazure.com
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

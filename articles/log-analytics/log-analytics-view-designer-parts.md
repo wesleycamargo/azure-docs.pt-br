@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referência da parte de visualização do Designer de modos de exibição do Log Analytics
 O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados do repositório do OMS. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas.
@@ -346,4 +345,3 @@ A tabela a seguir descreve as configurações de limites.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas partes da visualização.
-

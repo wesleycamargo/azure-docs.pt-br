@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço na Pesquisa do Azure
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o [Azure Search é provisionado](search-create-service-portal.md), que pode ser **Gratuito**, **Básico** ou **Standard**.
@@ -96,4 +95,3 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 * Máximo de duas chaves de administração por serviço
 * Máximo de 50 chaves de consulta por serviço
-

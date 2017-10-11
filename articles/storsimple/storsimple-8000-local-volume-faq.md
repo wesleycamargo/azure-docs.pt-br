@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volume localmente afixado do StorSimple: perguntas frequentes
 ## <a name="overview"></a>Visão geral
@@ -202,5 +200,4 @@ Mais informações sobre [o failover e a DR de volumes fixos localmente entre ve
 **P.** Posso fazer o failover em um contêiner de volume com volumes localmente afixados para o dispositivo de nuvem?
 
 **A.** Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso aos dados do Azure Cosmos DB
 Este artigo fornece uma visão geral de como proteger o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -184,4 +183,3 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Para saber mais sobre a segurança do banco de dados do Cosmos DB, consulte [Cosmos DB: Segurança do banco de dados](database-security.md).
 * Para saber mais sobre como gerenciar chaves mestras e chaves somente leitura, consulte [Como gerenciar uma conta do Azure Cosmos DB](manage-account.md#keys).
 * Para saber como construir tokens de autorização do Azure Cosmos DB, consulte [Controle de Acesso em recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
-

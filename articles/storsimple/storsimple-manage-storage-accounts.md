@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
 ## <a name="overview"></a>Visão geral
@@ -144,5 +143,4 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 * Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

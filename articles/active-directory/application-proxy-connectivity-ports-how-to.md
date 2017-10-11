@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4cbffd6627bccc96400ec6de103d4d7fc5d77950
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Como abrir as portas de firewall necessárias para um aplicativo de Application Proxy
 
 Para ver uma lista completa das portas necessárias e a função de cada porta, consulte a seção pré-requisitos da [documentação de Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). observe que o Application Proxy usa apenas as portas de saída.
@@ -39,4 +37,3 @@ Para certificar-se de que a ferramenta oferece os resultados certos, certifique-
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)
-

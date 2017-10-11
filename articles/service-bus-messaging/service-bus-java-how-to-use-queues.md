@@ -13,12 +13,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do Barramento de Serviço com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -197,4 +196,3 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](ht
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

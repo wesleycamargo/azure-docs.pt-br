@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 4fb77ed0241d15338c2574fd22828507c3e40cb3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>Usar o gateway IoT para conectar as coisas à nuvem – SensorTag para o Hub IoT do Azure
 
@@ -172,4 +171,3 @@ O aplicativo de exemplo BLE (Bluetooth de Baixa Energia) é fornecido pelo Azure
 ## <a name="next-steps"></a>Próximas etapas
 
 [Usar o gateway IoT para transformação dos dados de sensor com o Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-

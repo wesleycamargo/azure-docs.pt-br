@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 Este artigo responde a algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços e suporte do Azure.
@@ -128,4 +127,3 @@ Para saber mais sobre o Barramento de Serviço, veja os tópicos a seguir.
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
 [Shared Access Signatures]: service-bus-sas.md
-

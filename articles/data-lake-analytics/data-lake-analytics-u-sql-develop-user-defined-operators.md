@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver UDOs (operadores definidos pelo usuário) do U-SQL
 Saiba como desenvolver operadores definidos pelo usuário para processar dados em um trabalho do U-SQL.
@@ -135,4 +133,3 @@ Para obter instruções para desenvolver assemblies de uso geral para U-SQL, con
 * [Introdução à Análise Data Lake usando o PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução à Análise Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Usar as Ferramentas do Data Lake para Visual Studio para desenvolver aplicativos do U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
-

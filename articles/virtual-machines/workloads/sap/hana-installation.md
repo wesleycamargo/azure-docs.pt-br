@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 280001f9057825b9dcd98c5180340a54e2e239cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 
@@ -476,7 +475,6 @@ Neste ponto, a instância do SAP HANA deve estar em execução e pronta para uso
 
 
  
-
 
 
 

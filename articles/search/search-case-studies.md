@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: "Quem está usando a pesquisa do Azure: estudos de caso e histórias | Microsoft Docs"
 description: "Estudos de caso e histórias de clientes sobre a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes
 Saiba como as organizações a seguir desenvolverem seus negócios por meio da integração de experiências avançadas da Pesquisa do Azure a seus aplicativos online.
@@ -53,4 +52,3 @@ Saiba como uma startup sueca criou um portal de mídia de informação que conec
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-

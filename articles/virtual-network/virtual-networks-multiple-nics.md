@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 68ccc1cac22e593b099729fe68c6bee63df44d9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics"></a>Criar uma VM (Clássica) com diversas NICs
 Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma de suas VMs. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Várias NICs também fornecem isolamento do tráfego entre NICs.
@@ -228,5 +227,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 ## <a name="next-steps"></a>Próximas etapas
 * Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 * Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
-
 

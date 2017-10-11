@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-ip-filters"></a>Usar filtros IP
 
 A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure. Às vezes você precisa especificar explicitamente os endereços IP dos quais o dispositivo pode se conectar como parte da sua configuração de segurança. O recurso _filtro IP_ permite que você configure regras para rejeitar ou aceitar tráfego de endereços IPv4 específicos.

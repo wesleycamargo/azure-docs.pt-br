@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e painéis no portal do Application Insights
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
@@ -165,4 +164,3 @@ CONFIGURAÇÕES
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Métricas de filtro e de segmento |![Exemplo de pesquisa](./media/app-insights-dashboards/64.png) |
 | [Pesquisa de diagnóstico](app-insights-diagnostic-search.md)<br/>Localize e inspecione eventos, eventos relacionados e crie bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png) |
 | [Analytics](app-insights-analytics.md)<br/>Linguagem de consulta poderosa |![Exemplo de pesquisa](./media/app-insights-dashboards/63.png) |
-

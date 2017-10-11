@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 > 
@@ -306,7 +306,6 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
 
 
 

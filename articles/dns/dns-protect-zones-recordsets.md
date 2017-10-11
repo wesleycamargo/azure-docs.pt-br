@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-protect-dns-zones-and-records"></a>Proteger registros e zonas DNS
 
 Registros e zonas DNS são recursos críticos. Excluir uma zona DNS ou até mesmo um único registro DNS pode resultar em uma interrupção total do serviço.  Portanto, é importante que registros e zonas DNS críticos sejam protegidos contra alterações acidentais ou não autorizadas.
@@ -223,5 +221,4 @@ Essa segunda abordagem tem a vantagem de funcionar para todas as zonas acessadas
 
 * Para obter mais informações sobre como trabalhar com o RBAC, veja [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
 * Para obter mais informações sobre trabalho com bloqueios de recurso, confira [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
-
 

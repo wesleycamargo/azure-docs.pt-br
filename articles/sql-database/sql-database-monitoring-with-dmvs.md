@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae0054ac9d87562f6babbfaeaf440d653d60963a
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: d9b007d29e06e672db71b4a8415673f258c3fd89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
 O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibição de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou demoradas, afunilamentos de recursos, planos de consulta ruins e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
@@ -137,5 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## <a name="see-also"></a>Consulte também
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
 ## <a name="overview"></a>Visão geral
@@ -64,4 +63,3 @@ Faça backup automático de seu back-end e banco de dados. O seu código e dados
 Com o *Serviço de Aplicativo do Azure* , agora você pode criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
 
 Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
-

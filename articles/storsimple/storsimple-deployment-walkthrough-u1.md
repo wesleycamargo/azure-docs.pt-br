@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Implantar o dispositivo StorSimple no local (Atualização 1)
 > [!div class="op_single_selector"]
@@ -267,5 +266,4 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar um [dispositivo virtual](storsimple-virtual-device-u2.md).
 * Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
-
 

@@ -1,4 +1,3 @@
-
 ---
 title: "Usar o Azure v2.0 para acessar recursos protegidos sem interação do usuário | Microsoft Docs"
 description: "Criar aplicativos Web usando a implementação do Azure AD do protocolo de autenticação OAuth 2.0."
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # Fluxo de credenciais do Azure Active Directory v2.0 e de cliente OAuth 2.0
 Você pode usar a [concessão de credenciais do cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), às vezes chamada de *OAuth de duas pernas*, para acessar os recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativo normalmente são mencionados como *daemons* ou *contas de serviço*.
@@ -232,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Exemplo de código
 Para ver um exemplo de aplicativo que implementa a concessão de credenciais de cliente usando o ponto de extremidade de consentimento de administrador, veja nosso [exemplo de código de daemon para v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

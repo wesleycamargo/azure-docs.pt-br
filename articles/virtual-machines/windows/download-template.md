@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>Baixar o modelo para uma VM
 Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar este modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para dar suporte à VM desse grupo de recursos, incluindo os recursos de rede.
@@ -51,5 +50,4 @@ Você também pode baixar o arquivo de modelo .json usando o cmdlet [Export-Azur
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como implantar recursos usando modelos, veja o [passo a passo do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
-
 

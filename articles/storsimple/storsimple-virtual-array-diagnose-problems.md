@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para administrar a Matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral
@@ -42,10 +43,4 @@ Você pode exibir alguns dos problemas comuns com a Matriz Virtual do StorSimple
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como [registrar um tíquete de suporte](storsimple-virtual-array-log-support-ticket.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Coleta de logs
 
 Este artigo fornece etapas para coletar logs do Azure AD B2C para que você possa diagnosticar problemas com suas políticas personalizadas.
@@ -118,4 +116,3 @@ Saiba mais sobre essa ferramentas de análise [aqui](https://docs.microsoft.com/
 ## <a name="next-steps"></a>Próximas etapas
 
 Explore os dados no Application Insights para ajudar a entender como o Identity Experience Framework por trás do B2C trabalha para fornecer suas próprias experiências de identidade.
-

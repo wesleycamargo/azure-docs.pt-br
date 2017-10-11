@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizando a implantação de máquina virtual do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -242,4 +240,3 @@ Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestr
 
 
 <!--Link references-->
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: e222645509640b104410f87e4bcd22834c8d9ec1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-linux-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Conectar máquinas virtuais Linux criadas com o modelo clássico de implantação com um serviço de nuvem ou de rede virtual
 > [!IMPORTANT]
@@ -37,4 +35,3 @@ Ao colocar as máquinas virtuais no mesmo serviço de nuvem autônomo, você ain
 
 ## <a name="next-steps"></a>Próximas etapas
 Após criar uma máquina virtual, é uma boa ideia [adicionar um disco de dados](attach-disk.md) para que seus serviços e cargas de trabalho tenham um local para armazenar dados.
-

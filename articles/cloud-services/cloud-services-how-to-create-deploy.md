@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 > [!div class="op_single_selector"]
@@ -127,5 +126,4 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
-
 

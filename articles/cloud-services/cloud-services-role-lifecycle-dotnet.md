@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9924c7352300c70e949fb86a19dfaf68b9fe8b50
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: eb78c05df3b3cdf3887334c11bdabd5cebb74747
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
 Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) que oferece métodos a serem substituídos, permitindo que você responda a eventos de ciclo de vida. Para funções Web, essa classe é opcional e, portanto, deve ser usada para responder a eventos de ciclo de vida.
@@ -82,5 +81,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
-
 

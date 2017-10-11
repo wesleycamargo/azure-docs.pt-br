@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: d6a0be5d9c876984a323a65f9e0ce73668e94cb8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Habilitar a sincronização offline para seu aplicativo móvel Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -173,7 +172,7 @@ Nesta seção, você modificará o projeto do cliente para simular um cenário o
 
 5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
 
-    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Opcional) Testar a reconexão com seu back-end móvel
 
@@ -211,4 +210,3 @@ Nesta seção, reconecte o aplicativo ao back-end móvel, que simula o aplicativ
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-

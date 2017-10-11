@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Gerenciar a expiração dos blobs de Armazenamento do Azure na CDN do Azure
 > [!div class="op_single_selector"]
@@ -119,5 +118,4 @@ Você pode verificar facilmente a TTL de seus blobs.  Usando as [ferramentas de 
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre o cabeçalho *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Saiba como gerenciar a expiração do conteúdo do Serviço de Nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-
 

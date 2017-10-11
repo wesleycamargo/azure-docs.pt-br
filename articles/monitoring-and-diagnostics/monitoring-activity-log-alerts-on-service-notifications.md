@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bf6a98fd7e7e11764bef174f9efd0635fa7efe9a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
@@ -110,4 +109,3 @@ Depois de criar um alerta, ele ficará visível na seção **Alertas** da folha 
 - Examine o [esquema do webhook de alertas de log de atividades](monitoring-activity-log-alerts-webhook.md).
 - Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas. 
 - Saiba mais sobre [grupos de ação](monitoring-action-groups.md).
-

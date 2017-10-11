@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais no Banco de Dados SQL e armazenar suas chaves de criptografia no repositório de certificados do Windows
 
@@ -109,7 +107,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna **SSN** usará criptografia determinística, que dá suporte a pesquisas de igualdade, junções e agrupamentos por categoria. A coluna **BirthDate** usará criptografia aleatória, que não permite operações.
 
-Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Próximo**.
+Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Avançar**.
 
 ![Criptografar Colunas](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -519,5 +517,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 * [Criptografia do SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

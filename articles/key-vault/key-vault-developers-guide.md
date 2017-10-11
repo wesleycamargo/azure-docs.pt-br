@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
-
+ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -139,6 +138,5 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 
 - A [Biblioteca Principal do Microsoft Azure Key Vault](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece as interfaces **IKey** e **IKeyResolver** para localizar chaves com base em identificadores e realizar operações com chaves.
 - As [Extensões do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornecem recursos estendidos para o Cofre de Chaves do Azure.
-
 
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="event-hubs-net-framework-api-overview"></a>Visão geral da API do .NET Framework de Hubs de Eventos
 Este artigo resume algumas das principais APIs de cliente .NET Framework de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. As APIs de tempo de execução consistem de todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
@@ -180,4 +178,3 @@ As referências de API .NET estão aqui:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
-

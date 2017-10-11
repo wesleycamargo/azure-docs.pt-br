@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 2e97c3f951f46c32802aea543b93d5ab1bb76228
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
@@ -71,4 +70,3 @@ Indicação de chamada bem-sucedida ou malsucedida.
 - [Escrever telemetria de dependência personalizada](app-insights-api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
-

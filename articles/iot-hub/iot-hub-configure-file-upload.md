@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar uploads de arquivo do Hub IoT usando o Portal do Azure
 
@@ -75,4 +73,3 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-

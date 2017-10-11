@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 47c0055b89dbcf6a30a7f9ac5a33913e7bf463fa
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutorial: Integração do Active Directory do Azure com o Onit
 
@@ -293,5 +292,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-onit-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-onit-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-onit-tutorial/tutorial_general_203.png
-
 

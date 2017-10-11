@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Recentemente, movemos os binários de Java do Service Fabric do SDK de Java do Service Fabric para hospedagem do Maven. Agora você pode usar **mavencentral** para buscar as dependências mais recentes de Java do Service Fabric. Esse início rápido o ajuda a atualizar seus aplicativos Java existentes, que você criou anteriormente para ser usado com o SDK de Java do Service Fabric, usando qualquer modelo Yeoman ou Eclipse, para ser compatível com a compilação baseada em Maven.
@@ -478,4 +477,3 @@ task copyDeps<< {
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o plug-in Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md)
 * [Interagir com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
-

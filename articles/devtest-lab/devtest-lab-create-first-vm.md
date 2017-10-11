@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Criar a primeira VM no Azure DevTest Labs
 
@@ -55,4 +53,3 @@ Este tutorial orienta você pelo Portal do Azure para adicionar uma VM a um labo
 * Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
 * Marque [Adicionar uma VM a um laboratório](devtest-lab-add-vm.md) para informações mais completas sobre como adicionar VMs subsequentes no laboratório.
 * Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
-

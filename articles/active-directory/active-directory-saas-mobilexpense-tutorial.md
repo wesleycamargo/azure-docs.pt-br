@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Tutorial: integração do Azure Active Directory ao MobileXpense
 
@@ -229,5 +227,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-mobilexpense-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mobilexpense-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mobilexpense-tutorial/tutorial_general_203.png
-
 

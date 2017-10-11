@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2a6831cbfb747dd134a9cc17ed0f1925d8cc62d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 0fdc58d82d9cd2e7edac33cc5af4b98d2fd06c56
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar um novo aplicativo multilocatário
 
 Habilitar logon único federado (SSO) em seu aplicativo é habilitado automaticamente por meio do Azure AD para OpenID Connect, SAML 2.0 ou WS-Fed. Se os usuários finais estão precisando entrar, mesmo já tendo uma sessão existente com o Azure AD, é provável que seu aplicativo possa estar configurado incorretamente.
@@ -46,4 +44,3 @@ Para o iOS, consulte [Habilitando SSO entre aplicativos no iOS](https://docs.mic
 [Consentimento e permissão para aplicativos convergidos do AzureAD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [StackOverflow do AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2016
 ms.author: hascipio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7ea4b87e723c2ce194186af39ba8e6f0f593347a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: bbcce5093d2bbd5326523063db7d0e565fe4de6d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Configurar o Azure PowerShell para criar a oferta para o Azure Marketplace
 Para obter informações detalhadas sobre como configurar o PowerShell no Azure, consulte, [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Uma abordagem simples é usar o método de certificado que baixa e importa um certificado necessário para autenticar. Para obter o certificado necessário, use o cmdlet **Get-AzurePublishSettingsFile** . Quando for solicitado, salve o arquivo. Para importar o certificado em uma sessão do PowerShell, use o cmdlet **Import-AzurePublishSettingsFile** .
@@ -35,5 +33,4 @@ O primeiro comando associa uma conta de armazenamento padrão com a assinatura (
 ## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
-
 

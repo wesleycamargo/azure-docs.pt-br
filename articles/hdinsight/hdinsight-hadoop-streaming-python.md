@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver programas MapReduce de streaming do Python para o HDInsight
 
@@ -209,4 +208,3 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-

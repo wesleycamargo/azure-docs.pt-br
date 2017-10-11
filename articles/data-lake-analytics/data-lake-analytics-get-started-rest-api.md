@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-rest-apis"></a>Introdução ao Azure Data Lake Analytics usando APIs REST
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -347,5 +345,4 @@ A saída deverá ser semelhante a:
 * Para obter as tarefas de gerenciamento, confira [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md).
 * Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 * Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
-
 

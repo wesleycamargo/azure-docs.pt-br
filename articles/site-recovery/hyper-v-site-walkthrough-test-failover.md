@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>Etapa 11: Executar um failover de teste para replicação do Hyper-V para o Azure
 
 Este artigo descreve como executar um failover de teste de máquinas virtuais Hyper-V locais (não gerenciadas pelo System Center VMM) para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -100,5 +98,4 @@ Agora, execute um failover de teste para verificar se tudo está funcionando com
 
 - [Saiba mais](site-recovery-failover.md) sobre diferentes tipos de failovers e como executá-los.
 - [Leia sobre failback](site-recovery-failback-from-azure-to-hyper-v.md), para executar failback e replicar VMs do Azure de volta para o site do Hyper-V local.
-
 

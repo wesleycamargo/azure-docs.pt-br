@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: ad87534af448356b8cc80d8ddd278bfb8a9165e7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory ao vxMaintain
 
@@ -214,5 +213,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_203.png
-
 

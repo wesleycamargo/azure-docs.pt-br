@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replicar máquinas virtuais Hyper-V em nuvens VMM para Azure usando o PowerShell e o Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -308,4 +307,3 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 ## <a name="next-steps"></a>Próximas etapas
 [Leia mais](/powershell/module/azurerm.recoveryservices.backup/#recovery) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 05/02/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
 O Núcleo do ASP.NET é uma nova estrutura de software livre e plataforma cruzada para criar aplicativos modernos baseados em nuvem conectados à Internet, como aplicativos Web, aplicativos de IoT e back-ends móveis. 
@@ -360,4 +358,3 @@ Os serviços com monitoração de estado que são chamados apenas de dentro do c
 [2]:./media/service-fabric-reliable-services-communication-aspnetcore/integration.png
 [3]:./media/service-fabric-reliable-services-communication-aspnetcore/httpsys.png
 [4]:./media/service-fabric-reliable-services-communication-aspnetcore/kestrel.png
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7ab18ea9e7302f6cd2a89e7c2cce7f5a46c66a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-networking"></a>Rede do Azure
 
 O Azure fornece uma variedade de recursos de rede que podem ser usados juntos ou separadamente. Clique em qualquer um dos seguintes recursos principais para saber mais sobre eles:
@@ -164,4 +162,3 @@ Alguns dos serviços de rede do Azure têm um encargo, enquanto outros são grat
 - Criar sua primeira VNet e conecte algumas VMs a ela executando as etapas no artigo [Criar sua primeira rede virtual](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Conecte seu computador a uma VNet executando as etapas no artigo [Configurar uma conexão ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Faça o balanceamento de carga do tráfego de Internet para servidores públicos concluindo as etapas em [Criar um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
-

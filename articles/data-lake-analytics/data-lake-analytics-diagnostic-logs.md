@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -242,4 +241,3 @@ O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar o
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
-

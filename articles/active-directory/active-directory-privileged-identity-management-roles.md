@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 693785d5c9ae64275ae75721fe1f8f143dcd8c36
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferente no PIM do Azure Active Directory
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -93,5 +92,4 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

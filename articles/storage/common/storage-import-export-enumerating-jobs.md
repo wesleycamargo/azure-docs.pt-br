@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerando trabalhos no serviço de Importação/Exportação do Azure
 Para enumerar todos os trabalhos em uma assinatura, chame a operação [List Jobs](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` retorna uma lista de trabalhos, bem como os seguintes atributos:
 
@@ -34,4 +32,3 @@ Para enumerar todos os trabalhos em uma assinatura, chame a operação [List Job
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-

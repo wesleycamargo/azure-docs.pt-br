@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
 
 Endereços IP públicos são usados para comunicação com a Internet, incluindo serviços públicos do Azure.
 
-Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure, um serviço de nuvem e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
+Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure, um serviço de nuvem e na sua rede local quando você usa um gateway de VPN ou circuito de ExpressRoute para estender sua rede para o Azure.
 
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o Gerenciador de Recursos. Saiba mais sobre endereços IP no Gerenciador de Recursos lendo o artigo [endereços IP](virtual-network-ip-addresses-overview-arm.md).
@@ -98,7 +97,7 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 | Application Gateway |Sim |Não |Não |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
-Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos em um serviço de nuvem ou em uma VNet ( [rede virtual](virtual-networks-overview.md)), ou na rede local (por meio de um gateway de VPN ou circuito de Rota Expressa), sem usar um endereço IP acessível pela Internet.
+Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos em um serviço de nuvem ou em uma VNet ( [rede virtual](virtual-networks-overview.md)), ou na rede local (por meio de um gateway de VPN ou circuito de ExpressRoute), sem usar um endereço IP acessível pela Internet.
 
 No modelo de implantação clássico do Azure, um endereço IP privado pode ser atribuído aos seguintes recursos do Azure:
 
@@ -179,5 +178,4 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal do Azure.
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: abhisram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitoramento de desempenho para Reliable Actors
 O tempo de execução de Reliable Actors emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Esses recursos fornecem informações sobre como o tempo de execução está operando e ajudam na solução de problemas e no monitoramento de desempenho.
@@ -174,4 +172,3 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integração do Azure Active Directory ao iLMS
 
@@ -123,13 +121,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    Na caixa de texto **URL de Logon**, cole o valor da **(URL) do Ponto de Extremidade** copiado da seção **Provedor de Serviços** das configurações do SAML no portal de administração do iLMS como `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    Na caixa de texto **URL de Logon**, cole o valor da **(URL) do Ponto de Extremidade** copiado da seção **Provedor de Serviços** das configurações do SAML no portal de administração do iLMS como `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. Para habilitar o provisionamento JIT, o aplicativo iLMS espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar Logon Único](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    Crie os atributos **Department, Region** e **Division** e adicione o nome desses atributos no iLMS. Todos esses atributos mostrados acima são necessários.    
+    Crie os atributos **Department, Region** e **Division** e adicione o nome desses atributos no iLMS. Todos esses atributos mostrados acima são necessários.  
 
     > [!NOTE] 
     > Você precisa habilitar a opção **Criar Conta de Usuário Não Reconhecido** no iLMS para mapear esses atributos. Siga as instruções [aqui](http://support.inspiredelearning.com/customer/portal/articles/2204526) para ter uma ideia sobre a configuração de atributos.
@@ -325,5 +323,4 @@ Ao clicar no bloco iLMS no Painel de Acesso, você deverá ser conectado automat
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

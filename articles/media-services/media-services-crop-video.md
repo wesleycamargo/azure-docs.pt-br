@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 60d0ce14a271fcbe698559da95ca011cb888b221
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Cortar vídeos com o Codificador de Mídia Padrão
 Você pode usar o MES (Codificador de Mídia Padrão) para cortar a entrada de seu vídeo. Corte é o processo de seleção de uma janela retangular no quadro de vídeo e codificação apenas dos pixels nessa janela. O diagrama a seguir ajuda a ilustrar o processo.
@@ -143,4 +142,3 @@ As restrições a seguir se aplicam ao recurso de corte. Se elas não forem aten
 Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo a saber mais sobre os excelentes recursos oferecidos pelo AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

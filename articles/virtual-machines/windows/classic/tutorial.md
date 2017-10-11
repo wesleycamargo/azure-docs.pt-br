@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Criar uma máquina virtual executando o Windows no portal do Azure
 > [!div class="op_single_selector"]
@@ -50,4 +48,3 @@ Também é possível criar VMs usando [suas próprias imagens](createupload-vhd.
 * Saiba como [criar uma VM usando o modelo de implantação do Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) no portal do Azure.
 * Faça logon na máquina virtual. Para obter instruções, veja [Fazer logon em uma máquina virtual que executa o Windows Server](connect-logon.md).
 * Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, veja [Anexar um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico](attach-disk.md).
-

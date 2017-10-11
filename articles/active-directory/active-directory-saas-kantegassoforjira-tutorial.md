@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA
 
@@ -336,5 +335,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_203.png
-
 

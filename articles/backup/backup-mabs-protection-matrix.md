@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 
 Este artigo lista os vários servidores e as cargas de trabalho que você pode proteger com o Servidor de Backup do Azure. A tabela a seguir lista o que pode ser protegido com o Servidor de Backup do Azure v1 e v2.
@@ -112,4 +110,3 @@ O Servidor de Backup do Azure pode proteger dados nos seguintes aplicativos em c
 -   SQL Server – o Servidor de Backup do Azure não oferece suporte a backup de bancos de dados do SQL Server hospedados em volumes compartilhados de cluster (CSVs).
 
 O Servidor de Backup do Azure pode proteger cargas de trabalho de cluster que estão localizadas no mesmo domínio que o servidor DPM e, em um domínio confiável ou filho. Se você deseja proteger fontes de dados em grupos de trabalho ou domínios não confiáveis, use NTLM ou autenticação de certificados para um único servidor ou autenticação de certificados apenas para um cluster.
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 63e4719a448a289aaa74ad050b36412969c5452d
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 912e1af684c90cd84b6b00bacbc7dd8d4434c5b9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>Obtenha chaves de conta para o BD Cosmos do Azure usando o PowerShell
 
 Este exemplo obtém chaves de conta para qualquer tipo de conta do BD Cosmos do Azure.  
@@ -58,4 +56,4 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de scripts do PowerShell do BD Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do BD Cosmos do Azure](../powershell-samples.md).
+Exemplos adicionais de scripts do PowerShell do Banco de Dados Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do Banco de Dados Cosmos do Azure](../powershell-samples.md).

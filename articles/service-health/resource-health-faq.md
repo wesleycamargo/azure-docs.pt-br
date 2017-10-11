@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="azure-resource-health-faq"></a>Perguntas frequentes sobre o Azure Resource Health
 Conheça as respostas para as perguntas comuns sobre o Azure Resource Health.
 
@@ -110,4 +107,3 @@ Com base no status de integridade, o Resource Health fornece recomendações com
 Saiba mais sobre o Resource Health:
 -  [Visão geral do Azure Resource Health](Resource-health-overview.md)
 -  [Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health](resource-health-checks-resource-types.md)
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
 Se você estiver familiarizado com o Azure Active Directory ou se tiver integrado aplicativos com o Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas ponto de extremidade v2.0.  Este documento chama a atenção para essas diferenças para sua compreensão.
@@ -127,4 +125,3 @@ As declarações em tokens emitidos pelo ponto de extremidade v2.0 não serão i
 
 ## <a name="limitations"></a>Limitações
 Há algumas restrições que merecem atenção ao usar o ponto v2.0.  Consulte o [documento de limitações da v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
-

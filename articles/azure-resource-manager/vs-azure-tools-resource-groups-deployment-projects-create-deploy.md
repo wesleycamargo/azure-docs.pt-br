@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 Com o Visual Studio e o [SDK do Azure](https://azure.microsoft.com/downloads/), você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. Ou pode definir uma Máquina Virtual, uma Rede Virtual e uma Conta de Armazenamento e implantar essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implantação **Grupo de Recursos do Azure** permite a você implantar todos os recursos necessários em uma única operação repetida. Para obter mais informações sobre como implantar e gerenciar seus recursos, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
@@ -220,5 +219,4 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como gerenciar seus recursos com o portal, consulte [Usando o Portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
 * Para saber mais sobre os modelos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-
 

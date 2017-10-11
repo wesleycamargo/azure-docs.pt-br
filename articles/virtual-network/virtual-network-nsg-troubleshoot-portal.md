@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -150,5 +148,4 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
 * Se você tiver VNets emparelhadas, por padrão, a marcação VIRTUAL_NETWORK expandirá automaticamente para incluir prefixos para VNets emparelhadas. Você pode exibir esses prefixos na lista **ExpandedAddressPrefix** , para solucionar os problemas relacionados à conectividade de emparelhamento da VNet. 
 * As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
 * Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.
-
 

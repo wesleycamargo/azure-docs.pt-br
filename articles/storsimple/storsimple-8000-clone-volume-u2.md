@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
@@ -125,5 +124,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-8000-restore-from-backup-set-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 
