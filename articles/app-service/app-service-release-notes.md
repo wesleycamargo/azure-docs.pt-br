@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
 Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.5.1. 
@@ -63,5 +62,4 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 * Projetos de Aplicativo de API não podem ser usados em conjunto com os projetos de Serviço de Nuvem.
 * Modelos de projeto de Aplicativo de API só estão disponíveis em C#.
 * Consumo do Aplicativo de API através do menu de contexto "Adicionar Cliente do Aplicativo de API do Azure" só têm suporte em C#.
-
 

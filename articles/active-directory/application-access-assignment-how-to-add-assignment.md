@@ -13,17 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 61536612e0dd5102b8f5e911c350826846f5ed77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="how-to-assign-users-and-groups-to-an-application" class="xliff"></a>
-
-# Como atribuir usuários e grupos a um aplicativo
+# <a name="how-to-assign-users-and-groups-to-an-application"></a>Como atribuir usuários e grupos a um aplicativo
 
 Antes que os usuários possam executar qualquer uma das opções abaixo para um aplicativo específico, primeiro você precisa **atribuí-los ao aplicativo** para conceder acesso a eles:
 
@@ -35,9 +31,7 @@ Antes que os usuários possam executar qualquer uma das opções abaixo para um 
 
 -   Ver um aplicativo em seu [Inicializador de Aplicativos do Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-<a id="methods-to-assign-applications-with-azure-active-directory" class="xliff"></a>
-
-## Métodos de atribuição de aplicativos com o Azure Active Directory 
+## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Métodos de atribuição de aplicativos com o Azure Active Directory 
 
 Há três formas de atribuir aplicativos com o Azure Active Directory:
 
@@ -47,9 +41,7 @@ Há três formas de atribuir aplicativos com o Azure Active Directory:
 
 -   [Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
 
-<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
-
-## Atribuir um usuário diretamente como administrador
+## <a name="assign-a-user-directly-as-an-administrator"></a>Atribuir um usuário diretamente como administrador
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -57,7 +49,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
 4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
@@ -73,7 +65,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
@@ -87,9 +79,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 Após um breve período, os usuários que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção de descrição da solução.
 
-<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
-
-## Atribuir um grupo diretamente a um aplicativo como administrador
+## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Atribuir um grupo diretamente a um aplicativo como administrador
 
 Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abaixo:
 
@@ -97,7 +87,7 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
 4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
@@ -115,7 +105,7 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 10. Digite o **nome completo do grupo** que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
-11. Passe o mouse sobre o **grupo** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do grupo para adicioná-lo à lista **Selecionado**.
+11. Passe o mouse sobre o **grupo** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção próxima ao logotipo ou ao perfil do grupo para adicionar o usuário na lista **Selecionado**.
 
 12. **Opcional:** caso queira **adicionar mais de um grupo**, digite outro **nome de grupo completo** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse grupo à lista **Selecionado**.
 
@@ -127,9 +117,7 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 Após um breve período, os usuários nos grupos que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção de descrição da solução. Se esses grupos forem dinâmicos, pode haver algum atraso de processamento adicional nessas atribuições que aparecem para os usuários nesses grupos atribuídos.
 
-<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
-
-## Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
+## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 
 O acesso de aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários descubram aplicativos por conta própria e, ainda, permitir que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para Aplicativos de logon único com senha, diretamente de seus painéis de acesso.
 
@@ -139,7 +127,7 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
 4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
@@ -174,8 +162,5 @@ Após você concluir a configuração do aplicativo de autoatendimento, os usuá
 
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-

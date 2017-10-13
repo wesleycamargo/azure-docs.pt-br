@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc17196603a5bdcd7f880c3650512846fa0facef
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -321,4 +320,3 @@ Você também pode especificar os tipos MIME específicos para dinâmico e está
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como migrar de um ambiente local para o ambiente do Serviço de Aplicativo?
 
 Para migrar sites de servidores de web do Windows e Linux para o Serviço de Aplicativo, você pode usar o Assistente de Migração do Serviço de Aplicativo do Azure. A ferramenta de migração cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://www.movemetothecloud.net/).
-

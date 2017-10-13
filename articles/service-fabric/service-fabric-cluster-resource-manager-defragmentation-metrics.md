@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 A estratégia padrão do Gerenciador de Recursos do Service Fabric para gerenciar métricas de carga no cluster é distribuir a carga. Garantir que os nós sejam utilizados de maneira uniforme evita pontos altos e baixos que levam à contenção e ao desperdício de recursos. A distribuição das cargas de trabalho no cluster também é a opção mais segura em termos de sobrevivência a falhas, uma vez que garante que uma falha não destruirá um grande percentual de uma determinada carga de trabalho. 
@@ -101,4 +100,3 @@ via ClusterConfig.json para implantações autônomas ou Template.json para clus
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
-

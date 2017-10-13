@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Arquitetura de aplicativo no Azure
 Para ajudar a proteger suas soluções baseadas em nuvem no Microsoft Azure, uma base sólida de arquitetura é fundamental. Arquitetos, designers e implementadores se beneficiam de um conhecimento sólido sobre a arquitetura de aplicativos e serviços. Esse conhecimento básico ajuda você a entender todos os componentes de suas soluções baseadas em nuvem e torna mais fácil integrar a segurança em todos os aspectos de seu design e implementação.
@@ -56,4 +55,3 @@ O modelo também está disponível fora do curso.
 * [Veja o vídeo de treinamento](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer
 * Baixe o [Modelo de planta 3D do Visio da Microsoft](http://aka.ms/3DBlueprintTemplate)
 * Baixe os [Símbolos de Nuvem e Enterprise](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para usar com o modelo 3D
-

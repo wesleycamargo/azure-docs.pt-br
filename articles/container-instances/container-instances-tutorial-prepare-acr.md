@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
 Esta é a parte dois de um tutorial de três partes. Na [etapa anterior](./container-instances-tutorial-prepare-app.md), uma imagem de contêiner foi criada para um aplicativo Web simples escrito em [Node.js](http://nodejs.org). Neste tutorial, essa imagem é enviada por push para um Registro de Contêiner do Azure. Se você não criou a imagem de contêiner, retorne ao [Tutorial 1 – Criar imagem de contêiner](./container-instances-tutorial-prepare-app.md). 
@@ -166,4 +164,3 @@ Avance para o próximo tutorial para saber mais sobre a implantação do contêi
 
 > [!div class="nextstepaction"]
 > [Implantar contêineres nas Instâncias de Contêiner do Azure](./container-instances-tutorial-deploy-app.md)
-

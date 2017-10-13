@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
+ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análise para o desenvolvedor: linguagens, plataformas e integrações
 Esses itens são implementações do [Application Insights](app-insights-overview.md) sobre as quais ouvimos falar, incluindo algumas de terceiros.
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Idiomas oficialmente suportados pela equipe do Application Insights
+## <a name="languages---officially-supported-by-application-insights-team"></a>Linguagens oficialmente suportadas pela equipe do Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Páginas da Web JavaScript](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
-## <a name="languages---community-supported"></a>Idiomas com suporte da comunidade
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
+## <a name="languages---community-supported"></a>Linguagens com suporte da comunidade
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -84,4 +83,3 @@ Esses itens são implementações do [Application Insights](app-insights-overvie
 
 ## <a name="projects"></a> Criar seu próprio SDK
 Se ainda não houver um SDK para sua linguagem ou plataforma, você gostaria de criar um? Examine o código dos SDKs existentes listados no [Projeto de SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home).
-

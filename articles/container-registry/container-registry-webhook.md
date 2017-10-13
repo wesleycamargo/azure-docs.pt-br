@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2017
 ms.author: nepeters
+ms.openlocfilehash: 35f2b940a36ca3176cf850afd97e62af0dd797ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: d0190f5725671c320d92b897f0dcef7a526a86e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-container-registry-webhooks---azure-portal"></a>Usar webhooks de registro de contêiner do Azure – Portal do Azure
 
 Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do Docker, de forma semelhante a como o Docker Hub armazena imagens públicas do Docker. Você usar webhooks para disparar eventos quando certas ações ocorrem em um dos repositórios do registro. Webhooks podem responder a eventos em nível de registro ou eles podem ter o escopo reduzido para a marca de um repositório específico. 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
@@ -88,4 +87,3 @@ Os seguintes indicadores podem ajudá-lo a entender o gargalo e funcionam adequa
 
 * **A interface do usuário está mostrando o progresso para a transferência de dados**. Os dados ainda estão sendo transferidos. A largura de banda de rede ou o tamanho dos dados podem estar causando atrasos.
 * **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\Microsoft Azure Recovery Services Agent\Temp e verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
-

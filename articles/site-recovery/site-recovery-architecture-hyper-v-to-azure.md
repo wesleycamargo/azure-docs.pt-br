@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 552794a2c7bba6f551ada5f431cacc236e7732a4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Como funciona a replicação do Hyper-V para o Azure no Site Recovery?
 
 
@@ -67,9 +64,7 @@ Saiba mais sobre os pré-requisitos de implantação e os requisitos para cada u
 1. Depois de habilitar a proteção para uma máquina virtual do Hyper-V, no portal do Azure ou no local, a opção **Habilitar proteção** é iniciada.
 2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para configurar a replicação com as configurações definidas por você.
 3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
-4. Você pode monitorar o trabalho na guia **Trabalhos** .
-        ![Lista de trabalhos](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Habilitar busca detalhada da proteção](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. Você pode monitorar o trabalho na guia **Trabalhos** .      ![Lista de trabalhos](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Habilitar busca detalhada da proteção](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicar os dados iniciais
 
@@ -126,4 +121,3 @@ Se um erro de replicação ocorrer, haverá uma repetição interna. Ela pode se
 ## <a name="next-steps"></a>Próximas etapas
 
 Examine a [matriz de suporte](site-recovery-support-matrix-to-azure.md)
-

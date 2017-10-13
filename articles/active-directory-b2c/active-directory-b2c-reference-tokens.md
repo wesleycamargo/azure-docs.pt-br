@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
+ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Referência de token
 
@@ -155,5 +154,4 @@ Os tempos de vida de token a seguir são fornecidos para expandir seus conhecime
 | Tokens de ID |Uma hora |Tokens de ID normalmente são válidos por uma hora. O aplicativo Web pode usar esse tempo de vida para manter suas próprias sessões com usuários (recomendado). Também é possível escolher um tempo de vida de sessão diferente. Se o aplicativo precisar obter um novo token de ID, ele simplesmente precisará fazer uma nova solicitação de conexão ao Azure AD. Se um usuário tiver uma sessão de navegador válida com o Azure AD, talvez ele não precise inserir suas credenciais novamente. |
 | Tokens de atualização |Até 14 dias |Um único token de atualização é válido para um máximo de 14 dias. No entanto, um token de atualização pode se tornar inválido a qualquer momento por vários motivos. Seu aplicativo deve continuar a tentar usar um token de atualização até que a solicitação falhe ou até que o aplicativo substitua o token de atualização por um novo. Um token de atualização também pode se tornar inválido se 90 dias se passaram desde a última vez em que o usuário inseriu credenciais. |
 | Códigos de autorização |Cinco minutos |Intencionalmente, os códigos de autorização são de curta duração. Eles devem ser resgatados imediatamente para tokens de acesso, tokens de ID ou tokens de atualização ao serem recebidos. |
-
 

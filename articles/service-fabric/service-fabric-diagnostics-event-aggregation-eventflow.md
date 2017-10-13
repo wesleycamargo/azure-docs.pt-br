@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) pode encaminhar eventos de um nó a um ou mais destinos de monitoramentos. Como ele está incluído como um pacote NuGet em seu projeto de serviço, o código e a configuração do EventFlow viajam com o serviço, eliminando o problema de configuração por nó mencionado anteriormente sobre o Diagnóstico do Azure. O EventFlow é executado em seu processo de serviço e conecta-se diretamente às saídas configuradas. Devido a essa conexão direta, o EventFlow funciona para o Azure, o contêiner e as implantações de serviço locais. Tenha cuidado se você executar EventFlow em cenários de alta densidade, como em um contêiner, pois cada pipeline EventFlow faz uma conexão externa. Então, se você hospedar vários processos, obterá várias conexões de saída! Isso não é tanto uma preocupação para aplicativos de Service Fabric, porque todas as réplicas de um `ServiceType` são executadas no mesmo processo e isso limita o número de conexões de saída. O EventFlow também oferece a filtragem de eventos e, portanto, somente os eventos que correspondem ao filtro especificado são enviadas.
@@ -157,4 +155,3 @@ Inicie o serviço e observe a depuração janela saída no Visual Studio. Depois
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Visualização com o OMS e Análise de Eventos](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentação de EventFlow](https://github.com/Azure/diagnostics-eventflow)
-

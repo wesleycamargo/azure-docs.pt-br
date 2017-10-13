@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implantar um contêiner em Instâncias de Contêiner do Azure
 
 Esta é a última parte de um tutorial de três partes. Nas seções anteriores [uma imagem de contêiner foi criada ](container-instances-tutorial-prepare-app.md) e [enviada por push a um Registro de Contêiner do Azure](container-instances-tutorial-prepare-acr.md). Esta seção conclui o tutorial implantando o contêiner em Instâncias de Contêiner do Azure. As etapas concluídas incluem:
@@ -106,4 +104,3 @@ Neste tutorial, você concluiu o processo de implantação dos seus contêineres
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
-

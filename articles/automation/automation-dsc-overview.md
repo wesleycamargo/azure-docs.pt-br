@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Visão geral do DSC da Automação do Azure
 
@@ -65,4 +65,4 @@ Prefere assistir do que ler? Assista ao vídeo abaixo, de maio de 2015, quando a
 * Para saber mais sobre configurações da DSC de compilação para que você possa atribuí-las a nós de destino, consulte [Como compilar configurações na DSC de Automação do Azure](automation-dsc-compile.md)
 * Para referência de cmdlet do PowerShell para a DSC de Automação do Azure, consulte [cmdlets da DSC de Automação do Azure](/powershell/module/azurerm.automation/#automation)
 * Para obter informações sobre preços, consulte [Preços da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
-* Para ver um exemplo de como usar o DSC de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua para DSC de automação do IaaS VMs usando o Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+* Para ver um exemplo de como usar a DSC de Automação do Azure em um pipeline de implantação contínua, consulte [Implantação contínua em VMs de IaaS usando a DSC de Automação do Azure e o Chocolatey](automation-dsc-cd-chocolatey.md)

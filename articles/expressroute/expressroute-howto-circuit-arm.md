@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 8bfae39d84aaac3b9527084df9dcfbd51f591dfe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -308,8 +308,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## <a name="modify">
-            </a>Modificar um circuito do ExpressRoute
+## <a name="modify"></a>Modificar um circuito do ExpressRoute
 Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade.
 
 Você pode fazer o seguinte sem tempo de inatividade:

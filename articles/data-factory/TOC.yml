@@ -192,7 +192,7 @@
           href: monitor-integration-runtime.md
     - name: Criar tempo de execução de integração
       items:
-        - name: Tempo de execução de integração do Azure
+        - name: Integration Runtime do Azure
           href: create-azure-integration-runtime.md
         - name: Tempo de execução de integração auto-hospedado
           href: create-self-hosted-integration-runtime.md

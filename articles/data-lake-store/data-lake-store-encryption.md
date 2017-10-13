@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Criptografia de dados no Azure Data Lake Store
 
 A criptografia no Azure Data Lake Store ajuda a proteger seus dados, implementar políticas de segurança da empresa e atender aos requisitos de conformidade normativa. Este artigo fornece uma visão geral do design e discute alguns dos aspectos técnicos de implementação.
@@ -52,8 +50,8 @@ O Data Lake Store oferece dois modos de gerenciamento de chaves de criptografia 
 
 Os dois modos para gerenciar a chave de criptografia mestra são da seguinte maneira:
 
-*    Chaves gerenciadas de serviço
-*    Chaves gerenciadas do cliente
+*   Chaves gerenciadas de serviço
+*   Chaves gerenciadas do cliente
 
 Em ambos os modos, a chave de criptografia mestra é protegida, armazenando-a no Azure Key Vault. O Key Vault é um serviço altamente seguro, totalmente gerenciado no Azure que pode ser usado para proteger chaves criptográficas. Para obter mais informações, consulte [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +72,8 @@ Além dessa diferença de quem gerencia a MEK e a instância do Key Vault no qua
 
 É importante lembrar do seguinte ao escolher o modo para as chaves de criptografia mestras:
 
-*    Você pode escolher usar chaves gerenciadas pelo cliente ou chaves gerenciadas pelo serviço quando você provisionar uma conta do Data Lake Store.
-*    Depois que uma conta do Data Lake Store é configurada, o modo não pode ser alterado.
+*   Você pode escolher usar chaves gerenciadas pelo cliente ou chaves gerenciadas pelo serviço quando você provisionar uma conta do Data Lake Store.
+*   Depois que uma conta do Data Lake Store é configurada, o modo não pode ser alterado.
 
 ### <a name="encryption-and-decryption-of-data"></a>Criptografia e descriptografia de dados
 
@@ -92,20 +90,20 @@ O diagrama a seguir ilustra esses conceitos:
 ![Chaves na criptografia de dados](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudoalgoritmo quando um arquivo será descriptografado:
-1.    Verifique se a DEK para a conta do Data Lake Store está armazenada em cache e pronta para uso.
+1.  Verifique se a DEK para a conta do Data Lake Store está armazenada em cache e pronta para uso.
     - Caso contrário, leia a DEK criptografada de armazenamento persistente e envie-a para o Key Vault para ser descriptografada. Armazene em cache a DEK descriptografada na memória. Agora ela está pronta para ser usada.
-2.    Para cada bloco de dados no arquivo:
+2.  Para cada bloco de dados no arquivo:
     - Leia o bloco de dados criptografado do armazenamento persistente.
     - Gere a BEK a partir da DEK e do bloco de dados criptografado.
     - Use a BEK para descriptografar dados.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudoalgoritmo quando um bloco de dados será descriptografado:
-1.    Verifique se a DEK para a conta do Data Lake Store está armazenada em cache e pronta para uso.
+1.  Verifique se a DEK para a conta do Data Lake Store está armazenada em cache e pronta para uso.
     - Caso contrário, leia a DEK criptografada de armazenamento persistente e envie-a para o Key Vault para ser descriptografada. Armazene em cache a DEK descriptografada na memória. Agora ela está pronta para ser usada.
-2.    Gere um BEK exclusivo para o bloco de dados do DEK.
-3.    Criptografe o bloco de dados com a BEK usando a criptografia AES-256.
-4.    Armazene o bloco de dados criptografados no armazenamento persistente.
+2.  Gere um BEK exclusivo para o bloco de dados do DEK.
+3.  Criptografe o bloco de dados com a BEK usando a criptografia AES-256.
+4.  Armazene o bloco de dados criptografados no armazenamento persistente.
 
 > [!NOTE] 
 > Para fins de desempenho, a DEK criptografada é armazenada em cache na memória por um curto período e é imediatamente apagada posteriormente. Na mídia persistente, ela é sempre armazenada criptografada pela MEK.
@@ -127,17 +125,16 @@ Observe que, se você usar as opções padrão para criptografia, seus dados sem
 
     ![Captura de tela do Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Selecione a chave associada à sua conta do Azure Data Lake Store e crie uma nova versão dessa chave. Observe que Data Lake Store atualmente suporta a alteração de chaves apenas para uma nova versão de uma chave. Ele não oferece suporte a alteração para uma chave diferente.
+3.  Selecione a chave associada à sua conta do Azure Data Lake Store e crie uma nova versão dessa chave. Observe que Data Lake Store atualmente suporta a alteração de chaves apenas para uma nova versão de uma chave. Ele não oferece suporte a alteração para uma chave diferente.
 
    ![Captura de tela da janela de Chaves, com a Nova versão realçada](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Navegue até a conta de armazenamento do Data Lake Store e selecione **Criptografia**.
+4.  Navegue até a conta de armazenamento do Data Lake Store e selecione **Criptografia**.
 
     ![Captura de tela da janela da conta de armazenamento do Data Lake Store, com Criptografia realçada](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Uma mensagem notifica você que uma nova versão de chave da chave está disponível. Clique em **Alterar chave** para atualizar a chave para a nova versão.
+5.  Uma mensagem notifica você que uma nova versão de chave da chave está disponível. Clique em **Alterar chave** para atualizar a chave para a nova versão.
 
     ![Captura de tela da janela do Data Lake Store com a mensagem e Alterar realçados](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
-

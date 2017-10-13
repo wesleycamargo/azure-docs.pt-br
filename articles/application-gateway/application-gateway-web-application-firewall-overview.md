@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
 O Firewall do aplicativo Web (WAF) é um recurso do Gateway de Aplicativo que fornece proteção centralizada de seus aplicativos Web de vulnerabilidades e explorações comuns. 
@@ -123,7 +120,7 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Isso permite o controle das informações de diagnóstico, incluindo logs e alertas de WAF.  Esse recurso é fornecido Gateway de Aplicativo no portal na guia **Diagnóstico** ou diretamente no serviço Azure Monitor. Para saber mais sobre como habilitar logs de diagnóstico para o gateway de aplicativo, visite [Diagnóstico do Gateway de aplicativo](application-gateway-diagnostics.md)
+Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Isso permite o controle das informações de diagnóstico, incluindo logs e alertas de WAF.  Esse recurso é fornecido Gateway de Aplicativo no portal na guia **Diagnóstico** ou diretamente no serviço Azure Monitor. Para saber mais sobre como habilitar logs de diagnóstico para o Gateway de Aplicativo, visite [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
@@ -174,5 +171,4 @@ A cobrança pelo WAF começa efetivamente no dia 05/05/2017. Até lá, a cobran�
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de aprender mais sobre os recursos do WAF, visite [Como configurar o firewall de aplicativo Web no Gateway de Aplicativo](application-gateway-web-application-firewall-portal.md).
-
 

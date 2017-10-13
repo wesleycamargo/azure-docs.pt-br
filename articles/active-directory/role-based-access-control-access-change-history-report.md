@@ -15,12 +15,11 @@ ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 4e8028ab43ed02ef0c0a1374326b07f72f97d9d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Criar um relatório de acesso para o Controle de Acesso Baseado em Função
 Sempre que alguém concede ou revoga acesso em suas assinaturas, as alterações são registradas em log em eventos do Azure. Você pode criar relatórios de histórico de alterações de acesso para ver todas as alterações nos últimos 90 dias.
@@ -63,5 +62,4 @@ Para salvar o relatório ou manipular os dados, exporte as alterações de acess
 ## <a name="next-steps"></a>Próximas etapas
 * Trabalhe com [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 * Saiba como gerenciar o [RBAC do Azure com o PowerShell](role-based-access-control-manage-access-powershell.md)
-
 

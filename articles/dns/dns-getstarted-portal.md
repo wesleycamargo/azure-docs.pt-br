@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introdução ao DNS do Azure usando o Portal do Azure
 
 > [!div class="op_single_selector"]
@@ -104,5 +102,4 @@ Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas
 Para saber mais sobre o DNS do Azure, veja [Visão geral do DNS do Azure](dns-overview.md).
 
 Para saber mais sobre como gerenciar registros DNS no DNS do Azure, confira [Gerenciar registros DNS e conjuntos de registros usando o Portal do Azure](dns-operations-recordsets-portal.md).
-
 

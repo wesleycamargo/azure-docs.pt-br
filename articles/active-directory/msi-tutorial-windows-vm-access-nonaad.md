@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 1785b4da8c54354dbc48c514dbb8f969a1f997ca
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Usar a Identidade de Serviço Gerenciado (MSI) com uma VM do Windows para acessar o Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -78,7 +76,7 @@ Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa
 2. Forneça um **Nome** para o novo Key Vault. 
 3. Localize o Key Vault no mesmo grupo de recursos e assinatura da VM que você criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar nova**. 
-5. Em Configurar usando modelo, selecione **Gerenciamento de segredo**. 
+5. Em Configurar usando modelo, selecione **Gerenciamento de Segredo**. 
 6. Escolha **Selecionar Entidade de Segurança** e no campo de pesquisa insira o nome da VM que você criou anteriormente.  Selecione a VM na lista de resultados e clique em **Selecionar**. 
 7. Clique em **OK** para terminar de adicionar a nova política de acesso e **OK** para concluir a seleção de política de acesso. 
 8. Clique em **Criar** para terminar de criar o Key Vault. 
@@ -89,7 +87,7 @@ Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa
 Em seguida, adicione um segredo ao Key Vault, para que posteriormente você possa recuperar o segredo usando código em execução em sua VM: 
 
 1. Selecione **Todos os Recursos** e localize e selecione o Key Vault que você acabou de criar. 
-2. Selecione **Segredos**e clique em **Adicionar**. 
+2. Selecione **Segredos** e clique em **Adicionar**. 
 3. Em **Opções de upload** selecione **Manual**. 
 4. Insira um nome e um valor para o segredo.  O valor pode ser qualquer coisa que você desejar. 
 5. Deixe a data de ativação e a data de validade em branco e deixe **Habilitado** como **Sim**. 
@@ -143,4 +141,3 @@ Depois de recuperar o segredo do Key Vault, você pode usá-lo para autenticar u
 - Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](../active-directory/msi-overview.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
-
