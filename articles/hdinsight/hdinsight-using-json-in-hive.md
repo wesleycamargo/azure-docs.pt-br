@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8c013937f7d3d90ed687b5ca9585f0af450774db
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON usando o Apache Hive no HDInsight do Azure
 
@@ -137,7 +136,7 @@ A saída deste script no console do Hive:
 
 ![UDF json_tuple][image-hdi-hivejson-jsontuple]
 
-O UDF json_tuple usa a sintaxe da ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView)exibição lateral\_ no Hive, que permite que a tupla[json criar uma tabela virtual aplicando a função UDT em cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de **LATERAL VIEW**. Além disso, **JSON_TUPLE** não pode manipular JSONs aninhados.
+O UDF json_tuple usa a sintaxe da [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive, que permite que a tupla\_json criar uma tabela virtual aplicando a função UDT em cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de **LATERAL VIEW**. Além disso, **JSON_TUPLE** não pode manipular JSONs aninhados.
 
 ### <a name="use-a-custom-serde"></a>Usar um SerDe personalizado
 SerDe é a melhor opção para análise de documentos JSON aninhados. Ele permite que você defina o esquema JSON e então use o esquema para analisar os documentos. Para obter instruções, veja [Como usar um SerDe JSON personalizado com o Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
@@ -167,5 +166,4 @@ Para artigos relacionados, veja:
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
 

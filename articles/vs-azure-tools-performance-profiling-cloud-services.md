@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7bd8de649ba2975c47f7e84feb0438c51756a697
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: eafcc2f9d53bcdae63036df070e5adec24cbc252
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Testando o desempenho de um serviço de nuvem
 ## <a name="overview"></a>Visão geral
@@ -114,5 +113,4 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 [Depurando serviços de nuvem](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-
 

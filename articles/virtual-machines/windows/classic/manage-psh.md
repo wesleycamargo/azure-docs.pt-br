@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ba02fb8385afeefd0162ff79074352bb02275b55
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fd2df7e1029ced11974d0b832258bed2cf3bbb27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Gerenciar suas máquinas virtuais usando o Azure PowerShell
 > [!IMPORTANT] 
@@ -100,5 +98,4 @@ Para criar no Azure uma nova máquina virtual baseada no Windows, use as instru�
 * Com discos adicionais.
 * Como membro de um conjunto de balanceamento de carga existente.
 * Com um endereço IP estático.
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
 Para tirar proveito dos serviços de hospedagem e a escalabilidade do Azure, você pode migrar e publicar seu aplicativo Web em um serviço de nuvem do Azure. Você pode executar um aplicativo Web no Azure fazendo alterações mínimas nele.
@@ -202,4 +201,3 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
-

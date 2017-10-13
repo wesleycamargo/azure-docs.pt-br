@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2017
 ms.author: kumud
 ms.custom: 
+ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fcefa16112e29c897d72ade80bc612b7765c578d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar as Medidas Reais de Usuário ao Gerenciador de Tráfego com o Visual Studio Mobile Center
 
 >[!NOTE]
@@ -110,5 +108,4 @@ Para usar as Medidas Reais de Usuário, conclua o procedimento a seguir:
 - [Inscreva-se](https://mobile.azure.com) no Mobile Center
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
 - Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-profile.md)
-
 

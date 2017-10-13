@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)
 Este artigo apresenta exemplos de configuração para conectar dispositivos Cisco ASA (Adaptive Security Appliance) a gateways de VPN do Azure. O exemplo se aplica a dispositivos Cisco ASA que estão executando IKEv2 sem BGP (Border Gateway Protocol). 
@@ -67,7 +66,7 @@ Esta seção lista os parâmetros para o exemplo.
 | IP do gateway de VPN do Azure         | Azure_Gateway_Public_IP      |
 | Prefixos de endereço local | 10.51.0.0/16<br>10.52.0.0/16 |
 | IP do dispositivo VPN local    | OnPrem_Device_Public_IP     |
-| * Rede Virtual de ASN de BGP                | 65010                        |
+| * Rede virtual de ASN de BGP                | 65010                        |
 | *IP do par do BGP do Azure           | 10.12.255.30                 |
 | * ASN de BGP local         | 65050                        |
 | * IP de par no BGP local     | 10.52.255.254                |
@@ -313,4 +312,3 @@ Use estes comandos ASA para fins de depuração:
 
 ## <a name="next-steps"></a>Próximas etapas
 Para configurar conexões de VNet a VNet e ativo-ativo entre locais, consulte [Configurar gateways VPN ativo-ativo](vpn-gateway-activeactive-rm-powershell.md).
-

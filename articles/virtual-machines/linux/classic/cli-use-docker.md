@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Usando a extensão VM Docker da interface de linha de comando do Azure (CLI do Azure)
 > [!IMPORTANT] 
@@ -182,4 +181,3 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 [Guia do usuário do Docker]:https://docs.docker.com/userguide/
 
 [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure]:../docker-compose-quickstart.md
-

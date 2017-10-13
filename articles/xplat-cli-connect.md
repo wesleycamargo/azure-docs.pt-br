@@ -17,10 +17,10 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Faça logon no Azure no Azure CLI
 O Azure CLI é um conjunto de comandos de plataforma cruzada de software livre para trabalhar com recursos do Azure. Este artigo descreve as diferentes maneiras de fornecer as credenciais de conta do Azure para conectar o Azure CLI à sua assinatura do Azure:

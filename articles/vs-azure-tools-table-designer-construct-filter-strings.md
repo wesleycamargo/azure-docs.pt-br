@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98b06b14ca7897cce884f6d80f998661cacb7ea4
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Construindo cadeias de caracteres de filtro para o designer de tabela
 ## <a name="overview"></a>Visão geral
@@ -95,4 +94,3 @@ Para filtrar um valor DateTime, especifique a palavra-chave **datetime** , segui
 O exemplo a seguir retorna entidades nas quais a propriedade CustomerSince é igual a 10 de julho de 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
-
