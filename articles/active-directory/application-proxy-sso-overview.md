@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como o Proxy de Aplicativo do Azure AD fornece logon único?
 
 O logon único é um elemento fundamental do Proxy de Aplicativo Azure AD.  Ele fornece a melhor experiência de usuário porque os usuários só precisam entrar no Azure Active Directory na nuvem. Depois que se autenticarem no Azure Active Directory, o conector do Proxy de Aplicativo lida com a autenticação do aplicativo local. O aplicativo de back-end não pode determinar a diferença entre um usuário remoto entrando por meio do Proxy de Aplicativo e o uso comum em um dispositivo associado ao domínio. 
@@ -81,4 +79,3 @@ Para obter informações sobre como configurar a autenticação baseada em cabe�
 - [Compartimentação de senhas para logon único com o Proxy de Aplicativo](application-proxy-sso-azure-portal.md)
 - [Delegação restrita de Kerberos para logon único com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 - [Autenticação baseada em cabeçalho para logon único com o Proxy de Aplicativo](application-proxy-ping-access.md) 
-

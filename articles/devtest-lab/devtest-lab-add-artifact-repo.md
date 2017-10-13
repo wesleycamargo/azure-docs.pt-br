@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Resource Manager
 
@@ -99,4 +98,3 @@ Depois que você criou seu repositório Git, você pode fazer um ou ambos estes 
 * [Crie ambientes de várias VMs e recursos de PaaS usando modelos do Resource Manager](devtest-lab-create-environment-from-arm.md). Em seguida, você pode armazenar os modelos em seu repositório privado.
 
 Quando você criar uma VM, poderá verificar se os artefatos ou os modelos são adicionados ao seu repositório Git. Eles estão imediatamente disponíveis na lista de artefatos ou modelos. O nome do seu repositório privado é mostrado na coluna que especifica a origem. 
-
