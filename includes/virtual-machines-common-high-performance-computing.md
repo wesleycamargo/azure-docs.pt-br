@@ -141,8 +141,7 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 * [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) para clusters Hadoop no Azure
 * [Fábrica de dados](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* 
-            [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [Banco de Dados SQL](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="networking"></a>Rede

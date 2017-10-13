@@ -2,13 +2,13 @@
 
 2. Clique em **Novo**.
 
-3. Na caixa de pesquisa, digite **aplicativos móveis**.
+3. Na caixa de pesquisa, digite **Aplicativos Móveis**.
 
-    ![Portal do Azure com início rápido de aplicativos móveis realçado][quickstart]
+    ![Portal do Azure com Início Rápido de Aplicativos Móveis realçado][quickstart]
 
-4. Na lista de resultados, selecione **início rápido de aplicativos móveis**e, em seguida, selecione **criar**.
+4. Na lista de resultados, selecione **Guia de Início Rápido de Aplicativos Móveis**e selecione **Criar**.
  
-5. Em **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo (usando o mesmo nome como seu aplicativo).
+5. Em **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo (usando o mesmo nome que o aplicativo).
 
 6. Clique em **Criar**. Aguarde alguns minutos para que o serviço seja implantado com êxito antes de continuar.
 

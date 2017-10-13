@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: 0ebca65585fc87bd4a85ba092cd423fce9540f58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
-ms.contentlocale: pt-br
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="create-an-application-express"></a>Criar um aplicativo (Expresso)
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
@@ -69,4 +69,3 @@ No nó raiz <code>dict</code>, adicione o seguinte:
 Substitua <i><code>[Your_Application_Id_Here]</code></i> pela ID do Aplicativo que você acabou de registrar
 </li>
 </ol>
-

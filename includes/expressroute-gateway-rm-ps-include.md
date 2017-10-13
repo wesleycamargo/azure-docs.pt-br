@@ -13,7 +13,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 * Nome do Gateway = “GW”
 * Nome do IP do Gateway = “GWIP”
 * Nome da configuração de IP do Gateway = “gwipconf”
-* Tipo = “Rota Expressa” Este tipo é necessário para uma configuração de Rota Expressa.
+* Tipo = “ExpressRoute” Este tipo é necessário para uma configuração de ExpressRoute.
 * Nome do IP público do Gateway = “gwpip”
 
 ## <a name="add-a-gateway"></a>Adicionar um gateway
@@ -64,7 +64,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
   ```powershell
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
-9. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **Rota Expressa**. Observe que, depois de executar esses cmdlets, o gateway pode levar 45 minutos ou mais para ser criado.
+9. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **ExpressRoute**. Observe que, depois de executar esses cmdlets, o gateway pode levar 45 minutos ou mais para ser criado.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard

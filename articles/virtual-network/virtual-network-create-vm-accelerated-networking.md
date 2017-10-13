@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449425189a3b42dcb2c31316c1c8e38fac69d761
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual com Rede Acelerada
 
@@ -52,7 +52,7 @@ Existem as seguintes limitações ao usar essa funcionalidade:
 * **Tamanho da VM:** tamanhos de instância com computação otimizada e de finalidade geral com oito ou mais núcleos. Para obter mais informações, consulte os artigos de tamanhos de VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
 * **Implantação somente por meio do ARM (Azure Resource Manager):** a Rede Acelerada não está disponível para implantação por meio do ASM/RDFE.
 
-Alterações a essas limitações serão anunciadas na página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
+Alterações a essas limitações serão anunciadas na página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/).
 
 ## <a name="create-a-windows-vm"></a>Criar uma VM do Windows
 Você pode usar o portal do Azure ou o Azure [PowerShell](#windows-powershell) para criar a VM.

@@ -1,4 +1,4 @@
-Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará saídas semelhantes ao exemplo a seguir:
+Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelhante ao seguinte exemplo:
 
 ```json
 Local git is configured with url of 'https://<username>@<app name>.scm.azurewebsites.net/<app name>.git'

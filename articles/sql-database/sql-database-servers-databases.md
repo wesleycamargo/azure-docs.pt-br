@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: dbc01dac6cf31916bef1cba9432e5653751dc625
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5db3f6dc28da9a07d0193db58b37def8c03a8c46
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
 
 Um banco de dados SQL do Azure é um banco de dados gerenciado no Microsoft Azure criado em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md). Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica. 
@@ -146,25 +144,25 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Cria um banco de dados|
-|[az sql db list](/cli/azure/sql/db#list)|Lista todos os bancos de dados e data warehouses em um servidor, ou todos os bancos de dados em um pool elástico|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Lista os objetivos de serviço disponíveis e os limites de armazenamento|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Retorna os usos do banco de dados|
-|[az sql db show](/cli/azure/sql/db#show)|Obtém um banco de dados ou data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Atualiza um banco de dados|
-|[az sql db delete](/cli/azure/sql/db#delete)|Remove um banco de dados|
-|[az group create](/cli/azure/group#create)|Cria um grupos de recursos|
-|[az sql server create](/cli/azure/sql/server#create)|Cria um servidor|
-|[az sql server list](/cli/azure/sql/server#list)|Lista servidores|
-|[az sql server list-usages](/cli/azure/sql/server#list-usages)|Retorna os usos do servidor|
-|[az sql server show](/cli/azure/sql/server#show)|Obtém um servidor|
-|[az sql server update](/cli/azure/sql/server#update)|Atualiza um servidor|
-|[az sql server delete](/cli/azure/sql/server#delete)|Exclui um servidor|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#create)|Cria uma regra de firewall de servidor|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#list)|Lista as regras de firewall em um servidor|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#show)|Mostra os detalhes de uma regra de firewall|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule#update)|Atualiza uma regra de firewall|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#delete)|Exclui uma regra de firewall|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Cria um banco de dados|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Lista todos os bancos de dados e data warehouses em um servidor, ou todos os bancos de dados em um pool elástico|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Lista os objetivos de serviço disponíveis e os limites de armazenamento|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Retorna os usos do banco de dados|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtém um banco de dados ou data warehouse|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Atualiza um banco de dados|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Remove um banco de dados|
+|[az group create](/cli/azure/group#az_group_create)|Cria um grupos de recursos|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Cria um servidor|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lista servidores|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Retorna os usos do servidor|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Atualiza um servidor|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Exclui um servidor|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall de servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lista as regras de firewall em um servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Atualiza uma regra de firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Exclui uma regra de firewall|
 
 > [!TIP]
 > Para obter um tutorial de início rápido da CLI do Azure, confira [Criar um único banco de dados SQL do Azure usando a CLI do Azure](sql-database-get-started-cli.md). Para ver scripts de exemplo da CLI do Azure, consulte [Usar a CLI para criar um único Banco de Dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usar a CLI para monitorar e escalar um único Banco de Dados SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -220,7 +218,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls SQL do Azure, use
 |[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
 |[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Bancos de Dados – Atualizar](/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
 |[Regras de Firewall - Criar ou Atualizar](/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
 |[Regras de firewall - Excluir](/rest/api/sql/firewallrules/delete)|Exclui uma regra de firewall.|
 |[Regras de firewall - Obter](/rest/api/sql/firewallrules/get)|Obtêm uma regra de firewall.|

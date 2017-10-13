@@ -58,7 +58,7 @@ Por exemplo, se você tiver dois túneis redundantes entre o gateway de VPN do A
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>Posso ter vários túneis entre duas VNets do Azure com o BGP?
 Sim, mas pelo menos um dos gateways de rede virtual deve estar na configuração ativo-ativo.
 
-### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Posso usar BGP para VPN S2S em uma configuração de coexistência de VPN S2S/Rota Expressa?
+### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Posso usar BGP para VPN S2S em uma configuração de coexistência de VPN S2S/ExpressRoute?
 Sim. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Que endereço o gateway de VPN do Azure usa para o IP de Par de BGP?

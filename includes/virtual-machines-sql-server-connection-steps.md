@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
-1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à VM, confira [Abrir uma VM do SQL com a Área de Trabalho Remota](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à VM, confira [Abrir uma VM do SQL com a Área de Trabalho Remota](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
 2. Uma vez conectado na tela inicial, digite **WF. msc**e pressione ENTER.
    
     ![Iniciar o Programa de Firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
