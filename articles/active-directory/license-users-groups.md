@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Início rápido: Licenciar usuários no Azure Active Directory
 Os Serviços do Azure AD baseados em licença funcionam por meio da ativação da assinatura do Azure AD (Azure Active Directory) em seu locatário do Azure. Depois que a assinatura estiver ativa, as funcionalidades de serviço poderão ser gerenciadas por administradores do Azure AD e usadas por usuários licenciados. Quando você comprar o Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, seu locatário será atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. As informações da assinatura, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis no portal do Azure, em **Azure Active Directory** ao abrir o bloco **Licenças**. A folha **Licenças** também é o melhor lugar para gerenciar suas atribuições de licença.

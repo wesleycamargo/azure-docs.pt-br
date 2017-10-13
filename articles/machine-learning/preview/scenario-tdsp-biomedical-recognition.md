@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomédica usando o modelo TDSP (Processo de Ciência de Dados de Equipe)
 
 O objetivo deste cenário do mundo real é destacar como usar o Azure Machine Learning Workbench para resolver uma tarefa NLP (Processamento de linguagem natural) complicada como a extração de entidades de textos não estruturados:
@@ -269,5 +267,4 @@ Fomos além dos detalhes de como você poderia treinar um modelo de incorporaç�
 * [Redes neurais recorrentes](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemas encontrados com o Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)
 * [Spark Word2Vec: lições aprendidas](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/)
-
 

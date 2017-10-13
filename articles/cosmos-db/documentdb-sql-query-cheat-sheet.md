@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: PDF de roteiro de consultas SQL da API do DocumentDB
 A **Azure Cosmos DB: Roteiro de Consultas SQL da API do DocumentDB** ajuda a escrever rapidamente consultas de dados do DocumentDB, exibindo consultas comuns de banco de dados, palavras-chave, funções internas e operadores em uma folha de referência em PDF fácil de imprimir. 

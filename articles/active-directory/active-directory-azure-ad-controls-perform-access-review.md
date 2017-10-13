@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c9115bb5bc3d22c67ea0ac77b8972ae7f919926b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-access-with-azure-ad-access-reviews"></a>Como revisar o acesso usando as revisões de acesso do Azure AD
 
 O Azure Active Directory simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso.  Você pode ter recebido um email da Microsoft solicitando que você revise o acesso, membros de um grupo ou os usuários com acesso a um aplicativo. 
@@ -43,7 +41,6 @@ O revisor pode exigir que você forneça uma justificativa de aprovação de ace
 ## <a name="next-steps"></a>Próximas etapas
 
 Observe que o acesso negado do usuário não é removido imediatamente. Ele pode ser removido quando a revisão for concluída ou um administrador parar a revisão. Portanto, se você deseja alterar a resposta e aprovar um usuário negado anteriormente, ou negar um usuário aprovado anteriormente, clique na linha, redefina a resposta e escolha uma nova resposta.  Você pode fazer isso até que a revisão de acesso seja concluída.
-
 
 
 

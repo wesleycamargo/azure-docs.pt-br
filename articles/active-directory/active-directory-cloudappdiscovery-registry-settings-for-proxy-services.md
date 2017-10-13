@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Configurações de Registro do Cloud App Discovery para serviços de proxy
 O objetivo deste tópico é dizer a você como configurar a porta necessária nos computadores que executam o agente Cloud App Discovery. Por padrão, o agente Cloud App Discovery é configurado para usar somente as portas 80 ou 443. Se você estiver planejando instalar o Cloud App Discovery em um ambiente com um servidor proxy que está usando uma porta personalizada (nem 80 nem 443), precisa configurar seus agentes para usar essa porta. A configuração baseia-se em uma chave do Registro.
@@ -54,5 +53,4 @@ O objetivo deste tópico é dizer a você como configurar a porta necessária no
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md) 
-
 

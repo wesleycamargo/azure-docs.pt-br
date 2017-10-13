@@ -1,6 +1,6 @@
 ---
-title: "Guias de solução de problemas Mobile Engagement do Azure"
-description: "Guia de solução de problemas para Mobile Engagement do Azure"
+title: "Guias de solução de problemas Azure Mobile Engagement"
+description: "Guia de solução de problemas para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,15 +14,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-mobile-engagement---troubleshooting-guide"></a>Guia de solução de problemas do Mobile Engagement do Azure
+# <a name="azure-mobile-engagement---troubleshooting-guide"></a>Guia de solução de problemas do Azure Mobile Engagement
 ## <a name="introduction"></a>Introdução
 O guia de solução de problemas a seguir o ajudará a entender as causas raiz de alguns problemas comuns e permitirão que você solucione os problemas por conta própria. 
 
@@ -116,5 +114,4 @@ Se você não puder resolver o problema por conta própria, você pode:
    * Id do Dispositivo
    * Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
    * Detalhes do erro com a mensagem de erro e cenário exatos
-
 

@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7029eb7e4af3bb22dff3d841e28c5b348944cd17
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-your-access"></a>Como analisar seu acesso
 
 O Azure Active Directory simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso.  Você pode ter recebido um email da Microsoft solicitando que você revise o acesso, membros de um grupo ou os usuários com acesso a um aplicativo. 
@@ -40,7 +38,6 @@ O revisor pode exigir que você forneça uma justificativa de aprovação de ace
 ## <a name="next-steps"></a>Próximas etapas
 
 Observe que o acesso negado não será removido imediatamente, portanto, se você quiser alterar a resposta e aprovar, redefina a resposta e escolha uma nova.  Você pode fazer isso até que a revisão de acesso seja concluída.
-
 
 
 

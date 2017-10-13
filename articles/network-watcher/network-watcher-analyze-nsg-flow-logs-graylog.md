@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
 [Os logs de fluxo do Grupo de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para entender a entrada e a saída de tráfego IP em interfaces de rede do Azure. Os logs de fluxo exibem os fluxos de entrada e saída baseados em regras do Grupo de Segurança de Rede. O adaptador de rede de fluxo se aplica às informações de 5 tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino e Protocolo) e se o tráfego foi permitido ou negado.
@@ -249,4 +247,3 @@ Ao integrar o Observador de Rede com o Graylog, temos uma maneira centralizada e
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-

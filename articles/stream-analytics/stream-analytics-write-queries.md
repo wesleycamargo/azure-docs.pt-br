@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 215b774c20d80a67b1cefa2634131bd44860c692
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>Como escrever consultas em Stream Analytics
 Escrevendo consulta para lógica de processamento de fluxo no Stream Analytics do Azure é implementada como uma "consulta permanente" que é definida antes de um trabalho ser iniciado e executado em dados assim que ela atinge o trabalho. A transformação de dados é expressa em uma linguagem de consulta do tipo SQL, que é basicamente um subconjunto de T-SQL com algumas extensões de linguagem adicionadas como [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usadas para expressar semânticas temporais.
@@ -70,5 +69,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

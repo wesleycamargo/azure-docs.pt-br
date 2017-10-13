@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
 O Azure Machine Learning é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta. Ele permite que os cientistas de dados preparem dados, desenvolvam experimentos e implantem modelos em escala de nuvem.
@@ -179,7 +177,7 @@ Use o Microsoft Machine Learning Server quando você precisar:
 - Distribuir o treinamento de R e Python em grande escala em um cluster Spark ou Hadoop
 
 ### <a name="data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados
-A [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) é uma imagem de VM personalizada na nuvem do Microsoft Azure especificamente criada para ciência de dados. Ela tem muitas ferramentas conhecidas de ciência de dados, entre outras, pré-instaladas e pré-configuradas que ajudam a começar a criar rapidamente aplicativos inteligentes para análise avançada. Ela está disponível no Windows Server e no Linux. Oferecemos a edição do Windows do DSVM no Server 2016 e no Server 2012. Oferecemos uma edição Linux do DSVM nas distribuições Ubuntu 16.04 LTS e OpenLogic 7.2 CentOS baseadas em Linux. 
+A [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) é uma imagem de VM personalizada na nuvem do Microsoft Azure especificamente criada para ciência de dados. Ela tem muitas ferramentas conhecidas de ciência de dados, entre outras, pré-instaladas e pré-configuradas que ajudam a começar a criar rapidamente aplicativos inteligentes para análise avançada. Ela está disponível no Windows Server e no Linux. Oferecemos a edição do Windows do DSVM no Server 2016 e no Server 2012. Oferecemos uma edição Linux do DSVM nas distribuições Ubuntu 16.04 LTS e OpenLogic 7.2 CentOS baseadas em Linux. 
 
 Use a Máquina Virtual de Ciência de Dados quando você precisar executar ou hospedar seus trabalhos em um único nó. Ou então, se você precisar expandir remotamente o processamento em um único computador. A Máquina Virtual de Ciência de Dados tem suporte como um destino para Experimentação do Azure Machine Learning e Gerenciamento de Modelos do Azure Machine Learning. 
 
@@ -219,4 +217,3 @@ Os Serviços Cognitivos da Microsoft podem ser usados para desenvolver aplicativ
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Instalar e criar o Azure Machine Learning](quickstart-installation.md)
-

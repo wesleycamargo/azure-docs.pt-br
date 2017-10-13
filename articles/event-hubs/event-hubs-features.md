@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de Eventos
 
 Os Hubs de Evento do Azure é um serviço de processamento de evento escalonável que recebe e processa grandes volumes de eventos e dados, com baixa latência e alta confiabilidade. Consulte [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md) para obter uma visão geral de alto nível do serviço.
@@ -173,4 +171,3 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Exemplos de Hubs de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-

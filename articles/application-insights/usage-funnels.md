@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
 Entender a experiência do cliente é de extrema importância para seus negócios. Se o aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por uma série de etapas em um aplicativo Web é conhecida como “funil”. Use os Funis do Application Insights para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
@@ -49,5 +47,4 @@ A ilustração a seguir demonstra os dados gerados na folha Funis. Nessa folha, 
   * [Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)
   * [Retenção](app-insights-usage-retention.md)
   * [Pastas de trabalho](app-insights-usage-workbooks.md)
-  * [Adicionar o contexto de usuário](app-insights-usage-send-user-context.md)
-
+  * [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)

@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-enterprise-cost-views"></a>Solucionar problemas de exibições de custo empresarial 
 
 Nas inscrições empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam exibir os custos.  Essas configurações são gerenciadas pelo administrador de registro ou pelo parceiro, se o registro não foi adquirido diretamente da Microsoft.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das [Funções de RBAC do Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
@@ -50,4 +48,3 @@ Se você estiver recebendo uma mensagem de erro "Este ativo está indisponível"
 Entre em contato com o administrador da assinatura ou dos grupos de gerenciamento para obter acesso.  
 * Para assinaturas, consulte o documento [RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) para obter ajuda sobre qual função é necessária.
 * Para os grupos de gerenciamento, o acesso RBAC não está disponível e estará disponível em breve. Entre em contato com o administrador do portal empresarial para ter o acesso atribuído.   
-

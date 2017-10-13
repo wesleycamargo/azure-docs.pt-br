@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitoramento do Azure
 
@@ -55,4 +54,3 @@ Em toda a plataforma do Azure, estamos reunindo dados de monitoramento em um ún
 - Saiba mais sobre as [métricas do Azure Monitor](monitoring-overview-metrics.md)
 - Saiba mais sobre o [Log de Atividades do Azure](monitoring-overview-activity-logs.md)
 - Saiba mais sobre os [Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
-

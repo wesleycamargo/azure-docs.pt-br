@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 176b891538f85c5638a2321561c3d8bd377d245b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.openlocfilehash: 077012a2fe9b4b6e6e042fdeb9be2b1d37685bc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-createuidefinition"></a>Introdução a CreateUiDefinition
 Este documento apresenta os conceitos básicos de um CreateUiDefinition, que é usado pelo portal do Azure para gerar a interface do usuário para a criação de um aplicativo gerenciado.

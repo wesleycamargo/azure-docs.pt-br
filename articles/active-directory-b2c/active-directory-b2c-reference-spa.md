@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Aplicativo de página única utilizando fluxo implícito do OAuth 2.0
 
@@ -51,7 +49,7 @@ O fluxo de entrada implícito parece ser semelhante à seguinte figura. Cada eta
 ## <a name="send-authentication-requests"></a>Enviar solicitações de autenticação
 Quando o aplicativo Web precisa autenticar o usuário e executar uma política, ele direciona o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, onde o usuário toma ação, dependendo da política. O usuário obtém um token de identificação do ponto de extremidade do Azure AD.
 
-Nessa solicitação, o cliente indica no parâmetro `scope` as permissões que ele precisa adquirir do usuário. No parâmetro `p`, indica a política a ser executada. Os três exemplos a seguir (com quebras de linha para legibilidade) utilizam uma política diferente. Para ter uma ideia de como funciona cada solicitação, tente colar a solicitação em um navegador e executá-lo.
+Nessa solicitação, o cliente indica no parâmetro `scope` as permissões que ele precisa adquirir do usuário. No parâmetro `p`, ele indica que a política a ser executada. Os três exemplos a seguir (com quebras de linha para legibilidade) utilizam uma política diferente. Para ter uma ideia de como funciona cada solicitação, tente colar a solicitação em um navegador e executá-lo.
 
 ### <a name="use-a-sign-in-policy"></a>Usar uma política de entrada
 ```
@@ -94,7 +92,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parâmetro | Obrigatório? | Descrição |
 | --- | --- | --- |
-| client_id |Obrigatório |O ID do aplicativo atribuído ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
+| client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | response_type |Obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. É possível também incluir o tipo de resposta `token`. Se utilizar `token`, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade autorizado, sem fazer uma segunda solicitação para o ponto de extremidade autorizado.  Se utilizar o tipo de resposta `token`, o `scope` parâmetro deverá conter um escopo indicando para quais recursos o token será emitido. |
 | redirect_uri |Recomendadas |O URI de redirecionamento do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos URIs que você registrou no portal, com exceção de que ele deve ser codificado por URL. |
 | response_mode |Recomendadas |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo.  Para fluxos implícitos, utilize `fragment`. |
@@ -104,9 +102,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | p |Obrigatório |A política para executar. É o nome de uma política criada no seu locatário do Azure AD B2C. O valor do nome da política deve começar com **b2c\_1\_**. Para obter mais informações, consulte [Políticas internas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Opcional |O tipo de interação do usuário que é necessária. Atualmente, o único valor válido é `login`. Isso força o usuário a inserir suas credenciais nessa solicitação. O logon único não terá efeito. |
 
-Nesse momento, o usuário é solicitado a concluir o fluxo de trabalho da política. Isso pode exigir que o usuário insira seu nome de usuário e senha, entre com uma identidade social, inscreva-se no diretório ou outras etapas. As ações do usuário dependem de como a política é definida.
+Nesse momento, é solicitado que o usuário conclua o fluxo de trabalho da política. Isso pode exigir que o usuário insira seu nome de usuário e senha, entre com uma identidade social, inscreva-se no diretório ou realize outras etapas. As ações do usuário dependem de como a política é definida.
 
-Após o usuário completar a política, o Azure AD retornará uma resposta ao seu aplicativo pelo valor utilizado para `redirect_uri`. É utilizado o método especificado no parâmetro `response_mode`. A resposta é exatamente a mesma para cada um dos cenários de ação do usuário, independentemente de qual política foi executada.
+Depois que o usuário completar a política, o Azure AD retornará uma resposta ao seu aplicativo no valor usado para `redirect_uri`. Ele usa o método especificado no parâmetro `response_mode`. A resposta é exatamente a mesma para cada um dos cenários de ação do usuário, independentemente de qual política foi executada.
 
 ### <a name="successful-response"></a>Resposta bem-sucedida
 Uma resposta bem sucedida que utiliza `response_mode=fragment` e `response_type=id_token+token` é semelhante à seguinte, com quebras de linha para legibilidade:
@@ -205,7 +203,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parâmetro | Obrigatório? | Descrição |
 | --- | --- | --- |
-| client_id |Obrigatório |O ID do aplicativo atribuído ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
+| client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | response_type |Obrigatório |Deve incluir `id_token` para conexão do OpenID Connect.  Também é possível incluir o tipo de resposta `token`. Se utilizar `token` aqui, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade autorizado, sem fazer uma segunda solicitação para o ponto de extremidade autorizado. Se utilizar o tipo de resposta `token`, o `scope` parâmetro deverá conter um escopo indicando para quais recursos o token será emitido. |
 | redirect_uri |Recomendadas |O URI de redirecionamento do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve coincidir exatamente com um dos URIs de redirecionamento registrados no portal, exceto que deve ser codificado em URL. |
 | scope |Obrigatório |Uma lista de escopos separados por espaços.  Para obter tokens, inclua todos os escopos que necessários para o recurso pretendido. |
@@ -289,5 +287,4 @@ Para tentar essas solicitações, complete as três etapas a seguir. Substitua o
 
 * [Criar um aplicativo de página única usando Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
 * [Criar um aplicativo de página única usando .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-
 

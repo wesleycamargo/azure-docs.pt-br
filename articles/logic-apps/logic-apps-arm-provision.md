@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
 ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Crie um Aplicativo Lógico usando um modelo
 Os modelos fornecem uma maneira rápida de usar conectores diferentes dentro de um aplicativo lógico. Os aplicativos lógicos incluem modelos do Azure Resource Manager para criar um aplicativo lógico que pode ser usado para definir fluxos de trabalho comerciais. Você pode definir quais recursos são implantados e como definir os parâmetros quando implantar seu aplicativo lógico. Você pode usar esse modelo para seus próprios cenários de negócios ou personalizá-lo para atender às suas necessidades.

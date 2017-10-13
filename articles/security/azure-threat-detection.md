@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-advanced-threat-detection"></a>Detecção Avançada de Ameaças do Azure
 ## <a name="introduction"></a>Introdução
 
@@ -257,7 +255,7 @@ O [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-sec
 
 -   **Atualizações da plataforma Antimalware -** atualiza automaticamente a plataforma Microsoft Antimalware.
 
--   **Proteção ativa -** reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
+-   **Proteção ativa -**  reporta metadados de telemetria sobre ameaças detectadas e recursos suspeitos ao Microsoft Azure para garantir uma resposta rápida ao panorama de ameaças em constante evolução, além de habilitar a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
 
 -   **Relatórios de exemplos -** fornece e relata exemplos para o serviço Microsoft Antimalware para ajudar a aprimorar o serviço e a habilitar a solução de problemas.
 
@@ -432,4 +430,3 @@ Os recursos de detecção avançada da Central de Segurança do Azure ajudam a i
 - [Detecção de Ameaças do Banco de Dados SQL](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
 
 Detecção de ameaças de banco de dados SQL Azure ajudou suas preocupações sobre ameaças em potencial para seu banco de dados.
-

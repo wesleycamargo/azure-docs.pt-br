@@ -11,10 +11,10 @@ ms.service: multiple
 ms.custom: accessibility
 manager: timlt
 ms.openlocfilehash: 87ef9bf72f110ea3c27d0554e461d8c12132d422
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Ativar alto contraste ou alterar o tema no portal do Azure
 Se você precisar de mais contraste, ou quiser alterar o esquema de cores no portal do Azure, acesse as configurações do portal para fazer a alteração. 

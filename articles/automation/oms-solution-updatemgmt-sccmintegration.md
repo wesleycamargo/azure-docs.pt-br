@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações do OMS [versão prévia]
 
 Os clientes que investiram no System Center Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e maturidade dele no gerenciamento de atualizações de software como parte do ciclo de SUM (gerenciamento de atualização de software) deles.  
@@ -56,5 +54,4 @@ Depois de concluir a implantação de atualização com a solução do OMS, os c
 Para gerenciar atualizações para as VMs do Windows Server que são clientes do Configuration Manager, você precisa configurar a política de cliente para desabilitar o recurso de Gerenciamento de Atualizações de Software para todos os clientes gerenciados por essa solução.  Por padrão, as configurações do cliente são direcionadas a todos os dispositivos na hierarquia.  Para obter mais informações sobre essa configuração de política e como configurá-la, examine [como definir as configurações de cliente no System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Depois de realizar essa alteração de configuração, crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e, na lista suspensa, selecione a coleção apropriada do Configuration Manager representada como um grupo de computadores do OMS. 
-
 

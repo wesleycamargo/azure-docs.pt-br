@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>O que são os alertas no Microsoft Azure?
 Este artigo descreve as várias fontes de alertas no Microsoft Azure, as finalidades desses alertas, seus benefícios e como começar a usá-los. Ele se aplica especificamente ao Azure Monitor, mas fornece indicações de outros serviços com alertas. Os alertas oferecem um método de monitoramento no Azure que permite a configuração de condições sobre os dados e o recebimento de notificações quando as condições correspondem aos últimos dados de monitoramento.
@@ -92,4 +91,3 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Saiba mais sobre [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre as [Notificações de Serviço](monitoring-service-notifications.md)
 * Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)
-

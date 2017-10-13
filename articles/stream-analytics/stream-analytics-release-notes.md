@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3251cd47bb917912d63330345dbf392e724448ea
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de versão do Stream Analytics
 
@@ -78,7 +77,7 @@ Esta versão contém a atualização a seguir:
 | Title | Descrição |
 | --- | --- |
 | Atualização de versão da API REST |A versão da API REST foi atualizada para 2015-10-01. Detalhes podem ser encontrados no MSDN em [Referência de API REST do gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integração do Machine Learning ao Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Integração de Aprendizado de Máquina do Azure |Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Veja o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado geral do blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Integração de Azure Machine Learning |Com essa versão, é fornecido suporte para funções definidas pelo usuário do Azure Machine Learning. Veja o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado geral do blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Notas de versão de 12/11/2015 do Stream Analytics
 Esta versão contém a atualização a seguir:
@@ -170,4 +169,3 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
