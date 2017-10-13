@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita o aprendizado aprofundado no Azure. As ferramentas de aprendizado aprofundado incluem:
@@ -418,5 +416,4 @@ Veja como você pode continuar seu aprendizado e exploração:
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
-
 

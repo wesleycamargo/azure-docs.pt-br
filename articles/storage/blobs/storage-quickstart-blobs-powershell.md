@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a9941b21b92c70dd0a46ce2e4c75142e1786650
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o Azure PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este guia detalha o uso do PowerShell para transferir arquivos entre o disco local e o Armazenamento de Blobs do Azure.
@@ -126,7 +124,7 @@ Nesse guia de início rápido, você aprendeu a transferir arquivos entre o disc
 > [Instruções de operações do Armazenamento de Blobs](storage-how-to-use-blobs-powershell.md)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Referência de cmdlets de Armazenamento do Microsoft Azure PowerShell
-* [Cmdlets do PowerShell do armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do PowerShell do Armazenamento](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Gerenciador do Armazenamento do Microsoft Azure
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

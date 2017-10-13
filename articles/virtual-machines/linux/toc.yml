@@ -247,7 +247,6 @@
             - name: Como instalar drivers de GPU NVIDIA
               href: n-series-driver-setup.md
     - name: Gerenciamento do armazenamento
-      href: about-disks-and-vhds.md
       items:
         - name: Saiba mais sobre Managed Disks
           href: managed-disks-overview.md

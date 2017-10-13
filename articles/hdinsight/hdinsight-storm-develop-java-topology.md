@@ -17,12 +17,11 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: c72de1c83fe73019ac3ad8b8487aa25bbd078555
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -793,5 +792,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 * [Desenvolver topologias C# para o Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
-
 

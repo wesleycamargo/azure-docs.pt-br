@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 > [!div class="op_single_selector"]
@@ -198,4 +197,3 @@ E os seguintes não têm suporte:
 > No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 >
 >
-

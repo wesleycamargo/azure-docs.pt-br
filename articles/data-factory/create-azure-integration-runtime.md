@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4e9416d75d5887de059a6fcfc66683940e3e6fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
@@ -73,4 +72,3 @@ Consulte os artigos a seguir para criar outros tipos de tempos de execução de 
 - [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Criar o Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  
-

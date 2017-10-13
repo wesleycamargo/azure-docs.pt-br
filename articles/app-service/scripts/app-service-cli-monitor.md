@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 9630656a00a8a80c8ffd8fb59113dc1c8c523651
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-a-web-app-with-web-server-logs"></a>Monitorar um aplicativo web com logs do servidor Web
 
 Neste cenário você criará um grupo de recursos, o Plano do Serviço de Aplicativo, o aplicativo Web e configurar o aplicativo Web para habilitar logs de servidor web. Em seguida, você baixará os arquivos de log para análise.
@@ -36,7 +34,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "Monitorar logs")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "Monitor Logs")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -57,4 +55,3 @@ Este script usa os seguintes comandos para criar um grupo de recursos, um aplica
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação do Serviço de Aplicativo do Azure](../app-service-cli-samples.md).
-

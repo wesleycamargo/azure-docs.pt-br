@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
+ms.openlocfilehash: ef277710713d342eb9aaaf119e2985e8c1d82d0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 74916c9da0c1d71395a087a729513110b663738b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho
 ## <a name="overview"></a>Visão geral
@@ -92,5 +91,4 @@ Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trab
 
 ## <a name="see-also"></a>Consulte também
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
 

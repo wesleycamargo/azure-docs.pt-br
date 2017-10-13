@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT 
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, você pode provisionar milhões de dispositivos de uma maneira segura e escalonável. Este artigo fornece uma visão geral dos conceitos de *segurança* envolvidos no provisionamento do dispositivo. Este artigo é relevante para todas as personas envolvidas na preparação de um dispositivo para implantação.
@@ -67,4 +65,3 @@ Um certificado intermediário é um certificado X.509 que foi assinado pelo cert
 ## <a name="leaf-certificate"></a>Certificado de folha
 
 Um certificado de folha ou o certificado de entidade final, é usado para identificar o proprietário do certificado e tem o certificado raiz em sua cadeia de certificados. O certificado de folha não é usado para assinar outros certificados.
-

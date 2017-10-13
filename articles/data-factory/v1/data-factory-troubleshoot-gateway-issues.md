@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -287,4 +286,3 @@ Você pode encontrar informações detalhadas sobre os logs de gateway nos logs 
  Ao solucionar problemas relacionados ao gateway, procure eventos no nível de erro no visualizador.
 
 ![Gateway de Gerenciamento de Dados – Logs no visualizador de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-

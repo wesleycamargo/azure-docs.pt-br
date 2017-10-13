@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Usar o MapReduce com Hadoop no HDInsight com SSH
 
@@ -120,4 +119,3 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-

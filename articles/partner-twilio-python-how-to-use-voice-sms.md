@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: f4a02bb7a7c46e7a0e3c75b870c522eae8294339
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar o Twilio para obter recursos de voz e SMS no Python
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Como criar e publicar um produto no Gerenciamento de API do Azure
 No Gerenciamento de API, um produto contém uma ou mais APIs, bem como uma quota de uso e os termos de uso. Uma vez publicado o produto, os desenvolvedores podem assinar o produto e começar a usar as APIs dele. Este tópico fornece um guia para criar um produto, adicionar uma API e publicá-la para os desenvolvedores.

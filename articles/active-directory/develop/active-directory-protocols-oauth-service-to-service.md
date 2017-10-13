@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Serviço de chamadas de serviço usando as credenciais do cliente (segredo compartilhado ou certificados)
 O Fluxo de Concessão de Credenciais do Cliente do OAuth 2.0 permite que um serviço Web (um *cliente confidencial*) use suas próprias credenciais, em vez de representar um usuário, para se autenticar ao chamar outro serviço Web. Nesse cenário, o cliente é geralmente um serviço Web de camada intermediária, um serviço daemon ou um Site. Para um nível mais alto de segurança, o AD do Azure também permite que o serviço de chamada usar um certificado (em vez de um segredo compartilhado) como uma credencial.

@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Etapa 2 do passo a passo: carregar dados existentes no experimento de Azure Machine Learning
 Esta é a segunda etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. **Carregar dados existentes**
 3. [Criar um novo teste](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -106,4 +104,3 @@ Para obter mais informações sobre como importar outros tipos de dados para um 
 [2]: media/walkthrough-2-upload-data/add-dataset.png
 [3]: media/walkthrough-2-upload-data/upload-dataset.png
 [4]: media/walkthrough-2-upload-data/dataset-list.png
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="energy-demand-time-series-forecasting"></a>Previsão da série temporal de demanda de energia
 
 
@@ -195,4 +193,3 @@ Neste exemplo, um serviço Web é implantado em um computador com o Windows 10. 
 Este exemplo demonstra como criar uma solução de previsão de séries temporais de ponta a ponta, com o objetivo de prever a demanda de energia. Muitos dos princípios explorados neste exemplo podem ser ampliados para outros setores e cenários de previsão.
 
 Este cenário mostra como o Azure Machine Learning Workbench pode ajudar um cientista de dados no desenvolvimento de soluções do mundo real com recursos úteis, como o ambiente de notebook Jupyter e os recursos de registro de métricas. O exemplo também orienta o leitor sobre como um modelo pode ser operacionalizado e implantado usando a CLI de Operacionalização do Azure Machine Learning. Uma vez implantada, a API do serviço Web permite aos desenvolvedores ou engenheiros de dados integrarem o modelo de previsão em um pipeline de dados mais amplo.
-

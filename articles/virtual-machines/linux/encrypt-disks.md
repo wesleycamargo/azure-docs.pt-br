@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Como criptografar discos virtuais em uma VM Linux
 Para conformidade e segurança aprimorados da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Discos são criptografados usando chaves criptográficas que são protegidas em um Cofre de chaves do Azure. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo detalha como criptografar discos virtuais em uma VM Linux usando a CLI do Azure 2.0. Você também pode executar essas etapas com a [CLI do Azure 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

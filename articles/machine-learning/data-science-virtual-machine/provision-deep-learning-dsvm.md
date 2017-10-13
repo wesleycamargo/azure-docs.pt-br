@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -87,4 +86,3 @@ A DLVM do Linux já está provisionada com um servidor X2Go e pronta para aceita
 Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
 
 Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas. 
-

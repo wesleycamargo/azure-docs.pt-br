@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 07/07/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5c3754c3c3c96e1d2f0b5b52d8108ecc3903f788
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="route-traffic-for-high-availability-of-applications"></a>Rotear o tráfego para alta disponibilidade de aplicativos
 
 Este script cria um grupo de recursos, dois planos de serviço de aplicativo, dois aplicativos web, um perfil do Gerenciador de tráfego e dois pontos de extremidade de Gerenciador de tráfego. O Gerenciador de Tráfego direciona o tráfego para o aplicativo em uma região como a região primária, e para a região secundária quando o aplicativo na região primária não estiver disponível. Antes de executar o script, você deve alterar os valores MyWebApp, MyWebAppL1 e MyWebAppL2 para valores exclusivos no Azure. Depois de executar o script, você pode acessar o aplicativo na região primária com a URL mywebapp.trafficmanager.net.
@@ -33,7 +31,7 @@ Este script cria um grupo de recursos, dois planos de serviço de aplicativo, do
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Rotear o tráfego para alta disponibilidade")]
+[!code-azurecli-interactive[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
@@ -62,4 +60,3 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação de Rede do Azure](../cli-samples.md).
-

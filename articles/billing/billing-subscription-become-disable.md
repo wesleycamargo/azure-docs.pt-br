@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure está desabilitada e como posso reativá-la?
 
@@ -59,4 +58,3 @@ Para outros tipos de assinatura, [entre em contato com o suporte](https://portal
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-

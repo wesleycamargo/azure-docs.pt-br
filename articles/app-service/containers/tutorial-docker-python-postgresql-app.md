@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilar um aplicativo Web Docker Python e PostgreSQL no Azure
 
@@ -149,7 +148,7 @@ Use o comando CLI do Azure [az appservice list-locations](/cli/azure/appservice#
 
 Crie um servidor PostgreSQL com o comando [az postgres server create](/cli/azure/documentdb#create).
 
-No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado *\<postgresql_name >* e um nome de usuário para o espaço reservado *\<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
+No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado  *\<postgresql_name >* e um nome de usuário para o espaço reservado  *\<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
@@ -555,4 +554,3 @@ Vá para o próximo tutorial para saber como mapear um nome DNS personalizado pa
 
 > [!div class="nextstepaction"] 
 > [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service-web-tutorial-custom-domain.md)
-

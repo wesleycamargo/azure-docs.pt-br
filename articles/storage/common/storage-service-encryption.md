@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
+ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 A SSE (Criptografia do Serviço de Armazenamento) do Azure para dados em repouso ajuda a proteger seus dados a fim de atender aos compromissos de conformidade e segurança da organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
@@ -188,5 +187,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 ## <a name="next-steps"></a>Próximas etapas
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](../storage-security-guide.md).
-
 

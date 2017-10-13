@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/31/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1ca5bd3abd66eb7a7b8e802dc193c1993a78afb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -319,4 +318,3 @@ Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade 
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-

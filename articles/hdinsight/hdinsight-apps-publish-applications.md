@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
 É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) (Publicar uma oferta no Azure Marketplace).
@@ -113,5 +112,4 @@ Para publicar um aplicativo do HDInsight:
 * Saiba como [usar a ação de script para personalizar clusters HDInsight baseados em Linux](hdinsight-hadoop-customize-cluster-linux.md) e adicionar mais aplicativos. 
 * Saiba como [criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Saiba como [usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md) para acessar clusters HDInsight, testar e hospedar aplicativos HDInsight.
-
 

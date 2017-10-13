@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>Criar seu primeiro banco de dados SQL do Azure
 
 O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Microsoft Cloud (“Azure”). Neste tutorial, você aprenderá a usar o Portal do Azure e o SSMS ([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)) para: 
@@ -341,4 +339,3 @@ Avance para o próximo tutorial para saber mais sobre como criar um banco de dad
 
 > [!div class="nextstepaction"]
 >[Criar um banco de dados SQL do Azure e conectar-se com C# e o ADO.NET](sql-database-design-first-database-csharp.md)
-

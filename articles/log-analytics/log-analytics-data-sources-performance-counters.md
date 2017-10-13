@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.

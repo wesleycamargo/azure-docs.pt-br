@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de identidade para sua solução de identidade híbrida
 A primeira etapa na criação de uma solução de identidade híbrida é determinar os requisitos da organização de negócios que aproveitará essa solução.  A identidade híbrida começa como uma função de suporte (ela dá suporte para todas as outras soluções de nuvem fornecendo autenticação) e prossegue fornecendo recursos novos e interessantes que desbloqueiam novas cargas de trabalho para os usuários.  Essas cargas de trabalho ou os serviços que você deseja adotar para seus usuários determinarão os requisitos de design de identidade híbrida.  Esses serviços e cargas de trabalho precisam aproveitar a identidade híbrida no local e na nuvem.  

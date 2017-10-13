@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Monitorar e configurar o log de diagnósticos para a comunicação B2B nas contas de integração
 
 Depois de configurar a comunicação B2B entre dois processos ou aplicativos de negócios em execução por meio de sua conta de integração, essas entidades poderão trocar mensagens entre si. Para confirmar se essa comunicação funciona conforme esperado, configure o monitoramento de mensagens AS2, X12 e EDIFACT, juntamente com o log de diagnósticos da conta de integração por meio do serviço [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Esse serviço do [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md) monitora os ambientes locais e de nuvem, ajudando você a manter a disponibilidade e o desempenho deles e também coleta detalhes e eventos de tempo de execução para uma depuração mais avançada. Use também [os dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
@@ -137,5 +135,4 @@ O Azure dá suporte a estes tipos de esquema de acompanhamento, que têm esquema
 
 * [Acompanhar mensagens B2B no OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Acompanhar mensagens B2B no OMS")
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
-
 

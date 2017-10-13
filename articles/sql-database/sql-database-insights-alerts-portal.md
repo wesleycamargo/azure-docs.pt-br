@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 2b3f9f226039759a68e28b9392d30256f308c8d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 
@@ -126,4 +125,3 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 * Saiba mais sobre como [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Tenha uma [visão geral dos logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e colete métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
-

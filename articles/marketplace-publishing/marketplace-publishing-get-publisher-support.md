@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4bf5b2c53b91199e446836e76cefee6cd2878e25
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 54e9bb9e8917bcdb6bb4aef964e971d588feeeda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Acesse o suporte do publicador para o Azure Marketplace
 A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Garantir que sua consulta localize a equipe de suporte correta é importante para garantir uma resposta apropriada e em tempo hábil. Considere os seguintes cenários que podem ajudá-lo a rotear sua consulta para a equipe apropriada:
@@ -88,4 +87,3 @@ Para saber como solucionar problemas de suporte específico, visite, [Problemas 
 [4]: ./media/marketplace-publishing-get-publisher-support/step4.png
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
-

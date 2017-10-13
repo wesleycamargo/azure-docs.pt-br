@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicar e gerenciar uma oferta no Azure Marketplace
 Este artigo é fornecido para ajudar os desenvolvedores a criar, implantar e gerenciar suas soluções listadas no Azure Marketplace para outros clientes e parceiros do Azure as comprarem e usarem.

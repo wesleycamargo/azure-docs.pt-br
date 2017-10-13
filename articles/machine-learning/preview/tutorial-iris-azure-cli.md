@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: classificando a íris usando a interface de linha de comando
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
 
@@ -273,5 +271,4 @@ Neste tutorial, você aprendeu a usar os recursos de versão prévia do Azure Ma
 > * Criar uma conta de gerenciamento de modelos para gerenciamento de modelos
 > * Criar um ambiente para implantar um serviço Web
 > * Implantar um serviço Web e pontuar com novos dados
-
 

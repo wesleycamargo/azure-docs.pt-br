@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Solucionar problemas de YARN usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas soluções ao trabalhar com cargas de Apache Hadoop YARN no Apache Ambari.
@@ -35,7 +33,7 @@ Saiba mais sobre os principais problemas e suas soluções ao trabalhar com carg
 Use as etapas a seguir por meio do Ambari para criar uma nova fila do YARN e equilibrar a alocação de capacidade entre todas as filas. 
 
 Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
-| Fila | Capacidade | Capacidade máxima |
+| Fila | Capacity | Capacidade máxima |
 | --- | --- | --- | --- |
 | padrão | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -143,7 +141,6 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
 - [Conectar ao HDInsight (Hadoop) usando SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Aplicativos e conceitos do Apache Hadoop YARN](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
-
 
 
 

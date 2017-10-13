@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
 Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos diferentes de falhas. Isso é especialmente importante para falhas não planejadas e fora de seu controle. Este artigo descreve alguns modos de falha comuns que poderão se transformar em desastres se não forem modelados e gerenciados corretamente. Ele também aborda mitigações e ações a serem tomadas se, ainda assim, um desastre acontecer. A meta é limitar ou eliminar o risco de que haja tempo de inatividade ou perda de dados quando ocorrerem falhas, sejam elas planejadas ou não.
@@ -154,4 +153,3 @@ Em clusters independentes do Service Fabric e no Azure, o "Tipo de nó primário
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
-

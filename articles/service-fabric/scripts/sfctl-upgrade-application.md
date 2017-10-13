@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: adegeo
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f91ea8c2f8c6e9a6ce38cf72be2c61d9e5218b23
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicativo a um cluster do Service Fabric
 
 Esse script de exemplo faz o upload de uma nova versão de um aplicativo existente e, em seguida, atualiza um aplicativo implantado com os novos bits.
@@ -38,4 +36,3 @@ Esse script de exemplo faz o upload de uma nova versão de um aplicativo existen
 Para saber mais, confira a [Documentação da CLI do Service Fabric](../service-fabric-cli.md).
 
 Mais exemplos da CLI do Service Fabric para o Azure Service Fabric podem ser encontrados em [Exemplos da CLI do Service Fabric](../samples-cli.md).
-

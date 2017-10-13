@@ -14,14 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Criar um namespace de Hubs de Eventos com o hub de eventos e habilitar a Captura usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de Hubs de Eventos, com uma instância de hub de eventos e também habilita o [recurso Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Navegar e gerenciar recursos de armazenamento usando o Gerenciador de Servidores
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -287,5 +286,4 @@ Se você excluir uma conta de armazenamento, qualquer informação de chave salv
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como usar os Serviços de Armazenamento do Azure, consulte [Acessando os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
 

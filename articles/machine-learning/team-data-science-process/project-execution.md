@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="execution-of-data-science-projects"></a>Execução de projetos de ciência de dados
 
 Este documento descreve como um cientista de dados pode executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o TDSP [(Processo de Ciência de Dados da Equipe)](overview.md). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma sequência estruturada de atividades para executar soluções de análise de previsão baseadas em nuvem de forma eficaz. Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md). 

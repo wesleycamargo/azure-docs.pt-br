@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d88c53784cec302f5e67b9d50f84780bbec37db
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Balanceamento de carga em várias configurações de IP
 
@@ -132,4 +131,3 @@ Para obter o cenário descrito neste artigo conclua as seguintes etapas:
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como é possível usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga em [Análise de log para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados ao Logon Único Contínuo do Azure AD.
@@ -122,4 +120,3 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Etapa 5. Habilitar o recurso em seu locatário
 
 Chame `Enable-AzureADSSO` e digite "true" no prompt `Enable: ` para ativar o recurso em seu locatário.
-

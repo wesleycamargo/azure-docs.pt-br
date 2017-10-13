@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-partition"></a>partição sfctl
 Consultar e gerenciar partições para qualquer serviço.
@@ -61,15 +60,15 @@ Utilize ReplicasHealthStateFilter para filtrar a coleção dos objetos ReplicaHe
 | --replicas-health-state-filter| Utilize ReplicasHealthStateFilter para filtrar a coleção dos objetos ReplicaHealthState na partição. O valor pode ser obtido de membros ou operações bit a bit em membros de HealthStateFilter. Somente as réplicas que correspondem ao filtro são retornadas. Todas as réplicas são usadas para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas retornarão. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor de HealthState de OK (2) e de Aviso (4) retornarão. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. - Default - Valor padrão. Corresponde a qualquer HealthState. O valor é zero. - None - Filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar qualquer resultado em uma determinada coleção de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. - Warning - Filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4. - Error - Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8. - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
 | --timeout -t               | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                    | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h                  | Mostra esta mensagem de ajuda e sai.|
+| --debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h                  | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.                Padrão: json.|
-| --query                    | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/. |
-| --verbose                  | Aumente o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --query                    | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/. |
+| --verbose                  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 Obtém as informações sobre uma partição do Service Fabric.
@@ -83,15 +82,15 @@ O ponto de extremidade das Partições retorna informações sobre a partição 
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h             | Mostra esta mensagem de ajuda e sai.|
+| --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
-| --verbose             | Aumente o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Obtém a lista de partições de um serviço do Service Fabric.
@@ -102,19 +101,19 @@ Obtém a lista de partições de um serviço do Service Fabric. As ID da partiç
 
 |Argumento|Descrição|
 | --- | --- |
-| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI 'fabric:'. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://myapp/app1/svc1, a identidade do serviço deverá ser "myapp~app1~svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores.|
+| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://myapp/app1/svc1, a identidade do serviço deverá ser "myapp~app1~svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores.|
 | --continuation-token| O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados.         Um token de continuação com um valor não vazio será incluído na resposta da API quando os resultados do sistema não se ajustarem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, então, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificados em URL.|
 | --timeout -t        | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug             | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h           | Mostra esta mensagem de ajuda e sai.|
+| --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h           | Mostrar esta mensagem de ajuda e sair.|
 | --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:         json.|
-| --query             | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
-| --verbose           | Aumente o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --query             | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Obtém a carga da partição do Service Fabric especificado.
@@ -128,15 +127,15 @@ Retorna informações sobre a partição especificada. A resposta inclui uma lis
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h             | Mostra esta mensagem de ajuda e sai.|
+| --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
-| --verbose             | Aumente o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica ao cluster do Service Fabric que deve tentar recuperar uma partição específica que está atualmente paralisada na perda de quorum.
@@ -150,15 +149,15 @@ Indica ao cluster do Service Fabric que deve tentar recuperar uma partição esp
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h             | Mostra esta mensagem de ajuda e sai.|
+| --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
-| --verbose             | Aumente o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Essa API reinicia algumas ou todas as réplicas ou as instâncias da partição especificada.
@@ -175,15 +174,15 @@ Essa API é útil para teste de failover. Se usada para segmentar uma partição
 | --service-id             [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI 'fabric:'. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric://myapp/app1/svc1", a identidade do serviço deverá ser "myapp~app1~svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores.|
 | --timeout -t                    | Tempo limite do servidor em segundos.  Padrão: 60.|
 
-### <a name="global-arguments"></a>Argumentos Globais
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                         | Aumenta o nível de detalhes do log para mostrar todos os logs de depuração.|
-| --help -h                       | Mostra esta mensagem de ajuda e sai.|
+| --debug                         | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
+| --help -h                       | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                     | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.                     Padrão: json.|
-| --query                         | Cadeia de caracteres de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
-| --verbose                       | Aumente o nível de detalhes do log. Use --debug para todos os logs de depuração.|
+| --query                         | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --verbose                       | Aumentar o nível de detalhes do log. Use --debug para todos os logs de depuração.|
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

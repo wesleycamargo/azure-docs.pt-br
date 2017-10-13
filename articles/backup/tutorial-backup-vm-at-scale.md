@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
 Ao fazer backup dos dados no Azure, você os armazena em um recurso do Azure chamado Cofre dos Serviços de Recuperação. O recurso de Cofre dos Serviços de Recuperação está disponível no menu Configurações da maioria dos serviços do Azure. O benefício de ter o cofre dos Serviços de Recuperação integrado ao menu Configurações da maioria dos serviços do Azure facilita muito o backup de dados. No entanto, trabalhar individualmente com cada banco de dados ou com cada máquina virtual em sua empresa é entediante. E se você quiser fazer backup dos dados de todas as máquinas virtuais de um departamento ou de um local? É fácil fazer backup de várias máquinas virtuais ao criar uma política de backup e aplicá-la às máquinas virtuais desejadas. Este tutorial explica como:
@@ -187,4 +185,3 @@ Continue no próximo tutorial para restaurar uma máquina virtual do Azure de um
 
 > [!div class="nextstepaction"]
 > [Restaurar VMs usando a CLI](./tutorial-restore-disk.md)
-

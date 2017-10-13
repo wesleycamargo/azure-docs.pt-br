@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de coleta de dados de modelo do Azure Machine Learning
 
@@ -95,5 +94,4 @@ Consulte os detalhes do método e dos parâmetros:
 |-------------|------------|-------------------------|
 | input_data | vários tipos | os dados a serem coletados (atualmente aceita a lista de tipos, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Para os tipos dataframe, se houver um cabeçalho com nomes de recurso, essas informações estarão incluídas no destino dos dados (sem a necessidade de passar explicitamente os nomes de recurso no construtor ModelDataCollector) |
 | user_correlation_id | string | uma ID de correlação opcional, que pode ser fornecida pelo usuário para correlacionar essa previsão |
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ff9ce56afb68ce0d8e88c3a832fe2a8c6372bf02
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 Este documento aborda os dados de amostragem armazenados no armazenamento de blobs do Azure, baixando-os de forma programática e realizando amostragem usando procedimentos escritos em Python.
@@ -69,9 +68,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 
 Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
 
-## 
-            <a name="heading">
-            </a>Carregar os dados e lê-los no Azure Machine Learning
+## <a name="heading"></a>Carregar os dados e lê-los no Azure Machine Learning
 É possível usar o código de exemplo a seguir para os reduzir os dados e usá-los diretamente no Azure Machine Learning:
 
 1. Escrever o quadro de dados em um arquivo local
@@ -103,5 +100,4 @@ Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por ce
 3. Leia os dados do blob do Azure usando o [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Azure Machine Learning, como mostrado na imagem abaixo:
 
 ![blob de leitor](./media/sample-data-blob/reader_blob.png)
-
 

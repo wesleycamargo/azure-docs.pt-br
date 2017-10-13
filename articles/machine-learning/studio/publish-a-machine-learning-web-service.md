@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implantar um serviço Web de Azure Machine Learning
 O Azure Machine Learning permite compilar, testar e implantar soluções de análise preditiva.
@@ -37,14 +36,10 @@ Para treinar um modelo de análise de previsão, você usa o Azure Machine Learn
 
 O processo de criar e gerenciar testes de treinamento é abordado mais detalhadamente em outro ponto. Para obter mais informações, consulte estes artigos:
 
-* 
-            [Criar um experimento simples no Azure Machine Learning Studio](create-experiment.md)
-* 
-            [Desenvolver uma solução preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
-* 
-            [Importar seus dados de treinamento para o Azure Machine Learning Studio](import-data.md)
-* 
-            [Gerenciar iterações de teste no Machine Learning Studio do Microsoft Azure](manage-experiment-iterations.md)
+* [Criar um experimento simples no Azure Machine Learning Studio](create-experiment.md)
+* [Desenvolver uma solução preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Importar seus dados de treinamento para o Azure Machine Learning Studio](import-data.md)
+* [Gerenciar iterações de teste no Machine Learning Studio do Microsoft Azure](manage-experiment-iterations.md)
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter o teste de treinamento em um teste preditivo
 Depois que você treinou seu modelo, estará pronto para converter seu teste de treinamento em um experimento de previsão para pontuar novos dados.
@@ -113,8 +108,7 @@ Na página **CONFIGURAÇÃO**, você pode alterar a descrição, o título, atua
 Depois de implantar o serviço Web, é possível:
 
 * **Acessá-lo** por meio da API do serviço Web.
-* 
-            **Gerenciá-lo** por meio do portal de serviços Web de Azure Machine Learning ou Portal Clássico do Azure.
+* **Gerenciá-lo** por meio do portal de serviços Web de Azure Machine Learning ou Portal Clássico do Azure.
 * **Atualizá-lo** se o seu modelo for alterado.
 
 #### <a name="access-your-new-web-service"></a>Acessar seu Novo serviço Web
@@ -196,4 +190,3 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-

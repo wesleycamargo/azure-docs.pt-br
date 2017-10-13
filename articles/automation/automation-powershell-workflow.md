@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação 
 Os runbooks na Automação do Azure são implementados como Fluxos de Trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas tem algumas diferenças significativas que podem ser confusas para um novo usuário.  Embora este artigo sirva para ajudar você a escrever runbooks usando o Fluxo de Trabalho do PowerShell, recomendamos que você escreva os runbooks usando o PowerShell, a menos que você precise de pontos de verificação.  Há diversas diferenças de sintaxe quando se cria runbooks de Fluxo de trabalho do PowerShell, e essas diferenças exigem um pouco mais de trabalho para escrever fluxos de trabalho efetivos.  
@@ -261,4 +260,3 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-

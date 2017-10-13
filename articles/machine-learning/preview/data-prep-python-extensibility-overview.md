@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4e1935a7830b8174796ac12792fbbc0ed110d081
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-prep-python-extensions"></a>Extensões do Python para preparação de dados
 Como uma forma de preencher as lacunas de funcionalidade entre os recursos internos, a preparação de dados inclui a extensibilidade em muitos níveis. Neste documento, descrevemos a extensibilidade por meio de script do Python. 
 
@@ -361,4 +359,3 @@ def newvalue(row):
     else: 
         return row["Score"] 
 ```  
-

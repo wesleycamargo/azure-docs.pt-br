@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrar o tráfego de rede com os grupos de segurança de rede e de aplicativo do (versão prévia)
 
@@ -457,5 +456,4 @@ Em uma sessão do PowerShell, insira o seguinte comando:
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
 

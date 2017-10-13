@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adicionar um fluxo de entrada ou dados de referência a um trabalho do Stream Analytics
 Saiba como conectar uma fonte de dados ao trabalho do Stream Analytics como fluxo de entrada de dados de Hubs de Eventos ou dados de referência do armazenamento de Blobs.

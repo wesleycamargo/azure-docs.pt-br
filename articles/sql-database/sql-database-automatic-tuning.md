@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2017
 ms.author: jovanpop
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 64abcf680199938c54be5005ee96670a8e580270
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -48,4 +47,3 @@ Consulte este artigo para obter as etapas para [habilitar o ajuste automático](
 - Para usar o ajuste manual, examine as [Recomendações de ajuste no portal do Azure](sql-database-advisor-portal.md) e aplique manualmente aquelas que melhoram o desempenho de suas consultas.
 - Leia mais sobre inteligência interna que ajusta o [Banco de Dados SQL do Microsoft Azure](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Leia mais sobre [Ajuste automático](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) no Banco de Dados SQL do Microsoft Azure e SQL Server 2017.
-

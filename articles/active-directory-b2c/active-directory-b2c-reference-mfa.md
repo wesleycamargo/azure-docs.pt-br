@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 62ec48ab067cf02bc8409aca6da704a5418ec270
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: habilitar a Multi-Factor Authentication nos seus aplicativos voltados para o consumidor
 O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Multi-Factor Authentication.

@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
 ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço na Pesquisa do Azure
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o [Azure Search é provisionado](search-create-service-portal.md), que pode ser **Gratuito**, **Básico** ou **Standard**.

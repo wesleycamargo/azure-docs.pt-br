@@ -1,5 +1,4 @@
 ---
-
 title: "Usar uma VM Windows de solução de problemas com o Azure PowerShell | Microsoft Docs"
 description: "Saiba como solucionar problemas de VMs Windows no Azure conectando o disco do sistema operacional a uma VM de recuperação usando o Azure PowerShell"
 services: virtual-machines-windows
@@ -14,15 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/26/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 36de0375cef661dddb384f9f7651e3faf8df793c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 8b7821b4285e73d461af426bfdfb3fdcc4454517
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o Azure PowerShell
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o Azure PowerShell para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original.
 
@@ -209,4 +205,3 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Solucionar conexões RDP a uma VM do Azure). Para problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

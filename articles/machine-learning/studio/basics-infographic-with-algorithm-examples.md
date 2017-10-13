@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0660e68f83b3fcfa55135e5bd5175a423ad246e2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
@@ -47,4 +46,3 @@ Baixe esta visão geral de fácil compreensão com um infográfico de noções b
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
-

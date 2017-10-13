@@ -16,12 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d61334063cfaa8707cdd811490e14b359ead40b9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -106,5 +105,4 @@ Você também pode usar o cmdlet **Remove-AzureVMSqlServerExtension** do Powersh
 Comece a usar um dos serviços com suporte da extensão. Para obter mais detalhes, confira os tópicos citados na seção [Serviços com suporte](#supported-services) deste artigo.
 
 Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais do Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

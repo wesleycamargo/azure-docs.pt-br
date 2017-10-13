@@ -16,12 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure
 
@@ -37,7 +36,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 Este exemplo cria um Aplicativo de funções do Azure e adiciona uma chave de acesso e um ponto de extremidade de BD do Cosmos para configurações do aplicativo.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -63,7 +62,6 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).
-
 
 
 

@@ -13,23 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 15412c3853a2b8436c5e96034c9a92a2a1094662
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Solucionar problemas do HBase usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas soluções ao trabalhar com cargas de Apache HBase no Apache Ambari.
 
 ## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Como fazer para executar relatórios de comando hbck com várias regiões não atribuídas
 
-Você pode ver a mensagem de erro comum quando você executa o comando `hbase hbck`: "várias regiões sem atribuição ou espaços na cadeia de regiões."
+Uma mensagem de erro comum que pode ser executada ao usar o comando `hbase hbck` é: "várias regiões sem atribuição ou espaços na cadeia de regiões."
 
-É possível ver o número de regiões desbalanceadas entre todos os servidores de região na interface do usuário do HBase Master. Depois, você pode executar o comando `hbase hbck` para ver os espaços na cadeia de regiões.
+Na interface do usuário do HBase Master você pode exibir o número de regiões desbalanceadas em todos os servidores da região. Depois, você pode executar o comando `hbase hbck` para ver os espaços na cadeia de regiões.
 
 Os espaços podem ser causados pelas regiões offline, portanto, corrija as atribuições primeiro. 
 
@@ -47,7 +45,7 @@ Execute estas etapas para levar as regiões não atribuídas de volta a um estad
 
 ### <a name="issue"></a>Problema
 
-Talvez, uma possível causa de problemas de tempo limite quando você usa o comando `hbck` seja várias regiões no estado "em transição" por um longo tempo. Você pode ver essas regiões como offline na interface do usuário do HBase Master. Devido ao grande número de regiões tentando fazer a transição, o HBase Master pode atingir o tempo limite e não conseguir colocar essas regiões no estado online novamente.
+Uma possível causa de problemas do tempo limite, quando você usa o comando `hbck`, é que várias regiões se encontram no estado "em transição" por um longo tempo. Você pode ver essas regiões como offline na interface do usuário do HBase Master. Devido ao grande número de regiões tentando fazer a transição, o HBase Master pode atingir o tempo limite e não conseguir colocar essas regiões no estado online novamente.
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
@@ -58,7 +56,7 @@ Talvez, uma possível causa de problemas de tempo limite quando você usa o coma
 5. Na interface do usuário do Ambari, reinicie o serviço Active HBase Master.
 6. Execute o comando `hbase hbck -fixAssignments` novamente.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como fazer para forçar a desabilitação do modo de segurança de HDFS em um cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como forçar a desabilitação do modo de segurança de HDFS em um cluster
 
 ### <a name="issue"></a>Problema
 
@@ -72,7 +70,7 @@ Esse erro pode ser causado por uma falha na execução do seguinte comando do HD
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-O erro que você pode receber ao tentar executar o comando parece com isto:
+Este é o erro que você pode receber ao tentar executar o comando:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -128,7 +126,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Causa provável
 
-O cluster HDInsight foi reduzido verticalmente para muito poucos nós. O número de nós está abaixo ou próximo ao fator de replicação do HDFS.
+O cluster HDInsight foi reduzido para pouquíssimos nós. O número de nós está abaixo ou próximo ao fator de replicação do HDFS.
 
 ### <a name="resolution-steps"></a>Etapas de resolução 
 
@@ -213,7 +211,7 @@ O cluster HDInsight foi reduzido verticalmente para muito poucos nós. O número
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Como fazer para corrigir problemas de conectividade de JDBC ou SQLLine com o Apache Phoenix
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Como corrigir problemas de conectividade de JDBC ou SQLLine com o Apache Phoenix
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
@@ -234,7 +232,7 @@ Para conectar-se ao Phoenix, você deve fornecer o endereço IP de um nó ativo 
            !tables
            !quit
    ```      
-4. Se esse comando funcionar, não haverá nenhum problema. O endereço IP fornecido pelo usuário pode estar incorreto. No entanto, se o comando pausar por um longo período e, depois, exibir o seguinte erro, continue na etapa 5.
+4. Se esse comando funcionar, não haverá nenhum problema. O endereço IP fornecido pelo usuário pode estar incorreto. No entanto, se o comando pausar por um longo período e depois exibir o erro abaixo, passe para a etapa 5.
 
    ```apache
            Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
@@ -248,7 +246,7 @@ Para conectar-se ao Phoenix, você deve fornecer o endereço IP de um nó ativo 
            count 'SYSTEM.CATALOG'
    ```
 
-   O comando deve retornar um erro semelhante ao seguinte: 
+   O comando deverá retornar o seguinte erro: 
 
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
@@ -278,11 +276,11 @@ Durante a inicialização, o HMaster executa um comando `list` básico nessas pa
 
 ### <a name="probable-cause"></a>Causa provável
 
-Nos logs do servidor de região, tente identificar a linha do tempo da criação do arquivo e, em seguida, veja se houve uma falha no processo no momento da criação do arquivo. (Contate o suporte da HBase para ajudar com isso.) Isso nos ajuda a fornecer mecanismos mais robustos, para que você evite esse bug e garanta desligamentos de processo normais.
+Nos logs do servidor de região, tente identificar a linha do tempo da criação do arquivo e, em seguida, veja se houve uma falha no processo no momento da criação do arquivo. (Contate o suporte da HBase para ajudar com isso). Isso nos ajuda a fornecer mecanismos mais robustos, para que você evite esse bug e garanta desligamentos de processo normais.
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-Verifique a pilha de chamadas e tente determinar qual pasta pode estar causando o problema (por exemplo, pode ser a pasta WALs ou a pasta .tmp). Em seguida, no Cloud Explorer, ou usando comandos do HDFS, tente localizar o arquivo do problema. Geralmente, é um arquivo \*-renamePending.json. (\*-renamePending.json é um arquivo de diário usado para implementar a operação de renomeação atômica no driver WASB. Devido a erros nessa implementação, esses arquivos podem ser abandonados após falhas de processo, e assim por diante.) Force a exclusão desse arquivo no Cloud Explorer ou usando os comandos do HDFS. 
+Verifique a pilha de chamadas e tente determinar qual pasta pode estar causando o problema (por exemplo, pode ser a pasta WALs ou a pasta .tmp). Em seguida, no Cloud Explorer ou usando comandos do HDFS, tente localizar o arquivo problemático. Geralmente, é um arquivo \*-renamePending.json. (\*-renamePending.json é um arquivo de diário usado para implementar a operação de renomeação atômica no driver WASB. Devido a erros nessa implementação, esses arquivos podem ser abandonados após falhas de processo, e assim por diante.) Force a exclusão desse arquivo no Cloud Explorer ou usando os comandos do HDFS. 
 
 Às vezes, pode haver um arquivo temporário com um nome parecido com *$$$.$$$* nesse local. Você deve usar o comando `ls` de HDFS para ver esse arquivo; não é possível ver o arquivo no Cloud Explorer. Para excluir este arquivo, use o comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
 
@@ -294,7 +292,7 @@ Nenhum endereço de servidor está listado em *hbase: meta* para a região xxx.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-Talvez você veja uma mensagem no cluster do Linux que indica que a tabela *hbase: meta* não está online. A execução de `hbck` pode relatar que "replicaId 0 da tabela hbase: meta não foi encontrado em nenhuma região". Talvez o problema seja a incapacidade de inicializar o HMaster após a reinicialização do HBase. Nos logs do HMaster, você pode ver a mensagem: "Nenhum endereço de servidor listado no hbase: meta para região hbase: backup \<nome da região\>".  
+Talvez você veja uma mensagem no cluster do Linux que indica que a tabela *hbase: meta* não está online. A execução de `hbck` pode relatar que "replicaId 0 da tabela hbase: meta não foi encontrado em nenhuma região". Talvez o problema seja a incapacidade de inicializar o HMaster após a reinicialização do HBase. Nos logs do HMaster, a seguinte mensagem poderá ser exibida: "Nenhum endereço de servidor listado no hbase: meta para a região hbase: backup up da \<nome da região\>  
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
@@ -422,5 +420,4 @@ Devido a esse desligamento inesperado, a porta associada ao processo talvez não
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
-
 

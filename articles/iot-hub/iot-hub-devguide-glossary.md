@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -257,4 +256,3 @@ Você pode usar um serviço de token para implementar um mecanismo de autentica�
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Um dispositivo pode usar um certificado X.509 para se autenticar no [Hub IoT](#iot-hub). O uso de um certificado x.509 é uma alternativa ao uso de um [token SAS](#shared-access-signature).
-

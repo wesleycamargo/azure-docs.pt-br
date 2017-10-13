@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Verificar a conectividade com o Observador de Rede do Azure usando o PowerShell
 
 > [!div class="op_single_selector"]
@@ -339,7 +337,6 @@ Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando
 Se o tráfego está sendo bloqueado e não deve ser, consulte [gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as rede segurança e grupo de regras de segurança que são definidas.
 
 <!-- Image references -->
-
 
 
 

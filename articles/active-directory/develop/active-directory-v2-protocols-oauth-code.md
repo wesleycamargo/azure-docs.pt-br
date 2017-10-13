@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: b64413e9cc916837dc779b92117f90293c4f1d87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Protocolos v2.0 - Fluxo de código de autorização do OAuth 2.0
 A concessão de código de autorização OAuth 2.0 pode ser usada em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web.  Com a implementação do modelo de aplicativo v2.0 do OAuth 2.0, você pode adicionar conexão e acesso à API aos seus aplicativos móveis e de área de trabalho.  Este guia independe do idioma e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.

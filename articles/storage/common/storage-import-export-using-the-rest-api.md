@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Usando a API REST do serviço de Importação/Exportação do Azure
 
@@ -58,4 +57,3 @@ As solicitações para o serviço de Importação/Exportação devem especificar
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport)
-

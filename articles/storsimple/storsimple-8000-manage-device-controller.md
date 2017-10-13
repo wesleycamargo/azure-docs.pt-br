@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 
@@ -162,5 +160,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 ## <a name="next-steps"></a>Próximas etapas
 * Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Para saber mais sobre como usar o serviço do Gerenciador de Dispositivos do StorSimple, acesse [Usar o serviço do Gerenciador de Dispositivos do StorSimple para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

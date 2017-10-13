@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondência de P e R usando o Azure Machine Learning Workbench
 Responder a perguntas abertas é difícil e geralmente requer esforço manual de SMEs (especialistas no assunto). Para ajudar a reduzir as demandas em SMEs internos, as empresas geralmente criam listas de Perguntas frequentes como uma forma de auxiliar os usuários. Este exemplo demonstra vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de pergunta/respostas de perguntas frequentes pré-existentes. Este exemplo demonstra um processo de desenvolvimento fácil para criar essa solução usando o Azure Machine Learning Workbench. 
 
@@ -162,4 +160,3 @@ Alguns dos principais destaques desse exemplo são:
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf) (Modelando frases com várias palavras com árvore de frases restritas para melhor modelagem de tópico de um discurso de conversação). Workshop SLT (tecnologia de língua falada), 2012 IEEE. IEEE, 2012.
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) (Técnicas de treinamento MCE para identificação de tópicos de documentos de áudio falado) nas Transações IEEE no processamento de áudio, fala e linguagem, vol. 19, no. 8, p. 2451-2460, nov. 2011.
-

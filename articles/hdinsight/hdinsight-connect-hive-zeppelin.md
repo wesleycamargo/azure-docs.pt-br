@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Usar Zeppelin para executar consultas do Hive no Azure HDInsight 
 
@@ -83,4 +82,3 @@ Neste artigo, você aprendeu como visualizar os dados de HDInsight usando o Powe
 * [Conectar-se ao Azure HDInsight e executar consultas Hive usando Ferramentas do Data Lake para Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
 * [Use a Ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
 * [Carregue os Dados no HDInsight](./hdinsight-upload-data.md).
-

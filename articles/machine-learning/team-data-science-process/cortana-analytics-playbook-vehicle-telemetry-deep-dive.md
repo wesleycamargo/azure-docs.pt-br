@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guia estratégico de solução da análise de telemetria do veículo: aprofunde-se na solução
 Este **menu** tem links com as seções deste guia estratégico: 
@@ -329,11 +328,9 @@ Os dados agora estão otimizados, são mais gerenciáveis e estão prontos para 
 ## <a name="data-analysis"></a>Análise de Dados
 Nesta seção, você vê como combinar o Azure Stream Analytics, o Azure Machine Learning, o Azure Data Factory e o Azure HDInsight para fazer análises avançadas sobre a integridade do veículo e os hábitos de condução. Há três subseções aqui:
 
-1. 
-            **Machine Learning**: esta subseção contém informações sobre o teste de detecção de anomalias que usamos nesta solução para prever os veículos que exigem manutenção e veículos que exigem recalls devido a problemas de segurança.
+1. **Machine Learning**: esta subseção contém informações sobre o teste de detecção de anomalias que usamos nesta solução para prever os veículos que exigem manutenção e veículos que exigem recalls devido a problemas de segurança.
 2. **Análise em tempo real**: esta subseção contém informações sobre a análise em tempo real usando a Linguagem de Consulta do Stream Analytics e a operação do teste de aprendizado de máquina em tempo real usando um aplicativo personalizado.
-3. 
-            **Análise do Lote**: esta subseção contém informações sobre a transformação e o processamento dos dados em lote usando o Azure HDInsight e o Azure Machine Learning operados pelo Azure Data Factory.
+3. **Análise do Lote**: esta subseção contém informações sobre a transformação e o processamento dos dados em lote usando o Azure HDInsight e o Azure Machine Learning operados pelo Azure Data Factory.
 
 ### <a name="machine-learning"></a>Machine Learning
 Nosso objetivo aqui é prever os veículos que exigem manutenção ou recall com base em determinadas estatísticas de integridade. Podemos fazer as seguintes suposições
@@ -701,5 +698,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 ## <a name="summary"></a>Resumo
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote). 
-
 

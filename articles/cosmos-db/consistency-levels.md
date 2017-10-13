@@ -17,10 +17,10 @@ ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. 

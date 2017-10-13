@@ -17,10 +17,10 @@ ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Dimensionar verticalmente uma máquina virtual Linux do Azure com a Automação do Azure
 A escala vertical é o processo de aumentar ou diminuir os recursos de um computador em resposta à carga de trabalho. No Azure, isso pode ser feito alterando o tamanho da máquina virtual. Isso pode ajudar nos cenários a seguir

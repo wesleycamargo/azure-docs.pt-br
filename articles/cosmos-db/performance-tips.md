@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Dicas de desempenho para o Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](set-throughput.md#set-throughput-sdk). No entanto, como o Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o desempenho máximo.
@@ -145,14 +144,8 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo o **plataforma de 64 bits** no **configurações do aplicativo** no portal do Azure.
 
 ## <a name="indexing-policy"></a>Política de indexação
-1. **Usar a indexação lenta para as taxas de ingestão de tempo máximo mais rápidas**
-
-    O Cosmos DB permite que você especifique – no nível da coleção – uma política de indexação, que possibilita escolher se você deseja que os documentos em uma coleção sejam indexados automaticamente.  Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. O modo síncrono permite que as consultas obedeçam ao mesmo [nível de consistência](consistency-levels.md) das leituras de documentos sem demora para o índice “atualizado”.
-
-    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. A indexação lenta permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que, quando a indexação lenta estiver habilitada, os resultados da consulta, em última análise, serão consistentes, independentemente do nível de consistência configurado para a conta do Cosmos DB.
-
-    Portanto, o modo de indexação Consistente (IndexingPolicy.IndexingMode é definido para Consistente) incorre no maior custo de unidade de solicitação por gravação, enquanto o modo de indexação Lento (IndexingPolicy.IndexingMode é definido para Lento) e nenhuma indexação (IndexingPolicy.Automatic é definido para False) têm um custo zero de indexação no momento da gravação.
-2. **Excluir caminhos não utilizados da indexação para ter gravações mais rápidas**
+ 
+1. **Excluir caminhos não utilizados da indexação para ter gravações mais rápidas**
 
     A política de indexação do Cosmos DB também permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
 
@@ -214,4 +207,3 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 Para obter um aplicativo de exemplo usado para avaliar o Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [Teste de desempenho e escala com o Cosmos DB](performance-testing.md).
 
 Além disso, para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
-

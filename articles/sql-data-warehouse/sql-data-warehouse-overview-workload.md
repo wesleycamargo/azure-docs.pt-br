@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabalho do data warehouse
 Uma carga de trabalho do data warehouse refere-se a todas as operações que são realizadas em um data warehouse. A carga de trabalho em um data warehouse abrange todo o processo de carregamento de dados, a execução de análise e relatórios, o gerenciamento de dados e a exportação de dados. O detalhamento e a amplitude desses componentes, muitas vezes, são proporcionais ao nível de maturidade do data warehouse.

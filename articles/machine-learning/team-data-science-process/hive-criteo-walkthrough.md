@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
@@ -68,8 +67,7 @@ Configure seu ambiente de Ciência de dados do Azure para a criação de soluç�
    
    * Você deve vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Lembre das credenciais de acesso remoto que você especificar aqui (diferentes daqueles especificadas para o cluster durante sua criação): você precisa delas para concluir os procedimentos a seguir.
-3. 
-            [Criar um espaço de trabalho do AM do Azure](../studio/create-workspace.md): este espaço de trabalho do Azure Machine Learning é usado para criar modelos de aprendizado de máquina após uma exploração de dados inicial e para reduzir a resolução no cluster do HDInsight.
+3. [Criar um espaço de trabalho do AM do Azure](../studio/create-workspace.md): este espaço de trabalho do Azure Machine Learning é usado para criar modelos de aprendizado de máquina após uma exploração de dados inicial e para reduzir a resolução no cluster do HDInsight.
 
 ## <a name="getdata"></a>Obter e consumir dados de uma fonte de pública
 O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) pode ser acessado clicando no link, aceitando os termos de uso e fornecendo um nome. Um instantâneo desse processo é mostrado aqui:
@@ -350,9 +348,7 @@ Neste caso, ordenamos as contagens de modo inverso e examinamos as 15 primeiras.
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## 
-            <a name="downsample">
-            </a> Reduzir a resolução de conjuntos de dados para o Azure Machine Learning
+## <a name="downsample"></a> Reduzir a resolução de conjuntos de dados para o Azure Machine Learning
 Após termos explorado os conjuntos de dados e demonstrado como podemos fazer esse tipo de exploração para quaisquer variáveis (incluindo combinações), agora nós reduzimos a resolução dos conjuntos de dados para que possamos criar modelos no Azure Machine Learning. Lembre-se de que o problema em que nos concentramos é: dado um conjunto de atributos de exemplo (valores de recursos da Col2 à Col40), podermos prever se Col1 é 0 (sem cliques) ou 1 (com clique).
 
 Para reduzir nossos conjuntos de dados de treinamento e teste para 1% do tamanho original, usamos a função nativa RAND() do Hive. O seguinte script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) faz isso para o conjunto de dados de treinamento:
@@ -419,13 +415,10 @@ Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alt
 
 Para criar tabelas de contagem com os dados de contagem, usamos os dados na pasta raw/count. Na seção de modelagem, mostramos aos usuários como criar essas tabelas de contagem para recursos categóricos do zero ou como usar uma tabela de contagem criada previamente para seus explorações. A seguir, quando falamos em "tabelas criadas previamente", nos referimos ao uso das tabelas de contagem que fornecemos. Fornecemos instruções detalhadas sobre como acessar essas tabelas na próxima seção.
 
-## 
-            <a name="aml">
-            </a> Criar um modelo com o Azure Machine Learning
+## <a name="aml"></a> Criar um modelo com o Azure Machine Learning
 Nosso processo de criação de modelo no Azure Machine Learning seguirá estas etapas:
 
-1. 
-            [Obter os dados de tabelas do Hive no Azure Machine Learning](#step1)
+1. [Obter os dados de tabelas do Hive no Azure Machine Learning](#step1)
 2. [Criar o experimento: limpar os dados e criar recursos com tabelas de contagem](#step2)
 3. [Criar, treinar e pontuar o modelo](#step3)
 4. [Avaliar o modelo](#step4)
@@ -467,9 +460,7 @@ Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de
 > 
 > 
 
-### 
-            <a name="step2">
-            </a> Etapa 2: criar um experimento simples no Estúdio de Azure Machine Learning para predizer cliques/nenhum clique
+### <a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Azure Machine Learning para predizer cliques/nenhum clique
 Nosso experimento do AM do Azure tem esta aparência:
 
 ![Teste do Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -639,5 +630,4 @@ Observe que substituímos a chave de API padrão com a chave de API de nossos se
 Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), recebemos respostas no formulário "Scored Labels, Scored Probabilities". Observe que, neste caso, escolhemos os valores padrão que o código predefinido fornece (0 para todas as colunas numéricas e a cadeia de caracteres "value" para todas as colunas categóricas).
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Azure Machine Learning. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
-
 

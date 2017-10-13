@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 4b6fd87b057d93175d3ef284238d77be3bdde61d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)
 
@@ -232,4 +231,3 @@ Neste documento, você aprendeu a usar o bolt e o spout dos Hub de Eventos Java 
 * [Desenvolver topologias C# para o Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Guia de programação do SCP](hdinsight-storm-scp-programming-guide.md)
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/30/2017
 ms.author: johnkem
+ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
@@ -241,5 +240,4 @@ O processo inteiro, incluindo os exemplos, é descrito [neste documento](../virt
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
 

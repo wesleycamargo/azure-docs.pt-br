@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
 ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure
 

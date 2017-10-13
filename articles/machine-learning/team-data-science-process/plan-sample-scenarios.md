@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1dbc47b8a56fb2d295adfea0920b7eea45be69a8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Azure Machine Learning
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
@@ -38,8 +37,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 > 
 > * [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md)
 >   <br/>
-> * 
-            [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
+> * [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
 > 
 > 
 
@@ -267,4 +265,3 @@ Para obter um passo a passo do Azure Machine Learning que emprega o Processo e T
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

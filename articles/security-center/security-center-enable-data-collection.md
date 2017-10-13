@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
@@ -141,4 +140,3 @@ Este artigo mostrou como a coleta de dados e o provisionamento automático na Ce
 [4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
-

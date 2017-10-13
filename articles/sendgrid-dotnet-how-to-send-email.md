@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
+ms.openlocfilehash: 14161a0747add43a99e301eacf700ab79c77c767
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1ba8debc1ccc827bc242cdc7a7ab484a85d3c0ae
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar emails usando o SendGrid com o Azure
 ## <a name="overview"></a>Visão geral
@@ -204,5 +203,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 
 [serviço de email baseado em nuvem]: https://sendgrid.com/solutions
 [entrega de email transacional]: https://sendgrid.com/use-cases/transactional-email
-
 

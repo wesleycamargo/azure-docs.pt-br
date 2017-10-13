@@ -19,6 +19,7 @@
 # Como
 
 ## Política de segurança
+### [Visão geral](security-center-policies-overview.md)
 ### [Coleta de dados](security-center-enable-data-collection.md)
 ### [Política de segurança](security-center-policies.md)
 ### [Notificações por email](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)
 #### [Reinicializar após as atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)
-#### [Resolver alertas de integridade de proteção do ponto de extremidade](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Atualizar a versão do sistema operacional](security-center-update-os-version.md)
 #### [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorar integridade da segurança](security-center-monitoring.md)

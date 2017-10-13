@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure
 
@@ -570,7 +569,6 @@ Agora nosso aplicativo de movimentação de dados está concluído. [O exemplo d
 Neste guia de introdução, criamos um aplicativo que interage com o Armazenamento do Azure e é executado no Windows, Linux e macOS. Este guia de introdução se concentrou no Armazenamento de Blobs. No entanto, esse mesmo conhecimento pode ser aplicado ao Armazenamento de Arquivos. Para obter mais informações, confira a [Documentação de referência da Biblioteca de Movimentação de Dados do Armazenamento do Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
 
 
 

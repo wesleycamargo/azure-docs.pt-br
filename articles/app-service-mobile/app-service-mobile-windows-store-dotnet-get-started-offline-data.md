@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 0830e5758419dccb7dcaaf2ae9671d9fa20b76a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Habilitar sincronização offline para o seu aplicativo do Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -122,4 +121,3 @@ Os tópicos a seguir fornecem informações básicas adicionais sobre o recurso 
 [PushAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

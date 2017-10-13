@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 2a095b96a8c352abeca72640d37c0d629b447763
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificar as configurações de gateway de rede local usando o PowerShell
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 08/16/2017
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
-## <a name="ipaddprefix"></a>Modificar prefixos de endereço IP
+## <a name="ipaddprefix"></a>Modificar os prefixos de endereço IP
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 

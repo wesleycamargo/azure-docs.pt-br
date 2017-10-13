@@ -1,5 +1,5 @@
 ---
-title: "Criar um banco de dados de documentos de gráfico do Azure Cosmos DB com Java | Microsoft Docs"
+title: Criar um banco de dados de grafos do Azure Cosmos DB com Java | Microsoft Docs
 description: "Apresenta um exemplo de código Java que pode ser usado para, usando o Gremlin, conectar-se aos dados de gráfico no BD Cosmos do Azure e consultá-los."
 services: cosmos-db
 documentationcenter: 
@@ -15,18 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/24/2017
 ms.author: denlee
+ms.openlocfilehash: 090a786b77cbe7b228f42f98dcb5f066b6fe62a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de gráfico usando o Java e o portal do Azure
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido cria um banco de dados de gráfico usando as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados de gráfico com o driver [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) do OSS. As instruções neste guia rápido podem ser seguidas em qualquer sistema operacional capaz de executar o Java. Este guia de início rápido mostra a você a criação e a modificação dos recursos do grafo na IU ou programaticamente, o que for sua preferência. 
+Este guia de início rápido mostra como criar um banco de dados de grafos usando as ferramentas do portal do Azure para o Azure Cosmos DB. Ele também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados de grafos com o driver [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) do OSS. Estas instruções podem ser seguidas em qualquer sistema operacional compatível com Java. Este guia de início rápido mostra a você a criação e a modificação dos recursos do grafo na IU ou programaticamente, o que for sua preferência. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,13 +33,13 @@ Este início rápido cria um banco de dados de gráfico usando as ferramentas do
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 * [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
-    * No Ubuntu, você pode executar `apt-get install maven` instalar o Maven.
+    * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/)
-    * No Ubuntu, você pode executar `sudo apt-get install git` instalar o Git.
+    * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 Antes de criar um banco de dados de gráfico, você precisa criar uma conta do banco de dados Gremlin (Graph) com o Azure Cosmos DB.
 
@@ -67,7 +66,7 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, iremos clonar um aplicativo de gráfico do github, definir a cadeia de conexão e executá-la. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, vamos clonar um aplicativo de grafo do github, definir a cadeia de conexão e executá-la. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.  
 
@@ -125,7 +124,7 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
 
 2. Na janela do terminal git, digite `mvn package` para instalar os pacotes necessários do Java.
 
-3. Na janela do terminal de git, execute `mvn exec:java -D exec.mainClass=GetStarted.Program` na janela de terminal para iniciar o aplicativo Java.
+3. Na janela do terminal do git, execute `mvn exec:java -D exec.mainClass=GetStarted.Program` na janela do terminal para iniciar o aplicativo Java.
 
 A janela do terminal exibe os vértices sendo adicionados ao gráfico. Após a conclusão do programa, volte para o portal do Azure no seu navegador da Internet. 
 
@@ -140,30 +139,30 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
 2. Na lista **Resultados**, observe os novos usuários adicionados ao gráfico. Selecione **ben** e observe que ele está conectado a robin. Você pode mover os vértices no gerenciador de gráficos, ampliar e reduzir, e expandir o tamanho da superfície do gerenciador de gráficos. 
 
-   ![Novo vértices no gráfico no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+   ![Novos vértices no grafo no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Vamos adicionar alguns novos usuários ao gráfico usando o Data Explorer. Clique no botão **Novo Vértice** para adicionar dados ao gráfico.
+3. Vamos adicionar alguns usuários novos no grafo usando o Data Explorer. Clique no botão **Novo Vértice** para adicionar dados ao gráfico.
 
    ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Digite um rótulo da *pessoa*, em seguida, insira as seguintes chaves e valores para criar o primeiro vértice no gráfico. Observe que você pode criar propriedades exclusivas para cada pessoa no gráfico. Somente a chave da id é necessária.
+4. Digite um rótulo de *pessoa*, em seguida, insira as seguintes chaves e valores para criar o primeiro vértice no grafo. Observe que você pode criar propriedades exclusivas para cada pessoa no gráfico. Somente a chave da id é necessária.
 
     chave|valor|Observações
     ----|----|----
-    ID|ashley|O identificador exclusivo do vértice. Se você não especificar uma id, uma será gerada para você.
+    ID|ashley|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|feminino| 
     técnico | java | 
 
     > [!NOTE]
     > Neste início rápido, criamos uma coleção não particionada. No entanto, se você criar uma coleção particionada especificando uma chave de partição durante a criação da coleção, então, precisará incluir a chave de partição como uma chave em cada novo vértice. 
 
-5. Clique em **OK**. Você pode precisar expandir a tela para ver **OK** na parte inferior da tela.
+5. Clique em **OK**. Talvez seja necessário expandir a tela para ver **OK** na parte inferior da tela.
 
-6. Clique em **Novo Vértice** novamente e acrescente um novo usuário adicional. Digite um rótulo da *pessoa*, em seguida, insira as chaves e valores a seguir:
+6. Clique em **Novo Vértice** novamente e acrescente um novo usuário. Digite um rótulo de *pessoa*, em seguida, insira as seguintes chaves e valores:
 
     chave|valor|Observações
     ----|----|----
-    ID|rakesh|O identificador exclusivo do vértice. Se você não especificar uma id, uma será gerada para você.
+    ID|rakesh|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|masculino| 
     escola|MIT| 
 
@@ -175,7 +174,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
    ![Alterar o destino de um vértice em um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-10. Na caixa **Destino**, digite *rakesh*e na caixa **Rótulo de borda**, digite *sabe*, em seguida, clique na caixa de seleção.
+10. Na caixa **Destino**, digite *rakesh* e na caixa **Rótulo da aresta**, digite *conhece*, em seguida, clique na caixa de seleção.
 
    ![Adicionar uma conexão entre ashley e rakesh no Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -204,5 +203,4 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres no Azure
 Com o [Compose](http://github.com/docker/compose), você usa um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para implantar o ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end em uma VM Ubuntu. Você também pode usar o Redigir para configurar aplicativos mais complexos.
@@ -163,4 +162,3 @@ Agora você pode conectar o WordPress diretamente na VM na porta 80. Abra um nav
 <!--Image references-->
 
 [wordpress_start]: media/docker-compose-quickstart/WordPress.png
-

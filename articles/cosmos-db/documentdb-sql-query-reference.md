@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/13/2017
 ms.author: mimig
+ms.openlocfilehash: 0a05f4ee86d2dcca40dc0b5ec2c503ba0b8bfe8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>API DocumentDB do BD Cosmos do Azure: referência de sintaxe SQL
 
 A API DocumentDB do BD Cosmos do Azure dá suporte a documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este tópico fornece a documentação de referência para a linguagem de consulta SQL da API DocumentDB.
@@ -2773,4 +2771,3 @@ SELECT ST_ISVALIDDETAILED({
  [Documentação do BD Cosmos do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
-

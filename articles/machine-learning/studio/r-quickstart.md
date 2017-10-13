@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
 
@@ -51,9 +50,7 @@ Passaremos por várias etapas enquanto você aprende a criar, testar e executar 
 * Com nossos dados preparados, executaremos uma análise das correlações entre diversas variáveis de nosso conjunto de dados.
 * Por fim, criaremos um modelo de previsão de série de tempos sazonais da produção de leite.
 
-## 
-            <a id="mlstudio">
-            </a>Interagir com a linguagem R no Studio de Machine Learning
+## <a id="mlstudio"></a>Interagir com a linguagem R no Studio de Machine Learning
 Esta seção apresenta algumas noções básicas de interagir com a linguagem de programação R no ambiente do Studio de Machine Learning. A linguagem R fornece uma ferramenta poderosa para a criação de análises personalizadas e módulos de manipulação de dados no ambiente do Azure Machine Learning.
 
 Usarei o RStudio para desenvolver, testar e depurar o código R em pequena escala. Esse código é, então, recortado e colado em um módulo [Executar Script R][execute-r-script] no Machine Learning Studio, pronto para ser executado.  
@@ -1286,4 +1283,3 @@ Alguns ótimos recursos na Internet:
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-

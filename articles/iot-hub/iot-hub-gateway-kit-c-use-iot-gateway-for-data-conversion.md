@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: d5c735a4adbc59e9526ec4fd40720c5ec136d63d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Usar o gateway IoT para transformação dos dados de sensor com o Azure IoT Edge
 
@@ -148,4 +147,3 @@ Você obtém um arquivo `libmy_module.so` após a conclusão da compilação. An
 Você usou o gateway IoT com êxito para converter a mensagem do SensorTag no formato .json.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

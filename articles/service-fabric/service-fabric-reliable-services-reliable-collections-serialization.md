@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -157,4 +155,3 @@ Dessa forma, cada versão pode ler o máximo que puder e pular para a parte rest
   * Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
   * Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
   * Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
-

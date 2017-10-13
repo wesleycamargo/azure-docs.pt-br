@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: fac7f969f943312fca1eacc41dca3b8e65cf2024
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 4f343b4d4b5cb3c8be9605e9ab43200072b193e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>O que são as senhas de aplicativo no Azure Multi-Factor Authentication?
 Determinados aplicativos que não usam navegador, como o cliente de email nativo da Apple, que usa o Exchange Active Sync, atualmente, não oferecem suporte à autenticação multifator. O Multi-Factor Authentication é habilitado por usuário. Isso significa que se um usuário tiver sido habilitado para autenticação multifator e tentar usar aplicativos sem navegador, ele não conseguirá usá-lo. Uma senha de aplicativo permite que isso ocorra.
@@ -116,4 +115,3 @@ Se não tiver certeza de como você usa a autenticação multifator, será poss�
 - [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 
 - Experimente o [aplicativo Autenticador Microsoft](microsoft-authenticator-app-how-to.md) para verificar suas conexões com notificações de aplicativo, em vez de receber mensagens ou ligações.
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 22dff3ec27e16c2a943511e5699ff361d855d13f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Use o PowerShell para monitorar e dimensionar um pool elástico do SQL no Banco de Dados SQL do Azure
 
 Este exemplo de script do PowerShell monitora as métricas de desempenho de um pool elástico, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. 
@@ -32,7 +30,7 @@ Este exemplo de script do PowerShell monitora as métricas de desempenho de um p
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitorar e dimensionar um Banco de Dados SQL individual")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -64,4 +62,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 66eb53f99ce4b30ec283243deb3649c9ca897a2b
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Usando o SAP em máquinas virtuais do Linux no Azure
 Computação em Nuvem é um termo amplamente usado que está adquirindo cada vez mais importância no setor de TI, de pequenas empresas até multinacionais e grandes corporações. O Microsoft Azure é a Plataforma de Serviços de Nuvem da Microsoft que oferece um amplo espectro de novas possibilidades. Agora, os clientes podem provisionar e desprovisionar com rapidez os aplicativos como Serviços de Nuvem, para que não sejam limitados por restrições técnicas ou orçamentárias. Em vez de investir tempo e dinheiro na infraestrutura de hardware, as empresas podem se concentrar no aplicativo, nos processos de negócios e em seus benefícios para clientes e usuários.
@@ -38,5 +37,4 @@ Resumo: no momento, não há suporte oficial do SAP para execução do SAP NetWe
 Atualização: dezembro de 2015
 
 [Esse artigo pode ser encontrado aqui](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

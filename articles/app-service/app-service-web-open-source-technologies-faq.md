@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cefec9c703d3d1544eb7216c97b0a065a39ee2eb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
 Este artigo apresenta perguntas frequentes (FAQs) sobre problemas com tecnologias de código aberto para a [funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -60,7 +57,7 @@ Para ativar o registro em log de PHP:
 2. No menu superior, selecione **Console de Depuração** > **CMD**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
-5. Selecione o **+** ícone e, em seguida, selecione **Novo arquivo**.
+5. Selecione o  **+**  ícone e, em seguida, selecione **Novo arquivo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
@@ -252,4 +249,3 @@ Depois de garantir que MySQL no aplicativo está em execução, tente usar PHPMy
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Recebo um erro de HTTP 403 ao tentar importar ou exportar meu banco de dados MySQL no aplicativo usando PHPMyadmin. Como resolver isso?
 
 Se você estiver usando uma versão mais antiga do Chrome, talvez você esteja tendo um bug conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Além disso, tente usar um navegador diferente, como o Internet Explorer ou Edge, onde o problema não ocorre.
-

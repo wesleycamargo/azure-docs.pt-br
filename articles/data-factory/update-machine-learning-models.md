@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
 Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
@@ -311,4 +310,3 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
-

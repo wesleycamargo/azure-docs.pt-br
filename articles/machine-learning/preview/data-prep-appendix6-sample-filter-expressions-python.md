@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a80e43f84b518a7c9ce609fbebe34c531e1ab187
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-of-filter-expressions-python"></a>Exemplo de expressões de filtro (Python) 
 Antes de ler este apêndice, leia [Visão geral da extensibilidade do Python](data-prep-python-extensibility-overview.md)
 
@@ -41,4 +39,3 @@ Filtrar somente as linhas em que Col1 tem um valor nulo
 ```python
     pd.isnull(row["Col1"])
 ```
-

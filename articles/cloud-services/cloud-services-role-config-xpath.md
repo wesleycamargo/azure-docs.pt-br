@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expor as definições de configuração da função como uma variável de ambiente com o XPath
 No arquivo de definição de serviço de função web ou do trabalho do serviço de nuvem, é possível expor os valores de configuração do tempo de execução como variáveis de ambiente. Há suporte para os valores do XPath a seguir (que correspondem aos valores da API).

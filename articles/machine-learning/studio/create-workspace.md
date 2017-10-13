@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Criar e compartilhar um espaço de trabalho de Azure Machine Learning
 Esse menu vincula-se aos tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo CAPS (Processo Cortana Analytics).
@@ -100,7 +99,6 @@ Cada usuário que você adicionar receberá um email com instruções sobre como
 
 > [!NOTE]
 > Para que os usuários possam implantar ou gerenciar os serviços Web neste espaço de trabalho, eles devem ser colaboradores ou administradores na assinatura do Azure. 
-
 
 
 

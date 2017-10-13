@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 178bdfd7bf2eb162e7a94f3eef9c44c5ff646fb9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos do sistema da StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -41,7 +41,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | **Hipervisor** | **Versão** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e posterior |
-| VMware ESXi |5.5 e posterior |
+| VMware ESXi |5.5 e 6.0 |
 
 ### <a name="virtual-device-requirements"></a>Requisitos de dispositivo virtual
 | **Componente** | **Requisito** |
@@ -130,5 +130,4 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 ## <a name="next-step"></a>Próxima etapa
 * [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

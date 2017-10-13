@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 07d702e34e1574161a64af9a4724a66879a0ba05
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
@@ -28,8 +27,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Lote do Azure](#azure-batch-linked-service) | [Personalizado](transform-data-using-dotnet-custom-activity.md) |
-| 
-            [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) |
 | [Análise Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
 

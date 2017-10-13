@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Concluir uma revisão de acesso de membros de um grupo ou o acesso a um aplicativo no Azure AD
 
 Os administradores podem solicitar uma revisão dos membros do grupo ou os usuários atribuídos a um aplicativo [criando uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md). O Azure AD envia automaticamente para os revisores um email solicitando que analisem o acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [como analisar o acesso](active-directory-azure-ad-controls-perform-access-review.md).  Depois que o período de revisão de acesso tiver acabado ou se o administrador tiver interrompido a revisão de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
@@ -59,4 +57,3 @@ Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir
 - [Gerenciar os programas e os controles para análises de acesso do Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Como criar uma revisão de acesso para os membros de um grupo ou para o acesso a um aplicativo](active-directory-azure-ad-controls-create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

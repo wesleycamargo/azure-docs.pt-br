@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: larryfr
+ms.openlocfilehash: 896874f66457ddf29379fa6585953a117587c032
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
 
@@ -249,4 +248,3 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
 Para ver outras maneiras de trabalhar com o Hive, consulte [Usar o Hive com o HDInsight](hdinsight-use-hive.md).
 
 Para obter mais informações sobre funções definidas pelo usuário do Hive, consulte a seção [Operadores e funções definidas pelo usuário do Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) do wiki Hive em apache.org.
-

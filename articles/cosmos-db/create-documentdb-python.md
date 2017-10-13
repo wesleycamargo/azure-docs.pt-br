@@ -15,12 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/13/2017
 ms.author: mimig
+ms.openlocfilehash: b16807c7b6b7f3e5aa893f02dc5958f10e5e9569
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a2059aeb0ac147c896a7306f9530a410974a8e9a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: compilar um aplicativo de API do DocumentDB com o Python e com o Portal do Azure
 
@@ -164,6 +163,5 @@ Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, c
 
 > [!div class="nextstepaction"]
 > [Importar dados para o Azure Cosmos DB para a API do DocumentDB](import-data.md)
-
 
 

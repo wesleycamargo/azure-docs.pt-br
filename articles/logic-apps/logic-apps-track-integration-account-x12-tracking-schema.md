@@ -16,10 +16,10 @@ ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3782c0a76ea8728a146b3d73774f74c31187cbfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Iniciar ou habilitar acompanhamento de mensagens X12 para monitorar o êxito, os erros e as propriedades da mensagem
 Você pode usar esses esquemas de acompanhamento X12 em sua conta de integração do Azure para ajudá-lo a monitorar transações B2B (entre empresas):

@@ -15,12 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Entre com seu telefone, não com sua senha
 
@@ -92,4 +91,3 @@ Neste momento, estamos desenvolvendo essa funcionalidade para o Microsoft Authen
 Se você ainda não baixou o aplicativo Microsoft Authenticator, confira. O aplicativo está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), e a entrada pelo telefone está disponível no aplicativo Microsoft Authenticator para [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Se você tiver dúvidas sobre o aplicativo em geral, acesse as [Perguntas frequentes do Microsoft Autenticador](microsoft-authenticator-app-faq.md)
-

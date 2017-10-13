@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Noções básicas sobre as políticas personalizadas do pacote starter de política personalizada do Azure AD B2C
 
 Esta seção lista todos os principais elementos da política B2C_1A_base que acompanha o **pacote starter** e que é utilizada para criar suas próprias políticas por meio da herança da *política B2C_1A_base_extensions*.
@@ -40,9 +37,9 @@ Os elementos principais da *política B2C_1A_base* são tipos de declaração, t
 
 Esses esquemas de declarações são divididos em três seções:
 
-1.    Uma primeira seção que lista as declarações mínimas necessárias para que os percursos do usuário funcionem corretamente.
-2.    Uma segunda seção que lista as declarações necessárias para parâmetros de cadeia de caracteres de consulta e outros parâmetros especiais a serem transferidos para outros provedores de declarações, especialmente login.microsoftonline.com para autenticação. **Não modifique essas declarações**.
-3.    E finalmente uma terceira seção que lista todas as declarações adicionais e opcionais que podem ser coletadas do usuário, armazenadas no diretório e enviadas em tokens durante a entrada. Novo tipo de declarações a serem coletadas do usuário e/ou enviadas no token podem ser adicionadas nesta seção.
+1.  Uma primeira seção que lista as declarações mínimas necessárias para que os percursos do usuário funcionem corretamente.
+2.  Uma segunda seção que lista as declarações necessárias para parâmetros de cadeia de caracteres de consulta e outros parâmetros especiais a serem transferidos para outros provedores de declarações, especialmente login.microsoftonline.com para autenticação. **Não modifique essas declarações**.
+3.  E finalmente uma terceira seção que lista todas as declarações adicionais e opcionais que podem ser coletadas do usuário, armazenadas no diretório e enviadas em tokens durante a entrada. Novo tipo de declarações a serem coletadas do usuário e/ou enviadas no token podem ser adicionadas nesta seção.
 
 > [!IMPORTANT]
 > O esquema de declarações contém restrições em determinadas declarações, como senhas e nomes de usuário. A política da estrutura confiável (TF) trata do Azure AD como qualquer outro provedor de declarações e todas as suas restrições são modeladas na política premium. Uma política pode ser modificada para adicionar mais restrições ou usar outro provedor de declarações para o armazenamento de credenciais, que terá suas próprias restrições.
@@ -220,4 +217,3 @@ Esta seção descreve os percursos do usuário já declarados na política *B2C_
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |
-

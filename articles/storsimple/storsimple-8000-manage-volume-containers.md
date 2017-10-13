@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 0f8e00d6d07224f56625482f339e612e68914be2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar contêineres de volume do StorSimple
 
@@ -59,5 +58,4 @@ Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído so
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md). 
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

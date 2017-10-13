@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
+ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 87592410e6471219d3262cdcc7b47ee1b0686961
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -89,7 +88,7 @@ Tudo o que você acabou de ver em poucos minutos é um aplicativo de dois micros
 Você pode implantar esse mesmo aplicativo dezenas, centenas ou milhares de vezes e ter sempre exatamente a mesma configuração. A capacidade de repetição e a previsibilidade dessa abordagem permitem que você implante aplicativos de grande escala com facilidade e confiança.
 
 ## <a name="examine-or-edit-azuredeployjson"></a>Examinar (ou editar) AZUREDEPLOY.JSON
-Agora vamos examinar como o repositório GitHub foi configurado. Você usará o editor de JSON no SDK do .NET do Azure, portanto, se você ainda não tiver instalado o [SDK .NET do Azure 2.6](/downloads/), faça isso agora.
+Agora vamos examinar como o repositório GitHub foi configurado. Você usará o editor de JSON no SDK do .NET do Azure, portanto, se você ainda não tiver instalado o [SDK .NET do Azure 2.6](https://azure.microsoft.com/downloads/), faça isso agora.
 
 1. Clone o repositório [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) usando sua ferramenta git favorita. Na captura de tela abaixo, faço isso no Team Explorer no Visual Studio 2013.
    
@@ -269,5 +268,4 @@ No DevOps, repetitividade e previsibilidade são essenciais para qualquer implan
 * [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md)
 * [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Solucionando problemas de implantações de grupos de recursos no Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
 

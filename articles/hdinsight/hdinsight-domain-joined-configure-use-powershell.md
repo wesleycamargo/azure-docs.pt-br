@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurar clusters HDInsight ingressados no domínio (visualização) usando o Azure PowerShell
 Saiba como configurar um cluster Azure HDInsight com o Azure AD (Azure Active Directory) e o [Apache Ranger](http://hortonworks.com/apache/ranger/) usando o Azure PowerShell. Um script do Azure PowerShell é fornecido para tornar a configuração mais rápida e menos sujeita a erros. O HDInsight ingressado em domínio só pode ser configurado em clusters baseados em Linux. Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md).

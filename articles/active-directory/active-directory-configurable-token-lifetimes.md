@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
 ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.

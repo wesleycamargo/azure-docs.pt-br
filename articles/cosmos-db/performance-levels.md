@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
@@ -179,4 +178,3 @@ Para saber mais sobre os preços e como gerenciar dados com o Azure Cosmos DB, c
 1.  [Particionando dados no Cosmos DB](documentdb-partition-data.md). Compreenda a diferença entre contêineres de partição única e contêineres particionados, além de obter dicas de como implementar uma estratégia de particionamento para uma escala perfeita.
 2.  [Preços do Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Saiba mais sobre o custo de provisionar a taxa de transferência e consumir o armazenamento.
 3.  [Unidades de solicitação](request-units.md). Compreenda o consumo da taxa de transferência para os diferentes tipos de operação, por exemplo, Leitura, Gravação e Consulta.
-

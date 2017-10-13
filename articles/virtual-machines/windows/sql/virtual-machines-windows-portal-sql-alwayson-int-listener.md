@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/01/2017
 ms.author: mikeray
 ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure em execução com o Azure Resource Manager. Um grupo de disponibilidade exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.

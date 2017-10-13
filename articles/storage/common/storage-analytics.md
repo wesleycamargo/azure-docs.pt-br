@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: tamram
+ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 61e4f599d17417c11d7ff79489300b82df0bc9c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -192,5 +191,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 * [Sobre as métricas de análise de armazenamento](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
-
 

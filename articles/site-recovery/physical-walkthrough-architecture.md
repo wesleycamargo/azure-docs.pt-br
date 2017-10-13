@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 697fbcdb4c5d5a900deb980db7cca9cf2f9fa36d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-physical-server-replication-to-azure"></a>Etapa 1: Examinar a arquitetura para a replicação de servidor físico para o Azure
 
 Este artigo descreve os componentes e os processos usados ao replicar servidores físicos Windows/Linux locais para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md).
@@ -88,4 +86,3 @@ Os componentes do failback incluem:
 ## <a name="next-steps"></a>Próximas etapas
 
 Ir para a [Etapa 2: Verificar os pré-requisitos e as limitações](physical-walkthrough-prerequisites.md)
-

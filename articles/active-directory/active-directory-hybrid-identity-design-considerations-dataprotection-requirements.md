@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando solução de identidade forte
 A primeira etapa para proteger os dados é identificar quem pode acessar os dados e, como parte desse processo, você precisa ter uma solução de identidade que pode se integrar ao seu sistema para fornecer recursos de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são bastante diferentes, como mostrado na seguinte figura:

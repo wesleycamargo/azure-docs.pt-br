@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 951e4fe32e8074817ad20972925f2f0e9f91b4c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
 O ACR (Registro de Contêiner do Azure) é um registro privado baseado no Azure, para imagens de contêiner do Docker. Este tutorial, parte dois de sete, demonstra a implantação de uma instância de Registro de Contêiner do Azure e envia por push uma imagem de contêiner. As etapas concluídas incluem:

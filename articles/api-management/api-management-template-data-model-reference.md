@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  
@@ -358,4 +357,3 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
-

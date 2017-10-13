@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 780e5673b5ed159a7f170373d54fea7c1713a910
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gerenciar um tempo de execução de integração do Azure-SSIS
 O artigo [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md) mostra como criar um o tempo de execução de integração do Azure-SSIS usando o Azure Data Factory. Este artigo o complementa fornecendo informações sobre como parar, iniciar, reconfigurar ou remover um tempo de execução de integração do Azure-SSIS.  
 
@@ -73,4 +71,3 @@ Confira estes tópicos para obter mais informações sobre o tempo de execução
 - [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do SQL do Azure (visualização particular) e unir o IR para uma VNet. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
 - [Unir um IR do Azure-SSIS a uma VNet](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual (VNet) do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a VNet para que o IR do Azure-SSIS possa unir-se à VNet. 
-

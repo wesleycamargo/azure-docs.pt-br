@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Verificar a conectividade com o Observador de Rede do Azure usando a CLI 2.0 do Azure
 
 > [!div class="op_single_selector"]
@@ -307,4 +305,3 @@ O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma 
 Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
-

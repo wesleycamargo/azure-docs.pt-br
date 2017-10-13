@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
 ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
 Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordenação de melhor esforço.

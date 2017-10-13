@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 921c8391fc18eca35d10c3ade158a98ae88df397
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida de identidade híbrida
 Identidade é um dos pilares da mobilidade da sua empresa e da estratégia de acesso de aplicativo. Se você estiver entrando em seu dispositivo móvel ou em um aplicativo SaaS, sua identidade é a chave para ganhar acesso a tudo. Em seu nível mais alto, uma solução de gerenciamento de identidade abrange a unificação e a sincronização entre os repositórios de identidades, o que inclui automação e centralização do processo de provisionamento de recursos. A solução de identidade deve ser uma identidade centralizada no local e na nuvem e também usar alguma forma de federação de identidades para manter a autenticação centralizada e compartilhar e colaborar de forma segura com empresas e usuários externos. Os recursos variam de sistemas operacionais e aplicativos a pessoas associada ou pertencentes a uma organização. A estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de provisionamento.

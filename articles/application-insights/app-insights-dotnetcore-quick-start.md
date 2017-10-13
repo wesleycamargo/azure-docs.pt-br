@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
+ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 44296c282f60a98b22dfd59265876645ccef092b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
 Com o Azure Application Insights, você pode monitorar facilmente o aplicativo Web quanto à sua disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar erros rapidamente em seu aplicativo sem esperar que um usuário os relate. 
@@ -128,5 +126,4 @@ Se você pretende continuar trabalhando com guias de início rápido posteriores
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Localizar e diagnosticar problemas de desempenho](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
-
+> [Localizar e diagnosticar exceções de tempo de execução](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)

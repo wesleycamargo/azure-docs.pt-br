@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 42e1743b67a46c9eac6cce44852ea3a48fd38e5a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com Datadog
 Neste artigo, implantaremos agentes do Datadog em todos os nós de agente em seu cluster do Serviço de Contêiner do Azure. Você precisará de uma conta no Datadog para fazer esta configuração. 
@@ -50,5 +49,4 @@ Em seguida, insira sua chave de API na configuração do Datadog no Universo do 
 ![Configuração do Datadog no Universo DC/OS](./media/container-service-monitoring/datadog3.png) 
 
 Nas configuração acima, as instâncias são configuradas como 10000000 para que sempre que um novo nó for adicionado ao cluster, o Datadog implante automaticamente um agente para o novo nó. Essa é uma solução temporária. Depois de instalar o pacote, você deverá navegar de volta para o site do Datadog e localizar “[Dashboards](https://app.datadoghq.com/dash/list).” A partir daí, você verá os painéis Custom e Integration. O [painel de Docker](https://app.datadoghq.com/screen/integration/docker) terá todas as métricas de contêiner de que você precisa para monitorar seu cluster. 
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
 ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Criptografia dinâmica: configurar a política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -40,8 +40,7 @@ Para obter mais informações, consulte
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-<seg>
-  [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).</seg>
+[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
@@ -233,10 +232,10 @@ O plug-in retorna os seguintes códigos de saída:
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |
-| -2 |Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -2 |Não foi possível carregar o arquivo rcf.<p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
 | -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
 | -4 |Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
-| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
+| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
 | -10 |O plug-in de Diagnostics saiu com uma exceção sem tratamento. |
 | -11 |O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.<p> |
 | -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
@@ -300,4 +299,3 @@ A experiência do portal nas máquinas virtuais mostra determinados contadores d
 - Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
 
 **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazes isso, selecione **Painel de Controle** > **Região** > **Administrativo** > **Copiar Configurações**. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema. Certifique-se também de que não está utilizando curingas, caso você queira que o portal seja sua experiência de consumo principal.
-

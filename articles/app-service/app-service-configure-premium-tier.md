@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure
 
 O novo tipo de preço **PremiumV2** fornece [VMs de série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series), com processadores mais rápidos, armazenamento SSD e relação memória/núcleo duas vezes maior quando comparado ao tipo de preço **Standard**. Neste artigo, você aprenderá a criar um aplicativo na camada **PremiumV2** ou expandir para uma camada **PremiumV2**.

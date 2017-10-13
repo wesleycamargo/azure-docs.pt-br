@@ -12,14 +12,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
 ## <a name="tracking-users"></a>Acompanhamento de usuários
@@ -97,4 +95,3 @@ Este exemplo define a ID de usuário para um identificador que expira após a se
     * [Funis](usage-funnels.md)
     * [Retenção](app-insights-usage-retention.md)
     * [Pastas de trabalho](app-insights-usage-workbooks.md)
-

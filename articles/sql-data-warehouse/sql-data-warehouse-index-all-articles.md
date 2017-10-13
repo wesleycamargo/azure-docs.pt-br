@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos os tópicos sobre o serviço do SQL Data Warehouse do Azure
 Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do **SQL Data Warehouse** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F**para encontrar os tópicos de seu interesse atual.
@@ -44,8 +44,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | 5 |[Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Recomendações e práticas recomendadas que você deve saber quando for desenvolver soluções para o SQL Data Warehouse do Azure. Isto irá ajudá-lo a alcançar o sucesso. |
 | 6 |[Drivers do Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) |Cadeias de conexão e drivers para SQL Data Warehouse |
 | 7 |[Conectar-se ao SQL Data Warehouse do Azure](sql-data-warehouse-connect-overview.md) |Como localizar o servidor de nome e a cadeia de conexão para o Azure SQL Data Warehouse |
-| 8 |
-            [Analisar dados com o Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) |Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. |
+| 8 |[Analisar dados com o Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) |Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. |
 | 9 |[Consultar o SQL Data Warehouse do Azure (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd. |
 | 10 |[Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)](sql-data-warehouse-get-started-create-database-tsql.md) |Saiba como criar um SQL Data Warehouse do Azure com o TSQL |
 | 11 |[Como criar um tíquete de suporte para o SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) |Como criar um tíquete de suporte no Azure SQL Data Warehouse. |
@@ -104,8 +103,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | &nbsp; | Title | Descrição |
 | ---:|:--- |:--- |
 | 50 |[Use o Azure Data Factory com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Dicas de utilização do  Azure Data Factory (ADF) com o Azure SQL Data Warehouse para o desenvolvimento de soluções. |
-| 51 |
-            [Use o Azure Machine Learning com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Tutorial para usar o Azure Machine Learning com o Data Warehouse do SQL Azure para desenvolver soluções. |
+| 51 |[Use o Azure Machine Learning com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Tutorial para usar o Azure Machine Learning com o Data Warehouse do SQL Azure para desenvolver soluções. |
 | 52 |[Usar o Stream Analytics do Azure com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-stream-analytics.md) |Dicas para usar o Stream Analytics do Azure com o Azure SQL Data Warehouse para desenvolver as soluções. |
 | 53 |[Usar o Power BI com o SQL Data Warehouse](sql-data-warehouse-integrate-power-bi.md) |Dicas para usar o Power BI com o SQL Data Warehouse do Azure para desenvolvimento de soluções. |
 | 54 |[Aproveitar outros serviços com o SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Ferramentas e parceiros com soluções que podem ser integradas ao SQL Data Warehouse |

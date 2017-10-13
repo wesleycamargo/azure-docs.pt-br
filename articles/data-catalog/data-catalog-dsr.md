@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
 Você pode publicar os metadados usando uma API pública, uma ferramenta de registro com um clique ou inserindo manualmente as informações de forma direta no portal da Web do Catálogo de Dados do Azure. A tabela a seguir resume todas as fontes de dados com suporte hoje pelo catálogo e os recursos de publicação para cada uma. Também estão listadas as ferramentas de dados externos que cada fonte de dados pode inicializar na nossa experiência "aberta" do portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de conexão das fontes de dados.
@@ -980,4 +978,3 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
       </td>
     </tr>
 </table>
-

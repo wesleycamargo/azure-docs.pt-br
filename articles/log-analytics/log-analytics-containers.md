@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte;banders
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de Monitoramento de contêiner no Log Analytics
 
@@ -666,4 +665,3 @@ Depois de criar uma consulta que considerar útil, salve-a clicando em **Favorit
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir registros de dados de contêiner detalhados.
-

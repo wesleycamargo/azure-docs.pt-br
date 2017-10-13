@@ -14,14 +14,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 97c3fe6f0b7a4d9b967b44bf819a6f25598febc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 681625e40035b05c593c6161236cb80b7db576b9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizar as regras de firewall de aplicativo Web por meio do PowerShell
 
 > [!div class="op_single_selector"]
@@ -29,7 +27,7 @@ ms.lasthandoff: 08/23/2017
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md)
 
-O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita a capacidade de personalizar regras e grupos de regras. Para obter mais informações sobre os grupos de regras e as regras específicas, consulte a [Lista de regras e grupos de regras de CRS do firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md).
+O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre os grupos de regras e as regras específicas, consulte a [Lista de regras e grupos de regras de CRS do firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Exibir grupos de regras e regras
 
@@ -97,4 +95,3 @@ Depois de configurar as regras desabilitadas, você pode aprender como exibir os
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de MSI (Identidade de Serviço Gerenciado) a um recurso usando a CLI do Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -76,5 +74,4 @@ Se um deles estiver incorreto, reimplante o MSI em seu recurso ou solucione a fa
 - Para habilitar o MSI em uma VM do Azure, confira [Configurar um MSI (identidade do serviço gerenciada) usando a CLI do Azure](msi-qs-configure-cli-windows-vm.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
-
 

@@ -56,7 +56,7 @@ sections:
           - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migre um Banco de Dados do SQL Server existente para usar o Banco de Dados SQL do Azure</a>
           - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja seu banco de dados SQL</a>
           - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementar um banco de dados distribuído geograficamente</a>
-  - title: Treinamento em vídeo PluralSight gratuito
+  - title: Treinamento em Vídeo Pluralsight gratuito
     items:
       - type: list
         style: cards

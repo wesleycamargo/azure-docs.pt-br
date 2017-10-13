@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Adicionar as credenciais para um aplicativo Web .NET MVC
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Nos aplicativos Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.

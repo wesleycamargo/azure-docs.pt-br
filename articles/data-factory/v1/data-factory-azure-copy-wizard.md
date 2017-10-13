@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b63c930b5ef1de349a1daf434426829ebc51da11
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 > [!NOTE]
@@ -93,4 +92,3 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
-

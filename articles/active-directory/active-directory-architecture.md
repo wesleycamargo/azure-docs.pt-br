@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Compreender a arquitetura do Azure Active Directory
 O Azure AD (Azure Active Directory) o habilita a gerenciar o acesso a recursos e serviços do Azure para os usuários. Está incluído no Azure AD um conjunto completo de recursos de gerenciamento de identidade. Para obter informações sobre os recursos do Azure AD, confira [O que é o Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
@@ -118,5 +117,4 @@ Adotamos controles operacionais como MFA (autenticação multifator) para qualqu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

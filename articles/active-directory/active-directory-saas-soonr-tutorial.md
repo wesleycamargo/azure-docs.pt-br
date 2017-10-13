@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 39a82e581d9b1eee19b5be9a5aa8a425c150dcdb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: Integração do Active Directory do Azure com o Soonr Workplace
 
@@ -238,5 +237,4 @@ Quando você clica no bloco Soonr Workplace no Painel de Acesso, você deve ser 
 [201]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_203.png
-
 

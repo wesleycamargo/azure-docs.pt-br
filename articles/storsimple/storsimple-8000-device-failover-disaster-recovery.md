@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e recuperação de desastre para seu dispositivo StorSimple da série 8000
 
@@ -141,5 +139,4 @@ Se você fez failover do dispositivo, escolha uma das seguintes opções:
 
 * [Desativar e excluir um dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * [Usar o serviço do Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

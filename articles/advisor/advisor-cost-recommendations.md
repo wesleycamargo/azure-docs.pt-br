@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5eef2116f238b477fa8de46ce7b25728c393739c
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 51320d93689da3e37c0946d8877b27a11793d9c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-cost-recommendations"></a>Recomendações de custo do Advisor
 
 O Advisor ajuda você a otimizar e a reduzir seus gastos gerais com o Azure, identificando recursos ociosos e subutilizados. Você pode obter recomendações de custo na guia **Custo** no painel do Assistente.
@@ -64,4 +62,3 @@ Para saber mais sobre as recomendações do Assistente, consulte:
 * [Recomendações de desempenho do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-cost-recommendations.md)
-

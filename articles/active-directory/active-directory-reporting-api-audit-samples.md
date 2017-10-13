@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 43087ab83b931f9bcafdffb5a7355045b9577e61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemplos de API de auditoria de relatórios do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
@@ -152,7 +151,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -168,5 +167,4 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
 * Você gostaria de personalizar os exemplos deste tópico? Confira os [Referência da API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Se você quiser uma visão geral de como usar a API de relatório do Azure Active Directory, confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
-
 

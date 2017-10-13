@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: bwren
 ms.openlocfilehash: 5f8814ee943424c1c278ab3732129d4459f83819
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* do Microsoft Azure. Por isso, criar um novo recurso faz parte da [configuração do Application Insights para monitorar um novo aplicativo][start]. Em muitos casos, criar um recurso pode ser feito automaticamente pelo IDE. Porém, em alguns casos, você criará um recurso manualmente, por exemplo, para ter recursos separados para versões de desenvolvimento e produção do seu aplicativo.

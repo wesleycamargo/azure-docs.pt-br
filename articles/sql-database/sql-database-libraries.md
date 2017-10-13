@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Estruturas e bibliotecas de conectividade para Microsoft SQL Server
 
@@ -57,4 +56,3 @@ A tabela a seguir lista alguns exemplos das estruturas de ORM (Mapeamento Objeto
 - [Conectar-se ao Banco de Dados SQL usando o Java](sql-database-connect-query-java.md)
 - [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-connect-query-python.md)
 - [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-connect-query-ruby.md)
-

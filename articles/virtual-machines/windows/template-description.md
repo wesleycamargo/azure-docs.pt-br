@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: d45a43d1d4304fd0028d15b4797228a22cc6e76f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
 Este artigo descreve os aspectos de um modelo do Azure Resource Manager aplicáveis a máquinas virtuais. Este artigo não descreve um modelo completo para a criação de uma máquina virtual. Para isso, são necessárias definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como esses recursos podem ser definidos juntos, consulte o [Passo a passo do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -460,4 +458,3 @@ Não é um problema usar o mesmo modelo para criar recursos ou para atualizar re
 - Crie seu próprio modelo usando [Criação de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implante o modelo criado usando [Create a Windows virtual machine with a Resource Manager template (Criar uma máquina virtual do Windows com um modelo do Resource Manager)](ps-template.md).
 - Saiba como gerenciar as VMs que você criou, revisando [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

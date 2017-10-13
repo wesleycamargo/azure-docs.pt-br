@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
 Para oferecer um desempenho previsível em escala, o SQL Data Warehouse do Microsoft Azure ajuda a controlar os níveis de simultaneidade e as alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse. O gerenciamento de carga de trabalho do SQL Data Warehouse destina-se a ajudá-lo a dar suporte a ambientes com vários usuários. Ele não se destina a cargas de trabalho com vários locatários.

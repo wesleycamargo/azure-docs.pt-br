@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -219,4 +218,3 @@ Após concluir o planejamento de capacidade e configurar um cluster, leia o segu
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
-

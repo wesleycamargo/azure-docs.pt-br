@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts do Script de Ação para clusters baseados no Windows do HDInsight
 Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -314,4 +313,3 @@ Se uma falha na execução ocorrer, a saída que a descreve também estará cont
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
-

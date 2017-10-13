@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure
 
@@ -80,5 +79,4 @@ Para obter detalhes sobre os níveis de desempenho específicos e opções de ta
 - Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
 * Saiba mais sobre [DTUs e eDTUs](sql-database-what-is-a-dtu.md).
 * Saiba mais sobre como monitorar o uso de DTU em [Monitoramento e ajuste de desempenho](sql-database-troubleshoot-performance.md).
-
 

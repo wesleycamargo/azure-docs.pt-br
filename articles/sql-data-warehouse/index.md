@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/08/2017
-
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 
 Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do SQL Server ao processamento paralelo maciço. Os tutoriais e outras documentações mostram como carregar dados no depósito e então analisá-los, gerenciá-los e exportá-los.
@@ -114,6 +112,5 @@ Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do
         </div>
     </li>
 </ul>
-
 
 

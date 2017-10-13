@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # Protocolo de Conexões Híbridas de Retransmissão do Azure
 A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade *Conexões Híbridas* da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso chamado igualmente de *Serviços BizTalk*, criado sobre uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
@@ -268,5 +267,4 @@ Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois q
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
-
 

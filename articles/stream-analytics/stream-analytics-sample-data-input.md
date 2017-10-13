@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stream-analytics-input-stream-sampling"></a>Amostragem do fluxo de entrada do Stream Analytics do Azure
 
@@ -66,4 +65,3 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

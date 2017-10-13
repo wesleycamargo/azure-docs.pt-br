@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
 ms.openlocfilehash: 36a59a41b2261369a2062c76ef90aebf7e24a221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo na estrutura Reliable Actors
 A estrutura Reliable Actors permite que você crie atores usando muitas das mesmas técnicas que usaria no design orientado a objeto. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança na estrutura de Reliable Actors geralmente segue o modelo de .NET com algumas restrições adicionais. No caso de Java/Linux, ele segue o modelo de Java.

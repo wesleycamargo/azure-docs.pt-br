@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.

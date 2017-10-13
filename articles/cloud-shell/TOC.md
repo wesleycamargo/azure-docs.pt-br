@@ -2,7 +2,7 @@
 
 # Início rápido
 ## [Guia de início rápido do Bash](quickstart.md)
-## [Guia de início rápido do PowerShell](quickstart-powershell.md)
+## [Guia de início rápido para o PowerShell](quickstart-powershell.md)
 
 # Conceitos
 ## [Ferramentas e recursos no Bash](features.md)

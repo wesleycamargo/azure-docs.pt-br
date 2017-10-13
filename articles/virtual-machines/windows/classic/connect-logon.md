@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Faça logon em uma máquina virtual do Windows usando o Portal do Azure.
 No Portal do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
@@ -67,4 +65,3 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
     ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
-

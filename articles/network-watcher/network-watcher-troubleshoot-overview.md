@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
 Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar esses gateways e suas Conexões. O Observador de Rede fornece a capacidade de solucionar problemas das Conexões e dos Gateways de Rede Virtual. Ela pode ser chamada pelo Portal, pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway de rede virtual e retorna os resultados adequados. Essa solicitação é uma transação de longa duração e os resultados são retornados quando o diagnóstico for concluído.
@@ -219,4 +217,3 @@ Saiba como diagnosticar Gateways de VPN e Conexões por meio do Portal visitando
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
-

@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 571d1d599508f09aff4dde27dffcf0f8e3c6a7d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 7f4abeb6947b7df7e7960ae854c8f208e6c36c53
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Criar um cluster Linux seguro do Service Fabric no Azure
 
 Esse comando cria um certificado autoassinado, adiciona-o a um cofre de chaves e baixa o certificado localmente.  O novo certificado é usado para proteger o cluster quando ele for implantado.  Você também pode usar um certificado já existente em vez de criar um novo.  De qualquer forma, o nome da referência do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Essa correspondência é necessária para fornecer um SSL para os pontos de extremidade de gerenciamento de HTTPS e o Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma AC para o domínio `.cloudapp.azure.com` . Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
@@ -53,4 +51,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 ## <a name="next-steps"></a>Próximas etapas
 
 Mais exemplos da CLI do Service Fabric para o Azure Service Fabric podem ser encontrados em [Exemplos da CLI do Service Fabric](../samples-cli.md).
-

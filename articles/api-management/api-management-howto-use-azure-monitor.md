@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-api-management-with-azure-monitor"></a>Monitorar o Gerenciamento de API com o Azure Monitor
 O Azure Monitor é um serviço do Azure que fornece uma única fonte para monitorar todos os recursos do Azure. Com o Azure Monitor, é possível visualizar, consultar, rotear, arquivar e executar ações nas métricas e nos logs provenientes dos recursos do Azure como o Gerenciamento de API. 
@@ -143,4 +142,3 @@ Para obter mais informações sobre como usar métricas, consulte [Overview of D
 [activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
 [alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png
 [diagnostic-logs-blade]: ./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png
-

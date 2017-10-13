@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a5be3c9bcdd99128217e441d62ce9650c9764580
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
 A fatura fornece um resumo de seus encargos e fornece instruções para pagamento. Ela está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com/) ou pode ser enviada via email. Para saber mais, confira [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) (Como obter sua fatura de cobrança e os dados de uso diário do Azure).
@@ -117,4 +116,3 @@ Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, consu
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-

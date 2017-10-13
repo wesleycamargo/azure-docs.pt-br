@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 12caf933b04258065039a51f45d531a30865f8d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover dados de e para o Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure
 O Gerenciador de Armazenamento do Azure é um ferramenta gratuita da Microsoft que possibilita o trabalho com dados do Armazenamento do Azure no Windows, MacOS e Linux. Este tópico descreve como usá-lo para carregar e baixar os dados do armazenamento de blobs do Azure. A ferramenta pode ser baixada em [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
@@ -55,5 +54,4 @@ As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de
 7. Para carregar dados em um contêiner, selecione o contêiner de destino e clique no botão **Carregar**.![Contas de Armazenamento](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. Clique em **...** à direita da caixa **Arquivos**, selecione um vários arquivos para carregar no sistema de arquivos e clique em **Carregar** para começar a carregar os arquivos.![Carregar os arquivos](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. Para baixar os dados, selecione o blob no contêiner correspondente para baixar e clique em **Download**. ![Baixar arquivos](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
-
 

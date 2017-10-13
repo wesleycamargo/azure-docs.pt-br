@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
 ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>Criar uma rede virtual para o ExpressRoute no portal clássico
 As etapas neste artigo o orientarão ao longo da configuração de uma rede virtual e de um gateway de rede virtual para uso com ExpressRoute usando o modelo de implantação clássico e o portal clássico.
@@ -65,8 +65,7 @@ As etapas a seguir criam uma VNet clássica e um gateway de rede virtual. Se voc
 3. Quando a criação do gateway for iniciada, você verá uma mensagem informando que o gateway foi iniciado. Pode levar até 45 minutos para que o gateway seja criado.
 4. Vincule sua rede a um circuito. Siga as instruções no artigo [Como vincular VNets a circuitos de ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-## <a name="config">
-            </a>Configurar uma rede virtual clássica existente para o ExpressRoute
+## <a name="config"></a>Configurar uma rede virtual clássica existente para o ExpressRoute
 Se já tiver uma rede virtual clássica, você poderá configurá-la para se conectar à ExpressRoute no portal clássico. As configurações são as mesmas das seções acima. Sendo assim, leia essas seções para se familiarizar com as configurações necessárias. Se quiser criar uma conexão coexistente de ExpressRoute/Site a Site, confira [este artigo](expressroute-howto-coexist-classic.md) para conhecer as etapas. Elas são diferentes das etapas neste artigo.
 
 1. Você precisa criar a rede local antes de atualizar o restante das configurações de rede virtual. Para criar uma nova rede local, que é necessária ao configurar a ExpressRoute por meio do portal clássico, clique em **Novo** **>** **Serviços de Rede** **>** **Rede Virtual** **>** **Adicionar rede local**. Siga as etapas do assistente para criar a rede local.

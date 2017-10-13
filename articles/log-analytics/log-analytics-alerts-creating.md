@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
 ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alerta no Log Analytics
 Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Eles criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   

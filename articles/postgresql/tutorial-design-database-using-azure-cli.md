@@ -11,12 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 700c68f354c61cb975ae684d558e650631ff4d66
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
@@ -203,4 +202,3 @@ Neste tutorial, você aprendeu como usar a CLI (interface de linha de comando) d
 > * Restaurar dados
 
 Em seguida, aprenda como usar o portal do Azure para executar tarefas semelhantes, consulte este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure](tutorial-design-database-using-azure-portal.md)
-

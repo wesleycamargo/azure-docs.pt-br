@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego ponderado no Gerenciador de Tráfego
 
 Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles em um estilo round robin. As etapas a seguir descrevem como configurar esse tipo de método de roteamento de tráfego.
@@ -41,9 +39,9 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
         2. Para **Caminho**, digite uma barra "/" */*. Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).
         3. Na parte superior da página, clique em **Salvar**.
 5. Teste as alterações na configuração da seguinte maneira:
-    1.    Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
-    2.    Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
-    3.    A folha do **perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para cada ponto de extremidade da em round robin.
+    1.  Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
+    2.  Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
+    3.  A folha do **perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para cada ponto de extremidade da em round robin.
 6. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 
 ![Configurando o método de roteamento de tráfego ponderado usando o Gerenciador de Tráfego][1]
@@ -57,4 +55,3 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
-

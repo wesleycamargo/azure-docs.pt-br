@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Direcionar o Azure Cosmos DB para uma saída em JSON no Stream Analytics
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.

@@ -12,12 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: denlee
+ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 02d4042803bdbc3b982019e0e5d3bcd7ed3e0173
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao BD Cosmos do Azure: API do Graph
 
@@ -99,7 +98,7 @@ O BD Cosmos do Azure oferece os seguintes recursos diferenciados em comparação
 
 * Níveis de consistência ajustáveis
 
- Escolha entre cinco níveis de consistência bem-definidos para chegar ao equilíbrio ideal entre consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos](consistency-levels.md).
+ Escolha entre cinco níveis de consistência bem-definidos para chegar ao equilíbrio ideal entre consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Usando níveis de consistência para maximizar a disponibilidade e o desempenho no DocumentDB](consistency-levels.md).
 
 O BD Cosmos do Azure também possibilita usar vários modelos, como documento e gráfico, nos mesmos contêineres/bancos de dados. Você pode usar uma coleção de documentos para armazenar dados de gráfico lado a lado com documentos. Você pode usar tanto consultas SQL em vez de consultas JSON e Gremlin para consultar os mesmos dados como um gráfico.
 
@@ -149,4 +148,3 @@ Para saber mais sobre o suporte para gráfico no BD Cosmos do Azure, consulte:
 
 * Introdução ao [Tutorial de gráfico do BD Cosmos do Azure](create-graph-dotnet.md).
 * Saiba como [consultar gráficos no Azure Cosmos DB usando o Gremlin](gremlin-support.md).
-

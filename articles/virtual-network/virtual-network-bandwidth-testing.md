@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
 Ao testar o desempenho de taxa de transferência de rede no Azure, é melhor usar uma ferramenta que se destina à rede para teste e que minimiza o uso de outros recursos que poderiam afetar o desempenho. É recomendável usar o NTTTCP.
@@ -164,4 +162,3 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ## <a name="next-steps"></a>Próximas etapas
 * Dependendo dos resultados, pode haver espaço para [Otimizar a taxa de transferência de rede nos computadores](virtual-network-optimize-network-bandwidth.md) para seu cenário.
 * Saiba mais com as [Perguntas frequentes sobre a Rede Virtual do Azure](virtual-networks-faq.md)
-

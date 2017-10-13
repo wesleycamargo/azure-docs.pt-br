@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de compartilhamento de bicicleta: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experiências e implantarem modelos em escala de nuvem.
 
@@ -661,4 +659,3 @@ Você concluiu o tutorial de preparação de dados de compartilhamento de bicicl
 Em seguida, saiba mais sobre a preparação de dados:
 > [!div class="nextstepaction"]
 > [Guia do usuário de preparação de dados](data-prep-user-guide.md)
-

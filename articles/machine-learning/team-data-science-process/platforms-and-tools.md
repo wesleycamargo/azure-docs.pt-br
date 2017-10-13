@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos da equipe de ciência de dados
 
 A Microsoft fornece uma gama completa de dados e serviços de análise e recursos para plataformas na nuvem ou locais. Eles podem ser implantados para tornar a execução de seus projetos de ciência de dados eficiente e escalonável. Diretrizes para equipes que estão implementando projetos de ciência de dados de modo rastreável, com controle de versão e colaborativo são fornecidas pelo TDSP [(Processo de Ciência de Dados de Equipe)](overview.md).  Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).

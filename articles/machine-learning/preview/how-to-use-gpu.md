@@ -10,15 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
+ms.openlocfilehash: 7c0dab5ab2d7342ce4de8899040478a6143c184b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b75b9d82bd6c1e7e7a98fcff6497dbf3a765dcb8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Como usar a GPU no Azure Machine Learning
-A GPU (Unidade de Processamento Gráfico) é amplamente usada para processar tarefas de computação intensa que geralmente podem acontecer durante o treinamento de alguns modelos de rede neural profunda. Ao usar as GPUs, você pode reduzir significativamente o tempo de treinamento dos modelos. Neste documento, você aprenderá a configurar o Azure ML Workbench para usar [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipada com GPUs como destino de execução. 
+A GPU (Unidade de Processamento Gráfico) é amplamente usada para processar tarefas de computação intensa que geralmente podem acontecer durante o treinamento de alguns modelos de rede neural profunda. Ao usar as GPUs, você pode reduzir significativamente o tempo de treinamento dos modelos. Neste documento, você aprenderá a configurar o Azure ML Workbench para usar [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipada com GPUs como destino de execução. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Para percorrer este guia de instruções, você precisa primeiro [instalar o Azure ML Workbench](quickstart-installation.md).
@@ -152,4 +151,3 @@ Parabéns! O script acaba de aproveitar a potência da GPU por meio de um contê
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja um exemplo de como usar a GPU para acelerar o treinamento de rede neural profunda na Galeria do Azure ML.
-

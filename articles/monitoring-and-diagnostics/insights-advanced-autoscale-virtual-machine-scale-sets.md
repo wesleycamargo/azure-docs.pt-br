@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
 ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.

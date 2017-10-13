@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
+ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
-ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
 
@@ -85,6 +84,8 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7
+- Debian 8
 - Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -191,4 +192,3 @@ Conexão VNET a VNET | Suportado | Consulte o [documento de diretrizes de rede.]
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [diretrizes de rede para replicação de VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md)
 - Inicie a proteção de suas cargas de trabalho [replicando VMs do Azure](site-recovery-azure-to-azure.md)
-

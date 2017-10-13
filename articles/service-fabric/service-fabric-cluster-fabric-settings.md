@@ -1,4 +1,3 @@
-
 ---
 title: "Alterar configurações de cluster do Azure Service Fabric | Microsoft Docs"
 description: "Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -615,5 +613,4 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 
 [Adicionar, transferir e remover certificados do cluster do Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

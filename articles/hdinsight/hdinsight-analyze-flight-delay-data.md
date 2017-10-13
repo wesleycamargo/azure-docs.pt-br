@@ -16,10 +16,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Hadoop no HDInsight
 O Hive fornece um meio para executar trabalhos MapReduce do Hadoop por meio de uma linguagem de script semelhante à SQL, chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicada para resumo, consulta e análise de grandes volumes de dados.

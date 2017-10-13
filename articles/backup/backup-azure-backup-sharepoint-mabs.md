@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
 ms.openlocfilehash: 3ed000affd326eb1bd7c99773ec021ad6e03cc3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer backup do farm do SharePoint para o Azure
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o MABS (Servidor de Backup do Microsoft Azure) da mesma maneira que você faz backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.

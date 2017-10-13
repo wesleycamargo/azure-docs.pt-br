@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na Automação do Azure
 
 Os módulos mais comuns do Azure PowerShell são fornecidos por padrão em cada conta de Automação.  A equipe do Azure atualiza os módulos do Azure regularmente, assim, na conta de Automação fornecemos uma maneira de atualizar os módulos na conta quando novas versões são disponibilizadas do portal.  

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
 O Azure Cosmos DB fornece um [API do SQL para consultar dados](documentdb-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
@@ -280,6 +279,5 @@ Aqui estão alguns exemplos de consultas e como interpretar algumas das métrica
 * Para saber mais sobre os operadores de consulta SQL e palavras-chave com suporte, consulte [Consulta SQL](documentdb-sql-query.md). 
 * Para saber sobre unidades de solicitação, consulte [Unidades de solicitação](request-units.md).
 * Para saber sobre a política de indexação, consulte [Política de indexação](indexing-policies.md) 
-
 
 

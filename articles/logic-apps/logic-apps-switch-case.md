@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 196f6d03567cbad8e061d45be546bc86015ede2e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Executar diferentes ações nos aplicativos lógicos com uma instrução switch
 
 Ao criar um fluxo de trabalho, em geral, você precisa executar ações diferentes com base no valor de um objeto ou uma expressão. Por exemplo, talvez você deseje que o aplicativo lógico se comporte de maneira diferente de acordo com o código de status de uma solicitação HTTP ou com uma opção selecionada em um email.

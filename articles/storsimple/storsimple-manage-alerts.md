@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Use o serviço StorSimple Manager para exibir e gerenciar alertas do StorSimple
 ## <a name="overview"></a>Visão geral
@@ -203,5 +202,4 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Erros do StorSimple e solução de problemas de um dispositivo operacional](storsimple-troubleshoot-operational-device.md).
-
 

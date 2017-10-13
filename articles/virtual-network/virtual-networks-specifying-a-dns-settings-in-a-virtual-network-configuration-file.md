@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de rede virtual
 Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar as configurações do Sistema de Nome de Domínio (DNS): **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazendo referência a nomes para o elemento **DnsServers** . Você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento DnsServers serão usadas para sites de rede diferentes dentro da sua rede virtual.

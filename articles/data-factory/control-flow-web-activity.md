@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: dec7a446251545461f32cddea4d8c3e433dc21e2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
@@ -227,4 +226,3 @@ Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 63f951fbfc9ab5adad8f9225c2827abcbdb7f784
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: e01e6fa3b9871541bf9573963ced05848a3726e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns de Catálogo de Dados do Azure
 Este artigo apresenta cenários comuns nos quais o Catálogo de Dados do Azure pode ajudar a sua organização a obter mais valor de suas fontes de dados existentes.
@@ -68,4 +67,3 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 Os especialistas de dados costumam fazer um esforço para documentar seu conhecimento, compartilhando-o por email ou em documentos do Word em um site do SharePoint da equipe. Embora essa abordagem possa ser útil, ela introduz um novo problema de descoberta: como as pessoas sabem qual documentação existe e onde encontrá-la?
 
 No Catálogo de Dados do Azure, sua organização tem um único local central para armazenar e compartilhar esse conhecimento de grupo e tornar fácil descobri-lo. No Catálogo de Dados, seus especialistas de dados podem anotar os ativos de dados diretamente e fornecer links para documentação existente. Quando os membros da organização usam o catálogo para descobrir uma fonte de dados, eles encontram não apenas a fonte em si, mas também o conhecimento que existia anteriormente apenas na cabeça dos especialistas da sua organização.
-

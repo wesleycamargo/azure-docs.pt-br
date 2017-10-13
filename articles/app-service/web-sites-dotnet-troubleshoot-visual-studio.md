@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e42ff64fdd2be87fc19be267d4e2a29e38f67ef5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -639,4 +638,3 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki
-

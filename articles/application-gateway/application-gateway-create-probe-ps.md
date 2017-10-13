@@ -1,6 +1,6 @@
 ---
 title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no Gerenciador de Recursos"
+description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no Gerenciador de Recursos"
 services: application-gateway
 documentationcenter: na
 author: davidmu1
@@ -15,14 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b54fe5267d87a41eb9e81d5d1dc9b1b16c5c5e88
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Azure Application Gateway usando o PowerShell do Gerenciador de Recursos do Azure
+# <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
@@ -206,5 +205,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como configurar o descarregamento de SSL ao visitar [Configurar descarregamento de SSL](application-gateway-ssl-arm.md)
-
 

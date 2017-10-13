@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
+ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o Serviço de Mobilidade (VMware ou físico no Azure)
 O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-os para o servidor em processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
 
@@ -91,7 +89,7 @@ Depois de instalar o Serviço de Mobilidade, no portal do Azure, selecione o bot
 ## <a name="update-mobility-service"></a>Atualizar serviço de mobilidade
 
 > [!WARNING]
-> Certifique-se de que o Servidor de Configuração, os Servidores de Processo de Expansão e quaisquer servidores de destino que não sejam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos. Leia mais sobre [como atualizar seu servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) e [como atualizar seus servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Certifique-se de que o Servidor de Configuração, os Servidores de Processo de Expansão e quaisquer servidores de destino que não sejam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos. Leia mais sobre [como atualizar seu servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) e [como atualizar seus servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
 
 1. No portal do Azure, navegue para <Your Vault> -> modo de exibição de itens replicados.
 2. Se o **servidor de configuração** já tiver sido atualizado para a versão mais recente, você verá uma notificação que mostra que uma *atualização do agente de replicação do novo Site recovery está disponível. Clique para instalar*
@@ -125,4 +123,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15ab92ff4983568e6c44eeb77927d9758a501118
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 55adc13350eb0f4711efa3c901f6e4e7755dfb27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Criar um aplicativo web e implantar o código em um ambiente de preparo
 
 Este script de exemplo cria um aplicativo Web no serviço de aplicativo com um slot de implantação adicional chamado "teste" e, em seguida, implanta um aplicativo de exemplo para o slot de "teste".
@@ -31,7 +29,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Criar um aplicativo web e implantar o código em um ambiente de preparo")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -60,4 +58,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../app-service-powershell-samples.md).
-

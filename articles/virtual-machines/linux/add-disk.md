@@ -17,12 +17,11 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
 ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 Este artigo mostra a você como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento. 
@@ -269,5 +268,4 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 * Lembre-se de que o novo disco não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](optimization.md) .
 * Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](configure-raid.md) para obter desempenho adicional.
-
 

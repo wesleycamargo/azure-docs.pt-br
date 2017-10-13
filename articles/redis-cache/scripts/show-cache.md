@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 0927508117bda67b62a188f89a2d2e151fe02a5a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-details-of-an-azure-redis-cache"></a>Obter detalhes de um Cache Redis do Azure
 
 Nesse cenário, você aprende como recuperar os detalhes de uma instância de Cache Redis do Azure, incluindo seu status de provisionamento.
@@ -31,7 +29,7 @@ Nesse cenário, você aprende como recuperar os detalhes de uma instância de Ca
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Cache Redis do Azure")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 

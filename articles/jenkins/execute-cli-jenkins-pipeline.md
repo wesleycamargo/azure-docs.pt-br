@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure na [pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
 
@@ -93,7 +91,7 @@ Quando o plano estiver pronto, a CLI do Azure mostra uma saída semelhante ao ex
 
 ### <a name="create-an-azure-web-app"></a>Criar um aplicativo Web do Azure
 
- Use a CLI de comando [az webapp create](/cli/azure/appservice/web#create) para criar uma definição de aplicativo Web no `myAppServicePlan` Plano do Serviço de Aplicativo. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
+ Use a CLI de comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) para criar uma definição de aplicativo Web no `myAppServicePlan` Plano do Serviço de Aplicativo. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ Neste tutorial, você configurou um pipeline do Jenkins que verifica o código-f
 > * Preparar um repositório GitHub
 > * Criar pipeline do Jenkins
 > * Executar o pipeline e verificar o aplicativo Web
-

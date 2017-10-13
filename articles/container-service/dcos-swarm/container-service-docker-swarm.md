@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 6ca2d2e49c4b7f5eb0580e7091b09209f8b73a7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 50f084b8e5fc7c113e54c3be094cbf06413eb035
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-management-with-docker-swarm"></a>Gerenciamento de contêiner com Docker Swarm
 O Docker Swarm fornece um ambiente para implantação de cargas de trabalho em contêineres de em um conjunto de pool de hosts do Docker. Docker Swarm usa a API nativa do Docker. O fluxo de trabalho para gerenciar contêineres em um Docker Swarm é quase idêntico ao que seria usado em um host de contêiner único. Este documento fornece exemplos simples de implantação de cargas de trabalho em contêineres em uma instância do Serviço de Contêiner do Azure do Docker Swarm. Para obter documentação mais detalhada sobre o Docker Swarm, confira [Docker Swarm em Docker.com](https://docs.docker.com/swarm/).
@@ -118,5 +117,4 @@ Naturalmente, você pode usar `docker-compose ps` para examinar apenas os contê
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Docker Swarm.](https://docs.docker.com/swarm/)
-
 

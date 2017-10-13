@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-replica"></a>réplica sfctl
 Gerenciar as réplicas que pertencem a partições de serviço.
@@ -59,7 +58,7 @@ Obtém os detalhes da réplica implantada em um nó do Service Fabric. As inform
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -107,7 +106,7 @@ A resposta inclui a ID, a função, o status, a integridade, o nome do nó, o te
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -131,7 +130,7 @@ A resposta inclui a ID, a função, o status, a integridade, o nome do nó, o te
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -156,7 +155,7 @@ Essa API simula uma falha de réplica do Service Fabric removendo uma réplica d
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -180,7 +179,7 @@ Reinicia uma réplica de serviço de um serviço persistente em execução em um
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 

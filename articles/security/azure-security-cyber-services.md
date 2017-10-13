@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Segurança Cibernética
 Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.

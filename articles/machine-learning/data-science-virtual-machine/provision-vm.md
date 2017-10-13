@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a438a0d83ad4749953297b6481cba9cec5900140
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure
 A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máquina virtual) do Microsoft Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
@@ -206,5 +205,4 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Visite a [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com) para obter amostras de machine learning e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu **Iniciar** e na área de trabalho na máquina virtual para essa galeria.
-
 

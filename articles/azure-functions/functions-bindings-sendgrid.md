@@ -12,12 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: rachelap
+ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -121,4 +120,3 @@ Para obter informações sobre outras associações e outros gatilhos do Azure F
 - [Melhores Práticas para o Azure Functions](functions-best-practices.md) lista algumas melhores práticas para usar ao criar Azure Functions.
 
 - [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para a codificação de funções e a definição de gatilhos e de associações.
-

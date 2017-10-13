@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-storage-account-using-the-azure-cli"></a>Criar uma conta de armazenamento usando a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia de início rápido detalha o uso da CLI do Azure para criar uma conta de armazenamento do Azure.

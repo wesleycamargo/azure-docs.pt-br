@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizado de máquina: Crie sua primeira experiência no Azure Machine Learning Studio
 
 Se você nunca usou o **Azure Machine Learning Studio** antes, este tutorial é para você.
@@ -36,8 +34,7 @@ Neste tutorial, vamos examinar como usar o Studio pela primeira vez para criar u
 >
 >Se você estiver familiarizado com o aprendizado de máquina, mas estiver procurando informações mais gerais sobre o Machine Learning Studio e os algoritmos de machine learning que ele contém, aqui estão alguns bons recursos:
 >
-- 
-            [O que é o Machine Learning Studio?](what-is-ml-studio.md) – Essa é uma visão geral do Estúdio.
+- [O que é o Machine Learning Studio?](what-is-ml-studio.md) – Essa é uma visão geral do Estúdio.
 - [Conceitos básicos de machine learning com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md) – Este infográfico é útil se você quiser saber mais sobre os diferentes tipos de algoritmos de machine learning incluídos no Machine Learning Studio.
 - [Guia do Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) – Este guia aborda informações semelhantes às do infográfico acima, mas em um formato interativo.
 - [Roteiro do algoritmo de machine learning](algorithm-cheat-sheet.md) e [Como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md) – Este pôster para download e o artigo que o acompanha abordam os algoritmos do Studio detalhadamente.
@@ -382,4 +379,3 @@ Quer saber mais? Para obter um passo a passo maior e mais detalhado do processo 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-

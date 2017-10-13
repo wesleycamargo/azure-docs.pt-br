@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizado de máquina
 A DSVM (Máquina Virtual de Ciência de Dados) tem um rico conjunto de ferramentas e bibliotecas para aprendizado de máquina disponível em linguagens populares como Python, R, Julia. 
 
@@ -95,4 +93,3 @@ Aqui estão algumas da ferramentas e bibliotecas de aprendizado de máquina na D
 | Ferramentas relacionadas ao DSVM      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
 Existem várias outras bibliotecas ML na DSVM, como o popular pacote `scikit-learn`, fornecido como parte da distribuição do Anaconda Python instalada na DSVM. Confira a lista de pacotes disponíveis em Python, R e Julia executando os respectivos gerenciadores de pacote. 
-

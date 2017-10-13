@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -714,4 +713,3 @@ Consultas avançadas:
 * [Roteiro dos usuários do SQL](https://aka.ms/sql-analytics) converte as linguagens mais comuns.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-

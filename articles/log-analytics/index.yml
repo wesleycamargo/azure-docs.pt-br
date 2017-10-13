@@ -27,7 +27,7 @@ sections:
               src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
             text: VMs do Azure
             href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-  - title: Tutoriais passo a passo
+  - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
         text: 'Saiba como analisar, visualizar e agir nos dados coletados.'

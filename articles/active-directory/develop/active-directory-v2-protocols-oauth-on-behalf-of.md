@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # Fluxo em nome de do OAuth 2.0 e Azure Active Directory v2.0
 O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo chama um serviço/API Web, que por sua vez precisa chamar outro serviço/API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso do Azure AD (Azure Active Directory) em nome do usuário.
@@ -176,4 +174,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 Saiba mais sobre o protocolo OAuth 2.0 e outra maneira de executar autenticação de serviço para serviço usando as credenciais do cliente.
 * [Concessão de credenciais do cliente do OAuth 2.0 no Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 no Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)
-

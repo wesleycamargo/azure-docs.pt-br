@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/18/2017
 ms.author: iainfou
+ms.openlocfilehash: 1752d2e0a497bf94309a744562cf4462866d6f99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 49a74648bd3953647d581c4e7c548985c5000f17
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Linux no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Linux e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para as distribuições e os ambientes de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
 

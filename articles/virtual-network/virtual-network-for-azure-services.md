@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
 A integração de serviços do Azure a uma rede virtual do Azure permite acesso privado de instâncias de um serviço implantado na rede virtual.
@@ -76,7 +74,6 @@ Atualmente, os pontos de extremidade de serviço são compatíveis com os servi�
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integração de rede virtual entre vários serviços do Azure
 
 Você pode implantar um serviço do Azure em uma sub-rede em uma rede virtual e proteger recursos de serviço críticos para essa sub-rede. Por exemplo, você pode implantar o HDInsight em sua rede virtual e proteger uma conta de armazenamento para a sub-rede do HDInsight.
-
 
 
 

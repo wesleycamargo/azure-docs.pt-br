@@ -16,10 +16,10 @@ ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Habilitar acompanhamento para monitorar o fluxo de trabalho completo, de ponta a ponta
 Há um acompanhamento interno que você pode habilitar para diferentes partes do fluxo de trabalho entre empresas, como acompanhamento de mensagens AS2 ou X12. Quando você cria fluxos de trabalho que incluem um aplicativo lógico, o BizTalk Server, o SQL Server ou qualquer outra camada, é possível habilitar o acompanhamento personalizado que registra eventos desde o início até o fim do fluxo de trabalho. 

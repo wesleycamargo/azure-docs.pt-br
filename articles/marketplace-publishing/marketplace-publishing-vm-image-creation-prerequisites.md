@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo completamente antes de começar e compreender onde e por que cada etapa é executada. O quanto for possível, você deve preparar informações da sua empresa e outros dados, baixar as ferramentas necessárias e criar componentes técnicos antes de iniciar o processo de criação de oferta. Esses itens devem estar claros com a leitura deste artigo.  
@@ -53,4 +52,3 @@ Você pode desenvolver VHDs do Azure na nuvem ou no local:
 * O desenvolvimento local requer o download de um VHD e desenvolvê-lo usando a infraestrutura local. Embora isso seja possível, não é recomendável. Observe que desenvolver para o Windows ou SQL localmente requer que você tenha as chaves de licença locais relevante. Você não pode incluir ou instalar o SQL Server depois de criar uma VM. Você também deve basear sua oferta em uma imagem SQL aprovada no portal do Azure. Se você optar por desenvolver localmente, execute algumas etapas diferentes do que se você estivesse desenvolvendo na nuvem. Você pode encontrar informações relevantes em [Criar uma imagem de VM local](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-

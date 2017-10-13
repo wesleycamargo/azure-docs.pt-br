@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c4ec4578d7d59ae128448be7378f6104d0ce601
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de Dados Escalonáveis com o Azure Data Lake: um passo a passo de ponta a ponta
 Este passo a passo mostra como usar o Azure Data Lake para exploração de dados e tarefas de classificação binária em uma amostra do conjunto de dados de tarifas e corridas de táxi de Nova York para prever se uma gorjeta será ou não paga por uma tarifa. Ele orienta você pelas etapas do [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess), de ponta a ponta, da aquisição de dados até o treinamento de modelo e, em seguida, para a implantação de um serviço Web que publica o modelo.
@@ -686,4 +685,3 @@ O roteiro de aprendizagem do [TDSP (Processo de Ciência de Dados de Equipe)](ht
 * [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](hive-walkthrough.md)
 * [O Processo de Ciência de Dados de Equipe: usando o SQL Server](sql-walkthrough.md)
 * [Visão geral do Processo de Ciência de Dados usando Spark no Azure HDInsight](spark-overview.md)
-

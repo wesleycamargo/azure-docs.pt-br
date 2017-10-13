@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solução Monitor de Desempenho de Rede no Azure Log Analytics
 
@@ -315,4 +314,3 @@ Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investiga
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.
-

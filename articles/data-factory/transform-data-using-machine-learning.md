@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -239,4 +238,3 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
-

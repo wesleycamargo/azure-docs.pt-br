@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
 ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
 O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e os logs das VMs (máquinas virtuais) dos serviços de nuvem e para transferir os resultados para o armazenamento do Azure. A partir de março de 2016 (SDK 2.9), você poderá enviar o Diagnóstico para fontes de dados personalizadas e transferir dados do afunilamento em questão de segundos usando os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/).

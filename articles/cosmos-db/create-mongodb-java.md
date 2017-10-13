@@ -15,16 +15,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Java e o Portal do Azure
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
 Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados de documento e uma coleção usando o Portal do Azure. Você compilará e implantará um aplicativo de console compilado no [driver MongoDB Java](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
@@ -128,6 +127,5 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Importar dados do MongoDB no BD Cosmos do Azure](mongodb-migrate.md)
-
 
 

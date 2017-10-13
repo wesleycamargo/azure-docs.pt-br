@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
 As Coleções Confiáveis permitem desenvolver aplicativos em nuvem altamente disponíveis, escalonáveis e de baixa latência como se você estivesse desenvolvendo aplicativos de computador único. As classes no namespace **Microsoft.ServiceFabric.Data.Collections** fornecem um conjunto de coleções que automaticamente tornam seu estado altamente disponível. Os desenvolvedores só precisam programar para as APIs de Coleções Confiáveis e permitir que as Coleções Confiáveis gerenciem o estado local e replicado.
@@ -69,4 +67,3 @@ Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
 * Outros
   * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

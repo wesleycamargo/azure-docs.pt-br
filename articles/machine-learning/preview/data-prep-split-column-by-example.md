@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>Transformação Dividir coluna por exemplo
 Essa transformação divide preditivamente o conteúdo de uma coluna em limites significativos sem a necessidade de entrada do usuário. O algoritmo de divisão seleciona os limites depois de analisar o conteúdo da coluna. Esses limites podem ser definidos por
 * Um delimitador fixo,
@@ -178,4 +176,3 @@ No exemplo a seguir, gostaríamos de separar os valores de peso das unidades de 
 ## <a name="technical-notes"></a>Observações técnicas
 
 O recurso de transformação de divisão se baseia na técnica de **Síntese de Programa Preditiva**. Nessa técnica, os programas de transformação de dados são aprendidos automaticamente com base nos dados de entrada. Os programas são sintetizados em uma linguagem específica de domínio. O DSL se baseia nos delimitadores e campos que ocorrem em contextos de expressão regular específicos. É possível encontrar mais informações sobre essa tecnologia em uma [publicação recente sobre esse tópico](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
-

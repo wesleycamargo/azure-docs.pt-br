@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar seu trabalho do Stream Analytics com funções do Azure Machine Learning
 Geralmente, é fácil configurar um trabalho do Stream Analytics e executar alguns dados de exemplo nele. O que podemos fazer quando precisamos executar o mesmo trabalho com um volume de dados maior? Precisamos entender como configurar o trabalho do Stream Analytics para que ele possa ser escalado. Neste documento, nos concentraremos nos aspectos especiais do dimensionamento de trabalhos do Stream Analytics com funções do Machine Learning. Para saber mais sobre como dimensionar trabalhos do Stream Analytics em geral, confira o artigo [Dimensionar os trabalhos do Stream Analytics](stream-analytics-scale-jobs.md).
@@ -122,4 +121,3 @@ Para saber mais sobre o Stream Analytics, confira:
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

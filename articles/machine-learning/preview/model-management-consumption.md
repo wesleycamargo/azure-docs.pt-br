@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc4d793bcf402a3e742fae2b2c0052f2d60d1b47
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consuming-web-services"></a>Consumindo serviços Web
 Depois de implantar um modelo como um serviço Web em tempo real, você poderá enviar dados a ele e obter previsões de uma variedade de plataformas e aplicativos. O serviço Web em tempo real expõe uma API REST para obter previsões. Você pode enviar dados para o serviço Web no formato de única linha ou de várias linhas para obter uma ou mais previsões de cada vez.
@@ -165,4 +164,3 @@ headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_ke
 resp = requests.post(url, data, headers=headers)
 resp.text
 ```
-

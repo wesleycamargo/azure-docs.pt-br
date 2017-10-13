@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de Ciência de Dados de Equipe)](overview.md) em um cenário de ponta a ponta usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Azure Machine Learning para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
@@ -84,8 +83,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight ao criá-lo. Essa conta de armazenamento é usada para acessar dados que são processados no cluster.
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Navegue até a guia **Configuração** e clique em **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
-3. 
-            [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md): esse espaço de trabalho Azure Machine Learning é usado para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma análise inicial e redução de dados usando o cluster HDInsight.
+3. [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md): esse espaço de trabalho Azure Machine Learning é usado para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma análise inicial e redução de dados usando o cluster HDInsight.
 
 ## <a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
@@ -574,9 +572,7 @@ Assim, para ver o conteúdo de um determinado arquivo, digamos, 000000\_0, usamo
 
 A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Azure Machine Learning usando o módulo [Importar Dados][import-data].
 
-## 
-            <a name="#downsample">
-            </a>Para reduzir dados e criar modelos no Azure Machine Learning
+## <a name="#downsample"></a>Para reduzir dados e criar modelos no Azure Machine Learning
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -758,9 +754,7 @@ Observe que, uma vez que nossos dados reduzidos residem no contêiner padrão, a
 
 O conjunto de dados agora pode ser usado como o ponto de partida para criar modelos de Machine Learning.
 
-### 
-            <a name="mlmodel">
-            </a>Compilar modelos no Azure Machine Learning
+### <a name="mlmodel"></a>Compilar modelos no Azure Machine Learning
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para uso para resolver os problemas de previsão identificados acima:
 
 **1. Classificação binária**: prever se uma gorjeta foi ou não paga em uma corrida.
@@ -842,4 +836,3 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

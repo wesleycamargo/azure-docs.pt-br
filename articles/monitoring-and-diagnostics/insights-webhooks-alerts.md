@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
 ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook em um alerta do métrica do Azure
 Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta de métrica do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta do Log de Atividades do Azure (alertas sobre eventos), [consulte esta página](insights-auditlog-to-webhook-email.md).

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a536c432f3a095d75beb57f8203f10afc074fdf
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
@@ -47,5 +46,4 @@ Para uma discussão sobre os principais componentes do Processo de Ciência de D
 Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados. 
 
 Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](http://aka.ms/datascienceprocess). 
-
 

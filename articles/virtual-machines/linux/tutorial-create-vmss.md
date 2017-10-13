@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/08/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Criar um conjunto de escala de máquina Virtual e implantar um aplicativo altamente disponível no Linux
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Dimensione o número de VMs no conjunto de dimensionamento manualmente ou defina regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Neste tutorial, você implantará um conjunto de dimensionamento de máquinas virtuais no Azure. Você aprenderá como:
 
@@ -339,4 +337,3 @@ Avança para o próximo tutorial para saber mais sobre conceitos de máquinas vi
 
 > [!div class="nextstepaction"]
 > [Balancear carga de máquinas virtuais](tutorial-load-balancer.md)
-

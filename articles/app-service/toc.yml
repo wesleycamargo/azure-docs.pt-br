@@ -1,4 +1,5 @@
 - name: Documentação do Serviço de Aplicativo
+  href: index.yml
 - name: Visão geral
   items:
     - name: Sobre os Aplicativos Web
@@ -64,6 +65,8 @@
       href: app-service-hybrid-connections.md
     - name: Integração do Gerenciador de Tráfego
       href: web-sites-traffic-manager.md
+    - name: Cache local
+      href: app-service-local-cache-overview.md
 - name: Guias de Instruções
   items:
     - name: Configurar aplicativo

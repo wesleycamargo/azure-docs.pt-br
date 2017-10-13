@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 1d133430e0dcdcd0c24b44a2a7c452fbf16ecf29
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerações do design de identidade híbrida do Active Directory do Azure - próximas etapas
 Agora que você terminou de definir seus requisitos e examinou todas as opções para sua solução de gerenciamento de dispositivo móvel, você está pronto para executar as próximas etapas para implantar a infraestrutura de suporte que é ideal para você e sua organização.

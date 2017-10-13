@@ -68,7 +68,7 @@ sections:
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente para seu aplicativo </a>
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Associar um certificado SSL existente ao seu aplicativo</a>
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Adicionar um CDN ao seu aplicativo</a>
-  - title: Treinamento em vídeo PluralSight gratuito
+  - title: Treinamento em Vídeo Pluralsight gratuito
     items:
       - type: list
         style: cards

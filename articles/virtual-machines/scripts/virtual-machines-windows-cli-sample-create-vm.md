@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 037ea2c0d4c61c7d8ca3b058b5c41c2e296da96f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual com a CLI do Azure
 
 Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016. Após a execução do script, é possível acessar a máquina virtual por meio de uma conexão de Área de Trabalho Remota.
@@ -33,7 +31,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Criação rápida de VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -62,4 +60,3 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

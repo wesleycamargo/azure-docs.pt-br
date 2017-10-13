@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
 
 Uma das primeiras etapas técnicas em um projeto de AI ou ciência de dados é identificar os conjuntos de dados a serem usados e colocá-los em seu ambiente de análise. A DSVM (Máquina Virtual de Ciência de Dados) oferece ferramentas e bibliotecas para trazer dados de diferentes origens para um armazenamento de dados analíticos localmente na DSVM ou em uma plataforma de dados na nuvem ou local. 
@@ -98,4 +96,3 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 |  Como usar/executar?    |   Inicie "Gateway de Gerenciamento de Dados Microsoft" no Menu Iniciar.    |
 | Links para exemplos      | [Gateway de gerenciamento de dados](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | Ferramentas relacionadas ao DSVM      | AzCopy, AdlCopy, bcp    |
-

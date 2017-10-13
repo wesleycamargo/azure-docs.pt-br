@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
 O Barramento de Serviço é oferecido nas camadas Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
@@ -99,4 +98,3 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 * Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
 [Azure portal]: https://portal.azure.com
-

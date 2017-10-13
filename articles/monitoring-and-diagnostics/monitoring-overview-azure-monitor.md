@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-monitor"></a>Visão geral do Azure Monitor
 Este artigo fornece uma visão geral do Serviço do Azure Monitor no Microsoft Azure. Ele aborda o que o Azure Monitor faz e fornece ponteiros para informações adicionais sobre como usar o Azure Monitor.  Se preferir uma introdução em vídeo, consulte os links em Próximas etapas no final deste artigo. 
 
@@ -168,4 +166,3 @@ Saiba mais sobre
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você tiver problemas de diagnóstico em seu aplicativo Web do Serviço de Aplicativo.
 - [Solucionar de problemas no Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md) ao usar os Blobs, Tabelas ou Filas de Armazenamento
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
-

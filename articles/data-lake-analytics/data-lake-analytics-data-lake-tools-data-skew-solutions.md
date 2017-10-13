@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio
 
 ## <a name="what-is-data-skew"></a>O que é distorção de dados?
@@ -191,4 +189,3 @@ Exemplo de código:
         //Your combiner code goes here.
         }
     }
-

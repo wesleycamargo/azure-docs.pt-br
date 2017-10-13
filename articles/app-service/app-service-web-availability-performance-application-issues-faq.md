@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 990215d9e82b67256363ff195d2af9a91dc0706a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -190,4 +189,3 @@ Para obter mais informações sobre conexões de saída em seu aplicativo web, c
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Como usar o Visual Studio para depuração remota do o meu aplicativo web do Serviço de Aplicativo?
 
 Para obter uma explicação detalhada que mostra como depurar seu aplicativo web usando o Visual Studio, consulte [Depuração remota do seu aplicativo web do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
-

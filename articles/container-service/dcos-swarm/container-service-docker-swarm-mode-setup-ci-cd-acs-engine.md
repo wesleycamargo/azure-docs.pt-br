@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
+ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: e68f06925fd7c72d72610ca68fab58a6fa2f4561
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e modo Docker Swarm usando o Visual Studio Team Services
 
 *Este artigo tem base na documentação [Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Docker Swarm usando o Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md)*
@@ -62,8 +60,7 @@ Antes de iniciar este tutorial, você precisa concluir as seguintes tarefas:
 - [Dividir o repositório GitHub para sua conta do GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> O orquestrador Docker Swarm no Serviço de Contêiner do Azure usa um Swarm autônomo herdado. Atualmente, o [modo Swarm](https://docs.docker.com/engine/swarm/) integrado (no Docker 1.12 e superior) não é um orquestrador com suporte no 
-Serviço de Contêiner do Azure. Por esse motivo, estamos usando o [Mecanismo do ACS](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) de contribuição da comunidade, ou uma solução Docker no [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> O orquestrador Docker Swarm no Serviço de Contêiner do Azure usa um Swarm autônomo herdado. Atualmente, o [modo Swarm](https://docs.docker.com/engine/swarm/) integrado (no Docker 1.12 e superior) não é um orquestrador com suporte no Serviço de Contêiner do Azure. Por esse motivo, estamos usando o [Mecanismo do ACS](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) de contribuição da comunidade, ou uma solução Docker no [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
 ## <a name="step-1-configure-your-visual-studio-team-services-account"></a>Etapa 1: Configurar sua conta do Visual Studio Team Services 
@@ -258,4 +255,3 @@ Agora que você concluiu a configuração, é hora de testar esse novo pipeline 
 * Para obter mais informações sobre a CI/CD com o Visual Studio Team Services, consulte a [Visão geral da Compilação do VSTS](https://www.visualstudio.com/docs/build/overview).
 * Para saber mais sobre o Mecanismo do ACS, veja o [repositório do GitHub do Mecanismo do ACS](https://github.com/Azure/acs-engine).
 * Para saber mais sobre o modo Docker Swarm, veja a [Visão geral do modo Docker Swarm](https://docs.docker.com/engine/swarm/).
-

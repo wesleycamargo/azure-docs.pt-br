@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 325be23cffc9c728a8af6f92a0f3dce6d31da4ae
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>Replicar máquinas virtuais e servidores físicos da VMware no Azure com o Azure Site Recovery usando o portal clássico (herdado)
 > [!div class="op_single_selector"]
@@ -200,7 +199,7 @@ Observe que:
 | --- | --- | --- |
 | **Conta do Azure** |Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). | |
 | **Armazenamento do Azure** |Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados<br/><br/> A conta deve ser uma [Conta de Armazenamento com Redundância Geográfica Padrão](../storage/common/storage-redundancy.md#geo-redundant-storage) ou uma [Conta de Armazenamento Premium](../storage/common/storage-premium-storage.md).<br/><br/> Ela deve estar na mesma região do serviço do Azure Site Recovery e associada à mesma assinatura. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre os grupos de recursos.<br/><br/> Para saber mais, leia a [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) | |
-| **Rede virtual do Azure** |Você precisará de uma rede virtual do Azure na qual o servidor de configuração e o servidor de destino mestre serão implantados. Ela deve estar na mesma assinatura e na mesma região que o cofre do Azure Site Recovery. Se você quiser replicar dados em uma conexão VPN ou da Rota Expressa, a rede virtual do Azure deve estar conectada à sua rede local através de uma conexão da Rota Expressa ou uma VPN Site a Site. | |
+| **Rede virtual do Azure** |Você precisará de uma rede virtual do Azure na qual o servidor de configuração e o servidor de destino mestre serão implantados. Ela deve estar na mesma assinatura e na mesma região que o cofre do Azure Site Recovery. Se você quiser replicar dados em uma conexão VPN ou do ExpressRoute, a rede virtual do Azure deve estar conectada à sua rede local através de uma conexão do ExpressRoute ou uma VPN Site a Site. | |
 | **Recursos do Azure** |Verifique se você tem recursos suficientes do Azure para implantar todos os componentes. Leia mais em [Limites de assinatura do Azure](../azure-subscription-service-limits.md). | |
 | **Máquinas Virtuais do Azure** |As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Contagem de discos** – há suporte para um máximo de 31 discos em um único servidor protegido<br/><br/> **Tamanhos de disco** – a capacidade de disco individual não deve ser superior a 1.023 GB<br/><br/> **Clustering** – não há suporte a servidores clusterizados<br/><br/> **Inicialização** – não há suporte à inicialização UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface)<br/><br/> **Volumes** – não há suporte a volumes criptografados com Bitlocker<br/><br/> **Nomes de servidor**– Os nomes devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois que um computador é protegido, você pode modificar o nome do Azure. | |
 | **Servidor de configuração** |Uma máquina virtual Standard A3 baseada em uma imagem da galeria do Windows Server 2012 R2 do Azure Site Recovery será criada em sua assinatura para o servidor de configuração. Ela é criada como a primeira instância em um novo serviço de nuvem. Se você selecionar Internet Pública como o tipo de conectividade para o servidor de configuração, o serviço de nuvem será criado com um endereço IP público reservado.<br/><br/> O caminho de instalação deve ter somente caracteres em inglês. | |
@@ -218,7 +217,7 @@ Você tem duas opções ao configurar a conectividade de rede entre o site local
 
 ![Diagrama de implementação para Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN**: a comunicação e a replicação de dados entre os servidores locais (servidor em processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão VPN entre a rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre estão implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
+**VPN**: a comunicação e a replicação de dados entre os servidores locais (servidor em processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão VPN entre a rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre estão implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão do ExpressRoute ou uma conexão VPN site a site.
 
 ![Diagrama de implementação para VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -334,7 +333,7 @@ Depois de registrar o servidor de configuração, você poderá abrir a caixa de
 ### <a name="connect-to-the-configuration-server"></a>Conectar-se ao servidor de configuração
 Há duas maneiras de se conectar ao servidor de configuração:
 
-* Por uma conexão VPN site a site ou de Rota Expressa
+* Por uma conexão VPN site a site ou de ExpressRoute
 * Pela Internet
 
 Observe que:
@@ -740,4 +739,3 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-

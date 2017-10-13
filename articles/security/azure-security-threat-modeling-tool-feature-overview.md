@@ -1,5 +1,5 @@
 ---
-title: "A ferramenta - Azure de modelagem de ameaças do Microsoft | Microsoft Docs"
+title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: "Conheça todos os recursos disponíveis no Threat Modeling Tool"
 services: security
 documentationcenter: na
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
 
 A ferramenta Threat Modeling Tool pode ajudá-lo com suas necessidades de modelagem de ameaças. Para obter uma introdução básica à ferramenta, consulte [Introdução ao Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md).
@@ -210,4 +208,3 @@ Quando terminar de alterar as prioridades e atualizar o status de cada ameaça g
 
 * Para contribuir com um modelo para a comunidade, visite nossa página no [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para começar a usar a ferramenta, vá para a página de [Downloads](https://aka.ms/tmtpreview).
-

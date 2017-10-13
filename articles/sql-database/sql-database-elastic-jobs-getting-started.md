@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
 Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-jobs-overview.md).
@@ -480,4 +478,3 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

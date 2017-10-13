@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 5/9/2017
 ms.author: vturecek
 ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.

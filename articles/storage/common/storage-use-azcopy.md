@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
 O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o Armazenamento de Blobs, de Arquivos e de Tabelas do Microsoft Azure usando comandos simples com o desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.

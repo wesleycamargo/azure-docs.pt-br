@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-security"></a>Segurança de banco de dados do Azure Cosmos DB
 
 Este artigo aborda as melhores práticas de segurança de banco de dados e os principais recursos oferecidos pelo Azure Cosmos DB para ajudar você a prevenir, detectar e responder a violações de banco de dados.
@@ -98,4 +96,3 @@ Para obter mais detalhes sobre chaves mestras e tokens de recurso, consulte [Pro
 Para obter mais detalhes sobre o log de auditoria, consulte [Log de diagnósticos do Azure Cosmos DB](logging.md).
 
 Para obter mais detalhes sobre as certificações da Microsoft, confira [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/).
-

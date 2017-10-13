@@ -35,6 +35,7 @@
 ## Configurar os filtros de rota para o emparelhamento da Microsoft
 ### [Portal do Azure](how-to-routefilter-portal.md)
 ### [PowerShell do Azure](how-to-routefilter-powershell.md)
+### [CLI do Azure](how-to-routefilter-cli.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
 ## [Migrar redes virtuais associadas do clássico para o Gerenciador de recursos](expressroute-migration-classic-resource-manager.md)
 ## Configurar um roteador para o ExpressRoute
@@ -45,7 +46,7 @@
 ### [Práticas recomendadas para segurança de rede e serviços de nuvem](../best-practices-network-security.md)
 ### [Otimizar roteamento](expressroute-optimize-routing.md)
 ### [Roteamento assimétrico](expressroute-asymmetric-routing.md)
-### [NAT para ExpressRoute](expressroute-routing-nat.md)
+### [NAT para ExpressRoute](expressroute-nat.md)
 
 ## Solucionar problemas
 ### [Verificando a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

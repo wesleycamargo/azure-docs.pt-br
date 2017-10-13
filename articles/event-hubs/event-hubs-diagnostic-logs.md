@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 
@@ -30,6 +28,7 @@ ms.lasthandoff: 07/08/2017
 * **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
+
 Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico:
 
 1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
@@ -137,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução aos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
-* [Introdução aos Hubs de Evento](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Introdução aos Hubs de Evento](event-hubs-dotnet-standard-getstarted-send.md)

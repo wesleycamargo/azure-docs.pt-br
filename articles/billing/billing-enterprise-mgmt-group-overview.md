@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure 
 
 Se você tem várias assinaturas, você pode organizá-las em contêineres chamados de "grupos de gerenciamento" para ajudá-lo a gerenciar o acesso, a política, os custos e a conformidade em suas assinaturas. Por exemplo, você pode aplicar políticas a um grupo de gerenciamento, para limitar quais tipos de recursos podem ser criados.
@@ -93,6 +90,5 @@ O Gerenciador de Recursos permite que você crie políticas personalizadas para 
 
 > [!Note]
 > A política não é imposta nos diretórios. 
-
 
 

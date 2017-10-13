@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para o aprendizado de máquina avançado
 O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do TDSP (Processo de Ciência de Dados de Equipe) e, geralmente, seguem uma exploração inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento exigido. Para obter instruções mais detalhadas sobre o processo TDSP, confira as etapas descritas em [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
@@ -53,8 +53,7 @@ Podemos verificar a qualidade geral dos dados confirmando:
 
 Quando você encontrar problemas com os dados, **etapas de processamento** serão necessárias, geralmente envolvendo a limpeza de valores ausentes, normalização de dados, diferenciação, processamento de texto para remover e/ou substituir caracteres incorporados que podem afetar o alinhamento dos dados e tipos de dados mistos em campos comuns, entre outros.
 
-
-            **O Azure Machine Learning consome dados tabulares bem formados**.  Se os dados já estiverem em formato tabular, o pré-processamento deles poderá ser realizado diretamente com o Azure Machine Learning no Machine Learning Studio.  Se os dados não estiverem em formato tabular, como XML, por exemplo XML, a análise pode ser necessária para converter os dados em formato tabular.  
+**O Azure Machine Learning consome dados tabulares bem formados**.  Se os dados já estiverem em formato tabular, o pré-processamento deles poderá ser realizado diretamente com o Azure Machine Learning no Machine Learning Studio.  Se os dados não estiverem em formato tabular, como XML, por exemplo XML, a análise pode ser necessária para converter os dados em formato tabular.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quais são as principais tarefas de pré-processamento de dados?
 * **Limpeza de dados**: preencher ou valores ausentes, detectar e remover exceções e dados com ruídos.

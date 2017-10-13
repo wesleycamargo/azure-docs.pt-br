@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a oferta de modelo de solução em preparo
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparece em preparo como apareceria para um cliente que a tivesse implantado. Sua oferta deve estar certificada para ser enviada por push para preparação.

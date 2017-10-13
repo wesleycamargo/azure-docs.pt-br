@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta
 ## <a name="introduction"></a>Introdução
@@ -438,4 +437,3 @@ Agora, crie uma ação em **Se não, não faça nada**.
 Para a ação, escolha **Office 365 - send email (Office 365 – enviar email)**. Preencha os campos para criar um email para enviar quando a condição definida retornar **false**. Se você não tiver o Office 365, poderá consultar alternativas para obter os mesmos resultados.
 
 Nesse ponto, você tem um pipeline de ponta a ponta que procura novos logs de auditoria do cofre de chaves a cada minuto. Ele envia os novos logs que encontra para uma fila do barramento de serviço. O aplicativo lógico é disparado quando uma nova mensagem chega na fila. Se o *appid* no evento não corresponder à ID do aplicativo de chamada, ele enviará um email.
-

@@ -16,10 +16,10 @@ ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: 9d39ecd513386b75b4b640721f80991caaf9ade8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração do log do Azure com o log de diagnóstico do Azure e encaminhamento de eventos do Windows
 A integração do log do Azure (AzLog) permite integrar registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. Essa integração proporciona um painel de segurança unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança associados aos aplicativos.

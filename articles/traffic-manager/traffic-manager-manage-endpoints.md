@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
@@ -29,8 +29,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 > [!NOTE]
 > A desabilitação de um ponto de extremidade não tem nada a ver com seu estado de implantação no Azure. Um ponto de extremidade íntegro permanecerá ativo e capaz de receber tráfego mesmo quando for desabilitado no Gerenciador de Tráfego. Além disso, a desabilitação de um ponto de extremidade em um perfil não afeta seu status em outro perfil.
 
-## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de 
-Aplicativo a um perfil do Gerenciador de Tráfego
+## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de Aplicativo a um perfil do Gerenciador de Tráfego
 
 1. Usando um navegador, entre no [portal do Azure](http://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.

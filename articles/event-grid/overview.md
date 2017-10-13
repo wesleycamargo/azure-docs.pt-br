@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
 A Grade de Eventos do Azure permite compilar facilmente aplicativos com as arquiteturas baseadas em evento. Você seleciona o recurso do Azure que quer assinar e fornece o manipulador de eventos ou o ponto de extremidade do WebHook ao qual enviar o evento. A Grade de Eventos tem suporte interno para eventos provenientes de serviços do Azure, como blobs de armazenamento e grupos de recursos. A Grade de Eventos também tem suporte personalizado para eventos de aplicativo e de terceiros, usando webhooks e tópicos personalizados. 

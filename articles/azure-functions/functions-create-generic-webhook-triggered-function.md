@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Criar uma função disparada por um webhook genérico
 
@@ -167,5 +166,4 @@ Você criou uma função que é executada quando uma solicitação é recebida d
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para saber mais sobre gatilhos do webhook, veja [Associações HTTP e de webhook do Azure Functions](functions-bindings-http-webhook.md). Para saber mais sobre como desenvolver funções em C#, consulte [Referência do desenvolvedor de script C# do Azure Functions](functions-reference-csharp.md).
-
 

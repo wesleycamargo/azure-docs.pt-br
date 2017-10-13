@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: e34d810b8cf9f290a61e302c6f68781abea14173
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-firewall-using-the-azure-cli"></a>Banco de Dados Cosmos do Azure: Criar um firewall usando a CLI do Azure
 
 Este exemplo de script da CLI cria uma política de firewall para qualquer tipo de conta do Banco de Dados Cosmos do Azure. 
@@ -34,7 +32,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Criar um firewall do Banco de Dados Cosmos do Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Create an Azure Cosmos DB firewall")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -60,4 +58,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos adicionais de scripts da CLI do Banco de Dados Cosmos do Azure podem ser encontrados na [Documentação da CLI do Banco de Dados Cosmos do Azure](../cli-samples.md).
-

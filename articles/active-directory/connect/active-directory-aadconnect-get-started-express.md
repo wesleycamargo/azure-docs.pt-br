@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect usando configurações expressas
 As **configurações expressas** do Azure AD Connect são usadas quando você tem uma topologia de floresta única e a [sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) para autenticação. **configurações expressas** são a opção padrão e são usadas para o cenário de implantação mais comum. São apenas alguns cliques curtos para estender seu diretório local para a nuvem.
@@ -73,5 +72,4 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 | Instalar usando configurações personalizadas |
 | Atualização do DirSync |
 | Contas usadas para instalação |
-
 

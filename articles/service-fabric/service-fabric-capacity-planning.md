@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para Aplicativos do Service Fabric
 Este documento ensina a você como estimar a quantidade de recursos (CPU, RAM, armazenamento de disco) necessários para a execução dos aplicativos Service Fabric. É comum os requisitos de recursos mudarem ao longo do tempo. Normalmente, você precisa de alguns recursos enquanto desenvolve/testa seu serviço e, posteriormente, precisa de mais recursos à medida que entra na fase de produção e a popularidade de seu aplicativo aumenta. Ao projetar o aplicativo, pense nos requisitos de longo prazo e faça escolhas que permitam a ampliação do serviço, a fim de atender à alta demanda dos clientes.

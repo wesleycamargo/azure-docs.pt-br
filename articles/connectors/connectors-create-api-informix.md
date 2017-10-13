@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
 O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).

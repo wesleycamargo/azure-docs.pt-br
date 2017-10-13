@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk
 ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o cofre de Serviços de Recuperação. O Cofre de Backup veio primeiro. Em seguida, o Cofre dos Serviços de Recuperação surgiu no mercado para oferecer suporte às implantações expandidas do Gerenciador de Recursos. Devido às funcionalidades expandidas e às dependências de informações que devem ser armazenadas no cofre, a exclusão de um cofre do Backup ou dos Serviços de Recuperação pode ser confusa. Este artigo explica como excluir os cofres no portal clássico e no portal do Azure.  

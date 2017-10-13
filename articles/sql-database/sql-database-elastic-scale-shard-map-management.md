@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: f626cf417d8b3f1761f3c900d49039b3ff83b093
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos
 Para escalar horizontalmente os bancos de dados no SQL Azure, use um gerenciador do mapa de fragmentos. O gerenciador do mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave de fragmentação**. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados de fragmento local (conhecido como **shardlets**). 

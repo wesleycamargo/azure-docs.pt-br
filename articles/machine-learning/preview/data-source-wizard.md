@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>Assistente de Fonte de Dados #
 
 O Assistente de Fonte de Dados é uma maneira rápida e fácil de levar um conjunto de dados para o Azure ML Workbench sem código. É nele que você também pode selecionar uma estratégia de exemplo para o conjunto de dados. 
@@ -74,4 +72,3 @@ Se o caminho do arquivo incluir dados importantes, você poderá escolher inclu�
 ![etapa 7](media/data-source-wizard/step6.png)
 
 Depois de clicar em Concluir, uma nova fonte de dados será adicionada ao projeto. Você pode encontrá-la no grupo Fontes de Dados na Exibição de Dados ou como um arquivo .dsource na **Exibição de Arquivo**.
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
 
 As Instâncias de Contêiner do Azure dão suporte à implantação de vários contêineres em um único host utilizando um *grupo contêineres*. Isso é útil ao criar um aplicativo secundário para registro em log, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo anexado. 
@@ -203,4 +201,3 @@ Este documento abordou as etapas necessárias para implantar uma instância de c
 
 > [!div class="nextstepaction"]
 > [Tutorial de Instâncias de Contêiner do Azure]: ./container-instances-tutorial-prepare-app.md
-

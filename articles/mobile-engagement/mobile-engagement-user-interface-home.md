@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Como gerenciar seus aplicativos e projetos existentes
 Este artigo descreve a página **Início** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . 

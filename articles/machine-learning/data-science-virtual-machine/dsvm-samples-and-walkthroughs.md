@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exemplos de Máquinas Virtuais de Ciência de Dados (DSVM)
 
 As DSVMs vêm com exemplos totalmente trabalhados incluídos na forma de Blocos de Anotações do Jupyter e alguns que não são baseados em Jupyter. Você pode acessar o Jupyter clicando no ícone `Jupyter` no menu do aplicativo ou da área de trabalho.  
@@ -106,5 +103,4 @@ Entre com a mesma senha usada para o logon na DSVM.
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![Exemplos de XGBoost](./media/xgboost-samples.png)<br/>
-
 

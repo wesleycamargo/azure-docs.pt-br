@@ -8,15 +8,12 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a5bbb1ecd3886a1453986c2deadb7b35e54b67b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="overview-of-batch-apis-and-tools"></a>Visão geral das ferramentas e APIs de Lote
 
 O processamento de cargas de trabalho paralelas com o Lote do Azure normalmente é feito por meio de programação usando uma das [APIs do Lote](#batch-development-apis). O aplicativo cliente ou serviço pode usar as APIs do Lote para se comunicar com o serviço de Lote. Com as APIs do Lote, você pode criar e gerenciar pools de nós de computação, máquinas virtuais ou serviços de nuvem. Em seguida, você pode agendar trabalhos e tarefas para serem executadas em nós. 
@@ -108,4 +105,3 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para compilar e 
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com
-

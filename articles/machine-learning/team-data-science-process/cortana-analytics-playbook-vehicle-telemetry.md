@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: af8b3d5bf891c93c30a05c5f02d86639a466dde5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Manual da solução de análise de telemetria do veículo
 Este **menu** fornece links para os capítulos deste manual. 
@@ -49,8 +48,7 @@ Essa solução inclui os seguintes **componentes do Cortana Intelligence** e apr
 
 * **Hubs de Eventos** para a ingestão de milhões de eventos de telemetria do veículo no Azure.
 * **Stream Analytics** para obter informações em tempo real sobre a integridade do veículo e persistir esses dados no armazenamento de longo prazo para uma análise de lote mais avançada.
-* 
-            **Machine Learning** para detecção de anomalias em tempo real e processamento em lote para obter previsões.
+* **Machine Learning** para detecção de anomalias em tempo real e processamento em lote para obter previsões.
 * **HDInsight** é utilizado para transformar dados em escala
 * **Data Factory** lida com a orquestração, o agendamento, o gerenciamento de recursos e o monitoramento do pipeline de processamento em lote.
 * **PowerBI** fornece essa solução a um painel avançado para os dados em tempo real e as visualizações da análise preditiva.
@@ -59,5 +57,4 @@ Essa solução acessa duas **fontes de dados**diferentes:
 
 * **Sinais de veículo e diagnóstico simulados**: um simulador de telemática do veículo emite informações de diagnóstico e sinais que correspondem ao estado do veículo e ao padrão de condução em um determinado momento. 
 * **Catálogo do veículo**: um conjunto de dados de referência que contém um VIN para o mapeamento do modelo.
-
 

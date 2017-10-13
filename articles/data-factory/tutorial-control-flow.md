@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 2d1de12b420d203980d154e08dea036deb20a533
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 3ffe45775a55f4bdb3103fea2075fcb83e0c9cf9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que podem ingerir dados de repositórios de dados diferentes, processar/transformr os dados usando serviços de computação como o Hadoop do Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e publicar os dados de saída em repositórios de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de business intelligence (BI). 
 

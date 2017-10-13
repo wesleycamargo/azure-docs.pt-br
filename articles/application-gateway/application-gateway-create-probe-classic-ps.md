@@ -1,6 +1,6 @@
 ---
 title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Application Gateway usando o PowerShell no modelo de implantação clássico"
+description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no modelo de implantação clássico"
 services: application-gateway
 documentationcenter: na
 author: davidmu1
@@ -15,14 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Application Gateway (clássico) pelo uso do PowerShell
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
@@ -211,5 +210,4 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 Se você quiser configurar o descarregamento de protocolo SSL, consulte [Configurar um Application Gateway para o descarregamento SSL](application-gateway-ssl.md).
 
 Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
-
 

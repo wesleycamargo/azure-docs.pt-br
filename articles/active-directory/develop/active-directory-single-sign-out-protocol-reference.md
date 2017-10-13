@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Protocolo SAML de Logout Único
 O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. O Azure AD usa o LogoutURL para redirecionar os usuários depois que eles são desconectados.

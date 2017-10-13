@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gerenciando alertas com o monitoramento da Microsoft
 Um alerta indica algum problema que requer atenção de um administrador.  Há diferenças marcantes entre o SCOM (System Center Operations Manager) e o Log Analytics no OMS (Operations Management Suite) em termos de como os alertas são criados, como são gerenciados e analisados e como você será notificado de que um problema crítico foi detectado.

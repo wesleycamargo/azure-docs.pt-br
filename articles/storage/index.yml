@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação do Armazenamento do Microsoft Azure
+title: Documentação do Armazenamento do Azure
 metadata:
   title: 'Documentação do Armazenamento do Azure - Tutoriais, Referência de API | Microsoft Docs'
   description: 'Armazenamento do Microsoft Azure é um serviço de nuvem gerenciado pela Microsoft que fornece armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas.'
@@ -31,7 +31,7 @@ sections:
               src: /azure/virtual-machines/linux/media/index/cli.svg
             text: CLI do Azure
             href: /azure/storage/common/storage-quickstart-create-storage-account-cli
-  - title: Tutoriais passo a passo
+  - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
         text: Saiba como carregar e processar dados de imagem na nuvem.
@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Carregar e recuperar dados de imagem na nuvem</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Disparar o Azure Functions para processar blobs</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Disparar o Azure Functions para processar blobs</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Proteger dados do aplicativo</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorar e solucionar problemas de armazenamento</a>
   - title: Exemplos
@@ -52,7 +52,7 @@ sections:
         items:
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">PowerShell do Azure</a>
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">CLI do Azure</a>
-  - title: Treinamento em vídeo PluralSight gratuito
+  - title: Treinamento em Vídeo Pluralsight gratuito
     items:
       - type: list
         style: cards

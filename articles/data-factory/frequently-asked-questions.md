@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 Este artigo se aplica à versão 2 do serviço do Azure Data Factory. Ele fornece uma lista de perguntas frequentes (FAQ), com respostas.  
@@ -194,5 +193,4 @@ Para obter instruções passo a passo para criar um data factory da versão 2, c
 
 - [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: copiar dados na nuvem](tutorial-copy-data-dot-net.md)
-
 

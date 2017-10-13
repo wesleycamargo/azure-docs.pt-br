@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 808a6c3ea4cb26dbb91752d13e2118d081b10668
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM do Linux anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM do Linux para corrigir erros e recriar a VM original.
 
@@ -177,4 +175,3 @@ Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de ini
 Se você estiver tendo problemas para se conectar à VM, consulte [Solucionar problemas de conexões SSH com uma VM do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para ver problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

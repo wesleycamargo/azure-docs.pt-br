@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: f2e1957a02d72d79a245ec3be705ba46dcc41e2c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
 
-- Tempo de execução de integração do Azure
+- Integration Runtime do Azure
 - Tempo de execução de integração auto-hospedado
 - Tempo de execução de integração do Azure-SSIS
 
@@ -36,7 +34,7 @@ Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -Resou
 
 O cmdlet retorna diferentes informações para diferentes tipos de tempo de execução de integração. Este artigo explica as propriedades e os status para cada tipo de tempo de execução de integração.  
 
-## <a name="azure-integration-runtime"></a>Tempo de execução de integração do Azure
+## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
 O recurso de computação para um tempo de execução de integração do Azure é totalmente gerenciado com elasticidade no Azure. A tabela a seguir fornece descrições para propriedades retornadas pelo comando **Get-AzureRmDataFactoryV2IntegrationRuntime**:
 
 ### <a name="properties"></a>Propriedades

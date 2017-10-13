@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
 ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
 Ao trabalhar em DevTest Labs, você observará que existem certos limites padrão a alguns recursos do Azure que podem afetar o serviço DevTest Labs. Esses limites são conhecidos como **cotas**.
@@ -70,4 +68,3 @@ Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Az
 
 ### <a name="next-steps"></a>Próximas etapas
 * Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
-

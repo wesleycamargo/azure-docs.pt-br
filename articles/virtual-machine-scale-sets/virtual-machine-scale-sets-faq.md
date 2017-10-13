@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 9/14/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
 Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais no Azure.
@@ -703,5 +701,4 @@ A principal diferença entre excluir uma VM em um conjunto de dimensionamento de
 - Você deseja iniciar um conjunto de VMs mais rapidamente do que pode escalar horizontalmente um conjunto de dimensionamento de máquinas virtuais.
   - Em relação a este cenário, você pode ter criado seu próprio mecanismo de dimensionamento automático e deseja um dimensionamento de ponta a ponta mais rápido.
 - Você tem um conjunto de dimensionamento de máquinas virtuais distribuído sem uniformidade entre os domínios de falha ou os domínios de atualização. Isso pode ser porque você excluiu seletivamente as VMs ou porque as VMs foram excluídas depois do excesso de provisionamento. Executar `stop deallocate` seguido de `start` no conjunto de dimensionamento de máquinas virtuais distribui uniformemente as VMs em domínios de falha ou domínios de atualização.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 Este tutorial mostra como configurar um fluxo de trabalho de implantação contínua nos [Aplicativos Web do Azure](app-service-web-overview.md). A integração do Serviço de Aplicativo com o [VSTS (Visual Studio Team Services)](https://www.visualstudio.com/team-services/), GitHub e BitBucket permite um fluxo de trabalho de implantação contínua, no qual o Azure recebe por pull as atualizações mais recentes de seu projeto publicado em um desses serviços. A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas.
@@ -96,4 +95,3 @@ Para desabilitar a implantação contínua,
 [Criar um repositório (GitHub)]: https://help.github.com/articles/create-a-repo
 [Criar um repositório (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Introdução ao VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-

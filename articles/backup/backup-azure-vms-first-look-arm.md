@@ -16,12 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação
 > [!div class="op_single_selector"]
@@ -345,4 +344,3 @@ O custo do backup de VMs do Azure tem base no número de instâncias protegidas.
 
 ## <a name="questions"></a>Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
-

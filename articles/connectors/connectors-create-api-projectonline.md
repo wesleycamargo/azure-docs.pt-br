@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Introdução ao conector do ProjectOnline
 O Project Online é uma solução online flexível da Microsoft para PPM (gerenciamento de portfólio de projetos) e trabalho cotidiano. Distribuído por meio do Office 365, o Project Online permite que as organizações se familiarizem rapidamente com funcionalidades avançadas de gerenciamento de projetos para planejar, priorizar e gerenciar projetos e investimentos em portfólio de projetos – praticamente, em qualquer lugar e em qualquer dispositivo.

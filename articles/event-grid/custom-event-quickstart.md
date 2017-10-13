@@ -8,14 +8,12 @@ ms.author: darosa
 ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>Criar e encaminhar eventos personalizados com a Grade de Eventos do Azure
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar a CLI do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando uma ferramenta de terceiros de software livre chamada [RequestBin](https://requestb.in/).
@@ -121,5 +119,4 @@ Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sob
 - [Sobre a Grade de Eventos](overview.md)
 - [Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado (versão prévia)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os Aplicativos Lógicos](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Transmitir big data a um data warehouse](event-grid-event-hubs-integration.md)
-
+- [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)

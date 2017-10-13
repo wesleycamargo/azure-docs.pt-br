@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
 ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
 Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
@@ -44,8 +44,7 @@ Com a ação de script descrita neste artigo, você pode modificar a agenda de a
 ## <a name="how-to-use-the-script"></a>Como usar o script 
 
 Ao usar esse script você precisará das seguintes informações:
-1. O local de script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-    O HDInsight usa esse URI para localizar e executar o script em todas as máquinas virtuais no cluster.
+1. O local de script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  O HDInsight usa esse URI para localizar e executar o script em todas as máquinas virtuais no cluster.
   
 2. Os tipos de nós do cluster ao qual o script é aplicado: nó de cabeçalho, nó de trabalho, zookeeper. Esse script deve ser aplicado a todos os tipos de nó do cluster. Se não for aplicado a um tipo de nó, as máquinas virtuais desse tipo de nó continuarão a usar a agenda anterior de aplicação de patches.
 

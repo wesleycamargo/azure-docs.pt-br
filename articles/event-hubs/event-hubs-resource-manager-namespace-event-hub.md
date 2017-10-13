@@ -14,14 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Criar um namespace dos Hubs de Eventos com um hub de eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do tipo Hubs de Eventos com um Hub de Eventos e um grupo de consumidores. O artigo mostra como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
@@ -156,4 +154,3 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
-

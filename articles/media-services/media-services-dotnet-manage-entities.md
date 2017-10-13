@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
@@ -404,5 +403,4 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

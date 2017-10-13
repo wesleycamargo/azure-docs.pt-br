@@ -16,14 +16,12 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de conexão com a Autenticação Multifator do Microsoft Azure
 > [!NOTE]
 > A finalidade deste artigo é examinar uma experiência de conexão típica. Para obter ajuda com a conexão ou resolver problemas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md).
@@ -92,4 +90,3 @@ Se você tiver problemas para entrar usando a verificação em duas etapas, cons
 Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
 
 Descubra como [Começar a usar o aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para poder entrar usando notificações, em vez de textos e chamadas telefônicas.
-

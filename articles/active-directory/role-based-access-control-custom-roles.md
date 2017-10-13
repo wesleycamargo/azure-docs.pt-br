@@ -16,10 +16,10 @@ ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
 Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre assinaturas.

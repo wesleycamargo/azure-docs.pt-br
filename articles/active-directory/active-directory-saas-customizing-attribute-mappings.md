@@ -16,10 +16,10 @@ ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiro habilitado, o Portal de Gerenciamento controlará seus valores de atributo na forma de uma configuração chamada "mapeamento de atributo".

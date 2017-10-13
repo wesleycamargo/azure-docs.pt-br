@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -264,4 +263,3 @@ Neste tópico, você aprendeu como migrar instâncias EC2 do AWS para VMs do Azu
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Windows Azure](../virtual-machines/windows/tutorial-manage-vm.md)
-

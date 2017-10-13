@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
 ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Recursos do Log Analytics para provedores de serviços
 O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem. 

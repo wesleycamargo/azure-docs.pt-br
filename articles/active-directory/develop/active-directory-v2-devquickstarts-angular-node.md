@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Adicionar as credenciais a um aplicativo de página única do AngularJS - NodeJS
 Neste artigo, adicionaremos entrada com contas da plataforma Microsoft a um aplicativo AngularJS usando o ponto de extremidade v2.0 do Azure Active Directory. O ponto de extremidade v2.0 permite realizar uma integração única em seu aplicativo e autenticar usuários com contas pessoais e corporativas/de estudante.

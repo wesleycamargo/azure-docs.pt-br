@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
 ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.

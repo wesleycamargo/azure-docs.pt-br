@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: e338804a0c5fcb09dfdfd9bf18ae4d0466cd9a82
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar o ServiceNow para o provisionamento automático de usuário com o Azure Active Directory
 
@@ -92,6 +91,5 @@ Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuí
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configurar Logon Único](active-directory-saas-servicenow-tutorial.md)
-
 
 

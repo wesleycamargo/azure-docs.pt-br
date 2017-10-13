@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
@@ -146,5 +145,4 @@ Usando as APIs de Readaptação, você pode atualizar o modelo treinado de um Se
 
 ## <a name="next-steps"></a>Próximas etapas
 [Solução de problemas de readaptação de um serviço Web clássico de Azure Machine Learning](troubleshooting-retraining-models.md)
-
 

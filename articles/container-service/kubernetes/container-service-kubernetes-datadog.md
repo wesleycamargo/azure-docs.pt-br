@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 40b34457447a8f80d8cdf77579750e0c42df22d0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Monitorar um cluster do Serviço de Contêiner do Azure com o Datadog
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -64,4 +62,3 @@ Depois de fazer logon no DataDog, siga as [instruções do DataDog](https://app.
 
 ## <a name="conclusion"></a>Conclusão
 É isso! Quando seus agentes estiverem em execução, você deverá ver os dados no console em alguns minutos. Visite o [painel kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) integrado para ver um resumo do cluster.
-

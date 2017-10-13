@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: ca656ce11f267340872f4b8566d0ee21791f29d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 65ba6deaf5391b013c5337e00c80099e81aa4bea
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Machine Learning ao Stream Analytics
 O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -28,11 +27,9 @@ O Stream Analytics dá suporte a funções definidas pelo usuário que chamam po
 ## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: terminologia do Azure Machine Learning
 O Microsoft Azure Machine Learning fornece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
 
-* 
-            **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
+* **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
 * **Experimento**: os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de aprendizado de máquina.
-* 
-            **Ponto de extremidade**: os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de aprendizado de máquina especificado e retornar a saída pontuada.
+* **Ponto de extremidade**: os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de aprendizado de máquina especificado e retornar a saída pontuada.
 * **Serviço da Web de Pontuação**: um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/studio/consume-web-services.md) no Estúdio AM do Azure.
@@ -206,4 +203,3 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

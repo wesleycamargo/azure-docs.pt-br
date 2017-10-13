@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 433d2e585c884a10e7e923a0b27c179a95410d01
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Criar um aplicativo do Azure Cosmos DB: API para MongoDB usando o Node.js
 > [!div class="op_single_selector"]
@@ -133,4 +132,3 @@ Para usar este exemplo, você deve:
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o MongoChef](mongodb-mongochef.md) com sua conta do Azure Cosmos DB: API para MongoDB.
-

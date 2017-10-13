@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Montar o Armazenamento de arquivos do Azure em VMs Linux ao usar SMB com CLI 1.0 do Azure
 
 Este artigo mostra como montar o Armazenamento de arquivos do Azure em uma VM Linux ao usar o protocolo SMB. O armazenamento de arquivos oferece compartilhamentos de arquivos na nuvem por meio do protocolo SMB padrão. Esses requisitos são:
@@ -134,4 +132,3 @@ Para este passo a passo detalhado, criamos os pré-requisitos necessários para 
 - [Uso de cloud-init para personalizar uma VM do Linux durante a criação](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Adicionar um disco a uma VM do Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Criptografar discos em uma VM do Linux usando a CLI do Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
@@ -103,4 +102,3 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

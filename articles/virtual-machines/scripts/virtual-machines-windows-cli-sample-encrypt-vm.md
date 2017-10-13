@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/02/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: bc1d06e24eb39e577e0e8283a15d4451b55be971
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Criptografar uma máquina virtual do Windows no Azure
 
 Esse script cria um Azure Key Vault seguro, chaves de criptografia, uma entidade de serviço do Azure Active Directory e uma VM (máquina virtual) Windows. A VM é então criptografada usando a chave de criptografia do Key Vault e as credenciais da entidade de serviço.
@@ -33,7 +31,7 @@ Esse script cria um Azure Key Vault seguro, chaves de criptografia, uma entidade
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/encrypt-disks/encrypt_windows_vm.sh "Criptografar discos de VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/encrypt-disks/encrypt_windows_vm.sh "Encrypt VM disks")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -64,4 +62,3 @@ Esse script usa os comandos a seguir para criar um grupo de recursos, um Azure K
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%windows%2ftoc.json).
-

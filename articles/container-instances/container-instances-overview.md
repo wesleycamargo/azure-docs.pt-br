@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 6e614f1120b3dc54871b393ac0a2703c21b30ae8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b77ba307938b6b1f5221de40cc135d17c15c1d9b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
 Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais nem adotar um serviço de nível superior.
@@ -53,7 +51,7 @@ Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, n�
 
 ## <a name="linux-and-windows-containers"></a>Contêineres do Windows e do Linux
 
-Com Azure Container Instance, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
+Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 

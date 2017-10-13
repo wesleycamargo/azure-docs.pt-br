@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
 O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
 
@@ -149,4 +147,3 @@ Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azu
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

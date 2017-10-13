@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 254f383ee6f7cb9f7051fa135d85319a22c3c369
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 9a35d6d8631e02fd7b3745cc15efd92a1556de53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.CredentialsCombo
 Um grupo de controles com validação interna para chaves públicas SSH e senhas Windows e Linux. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
@@ -111,4 +110,3 @@ Se o usuário forneceu uma chave pública SSH, a seguinte saída é esperada:
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

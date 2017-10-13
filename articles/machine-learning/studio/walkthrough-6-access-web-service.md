@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1a31bc95b249c3fa1caced138bbf3459eb6282c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Azure Machine Learning
 
 Esta é a última etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um novo teste](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -50,5 +48,4 @@ Para obter mais informações sobre como usar modelos de aplicativos Web, consul
 Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando código inicial fornecido nas linguagens de programação R, C# e Python.
 
 Encontre detalhes mais completos em [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
-
 

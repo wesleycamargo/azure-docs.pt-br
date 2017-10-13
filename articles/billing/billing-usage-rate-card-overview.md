@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/18/2017
+ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
+ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usar APIs de Cobrança do Azure para obter informações programaticamente sobre o uso do Azure
 Use APIs de cobrança do Azure para efetuar pull de dados de uso e de recurso em suas ferramentas de análise de dados preferidas. As APIs RateCard e de Uso de Recursos do Azure e podem ajudá-lo a prever e gerenciar seus custos com precisão. As APIs são implementadas como um Provedor de Recursos e como parte da família de APIs expostas pelo Azure Resource Manager.  
 
@@ -63,8 +61,6 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
   * Você também pode determinar se outro tipo de oferta do Azure oferece uma melhor taxa em um recurso do Azure.
   
 ## <a name="partner-solutions"></a>Soluções de parceiros
-[As APIs de Uso e RateCard do Microsoft Azure APIs permitem Cloudyn para fornecer ITFM para clientes](billing-usage-rate-card-partner-solution-cloudyn.md) descrevem a experiência de integração oferecida pelo parceiro de API de cobrança do Azure [Cloudyn](https://www.cloudyn.com/microsoft-azure/). Este artigo fala sobre suas experiências e inclui um vídeo que mostra como você pode usar Cloudyn e as APIs de Cobrança do Azure para obter informações sobre dados de consumo do Azure.
-
 [Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md) descreve como o [Express do Cloud Cruiser para Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente do portal do WAP (Microsoft Azure Pack). Você pode gerenciar sem inconvenientes os aspectos operacionais e financeiros da nuvem pública particular ou hospedada do Microsoft Azure de uma única interface do usuário.   
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -78,5 +74,4 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 * Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
 * Para obter mais informações sobre o pacote de ferramentas necessárias para ajudá-lo a compreender os gastos de nuvem, consulte o artigo da Gartner [Guia de mercado para as ferramentas de gestão financeira de TI (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
-
 

@@ -9,19 +9,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Machine Learning
 
 ## <a name="general-product-questions"></a>Perguntas gerais sobre o produto
 
-
-            **O que é Azure Machine Learning?**
+**O que é Azure Machine Learning?**
 
 O Azure Machine Learning é um serviço do Azure totalmente gerenciado que permite criar, testar, gerenciar e implantar modelos de AI e aprendizado de máquina. Nossos novos serviços e aplicativo para download oferecem uma abordagem primeiro de código que aproveita a nuvem, o local e a borda para oferecer modelos de treinamento, implantação, gerenciamento e monitoramento com eficiência, velocidade e flexibilidade. Como alternativa, Azure Machine Learning Studio oferece um ambiente de criação visual do tipo "arrastar e soltar" baseado em navegador em que nenhuma codificação é necessária. 
 
@@ -224,13 +222,10 @@ As faturas são produzidas diariamente. Para fins de cobrança, um dia começa �
 
 ## <a name="support-and-training"></a>Suporte e treinamento
 
-
-            **Onde posso obter treinamento para o Azure Machine Learning?**
+**Onde posso obter treinamento para o Azure Machine Learning?**
 
 O [Centro de Documentação do Azure Machine Learning](./overview-what-is-azure-ml.md) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo apresentam os serviços e explicam o ciclo de vida de ciência de dados. Incluímos novo material continuamente no Machine Learning Center. Você pode enviar solicitações de material de aprendizado adicional no fórum de comentários dos usuários.
 
-
-            **Como fazer para obter suporte ao Azure Machine Learning?**
+**Como fazer para obter suporte ao Azure Machine Learning?**
 
 Para obter suporte técnico, acesse o Suporte do Azure e selecione Machine Learning. O Azure Machine Learning também tem uma comunidade ativa em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) marcada com "Azure-Machine-Learning", monitorado pela equipe.  Sugestões e solicitações de recurso podem ser enviadas no site [Comentários sobre o Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
-

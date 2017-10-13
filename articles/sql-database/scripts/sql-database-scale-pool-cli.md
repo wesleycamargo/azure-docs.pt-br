@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5efdabf7258fc678811a0d0f19bc1d5e797ed807
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Use a CLI para dimensionar um pool elástico no Banco de Dados SQL do Azure
 
 Este exemplo de script da CLI do Azure cria pools elásticos do SQL, move os bancos de dados em pools e altera os níveis de desempenho do pool elástico. 
@@ -36,7 +34,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Mover banco de dados entre pools")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -64,4 +62,3 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um servido
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
-

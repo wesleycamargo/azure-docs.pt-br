@@ -16,12 +16,11 @@ ms.date: 08/24/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Como as assinaturas do Azure são associadas ao Azure Active Directory
 Este artigo aborda informações sobre a relação entre uma assinatura do Azure e o Azure AD (Azure Active Directory) e como adicionar uma assinatura existente ao diretório do Azure AD.
@@ -79,4 +78,3 @@ Uma pessoa pode desempenhar ambas as funções, mas isso não é obrigatório. U
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
-

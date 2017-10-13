@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
@@ -264,5 +263,4 @@ Em agosto de 2015, os seguintes recursos foram adicionados ao Catálogo de Dados
 * Adicionamos um novo botão "Usuário" e o menu à nossa barra de navegação superior. Esse menu permite que o usuário veja a conta usada para fazer logon no Catálogo de Dados do Azure e para sair, se desejado. Esse menu também exibe o nome do catálogo, que é importante para os desenvolvedores que usam o API REST do Catálogo de Dados do Azure.
 * Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o Catálogo de Dados do Azure agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 * Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
-
 

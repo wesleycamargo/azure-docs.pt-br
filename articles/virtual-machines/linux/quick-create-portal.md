@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Criar uma máquina virtual Linux com o Portal do Azure
 
 Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de máquinas virtuais e todos os recursos relacionados. Esse Início Rápido percorre a criação de uma máquina virtual e a instalação de um servidor Web na VM.
@@ -58,11 +56,11 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Na folha de **Configurações**, mantenha os padrões e clique em **OK**.
+5. Em **configurações**, mantenha os padrões e clique em **OK**.
 
 6. Na página de resumo, clique em **OK** para iniciar a implantação da máquina virtual.
 
-7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, o resumo da VM abre automaticamente.
+7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abrirá automaticamente.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
@@ -124,4 +122,3 @@ Neste início rápido, você implantou uma máquina virtual simples, uma regra d
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Linux Azure](./tutorial-manage-vm.md)
-

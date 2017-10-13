@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Criar relatórios de instantâneo do Cloud App Discovery
 
 Antes de configurar o coletor de logs automático, carregue um log manualmente e permita que o Cloud App Security o analise. Se você ainda não tem um log e deseja ver uma amostra de como deve ser a aparência dele, use o procedimento a seguir para baixar uma amostra de arquivo de log.
@@ -56,4 +54,3 @@ Antes de configurar o coletor de logs automático, carregue um log manualmente e
 * [Introdução ao uso do Cloud App Discovery no Azure AD](cloudappdiscovery-get-started.md)
 * [Configurar o upload automático de logs para relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Usar um analisador de log personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

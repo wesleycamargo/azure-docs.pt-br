@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-state"></a>Estado do serviço
 **Estado do serviço** refere-se aos dados em disco ou na memória que um serviço requer para funcionar. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço lê e grava para realizar trabalhos. Dependendo de como o serviço é estruturado, também pode incluir arquivos ou outros recursos armazenados em disco. Por exemplo, os arquivos que um banco de dados usaria para armazenar dados e logs de transação.
@@ -42,4 +41,3 @@ Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artig
 * [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
 * [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
 * [Reliable Services do Service Fabric](service-fabric-reliable-services-introduction.md)
-

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Criar grupos de segurança de rede usando um modelo do Azure Resource Manager
 
@@ -190,5 +189,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
    * **-l (ou --location)**. Região do Azure em que o grupo de recursos será criado.
    * **-f (ou --arquivo de modelo)**. Caminho para o arquivo de modelo ARM.
    * **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Usando a CLI 1.0 do Azure com o Armazenamento do Azure
 
@@ -242,4 +241,3 @@ Você pode encontrar a referência de comandos da CLI 1.0 do Azure para trabalha
 * [Comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](../../cli-install-nodejs.md)
 
 Talvez você também queira testar a [CLI do Azure 2.0](../storage-azure-cli.md), nossa CLI de próxima geração escrita em Python para uso com o modelo de implantação do Resource Manager.
-

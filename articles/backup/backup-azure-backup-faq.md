@@ -1,4 +1,3 @@
-
 ---
 title: Perguntas frequentes do Backup do Azure | Microsoft Docs
 description: "Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. "
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -185,4 +183,3 @@ A chave de criptografia deve ter pelo menos 16 caracteres, quando você estiver 
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados ou a Microsoft pode recuperar os dados? <br/>
 A chave usada para criptografar os dados de backup está presente apenas nas instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente inserir a chave incorretamente, a Microsoft não poderá recuperar os dados de backup.
-

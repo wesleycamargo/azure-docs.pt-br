@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 526f3522334450564500c4ba0e401a683cae55f6
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 07cb786e3053cb933fb87b2991cebb979a91ace0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Criar uma máquina virtual básica no Azure com o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais (VMs) no Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como criar uma VM básica com o Ansible. Você também pode aprender a [Criar um ambiente completo de VM com o Ansible](ansible-create-complete-vm.md).
 

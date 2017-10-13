@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorar e atualizar uma máquina Virtual do Windows com o Azure PowerShell
 
 O monitoramento do Azure usa agentes para coletar dados de desempenho e inicialização de VMs do Azure, armazenar esses dados no armazenamento do Azure e torná-los acessíveis por meio do Portal, do módulo do Azure PowerShell e da CLI do Azure. O Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure.

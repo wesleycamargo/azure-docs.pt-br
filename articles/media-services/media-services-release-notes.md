@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
+ms.openlocfilehash: 202cd5441401a91736a55ccba095fa08dc95aa26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -556,5 +555,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Github]: https://github.com/Azure/azure-sdk-for-media-services
 [Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
 

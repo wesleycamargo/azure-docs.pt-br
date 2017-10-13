@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
 ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Preparando um aplicativo no Azure
 Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure para ser testado antes de movê-lo para o ambiente de produção onde o aplicativo pode ser acessado na Internet. O ambiente de preparo é exatamente igual ao ambiente de produção, exceto que você só poderá acessar o aplicativo preparado com uma URL ofuscada que é gerada pelo Azure. Após verificar que seu aplicativo está funcionando corretamente, ele pode ser implantado no ambiente de produção executando uma permuta do VIP (IP Virtual).

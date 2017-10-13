@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
 ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar o Cache Redis do Azure
 Este tópico descreve como examinar e atualizar a configuração para suas instâncias de Cache Redis do Azure, além de incluir a configuração do servidor Redis padrão para instâncias de Cache Redis do Azure.

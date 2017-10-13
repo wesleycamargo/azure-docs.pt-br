@@ -16,10 +16,10 @@ ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - como desbloquear usuários
 Com o Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas. Normalmente, um usuário bloqueado entra em contato com o suporte técnico para ser desbloqueado. Este tópico explica as etapas que você pode executar para desbloquear um usuário bloqueado.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d7847f695a77ad469f56a20518cb979c41384d1e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Mover dados de e para o Armazenamento de Blobs do Azure usando Python
 Este tópico descreve como listar, carregar e baixar blobs usando a API Python. Com a API do Python fornecida no SDK do Azure, você pode:
@@ -129,4 +128,3 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
             blob_service.get_blob_to_path(CONTAINER_NAME, blob.name, local_file)
         except:
             print "something wrong happened when downloading the data %s"%blob.name
-

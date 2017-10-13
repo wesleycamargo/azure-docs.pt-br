@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 5260d6afd24ae0a9c60ee609b54f04bf901f219d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
@@ -447,5 +446,4 @@ public bool IsTransient(Exception ex)
 * Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Pool de conexões do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* é uma biblioteca de novas tentativas para fins gerais licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de nova tentativa a quase tudo.](https://pypi.python.org/pypi/retrying)
-
 

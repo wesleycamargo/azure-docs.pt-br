@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 1c1b3aa86dc8211de0c07c9fb68da5685c86f551
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.

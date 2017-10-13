@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)*, configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)*. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.

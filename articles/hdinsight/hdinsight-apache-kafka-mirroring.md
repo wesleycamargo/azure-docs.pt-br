@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7628f0120deb3cc5b179c00ec50d967f7b1c1dbf
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight (versão prévia)
 
@@ -275,4 +274,3 @@ Neste documento, você aprendeu a usar o MirrorMaker para criar uma réplica de 
 * [Usar o Apache Spark com o Kafka no HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Usar Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Conectar-se ao Kafka por meio de uma Rede Virtual do Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
-

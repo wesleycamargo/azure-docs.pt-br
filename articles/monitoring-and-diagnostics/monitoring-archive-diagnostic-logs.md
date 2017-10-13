@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
 ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell, CLI ou API REST para arquivar seu [log de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu log de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou backup. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.

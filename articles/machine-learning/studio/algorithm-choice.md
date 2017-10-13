@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
 A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.
@@ -247,4 +246,3 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

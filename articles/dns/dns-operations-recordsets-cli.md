@@ -14,14 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando a CLI do Azure 2.0
 
 > [!div class="op_single_selector"]
@@ -301,4 +299,3 @@ Será solicitado que você confirme a operação de exclusão. Para suprimir ess
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>
 Saiba como [proteger seus registros e zonas](dns-protect-zones-recordsets.md) ao usar o DNS do Azure.
-

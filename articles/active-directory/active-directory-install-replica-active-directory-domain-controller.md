@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure
 Este tópico mostra como instalar controladores de domínio adicionais (também conhecidos como controladores de domínio de réplica) para um domínio Active Directory local em máquinas virtuais (VMs) do Azure numa rede virtual do Azure.
@@ -82,7 +81,7 @@ Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface
 Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## <a name="install-ad-ds-on-azure-vms"></a>Instale o AD DS em máquinas virtuais do Azure
-Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN site a site ou Rota Expressa para recursos em sua rede local. Em seguida, instale o AD DS nas VMs do Azure. Você pode usar o mesmo processo que você usa para instalar um controlador de domínio adicional na sua rede local (interface do usuário, Windows PowerShell ou um arquivo de resposta). Enquanto instala o AD DS, certifique-se de especificar o novo volume para a localização do banco de dados, logs e SYSVOL do AD. Se você precisar de um atualizador na instalação do AD DS, consulte [Instalar os Active Directory Domain Services (nível 100)](https://technet.microsoft.com/library/hh472162.aspx) ou [Instalar um Controlador de Domínio de Réplica do Windows Server 2012 em um Domínio Existente (nível 200)](https://technet.microsoft.com/library/jj574134.aspx).
+Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN site a site ou ExpressRoute para recursos em sua rede local. Em seguida, instale o AD DS nas VMs do Azure. Você pode usar o mesmo processo que você usa para instalar um controlador de domínio adicional na sua rede local (interface do usuário, Windows PowerShell ou um arquivo de resposta). Enquanto instala o AD DS, certifique-se de especificar o novo volume para a localização do banco de dados, logs e SYSVOL do AD. Se você precisar de um atualizador na instalação do AD DS, consulte [Instalar os Active Directory Domain Services (nível 100)](https://technet.microsoft.com/library/hh472162.aspx) ou [Instalar um Controlador de Domínio de Réplica do Windows Server 2012 em um Domínio Existente (nível 200)](https://technet.microsoft.com/library/jj574134.aspx).
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Reconfigure o servidor DNS para a rede virtual
 1. No [Portal do Azure](https://portal.azure.com), na caixa **Pesquisar recursos**, digite *Redes virtuais*, em seguida, clique em **Redes virtuais (clássicas)** nos resultados da pesquisa. Clique no nome da rede virtual e [reconfigure os endereços IP do servidor DNS para a sua rede virtual](../virtual-network/virtual-network-manage-network.md#dns-servers) e use os endereços IP estáticos atribuídos aos controladores de domínio da réplica em vez de endereços IP de servidores DNS locais.
@@ -115,4 +114,3 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
-

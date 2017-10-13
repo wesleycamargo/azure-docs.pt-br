@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cf3058832ba656a1a18aea194bf4e5ce4e800e76
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação autônoma para o conector de Proxy de Aplicativo do Azure AD
 
 Este tópico ajuda você a criar um script do Windows PowerShell que permite a instalação autônoma e registro para o conector de Proxy de Aplicativo do Azure AD.
@@ -132,6 +130,5 @@ Há dois métodos que você pode usar para registrar o conector:
 * [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
-
 
 

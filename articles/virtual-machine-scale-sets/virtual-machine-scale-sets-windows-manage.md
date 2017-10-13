@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: d09a020b903e5f43afe03b86c675bcc1eb536cbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Gerenciar máquinas virtuais em um conjunto de dimensionamento de máquinas virtuais
 Use as tarefas neste artigo para gerenciar as máquinas virtuais no conjunto de dimensionamento de máquinas virtuais.
@@ -214,5 +212,4 @@ Você pode adicionar ou remover máquinas virtuais, alterando a capacidade do co
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Se você estiver removendo máquinas virtuais do conjunto de dimensionamento, as máquinas virtuais com as ids de mais altas são removidas primeiro.
-
 

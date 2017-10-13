@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
 
 Historicamente, os aplicativos da Retransmissão do Azure podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) fornecido diretamente pelo serviço de Retransmissão e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para a Retransmissão para autorização do acesso aos recursos desejados.
@@ -67,6 +65,5 @@ Para saber mais sobre a autenticação da Retransmissão do Azure, confira os t�
 
 * [Autenticação e autorização da Retransmissão do Azure](relay-authentication-and-authorization.md)
 * [Autenticação do Barramento de Serviço com Assinaturas de Acesso Compartilhado](../service-bus-messaging/service-bus-sas.md)
-
 
 

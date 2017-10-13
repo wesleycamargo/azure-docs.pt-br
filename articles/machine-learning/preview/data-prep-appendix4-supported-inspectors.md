@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>Inspetores com suporte para essa versão prévia
 Este documento descreve o conjunto de inspetores disponíveis nesta versão prévia.
 
@@ -113,4 +111,3 @@ Um mapa com pontos traçados assumindo que a latitude e a longitude foram especi
 ### <a name="actions"></a>Ações
 Esse inspetor dá suporte à filtragem por meio da seleção de ponto do mapa. Pressione a tecla Control e clique e arraste o mouse para formar um quadrado em torno dos pontos. Em seguida, aplique os filtros conforme descrito anteriormente.
 É possível dimensionar rapidamente o mapa para mostrar todos os pontos possíveis e não mais pressionando **E** no lado esquerdo do mapa.
-

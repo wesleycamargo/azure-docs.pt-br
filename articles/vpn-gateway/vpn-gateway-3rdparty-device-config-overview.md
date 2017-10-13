@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações de dispositivo VPN de parceiros
 Este artigo apresenta uma visão geral da configuração de dispositivos VPN locais para conexão com gateways de VPN do Azure. Um exemplo de rede virtual do Azure, e a configuração do gateway de VPN, serão usados para mostrar a você como se conectar a diferentes dispositivos VPN locais com os mesmos parâmetros.
@@ -156,5 +155,4 @@ Quando você cria a conexão VPN S2S, opcionalmente, pode usar o [BGP para o gat
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter instruções detalhadas de configuração de gateways de VPN ativo-ativo, confira [Configurar gateways de VPN ativo-ativo para conexões locais e de VNet-para-VNet](vpn-gateway-activeactive-rm-powershell.md).
-
 

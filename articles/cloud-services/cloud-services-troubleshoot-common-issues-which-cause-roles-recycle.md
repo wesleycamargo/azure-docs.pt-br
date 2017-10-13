@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
+ms.openlocfilehash: 06c174387904f30ddd090f8c67ce33837555505b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de solução de problemas para ajudá-lo a resolvê-los. Uma indicação de que existe um problema com um aplicativo é quando há uma falha na inicialização da instância de função ou se ela alterna entre os estados inicializando, ocupado e parando.
@@ -70,4 +69,3 @@ Veja mais cenários de reciclagem da função na [Série de blogs de Kevin Willi
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
-

@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a6e331e622b007232a62b34c2220d60d1d050ca
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-of-custom-column-transforms-python"></a>Exemplo de transformações de coluna personalizadas (Python) 
 O nome dessa transformação no menu é 'Adicionar Coluna (Script)'
 
@@ -55,7 +53,6 @@ Número de segundos desde a Época Unix (assumindo que Col1 já é uma data)
 ```python
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
-
 
 
 

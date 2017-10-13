@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Azure Machine Learning, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Azure Machine Learning.
@@ -65,9 +64,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 > 
 > 
 
-### 
-            <a name="sql-aml">
-            </a>Conectando ao Azure Machine Learning
+### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
 É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
 
 ![sql leitor][1]
@@ -88,9 +85,7 @@ A biblioteca [Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 
 Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas. 
 
-### 
-            <a name="python-aml">
-            </a>Conectando ao Azure Machine Learning
+### <a name="python-aml"></a>Conectando ao Azure Machine Learning
 Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um Teste do Azure Machine Learning usando o módulo [Importar Dados][import-data]. As etapas são as seguintes: 
 
 1. Gravar o quadro de dados Pandas em um arquivo local
@@ -128,4 +123,3 @@ Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

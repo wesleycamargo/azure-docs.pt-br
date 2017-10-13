@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: a3ecc555e049914d7bffdddce7b0522f09362d24
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-8-set-up-a-replication-policy"></a>Etapa 8: Configurar uma política de replicação
 
@@ -77,4 +76,3 @@ Você pode fazer a replicação offline para a cópia inicial de dados. Você po
 ## <a name="next-steps"></a>Próximas etapas
 
 Acesse a [Etapa 9: Habilitar a replicação](vmm-to-vmm-walkthrough-enable-replication.md).
-

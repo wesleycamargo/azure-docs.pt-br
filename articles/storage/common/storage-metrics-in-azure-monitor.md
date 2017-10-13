@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
+ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: b9fac8796b9cb36418d4494eaaf8080744321e19
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Métricas do Armazenamento do Azure no Azure Monitor (visualização)
 
 Com as métricas do Armazenamento do Azure, você pode analisar tendências de uso, rastrear solicitações e diagnosticar problemas com a sua conta de armazenamento.
@@ -267,4 +265,3 @@ As métricas herdadas estão disponíveis paralelamente às métricas gerenciada
 ## <a name="see-also"></a>Consulte também
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-

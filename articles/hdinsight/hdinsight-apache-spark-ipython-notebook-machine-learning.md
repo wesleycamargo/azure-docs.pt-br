@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: abb5bcf91a0155f1311bc28657b6208c00e945d1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 928c452869d27c7f40982d8b5d400c3a611008a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Criar aplicativos de aprendizado de máquina do Apache Spark no Azure HDInsight
 
@@ -202,7 +201,7 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -233,4 +232,3 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-

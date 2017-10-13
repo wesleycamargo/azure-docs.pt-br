@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
+ms.openlocfilehash: c19b5156bc23b06de48bc7a6dc786f576f78127d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a7527b12f4f0d2b45713a0c0109d81ff51293fd8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Criar uma cópia de um VHD armazenado como um Disco Gerenciado do Azure usando instantâneos gerenciados
 Crie um instantâneo de um Disco Gerenciado para backup ou crie um Disco Gerenciado usando o instantâneo e anexe-o a uma máquina virtual de teste para solução de problemas. Um Instantâneo Gerenciado é uma cópia pontual completa de um Disco Gerenciado da VM. Ele cria uma cópia somente leitura do seu VHD e, por padrão, a armazena como um Disco Gerenciado Standard. Para saber mais sobre Managed Disks, confira [Visão geral dos Managed Disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -82,6 +81,5 @@ $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -L
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 Se você planeja usar o instantâneo para criar um Disco Gerenciado e anexá-lo a uma VM que precisa ser de alto desempenho, use o parâmetro `-AccountType Premium_LRS` com o comando New-AzureRmSnapshot. O parâmetro cria o instantâneo para que ele seja armazenado como um Disco Gerenciado Premium. Os Discos Gerenciados Premium são mais caros que os Standard. Portanto, assegure-se de que os discos Premium sejam realmente necessários antes de usar esse parâmetro.
-
 
 

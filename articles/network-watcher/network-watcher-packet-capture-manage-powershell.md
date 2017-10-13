@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: abd3b3641da80ee835fac85b4bde68594449e451
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 5c6012ffea84c0fb0ffff95978af0145b8d40422
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o PowerShell
 
 > [!div class="op_single_selector"]
@@ -283,7 +281,6 @@ Saiba como automatizar a captura de pacote com alertas de máquina Virtual por m
 Localizar se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo de IP](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
-
 
 
 

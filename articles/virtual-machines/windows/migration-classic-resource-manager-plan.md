@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
 
@@ -223,4 +220,3 @@ Lembre-se do motivo que fez você iniciar esta jornada de migração do Clássic
 * [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Examinar os erros de migração mais comuns](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Confira as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

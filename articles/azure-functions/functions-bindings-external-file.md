@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Associações de arquivo externo do Azure Functions (versão prévia)
 Este artigo mostra como manipular arquivos de provedores SaaS diferentes (por exemplo, OneDrive, Dropbox) em sua função utilizando associações internas. O Azure Functions dá suporte a associações de gatilho, entrada e saída de arquivos externos.
@@ -364,4 +363,3 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

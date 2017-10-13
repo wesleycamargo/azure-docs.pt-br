@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhando com datas no Azure Cosmos DB
 O Azure Cosmos DB fornece flexibilidade de esquema e indexação avançada por meio de um modelo de dados [JSON](http://www.json.org) nativo. Todos os recursos do Azure Cosmos DB, incluindo bancos de dados, coleções, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para ser portátil, o JSON (e o Azure Cosmos DB) dá suporte apenas a um conjunto pequeno de tipos básicos: Cadeia de caracteres, Número, Booliano, Matriz, Objeto e Nulo. No entanto, o JSON é flexível e permite aos desenvolvedores e estruturas representar tipos mais complexos usando esses primitivos e compondo-os como objetos ou matrizes. 
@@ -92,4 +91,3 @@ Neste artigo, analisamos como armazenar, indexar e consultar DateTimes no Azure 
 * Baixe e execute os [Exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Saiba mais sobre a [Consulta da API do DocumentDB](documentdb-sql-query.md)
 * Saiba mais sobre as [Políticas de indexação do Azure Cosmos DB](indexing-policies.md)
-

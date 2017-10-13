@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protegendo os dados armazenados no repositório Azure Data Lake
 A proteção de dados no repositório Azure Data Lake é uma abordagem de três etapas.
@@ -159,5 +158,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do Az
 * [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 * [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Acessar os logs de diagnóstico do Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
 

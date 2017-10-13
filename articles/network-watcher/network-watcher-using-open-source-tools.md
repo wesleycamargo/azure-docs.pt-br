@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
 
 As capturas de pacote contêm dados de rede que permitem que você execute análise forense e inspeções profundas. Você pode usar muitas das ferramentas de softwares livres disponíveis para analisar as capturas de pacote para aprofundar-se sobre a sua rede. Uma dessas ferramentas é a CapAnalysis, uma ferramenta de visualização de captura de pacote de software livre. Visualizar dados de captura de pacote é uma maneira valiosa para aprofundar-se rapidamente sobre os padrões e anomalias na rede. As visualizações também fornecem um meio de compartilhar essas informações de maneira facilmente consumível.
@@ -111,4 +109,3 @@ Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visua
 [9]: ./media/network-watcher-using-open-source-tools/figure9.png
 [10]: ./media/network-watcher-using-open-source-tools/figure10.png
 [11]: ./media/network-watcher-using-open-source-tools/figure11.png
-

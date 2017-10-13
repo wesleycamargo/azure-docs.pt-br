@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="group-manager-tasks"></a>Tarefas do Gerente de Grupo
 
 Este tópico descreve as tarefas que um Gerente de Grupo deve concluir para sua organização de ciência de dados. O objetivo é estabelecer um ambiente de grupo colaborativo que padronize o TDSP ([Processo de Ciência de Dados da Equipe](overview.md)). Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).

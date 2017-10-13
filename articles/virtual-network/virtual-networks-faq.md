@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
+ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -216,4 +215,3 @@ Sim. Saiba mais sobre como usar:
 - O Portal do Azure para implantar redes virtuais por meio dos modelos de implantação do [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) e [clássico](virtual-networks-create-vnet-classic-pportal.md).
 - O PowerShell para gerenciar redes virtuais implantadas por meio dos modelos de implantação do [Gerenciador de Recursos](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) e [clássico](/powershell/module/azure/?view=azuresmps-3.7.0).
 - A [interface de linha de comando (CLI) do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) para gerenciar redes virtuais implantadas por meio de ambos os modelos de implantação.  
-

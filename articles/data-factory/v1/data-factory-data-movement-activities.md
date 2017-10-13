@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3334230097c3c0932fd732ff3f4e9c0aa35dbcc0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -216,4 +215,3 @@ O mapeamento de um sistema de tipo nativo para o tipo .NET do armazenamento de d
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a Atividade de Cópia, consulte [Copiar dados de armazenamento de Blobs do Azure para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para saber mais sobre como mover dados de um repositório de dados local para um repositório de dados na nuvem, confira [Mover dados de repositórios de dados locais para repositórios de dados na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
-

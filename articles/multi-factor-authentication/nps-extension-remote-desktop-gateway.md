@@ -16,12 +16,11 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6ff9a341b31e5005949dcc0ecb2591060269846e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -378,7 +377,6 @@ A imagem abaixo do Analisador de Mensagens da Microsoft mostra o tráfego de red
 ## <a name="next-steps"></a>Próximas etapas
 [Como obter a Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md)
 
-[Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS](multi-factor-authentication-get-started-server-rdg.md)
+[Gateway de Área de Trabalho Remota e Servidor Azure Multi-Factor Authentication usando RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
 [Integrar seus diretórios locais no Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-

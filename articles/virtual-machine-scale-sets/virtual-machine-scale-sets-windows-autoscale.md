@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 91f731bec46c005221f4e66e95822994070d4c26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente máquinas em um conjunto de escala de máquina virtual
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para obter mais informações sobre conjuntos de dimensionamento, confira [Conjuntos de Dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
@@ -597,5 +595,4 @@ Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de
 * Encontre exemplos de recursos de monitoramento do Azure Monitor nos [Exemplos de início rápido do Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 * Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-
 

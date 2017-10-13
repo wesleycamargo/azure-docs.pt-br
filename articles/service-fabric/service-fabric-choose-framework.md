@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: vturecek
 ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Visão geral do modelo de programação do Service Fabric
 O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços. Os serviços podem escolher usar as APIs do Service Fabric para se beneficiarem dos recursos e estruturas de aplicativo da plataforma. Os serviços também podem ser um programa executável compilado, escrito em qualquer linguagem ou código executado em um contêiner simplesmente hospedado em um cluster do Service Fabric.

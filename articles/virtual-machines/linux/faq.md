@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 0e06d21bd0b6ef807f38e41dcd50c9cd715607a3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre as Máquinas Virtuais Linux
 Este artigo trata de algumas das perguntas mais comuns feitas sobre as máquinas virtuais Linux criadas no Azure com o modelo de implantação do Gerenciador de Recursos. Para a versão deste tópico para o Windows, confira [Perguntas frequentes sobre Máquinas Virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -115,4 +114,3 @@ As seguintes senhas não são permitidas:
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
-

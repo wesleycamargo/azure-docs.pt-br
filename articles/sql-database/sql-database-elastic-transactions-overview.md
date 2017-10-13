@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -150,7 +149,6 @@ Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

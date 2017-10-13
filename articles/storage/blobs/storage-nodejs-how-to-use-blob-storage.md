@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Como usar o armazenamento de Blob do Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -425,6 +424,5 @@ Para saber mais, consulte os recursos a seguir.
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[SDK de Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  
-
+[Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[SDK do Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  

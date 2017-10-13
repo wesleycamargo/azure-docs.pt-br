@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente computadores Linux em um conjunto de escala de máquina virtual
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para saber mais, consulte [Visão geral de conjuntos de escala de máquina virtual](virtual-machine-scale-sets-overview.md).

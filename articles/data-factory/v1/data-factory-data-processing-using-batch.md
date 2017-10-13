@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 Este artigo descreve uma arquitetura de um exemplo de solução que move e processa os conjuntos de dados em larga escala de maneira automática e agendada. Ele também fornece um passo a passo completo para implementar a solução usando Azure Data Factory e o Lote do Azure.
@@ -911,4 +910,3 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-

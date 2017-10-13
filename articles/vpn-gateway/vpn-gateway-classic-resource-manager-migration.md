@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de Recursos
 Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/resource-group-overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 
@@ -68,5 +66,4 @@ Como é possível transformar a conectividade VNet a VNet sem a necessidade de s
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o suporte à migração de gateway de VPN, acesse [migração com suporte de plataforma de recursos de IaaS do clássico para o Gerenciador de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
-
 

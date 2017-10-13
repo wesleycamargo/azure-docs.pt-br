@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Protegendo o Banco de Dados SQL
 
@@ -84,4 +83,3 @@ Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a at
 - Para uma discussão sobre o uso de recursos de controle de acesso no Banco de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 - Para uma discussão sobre auditoria de banco de dados, consulte [Auditoria de Banco de Dados SQL](sql-database-auditing.md).
 - Para uma discussão sobre detecção de ameaças, consulte [Detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
-

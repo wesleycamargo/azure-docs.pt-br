@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Criar uma origem de eventos para o seu ambiente de Análise de Séries Temporais usando o portal do Ibiza
 
 Uma Origem de Evento da Análise de Séries Temporais é derivada de um agente de evento, como o Hubs de Eventos do Azure. A Análise de Séries Temporais se conecta diretamente às Origens de Evento, ingerindo o fluxo de dados sem exigir que os usuários escrevam uma única linha de código. Atualmente, a Análise de Séries Temporais dá suporte a Hubs de Eventos do Azure e a Hubs IoT do Azure. No futuro, mais fontes de eventos serão adicionadas.
@@ -55,4 +53,3 @@ Após a criação da origem de evento, a Análise de Séries Temporais iniciará
 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento
 * Exibir seu ambiente no [Portal de Análise de Séries Temporais](https://insights.timeseries.azure.com)
-

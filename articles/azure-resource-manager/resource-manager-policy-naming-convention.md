@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Aplicar políticas de recursos a nomes e texto
 Este tópico mostra várias [políticas de recursos](resource-manager-policy.md) que podem ser aplicadas para estabelecer as convenções de nomenclatura e texto. Essas políticas garantem a consistência de nomes de recursos e valores de marcação. 

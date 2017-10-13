@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
 Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permita que outras pessoas vejam seu painel usando o [Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-configure.md) do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 

@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: ef922668f080b8f02f07c2f9724f5a98171fb754
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 67581624ca00893176e6d31c7b2de92a19fe966a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
 
 A extensão NPS (servidor de políticas de rede) estende os recursos de Autenticação Multifator do Azure baseados em nuvem para sua infraestrutura local. Este artigo pressupõe que você já tenha a extensão instalada e agora deseje saber como personalizá-la para as suas necessidades. 

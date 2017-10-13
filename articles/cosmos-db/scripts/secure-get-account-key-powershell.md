@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: 912e1af684c90cd84b6b00bacbc7dd8d4434c5b9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>Obtenha chaves de conta para o BD Cosmos do Azure usando o PowerShell
 
@@ -30,7 +30,7 @@ Este exemplo obtém chaves de conta para qualquer tipo de conta do BD Cosmos do 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Obter as chaves para uma conta do BD Cosmos do Azure")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

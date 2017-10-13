@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Active Directory do Azure
 A Biblioteca de Autenticação do Azure Active Directory (ADAL) permite que os desenvolvedores de aplicativo cliente autentiquem facilmente os usuários no Active Directory (AD) local ou em nuvem e obtenham tokens para proteger as chamadas à API. A ADAL facilita a autenticação para os desenvolvedores por meio de recursos, como:
@@ -92,4 +91,3 @@ Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor qu
 - [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 - [Cenários de autenticação do Active Directory do Azure](active-directory-authentication-scenarios.md)
 - [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
-

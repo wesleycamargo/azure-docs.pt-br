@@ -15,13 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 7977460f61bfdabd399e45e86d9bbf2e5083992b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-networking"></a>Exemplos de CLI do Azure para rede
 
@@ -39,4 +37,3 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 | [Balanceamento de carga de vários sites em VMs](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Cria duas VMs com várias configurações de IP, associadas a um conjunto de disponibilidade do Azure, acessível por meio de um Azure Load Balancer. |
 | [Direcionar o tráfego através de várias regiões para alta disponibilidade de aplicativos](./scripts/traffic-manager-cli-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Cria dois planos de serviço de aplicativo, dois aplicativos web, um perfil do Gerenciador de tráfego e dois pontos de extremidade de Gerenciador de tráfego. |
 | | |
-

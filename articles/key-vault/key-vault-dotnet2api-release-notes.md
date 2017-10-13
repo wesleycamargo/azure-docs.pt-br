@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 21b34e30a7e07b37ccae3f101f2ab4dfadfad9bf
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
 As anotações e as diretrizes a seguir são para desenvolvedores que trabalham com a biblioteca .NET/C# do Azure Key Vault. Na transição da versão 1.0 para a versão 2.0, diversas atualizações feitas exigirão o trabalho de migração em seu código para que você se beneficie de aprimoramentos funcionais e adições de recurso, como suporte a **certificados do Key Vault**.
@@ -108,5 +106,4 @@ Quando um cliente está processando uma dependência no Cofre de Chaves, os iten
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
 * O pacote é dividido em **Microsoft.Azure.KeyVault.Extensions** e **Microsoft.Azure.KeyVault.Cryptography** para as operações de criptografia.
-
 

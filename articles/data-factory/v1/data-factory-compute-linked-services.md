@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bccdfdc486f5e79f034c5a940e42c5f230283a50
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -33,8 +32,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | --- | --- |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| 
-            [Azure Machine Learning](#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análise Azure Data Lake](#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
@@ -468,5 +466,4 @@ Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo 
 
 ## <a name="sql-server-linked-service"></a>Serviço vinculado do SQL Server
 Você pode criar um serviço vinculado do SQL Server e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
-
 

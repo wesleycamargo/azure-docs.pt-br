@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="community-portal"></a>Portal da comunidade
 ## <a name="community-spotlight"></a>Destaque da comunidade
@@ -192,8 +192,7 @@ Mantenha-se atualizado com as últimas notícias e recursos do Azure Cosmos DB s
 ### <a name="online-classes"></a>Aulas online
 | Parceiro de aprendizagem | Descrição |
 | --- | --- |
-| [![Microsoft Virtual Academy](./media/community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[
-            **Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) oferece treinamento ministrado pelas pessoas que ajudaram a compilar o Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) oferece treinamento ministrado pelas pessoas que ajudaram a compilar o Azure DocumentDB. |
 | [![Pluralsight](./media/community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) é uma parceira fundamental da Microsoft que oferece treinamento do Azure. Se você for assinante do MSDN, use seus benefícios para acessar o treinamento do Microsoft Azure. |
 | [![OpsGility](./media/community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) oferece treinamento técnico aprofundado sobre o Microsoft Azure. Obtenha treinamento com instrutores no local ou em uma sala de aula à distância com treinadores reconhecidos no mercado. |
 

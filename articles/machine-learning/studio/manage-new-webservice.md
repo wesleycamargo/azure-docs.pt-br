@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning
 Com o portal de Serviços Web do Microsoft Azure Machine Learning, você pode gerenciar seus serviços Web novos e clássicos de Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
@@ -188,5 +187,4 @@ Para gerenciar as contas adicionais quem têm acesso ao espaço de trabalho no M
 > O link **Entrar no Estúdio AM** abre o Machine Learning Studio usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no Portal Clássico do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
 > 
 > 
-
 

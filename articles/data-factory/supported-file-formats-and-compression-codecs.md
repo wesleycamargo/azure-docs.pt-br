@@ -9,14 +9,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: jingwang
+ms.openlocfilehash: 758c8e73cf54cd21f4d87f19a64d8d71eee159c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b20a9b411fed6e3cba489ee399789a13155beaf0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 
 *Este tópico se aplica aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob do Azure](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [Sistema de Arquivos](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*

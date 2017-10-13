@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: e434292485ef9da1a8e23da25ac731d9bf0177ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 7082f0c4b1a4cf0f67da5254b4ebb019c7299683
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na Automação do Azure
 
 Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC usando a atividade **Get-AzureRmAutomationCertificate** para recursos do Azure Resource Manager. Isso permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros.
@@ -117,4 +115,3 @@ O exemplo a seguir mostra como acessar certificados em runbooks do Python2.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como trabalhar com links para controlar o fluxo lógico de atividades que o seu runbook é projetado para realizar, consulte [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow). 
-

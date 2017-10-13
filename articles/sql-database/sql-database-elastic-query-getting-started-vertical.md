@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
 ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
 A consulta de banco de dados elástico (visualização) para o Banco de Dados SQL do Azure permite executar consultas T-SQL que abrangem vários bancos de dados usando um único ponto de conexão. Este tópico se aplica a [bancos de dados particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md).  

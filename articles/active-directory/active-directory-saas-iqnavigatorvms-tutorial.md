@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 1164723a171843541098f6adbda0e65f7e82a0cb
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integração do Azure Active Directory ao IQNavigator VMS
 
@@ -254,5 +253,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_203.png
-
 

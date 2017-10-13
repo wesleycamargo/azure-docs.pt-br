@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
+ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: af5b05a366c1abbe7c91d186358dba2b4a957f92
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Usar o Log Analytics do Azure para monitorar clusters HDInsight (versão prévia)
 
@@ -43,7 +42,7 @@ O Log Analytics é um serviço no [OMS (Operations Management Suite)](../operati
     Para obter instruções sobre como criar um cluster HDInsight, consulte [Introdução ao Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
-* **Um espaço de trabalho do Log Analytics**. É possível pensar neste espaço de trabalho como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. É necessário ter um desse espaço de trabalho já criado que você pode associar aos clusters do Azure HDInsight. Para obter instruções, consulte [Criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-get-started.md#2-create-a-workspace).
+* **Um espaço de trabalho do Log Analytics**. É possível pensar neste espaço de trabalho como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. É necessário ter um desse espaço de trabalho já criado que você pode associar aos clusters do Azure HDInsight. Para obter instruções, consulte [Criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
 ## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>Configurar o cluster HDInsight para usar o Azure Log Analytics
 
@@ -67,4 +66,3 @@ Nesta seção, você configurará um cluster HDInsight Hadoop existente para usa
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar soluções de gerenciamento de cluster HDInsight para o Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
-

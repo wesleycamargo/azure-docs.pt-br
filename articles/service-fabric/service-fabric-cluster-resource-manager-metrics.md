@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
 *Métricas* são os recursos que são importantes para seus serviços e que são fornecidas pelos nós no cluster. Uma métrica é tudo o que você deseja gerenciar para melhorar ou monitorar o desempenho de seus serviços. Por exemplo, você pode observar o consumo de memória para saber se o serviço está sobrecarregado. Outro uso é para descobrir se o serviço pode ser movido para outro lugar onde a memória seja menos restrita para obter um melhor desempenho.
@@ -273,4 +272,3 @@ No exemplo inferior, o Gerenciador de Recursos de Cluster distribuiu as réplica
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
-

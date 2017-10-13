@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 0fda4bb948bbed1c14d468519ba67cce9bc4e6c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas do banco de dados elástico
 Os termos a seguir são definidos para as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md), um recurso do Banco de Dados SQL do Azure. As ferramentas são usadas para gerenciar [mapas de fragmentos](sql-database-elastic-scale-shard-map-management.md) e incluem a [biblioteca de cliente](sql-database-elastic-database-client-library.md), a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), [pools elásticos](sql-database-elastic-pool.md) e [consultas](sql-database-elastic-query-overview.md). 

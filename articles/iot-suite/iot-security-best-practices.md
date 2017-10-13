@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das Coisas
 Proteger uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia de segurança em camadas rigorosa. Essa estratégia exige que você proteja dados na nuvem, proteja a integridade dos dados enquanto eles estão em trânsito na Internet pública e provisione dispositivos com segurança. Cada camada cria uma maior garantia de segurança na infraestrutura geral.

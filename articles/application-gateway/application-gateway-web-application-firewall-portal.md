@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e747d4777bdf515e8b7bd54f44ff48b8539ed765
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal
 
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 08/29/2017
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
-Saiba como criar um gateway de aplicativo habilitado para WAF (firewall do aplicativo Web).
+Saiba como criar um gateway de aplicativo habilitado para firewall do aplicativo Web (WAF).
 
 O WAF no Gateway de Aplicativo do Azure protege aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O WAF protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
 
@@ -75,7 +73,7 @@ Este exemplo atualiza um gateway de aplicativo existente para dar suporte ao WAF
     > [!NOTE]
     > Para exibir os logs do WAF, habilite o diagnóstico e escolha **ApplicationGatewayFirewallLog**. Escolha uma contagem de instância de **1** apenas para fins de teste. Não é recomendável uma contagem de instâncias em **2**, pois ele não é coberto por um SLA. Gateways pequenos não estão disponíveis quando você usa um WAF.
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web
+## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Como criar um gateway de aplicativo com um firewall do aplicativo Web
 
 Este cenário:
 
@@ -146,7 +144,7 @@ Este cenário:
 Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-ends, configurações de HTTP de back-end e regras. Depois que o provisionamento for finalizado com êxito, você poderá modificar essas configurações para ajustá-las à sua implantação.
 
 > [!NOTE]
-> Os gateways de aplicativo criados com a configuração básica do WAF são definidos com o CRS 3.0 para proteções.
+> Os gateways de aplicativos criados com a configuração básica do WAF são definidos com o CRS 3.0 para proteções.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -166,4 +164,3 @@ Para configurar o descarregamento SSL e afastar a onerosa assinatura de SSL dos 
 [3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-

@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor de métrica atender a uma condição
 
 O Azure Monitor disponibiliza métricas para muitos recursos do Azure. Essas métricas transmitem o desempenho e a integridade desses recursos. Em muitos casos, os valores de métrica podem apontar para algo errado com um recurso. Você pode criar alertas de métrica para monitorar o comportamento anormal e ser notificado quando isso ocorrer. Este Guia de início rápido executa em etapas a criação de um Aplicativo Lógico, a criação de um trabalho e a visualização das métricas do aplicativo lógico. Em seguida, ele explica como criar um alerta e receber uma notificação de uma métrica para o recurso Aplicativo Lógico.
@@ -116,4 +114,3 @@ Neste guia de início rápido, você aprendeu a criar um alerta de métrica para
 
 > [!div class="nextstepaction"]
 > [Alertas de ação de assinatura do Azure Monitor](./monitor-quick-audit-notify-action-in-subscription.md )
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>Personalizar clusters Hadoop do Azure HDInsight para o Processo de Ciência de Dados de Equipe
 Este artigo descreve como personalizar um cluster Hadoop do HDInsight instalando o Anaconda de 64 bits (Python 2.7) em cada nó quando o cluster for provisionado como um serviço do HDInsight. Ele também mostra como acessar o nó principal para enviar trabalhos personalizados para o cluster. Essa personalização disponibiliza muitos módulos Python populares incluídos no Anaconda para uso em UDFs (Funções Definidas pelo Usuário) projetadas para processar registros Hive no cluster. Para obter instruções sobre os procedimentos usados neste cenário, veja [Como enviar consultas do Hive](move-hive-tables.md#submit).
@@ -89,5 +88,4 @@ Após habilitar o acesso remoto, clique em **CONECTAR** na parte inferior da pá
 As próximas etapas do processo de análise avançada são mapeadas no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para o HDInsight, que os processa e que obtém amostras deles como parte da preparação para o aprendizado baseado em dados com o Azure Machine Learning.
 
 Veja [Como enviar consultas do Hive](move-hive-tables.md#submit) para obter instruções sobre como acessar os módulos Python incluídos no Anaconda por meio do nó principal do cluster em UDFs (funções definidas pelo usuário) usadas para processar registros do Hive armazenados no cluster.
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
-ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-settings"></a>Configurações de runbook
 Cada runbook na Automação do Azure tem várias configurações que ajudam a identificá-lo e a alterar seu comportamento de log. Cada uma dessas configurações é descrita abaixo seguida de procedimentos sobre como modificá-las.
@@ -59,5 +58,4 @@ Os comandos de exemplo a seguir mostram como definir as propriedades de um runbo
 ## <a name="next-steps"></a>Próximas etapas
 * Para aprender a criar e recuperar mensagens de erro e de saída de runbooks, confira [Saída e mensagens de Runbook](automation-runbook-output-and-messages.md) 
 * Para entender como adicionar um runbook que já foi desenvolvido pela comunidade ou de outra fonte, ou criar seu próprio runbook, confira [Criando ou importando um runbook](automation-creating-importing-runbook.md) 
-
 

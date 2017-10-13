@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: e31bcfce2c66d9428535fb51c4bbe11bc103a1ad
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 001d80ce42f0e87276e59d70dffb75eb561d96cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com fontes de big data no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -68,4 +67,3 @@ Os padrões descritos na seção anterior são apenas duas maneiras possíveis d
 
 ## <a name="summary"></a>Resumo
 Registrar fontes de dados com o **Catálogo de Dados do Azure** facilita a descoberta e a compreensão. Registrando e anotando os diretórios e arquivos de big data que representam os conjuntos de dados lógicos, você pode ajudar os usuários a localizar e usar as fontes de big data de que precisam.
-

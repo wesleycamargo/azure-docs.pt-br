@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: johnkem
 ms.openlocfilehash: 8ff9f73fc0732cd2227b7e0cc1091e04d69014eb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Isso inclui um intervalo de dados, de dados operacionais do Azure Resource Manager para atualizações em eventos de Integridade do Serviço. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", já que a categoria Administrativa relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo Clássico/"RDFE".

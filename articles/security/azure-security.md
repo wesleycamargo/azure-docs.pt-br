@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-security"></a>Introdução à Segurança do Azure
 ## <a name="overview"></a>Visão geral
 Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar sua ampla variedade de ferramentas e recursos de segurança. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure. O Microsoft Azure fornece confidencialidade, integridade e disponibilidade dos dados do cliente, ao mesmo tempo que também permite uma responsabilidade transparente.
@@ -398,4 +396,3 @@ Previna, detecte e responda a ameaças com maior visibilidade e controle sobre a
 - [Monitoramento da integridade de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 Os recursos de monitoramento na Central de Segurança do Azure para monitorar a conformidade com as políticas.
-

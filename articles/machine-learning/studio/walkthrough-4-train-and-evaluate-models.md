@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Etapa 4 do passo a passo: Treinar e avaliar os modelos de análise preditiva
 Esse tópico contém a quarta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um novo teste](walkthrough-3-create-new-experiment.md)
 4. **Treinar e avaliar os modelos**
@@ -211,4 +209,3 @@ A ciência e arte de interpretar esses resultados e ajustar o desempenho do mode
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-

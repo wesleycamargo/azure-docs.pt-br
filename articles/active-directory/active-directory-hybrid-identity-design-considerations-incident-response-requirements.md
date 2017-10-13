@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 536071ec61d093af243bfd42faa6bb404172fb8e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
 As organizações de médio ou grande porte provavelmente terão uma [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar o departamento de TI a tomar as ações devidas de acordo com o nível do incidente. O sistema de gerenciamento de identidade é um componente importante do processo de resposta a incidentes, pois ele pode ser usado para ajudar a identificar quem executou uma ação específica em relação ao destino. A solução de identidade híbrida deve ser capaz de fornecer recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais. Um plano de resposta a incidentes comum terá as seguintes fases como parte do plano:

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará que você restrinja o acesso por meio de pontos de extremidade para a Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tiver uma ou mais regras de entrada que permitam acesso de "qualquer" endereço IP de origem. Abrir o acesso a "qualquer" um pode permitir que os invasores acessem seus recursos. A Central de Segurança recomendará que você edite essas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisem de acesso.

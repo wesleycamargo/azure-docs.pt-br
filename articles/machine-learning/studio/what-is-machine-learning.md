@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introdução ao Machine Learning na nuvem do Azure
 
@@ -100,15 +99,13 @@ A partir do momento em que você tem um modelo treinado, avalie esse modelo usan
 * **dados categóricos**: Dados organizados em categorias e que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para carros poderia especificar ano, marca, modelo e preço.
 * **classificação**: Um modelo para organizar os pontos de dados em categorias com base em um conjunto de dados para o qual os agrupamentos de categorias já são conhecidos.
 * **engenharia de recursos**: O processo de extração ou seleção de recursos relacionados a um conjunto de dados, para otimizar o conjunto de dados e aprimorar os resultados. Por exemplo, dados de passagens aéreas poderiam ser otimizados classificando-os em dias de semana e feriados. Consulte [Engenharia e seleção de recursos no Azure Machine Learning](../team-data-science-process/create-features.md).
-* 
-            **módulo**: uma parte funcional em um modelo do Machine Learning Studio, como, por exemplo, o módulo Inserir Dados, que permite inserir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
+* **módulo**: uma parte funcional em um modelo do Machine Learning Studio, como, por exemplo, o módulo Inserir Dados, que permite inserir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
 * **modelo**: um modelo de aprendizado supervisionado é o produto de um experimento do aprendizado de máquina composto de dados de treinamento, módulo de algoritmo e módulos funcionais, como um módulo do Modelo de Pontuação.
 * **dados numéricos**: Dados que têm significado, como medidas (dados contínuos) ou contagens (dados discretos). Também conhecidos como *dados quantitativos*.
 * **partição**: O método pelo qual você divide dados em exemplos. Consulte [Partição e Exemplo](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
 * **previsão**: Uma previsão é uma estimativa de valor ou valores a partir de um modelo de aprendizado de máquina. Você também pode ver o termo "pontuação prevista." No entanto, as pontuações previstas não são a saída final de um modelo. Uma avaliação do modelo vem a seguir da pontuação.
 * **regressão**: um modelo para prever um valor com base em variáveis independentes, como prever o preço de um carro com base em seu ano e marca.
-* 
-            **pontuação**: um valor previsto gerado por meio de uma classificação treinada ou um modelo de regressão, usando o [módulo Modelo de Pontuação](https://msdn.microsoft.com/library/azure/dn905995.aspx) no Machine Learning Studio. Os modelos de classificação também retornam uma pontuação para a probabilidade do valor previsto. Depois de ter gerado pontuações por meio de um modelo, você pode avaliar a precisão desse modelo usando o [módulo Avaliar modelo](https://msdn.microsoft.com/library/azure/dn905915.aspx).
+* **pontuação**: um valor previsto gerado por meio de uma classificação treinada ou um modelo de regressão, usando o [módulo Modelo de Pontuação](https://msdn.microsoft.com/library/azure/dn905995.aspx) no Machine Learning Studio. Os modelos de classificação também retornam uma pontuação para a probabilidade do valor previsto. Depois de ter gerado pontuações por meio de um modelo, você pode avaliar a precisão desse modelo usando o [módulo Avaliar modelo](https://msdn.microsoft.com/library/azure/dn905915.aspx).
 * **exemplo**: uma parte de um conjunto de dados deve ser representativa do todo. Exemplos podem ser selecionados aleatoriamente ou com base em recursos específicos do conjunto de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -116,4 +113,3 @@ Você pode aprender os fundamentos da análise preditiva e aprendizado de máqui
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
-

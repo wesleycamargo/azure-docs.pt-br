@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 503cb1c10b60ed6f50b7153b7f0772d46eac8646
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: d752dd13b138cdae80dac5c0b2f84a19fe0aa670
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-your-iot-deployment"></a>Proteger sua implantação de IoT
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
 
@@ -144,4 +142,3 @@ Leia sobre a segurança do Hub IoT em [Controlar o acesso ao Hub IoT][lnk-devgui
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: c94332314668dc7e58ed84b20945a548c0443f84
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-windows-vms"></a>Sobre o agente e as extensões de máquina virtual para VMs Windows
 
@@ -29,4 +28,3 @@ ms.lasthandoff: 03/31/2017
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre agentes e extensões de VM usando o Resource Manager, veja [aqui](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-

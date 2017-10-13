@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual de Ciência de Dados
 
 A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo para seu desenvolvimento agrupando várias ferramentas populares e IDE. Aqui estão algumas ferramentas oferecidas na DSVM. 
@@ -83,5 +81,4 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Usos típicos      |  Visualização de Dados e criação de Painéis   |
 | Como usar/executar?      | Atalho da Área de Trabalho (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
-
 

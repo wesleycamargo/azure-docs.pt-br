@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
+ms.openlocfilehash: 71a5aa4da32e76ff02e4a4dae0d47cf03e323688
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
 Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal clássico do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
@@ -183,4 +182,3 @@ Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-

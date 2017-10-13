@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
+ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -159,4 +158,3 @@ Para obter informações sobre como acessar o contêiner $logs, confira [Habilit
 
 * Encontre mais detalhes sobre [métricas, logs e cobrança](../storage-analytics.md) para Análise de Armazenamento.
 * [Habilitar métricas do Armazenamento do Azure e exibir dados de métricas](../storage-enable-and-view-metrics.md) usando o PowerShell e de forma programática com C#.
-

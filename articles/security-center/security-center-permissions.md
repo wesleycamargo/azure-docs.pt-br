@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
 A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md), que fornece [funções internas](../active-directory/role-based-access-built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
@@ -66,4 +63,3 @@ Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permi
 - [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorando soluções de parceiros com a Central de Segurança do Azure)
-

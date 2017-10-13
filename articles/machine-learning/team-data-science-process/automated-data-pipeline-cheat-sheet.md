@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Folha de consulta de um pipeline de dados automatizado das previsões do Azure Machine Learning
 A **folha de consulta de pipeline de dados automatizado de Microsoft Azure Machine Learning** ajuda você a navegar pela tecnologia que pode ser usada para enviar seus dados para o serviço Web de Machine Learning onde podem ser pontuados por seu modelo de análise preditiva.
@@ -43,5 +42,4 @@ Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automa
 * Para conferir uma discussão de como consumir um serviço Web de pontuação, confira [Como consumir um serviço Web do Azure Machine Learning](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

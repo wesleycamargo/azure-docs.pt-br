@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Compartilhar e descobrir soluções na Galeria do Cortana Intelligence
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -93,5 +92,4 @@ Queremos que a Galeria seja orientada por nossos usuários e para nossos usuári
 ![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
-
 

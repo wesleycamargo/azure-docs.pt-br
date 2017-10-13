@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Transmitir Logs de Diagnóstico do Azure para um Namespace de Hubs de Eventos
 Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos em tempo real a qualquer aplicativo usando a opção interna "Exportar para Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Barramento de Serviço em uma configuração de diagnóstico por meio de cmdlets do Azure PowerShell ou da CLI do Azure.

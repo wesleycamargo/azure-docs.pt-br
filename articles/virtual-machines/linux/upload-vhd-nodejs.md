@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Carregar e criar uma VM Linux com base em uma imagem de disco personalizada usando a CLI 1.0 do Azure
 Este artigo mostra como carregar um VHD (disco rígido virtual) no Azure usando o modelo de implantação do Resource Manager e criar VMs Linux com base nessa imagem personalizada. Essa funcionalidade permite que você instale e configure uma distribuição do Linux segundo suas necessidades e use esse VHD para criar rapidamente máquinas virtuais (VMs) do Azure.

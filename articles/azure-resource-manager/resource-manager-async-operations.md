@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este tópico descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  

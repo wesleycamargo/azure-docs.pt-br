@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-node"></a>Nó sfctl
 Gerenciar os nós que formam um cluster.
@@ -61,7 +60,7 @@ Desativa um nó de cluster do Service Fabric com a intenção de desativação e
 | --debug            | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h          | Mostrar esta mensagem de ajuda e sair.|
 | --output -o        | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query            | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query            | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose          | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
@@ -83,7 +82,7 @@ Ativa um nó de cluster do Service Fabric desativado no momento. Quando ativado,
 | --debug            | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h          | Mostrar esta mensagem de ajuda e sair.|
 | --output -o        | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query            | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query            | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose          | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-health"></a>sfctl node health
@@ -128,7 +127,7 @@ Obtém as informações sobre um nó específico no cluster do Service Fabric. A
 | --debug            | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h          | Mostrar esta mensagem de ajuda e sair.|
 | --output -o        | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query            | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query            | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose          | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-list"></a>sfctl node list
@@ -151,7 +150,7 @@ O ponto de extremidade Nodes retorna informações sobre os nós de cluster do S
 | --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h        | Mostrar esta mensagem de ajuda e sair.|
 | --output -o      | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query          | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query          | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose        | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-load"></a>sfctl node load
@@ -173,7 +172,7 @@ Obtém as informações de carregamento de um nó do Service Fabric.
 | --debug            | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h          | Mostrar esta mensagem de ajuda e sair.|
 | --output -o        | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query            | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query            | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose          | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
@@ -197,7 +196,7 @@ Reinicia um nó de cluster do Service Fabric que já foi iniciado.
 | --debug            | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h          | Mostrar esta mensagem de ajuda e sair.|
 | --output -o        | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query            | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query            | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose          | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition

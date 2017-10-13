@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e Spark HDI como destinos de computação
 
 Você pode facilmente aumentar ou expandir seu experimento de aprendizado de máquina adicionando destinos de computação adicionais como DSVM (máquina virtual de ciência de dados) com base no Ubuntu e o Apache Spark para cluster Azure HDInsight. Este artigo apresenta as etapas de criação desses destinos de computação no Azure. Para obter mais informações sobre destinos de computação do Azure ML, consulte [visão geral do serviço de execução do experimento do Azure Machine Learning](experiment-execution-configuration.md).
@@ -187,4 +185,3 @@ Saiba mais sobre:
 - [Arquivos de configuração de execução do Azure Machine Learning Workbench](experiment-execution-configuration-reference.md)
 - [Apache Spark para cluster Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Máquina Virtual de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
-

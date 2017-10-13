@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b753bfb4bd69bd9aacf4eebd8999397394c28bc4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Após concluir a etapa 1, [Criação da conta e registro][link-acct-creation], falamos sobre a criação de um modelo de solução compatível com o Azure em [Pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora, orientaremos você pelas etapas de criação de um modelo de solução para várias VMs no [Portal de Publicação][link-pubportal] para o Azure Marketplace.
@@ -68,4 +67,3 @@ Você também pode se interessar por estes artigos relacionados:
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
-

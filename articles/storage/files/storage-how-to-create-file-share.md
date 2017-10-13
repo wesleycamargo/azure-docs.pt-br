@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar um compartilhamento de arquivos nos Arquivos do Azure
 Você pode criar compartilhamentos de Arquivos do Azure usando o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, você irá aprender:
@@ -93,7 +92,7 @@ Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShel
 * [Conecte e Monte o Compartilhamento de Arquivos - Linux](../storage-how-to-use-files-linux.md)
 * [Conecte e Monte o Compartilhamento de Arquivos - macOS](storage-how-to-use-files-mac.md)
 
-Veja estes links para obter mais informações sobre os Arquivos do Azure.
+Veja estes links para obter mais informações sobre o Arquivos do Azure.
 
 * [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

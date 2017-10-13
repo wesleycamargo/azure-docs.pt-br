@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>Localizar a assinatura do Azure ou grupo de gerenciamento
 
 Se você estiver com dificuldade para localizar uma assinatura ou um grupo de gerenciamento no Azure, talvez esteja pesquisando no diretório errado. Essa situação pode acontecer quando sua conta existe em vários Azure Active Directories. Cada [diretório ativo é independente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) e o acesso não é herdado entre diretórios.      
@@ -55,7 +53,6 @@ Você pode mover uma assinatura para o diretório associado com os grupos de ger
 
 
  
-
 
 
 

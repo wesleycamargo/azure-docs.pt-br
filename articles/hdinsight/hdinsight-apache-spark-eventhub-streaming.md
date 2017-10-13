@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming do Apache Spark: processe dados de Hubs de Eventos do Azure com o cluster Spark no HDInsight
 
@@ -251,10 +250,10 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
 
 7. Crie o arquivo jar de saída. Execute as seguintes etapas:
 
-   1. Na caixa de diálogo **Estrutura do Projeto** clique em **Artefatos** e em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e em seguida, clique em **Dos módulos com dependências**.      
+   1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.      
        
        ![Exemplo de streaming do Apache Spark – Criar JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Exemplo de streaming do Apache Spark – Criar JAR")
-   2. Na caixa de diálogo **Criar JAR de Módulos** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.
+   2. Na caixa de diálogo **Criar JAR de Módulos,** clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.
    3. Na caixa de diálogo **Selecionar Classe Principal**, selecione qualquer uma das classes disponíveis e clique em **OK**.
       
        ![Exemplo de streaming do Apache Spark – selecionar classe para jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Exemplo de streaming do Apache Spark – selecionar classe para jar")
@@ -424,7 +423,7 @@ Você deverá ver uma saída semelhante ao seguinte:
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com aprendizado de máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos
@@ -451,4 +450,3 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]: ../storage-create-storage-account/
-

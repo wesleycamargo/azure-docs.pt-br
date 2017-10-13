@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
 ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Chamar um webhook em alertas do Log de Atividades do Azure
 Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como configurar um webhook para ser chamado quando um alerta do Log de Atividades do Azure é disparado. Também mostra a aparência do conteúdo do HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de métrica do Azure, [consulte esta página](insights-webhooks-alerts.md). Você também pode configurar um alerta do Log de Atividades para enviar um email quando estiver ativado.

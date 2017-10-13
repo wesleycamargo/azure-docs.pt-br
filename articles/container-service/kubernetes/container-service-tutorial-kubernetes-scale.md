@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: bb528c424bc71f0309439e741c30e16d0d13c7d7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
 
 Se você esteve seguindo os tutoriais, você tem um cluster de Kubernetes operacional no Serviço de Contêiner do Azure e você implantou o aplicativo Azure Voting. 
@@ -160,5 +158,4 @@ Avance para o próximo tutorial para saber mais sobre como atualizar um aplicati
 
 > [!div class="nextstepaction"]
 > [Atualizar um aplicativo no Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
-
 

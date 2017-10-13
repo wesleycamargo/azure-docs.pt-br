@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
 ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Habilitar o Agente de VM na Central de Segurança do Azure
 O agente da VM deve ser instalado em VMs (máquinas virtuais) para [Habilitar a coleta de dados](security-center-enable-data-collection.md).  A Central de Segurança do Azure permite que você veja quais VMs exigem o Agente de VM e recomenda que você habilite o Agente de VM nessas VMs.
@@ -52,4 +50,3 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
-

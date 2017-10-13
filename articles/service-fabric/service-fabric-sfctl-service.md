@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
 Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço.
@@ -92,7 +91,7 @@ Cria o serviço do Service Fabric especificado a partir da descrição.
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -115,8 +114,8 @@ Exclui um serviço existente do Service Fabric. Um serviço deve ser criado ante
 | --- | --- |
 | --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h           | Mostrar esta mensagem de ajuda e sair.|
-| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query             | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:         json.|
+| --query             | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-service-description"></a>sfctl service description
@@ -137,8 +136,8 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 | --- | --- |
 | --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h           | Mostrar esta mensagem de ajuda e sair.|
-| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query             | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:         json.|
+| --query             | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-service-health"></a>sfctl service health
@@ -210,7 +209,7 @@ Retorna as informações sobre todos os serviços pertencentes ao aplicativo esp
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
@@ -255,8 +254,8 @@ Indica ao cluster do Service Fabric que ele deve tentar recuperar o serviço esp
 | --- | --- |
 | --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h           | Mostrar esta mensagem de ajuda e sair.|
-| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query             | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:         json.|
+| --query             | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
@@ -280,8 +279,8 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 | --- | --- |
 | --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h           | Mostrar esta mensagem de ajuda e sair.|
-| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query             | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:         json.|
+| --query             | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
@@ -314,7 +313,7 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
-| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+| --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
 | --query               | Cadeia de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 

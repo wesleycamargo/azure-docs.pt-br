@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
 As configurações de dimensionamento automático permitem adicionar/remover instâncias de serviço com base em condições predefinidas. Essas configurações podem ser criadas por meio do portal. Esse método fornece uma interface do usuário baseada em navegador para criar e definir uma configuração de dimensionamento automático. Este tutorial executa em etapas como:
@@ -174,4 +172,3 @@ Neste tutorial, você criou um Aplicativo Web simples e um Plano do Serviço de 
 
 > [!div class="nextstepaction"]
 > [Arquivar os dados de monitoramento](./monitor-tutorial-archive-monitoring-data.md)
-

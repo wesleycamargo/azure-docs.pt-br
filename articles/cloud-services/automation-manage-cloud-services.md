@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: 6b5acac1b8647c324988c316cd5602b3dba98a1d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerenciamento de Serviços de Nuvem do Azure usando a Automação do Azure
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de seus serviços de nuvem do Azure.

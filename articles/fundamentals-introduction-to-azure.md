@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Apresentando o Microsoft Azure
 O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública.  A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
@@ -538,4 +537,3 @@ O SendGrid é um aplicativo na Azure Store que permite que você envie emails. E
 Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro aplicativo do Azure. Escolha a linguagem, [obtenha o SDK adequado](/downloads/)e vá em frente. Computação em nuvem é o novo padrão: comece agora.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

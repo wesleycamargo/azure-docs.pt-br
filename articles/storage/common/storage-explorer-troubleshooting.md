@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
 O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. O aplicativo pode se conectar a contas de Armazenamento hospedadas no Azure, em nuvens independentes e no Azure Stack.
@@ -182,4 +180,3 @@ Se nenhuma das soluções funcionar para você, envie seu problema por meio da f
 Para fazer isso, clique no menu **Ajuda** e clique em **Enviar Comentários**.
 
 ![Comentários](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-

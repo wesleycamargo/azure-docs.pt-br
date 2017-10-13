@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: 5106b0a480bb853ad75ad1aaca896f7a72fc4f71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicativo usando a CLI do Azure
 
@@ -58,7 +57,7 @@ Este cenário:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Azure Gateway de Aplicativo requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -161,4 +160,3 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 [1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
-

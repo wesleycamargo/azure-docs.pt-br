@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
 
@@ -193,4 +192,3 @@ Usando o Site Recovery, você pode criar um plano totalmente automatizado de rec
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como proteger cargas de trabalho corporativas com o Site Recovery, consulte [Quais cargas de trabalho posso proteger?](site-recovery-workload.md).
-

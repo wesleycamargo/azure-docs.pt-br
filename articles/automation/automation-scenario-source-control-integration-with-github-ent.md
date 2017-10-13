@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
+ms.openlocfilehash: 2b3ca90382a1c4fb6446799ad539ab8ee603aefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Cenário da Automação do Azure - Integração de controle de origem da Automação com o GitHub Enterprise
 
 No momento, a Automação oferece suporte à integração de controle de origem, o que permite que você associe runbooks em sua conta de Automação a um repositório de controle de origem do GitHub.  No entanto, os clientes que implantaram o [GitHub Enterprise](https://enterprise.github.com/home) para dar suporte a suas práticas de DevOps também querem usá-lo para gerenciar o ciclo de vida de runbooks que são desenvolvidos para automatizar processos de negócios e operações de gerenciamento de serviço.  
@@ -92,4 +90,3 @@ Se você ainda não tiver um Hybrid Runbook Worker já implantado em seu data ce
 
 -  Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 -  Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a2a3a4773d33fe6b8589ad8d9d219acda4d1015e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure
 ## <a name="introduction"></a>Introdução
@@ -238,4 +237,3 @@ Para obter mais informações sobre como usar o Armazenamento do Microsoft Azure
 Para obter mais informações sobre a API REST do Blob, consulte [API REST do Serviço Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azure, vá para o [Blog da equipe de Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-

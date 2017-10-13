@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chamar uma API Web em um aplicativo Web .NET
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft.  O aplicativo Web obterá tokens de acesso OAuth 2.0 para uma API Web protegida pelo OAuth 2.0 que permite criar, ler e excluir itens de uma determinado “Lista de Tarefas Pendentes” do usuário.

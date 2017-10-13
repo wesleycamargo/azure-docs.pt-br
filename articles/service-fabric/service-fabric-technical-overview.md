@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. Este tópico fornece detalhes da terminologia usada pelo Service Fabric para compreensão dos termos usados na documentação.
@@ -103,5 +102,4 @@ Para saber mais sobre o Service Fabric:
 * [Visão geral da Malha do Serviço](service-fabric-overview.md)
 * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 * [Cenários de aplicativos](service-fabric-application-scenarios.md)
-
 

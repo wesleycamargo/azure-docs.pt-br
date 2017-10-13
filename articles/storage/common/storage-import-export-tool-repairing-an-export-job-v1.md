@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="repairing-an-export-job"></a>Reparação de um trabalho de exportação
 Após a conclusão de um trabalho de exportação, você poderá executar a Ferramenta de Importação/Exportação do Microsoft Azure local para:  

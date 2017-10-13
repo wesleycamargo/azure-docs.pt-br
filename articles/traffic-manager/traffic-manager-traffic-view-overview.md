@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
 
 >[!NOTE]
@@ -51,5 +49,4 @@ Ao usar a Exibição do Tráfego, você é cobrado com base no número de pontos
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
 - Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-profile.md)
-
 

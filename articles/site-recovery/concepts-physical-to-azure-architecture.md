@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
+ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c5ddaf7a90336ade573ac5a56e241004a7840780
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="physical-server-to-azure-replication-architecture"></a>Arquitetura de replicação de servidor físico para o Azure
 
 Este artigo descreve a arquitetura e os processos usados quando você faz a replicação, o failover e a recuperação de servidores Windows e Linux físicos entre um site local e o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
@@ -53,7 +51,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
     - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
     - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
     - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
 
 
 **Processo de replicação do físico para o Azure**

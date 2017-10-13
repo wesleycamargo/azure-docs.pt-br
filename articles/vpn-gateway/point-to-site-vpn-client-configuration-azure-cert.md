@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
@@ -116,4 +115,3 @@ Clique em **Adicionar** para importar.
 ## <a name="next-steps"></a>Próximas etapas
 
 Retornar para o artigo [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
-

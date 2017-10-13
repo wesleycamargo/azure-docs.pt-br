@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.

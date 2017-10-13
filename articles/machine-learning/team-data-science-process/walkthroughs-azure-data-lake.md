@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 100f75c5d21d5723bd7438b49e982ff116b75908
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Passo a passos de ciência de dados do Azure Data Lake usando U-SQL
 
 Essas orientações usam U-SQL com o Azure Data Lake para executar análises preditivas. Eles seguem as etapas descritas no Processo de Ciência de Dados de Equipe. Para obter uma visão geral do Processo de Ciência de Dados de Equipe, veja [Processo de Ciência de Dados](overview.md). Para obter uma introdução ao Azure Data Lake, veja [Visão geral do Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md).

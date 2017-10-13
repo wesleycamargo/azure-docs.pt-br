@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
 ms.openlocfilehash: c979a8bfbeecacc7c0bbc112e02a4b68e874c219
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights do Azure][start] usando o [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).

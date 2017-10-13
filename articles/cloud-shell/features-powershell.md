@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9eacb57b5a00ff11739695ed3311be0c638ba25f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Recursos e ferramentas para o PowerShell no Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -113,4 +111,3 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 
 [Início rápido com o PowerShell no Cloud Shell](quickstart-powershell.md) <br>
 [Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-

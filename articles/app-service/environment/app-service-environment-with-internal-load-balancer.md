@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c0f942cb11edc6d6212914b3134e25c3fbc3d3ab
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Como usar um Balanceador de Carga Interno com um Ambiente do Serviço do Aplicativo
 
@@ -152,4 +151,3 @@ Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Intro
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 
 Este artigo descreve como usar um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço do tipo **Mensagens** com um SKU Standard. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
@@ -148,4 +146,3 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
 [Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-

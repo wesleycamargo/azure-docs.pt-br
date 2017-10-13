@@ -16,10 +16,10 @@ ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: a143fd78eae52fda0cbadb7e74fd8209f24629a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Como ativar ou desativar funções no Azure AD Privileged Identity Management
 O Azure Active Directory (AD) Privileged Identity Management simplifica a forma como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.  

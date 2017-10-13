@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 47d119e4e4fd1420186e8600c8c085ab939fa6a5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
@@ -77,4 +76,3 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore todas as [funcionalidades do Banco de Dados SQL](sql-database-technical-overview.md).
-

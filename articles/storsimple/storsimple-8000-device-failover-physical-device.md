@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Fazer failover para um dispositivo físico StorSimple da série 8000
 
@@ -87,5 +85,4 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 * Depois de realizar um failover, talvez seja necessário [desativar ou excluir seu dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * Para obter informações sobre como usar o serviço do Gerenciador de Dispositivos do StorSimple, acesse [Usar o serviço do Gerenciador de Dispositivos do StorSimple para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

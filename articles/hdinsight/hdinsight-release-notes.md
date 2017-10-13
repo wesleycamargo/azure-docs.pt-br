@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão dos componentes do Hadoop no Azure HDInsight
 
@@ -103,7 +102,6 @@ O Spark 2.0.1 agora está disponível em clusters do Spark (HDInsight versão 3.
 * O provisionamento de cluster do Servidor R no HDInsight foi simplificado.
 * O Servidor R no HDInsight agora está disponível como um tipo de cluster regular “Servidor R” do HDInsight e não é mais instalado como um aplicativo HDInsight separado. O nó de borda e os binários do Servidor R agora são provisionados como parte da implantação de cluster do Servidor R. Isso melhora a velocidade e a confiabilidade do provisionamento. O modelo de preço para o Servidor R é atualizado adequadamente.
 * O preço do tipo de cluster Servidor R agora se baseia na camada de preço Standard mais o preço da sobretaxa do Servidor R. A camada Premium é reservada para recursos Premium disponíveis em diferentes tipos de cluster e não será usada para o tipo de cluster do Servidor R. Essa alteração não afeta o preço efetivo do Servidor R; ela altera apenas como as cobranças são apresentadas na fatura. Todos os clusters do Servidor R existentes continuarão funcionando e os modelos do Resource Manager continuarão funcionando até o aviso de substituição. **De qualquer forma, é recomendável atualizar as implantações com script para usar o novo modelo do Resource Manager.**
-
 
 
 

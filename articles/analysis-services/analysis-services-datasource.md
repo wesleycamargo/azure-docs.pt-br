@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
 ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 Os servidores do Azure Analysis Services oferecem suporte à conexão às fontes de dados na nuvem e locais na sua organização. O tempo todo são adicionadas mais fontes de dados com suporte. Verifique com frequência. 

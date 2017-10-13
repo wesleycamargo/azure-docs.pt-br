@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1cadb543660b636ce7f0285973e6fb4141841b99
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-api-management-with-service-fabric"></a>Implantar o Gerenciamento de API com o Service Fabric
 Este tutorial é a parte dois de uma série. Este tutorial mostra como configurar o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) com o Service Fabric para rotear o tráfego para um serviço de back-end no Service Fabric.  Quando terminar, você terá implantado o Gerenciamento de API para uma VNET, terá configurado uma operação de API para enviar tráfego para serviços sem monitoração de estado de back-end. Para saber mais sobre os cenários do Gerenciamento de API do Azure com Service Fabric, consulte o artigo [visão geral](service-fabric-api-management-overview.md).
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e7acb9fbddc59803ed8cf6f1d7dcda0171998f7b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
@@ -69,5 +68,4 @@ Neste exemplo, o Data Factory é usado para coordenar as atividades que copiam d
 
 ## <a name="benefits"></a>Benefícios
 Ao otimizar suas análises de perfil do usuário e o alinhamento com as metas de negócios, a empresa de jogos é capaz coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing.
-
 

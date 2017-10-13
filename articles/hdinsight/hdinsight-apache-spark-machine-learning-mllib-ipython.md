@@ -17,19 +17,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: fef4a48c6356addad0dc12a2df5799e1acb4ddc3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Spark MLlib para compilar uma aplicativo de aprendizado de máquina e analisar um conjunto de dados
 
 Saiba como usar o **MLlib** do Spark para criar uma aplicativo de aprendizado de máquina para fazer a análise preditiva simples em um conjunto de dados aberto. Das bibliotecas aprendizado de máquina internas do Spark, este exemplo usa *classificação* por meio de regressão logística. 
 
 > [!TIP]
-> Este exemplo também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para acompanhar o tutorial de dentro de um bloco de anotações, crie um cluster Spark e inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de anotações **Aprendizado de Máquina do Spark – análise preditiva nos dados de inspeção de alimentos usando MLlib.ipynb** na pasta **Python**.
+> Este exemplo também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para acompanhar o tutorial de dentro de um bloco de anotações, crie um cluster Spark e inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de anotações **Machine Learning do Spark – análise preditiva nos dados de inspeção de alimentos usando MLlib.ipynb** na pasta **Python**.
 >
 >
 
@@ -343,7 +342,7 @@ Depois de concluir a execução do aplicativo, você deve encerrar o bloco de an
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark no aprendizado de máquina: use o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Streaming Spark: use o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -362,4 +361,3 @@ Depois de concluir a execução do aplicativo, você deve encerrar o bloco de an
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
-

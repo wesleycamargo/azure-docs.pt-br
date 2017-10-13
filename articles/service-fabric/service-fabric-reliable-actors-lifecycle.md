@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo tempo de execução dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.
@@ -157,4 +155,3 @@ Observe que um ator não pode chamar delete por si só de um de seus métodos, p
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
-

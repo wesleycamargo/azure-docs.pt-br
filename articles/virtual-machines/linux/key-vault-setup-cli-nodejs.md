@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Configurar o Key Vault para máquinas virtuais no Azure Resource Manager com a CLI do Azure 1.0
 Na pilha do Azure Resource Manager, os certificados/segredos são modelados como recursos que são fornecidos pelo provedor de recursos do Key Vault. Para saber mais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade *EnabledForDeployment* no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes. Este artigo mostra como configurar o Key Vault para uso com as máquinas virtuais do Azure.

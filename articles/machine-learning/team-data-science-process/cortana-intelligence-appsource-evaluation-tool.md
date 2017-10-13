@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Visão geral
 Você pode usar a ferramenta de avaliação da solução do Cortana Intelligence para ajudar as suas soluções de análise avançadas a estarem em conformidade com as melhores práticas recomendadas pela Microsoft. A Microsoft está ansiosa para trabalhar com os nossos parceiros (ISVs / SIs) para fornecer soluções de alta qualidade aos clientes, revendedores e para a sua implementação. Este guia orientará o processo de uso da ferramenta de avaliação da solução com o seu aplicativo e descreverá as melhores práticas específicas a serem verificadas.
@@ -199,5 +198,4 @@ Para saber mais sobre o processo de treinamento do modelo de automatização usa
 [Expanda seu negócio em nuvem com o Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
 
 [Microsoft Azure Certified para Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
-
 

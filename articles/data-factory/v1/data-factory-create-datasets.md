@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2af15189a7c8643d51e8567b4366726b4b8051c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -452,4 +451,3 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre pipelines, consulte [Criar pipelines](data-factory-create-pipelines.md). 
 - Para obter mais informações sobre como os pipelines são agendados e executados, consulte [Agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md). 
-

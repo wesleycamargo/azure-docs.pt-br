@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
 ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="describing-a-service-fabric-cluster"></a>Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Cluster Resource Manager usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster. Ao aplicar essas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
 
@@ -382,7 +380,7 @@ As métricas são diferentes das restrições de posicionamento e das propriedad
 
 É importante observar que assim como as restrições de posicionamento e as propriedades de nó, o Cluster Resource Manager do Service Fabric não entende o que os nomes das métricas significam. Os nomes de métrica são apenas cadeias de caracteres. É uma boa prática declarar as unidades como parte dos nomes de métrica que você criar quando puderem ser ambíguos.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a>Capacity
 Se você desativasse todo o *balanceamento* de recursos, o Gerenciador de Recursos de Cluster do Service Fabric ainda garantiria que nenhum nó ficasse acima de sua capacidade. É possível gerenciar saturações de capacidade, a menos que o cluster esteja muito cheio ou que a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que usa o Cluster Resource Manager para entender o quanto um nó tem de um recurso. A capacidade restante também é rastreada para o cluster como um todo. A capacidade e o consumo no nível de serviço são expressos em termos de métricas. Então, por exemplo, a métrica poderia ser "ClientConnections" e um determinado nó poderia ter uma capacidade de "ClientConnections" igual a 32768. Outros nós podem ter outros limites; algum serviço em execução nesse nó pode informar que atualmente está consumindo 32256 da métrica "ClientConnections".
 
 No tempo de execução, o Gerenciador de Recursos de Cluster acompanha a capacidade restante no cluster e nos nós. Para acompanhar a capacidade, o Gerenciador de Recursos de Cluster subtrai o uso de cada serviço da capacidade do nó em que o serviço é executado. Com essas informações, o Cluster Resource Manager do Service Fabric pode descobrir onde inserir ou mover réplicas para que os nós não ultrapassem a capacidade.
@@ -529,4 +527,3 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-

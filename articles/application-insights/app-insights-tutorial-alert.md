@@ -9,14 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: ce297476cfdf80564c6c0cb835955a146f7a1c12
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 40b3cd74fc68158b679db462278edef4827d8603
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
 O Azure Application Insights permite monitorar seu aplicativo e enviar alertas quando ele não está disponível, apresentando falhas ou sofrendo problemas de desempenho.  Este tutorial o guiará pelo processo de criação de testes para verificar continuamente a disponibilidade de seu aplicativo e enviar os diferentes tipos de alertas em resposta a problemas detectados.  Você aprenderá como:

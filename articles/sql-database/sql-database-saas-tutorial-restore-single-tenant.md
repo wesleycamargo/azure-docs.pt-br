@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurar um banco de dados SQL do Azure de locatário único em um aplicativo SaaS multilocatário
 
@@ -150,4 +149,3 @@ Neste tutorial, você aprendeu como:
 * [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure](sql-database-business-continuity.md)
 * [Saiba mais sobre o Banco de Dados SQL](sql-database-automated-backups.md)
-

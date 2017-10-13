@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl-application"></a>aplicativo sfctl
 Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
 
@@ -242,7 +240,7 @@ Obtém informações de carregamento sobre um aplicativo do Service Fabric.
     --help -h                  | Mostrar esta mensagem de ajuda e sair.|
     --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:
                                  json.|
-    --query                    | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais
+    --query                    | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais
                                  informações e exemplos.|
     --verbose                  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
@@ -385,7 +383,7 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 | --debug       | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h     | Mostrar esta mensagem de ajuda e sair.|
 | --output -o   | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query       | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e
+| --query       | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e
                        exemplos.|
 | --verbose     | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 

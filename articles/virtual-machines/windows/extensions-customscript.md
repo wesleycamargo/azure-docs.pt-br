@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: nepeters
+ms.openlocfilehash: 4117b6020d2d75a953fd5f032b378e49d2c752ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 45b3e2a493fd6fab54f193f8ea9bbeae1d7470ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -151,4 +150,3 @@ As informações de caminho após o primeiro segmento do URI são retidas para o
 ### <a name="support"></a>Suporte
 
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN] (https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-

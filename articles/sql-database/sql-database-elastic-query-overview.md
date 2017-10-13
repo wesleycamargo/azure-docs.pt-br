@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do Banco de Dados SQL do Azure (visualização)
 O recurso de consulta elástica (em visualização) permite que você execute uma consulta Transact-SQL que abrange vários bancos de dados no Banco de Dados SQL do Azure. Ele permite que você realize consultas entre bancos de dados para acessar tabelas remotas e se conectar a ferramentas da Microsoft e de terceiros (Excel, Power BI, Tableau, etc.) para consultar em diferentes camadas de dados com vários bancos de dados. Usando esse recurso, você pode escalar horizontalmente para camadas de dados grandes no Banco de Dados SQL e visualizar os resultados em relatórios do BI (business intelligence).
@@ -160,4 +159,3 @@ Compartilhe conosco seus comentários sobre sua experiência com as consultas el
 [5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
-

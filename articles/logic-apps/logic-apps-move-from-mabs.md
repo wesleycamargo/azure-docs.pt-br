@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Mover dos Serviços BizTalk para Aplicativos Lógicos
 
 O MABS (Serviços BizTalk do Microsoft Azure) está sendo desativado. Use este tópico para mover suas soluções de integração do MABS para os Aplicativos Lógicos do Azure. 
@@ -31,8 +28,8 @@ O MABS (Serviços BizTalk do Microsoft Azure) está sendo desativado. Use este t
 
 Os Serviços BizTalk consistem em dois subserviços:
 
-1.    Conexões Híbridas dos Serviços BizTalk da Microsoft
-2.    Integração com base em ponte EAI e EDI
+1.  Conexões Híbridas dos Serviços BizTalk da Microsoft
+2.  Integração com base em ponte EAI e EDI
 
 Se você quiser migrar conexões híbridas, [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md) descreve as alterações e os recursos desse serviço. As Conexões Híbridas do Azure substituem as Conexões Híbridas dos Serviços BizTalk. As Conexões Híbridas do Azure estão disponíveis com o Serviço de Aplicativo do Azure e são oferecidas no Portal do Azure. As Conexões Híbridas do Azure também fornecem um novo Gerenciador de Conexão Híbrida para gerenciar as conexões híbridas dos Serviços BizTalk existentes e novas conexões híbridas que você criar no portal. As Conexões Híbridas do Serviço de Aplicativo do Azure estão com disponibilidade geral (GA).
 
@@ -132,4 +129,3 @@ Para obter HA (alta disponibilidade) nos Serviços BizTalk, você usa mais de um
 * [O que são Aplicativos Lógicos](logic-apps-what-are-logic-apps.md)
 * [Crie seu primeiro aplicativo lógico](logic-apps-create-a-logic-app.md) ou comece rapidamente usando um [modelo predefinido](logic-apps-use-logic-app-templates.md)  
 * [Exibir todos os conectores disponíveis](../connectors/apis-list.md) você pode usar em um aplicativo lógico
-

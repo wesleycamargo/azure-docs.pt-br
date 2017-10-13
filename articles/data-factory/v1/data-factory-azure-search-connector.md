@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d3ffa343a91aaad632705f24bcb357b7b20386d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice do Azure Search usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – já disponível](data-factory-azure-search-connector.md)
@@ -298,4 +296,3 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 Confira os seguintes artigos:
 
 * [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia.
-

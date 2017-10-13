@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introdução à Sincronização de Dados SQL do Azure (visualização)
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
@@ -205,4 +204,3 @@ Para obter mais informações sobre o Banco de Dados SQL e a Sincronização de 
 -   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 -   [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 -   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
-

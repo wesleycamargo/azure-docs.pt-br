@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b224f5b32c9a46f797e78644c731a9cd9341da2b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -27,8 +26,7 @@ ms.lasthandoff: 09/25/2017
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [Streaming do Hadoop](transform-data-using-hadoop-streaming.md)
 > * [Spark](transform-data-using-spark.md)
-> * 
-            [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Procedimento armazenado](transform-data-using-stored-procedure.md)
 > * [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md)
 > * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)

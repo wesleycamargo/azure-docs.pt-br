@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
 ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integração de alertas da Central de Segurança do Azure com a integração de log do Azure
 Muitas operações de segurança e equipes de resposta a incidentes contam com uma solução SIEM (Gerenciamento de eventos e informações de segurança) como ponto de partida para separação e investigação de alertas de segurança. Com a Integração de Log do Azure, você pode integrar alertas da Central de Segurança do Azure com sua solução SIEM.

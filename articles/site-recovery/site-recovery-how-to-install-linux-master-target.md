@@ -15,10 +15,10 @@ ms.workload:
 ms.date: 08/11/2017
 ms.author: ruturajd
 ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
 Após o failover de suas máquinas virtuais, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 

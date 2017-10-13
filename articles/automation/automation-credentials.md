@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
+ms.openlocfilehash: 5adb76a779be7e82c864d67db7a2d3701805d874
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 Um ativo da credencial de Automação tem um objeto [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) que contém as credenciais de segurança, como um nome de usuário e uma senha. Runbooks e configurações DSC podem usar cmdlets que aceitam um objeto PSCredential para autenticação ou eles podem extrair o nome de usuário e a senha do objeto PSCredential para fornecê-los a algum aplicativo ou serviço que exija a autenticação. As propriedades de uma credencial são armazenadas com segurança na Automação do Azure e podem ser acessadas no runbook ou na configuração DSC com a atividade [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
@@ -121,5 +120,4 @@ A seguir, veja um exemplo de como acessar as credenciais em runbooks Python2.
 * Para começar a usar os runbooks Gráficos, confira [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 * Para começar a usar runbooks Python2, consulte [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md) 
-
 

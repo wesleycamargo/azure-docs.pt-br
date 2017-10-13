@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperação de desastre de região cruzada dos Aplicativos Lógicos B2B
 
 As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e faturas. Durante um evento de desastre, é essencial que uma empresa se recupere rapidamente para atender aos SLAs no nível de negócios definidos com seus parceiros. Este artigo demonstra como criar um plano de continuidade dos negócios para cargas de trabalho B2B. 
@@ -248,5 +246,4 @@ Com base no intervalo de tempo, o status em tempo de execução incremental é r
 ## <a name="next-steps"></a>Próximas etapas
 
 [Monitorar mensagens do B2B](logic-apps-monitor-b2b-message.md)
-
 

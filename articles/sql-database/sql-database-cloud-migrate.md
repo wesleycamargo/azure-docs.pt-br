@@ -17,10 +17,10 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.

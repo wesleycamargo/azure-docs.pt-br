@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
 Você pode escrever um [runbook do PowerShell de Automação do Azure](automation-first-runbook-textual-powershell.md) que implanta um recurso do Azure usando um [modelo do Azure Resource Management](../azure-resource-manager/resource-manager-create-first-template.md).
@@ -245,5 +243,4 @@ Get-AzureRmStorageAccount
 * Para começar a usar o Armazenamento do Azure, consulte [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md).
 * Para localizar outros runbooks úteis de Automação do Azure, consulte [Galerias de runbooks e módulos para Automação do Azure](automation-runbook-gallery.md).
 * Para encontrar outros modelos úteis do Resource Manager: consulte [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
-
 

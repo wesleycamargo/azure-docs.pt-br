@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usar a interface de usuário do Tez para depurar trabalhos no HDInsight baseado no Windows
 A interface de usuário do Tez é uma página da Web que pode ser usada para entender e depurar trabalhos que usam o Tez como o mecanismo de execução em clusters HDInsight baseados no Windows. A interface de usuário do Tez permite que você visualize o trabalho como um gráfico de itens conectados, detalhe cada item e recupere estatísticas e informações de registro.

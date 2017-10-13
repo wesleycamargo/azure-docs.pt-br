@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Criar um painel personalizado para uso no Log Analytics
 
@@ -89,4 +88,3 @@ Para remover um bloco, navegue até a exibição Meu Painel e clique em **Person
 
 ## <a name="next-steps"></a>Próximas etapas
 * Crie [alertas](log-analytics-alerts.md) no Log Analytics para gerar notificações e para corrigir problemas.
-

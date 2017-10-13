@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9beb92895056b51f40988fc6c47dfa6f80ca3294
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar PHP para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo [PHP](http://php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este artigo pressupõem que você está familiarizado com o desenvolvimento usando PHP, mas que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
@@ -223,4 +221,3 @@ Substitua os parâmetros `$host`, `$database`, `$user` e `$password` pelos seus 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./howto-migrate-using-export-and-import.md)
-

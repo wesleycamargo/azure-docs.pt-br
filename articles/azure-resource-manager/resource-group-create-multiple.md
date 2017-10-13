@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar várias instâncias de um recurso ou propriedade nos modelos do Azure Resource Manager
 Este tópico mostra como iterar em seu modelo do Azure Resource Manager para criar várias instâncias de um recurso, ou várias instâncias de uma propriedade em um recurso.
@@ -511,5 +509,4 @@ Para obter um exemplo do uso de uma senha ou chave SSH para implantar a máquina
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
-
 

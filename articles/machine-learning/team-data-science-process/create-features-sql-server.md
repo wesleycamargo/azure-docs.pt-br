@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, ambos demonstrados aqui.
@@ -102,9 +101,7 @@ Os recursos de localização acima podem ser usados ainda para gerar recursos ad
 > 
 > 
 
-### 
-            <a name="sql-aml">
-            </a>Conectando ao Azure Machine Learning
+### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
 O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
 
 ![leitores de azureml](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
@@ -124,5 +121,4 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blobs do Azure usando o Panda](create-features-blob.md).
-
 

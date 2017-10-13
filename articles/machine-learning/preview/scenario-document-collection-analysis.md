@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>Análise da coleção de documentos
 
 Este cenário demonstra como resumir e analisar um grande conjunto de documentos, incluindo técnicas como aprendizado de frase, modelagem de tópico e análise de modelos de tópico usando o Azure ML Workbench. O Azure Machine Learning Workbench propicia um fácil aumento da coleção de documentos muito grandes e oferece mecanismos para treinar e ajustar modelos dentro de uma variedade de contextos computacionais, variando de computação local para Máquinas Virtuais de ciência de dados para o cluster Spark. Os blocos de anotações do Jupyter dentro do Azure Machine Learning Workbench oferecem um fácil desenvolvimento.
@@ -246,4 +244,3 @@ Este cenário do mundo real destaca como usar técnicas de análise de texto con
 * **Timothy J. Hazen**, [_Modelagem de tópico latente para resumo do corpus de áudio_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12ª Conferência anual da International Speech Communication Association. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf) (Explorando o espaço das medidas de coerência de tópico). Trabalhos da oitava conferência internacional ACM sobre pesquisa Web e mineração de dados. ACM, 2015.
-

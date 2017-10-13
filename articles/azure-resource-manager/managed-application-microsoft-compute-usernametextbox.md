@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c90be5a0ed3aadda81d7ec9b5388a96472f69af0
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b6f3ca9ed88fa807648e08221dfdc313b7d57b43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.UserNameTextBox
 Um controle de caixa de texto com validação interna para nomes de usuário do Windows e do Linux. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
@@ -61,4 +60,3 @@ Se um valor para `constraints.regex` for especificado, as validações internas 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

@@ -1,6 +1,6 @@
 ---
-title: "Integração de gateway de aplicativo do com a Central de segurança do Azure | Microsoft Docs"
-description: "Esta página fornece informações sobre como o Gateway de aplicativo se integra à Central de segurança do Azure."
+title: "Integração de Gateway de Aplicativo do com a Central de segurança do Azure | Microsoft Docs"
+description: "Esta página fornece informações sobre como o Gateway de Aplicativo se integra à Central de segurança do Azure."
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -15,21 +15,19 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
 
-# <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de aplicativo e a Central de segurança do Azure
-
-Saiba como o Gateway de aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O firewall do aplicativo Web do Gateway de aplicativo (WAF) integra-se com a [Central de segurança](../security-center/security-center-intro.md) para fornecer uma visualização perfeita para evitar, detectar e reagir às ameaças a aplicativos Web desprotegidos no seu ambiente.
+Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O firewall do aplicativo Web do Gateway de aplicativo (WAF) integra-se com a [Central de segurança](../security-center/security-center-intro.md) para fornecer uma visualização perfeita para evitar, detectar e reagir às ameaças a aplicativos Web desprotegidos no seu ambiente.
 
 ## <a name="overview"></a>Visão geral
 
-O WAF do Gateway de aplicativo é uma recomendação na Central de segurança para proteger aplicativos Web contra explorações e vulnerabilidades. Recursos da Web que não estão protegidos por WAF são exibidos na central de segurança como recomendações de severidade alta. Recomendações para firewalls de aplicativo Web são mostradas na página **Visão geral** em **Aplicativos**.
+O WAF do Gateway de Aplicativo é uma recomendação na Central de segurança para proteger aplicativos Web contra explorações e vulnerabilidades. Recursos da Web que não estão protegidos por WAF são exibidos na central de segurança como recomendações de severidade alta. Recomendações para firewalls de aplicativo Web são mostradas na página **Visão geral** em **Aplicativos**.
 
 ![integração com a central de segurança][1]
 
@@ -83,7 +81,7 @@ Clicar em uma regra fornecerá uma lista de alertas para essa regra específica 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como ativar o firewall de aplicativo Web em um gateway de aplicativo existente, visite [Criar ou atualizar um Gateway de aplicativo do Azure com o firewall de aplicativo Web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Para saber como ativar o firewall de aplicativo Web em um Gateway de Aplicativo existente, visite [Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall de aplicativo Web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

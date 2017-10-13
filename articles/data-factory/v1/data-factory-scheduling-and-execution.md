@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f8c126475ae36aa646dafb18b9b55d7b3b6b3ce7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os seguintes artigos:

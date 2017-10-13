@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade AlwaysOn locais para o Azure
 Os grupos de disponibilidade AlwaysOn fornecem alta disponibilidade para grupos de bancos de dados adicionando réplicas secundárias. Essas réplicas permitem o failover dos bancos de dados em caso de falha. Além disso, elas podem ser usadas para descarregar cargas de trabalho de leitura ou tarefas de backup.

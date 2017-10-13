@@ -16,10 +16,10 @@ ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Adicionar a entrada a um aplicativo Universal do Windows usando o ponto de extremidade v 2.0
   O tutorial de início rápido para aplicativos universais do Windows ainda não está totalmente pronto... Verifique novamente em breve e procure as atualizações de @AzureAD no Twitter.

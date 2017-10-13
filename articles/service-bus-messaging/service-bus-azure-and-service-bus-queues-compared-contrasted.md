@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/07/2017
 ms.author: sethm
 ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.

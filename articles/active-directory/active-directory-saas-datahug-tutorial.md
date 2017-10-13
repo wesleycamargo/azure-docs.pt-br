@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: integração do Azure Active Directory ao Datahug
 
@@ -203,7 +202,7 @@ Quando se usa o Datahug, o provisionamento é uma tarefa manual.
     ![Adicionar Funcionário](./media/active-directory-saas-datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > Você pode enviar o email de registro de usuário selecionando a caixa de seleção **Enviar email de boas-vindas**.    
+    > Você pode enviar o email de registro de usuário selecionando a caixa de seleção **Enviar email de boas-vindas**.  
     > Se você estiver criando uma conta para o Salesforce, não envie o email de boas-vindas.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
@@ -261,5 +260,4 @@ Quando você clicar no bloco Datahug no Painel de Acesso, você deverá fazer lo
 [201]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_203.png
-
 

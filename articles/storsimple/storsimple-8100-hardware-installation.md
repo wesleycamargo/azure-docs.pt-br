@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 ## <a name="overview"></a>Visão geral

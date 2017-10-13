@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Visão geral das métricas no Microsoft Azure
 Este artigo descreve o que são as métricas no Microsoft Azure, seus benefícios e como começar a usá-las.  
 
@@ -127,23 +125,6 @@ Alguns recursos do Azure aceitam o dimensionamento vertical ou horizontal de vá
  ![Métricas e dimensionamento automático no Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Conheça os serviços e as métricas compatíveis
-O Azure Monitor é uma nova infraestrutura das métricas. Ele oferece suporte para os seguintes serviços do Azure no portal do Azure e a nova versão da API do Azure Monitor:
-
-* VMs (baseadas no Azure Resource Manager)
-* conjuntos de escala de máquina virtual
-* Batch
-* Namespace do Hubs de Eventos
-* Namespace do Barramento de Serviço (SKU premium somente)
-* Banco de Dados SQL (versão 12)
-* Pool SQL Elástico
-* Sites
-* Farms do servidor Web
-* Aplicativos Lógicos
-* Hubs IoT
-* Cache Redis
-* Rede: gateways de aplicativo
-* Pesquisar
-
 Você pode exibir um uma lista detalhada de todos os serviços compatíveis e suas métricas em [Métricas compatíveis com o Azure Monitor](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -152,4 +133,3 @@ Consulte os links neste artigo. Além disso, saiba mais sobre:
 * [Métricas comuns para dimensionamento automático](insights-autoscale-common-metrics.md)
 * [Como criar regras de alerta](insights-alerts-portal.md)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
 ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Como solucionar problemas comuns encontrados durante a criação do VHD
 Este artigo é fornecido para ajudar um fornecedor e/ou coadministrador do Azure Marketplace que possa enfrentar um problema ou ter dúvidas comuns ao publicar ou gerenciar suas soluções de máquina virtual.

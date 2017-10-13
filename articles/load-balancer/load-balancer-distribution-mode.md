@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>Configurar modo de distribuição para o balanceador de carga
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -168,4 +166,3 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 [Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

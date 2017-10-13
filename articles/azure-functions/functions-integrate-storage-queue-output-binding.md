@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
@@ -128,7 +127,6 @@ Você adicionou uma associação de saída a uma função existente.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obter mais informações sobre associação a Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md). 
-
 
 
 

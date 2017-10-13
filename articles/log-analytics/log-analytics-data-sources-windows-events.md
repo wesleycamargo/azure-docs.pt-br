@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Fontes de dados de log de eventos do Windows no Log Analytics
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](log-analytics-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -89,4 +88,3 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar os registros de eventos em campos individuais.
 * Configure a [coleta de contadores de desempenho](log-analytics-data-sources-performance-counters.md) de seus agentes do Windows.
-

@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 82656f3176124d33ebf35098d1e2054f6a5b22b0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET
 > [!div class="op_single_selector"]
@@ -524,5 +523,4 @@ Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamen
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
 Para saber mais sobre como copiar dados de/para um armazenamento de dados, clique no link para o armazenamento de dados na tabela.
-
 

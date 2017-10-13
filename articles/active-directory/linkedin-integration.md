@@ -14,12 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Habilitando a integração do LinkedIn no Azure Active Directory
 Habilitar a integração do LinkedIn permite aos usuários acessar dados LinkedIn públicos e, se desejarem, também a rede LinkedIn pessoal deles de dentro de aplicativos da Microsoft. Cada usuário pode, de modo independente, escolher conectar a própria conta de trabalho à própria conta do LinkedIn.

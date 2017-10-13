@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais
 Quando você precisar solucionar problemas de um serviço de nuvem do Azure ou da máquina virtual do Azure, pode configurar o diagnóstico do Azure com mais facilidade usando o Visual Studio. O diagnóstico do Azure captura dados do sistema e dados do log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem e transfere os dados para uma conta de armazenamento de sua escolha. Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md) para obter mais informações sobre o registro em log de diagnóstico no Azure.
@@ -302,5 +301,4 @@ Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o registro em log de diagnósticos no Azure, consulte [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md).
-
 

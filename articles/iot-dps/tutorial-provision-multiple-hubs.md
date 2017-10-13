@@ -12,15 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Provisionar dispositivos entre Hubs IoT com balanceamento de carga
 
 Este tutorial mostra como provisionar dispositivos para vários Hubs IoT com balanceamento de carga usando o DPS (Serviço de Provisionamento de Dispositivos). Neste tutorial, você aprenderá como:
@@ -88,4 +85,3 @@ Neste tutorial, você aprendeu como:
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

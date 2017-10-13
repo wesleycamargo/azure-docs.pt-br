@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implantar um serviço Web em várias regiões
 Os novos serviços Web do Azure permitem que você facilmente implante um serviço Web em várias regiões, sem a necessidade de várias assinaturas ou espaços de trabalho. 
@@ -49,5 +48,4 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 9. No menu suspenso **Conta de armazenamento** , selecione uma conta de armazenamento na qual armazenar o serviço Web.
 10. Na lista suspensa **Plano de preços** , selecione um plano na região que você selecionou na etapa 8.
 11. Clique em **Copiar**.
-
 

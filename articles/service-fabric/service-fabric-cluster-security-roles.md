@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controle de acesso baseado em função para clientes do Service Fabric
 O Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.  

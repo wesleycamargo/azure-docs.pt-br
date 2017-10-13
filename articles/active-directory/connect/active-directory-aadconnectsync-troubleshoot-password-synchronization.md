@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de senha com a sincronização do Azure AD Connect
 Este tópico fornece etapas para solucionar problemas com a sincronização de senha. Se as senhas não estiverem sincronizando conforme o esperado, isso poderá ocorrer para um subconjunto de usuários ou para todos os usuários. Para a implantação do Azure AD (Azure Active Directory) Connect com a versão 1.1.524.0 ou posterior, agora há um cmdlet de diagnóstico que você pode usar para solucionar problemas de sincronização de senha:

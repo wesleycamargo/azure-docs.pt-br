@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Usar o direcionamento de solução do OMS (Operations Management Suite) para definir o escopo das soluções de gerenciamento para agentes específicos (Visualização)
 Quando você adiciona uma solução ao OMS, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso do OMS que permite aplicar um escopo às suas soluções.

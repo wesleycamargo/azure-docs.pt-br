@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: b3ca2ed90dd14350d3962a558aaac41f2e007bbd
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 Por ser um serviço do Azure, o Hub IoT fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. A plataforma Microsoft Azure também inclui recursos para ajudá-lo a criar soluções com recursos de DR (recuperação de desastres) ou disponibilidade entre regiões. se quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários você deve projetar e preparar suas soluções para aproveitar a vantagem desses recursos de DR do Azure. O artigo [Orientação Técnica de Continuidade de Negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve os recursos internos do Azure para recuperação de desastres e continuidade de negócios. O documento [Recuperação de desastres e alta disponibilidade para aplicativos do Azure][Disaster recovery and high availability for Azure applications] fornece uma orientação de arquitetura sobre estratégias para que os aplicativos do Azure obtenham alta disponibilidade e recuperação de desastres.
@@ -60,4 +59,3 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
-

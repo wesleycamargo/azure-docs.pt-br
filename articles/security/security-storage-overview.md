@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral da segurança do armazenamento do Azure
 O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança:

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: instalação manual do SAP HANA de instância única em VMs do Azure
 ## <a name="introduction"></a>Introdução
@@ -454,5 +453,4 @@ Baixar o NetWeaver 7.5 para Linux/HANA:
 Baixar o HANA SP12 Platform Edition:
 
  ![Janela Instalação e Atualização do Serviço SAP para baixar o HANA SP12 Platform Edition](./media/hana-get-started/image002.jpg)
-
 

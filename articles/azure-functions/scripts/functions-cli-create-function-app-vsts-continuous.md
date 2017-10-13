@@ -9,12 +9,11 @@ ms.date: 04/28/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5851b5219b6e25a5a2b005fc3d3c3b44d98ed746
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-app-service"></a>Criar um Serviço de Aplicativo
 
@@ -33,7 +32,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 Este exemplo cria um Aplicativo de funções do Azure e implanta o código da função do Visual Studio Team Services.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Serviço do Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -53,4 +52,3 @@ Este script usa os seguintes comandos para criar um grupo de recursos, um aplica
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).
-

@@ -15,14 +15,12 @@ ms.date: 09/05/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: df2ffb8958a7d4b881f0a6904fb9ca13c3614040
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Acessar seus aplicativos locais por meio do Microsoft Teams
 
 O Proxy de Aplicativo do Azure Active Directory fornece logon único para aplicativos locais independentemente de onde você está. O Microsoft Teams simplifica seus esforços de colaboração em um único local. Integrar os dois significa que os usuários podem ser produtivos com seus colegas de equipe em qualquer situação. 
@@ -58,4 +56,3 @@ Depois que um membro de uma equipe adiciona a guia, ela aparece para todos no ca
 
 - Saiba como [publicar sites do SharePoint local](application-proxy-enable-remote-access-sharepoint.md) com o Proxy de Aplicativo.
 - Configure seus aplicativos para usar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para a URL externa deles. 
-

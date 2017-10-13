@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e25bdc04f5436e2f9c48aebe868538f22ef80bd8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Exemplos do Azure PowerShell para o Azure Data Factory
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o Azure Data Factory.
@@ -32,7 +30,6 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |[Transformar dados usando o cluster Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell transforma dados executando um programa em um cluster Spark. |
 |**Migrar pacotes SSIS usando o método lift-and-shift para o Azure**||
 |[Criar o Integration Runtime do Azure-SSIS](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell provisiona um Integration Runtime do Azure-SSIS que executa pacotes SSIS (SQL Server Integration Services) no Azure. |
-
 
 
 

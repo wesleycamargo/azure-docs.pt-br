@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 77bc78e7ed27f1566e5e5f6a3539c93c9aa73e2d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Readaptar um novo serviço Web baseado no Resource Manager usando os cmdlets do PowerShell de Gerenciamento do Machine Learning
 Quando você readapta um novo serviço Web, também atualiza a definição do serviço Web de previsão para fazer referenciar ao novo modelo treinado.  
@@ -107,5 +106,4 @@ Usando os cmdlets de gerenciamento do PowerShell de Machine Learning, você pode
 
 * Readaptação de modelo periódico com novos dados.
 * A distribuição de um modelo para os clientes com o objetivo de permitir que eles recuperem o modelo usando seus próprios dados.
-
 

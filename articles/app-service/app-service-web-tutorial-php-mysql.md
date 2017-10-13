@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 64baee04c43442a73dbb9ef657c091f307204ce4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web PHP e MySQL no Azure
 
@@ -652,4 +651,3 @@ Vá para o próximo tutorial para saber como mapear um nome DNS personalizado pa
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
-

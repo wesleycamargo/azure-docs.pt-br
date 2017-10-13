@@ -15,12 +15,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
+ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inscrever-se no Azure como uma organização
 Até recentemente, era possível se inscrever para uma nova assinatura do Microsoft Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
@@ -37,5 +36,4 @@ Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](htt
 * [Blog do Microsoft Azure](https://azure.microsoft.com/blog/)
 * [O que é o AD do Azure?](active-directory-whatis.md)
 * [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
-
 

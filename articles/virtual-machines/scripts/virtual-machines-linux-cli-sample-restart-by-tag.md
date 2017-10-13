@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restart-vms"></a>Reiniciar VMs
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -60,19 +58,19 @@ O terceiro script reinicia todas as VMs que foram provisionadas e, em seguida, a
 Esse script cria um grupo de recursos e, em seguida, cria três VMs para reiniciar.
 Duas delas são marcadas.
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provisionar as VMs")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Aguarde
 
 Esse script verifica o status de provisionamento a cada 20 segundos até que todas as três VMs sejam provisionadas ou uma delas falhe ao ser provisionada.
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Aguardar que as VMs sejam provisionadas")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### <a name="restart-the-vms"></a>Reiniciar as VMs
 
 Esse script reinicia todas as VMs no grupo de recursos e então reinicia apenas as VMs marcadas.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Reiniciar VMs por marcação")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -100,4 +98,3 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Monitorar um cluster do Kubernetes com o Operations Management Suite
 
 Monitorar seu cluster do Kubernetes e os contêineres é fundamental, principalmente ao gerenciar um cluster de produção em grande escala com vários aplicativos. 
@@ -156,4 +154,3 @@ Siga este link para ver exemplos de scripts criados previamente para o Serviço 
 
 > [!div class="nextstepaction"]
 > [Exemplos de script do Serviço de Contêiner do Azure](cli-samples.md)
-

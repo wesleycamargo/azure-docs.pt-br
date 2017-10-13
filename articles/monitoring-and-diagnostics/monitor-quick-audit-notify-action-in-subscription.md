@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditar e receber notificações sobre ações importantes em sua assinatura do Azure
 
 O **Log de Atividades do Azure** fornece um histórico de eventos no nível da assinatura no Azure. Ele oferece informações sobre *quem* criou, atualizou ou excluiu *quais* recursos e *quando* fizeram isso. Crie um **alerta do Log de Atividades** para receber notificações por email, SMS ou webhook quando ocorrer uma atividade que corresponde às condições de alerta. Este Guia de início rápido executa em etapas a criação de um grupo de segurança de rede simples, a navegação pelo Log de Atividades para entender o evento ocorrido e, em seguida, a criação de um alerta do Log de Atividades para ser notificado de quando um grupo de segurança de rede é criado e assim por diante.
@@ -101,4 +99,3 @@ Neste guia de início rápido, você executou uma operação para gerar um event
 
 > [!div class="nextstepaction"]
 > [Arquivar dados de monitoramento](./monitor-tutorial-archive-monitoring-data.md)
-

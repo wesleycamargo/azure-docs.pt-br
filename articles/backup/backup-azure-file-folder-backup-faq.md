@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
 ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 5dbee1221f64045c64fecb344de1e03b2183dfb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 ## <a name="introduction"></a>Introdução
@@ -449,4 +447,3 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md) .
-

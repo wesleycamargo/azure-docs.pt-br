@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
+ms.openlocfilehash: 07c4b4cb920dca7d95caa2fc5f98b0d33ea51dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d373ecaf585233f5daa4cf987e55adab9e099f8f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
@@ -118,7 +117,7 @@ A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) rastreia eventos d
 
 ### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
 
-O [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) do Banco de Dados SQL ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo. A partir de maio de 2017, todos os Bancos de Dados SQL do Azure são protegidos automaticamente com TDE (Transparent Data Encryption). A TDE é a tecnologia de criptografia ociosa comprovada da SQL exigida por vários padrões de conformidade para proteger contra roubo de mídia de armazenamento. Os clientes podem gerenciar as chaves de criptografia da TDE e outros segredos de forma segura e em conformidade usando o Azure Key Vault.
+O [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) do Banco de Dados SQL ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo. A partir de maio de 2017, todos os Bancos de Dados SQL do Azure são protegidos automaticamente com TDE (Transparent Data Encryption). A TDE é a tecnologia de criptografia ociosa comprovada da SQL exigida por vários padrões de conformidade para proteger contra roubo de mídia de armazenamento. Os clientes podem gerenciar as chaves de criptografia da TDE e outros segredos de forma segura e em conformidade usando o Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Criptografia dos dados em trânsito
 
@@ -172,4 +171,3 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 - Para ver vários exemplos da CLI do Azure e do PowerShell, consulte:
   - [Exemplos da CLI do Azure para o Banco de Dados SQL do Azure](sql-database-cli-samples.md)
   - [Exemplos do Azure PowerShell para o Banco de Dados SQL do Azure](sql-database-powershell-samples.md)
-

@@ -11,14 +11,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor usando o Azure Functions
 
 Neste tutorial, você aprenderá como o Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção interna de gatilhos e associações HTTP que facilitam a criação de um ponto de extremidade em várias linguagens, incluindo Node.JS, C# e muito mais. Neste tutorial, você personalizará um gatilho HTTP para lidar com ações específicas em seu projeto de API. Você também preparará a expansão de sua API integrando-a aos Proxies do Azure Functions e configurando APIs de simulação. Tudo isso é realizado no ambiente de computação sem servidor do Functions, portanto você não precisa se preocupar com o dimensionamento de recursos, você pode se concentrar apenas na lógica de sua API.
@@ -189,10 +187,9 @@ Neste tutorial, você aprendeu a compilar e personalizar uma API no Azure Functi
 As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 
 - [Associações HTTP e de webhook do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Trabalhar com proxies do Azure Functions (visualização)]
+- [Trabalhar com Proxies do Azure Functions (visualização)]
 - [Documentar uma API do Azure Functions (visualização)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Trabalhar com proxies do Azure Functions (visualização)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-
+[Trabalhar com Proxies do Azure Functions (visualização)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

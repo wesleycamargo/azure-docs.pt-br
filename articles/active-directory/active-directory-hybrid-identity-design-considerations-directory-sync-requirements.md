@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar os requisitos de sincronização de diretório
 Sincronização é fornecer aos usuários uma identidade na nuvem com base em sua identidade local. Em caso positivo ou negativo, usarão a conta sincronizada para autenticação ou autenticação federada, os usuários ainda precisarão ter uma identidade na nuvem.  Essa identidade precisará ser mantida e atualizada periodicamente.  As atualizações podem ter várias formas, desde alterações de título para alterações de senha.  

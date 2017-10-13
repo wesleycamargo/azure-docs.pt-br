@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2819e300d94a0bc3b0900419218561fc846effcb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: integração do Azure Active Directory com o OpenAthens
 
@@ -56,7 +55,7 @@ Para configurar a integração do OpenAthens ao Azure AD, você precisará adici
 
 **Para adicionar o OpenAthens a partir da galeria**
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o ícone do **Azure Active Directory**. 
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o ícone do **Azure Active Directory**. 
 
     ![O botão Azure Active Directory][1]
 
@@ -157,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
 **Para criar um usuário de teste no Azure AD**
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](./media/active-directory-saas-openathens-tutorial/create_aaduser_01.png)
 
@@ -240,5 +239,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_203.png
-
 

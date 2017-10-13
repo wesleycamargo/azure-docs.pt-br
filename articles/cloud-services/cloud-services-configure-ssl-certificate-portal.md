@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 > [!div class="op_single_selector"]
@@ -186,4 +185,3 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
-

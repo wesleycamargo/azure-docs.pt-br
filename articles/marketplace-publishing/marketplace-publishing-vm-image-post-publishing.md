@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção para ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como você pode atualizar uma oferta de máquina virtual online no Azure Marketplace. Ele orienta você pelo processo de adicionar uma ou mais novas SKUs a uma oferta existente. Também o orienta pelo processo de remoção de uma SKU ou oferta de máquina virtual online do Marketplace.

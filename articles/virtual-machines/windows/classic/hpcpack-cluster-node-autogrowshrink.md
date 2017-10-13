@@ -15,10 +15,10 @@ ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
 ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumentar e reduzir automaticamente os recursos de cluster do HPC Pack no Azure conforme a carga de trabalho de cluster
 Se você implantar nós de "intermitência" no seu cluster do HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá ser conveniente encontrar uma maneira de aumentar ou reduzir automaticamente os recursos do cluster, como nós ou núcleos, de acordo com a carga de trabalho no cluster. Dimensionar os recursos de cluster dessa maneira permite que você use os recursos do Azure com mais eficiência e controle seus custos.

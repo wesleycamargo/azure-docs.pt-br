@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
 Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.

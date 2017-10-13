@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
+ms.openlocfilehash: f1c0052862dd2b97dbea500615f7ac4eabc97217
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>Etapa 12: executar um failover de teste para o Azure para VMs VMware
 
@@ -114,4 +113,3 @@ Agora, execute um failover:
 - [Saiba mais](site-recovery-failover.md) sobre diferentes tipos de failovers e como executá-los.
 - Se estiver migrando máquinas em vez de replicar e fazer failback, [leia mais](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
 - [Leia sobre failback](site-recovery-failback-azure-to-vmware.md), para executar failback e replicar VMs do Azure de volta para o site primário local.
-

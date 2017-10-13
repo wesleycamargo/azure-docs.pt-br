@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Projetos estruturados de Ciência de dados de equipe no Azure Machine Learning Workbench
 
 Esses tutoriais e exemplos mostram como criar projetos estruturados de Ciência de dados de equipe com o Azure Machine Learning Workbench. Para obter uma visão geral do Processo de Ciência de Dados de Equipe, veja [Processo de Ciência de Dados](overview.md). Para obter uma visão geral do Spark no HDInsight, confira [Introdução ao Spark no HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).

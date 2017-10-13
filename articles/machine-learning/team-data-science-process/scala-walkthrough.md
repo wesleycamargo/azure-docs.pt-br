@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
 Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](http://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
@@ -538,7 +537,7 @@ Este é o código para essas duas tarefas.
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
-* Um **modelo de regressão logística** `LogisticRegression()` usando a função do ML do Spark
+* Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
 * Um **modelo de classificação de floresta aleatória** usando a função `RandomForestClassifier()` da AM do Spark
 * Um **modelo de classificação de árvore de aumento gradiente** usando a função `GradientBoostedTrees()` da MLlib
 
@@ -1108,5 +1107,4 @@ Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o 
 [Passo a passo do processo de ciência de dados de equipe](walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram as etapas no Processo de ciência de dados de equipe para cenários específicos. As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 [Pontuar modelos de aprendizado de máquina criados no Spark](spark-model-consumption.md) mostra como usar o código Scala para carregar e pontuar automaticamente novos conjuntos de dados com modelos de aprendizado de máquina compilados no Spark e salvos no armazenamento de Blobs do Azure. Você pode seguir as instruções fornecidas nele e simplesmente substituir o código Python pelo código Scala neste artigo para o consumo automatizado.
-
 

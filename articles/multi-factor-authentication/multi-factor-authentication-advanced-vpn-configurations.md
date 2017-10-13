@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Cenários avançados com soluções da Autenticação Multifator do Azure e VPNs de terceiros
 A Autenticação Multifator do Azure pode ser usado para realizar conexão perfeita com uma variedade de soluções VPN de terceiros. Este artigo se concentra no dispositivo de VPN Cisco® ASA, o dispositivo de VPN Citrix NetScaler SSL e o dispositivo de VPN Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Criamos guias de configuração para abordar esses três dispositivos comuns. O Servidor de Autenticação Multifator também pode ser integrado a maioria dos outros sistemas que usam a autenticação RADIUS, LDAP, IIS ou baseada em declarações com o AD FS. Você pode encontrar mais detalhes em [Configurações do servidor MFA](multi-factor-authentication-get-started-server.md#next-steps).
 

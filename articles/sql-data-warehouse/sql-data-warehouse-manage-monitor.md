@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
 Este artigo descreve como usar Visualizações de Gerenciamento Dinâmico (DMVs) para monitorar sua carga de trabalho e investigar a execução da consulta no SQL Data Warehouse do Azure.

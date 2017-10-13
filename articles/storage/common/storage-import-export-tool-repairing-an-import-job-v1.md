@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c837713fd9e7d03287ae5a3644fd6bb47714c9d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="repairing-an-import-job"></a>Reparação de um trabalho de importação
 O serviço de Importação/Exportação do Microsoft Azure pode não copiar alguns arquivos ou partes de um arquivo para o serviço Blob do Windows Azure. Alguns motivos para as falhas incluem:  
   
@@ -111,4 +109,3 @@ Depois de disponibilizar os arquivos necessários para a ferramenta, ou atualiza
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
 * [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
-

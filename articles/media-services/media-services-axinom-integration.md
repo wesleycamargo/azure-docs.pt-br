@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -201,5 +200,4 @@ Os parâmetros a seguir são necessários na mini-solução que aproveita o serv
 
 ### <a name="acknowledgments"></a>Agradecimentos
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
-
 

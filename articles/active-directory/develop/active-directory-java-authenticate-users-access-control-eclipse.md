@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .

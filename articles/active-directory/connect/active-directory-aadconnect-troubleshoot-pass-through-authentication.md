@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados à autenticação de passagem do Azure AD.
@@ -53,7 +51,7 @@ Se o usuário não consegue entrar usando a autenticação de passagem, ele pode
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário licença Premium)
 
-Se o locatário possuir uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o locatário tiver uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory - relatório Entradas](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
@@ -171,4 +169,3 @@ Outra maneira de monitorar agentes de autenticação é o controle de contadores
 
 >[!IMPORTANT]
 >A Autenticação de Passagem fornece alta disponibilidade usando vários Agentes de Autenticação e _não_ o balanceamento de carga. Dependendo da configuração, _nem_ todos os seus Agentes de Autenticação receberão um número de solicitações aproximadamente _igual_. É possível que um Agente de Autenticação específico não receba nenhum tráfego.
-

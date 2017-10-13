@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 A delegação permite usar seu site existente para gerenciar a entrada/inscrição e assinatura de produtos feitas por desenvolvedores em vez de usar a funcionalidade integrada no portal do desenvolvedor. Isso permite que seu site tenha os dados dos usuários e realize a validação dessas etapas de forma personalizada.

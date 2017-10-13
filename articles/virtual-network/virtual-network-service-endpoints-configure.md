@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 
@@ -397,4 +396,3 @@ Para saber mais sobre como garantir os recursos de serviço para VNets, consulte
 [Garantindo contas do Armazenamento do Azure para redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 [Garantindo SQL Azure para redes virtuais](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 Este documento apresenta a experiência do desenvolvedor, ajudando você a executar o exemplo de aplicativo. A amostra cria um aplicativo fragmentado simples e explora os principais recursos das ferramentas de banco de dados elástico. O exemplo demonstra as funções da [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md).

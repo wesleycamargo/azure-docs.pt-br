@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect usando um banco de dados ADSync existente
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar sua própria versão completa do SQL. Anteriormente, quando você instalava o Azure AD Connect, um novo banco de dados denominado ADSync era sempre criado. Com o Azure AD Connect versão 1.1.613.0 (ou posterior), você tem a opção de instalar o Azure AD Connect apontando-o para um banco de dados ADSync existente.
 
@@ -92,4 +90,3 @@ Observações importantes necessárias antes de continuar:
 - Saiba mais sobre estes recursos, que foram habilitados com a instalação: [impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 - Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](active-directory-aadconnectsync-feature-scheduler.md).
 - Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

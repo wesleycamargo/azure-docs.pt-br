@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação do Azure
 Para cada unidade processada, o serviço de Importação/Exportação do Azure cria um log de erros na conta de armazenamento associada. Também é possível habilitar o log detalhado definindo a propriedade `LogLevel` como `Verbose` ao chamar as operações [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).

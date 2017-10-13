@@ -35,7 +35,7 @@ sections:
               src: 'https://docs.microsoft.com/media/common/cli.svg'
             text: CLI do Azure
             href: quick-backup-vm-cli
-  - title: Tutoriais passo a passo
+  - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
         text: Saiba como fazer backup e recuperar máquinas virtuais no Azure ou do Windows Server.

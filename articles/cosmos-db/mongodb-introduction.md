@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: anhoh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -70,4 +69,3 @@ As informações sobre a API do MongoDB no Azure Cosmos DB são integradas à do
 * Conectar-se a uma conta da API para MongoDB usando o [Robomongo](mongodb-robomongo.md).
 * Saiba quantos RUs suas operações estão usando com o [comando GetLastRequestStatistics e as métricas do Portal do Azure](request-units.md#GetLastRequestStatistics).
 * Saiba como [configurar preferências de leitura para aplicativos distribuídos globalmente](../cosmos-db/tutorial-global-distribution-mongodb.md).
-

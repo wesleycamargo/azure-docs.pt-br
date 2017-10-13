@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
 Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:

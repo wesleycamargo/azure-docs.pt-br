@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Recuperar dados do Log Analytics com um script do Python
 A [API da Pesquisa de Logs do Log Analytics](log-analytics-log-search-api.md) permite que qualquer cliente da API REST recupere dados de um espaço de trabalho do Log Analytics.  Este artigo apresenta um script de exemplo do Python que usa a API da Pesquisa de Logs do Log Analytics.  
 

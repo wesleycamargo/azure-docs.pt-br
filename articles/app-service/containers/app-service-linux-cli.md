@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
 
@@ -109,4 +108,3 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação contínua com o Aplicativo Web do Azure para Contêineres](app-service-linux-ci-cd.md)
-

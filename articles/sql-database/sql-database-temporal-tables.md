@@ -16,10 +16,10 @@ ms.workload: sql-database
 ms.date: 01/10/2017
 ms.author: bonova
 ms.openlocfilehash: d84db682089c65c2716d2d9bd92f7bc0ac47af27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
 As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL do Azure que permite controlar e analisar o histórico completo de alterações em seus dados, sem a necessidade de codificação personalizada. As Tabelas Temporais mantêm os dados relacionados ao contexto de tempo, de forma que os fatos armazenados possam ser interpretados como válidos apenas no período específico. Essa propriedade das Tabelas Temporais permite uma análise eficiente baseada em tempo e a obtenção de informações da evolução dos dados.

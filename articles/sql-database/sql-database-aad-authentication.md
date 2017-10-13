@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 246c89be85a4ccd2e8f7fab0ae8128e7285123a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Usar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse
 A autenticação do Azure Active Directory é um mecanismo de conexão com o Banco de Dados SQL do Microsoft Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure AD, é possível gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões. Os benefícios incluem o seguinte:
@@ -126,5 +125,4 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
-
 

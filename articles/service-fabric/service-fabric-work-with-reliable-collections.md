@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
 ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vejamos um uso típico de um objeto de dicionário confiável para ver o que ele está fazendo realmente.

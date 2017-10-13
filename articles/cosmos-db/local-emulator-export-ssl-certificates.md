@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados do Emulador do Azure Cosmos DB para uso com Java, Python e Node.js
 
 [**Baixar o Emulador**](https://aka.ms/cosmosdb-emulator)
@@ -108,4 +106,3 @@ Você pode continuar a criar um gatilho de HTTP de Azure Functions com um tutori
 
 > [!div class="nextstepaction"]
 > [Criar uma função do Azure com entrada do Azure Cosmos DB](tutorial-functions-http-trigger.md) 
-

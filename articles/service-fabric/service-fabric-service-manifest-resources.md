@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -201,4 +200,3 @@ Se estiver no ServiceManifest especificado
 E o valor de Port1 e Protocol1 para parâmetros do Aplicativo for nulo ou vazio. A porta ainda é decidida pelo ServiceFabric. E o protocolo será tcp.
 
 Vamos supor que você especifica um valor incorreto. Por exemplo, para Porta você especificou um valor de cadeia de caracteres "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome 'ServiceEndpoint1', atributo 'Port1' na seção 'ResourceOverrides' é inválido. O valor especificado é 'Foo', e exige 'int'.
-

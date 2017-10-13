@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: a441e76fae0bda829cb112d307b3b436809b9c9b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Uso da criptografia dinâmica AES-128 e serviço de distribuição de chaves
 > [!div class="op_single_selector"]
@@ -250,5 +249,4 @@ Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

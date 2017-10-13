@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Usando a Área de Trabalho Remota com as funções do Azure
 Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode acessar as funções do Azure e máquinas virtuais que são hospedadas pelo Azure. No Visual Studio, você pode configurar os Serviços de Área de Trabalho Remota por meio de um projeto de serviço de nuvem do Azure. Para habilitar os Serviços de Área de Trabalho Remota, você deve criar um projeto de trabalho contendo uma ou mais funções e, em seguida, publicá-lo no Azure.
@@ -77,5 +76,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
    
     ![Conectando-se via área de trabalho remota](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
-
 

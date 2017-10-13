@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8c981046ff41d3927ff60d6dc4f40366ae25ba74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 928e33392924a7461a4a03ac16ff0994680e68f9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -228,4 +226,3 @@ Convém adicionar também o provedor de identidade da Conta da Microsoft ao perc
 
 ## <a name="download-the-complete-policy-files"></a>Baixar os arquivos da política completa
 Opcional: recomendamos a criação de seu cenário usando seus próprios arquivos de política personalizada após a conclusão do passo a passo Introdução às políticas personalizadas em vez de usar esses arquivos de exemplo.  [Arquivos de política de exemplo para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-msa-app)
-

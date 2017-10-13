@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ece2549a607ffa06602c26cf77db93f67112d029
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no Gateway de Aplicativo
 
 Saiba como configurar versões de política SSL e cipher suites no Gateway de Aplicativo. Você pode selecionar um [lista de políticas predefinidas](#predefined-ssl-policies) que contêm configurações diferentes de versões de política SSL e habilitado os conjuntos de codificação. Você também tem a capacidade de definir um [política personalizada do SSL](#configure-a-custom-ssl-policy) com base em suas necessidades.

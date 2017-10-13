@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
+ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 00f0b370a05b29c44d0df8f7e9db115ff998b710
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
 Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou da configuração DSC. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode transmitir o nome de uma conexão para um runbook ou uma configuração DSC em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook ou na configuração DSC com a atividade **Get-AutomationConnection** . 
@@ -161,4 +159,3 @@ O exemplo a seguir mostra como autenticar usando a conexão Executar Como em um 
 - Revise [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) para entender como direcionar e controlar o fluxo de lógica em seus runbooks.  
 
 - Para saber mais sobre o uso de módulos do PowerShell pela automação do Azure e práticas recomendadas para a criação de seus próprios módulos do PowerShell, para que funcionem como Módulos de integração na automação do Azure, veja [Módulos de integração](automation-integration-modules.md).  
-

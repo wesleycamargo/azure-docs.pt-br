@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de Monitoramento de VMware (visualização) no Log Analytics
 
 ![Símbolo de VMware](./media/log-analytics-vmware/vmware-symbol.png)
@@ -205,4 +203,3 @@ Pode haver vários motivos:
 * Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
 * [Criar seus próprios painéis](log-analytics-dashboards.md) mostrando os dados de host do VMware.
 * [Criar alertas](log-analytics-alerts.md) quando ocorrem eventos específicos de host do VMware.
-

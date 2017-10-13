@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac39de97174e58964b48601d559abeba5e624c21
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
 Este tópico mostra como provisionar e configurar uma máquina virtual do SQL Server para ser usada como parte de um ambiente de ciência de dados baseado em nuvem. A máquina virtual do Windows está configurada com ferramentas de suporte, como o IPython Notebook, o Gerenciador de Armazenamento do Azure e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados. O Azure Storage Explorer e o AzCopy, por exemplo, fornecem maneiras convenientes para carregar dados no armazenamento de blob do Azure em seu computador local ou baixá-lo em seu computador local por meio do armazenamento de blob.
@@ -226,9 +225,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 5. Na caixa **Senha** , digite a senha do logon que você criou em uma tarefa anterior.
 6. Clique em **Conectar**.
 
-## 
-            <a name="amlconnect">
-            </a>Conectar-se ao mecanismo de banco de dados de Azure Machine Learning
+## <a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Azure Machine Learning
 Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usará o [Azure Machine Learning Studio](https://studio.azureml.net) para criar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Azure Machine Learning para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Azure Machine Learning Studio](https://studio.azureml.net). Esse tópico é abordado mais detalhadamente por meio dos links de guia do Processo de Ciência de Dados de Equipe. Para obter uma introdução, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md).
 
 1. No painel **Propriedades** do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
@@ -276,5 +273,4 @@ As próximas etapas no processo de ciência de dados são mapeadas no [Processo 
 [12]: ./media/setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/setup-sql-server-virtual-machine/vmshutdown.png
-
 

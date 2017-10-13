@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
 O conector da Microsoft para DB2 conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados DB2 da IBM. Este conector inclui um cliente Microsoft para se comunicar com computadores de servidores DB2 remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de plataformas e versões do IBM DB2 com suporte (neste tópico).

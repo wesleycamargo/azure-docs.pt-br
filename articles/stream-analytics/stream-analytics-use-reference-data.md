@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Usando dados de referência e tabelas de pesquisa em um fluxo de entrada do Stream Analytics
 Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua Consulta. O Stream Analytics usa o armazenamento de Blobs do Azure como a camada de armazenamento para dados de referência e com os dados de referência do Azure Data Factory podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
@@ -116,4 +115,3 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

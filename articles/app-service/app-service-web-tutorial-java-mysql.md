@@ -15,14 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web Java e MySQL no Azure
 
 Este tutorial mostra como criar um aplicativo Web Java no Azure e conectá-lo a um banco de dados MySQL. Quando tiver terminado, você terá um aplicativo [Spring Boot](https://projects.spring.io/spring-boot/) armazenando dados no [Banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/overview) em execução em [Aplicativos Web do Serviço de Aplicativo do Azure](app-service-web-overview.md).

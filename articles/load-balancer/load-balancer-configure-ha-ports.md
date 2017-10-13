@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Como configurar a alta disponibilidade de portas para o Load Balancer Interno
 
 Este artigo fornece um exemplo de implantação de portas de HA (alta disponibilidade) em um Load Balancer Interno. Para configurações específicas de dispositivos virtuais de rede, consulte os sites do provedor correspondente.
@@ -90,4 +88,3 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [portas de alta disponibilidade](load-balancer-ha-ports-overview.md)
-

@@ -3,7 +3,7 @@ title: Como usar o Armazenamento de Filas do PHP | Microsoft Docs
 description: "Saiba como usar o serviço de armazenamento de Filas do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. As amostras são escritas em PHP."
 documentationcenter: php
 services: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 5fa4e35184b39bd672bfc8b19b2d41acb164abdf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3900a023f03eb9ce22fdf71030291c7ab5f6f30b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -75,7 +74,7 @@ UseDevelopmentStorage=true
 Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder** . É possível usar qualquer uma das técnicas a seguir:
 
 * Passar a cadeia de conexão diretamente para ele.
-* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service-web/web-sites-configure.md) para configurar cadeias de conexão.
+* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service/web-sites-configure.md) para configurar cadeias de conexão.
 Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
 ```php
@@ -410,5 +409,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
-
 

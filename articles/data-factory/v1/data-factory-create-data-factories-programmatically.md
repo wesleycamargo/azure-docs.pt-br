@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d51039881673189697f1826d474546f24ffd5479
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 ## <a name="overview"></a>Visão geral
@@ -501,4 +500,3 @@ while (response != null);
 Consulte o exemplo a seguir para criar um pipeline usando o SDK do .NET que copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure: 
 
 - [Criar um pipeline para copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-

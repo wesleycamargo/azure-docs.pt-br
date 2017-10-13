@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev;paulsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0decb8918a544114316569720aa5deede692d5f1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -181,8 +180,7 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
 
 
 ## <a name="deploy-a-model-to-azure-ml"></a>Implantar um modelo para o AzureML
-
-            [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do AzureML é sua capacidade de publicar qualquer função R como um serviço da Web. O pacote AzureML R facilita a implantação correta a partir de nossa sessão R na DSVM.
+[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do AzureML é sua capacidade de publicar qualquer função R como um serviço da Web. O pacote AzureML R facilita a implantação correta a partir de nossa sessão R na DSVM.
 
 Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do espaço de trabalho e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis do AzureML com eles:
 

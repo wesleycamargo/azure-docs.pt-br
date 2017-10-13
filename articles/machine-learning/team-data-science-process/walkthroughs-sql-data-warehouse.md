@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 745701b571a6cfa93798d7536ddb9d28ab45ea73
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Passo a passos de ciência de dados do SQL Data Warehouse usando T-SQL e Python no Azure
 
 Esses passo a passos usam um SQL Data Warehouse para análise preditiva. Eles seguem as etapas descritas no Processo de Ciência de Dados de Equipe. Para obter uma visão geral do Processo de Ciência de Dados de Equipe, veja [Processo de Ciência de Dados](overview.md). Para obter uma introdução ao SQL Data Warehouse, veja [O que é o SQL Data Warehouse do Azure?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

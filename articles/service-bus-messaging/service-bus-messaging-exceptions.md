@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Barramento de Serviço
 Este artigo relaciona algumas exceções geradas pelas APIs de mensagens do Barramento de Serviço do Microsoft Azure. Essa referência está sujeita a alterações, então verifique se há atualizações.

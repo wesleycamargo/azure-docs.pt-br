@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 063709a22540e22d1eb6f1c6a6ff777e95f6a29a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
@@ -118,9 +117,7 @@ Os recursos baseados em localização podem ser usados ainda para gerar recursos
 > 
 > 
 
-### 
-            <a name="sql-aml">
-            </a>Conectando ao Azure Machine Learning
+### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
 O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados, se já foram criados, usando o módulo [Importar Dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
 
 ![leitores de azureml][1] 
@@ -149,5 +146,4 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 

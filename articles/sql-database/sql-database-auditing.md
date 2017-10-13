@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
@@ -221,4 +220,3 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
 [105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
 [106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
-

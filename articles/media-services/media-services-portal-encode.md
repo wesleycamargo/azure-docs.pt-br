@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ae5f4fd391cbf62b41d1a65f1d8107cefe3a5df3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um ativo usando o Media Encoder Standard no Portal do Azure
 
@@ -43,7 +42,7 @@ Como codificar o conteúdo usando o Media Encoder Standard:
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Selecione **Configurações** > **Ativos**. Selecione o ativo que você deseja codificar.
 3. Selecione o botão **Codificar**.
-4. No painel **Codificar um ativo**, selecione o processador **Media Encoder Standard** e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md). É importante escolher a predefinição que funcione melhor para o vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 &#215; 1080 pixels, poderá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**. Se você tiver um vídeo de resolução baixa (640 &#215; 360), você não deverá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**.
+4. No painel **Codificar um ativo** , selecione o processador **Media Encoder Standard** e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md). É importante escolher a predefinição que funcione melhor para o vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**. Se você tiver um vídeo de resolução baixa (640 x 360), você não deverá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**.
    
    Para ajudá-lo a gerenciar seus recursos, você pode editar o nome do ativo de saída e o nome do trabalho.
    
@@ -58,5 +57,4 @@ Como codificar o conteúdo usando o Media Encoder Standard:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitore o andamento do trabalho de codificação](media-services-portal-check-job-progress.md) no Portal do Azure.  
-
 

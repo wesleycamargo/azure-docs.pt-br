@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d4fa31d664209ba7fea9ee85773d0ab9efb81bed
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerenciar o acesso ao gerenciamento do Azure com acesso condicional
 
 O acesso condicional no Azure AD (Azure Active Directory) controla o acesso a aplicativos de nuvem com base em condições específicas que você especifica. Para permitir o acesso, você cria políticas de acesso condicional que permitem ou bloqueiam o acesso, dependendo de cumprirem-se ou não os requisitos na política. 

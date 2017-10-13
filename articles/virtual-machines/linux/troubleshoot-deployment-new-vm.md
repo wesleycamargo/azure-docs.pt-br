@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 64db243400fed063d1336c448ed6991877cca72d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -89,5 +88,4 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

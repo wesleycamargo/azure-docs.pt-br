@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>Autenticação de identidades sem senhas com o Windows Hello for Business
 Somente os atuais métodos de autenticação com senha não são suficientes para manter os usuários protegidos. Os usuários reutilizar e esquecem senhas. As senhas são propensas a sofrer violações, phishing e falhas e são fáceis de adivinhar. Elas também podem ser difíceis de ser lembradas e propensas a ataques como "[pass the hash](https://technet.microsoft.com/dn785092.aspx)".

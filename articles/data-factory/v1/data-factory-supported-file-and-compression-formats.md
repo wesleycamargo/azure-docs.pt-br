@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 706a1151897f50d41ef6690f28a926ad8cb56d4b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de arquivo aos quais o Azure Data Factory dá suporte
 *Este tópico se aplica aos seguintes conectores: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Blob do Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [Sistema de Arquivos](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
 
@@ -227,7 +225,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção [Mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de destino](data-factory-map-columns.md) para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar **matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth, ou você pode usar  **matriz[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
 
 ```json
 "properties": {
@@ -513,4 +511,3 @@ Consulte os artigos a seguir para armazenamentos de dados baseados em arquivo co
 - [HDFS](data-factory-hdfs-connector.md)
 - [Sistema de Arquivos](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: zhangya;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0933fec67bbcfc2a8c450c1e2472440cf38f338
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 Este tópico explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são extraídos do Azure Machine Learning Studio. 
@@ -90,5 +89,4 @@ A figura a seguir mostra como ficariam esses novos recursos.
 Recursos de engenharia e selecionados aumentam a eficiência do processo de treinamento, que tenta extrair as informações importantes contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
 
 Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
-
 

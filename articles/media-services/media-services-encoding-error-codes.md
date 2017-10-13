@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
-ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: f4fd2212d19f89148dde08c75c5a48cdd322d029
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
 
 A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.  Para obter detalhes do erro em seu código do .NET, use a classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Para obter detalhes do erro em seu código REST, use a API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
@@ -53,4 +51,3 @@ Para obter ajuda da equipe dos **Serviços de Mídia** , abra um [tíquete de su
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

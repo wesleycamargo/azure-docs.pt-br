@@ -16,16 +16,15 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conectar-se ao SQL Data Warehouse com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * 
-            [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)

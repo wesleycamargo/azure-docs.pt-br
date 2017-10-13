@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: d80d7d9c54bad12a4d26d8623eeccdf9bc2a743a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar email usando o SendGrid do Java em uma implantação do Azure
 O exemplo a seguir mostra como você pode usar o SendGrid para enviar emails de uma página da web hospedada no Azure. O aplicativo resultante solicitará os valores de email ao usuário, conforme mostrado na captura de tela a seguir.

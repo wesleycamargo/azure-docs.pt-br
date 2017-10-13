@@ -16,14 +16,12 @@ ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
+ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 321a034340fb31efc1b539ba1a5ab5a34661cb63
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer backup de uma máquina virtual do Azure criptografada com o PowerShell
 
 Esse script cria um cofre de Serviços de Recuperação com GRS (armazenamento com redundância geográfica) para uma máquina virtual do Azure criptografada. A política de proteção padrão é aplicada ao cofre. A política gera um backup diário para a máquina virtual e retém cada backup por 30 dias. O script também dispara o ponto de recuperação inicial para a máquina virtual e mantém esse ponto de recuperação por 365 dias. 
@@ -65,5 +63,4 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
-
 

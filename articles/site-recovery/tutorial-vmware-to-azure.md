@@ -11,12 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -232,4 +231,3 @@ Para monitorar as VMs adicionadas, você pode verificar o horário da última de
 
 > [!div class="nextstepaction"]
 > [Realizar uma simulação de recuperação de desastre](site-recovery-test-failover-to-azure.md)
-

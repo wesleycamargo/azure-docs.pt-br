@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/25/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0d0bd736ddbdf1c4b4344747130236df2af76138
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 3c7b34652ea4c9340b9fe7f6ada3f9992642aeac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
 As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -91,5 +89,4 @@ Os números do Linux foram calculados com a execução do [CoreMark](http://www.
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Para executar os scripts do CoreMark nas VMs do Linux, baixe o [pacote de scripts do CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-
 

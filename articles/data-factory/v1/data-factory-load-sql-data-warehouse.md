@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 092b7651543bd67e6536088952303045cfaf8717
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 O [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais.  Criado em arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse é otimizado para cargas de trabalho do data warehouse corporativas.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
@@ -214,4 +213,3 @@ Veja [Práticas Recomendadas para o SQL Data Warehouse](../../sql-data-warehouse
 ## <a name="next-steps"></a>Próximas etapas
 * [Assistente de Cópia do Data Factory](data-factory-copy-wizard.md) – este artigo fornece detalhes sobre o Assistente de Cópia.
 * [Guia de ajuste e desempenho da Atividade de Cópia](data-factory-copy-activity-performance.md) – este artigo contém as medições de desempenho de referência e o guia de ajuste.
-

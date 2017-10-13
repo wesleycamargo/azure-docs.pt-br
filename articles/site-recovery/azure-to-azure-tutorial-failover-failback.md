@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure (versão prévia)
 
@@ -73,4 +72,3 @@ Após o failover da VM, você precisa protegê-la novamente para que ela seja re
 ## <a name="fail-back-to-the-primary-region"></a>Failback para a região primária
 
 Depois que as VMs são protegidas novamente, você pode fazer failback para a região primária conforme necessário. Para fazer isso, siga as instruções de [failover](#run-a-failover).
-

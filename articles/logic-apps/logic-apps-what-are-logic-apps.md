@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>O que são Aplicativos Lógicos?
 Os Aplicativos Lógicos fornecem uma maneira de simplificar e implementar integrações escalonáveis e fluxos de trabalho na nuvem. Eles fornecem um designer visual para modelar e automatizar o processo como uma série de etapas conhecidas como fluxo de trabalho.  Há [muitos conectores](../connectors/apis-list.md) locais e na nuvem para integrar rapidamente serviços e protocolos.  Um aplicativo lógico começa com um gatilho (como 'Quando uma conta é adicionada ao Dynamics CRM') e, após ser disparado, pode iniciar muitas ações de combinações, conversões e lógica de condição.
@@ -78,4 +77,3 @@ A seguir estão algumas das principais partes que compõem a experiência de Apl
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

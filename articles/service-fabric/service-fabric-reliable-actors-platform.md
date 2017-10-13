@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como Reliable Actors usam a plataforma do Service Fabric
 Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do Azure Service Fabric. Os Reliable Actors são executados em uma estrutura hospedada em uma implementação de um serviço confiável com estado chamado *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerenciar o ciclo de vida e a expedição de mensagens para seus atores:
@@ -415,4 +414,3 @@ Esta etapa garante que o Proxy do Ator esteja usando a Pilha V2 de Comunicação
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-

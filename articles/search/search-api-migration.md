@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Atualização para a API de REST do serviço de Pesquisa do Azure versão 2016-09-01
 Se você estiver usando a versão 2015-02-28 ou 2015-02-28-Preview da [API REST do serviço Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx), este artigo o ajudará a atualizar o aplicativo para usar a próxima versão da API disponível, 2016-09-01.

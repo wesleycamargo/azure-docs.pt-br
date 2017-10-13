@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f44e33ef722cd30787a9d2942ec55ceb73174978
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
 
@@ -244,5 +243,4 @@ Se deseja saber mais sobre as opções de balanceamento de carga no geral, visit
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solucionar problemas de implantação com as Instâncias de Contêiner do Azure
 
 Este artigo mostra como solucionar problemas ao implantar contêineres para Instâncias de Contêiner do Azure. Ele também descreve alguns dos problemas comuns que você pode encontrar.
@@ -226,4 +224,3 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 * Especificar configurações de CPU e memória inferiores para o contêiner
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
-

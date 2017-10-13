@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback no Site Recovery para máquinas virtuais do Hyper-V
 
 Este artigo descreve como executar o failback para máquinas virtuais protegidas pela Recuperação de Site.
@@ -98,4 +96,3 @@ Para acelerar o download dos dados, configure o agente MARS para usar mais threa
 Depois de concluir o trabalho de failback, **Confirme** a máquina virtual. A confirmação exclui a máquina virtual do Azure e seus discos e prepara a VM para ser protegida novamente.
 
 Depois de **Confirmar**, você poderá iniciar a *Replicação Inversa*. Isso iniciará a proteção da máquina virtual do local para o Azure. Observe que isso só replicará as alterações, pois a VM foi desativada no Azure e, assim, enviará somente alterações diferenciais.
-

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
 ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego de rede é distribuído para implantações de aplicativos executados em diferentes datacenters. Você configurar cada implantação de aplicativo como um “ponto de extremidade” no Gerenciador de Tráfego. Quando o Gerenciador de Tráfego recebe uma solicitação DNS, ele escolhe um ponto de extremidade disponível para retornar na resposta DNS. O Gerenciador de Tráfego baseia a escolha no status atual do ponto de extremidade e o método de roteamento de tráfego. Para obter mais informações, consulte [Como o Gerenciador de Tráfego Funciona](traffic-manager-how-traffic-manager-works.md).

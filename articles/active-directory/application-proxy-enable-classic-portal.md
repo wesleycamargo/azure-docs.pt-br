@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
 ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-application-proxy-in-the-classic-portal-and-download-connectors"></a>Habilite o Proxy de Aplicativo no portal clássico e baixe conectores
 Este artigo orienta você pelas etapas para habilitar o Proxy de Aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD.

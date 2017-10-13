@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-movement-cost"></a>Custo do movimentação de serviços
 Um fator que o Gerenciador de Recursos de Cluster do Service Fabric considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é avaliada considerando quanto o cluster pode ser melhorado. O custo é considerado ao mover serviços para balanceamento, desfragmentação e outros requisitos. A meta é atender aos requisitos da maneira menos perturbadora ou cara. 
@@ -121,4 +120,3 @@ via ClusterConfig.json para implantações autônomas ou Template.json para clus
 - Para saber como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira [Balanceamento do cluster do Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
-

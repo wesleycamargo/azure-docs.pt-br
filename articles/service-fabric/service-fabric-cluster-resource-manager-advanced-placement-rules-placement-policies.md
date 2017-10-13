@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: c240643d2a7ce98ddd7f7871eeef654cced953f7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -129,9 +128,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Agora, seria possível usar essas configurações para serviços em um cluster que não tenha sido distribuído geograficamente? Seria, mas também não há um bom motivo para isso. As configurações de domínio obrigatórias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a ser executada em um único rack ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser distribuídas entre domínios de falha e manipuladas por propriedades de nó e restrições de posicionamento normais.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para saber mais sobre como configurar os serviços, [saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
+- Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
-

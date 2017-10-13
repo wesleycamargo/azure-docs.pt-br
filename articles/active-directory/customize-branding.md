@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD
 Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure AD (Azure Active Directory) fornece esse recurso permitindo que você personalize a aparência da página de entrada com esquemas de cores personalizados e o logotipo da empresa. A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.

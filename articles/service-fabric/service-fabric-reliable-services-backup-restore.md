@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: mcoskun
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8d81abec1c879ac6edbd4610dafdfd43ec7cf903
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
@@ -269,5 +268,4 @@ Essa etapa garante que o estado recuperado seja consistente.
   - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

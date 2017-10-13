@@ -16,10 +16,10 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Drivers do Azure SQL Data Warehouse
 Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, por exemplo, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Usando conectores em um aplicativo lógico
 Os conectores fornecem acesso rápido a eventos, dados e ações entre serviços, protocolos e plataformas.  A lista completa de conectores compatíveis com Aplicativos Lógicos pode [ser encontrada aqui](apis-list.md).  Os conectores podem ser usados como um gatilho ou uma ação em um aplicativo lógico, podendo exigir uma *conexão* configurada a ser usada (por exemplo: autorizar uma conta do Twitter a acessar ou publicar em seu nome).

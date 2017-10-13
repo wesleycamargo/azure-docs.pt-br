@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Esse guia de início rápido detalha o uso da CLI do Azure para carregar e baixar dados para e do Armazenamento de Blobs do Azure.
@@ -109,4 +107,3 @@ Nesse guia de início rápido, você aprendeu a transferir arquivos entre o disc
 
 > [!div class="nextstepaction"]
 > [Como: operações de armazenamento de blobs com a CLI do Azure](storage-how-to-use-blobs-cli.md)
-

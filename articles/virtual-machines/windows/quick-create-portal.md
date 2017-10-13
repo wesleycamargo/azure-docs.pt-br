@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Criar uma máquina virtual do Windows com o Portal do Azure
 
 Máquinas virtuais do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface do usuário baseada em navegador para a criação e configuração de máquinas virtuais e todos os recursos relacionados. Esse Início Rápido percorre a criação de uma máquina virtual e a instalação de um servidor Web na VM.
@@ -108,4 +106,3 @@ Neste início rápido, você implantou uma máquina virtual simples, uma regra d
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Windows Azure](./tutorial-manage-vm.md)
-

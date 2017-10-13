@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 ## <a name="overview"></a>Visão geral

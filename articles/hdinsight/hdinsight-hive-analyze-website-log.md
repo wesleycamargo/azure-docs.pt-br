@@ -17,10 +17,10 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1cdb786bb6049980aafc0213abf53013e342618
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usar o Hive com o HDInsight baseado no Windows para analisar logs de sites
 Saiba como usar o HiveQL com HDInsight para analisar os logs de um Website. A análise de log do Website pode ser usada para segmentar seu público com base em atividades semelhantes, categorizar os visitantes do site por demografia e descobrir o conteúdo que eles veem, seus Websites de origem e assim por diante.

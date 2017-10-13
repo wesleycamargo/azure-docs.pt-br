@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
+ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 0398e9f814614b3dccf849385903a8ed8717eafb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Criar um endereço IP público em uma zona de disponibilidade com o Portal do Azure
 
 Você pode implantar um endereço IP público em uma zona de disponibilidade do Azure (versão prévia). Uma zona de disponibilidade é uma zona fisicamente separada em uma região do Azure. Saiba como:
@@ -38,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no portal do Azure em https://portal.azure.com. 
+Faça logon no Portal do Azure em https://portal.azure.com. 
 
 ## <a name="create-a-zonal-public-ip-address"></a>Criar um endereço IP público zonal
 
@@ -48,7 +46,7 @@ Faça logon no portal do Azure em https://portal.azure.com.
 
     |Configuração|Valor|
     |---|---|
-    |SKU| **Básico**: atribuído com o método de alocação estática ou dinâmica. Pode ser atribuído a qualquer recurso do Azure que pode ser atribuído um endereço IP público, tal como adaptadores de rede, Gateways de VPN, Gateways de Aplicativo e balanceadores de carga voltados para a Internet. Você pode atribuir o endereço IP público a uma zona específica na configuração **Zona de disponibilidade**. Não têm redundância de zona. Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). **Standard**: atribuído somente com o método de alocação estática. Podem ser atribuídos a adaptadores de rede ou balanceadores de carga padrão voltados para Internet. Se você atribuir o endereço IP público a um balanceador de carga Standard voltado para a Internet, você deverá selecionar Standard. Para obter mais informações sobre os SKUs do Azure Load Balancer, consulte [SKU Standard do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview). Têm redundância de zona, por padrão. Podem ser criados como zonais e com presença garantida em uma zona de disponibilidade específica. O SKU Standard está em versão prévia. Antes de criar um endereço IP público do SKU Standard, você deve primeiro registrar-se para a versão prévia. Para se registrar para a versão prévia, consulte [Registrar-se para a versão prévia do SKU Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#preview-sign-up). O SKU Standard só pode ser criado em uma localização com suporte.  Para obter uma lista de localizações com suporte (regiões), consulte [Disponibilidade da região](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#region-availability) e monitore a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional.|   
+    |SKU| **Básico**: atribuído com o método de alocação estática ou dinâmica. Pode ser atribuído a qualquer recurso do Azure que pode ser atribuído um endereço IP público, tal como adaptadores de rede, Gateways de VPN, Gateways de Aplicativo e balanceadores de carga voltados para a Internet. Você pode atribuir o endereço IP público a uma zona específica na configuração **Zona de disponibilidade**. Não têm redundância de zona. Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). **Standard**: atribuído somente com o método de alocação estática. Podem ser atribuídos a adaptadores de rede ou balanceadores de carga padrão voltados para Internet. Se você atribuir o endereço IP público a um balanceador de carga Standard voltado para a Internet, você deverá selecionar Standard. Para obter mais informações sobre os SKUs do Azure Load Balancer, consulte [SKU Standard do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview). Têm redundância de zona, por padrão. Podem ser criados como zonais e com presença garantida em uma zona de disponibilidade específica. O SKU Standard está em versão prévia. Antes de criar um endereço IP público do SKU Standard, você deve primeiro registrar-se para a versão prévia. Para se registrar para a versão prévia, consulte [Registrar-se para a versão prévia do SKU Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#preview-sign-up). O SKU Standard só pode ser criado em uma localização com suporte.  Para obter uma lista de localizações com suporte (regiões), confira [Disponibilidade da região](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#region-availability) e monitore a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional.|   
     |Nome|O nome deve ser exclusivo no grupo de recursos selecionado.|
     |Grupo de recursos|Clique em Criar novo e digite myResourceGroup|
     |Local|Europa Ocidental|

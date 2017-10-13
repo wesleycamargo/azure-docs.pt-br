@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: b56674857b013f9bb3d4dd4b6e97b34e0a97b1b2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Usar o MapReduce no Hadoop no HDInsight com Remote Desktop
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -103,4 +102,3 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-

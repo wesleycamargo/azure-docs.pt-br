@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -70,8 +69,7 @@ Neste tutorial, demonstraremos a importação em massa paralela dos dados para u
 Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md)
-2. 
-            [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
+2. [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
 3. [Provisione uma Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor do IPython Notebook.
    
    > [!NOTE]
@@ -237,7 +235,7 @@ Este exemplo converte a longitude e latitude de saída e chegada para pontos geo
 As consultas de exploração de geração de rótulos e conversão de geografia também podem ser usadas para gerar rótulos/recursos removendo a parte da contagem. Exemplos de engenharia de recursos SQL adicionais são fornecidos na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb) . É mais eficiente executar consultas de geração do recurso no conjunto de dados completo ou em um grande subconjunto dele usando consultas SQL, as quais são executadas diretamente na instância de banco de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio**, IPython Notebook ou qualquer ferramenta/ambiente de desenvolvimento que possa acessar o banco de dados local ou remotamente.
 
 #### <a name="preparing-data-for-model-building"></a>Preparando dados para criação de modelo
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de 1% do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Azure Machine Learning Studio](https://studio.azureml.net) para ingestão direta de dados da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de 1% do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados](https://studio.azureml.net)[] do [Azure Machine Learning Studioimport-data] para ingestão direta de dados da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -554,9 +552,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 2. Classificação multiclasse: prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
 3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
 
-## 
-            <a name="mlmodel">
-            </a>Criando modelos no Azure Machine Learning
+## <a name="mlmodel"></a>Criando modelos no Azure Machine Learning
 Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do Azure Machine Learning. Se ainda não tiver criado um espaço de trabalho do Machine Learning, consulte [Criar um espaço de trabalho do Azure Machine Learning](../studio/create-workspace.md).
 
 1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
@@ -599,9 +595,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 > 
 > 
 
-## 
-            <a name="mldeploy">
-            </a>Implantando modelos no Azure Machine Learning
+## <a name="mldeploy"></a>Implantando modelos no Azure Machine Learning
 Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
@@ -659,4 +653,3 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

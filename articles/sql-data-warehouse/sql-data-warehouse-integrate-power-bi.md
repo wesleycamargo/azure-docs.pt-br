@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Usar o Power BI com o SQL Data Warehouse
 Assim como o Banco de Dados SQL do Azure, a Conexão Direta do SQL Data Warehouse permite ao usuário aproveitar a aplicação lógica ao longo dos recursos analíticos do Power BI.  Com a Conexão Direta, as consultas são enviadas de volta ao SQL Data Warehouse do Azure em tempo real enquanto você explora os dados.  Esse recurso, combinado com a escala do SQL Data Warehouse, permite aos usuários criar relatórios dinâmicos dos terabytes de dados em questão de minutos.  Além disso, a introdução do botão Abrir no Power BI permite que os usuários conectem o Power BI diretamente ao respectivo SQL Data Warehouse sem coletar informações de outras partes do Azure.

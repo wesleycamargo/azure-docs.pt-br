@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
 
@@ -190,5 +188,4 @@ O serviço demora aproximadamente um minuto para iniciar. Abra um navegador da W
 | Edições do DSVM com suporte      | Linux     |
 | Como é configurado/instalado no DSVM?  | O Torch é instalado em `/dsvm/tools/torch`. O PyTorch é instalado em Python 2.7 (_raiz_), bem como no ambiente Python 3.5 (_py35_).   |
 | Links para exemplos      | Exemplos de Torch estão localizados em `/dsvm/samples/torch`. Exemplos de PyTorch estão localizados em `/dsvm/samples/pytorch`.      |
-
 

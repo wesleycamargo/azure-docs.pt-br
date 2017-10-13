@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Solucionar problemas do HDFS usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com o conteúdo HDFS (Sistema de Arquivos Distribuído Hadoop) no Apache Ambari.
@@ -81,7 +79,7 @@ Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usa
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como fazer para forçar a desabilitação do modo de segurança HDFS em um cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como forçar a desabilitação do modo de segurança de HDFS em um cluster
 
 ### <a name="issue"></a>Problema
 
@@ -151,7 +149,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Causa provável
 
-O cluster HDInsight foi reduzido verticalmente para muito poucos nós. O número de nós está abaixo ou próximo ao fator de replicação do HDFS.
+O cluster HDInsight foi reduzido para pouquíssimos nós. O número de nós está abaixo ou próximo ao fator de replicação do HDFS.
 
 ### <a name="resolution-steps"></a>Etapas de resolução 
 
@@ -234,4 +232,3 @@ O cluster HDInsight foi reduzido verticalmente para muito poucos nós. O número
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
-

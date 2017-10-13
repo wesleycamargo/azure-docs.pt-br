@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2be93bd623ae3960c61d54d4219cc4b60257f88d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 1c8ce646f28d5f13ec1c5760d4c110b994b3a4cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Usar o PowerShell para restaurar um Banco de Dados SQL do Azure de backups
 
 Este exemplo de script do PowerShell restaura um Banco de Dados SQL do Azure de um backup com redundância geográfica, restaura um Banco de Dados SQL do Azure excluído para o backup mais recente e restaura um Banco de Dados SQL do Azure para um ponto no tempo específico.  
@@ -32,7 +30,7 @@ Este exemplo de script do PowerShell restaura um Banco de Dados SQL do Azure de 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Criar Banco de Dados SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -61,4 +59,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
-

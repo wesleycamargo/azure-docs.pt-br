@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: 3b9be28143060537b1a35004c3b3486b8738e956
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 O Banco de Dados SQL fornece essas opções para recuperação de banco de dados usando [backups automáticos de banco de dados](sql-database-automated-backups.md) e [backups de retenção de longo prazo](sql-database-long-term-retention.md). Você pode restaurar de um backup de banco de dados para:
@@ -152,4 +151,3 @@ Backups automáticos protegem seus bancos de dados contra erros de usuário e de
 * Para saber mais sobre a retenção de backup de longo prazo, consulte [Retenção de backup de longo prazo](sql-database-long-term-retention.md)
 * Para configurar, gerenciar e restaurar da retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Configurar e usar a retenção de backup de longo prazo](sql-database-long-term-backup-retention-configure.md). 
 * Para saber mais sobre opções de recuperação mais rápidas, confira [replicação geográfica ativa](sql-database-geo-replication-overview.md)  
-

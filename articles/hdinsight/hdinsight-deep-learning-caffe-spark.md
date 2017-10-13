@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
 ms.openlocfilehash: 14b7808c9534bce3049422d6bce1e8914b2c2fbc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Use Caffe no Azure HDInsight Spark para aprendizado aprofundado distribuído
 
@@ -301,10 +301,8 @@ Nesta documentação, você tentou instalar o CaffeOnSpark com a execução de u
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* 
-            [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
@@ -57,9 +57,9 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
   * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se uma conta de usuário existe no Azure Active Directory](#problems-with-the-users-account)
 
-  * Certifique-se de que a conta do usuário está **habilitada** para entrar. [Verificar o status da conta do usuário](#problems-with-the-users-account)
+  * Verifique se a conta do usuário está **habilitada** para entradas. [Verificar o status da conta do usuário](#problems-with-the-users-account)
 
-  * Certifique-se de que a **senha do usuário não está expirada ou esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
    * Certifique-se de que a **Autenticação Multifator** não está bloqueando o acesso do usuário. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 

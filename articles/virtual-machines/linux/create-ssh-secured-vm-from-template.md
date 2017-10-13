@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI 2.0 do Azure e modelos do Azure Resource Manager. Você também pode executar essas etapas com a [CLI do Azure 1.0](create-ssh-secured-vm-from-template-nodejs.md).

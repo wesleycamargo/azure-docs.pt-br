@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.openlocfilehash: be19f616e36916655390cd05e738e93c08dcdf68
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-playready-license-template-overview"></a>Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
 Os Serviços de Mídia do Azure fornecem um serviço de distribuição de licenças do Microsoft PlayReady. Quando o player de usuário final (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para obtenção de uma. Se o serviço de licença aprova a solicitação, ele emite a licença que é enviada ao cliente e pode ser usada para descriptografar e reproduzir o conteúdo especificado.

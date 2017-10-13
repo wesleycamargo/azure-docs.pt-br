@@ -14,13 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
@@ -110,5 +109,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 [Explore o Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure. 
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

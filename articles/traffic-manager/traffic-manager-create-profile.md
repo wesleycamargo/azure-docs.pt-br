@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
 Este artigo descreve como um perfil com tipo de roteamento **Prioridade** pode ser criado para rotear usuários para dois pontos de extremidade de aplicativos Web do Azure. Usando o tipo de roteamento **Prioridade**, todo o tráfego é roteado para o primeiro ponto de extremidade, enquanto o segundo é mantido como um backup. Como resultado, os usuários podem ser roteados para o segundo ponto de extremidade, caso o primeiro ponto de extremidade se torne não íntegro.
@@ -73,7 +71,6 @@ Quando não for mais necessário, exclua o grupo de recursos e o perfil do Geren
 - Saiba mais sobre [tipos de roteamento](traffic-manager-routing-methods.md).
 - Saiba mais sobre os tipos de ponto de extremidade [tipos de ponto de extremidade](traffic-manager-endpoint-types.md).
 - Saiba mais sobre [monitoramento do ponto de extremidade](traffic-manager-monitoring.md).
-
 
 
 

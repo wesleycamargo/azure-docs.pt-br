@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 67f66f9b8703f2cab93a2274a90c161a55848c34
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importar dados de treinamento de um arquivo no disco rígido para o Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -44,4 +43,3 @@ Durante o upload, você verá uma mensagem informando que seu arquivo está send
 Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho.
 
 Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. É possível arrastar e soltar o conjunto de dados na tela de teste quando você desejar usá-lo para outras análises e aprendizado de máquina.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: c577a0163af04bec5737a215e788c3fb92c653c5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integração do Azure Active Directory com o MBC (Mercer BenefitsCentral)
 
@@ -51,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Mercer BenefitsCentral (MBC) da galeria
+1. Adicionar o Mercer BenefitsCentral (MBC) da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Adicionar o Mercer BenefitsCentral (MBC) da galeria
@@ -224,5 +223,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_203.png
-
 

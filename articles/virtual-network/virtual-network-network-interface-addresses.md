@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
 Saiba como adicionar, alterar e remover endereços IP públicos e privados para um adaptador de rede. Endereços IP privados atribuídos a um adaptador de rede permitem que uma máquina virtual se comunique com outros recursos em uma rede virtual do Azure e redes conectadas. Um endereço IP privado também permite a comunicação de saída com a Internet usando um endereço IP imprevisível. Um [Endereço IP público](virtual-network-public-ip-address.md) atribuído a um adaptador de rede permite a comunicação de entrada com uma máquina virtual a partir da Internet. O endereço também permite a comunicação de saída da máquina virtual com a Internet usando um endereço IP previsível. Para obter detalhes, confira [Entender as conexões de saída no Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -205,4 +203,3 @@ Para criar uma máquina virtual com diferentes configurações de IP, leia os se
 |Criar uma VM com diversos NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Criar uma VM com um NIC com vários endereços IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Criar uma VM com um NIC com um endereço IPv6 privado (atrás de um Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [modelo do Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

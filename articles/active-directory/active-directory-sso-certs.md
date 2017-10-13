@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
 ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 Este artigo aborda dúvidas comuns e informações relacionadas aos certificados que o Azure Active Directory (Azure AD) cria para estabelecer SSO (logon único) federado para seus aplicativos SaaS. Adicione aplicativos pela galeria de aplicativos do Azure AD ou usando um modelo de aplicativo inexistente na galeria. Configure o aplicativo usando a opção de SSO federada.

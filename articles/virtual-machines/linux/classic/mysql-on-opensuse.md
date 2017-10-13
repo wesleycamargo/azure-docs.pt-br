@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
 ms.openlocfilehash: 01b798a25575b66f89057315ce80d6cc0cde53b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
 O [MySQL][MySQL] é um popular Banco de Dados SQL de software livre. Este tutorial mostra como criar uma máquina virtual com o OpenSUSE Linux e instalar o MySQL.

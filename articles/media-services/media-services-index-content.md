@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
+ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 1e93e97e52475da8ca09e36f2bdd754e3ee91d3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.  
@@ -279,5 +278,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 [Usando arquivos AIB com o indexador de mídia do Azure e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 [Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
-
 

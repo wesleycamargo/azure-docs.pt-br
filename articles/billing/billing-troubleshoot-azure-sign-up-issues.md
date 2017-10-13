@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inscrição do Azure
 Se você não conseguir se inscrever no Azure, use as dicas deste artigo para solucionar problemas comuns. Caso tenha um problema com seu cartão de crédito durante a inscrição, consulte [Seu cartão de débito ou crédito é recusado durante a inscrição do Azure](billing-credit-card-fails-during-azure-sign-up.md). Se você tiver uma conta do Azure, mas não conseguir se conectar, consulte [Não consigo me conectar para gerenciar minha assinatura do Azure](billing-cannot-login-subscription.md).
@@ -91,4 +90,3 @@ Para criar uma assinatura do Azure via Open, você deve ter uma chave OSA (Ativa
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
