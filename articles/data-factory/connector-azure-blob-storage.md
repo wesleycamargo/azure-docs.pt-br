@@ -7,13 +7,14 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/13/2017
 ms.author: jingwang
-ms.openlocfilehash: 394085a69331c5f19284f65b5375b84c6d0c6f46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 394085a69331c5f19284f65b5375b84c6d0c6f46
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,6 +66,7 @@ Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave 
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9ca423e8d752271fadbb5b51f38e691a0316576c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 9ca423e8d752271fadbb5b51f38e691a0316576c
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação RADIUS: PowerShell (Versão Prévia)
 
@@ -164,7 +165,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 1. Crie uma cadeia de caracteres segura para o segredo RADIUS.
 
   ```powershell
-  $Secure_Secret=Read-Host -AsSecureStrinng -Prompt "RadiusSecret"
+  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
 2. Você precisará inserir o segredo do RADIUS. Os caracteres que você inserir não serão exibidos e, ao invés disso, serão substituídos pelo caractere "*".
@@ -252,3 +253,4 @@ As Perguntas frequentes aplicam-se ao P2S usando a autenticação RADIUS
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+
