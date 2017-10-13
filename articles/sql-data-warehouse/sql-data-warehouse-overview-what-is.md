@@ -16,10 +16,10 @@ ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>O que é o SQL Data Warehouse do Azure?
 O SQL Data Warehouse do Azure é um banco de dados relacional, baseado em nuvem, expansível e de processamento paralelo massivo com capacidade de processar volumes imensos de dados. 
@@ -99,8 +99,7 @@ O SQL Data Warehouse também integra muitas das ferramentas com as quais os usu�
 
 **Ferramentas tradicionais do SQL Server:** o SQL Data Warehouse é totalmente integrado ao SQL Server Analysis Services, aos serviços de integração e de relatório.
 
-
-            **Ferramentas baseadas em nuvem:** o SQL Data Warehouse pode ser integrado com vários serviços no Azure, incluindo o Data Factory, o Stream Analytics, o Machine Learning e o Power BI. Para obter uma lista mais completa, confira [Visão geral das ferramentas integradas][Integrated tools overview].
+**Ferramentas baseadas em nuvem:** o SQL Data Warehouse pode ser integrado com vários serviços no Azure, incluindo o Data Factory, o Stream Analytics, o Machine Learning e o Power BI. Para obter uma lista mais completa, confira [Visão geral das ferramentas integradas][Integrated tools overview].
 
 **Ferramentas de terceiros:** vários provedores de ferramenta de terceiros têm integração certificada de suas ferramentas com o SQL Data Warehouse. Para obter uma lista completa, veja [Parceiros de solução do SQL Data Warehouse][SQL Data Warehouse solution partners].
 
