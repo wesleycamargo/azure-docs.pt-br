@@ -28,6 +28,7 @@
 ### [Definir políticas e agendas](devtest-lab-set-lab-policy.md)
 ### [Configurar o gerenciamento de custo](devtest-lab-configure-cost-management.md)
 ### [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Habilitar uma imagem licenciada](devtest-lab-enable-licensed-images.md)
 ### [Para adicionar marcas a um laboratório](devtest-lab-add-tag.md)
 
 ## [Selecionar imagem personalizada ou fórmula](devtest-lab-comparing-vm-base-image-types.md)

@@ -1,14 +1,13 @@
---- 
+---
 layout: HubPage
-hide_bc: true
+hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
+ms.openlocfilehash: 05a288bf8ccbc70bb5ce5c52b0e85e0f784c7f3e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1e8b6749e445b7b8787b5b0246445a2bb810f80f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -594,6 +593,12 @@ ms.lasthandoff: 09/25/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/batch-ai/">
+                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                <p>IA do Lote do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/cs-decision-maker.svg" alt="" />
                                                 <p>Serviço Personalizado de Decisão</p>
@@ -696,7 +701,7 @@ ms.lasthandoff: 09/25/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/overview">
+                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Pesquisa de Entidades do Bing</p>
                                             </a>
@@ -807,7 +812,7 @@ ms.lasthandoff: 09/25/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Repositório Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -846,7 +851,7 @@ ms.lasthandoff: 09/25/2017
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>Análises Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -888,7 +893,7 @@ ms.lasthandoff: 09/25/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Repositório Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1745,7 +1750,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Repositório Data Lake</h3>
                                                     <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
@@ -2316,7 +2321,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
+                                                    <h3>Análises Data Lake</h3>
                                                     <p>Serviço de análise distribuído que facilita o uso de big data</p>
                                                 </div>
                                             </div>
@@ -2449,7 +2454,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Repositório Data Lake</h3>
                                                     <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
@@ -2516,6 +2521,25 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 <div class="cardText">
                                                     <h3>Serviço de Bot do Azure</h3>
                                                     <p>Serviço de bot inteligente sem servidor que pode ser dimensionado sob demanda</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch-ai/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IA do Lote do Azure</h3>
+                                                    <p>Experimente facilmente e treine seu aprendizado e modelos de IA em paralelo, em grande escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2663,10 +2687,10 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Sugestão Automática do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Pesquisa Personalizada do Bing&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Pesquisa Personalizada do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Pesquisa de Entidades do Bing&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Pesquisa de Entidades do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Pesquisa de Imagem do Bing</a>
@@ -4186,4 +4210,3 @@ Um conjunto de práticas recomendadas para aplicativos em nuvem, que abrangem as
         </ul>
     </div>
 </div>
-
