@@ -3,7 +3,7 @@ title: Autorizar contas de desenvolvedor usando o Azure Active Directory - Geren
 description: "Como autorizar usuários usando o Active Directory do Azure no Gerenciamento de API."
 services: api-management
 documentationcenter: API Management
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
@@ -14,12 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/02/2017
+
 ---
+
 > [!WARNING]
 > A integração do Azure Active Directory está disponível somente nas camadas [Desenvolvedor e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
@@ -243,4 +245,5 @@ Agora, o usuário está conectado no portal do desenvolvedor para a instância d
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+
 
