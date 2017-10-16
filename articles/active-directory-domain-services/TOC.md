@@ -15,9 +15,9 @@
 
 # Como
 ## Ingressar em um domínio gerenciado
-### [Ingressar em uma VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Ingressar em uma VM do Windows usando o PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [VM do Windows usando o PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)

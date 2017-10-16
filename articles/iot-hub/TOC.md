@@ -114,6 +114,7 @@
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Gerenciar
 ### Crie um hub IoT 
 #### [Usar o Portal do Azure](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Usar o Portal do Azure](iot-hub-configure-file-upload.md)
 #### [Usar o Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Usar a CLI do Azure](iot-hub-configure-file-upload-cli.md)
-### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
+### [Monitorar com o diagnóstico](iot-hub-monitor-resource-health.md)
+#### [Migrar para as configurações de diagnóstico](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Monitoramento de operações](iot-hub-operations-monitoring.md)
 ### [Métricas de uso](iot-hub-metrics.md)
-### [Monitoramento de operações](iot-hub-operations-monitoring.md)
+### [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Configurar a filtragem do IP](iot-hub-ip-filtering.md)
+
 ## Segurança
 ### [Segurança desde o início](iot-hub-security-ground-up.md)
 ### [Práticas recomendadas de segurança](iot-hub-security-best-practices.md)
 ### [Arquitetura de segurança](iot-hub-security-architecture.md)
 ### [Proteger sua implantação de IoT](iot-hub-security-deployment.md)
+### Proteger usando Certificado de Autoridade de Certificação X.509
+#### [Visão geral de segurança de Certificado de Autoridade de Certificação X.509](iot-hub-x509ca-overview.md)
+##### [Conceitos de segurança de Certificado de Autoridade de Certificação X.509](iot-hub-x509ca-concept.md)
+#### [Introdução à segurança de Certificado de Autoridade de Certificação X.509](iot-hub-security-x509-get-started.md)
+##### [Criar certificados – PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Visão geral](iot-hub-iot-edge-overview.md)
 ### Introdução
