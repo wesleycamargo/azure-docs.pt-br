@@ -58,13 +58,13 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
+### [Organizar assinaturas com grupos de gerenciamento](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Exemplos de governança](resource-manager-subscription-examples.md)
 
 ## Controlar Acesso
 ### Criar uma entidade de serviço
 #### [PowerShell do Azure](resource-group-authenticate-service-principal.md)
 #### [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [CLI 1.0 do Azure](resource-group-authenticate-service-principal-cli.md)
 #### [Portal do Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)

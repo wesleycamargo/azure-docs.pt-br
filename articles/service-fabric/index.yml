@@ -45,7 +45,7 @@ sections:
         style: ordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Implantar um aplicativo .NET</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Comparar e deslocar um aplicativo existente do .NET</a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Colocar em contêiner um aplicativo existente do .NET</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Criar um aplicativo de contêiner do Linux</a>
           - html: Criar e gerenciar um cluster do <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> ou do <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
   - title: Treinamento em Vídeo Pluralsight gratuito

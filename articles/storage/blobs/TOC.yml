@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4 – Monitorar e solucionar problemas de armazenamento
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Pesquisar dados não estruturados no armazenamento em nuvem
+      href: storage-unstructured-search.md
 - name: Exemplos
   items:
     - name: Azure PowerShell

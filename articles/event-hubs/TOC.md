@@ -22,6 +22,7 @@
 
 # Como
 ## Planejar e projetar
+### [Recuperação de desastres geográficos e replicação geográfica](event-hubs-geo-dr.md)
 ### [Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md)
 ### [Visão geral do modelo de segurança e autenticação](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilidade e consistência](event-hubs-availability-and-consistency.md)
