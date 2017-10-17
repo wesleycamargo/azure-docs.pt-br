@@ -12,14 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: pt-br
+ms.lasthandoff: 05/31/2017
+
 ---
+
 # <a name="application-and-service-level-event-and-log-generation"></a>Geração de logs e eventos de nível de aplicativo e serviço
 
 ## <a name="instrumenting-the-code-with-custom-events"></a>Instrumentação do código com eventos personalizados
@@ -176,3 +178,4 @@ Se o aplicativo depende de alto desempenho, o **EventSource** geralmente é uma 
 ## <a name="next-steps"></a>Próximas etapas
 
 Após escolher o provedor de log para instrumentar os aplicativos e serviços, os logs e eventos precisam ser agregados para que possam ser enviados a qualquer plataforma de análise. Leia sobre o [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e o [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para entender melhor algumas das opções recomendadas.
+

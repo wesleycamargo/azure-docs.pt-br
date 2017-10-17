@@ -3,7 +3,7 @@ title: "Introdução ao Cofre de Chaves do Azure | Microsoft Docs"
 description: "Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure para criar um contêiner de proteção avançado no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 10/16/2017
 ms.author: barclayn
 ms.translationtype: HT
 ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
