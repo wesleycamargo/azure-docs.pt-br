@@ -6,8 +6,12 @@
       href: overview.md
 - name: Guia de início rápido
   items:
-    - name: Criar e rotear eventos personalizados
+    - name: Criar eventos personalizados - CLI do Azure
       href: custom-event-quickstart.md
+    - name: Criar eventos personalizados - Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Criar eventos personalizados - portal do Azure
+      href: custom-event-quickstart-portal.md
 - name: Tutoriais
   items:
     - name: Monitorar alterações da VM com aplicativos lógicos

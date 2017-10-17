@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -156,7 +155,7 @@ As características de desempenho e detalhes da execução da atividade de cópi
 | sqlDwPolyBase | Se o PolyBase é usado ao copiar dados para o SQL Data Warehouse. | Booliano |
 | redshiftUnload | Se UNLOAD é usado ao copiar dados do Redshift. | Booliano |
 | hdfsDistcp | Se DistCp é usado ao copiar dados do HDFS. | Booliano |
-| effectiveIntegrationRuntime | Mostre quais Tempos de Execução de Integração são usados para capacitar a execução da atividade, no formato de "<IR name> (<region for Azure IR>)". | Texto (cadeia de caracteres) |
+| effectiveIntegrationRuntime | Mostre quais Integration Runtime(s) são usados para capacitar a execução da atividade, no formato de "`<IR name> (<region if it's Azure IR>)`". | Texto (cadeia de caracteres) |
 | usedCloudDataMovementUnits | As unidades de movimentação de dados de nuvem eficaz durante a cópia. | Valor Int32 |
 | redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de blobs que você configurou em "redirectIncompatibleRowSettings". Consulte o exemplo abaixo. | Texto (cadeia de caracteres) |
 | billedDuration | A duração sendo cobrada para a movimentação de dados. | Valor Int32 em segundos |
@@ -196,4 +195,3 @@ Consulte os seguintes guias de início rápido, tutoriais e exemplos:
 - [Copiar dados de um local para outro no mesmo Armazenamento de Blobs do Azure](quickstart-create-data-factory-dot-net.md)
 - [Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](tutorial-copy-data-dot-net.md)
 - [Copiar dados do SQL Server local para o Azure](tutorial-hybrid-copy-powershell.md)
-
