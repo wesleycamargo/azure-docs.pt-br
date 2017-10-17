@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/11/2017
 ms.author: jgao
+ms.openlocfilehash: 822c5f2302fb32d0d5a05ba69132282c050b7b8b
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usar a Consulta Interativa com o HDInsight
 A Consulta Interativa (também chamada de Hive LLAP ou [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Hive mais rápidas e muito mais interativas. 
@@ -30,7 +29,6 @@ A Consulta Interativa (também chamada de Hive LLAP ou [Live Long and Process](h
 Um cluster de Consulta Interativa é diferente de um cluster Hadoop. Ele contém apenas o serviço do Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie e outros serviços, em breve, serão removidos desse tipo de cluster.
 > É possível acessar o serviço do Hive no cluster da Consulta Interativa somente por meio da exibição do Hive do Ambari, do Beeline e do driver Microsoft Hive Open Database Connectivity (Hive ODBC). Não é possível acessá-lo por meio do console do Hive, Templeton, a CLI do Azure (ferramenta de linha de comando do Azure) ou Azure PowerShell. 
 > 
 > 
@@ -86,5 +84,4 @@ Para localizar a cadeia de conexão do JDBC (Java Database Connectivity):
 * Saiba como [usar a Exibição do Hive com o Hadoop no HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
 * Saiba como [usar o Beeline para enviar consultas de Hive no HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Saiba como [conectar o Excel ao Hadoop com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
-
 
