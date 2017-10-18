@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Parte 2 de Classificando a Íris: criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
 
@@ -38,6 +36,10 @@ Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.or
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve concluir a primeira parte desta série de tutoriais. Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Azure Machine Learning e instalar o aplicativo Azure Machine Learning Workbench antes de iniciar as etapas neste tutorial.
+
+Opcionalmente, você pode fazer experiências com a execução de scripts em um contêiner do Docker local. Para fazer isso, você precisará de um engine do Docker (o Community Edition é suficiente) instalado e iniciado localmente no seu computador Windows ou macOS. Leia mais sobre a [instrução de instalação do Docker](https://docs.docker.com/engine/installation/).
+
+Se você quiser fazer experiências com o script de expedição a ser executado em um contêiner do Docker em uma VM do Azure remota, ou em um cluster Spark do HDInsight, siga as [instruções para criar uma Máquina Virtual de Ciência de Dados do Azure ou um Cluster HDI baseado em Ubuntu](how-to-create-dsvm-hdi.md).
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Examine os arquivos de configuração e iris_sklearn.py
 1. Inicie o aplicativo **Azure Machine Learning Workbench** e abra o projeto **myIris** criado na parte anterior da série de tutorial.
@@ -102,7 +104,7 @@ Nos prepararemos para executar o script **iris_sklearn.py** pela primeira vez. E
 
 8. Clique na palavra **Concluído** no texto de status do trabalho no painel Trabalhos. Uma janela pop-up é aberta e exibe o texto de saída padrão (stdout) do script em execução. Para fechar o texto stdout, clique no botão **X** no canto superior direito do pop-up.
 
-9. No mesmo status de trabalho no painel de tarefas, clique no texto azul **iris_sklearn.py [1]** imediatamente acima do status **Concluído** e da hora de início. A página **Propriedades da Execução** é aberta e mostra as informações de Propriedades da Execução, arquivos de **Saídas**, quaisquer eventuais **Visualizações** e **Logs** dessa execução específica. 
+9. No mesmo status de trabalho no painel de tarefas, clique no texto azul **iris_sklearn.py [n]** (_n_ é o número da execução) imediatamente acima do status **Concluído** e da hora de início. A página **Propriedades da Execução** é aberta e mostra as informações de Propriedades da Execução, arquivos de **Saídas**, quaisquer eventuais **Visualizações** e **Logs** dessa execução específica. 
 
    Quando a execução é concluída, a janela pop-up mostra os seguintes resultados:
 
@@ -367,4 +369,3 @@ Você está pronto para passar para a terceira parte da série. Agora que você 
 
 > [!div class="nextstepaction"]
 > [Implantar um modelo](tutorial-classifying-iris-part-3.md)
-

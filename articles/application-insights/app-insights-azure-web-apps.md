@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorar o desempenho do aplicativo Web do Azure
 No [Portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho de aplicativo dos seus [aplicativos Web do Azure](../app-service/app-service-web-overview.md). O [Azure Application Insights](app-insights-overview.md) equipa seu aplicativo para enviar a telemetria sobre suas atividades para o serviço Application Insights, onde ela é armazenada e analisada. Lá, os gráficos de métricas e as ferramentas de pesquisa podem ser usados para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.
@@ -50,7 +49,7 @@ Se você já estiver executando um aplicativo Web no Azure, então já está sen
     
     Valor: `true`
    * **Salve** as configurações e **Reinicie** seu aplicativo.
-3. **Monitore o seu aplicativo**.  [Exporte os dados](#explore-the-data).
+3. **Monitore o seu aplicativo**.  [Explorar os dados](#explore-the-data).
 
 Posteriormente, você poderá compilar o aplicativo com o Application Insights, se desejar.
 
@@ -120,5 +119,4 @@ Para ter pesquisas mais eficientes em sua telemetria, use a [linguagem de consul
 * [Receba notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](app-insights-javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](app-insights-monitor-web-app-availability.md) para ser alertado se o seu site for desativado.
-
 

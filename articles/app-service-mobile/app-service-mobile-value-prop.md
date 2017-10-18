@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
 O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
@@ -68,7 +67,7 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
 * **Implantação contínua**: o Serviço de Aplicativo pode integrar sistemas SCM (Gerenciador de Controle de Serviço) comuns, permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
 
-  Descubra mais sobre [opções de implantação].
+  Descubra mais sobre [opções de implantação](../app-service/app-service-deploy-local-git.md).
 
 * **Rede virtual**: o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, o Azure ExpressRoute ou conexões híbridas.
 
@@ -83,11 +82,10 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 Para começar a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure, conclua o tutorial de [introdução]. O tutorial abrange os fundamentos da produção de um back-end móvel e um cliente de sua escolha. Ele também aborda a integração de autenticação, sincronização offline e notificações por push. Você pode concluir o tutorial várias vezes, uma vez para cada aplicativo cliente.
 
 Para saber mais sobre Aplicativos Móveis, reveja nosso [mapa de aprendizado].
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
+Para saber mais sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [introdução]: app-service-mobile-ios-get-started.md
 [Armazenamento de Tabelas do Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [Xamarin.iOS e Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[dimensionamento automático]: ../app-service-web/web-sites-scale.md
-[ambientes de preparo]: ../app-service-web/web-sites-staged-publishing.md
-[opções de implantação]: ../app-service-web/web-sites-deploy.md
+[dimensionamento automático]: ../app-service/web-sites-scale.md
+[ambientes de preparo]: ../app-service/web-sites-staged-publishing.md
 [conexões híbridas]: ../biztalk-services/integration-hybrid-connection-overview.md
-[redes virtuais]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
+[redes virtuais]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[Ambientes do Serviço de Aplicativo]: ../app-service/environment/intro.md
 [mapa de aprendizado]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

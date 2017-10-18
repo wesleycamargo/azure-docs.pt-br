@@ -3,7 +3,7 @@ title: Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL
 description: "Este tutorial fornece instruções passo a passo para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure."
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,17 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
+ms.openlocfilehash: 6f1a93c2906eaab82dcfb9bae1ee4a54dce300bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 80abdd1524160427c17e05bd0086d2c7f6a54910
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
-O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho controlados por dados (chamados de pipelines) que podem ingerir dados de armazenamentos de dados diferentes, processar/transformar os dados usando serviços de computação como o Hadoop do Azure HDInsight, o Spark, o Azure Data Lake Analytics e o Azure Machine Learning e publicar os dados de saída em armazenamentos de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de BI (business intelligence). 
+O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que podem ingerir dados de repositórios de dados diferentes, processar/transformr os dados usando serviços de computação como o Hadoop do Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e publicar os dados de saída em repositórios de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de business intelligence (BI). 
 
 Neste tutorial, você cria um pipeline de Data Factory que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, consulte a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -510,7 +509,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -529,8 +527,7 @@ O pipeline nessa amostra copia dados de uma localização para outra em um Armaz
 > * Monitore as execuções de pipeline e de atividade.
 
 
-Avance para o tutorial a seguir para saber mais sobre a cópia de dados do local para a nuvem: 
+Avance para o tutorial a seguir para saber mais sobre a cópia de dados local para a nuvem: 
 
 > [!div class="nextstepaction"]
 >[Copiar dados do local para a nuvem](tutorial-hybrid-copy-powershell.md)
-
