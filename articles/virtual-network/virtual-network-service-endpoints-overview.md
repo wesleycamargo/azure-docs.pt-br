@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>Pontos de extremidade de serviço de rede virtual (versão prévia)
 
-Os pontos de extremidade de serviço de VNet (redes virtuais) estendem o espaço de endereço privado e a identidade da sua rede virtual para os serviços do Azure por meio de uma conexão direta. Os pontos de extremidade permitem que você possa garantir os recursos essenciais do serviço do Azure somente para suas redes virtuais. O tráfego de sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
+Os pontos de extremidade de serviço de VNet (rede virtual) estendem o espaço de endereço privado e a identidade da sua rede virtual para os serviços do Azure por meio de uma conexão direta. Os pontos de extremidade permitem que você possa garantir os recursos essenciais do serviço do Azure somente para suas redes virtuais. O tráfego de sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
 
 Este recurso está disponível em versão prévia para os seguintes serviços e regiões do Azure:
 
@@ -57,8 +55,11 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 - Um ponto de extremidade de serviço de rede virtual fornece a identidade da sua rede virtual para o serviço do Azure. Depois que os pontos de extremidade de serviço são habilitados na sua rede virtual, você pode proteger os recursos de serviço do Azure em sua rede virtual adicionando uma regra de rede virtual para os recursos.
 - Atualmente, o tráfego do serviço do Azure de uma rede virtual usa endereços IP públicos como endereços IP de origem. No caso dos pontos de extremidade de serviço, o tráfego do serviço muda para o uso de endereços de rede virtual privados como endereços IP de origem na hora de acessar o serviço do Azure de uma rede virtual. Essa opção permite que você acesse os serviços sem a necessidade dos endereços IP públicos reservados usados nos firewalls de IP.
-- Proteção do acesso local a serviços do Azure: por padrão, os recursos do serviço do Azure protegidos em redes virtuais não podem ser acessados das redes locais. Se você quiser permitir o tráfego vindo do local, deverá permitir endereços IP NAT do seu circuito local ou do ExpressRoute. Os endereços IP NAT podem ser adicionados por meio da configuração de firewall de IP dos recursos de serviço do Azure.
-- ExpressRoute: se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) localmente, cada circuito do ExpressRoute usará dois endereços IP NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para permitir o acesso aos recursos do serviço, você deve permitir esses dois endereços IP na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure.
+- __Garantindo o acesso do serviço do Azure localmente__:
+
+  Por padrão, os recursos do serviço do Azure garantidos para redes virtuais não podem ser acessados nas redes locais. Se você quiser permitir o tráfego vindo do local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou ExpressRoute. Esses endereços IP podem ser adicionados por meio da configuração de firewall de IP dos recursos de serviço do Azure.
+
+  ExpressRoute: se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) localmente, para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para permitir o acesso aos recursos do serviço, você deve permitir esses dois endereços IP públicos na configuração do firewall de IP do recurso. Para localizar seus endereços IP do circuito de ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Proteção dos serviços do Azure em redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
   A mudança de endereço IP só afeta o tráfego do serviço de sua rede virtual. Não há nenhum impacto a nenhum outro tráfego de ou para endereços IPv4 públicos atribuídos às máquinas virtuais. No caso dos serviços do Azure, se você tem regras de firewall existentes usando endereços IP públicos do Azure, essas regras param de funcionar com a mudança para endereços de rede virtual privados.
 - Com pontos de extremidade de serviço, as entradas DNS para os serviços do Azure permanecem como são atualmente e continuam a ser resolvidas para endereços IP públicos atribuídos ao serviço do Azure.
-- Grupos de segurança de rede com pontos de extremidade de serviço:
-  - Ainda permitem tráfego de Internet de saída para a Internet e, portanto, também permitem o tráfego de uma rede virtual para endereços IP públicos de serviços do Azure.
-  - Permitem que você negue o tráfego para endereços IP públicos, exceto para os endereços dos serviços do Azure usando [marcas de serviço](security-overview.md#service-tags) nos Grupos de segurança de rede. Você pode especificar os serviços do Azure compatíveis como o destino em regras de grupo de segurança de rede. A manutenção dos endereços IP subjacentes a cada marca é fornecida pelo Azure.
+- NSGs (grupos de segurança de rede) com pontos de extremidade de serviço:
+  - Por padrão, os NSGs permitem tráfego de Internet de saída e, portanto, também permitem o tráfego da sua rede virtual para os serviços do Azure. Isso continuará a funcionar dessa forma, com pontos de extremidade de serviço. 
+  - Se você deseja negar todo o tráfego da Internet de saída e permitir somente tráfego para serviços específicos do Azure, pode fazer isso usando __"marcas de serviço do Azure"__ nos seus NSGs. Você pode especificar os serviços do Azure com suporte como destino em suas regras NSG, e a manutenção de endereços IP subjacentes a cada marca é feita pelo Azure. Para saber mais, confira [Marcas do Serviço do Azure para NSGs.](https://aka.ms/servicetags) 
 
 ### <a name="scenarios"></a>Cenários
 
@@ -89,8 +90,8 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 ### <a name="logging-and-troubleshooting"></a>Registro em log e solução de problemas
 
 Quando os pontos de extremidade de serviço são configurados para um serviço específico, valide que a rota de ponto de extremidade de serviço está em vigor: 
-
-- Validando o endereço IP de origem de qualquer solicitação de serviço no diagnóstico de serviço. Todas as novas solicitações com pontos de extremidade de serviço mostram o endereço IP de origem para a solicitação como o endereço IP privado de rede virtual atribuído ao cliente que fez a solicitação da sua rede virtual. Sem o ponto de extremidade, esse endereço é um endereço IP público do Azure.
+ 
+- Validação do endereço IP de origem de qualquer solicitação de serviço no diagnóstico de serviço. Todas as novas solicitações com pontos de extremidade de serviço mostram o endereço IP de origem para a solicitação como o endereço IP privado de rede virtual atribuído ao cliente que fez a solicitação da sua rede virtual. Sem o ponto de extremidade, esse endereço é um endereço IP público do Azure.
 - Exibindo as rotas efetivas em qualquer adaptador de rede em uma sub-rede. A rota para o serviço:
   - Mostra uma rota padrão mais específica para intervalos de prefixo de endereço de cada serviço
   - Tem um nextHopType como *VirtualNetworkServiceEndpoint*
@@ -121,5 +122,4 @@ Para um recurso de serviço do Azure (por exemplo, uma conta de Armazenamento do
 - Saiba como [proteger uma conta de Armazenamento do Azure em uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger um Banco de Dados SQL do Azure em uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
-
 

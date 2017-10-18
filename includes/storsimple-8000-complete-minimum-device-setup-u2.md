@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para concluir a configuração mínima do dispositivo StorSimple
 
@@ -21,7 +21,7 @@
 
             ![Interfaces de rede da instalação mínima do dispositivo do StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet. Você pode verificar se seus IPs de controlador fixos são roteáveis usando o cmdlet [Test-HcsmConnection][Test]. O exemplo a seguir mostra IPs de controlador fixos que são roteados para a Internet e podem acessar os servidores do Microsoft Update.
+            Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo e para a coleta de lixo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet. Você pode verificar se seus IPs de controlador fixos são roteáveis usando o cmdlet [Test-HcsmConnection][Test]. O exemplo a seguir mostra IPs de controlador fixos que são roteados para a Internet e podem acessar os servidores do Microsoft Update.
 
             ![Test-HcsmConnection mostrando IPs roteáveis](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

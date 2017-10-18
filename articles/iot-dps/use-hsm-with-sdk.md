@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Azure - Usar HSMs diferentes com o SDK do Cliente do Serviço de Provisionamento do Dispositivos | Microsoft Docs"
-description: "Tutorial do Azure - Usar HSMs diferentes com dispositivos físicos e simuladores com o SDK do Cliente do Serviço de Provisionamento do Dispositivos"
+title: "Instruções do Azure - Como usar modelos de segurança de hardware diferentes com o SDK do Cliente de Serviço de Provisionamento de Dispositivos no Azure | Microsoft Docs"
+description: "Instruções do Azure - Como usar modelos de segurança de hardware diferentes com o SDK do Cliente de Serviço de Provisionamento de Dispositivos no Azure"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Como usar Módulos de Segurança de Hardware diferentes com o SDK do Cliente do Serviço de Provisionamento de Dispositivos
 Estas etapas mostram como usar [HSMs (Módulos de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)diferentes com o SDK do Cliente do Serviço de Provisionamento de Dispositivos em C usando dispositivo físico e simulador.  O serviço de provisionamento dá suporte a dois modos de autenticação: X**.**509 e TPM (Trusted Platform Module).
 
@@ -141,8 +139,8 @@ Se você estiver usando o TPM, siga as instruções em ["Criar e provisionar um 
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o DPS.
-   - Registro individual do X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. Selecione **X**.** 509** como o *Mecanismo* de atestado de identidade e carregue o certificado do signatário conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
-   - Registro em grupo  X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros em grupo** e clique no botão **Adicionar** na parte superior. Selecione **X**.** 509** como o *Mecanismo* de atestado de identidade, insira o nome do grupo e o nome da certificação e carregue o certificado de Autoridade de Certificação raiz conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
+   - Registro individual do X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade e carregue o certificado do signatário conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
+   - Registro em grupo  X**.**509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros em grupo** e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade, insira o nome do grupo e o nome da certificação e carregue o certificado de Autoridade de Certificação raiz conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Conectar-se ao Hub IoT após a configuração
 
@@ -150,4 +148,3 @@ Depois que o dispositivo foi configurado com o serviço de provisionamento, essa
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

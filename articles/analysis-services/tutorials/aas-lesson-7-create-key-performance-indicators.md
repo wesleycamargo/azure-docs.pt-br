@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lição 7: criar indicadores chave de desempenho
 
@@ -49,7 +48,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
     Essa medida servirá como a medida Base para o KPI.  
   
-4.  Clique com o botão direito do mouse em **InternetCurrentQuarterSalesPerformance** > **Criar KPI**.   
+4.  Na grade de medida, clique com o botão direito do mouse em **InternetCurrentQuarterSalesPerformance** > **Criar KPI**.   
   
 5.  Na caixa de diálogo KPI (Indicador Chave de Desempenho), em **Destino**, selecione **Valor Absoluto** e, em seguida, digite **1.1**.  
   
@@ -88,4 +87,3 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 [Lição 8: criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

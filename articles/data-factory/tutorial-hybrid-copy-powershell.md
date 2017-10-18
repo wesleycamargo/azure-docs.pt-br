@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>Mover dados entre o local e a nuvem
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que podem ingerir dados de repositórios de dados diferentes, processar/transformr os dados usando serviços de computação como o Hadoop do Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e publicar os dados de saída em repositórios de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de business intelligence (BI). 
 
@@ -218,12 +216,12 @@ Nesta seção, você pode criar um Integration Runtime auto-hospedado e associá
         "name": "SqlServerLinkedService"
     }
    ```
-2. Para criptografar os dados confidenciais do conteúdo JSON no Integration Runtime auto-hospedado local, podemos executar **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** e passar o conteúdo JSON acima. Essa criptografia assegura que as credenciais sejam criptografadas usando DPAPI (proteção de dados de interface de programação de aplicativo) e armazenadas localmente no nó de Integration Runtime auto-hospedado. O conteúdo de saída pode ser redirecionado para outro arquivo JSON (no caso, 'encryptedLinkedService.json') que contém credenciais criptografadas. 
+2. Para criptografar os dados confidenciais do conteúdo JSON no Integration Runtime auto-hospedado local, podemos executar **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** e passar o conteúdo JSON acima. Essa criptografia assegura que as credenciais sejam criptografadas usando DPAPI (proteção de dados de interface de programação de aplicativo) e armazenadas localmente no nó de Integration Runtime auto-hospedado. O conteúdo de saída pode ser redirecionado para outro arquivo JSON (no caso, 'encryptedLinkedService.json') que contém credenciais criptografadas. 
 
     Substitua **&lt;integration runtime name&gt;** pelo nome de seu Integration Runtime antes de executar o comando.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Execute o comando a seguir usando JSON da etapa anterior para criar o **SqlServerLinkedService**:

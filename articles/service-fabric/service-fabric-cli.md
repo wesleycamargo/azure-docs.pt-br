@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -25,11 +24,28 @@ A interface de linha de comando do Azure Service Fabric (CLI) é um utilitário 
 
 Antes da instalação, verifique se seu ambiente tem o Python e o pip instalados. Para saber mais, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/) e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
-Embora haja suporte para Python 2.7 e 3.6, recomendamos que você use Python 3.6. A seção a seguir mostra como instalar todos os pré-requisitos e a CLI.
+A CLI dá suporte às versões 2.7, 3.5 e 3.6 do Python. Python 3.6 é a versão recomendada, pois o suporte ao Python 2.7 chegará ao fim em breve.
+
+### <a name="service-fabric-target-runtime"></a>Tempo de execução de destino do Service Fabric
+
+A CLI do Service Fabric serve para dar suporte à versão de tempo de execução mais recente do SDK do Service Fabric. Use a tabela a seguir para determinar qual versão da CLI instalar:
+
+| Versão da CLI   | versão do tempo de execução com suporte |
+|---------------|---------------------------|
+| Mais recente (~=2)  | Mais recente (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+Opcionalmente, você pode especificar uma versão de destino da CLI para instalação acrescentando ao comando `pip install` o sufixo `==<version>`. Por exemplo, para a versão 1.1.0, a sintaxe seria:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+Substitua o seguinte comando `pip install` pelo comando mencionado anteriormente, quando for necessário.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instale o pip, Python e a CLI do Service Fabric
 
- Há várias maneiras de instalar o pip e o Python em sua plataforma. Aqui estão algumas etapas para obter os principais sistemas operacionais configurar rapidamente com Python 3.6 e pip.
+Há várias maneiras de instalar o pip e o Python em sua plataforma. Aqui estão algumas etapas para obter os principais sistemas operacionais configurar rapidamente com Python 3 e pip.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 Em seguida, execute o comando a seguir para instalar a CLI do Service Fabric:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Ubuntu e Subsistema do Windows para Linux
+
+Para instalar a CLI do Service Fabric, execute os seguintes comandos:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-Para a área de trabalho do Ubuntu 16.04, você pode instalar o Python 3.6 usando um arquivo de pacote pessoal de terceiros (PPA).
-
-No terminal, execute os seguintes comandos:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Em seguida, para instalar a CLI do Service Fabric apenas na instalação do Python 3.6, execute o seguinte comando:
+Em seguida, você pode testar a instalação com:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
+Se você receber um erro de comando não encontrado, como:
+
+`sfctl: command not found`
+
+Certifique-se de que `~/.local/bin` possa ser acessado a partir de `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Estas etapas não afetam a instalação do sistema do Python 3.5 e 2.7. Não tente modificar essas instalações se não estiver familiarizado com o Ubuntu.
+Se a instalação no subsistema do Windows para Linux falhar com permissões de pasta incorretas, talvez seja necessário tentar novamente com permissões elevadas:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 Para MacOS, recomendamos que você use o [Gerenciador de pacotes do HomeBrew](https://brew.sh). Se o HomeBrew ainda não estiver instalado, instale-o ao executar o seguinte comando:
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-Se você encontrar um erro informando que `sfctl` não foi encontrado, execute os seguintes comandos:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-Estas etapas não modificam a instalação do sistema do Python 2.7.
 
 ## <a name="cli-syntax"></a>Sintaxe da CLI
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Para atualizar a CLI do Service Fabric, execute os seguintes comandos (substitua `pip` com `pip3` dependendo do escolhido durante a instalação original):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Implantar um aplicativo com a CLI do Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)
-

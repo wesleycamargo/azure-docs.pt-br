@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,15 +57,15 @@ Depois que os dados estiverem presentes em um repositório centralizado de dados
 Agora que os dados brutos foram refinados em formato consumível pronto para negócios, carregue os dados no Data Warehouse do Azure, no BD SQL do Azure, no Azure CosmosDB ou em qualquer mecanismo de análise que seus usuários corporativos possam indicar de suas ferramentas de business intelligence.
 
 ### <a name="monitor"></a>Monitoramento
-Depois de ter criado e implantado seu pipeline de integração de dados com êxito, gerando resultados nos negócios com base nos dados refinados, talvez você queira monitorar as atividades agendadas e os pipelines para obter as taxas de êxito e de falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, do OMS e dos painéis de integridade no Portal do Azure.
+Depois de ter criado e implantado seu pipeline de integração de dados com êxito, gerando resultados nos negócios com base nos dados refinados, talvez você queira monitorar as atividades agendadas e os pipelines para obter as taxas de êxito e de falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, do Microsoft Operations Management Suite (OMS) e dos painéis de integridade no portal do Azure.
 
 ## <a name="whats-different-in-version-2"></a>O que é diferente na versão 2?
-O Azure Data Factory versão 2 foi criado com base no serviço de transformação e na movimentação de dados do Azure Data Factory original, se expandindo a um conjunto mais amplo de cenários de integração de dados em nuvem. O Azure Data Factory V2 oferece os seguintes recursos:
+O Azure Data Factory versão 2 foi criado com base no serviço de transformação e na movimentação de dados do Azure Data Factory original, se expandindo a um conjunto mais amplo de cenários de integração de dados em nuvem. O Azure Data Factory Versão 2 oferece os seguintes recursos:
 
-- Fluxo de Controle e Escala
+- Fluxo de controle e Escala
 - Implantação e execução de pacotes SSIS no Azure
 
-Após o lançamento da versão 1, reconhecemos que os clientes precisam criar cenários de integração de dados híbridos complexos que exijam a movimentação de dados e o processamento local, na nuvem e nas VMs em nuvem. Esses requisitos trouxeram a necessidade de transferir e processar dados em ambientes seguros de VNET e de expandir com capacidade de processamento sob demanda.
+Após o lançamento da versão 1, reconhecemos que os clientes precisam criar cenários de integração de dados híbridos complexos que exijam a movimentação de dados e o processamento local, na nuvem e nas VMs em nuvem. Esses requisitos trouxeram a necessidade de transferir e processar dados em ambientes seguros de VNET e de escalar horizontalmente com capacidade de processamento sob demanda.
 
 À medida que os pipelines de dados se tornam uma parte fundamental de uma estratégia de análise de negócios, percebemos que essas atividades de dados críticas exigem agendamento flexível para dar suporte aos carregamentos de dados incrementais e às execuções disparadas por eventos. Por fim, conforme as complexidades dessas orquestrações aumentam, o mesmo acontece com os requisitos do serviço para haver suporte aos paradigmas de fluxo de trabalho comuns, incluindo ramificação, looping e processamento condicional.
 
@@ -75,13 +74,13 @@ Com a versão 2, você também pode migrar os pacotes existentes do SSIS (SQL Se
 ### <a name="control-flow-and-scale"></a>Fluxo de controle e escala 
 Para dar suporte aos fluxos e padrões de integração diversos no moderno data warehouse, o Data Factory habilitou um novo modelo de pipeline de dados flexível que não está mais vinculado aos dados de série temporal. Com esta versão, você pode modelar condicionais e ramificações no controle de fluxo de um pipeline de dados e transmitir parâmetros de modo preciso nos fluxos e entre eles.
 
-Agora você tem a liberdade de modelar qualquer estilo de fluxo necessário para a integração de dados e que será despachado sob demanda ou repetidamente de acordo com um agendamento. Alguns fluxos comuns que estão habilitados agora, mas que não eram possíveis anteriormente, são:   
+Agora você tem a liberdade de modelar qualquer estilo de fluxo necessário para a integração de dados e que será despachado sob demanda ou repetidamente de acordo com um cronograma. Alguns fluxos comuns que estão habilitados agora, mas que não eram possíveis anteriormente, são:   
 
 - Fluxo de Controle:
     - Atividades de encadeamento em uma sequência em um pipeline
     - Ramificação de atividades em um pipeline
     - parâmetros
-        - Os parâmetros podem ser definidos no nível do pipeline e os argumentos podem ser transmitidos durante a invocação do pipeline sob demanda ou de um gatilho
+        - Os parâmetros podem ser definidos no nível do pipeline, e os argumentos podem ser transmitidos durante a invocação do pipeline sob demanda ou de um gatilho
         - As atividades podem consumir os argumentos transmitidos para o pipeline
     - Passagem de estado personalizada
         - Os resultados da atividade, incluindo o estado, podem ser consumidos por uma atividade subsequente no pipeline
@@ -95,17 +94,21 @@ Agora você tem a liberdade de modelar qualquer estilo de fluxo necessário para
 Para obter mais informações, consulte o [tutorial: fluxo de controle](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Implantar pacotes do SSIS no Azure 
-Se desejar mover suas cargas de trabalho de SSIS, você poderá criar um data factory versão 2 e provisionar um IR (Integration Runtime) do SSIS do Azure. O IR do SSIS do Azure é um cluster totalmente gerenciado das VMs do Azure (nós) dedicado para executar os pacotes de SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial: [Implantar pacotes do SSIS no Azure](tutorial-deploy-ssis-packages-azure.md). 
+Se desejar mover suas cargas de trabalho de SSIS, você poderá criar um data factory versão 2 e provisionar um IR (tempo de execução de integração) do SSIS do Azure. O IR do SSIS do Azure é um cluster totalmente gerenciado das VMs do Azure (nós) dedicado para executar os pacotes de SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial: [Implantar pacotes do SSIS no Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>SDKs multiplataforma avançados
+### <a name="sdks"></a>SDKs
 Se você for um usuário avançado e estiver procurando por uma interface programática, a versão 2 fornecerá um conjunto avançado de SDKs que podem ser usados para criar, gerenciar e monitorar pipelines usando seu IDE favorito.
 
-- SDK .NET
-- PowerShell
-- SDK do Python
+- SDK .NET - O SDK .NET é atualizado para a versão 2. 
+- PowerShell - Os cmdlets do PowerShell são atualizados para a versão 2. Os cmdlets da versão 2 têm **DataFactoryV2** no nome. Por exemplo: Get-AzureRmDataFactoryV2. 
+- Python SDK - Este SDK é novo na versão 2.
+- API REST - A API REST é atualizada para a versão 2.  
 
-Você também pode usar as APIs REST para criar data factories. 
+Os SDKs que são atualizados para a versão 2 não são retrocompatíveis com clientes na versão 1. 
+
+### <a name="monitoring"></a>Monitoramento
+Atualmente, a versão 2 oferece suporte ao monitoramento de data factories usando apenas SDKs. O portal ainda não é compatível com monitoramento de data factories da versão 2. 
 
 ## <a name="load-the-data-into-a-lake"></a>Carregar os dados em um lake
 O Data Factory conta com mais de 30 conectores para permitir que você carregue dados de ambientes híbridos e heterogêneos no Azure.  Consulte o [Guia de desempenho e ajuste](copy-activity-performance.md) para obter os resultados de desempenho dos testes internos mais recentes e as sugestões de ajuste. Além disso, recentemente habilitamos a Alta Disponibilidade e a Escalabilidade para o Integration Runtime autônomo que você instala em um ambiente de rede privada para atender aos requisitos de clientes empresariais da camada 1 para melhorar a disponibilidade e a escalabilidade.
@@ -114,7 +117,7 @@ O Data Factory conta com mais de 30 conectores para permitir que você carregue 
 Uma assinatura do Azure pode ter um ou mais instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory é composto por quatro componentes principais que trabalham juntos para fornecer a plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para movimentação e transformação dos dados.
 
 ### <a name="pipeline"></a>Pipeline
-Um data factory pode ter um ou mais pipelines. O pipeline é um agrupamento lógico de atividades a serem executadas em uma unidade de trabalho. Juntas, as atividades em um pipeline executam uma tarefa. Por exemplo, um pipeline pode conter um grupo de atividades que recebe dados de um blob do Azure e, em seguida, executar uma consulta de Hive em um cluster de HDInsight para particionar os dados. A vantagem disso é que o pipeline permite que você gerencie atividades como um conjunto, em vez de cada uma individualmente. As atividades em um pipeline podem ser encadeadas para operarem de modo sequencial ou de forma independente em paralelo
+Um data factory pode ter um ou mais pipelines. O pipeline é um agrupamento lógico de atividades para realizar uma unidade de trabalho. Juntas, as atividades em um pipeline executam uma tarefa. Por exemplo, um pipeline pode conter um grupo de atividades que recebe dados de um blob do Azure e, em seguida, executar uma consulta de Hive em um cluster de HDInsight para particionar os dados. A vantagem disso é que o pipeline permite que você gerencie atividades como um conjunto, em vez de cada uma individualmente. As atividades em um pipeline podem ser encadeadas para operarem de modo sequencial ou de forma independente em paralelo
 
 ### <a name="activity"></a>Atividade
 As atividades representam uma etapa de processamento em um pipeline. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um repositório de dados para outro. Da mesma forma, você pode usar uma atividade do Hive que executa uma consulta de Hive em um cluster do Azure HDInsight para transformar ou analisar seus dados. O Data Factory dá suporte a três tipos de atividades: atividades de movimentação de dados, atividades de transformação de dados e atividades de controle
@@ -151,7 +154,7 @@ Para obter mais informações sobre os conceitos do Data Factory, confira os seg
 
 - [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Integration Runtime](concepts-integration-runtime.md)
+- [Tempo de execução de integração](concepts-integration-runtime.md)
 
 ## <a name="supported-regions"></a>Regiões com suporte:
 
@@ -165,4 +168,3 @@ Por exemplo, digamos que seus ambientes de computação, como o cluster Azure HD
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como criar um data factory seguindo as instruções passo a passo nos seguintes Guias de Início Rápido: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md) e no Portal do Azure. 
-

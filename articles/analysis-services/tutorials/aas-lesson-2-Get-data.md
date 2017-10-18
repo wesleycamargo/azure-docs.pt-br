@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lição 2: obter dados
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 Nesta lição, você usa Obter Dados no SSDT para se conectar ao banco de dados de exemplo AdventureWorksDW2014, selecionar dados, visualizar e filtrar e, em seguida, importar para o seu espaço de trabalho de modelo.  
   
 Pelo uso do Obter Dados, você pode importar dados de uma ampla variedade de fontes: Banco de Dados SQL do Azure, Oracle, Sybase, OData Feed, Teradata, arquivos e muito mais. Os dados também podem ser consultados usando uma expressão de fórmula Power Query M.
+
+> [!NOTE]
+> As tarefas e as imagens neste tutorial mostram como se conectar a um banco de dados AdventureWorksDW2014 em um servidor local. Em alguns casos, um banco de dados AdventureWorksDW2014 no Azure pode ser diferente.
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
@@ -71,13 +72,19 @@ As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Para filtrar os dados da tabela antes de importar  
   
-1.  No Editor de Consultas, selecione a tabela **DimCustomer**. Uma exibição da tabela DimCustomer na fonte de dados (seu banco de dados de exemplo AdventureWorksDWQ2014) é exibida. 
+1.  No Editor de Consultas, selecione a tabela **DimCustomer**. Uma exibição da tabela DimCustomer na fonte de dados (seu banco de dados de exemplo AdventureWorksDW2014) é exibida. 
   
 2.  Faça uma seleção múltipla (Ctrl + clique) de **SpanishEducation**, **FrenchEducation**, **SpanishOccupation** e **FrenchOccupation** e, em seguida, clique com o botão direito do mouse e clique em **Remover Colunas**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Como os valores dessas colunas não são pertinentes à análise de vendas pela Internet, não é necessário importá-las. A eliminação das colunas desnecessárias torna seu modelo menor e mais eficiente.  
+
+    > [!TIP]
+    > Se você cometer um erro, poderá fazer backup ao excluir uma etapa em **ETAPAS APLICADAS**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filtre as tabelas restantes, removendo as seguintes colunas em cada tabela:  
     
@@ -85,7 +92,7 @@ As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não
     
       |Coluna|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não
   
     **FactInternetSales**
   
-      |Coluna|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Nenhuma coluna foi removida.
   
 ## <a name="Import"></a>Importar os dados de colunas e tabelas selecionadas  
 Agora que você visualizou e filtrou os dados desnecessários, você pode importar o restante dos dados que você deseja. O assistente importa os dados da tabela juntamente com quaisquer relacionamentos entre tabelas. As novas tabelas e colunas são criadas no modelo e dados que você filtrou não serão importados.  
@@ -160,4 +163,3 @@ Agora que você visualizou e filtrou os dados desnecessários, você pode import
 
   
   
-

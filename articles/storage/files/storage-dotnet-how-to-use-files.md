@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET 
 > [!NOTE]
 > Este artigo mostra como gerenciar os Arquivos do Azure com o código .NET. Para saber mais sobre os Arquivos do Azure, veja a [Introdução aos Arquivos do Azure](storage-files-introduction.md).
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
-Este tutorial demonstrará as noções básicas de usar .NET para desenvolver aplicativos ou serviços que usam o Arquivos do Azure para armazenar dados de arquivo. Neste tutorial, criaremos um aplicativo de console simples e mostraremos como executar ações básicas com .NET e os Arquivos do Azure:
+Este tutorial demonstrará as noções básicas de usar .NET para desenvolver aplicativos ou serviços que usam o Arquivos do Azure para armazenar dados de arquivo. Neste tutorial, criamos um aplicativo de console simples e mostramos como executar ações básicas com .NET e os Arquivos do Azure:
 
 * Obter o conteúdo de um arquivo
 * Defina a cota (tamanho máximo) para o compartilhamento de arquivos.
@@ -138,7 +136,7 @@ if (share.Exists())
 Execute o aplicativo de console para ver a saída.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Definir o tamanho máximo de um compartilhamento de arquivos
-A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode definir a cota (ou tamanho máximo) de um compartilhamento de arquivos, em gigabytes. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
+A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode definir a cota (ou o tamanho máximo) de um compartilhamento de arquivos em gigabytes. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
 
 Ao definir a cota para um compartilhamento, você pode limitar o tamanho total dos arquivos armazenados no compartilhamento. Se o tamanho total dos arquivos no compartilhamento ultrapassar a cota definida no compartilhamento, os clientes não poderão aumentar o tamanho dos arquivos existentes ou criar novos arquivos, a menos que eles estejam vazios.
 
@@ -327,10 +325,84 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Você pode copiar um blob em um arquivo da mesma maneira. Se o objeto de origem for um blob, crie uma SAS para autenticar o acesso ao blob durante a operação de cópia.
 
+## <a name="share-snapshots-preview"></a>Instantâneos de compartilhamento (versão prévia)
+A partir da versão 8.5 da Biblioteca de Cliente do Armazenamento do Azure, você pode criar um instantâneo de compartilhamento (versão prévia). Também pode listar ou procurar os instantâneos de compartilhamento e excluir os instantâneos de compartilhamento. Instantâneos de compartilhamentos são somente leitura, portanto, nenhuma operação de gravação é permitida em instantâneos de compartilhamento.
+
+**Criar instantâneos de compartilhamento**
+
+O exemplo a seguir cria um instantâneo de compartilhamento de arquivos.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Listar instantâneos de compartilhamento**
+
+O exemplo a seguir lista os instantâneos de compartilhamento em um compartilhamento.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Procurar arquivos e diretórios nos instantâneos de compartilhamento**
+
+O exemplo a seguir procura arquivos e diretórios nos instantâneos de compartilhamento.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Listar compartilhamentos e instantâneos de compartilhamento e restaurar arquivos ou compartilhamentos de arquivos dos instantâneos de compartilhamento** 
+
+Tirar um instantâneo de um compartilhamento de arquivos permite a recuperação de arquivos individuais ou de todo o compartilhamento de arquivo no futuro. 
+
+Você pode restaurar um arquivo de um instantâneo de compartilhamento de arquivo consultando os instantâneos de compartilhamento de um compartilhamento de arquivos. Em seguida, pode recuperar um arquivo que pertence a um determinado instantâneo de compartilhamento e usar essa versão para ler e comparar diretamente ou para restaurar.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Excluir instantâneos de compartilhamento**
+
+O exemplo a seguir exclui um instantâneo de compartilhamento de arquivos.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Solução de problemas dos Arquivos do Azure usando métricas
 A Análise de Armazenamento do Azure agora dá suporte a métricas para os Arquivos do Azure. Com dados de métricas, você pode rastrear solicitações e diagnosticar problemas.
 
-É possível habilitar métricas para os Arquivos do Azure por meio do [Portal do Azure](https://portal.azure.com). Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na biblioteca de cliente de armazenamento.
+É possível habilitar métricas para os Arquivos do Azure por meio do [Portal do Azure](https://portal.azure.com). Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na Biblioteca do Cliente de Armazenamento.
 
 O exemplo de código a seguir mostra como usar a Biblioteca de Cliente de Armazenamento para .NET para habilitar as métricas para os Arquivos do Azure.
 
@@ -387,7 +459,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 Além disso, você pode consultar o [artigo de Solução de problemas de arquivos do Azure](storage-troubleshoot-windows-file-connection-problems.md) para obter diretrizes completas de solução de problemas.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja estes links para obter mais informações sobre os Arquivos do Azure.
+Veja estes links para obter mais informações sobre o Arquivos do Azure.
 
 ### <a name="conceptual-articles-and-videos"></a>Artigos e vídeos conceituais
 * [Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupta para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
@@ -396,14 +468,14 @@ Veja estes links para obter mais informações sobre os Arquivos do Azure.
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o armazenamento de arquivos
 * [Como usar o AzCopy com o Armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Usando a CLI do Azure com o Armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Solução de problemas de Arquivos do Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Solução de problemas do Arquivos do Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referência
 * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Referência à API REST do serviço de arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Postagens no blog
-* [Os Arquivos do Azure já estão disponíveis de forma geral](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Por dentro dos Arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [O Arquivos do Azure já está disponível ao público em geral](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Por dentro do Arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Lição 4: criar relações
 
@@ -34,7 +33,10 @@ Tempo estimado para conclusão desta lição: **10 minutos**
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 3: marcar como tabela de data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Examinar relações existentes e adicionar novas relações  
-Quando você importou dados por meio de Obter Dados, você obteve sete tabelas do banco de dados AdventureWorksDW2014. Geralmente, quando você importa dados de uma fonte relacional, as relações existentes são importadas automaticamente junto com os dados. No entanto, antes de prosseguir com a criação de seu modelo, você deve verificar se essas relações entre tabelas foram criadas corretamente. Para este tutorial, você também adicionará três novas relações.  
+Quando você importou dados por meio de Obter Dados, você obteve sete tabelas do banco de dados AdventureWorksDW2014. Geralmente, quando você importa dados de uma fonte relacional, as relações existentes são importadas automaticamente junto com os dados. Para que Get Data crie automaticamente relações no modelo de dados, deve haver relações entre tabelas na fonte de dados.
+
+Antes de prosseguir com a criação de seu modelo, você deve verificar se essas relações entre tabelas foram criadas corretamente. Para este tutorial, você também adicionará três novas relações.  
+
   
 #### <a name="to-review-existing-relationships"></a>Para examinar relações existentes  
   
@@ -44,7 +46,10 @@ Quando você importou dados por meio de Obter Dados, você obteve sete tabelas d
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Inclua o maior número possível de tabelas usando os controles de minimapa no canto inferior direito do designer de modelos. Também é possível clicar e arrastar tabelas para locais diferentes, aproximando as tabelas ou colocando-as em uma ordem específica. Mover tabelas não afeta as relações já existentes entre elas. Para exibir todas as colunas em uma tabela específica, clique e arraste uma borda de tabela para expandi-la ou diminuí-la.  
+    > [!NOTE]
+    > Se você não vir relações entre tabelas, provavelmente significa que não há nenhuma relação entre essas tabelas na fonte de dados.
+
+    Inclua o maior número possível de tabelas usando os controles de minimapa no canto inferior direito do designer de modelos. Também é possível clicar e arrastar tabelas para locais diferentes, aproximando as tabelas ou colocando-as em uma ordem específica. A movimentação de tabelas não afeta as relações já existentes entre elas. Para exibir todas as colunas em uma tabela específica, clique e arraste uma borda de tabela para expandi-la ou diminuí-la.  
   
 2.  Clique na linha sólida entre a tabela **DimCustomer** e a tabela **DimGeography**. A linha sólida entre essas duas tabelas mostra que essa relação está ativa, ou seja, ela é usada por padrão ao calcular fórmulas DAX.  
   
@@ -63,7 +68,7 @@ Quando você importou dados por meio de Obter Dados, você obteve sete tabelas d
     |Sim|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Sim|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Se qualquer uma das relações estiver ausente, verifique se o modelo inclui as tabelas a seguir: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se as tabelas da mesma conexão de fonte de dados forem importadas em momentos distintos, eventuais relações entre essas tabelas não serão criadas e deverão ser criadas manualmente.  
+    Se qualquer uma das relações estiver ausente, verifique se o modelo inclui as tabelas a seguir: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se as tabelas da mesma conexão de fonte de dados forem importadas em momentos distintos, eventuais relações entre essas tabelas não serão criadas e deverão ser criadas manualmente. Se nenhuma relação aparecer, isso significa que não há nenhuma relação na fonte de dados. Você pode criá-los manualmente no modelo de dados.
 
 ### <a name="take-a-closer-look"></a>Veja uma análise mais detalhada
 No modo de Exibição de Diagrama, você observará uma seta, um asterisco e um número de linhas que mostram a relação entre as tabelas.
@@ -102,4 +107,3 @@ Em alguns casos, talvez seja necessário criar relações adicionais entre tabel
   
   
   
-
