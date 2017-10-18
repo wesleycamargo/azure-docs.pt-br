@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/17/2017
+
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
@@ -189,4 +190,5 @@ Há duas opções para o loginStatus: 0 – êxito, 1 – Falha
 ## <a name="next-steps"></a>Próximas etapas
 * Quer ver exemplos para atividades de entrada filtradas? Confira [Exemplos de API de relatório de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
+
 
