@@ -27,7 +27,7 @@ ms.lasthandoff: 09/27/2017
 
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
-As Instâncias de Contêiner do Azure facilitam a criação e gerenciamento de contêineres Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você cria um contêiner no Azure e o expõe à Internet com um endereço IP público. Essa operação é concluída com um único comando. Em poucos segundos, você verá o seguinte em seu navegador:
+As Instâncias de Contêiner do Azure facilitam a criação e o gerenciamento de contêineres Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você cria um contêiner no Azure e o expõe à Internet com um endereço IP público. Essa operação é concluída com um único comando. Em poucos segundos, você verá o seguinte em seu navegador:
 
 ![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][aci-app-browser]
 
@@ -103,7 +103,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>Excluir o contêiner
 
-Quando você concluir o uso do contêiner, pode removê-lo usando o comando [az container delete][az-container-delete]:
+Quando você concluir o uso do contêiner, poderá removê-lo usando o comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
