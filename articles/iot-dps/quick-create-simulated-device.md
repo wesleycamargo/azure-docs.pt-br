@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Criar e provisionar um dispositivo simulado usando o Serviço de Provisionamento de Dispositivos do Hub IoT (versão prévia)
 
 Estas etapas mostram como criar um dispositivo simulado em seu computador de desenvolvimento executando o sistema operacional Windows, executar o simulador do TPM do Windows como [HSM (Módulo de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) do dispositivo e usar o código de exemplo para se conectar a esse dispositivo simulado com o Serviço de Provisionamento de Dispositivos e o Hub IoT. 
@@ -29,7 +27,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Verifique se você tem o Visual Studio 2015 ou o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado em seu computador. 
+1. Verifique se você tem o Visual Studio 2015 ou o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado em seu computador. Você deve ter a carga de trabalho 'Desenvolvimento de área de trabalho com C++' habilitada para sua instalação do Visual Studio.
 
 2. Baixe e instale o [sistema de compilação CMake](https://cmake.org/download/).
 
@@ -65,7 +63,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 
 1. Abra a solução gerada na pasta *cmake* denominada `azure_iot_sdks.sln`e compile-a no Visual Studio.
 
-2. Clique com botão direito do mouse no projeto **tpm_device_provision** e selecione **Definir como Projeto de Inicialização**. Execute a solução. A janela de saída exibe a ** _Chave de Endosso_ ** e a ** _ID de Registro_ ** necessárias para registrar o dispositivo. Anote esses valores. 
+2. Clique com botão direito do mouse no projeto **tpm_device_provision** e selecione **Definir como Projeto de Inicialização**. Execute a solução. A janela de saída exibe a  **_Chave de Endosso_**  e a  **_ID de Registro_**  necessárias para registrar o dispositivo. Anote esses valores. 
 
 3. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de Provisionamento de Dispositivos.
 
@@ -87,7 +85,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
 <a id="firstbootsequence"></a>
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Simular a primeira sequência de inicialização para o dispositivo
 
-1. No portal do Azure, selecione a folha **Visão Geral** do seu serviço de Provisionamento de Dispositivos e anote os valores de ** _Ponto de extremidade do dispositivo global_ ** e ** _ ID do Escopo_ **.
+1. No portal do Azure, selecione a folha **Visão Geral** do seu serviço de Provisionamento de Dispositivos e anote os valores de  **_Ponto de extremidade do dispositivo global_**  e   **_ID do Escopo_** .
 
     ![Extrair informações de ponto de extremidade do DPS na folha do portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -122,4 +120,3 @@ Neste Guia de Início Rápido, você criou um dispositivo simulado do TPM no seu
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](./tutorial-set-up-cloud.md)
-

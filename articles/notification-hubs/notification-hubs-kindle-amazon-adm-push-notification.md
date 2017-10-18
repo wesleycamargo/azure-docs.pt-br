@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Introdução aos Hubs de Notificação para aplicativos do Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -74,7 +74,7 @@ No portal, adicione o segredo do cliente e a ID do cliente à guia **Configurar*
 Adicione as bibliotecas do ADM ao seu projeto Eclipse.
 
 1. Para obter a biblioteca do ADM, [baixar o SDK]. Extraia o arquivo zip do SDK.
-2. No Eclipse, clique com o botão direito do mouse em seu projeto e clique em **Propriedades**. Selecione **caminho de compilação de Java** à esquerda e, em seguida, selecione o * * bibliotecas * * guia na parte superior. Clique em **Adicionar Jar Externo** e selecione o arquivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` do diretório no qual você extraiu o SDK da Amazon.
+2. No Eclipse, clique com o botão direito do mouse em seu projeto e clique em **Propriedades**. Selecione o **Caminho de Build de Java** à esquerda e selecione a guia **Bibliotecas** na parte superior. Clique em **Adicionar Jar Externo** e selecione o arquivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` do diretório no qual você extraiu o SDK da Amazon.
 3. Baixe o SDK do Android NotificationHubs (link).
 4. Descompacte o pacote e, em seguida, arraste o arquivo `notification-hubs-sdk.jar` na pasta `libs`no Eclipse.
 

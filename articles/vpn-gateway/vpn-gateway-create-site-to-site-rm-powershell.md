@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
+ms.openlocfilehash: 318fd6191127d5e84b8851441977fe40f204fad1
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma Rede Virtual com uma conexão VPN site a site usando o PowerShell
 
@@ -251,4 +250,5 @@ Se os prefixos de endereço IP que você deseja rotear para o seu local forem al
 
 *  Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
+* Para saber mais sobre como criar uma conexão VPN site a site usando o modelo do Azure Resource Manager, veja [Criar uma conexão VPN site a site](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* Para saber mais sobre como criar uma conexão VPN de rede virtual para rede virtual usando o modelo do Azure Resource Manager, veja [Implantar a replicação geográfica do HBase](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

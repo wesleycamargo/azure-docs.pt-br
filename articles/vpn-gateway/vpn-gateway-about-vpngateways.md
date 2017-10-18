@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: e012526af264edd8b4fdbe84ff8b8648fb6d675c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-gateway"></a>Sobre o Gateway de VPN
 
@@ -86,15 +85,17 @@ Esse tipo de conexão é uma variação da conexão Site a Site. Você pode cria
 
 Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Essa solução é útil para pessoas que trabalham remotamente que querem se conectar às VNets do Azure de um local remoto, como de casa ou de uma conferência. A VPN P2S também é uma solução útil para usar em vez de uma VPN S2S, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
-Ao contrário das conexões S2S, as conexões P2S não exigem um endereço IP público local ou um dispositivo VPN. As conexões P2S podem ser usadas com as conexões S2S pelo mesmo gateway de VPN, desde que todos os requisitos de configuração de ambas as conexões sejam compatíveis.
+Ao contrário das conexões S2S, as conexões P2S não exigem um endereço IP público local ou um dispositivo VPN. As conexões P2S podem ser usadas com as conexões S2S pelo mesmo gateway de VPN, desde que todos os requisitos de configuração de ambas as conexões sejam compatíveis. Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
 
 >[!NOTE]
 >Autenticação RADIUS P2S e IKEv2 estão atualmente em versão prévia.
 >
 
-Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
-
 ![Exemplo de conexão Ponto de Site do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>Modelos e métodos de implantação para P2S
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>Conexões de VNet para VNet (túnel VPN IPsec/IKE)
 
@@ -136,7 +137,7 @@ Você pode configurar uma VPN Site a Site como um caminho de failover seguro par
 
 ![Exemplos de conexões coexistentes do ExpressRoute e do Gateway de VPN](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Modelos de implantação e métodos para S2S e ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>Coexistência de modelos e métodos de implantação para S2S e ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -156,4 +157,3 @@ Para perguntas frequentes sobre o gateway de VPN, consulte [Perguntas frequentes
 - Exiba as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para saber mais.
 - Exiba os [Limites de serviço e assinatura](../azure-subscription-service-limits.md#networking-limits).
 - Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
-

@@ -9,6 +9,8 @@
   items:
     - name: Coletar – VMs do Azure
       href: log-analytics-quick-collect-azurevm.md
+    - name: Coletar - Computador Linux
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Tutoriais
   items:
     - name: 1 – Analisar dados
@@ -53,6 +55,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Recursos do Azure
               href: log-analytics-azure-storage.md
+            - name: Dados de diagnóstico ou de log do armazenamento do Azure
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Gerenciador de Configurações
@@ -92,6 +96,8 @@
           items:
             - name: Expressões regulares
               href: log-analytics-log-searches-regex.md
+            - name: Pesquisas entre espaços de trabalho
+              href: log-analytics-cross-workspace-search.md
         - name: Executar a ação nos resultados da pesquisa
           href: log-analytics-log-search-takeaction.md
         - name: Grupos de computadores
@@ -229,6 +235,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Referência sobre blocos do Criador de Modos de Exibição
+      href: log-analytics-view-designer-tiles.md
+    - name: Referência da parte de visualização do Criador de Modos de Exibição
+      href: log-analytics-view-designer-parts.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

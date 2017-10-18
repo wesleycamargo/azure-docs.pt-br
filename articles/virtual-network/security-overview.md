@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Segurança de rede
 
@@ -59,8 +58,8 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 
 **Considerações**
 
-- **IP virtual do nó do host:** serviços básicos de infraestrutura, como DHCP, DNS e integridade de monitoramento, são fornecidos pelos endereços IP de host virtualizados 168.63.129.16 e 169.254.169.254. Esses endereços IP públicos pertencem à Microsoft e são os únicos endereços IP virtualizados usado em todas as regiões para essa finalidade. Esses endereços IP são mapeados para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esses endereços IP não é um ataque. Se você bloquear o tráfego de entrada ou saída desses endereços IP, uma máquina virtual pode não funcionar corretamente.
-- **Licenciamento (Serviço de Gerenciamento de Chaves):** as imagens do Windows em execução nas VMs devem ser licenciadas. Para garantir o licenciamento, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. A solicitação é feita para a saída pela porta 1688.
+- **IP virtual do nó do host:** serviços básicos de infraestrutura, como DHCP, DNS e integridade de monitoramento, são fornecidos pelos endereços IP de host virtualizados 168.63.129.16 e 169.254.169.254. Esses endereços IP públicos pertencem à Microsoft e são os únicos endereços IP virtualizados usado em todas as regiões para essa finalidade. Os endereços são mapeados para o endereço IP físico do computador do servidor (nó do host) que hospeda a máquina virtual. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esses endereços IP não é um ataque. Se você bloquear o tráfego de entrada ou saída desses endereços IP, uma máquina virtual pode não funcionar corretamente.
+- **Licenciamento (Serviço de Gerenciamento de Chaves)**: as imagens do Windows em execução nas máquinas virtuais devem ser licenciadas. Para garantir o licenciamento, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. A solicitação é feita para a saída pela porta 1688.
 - **Máquinas virtuais em pools de carga balanceada**: o intervalo de porta e endereço de origem aplicado é do computador de origem, não do balanceador de carga. Os intervalos de porta e endereço de destino são para o computador de destino, não o balanceador de carga.
 - **Instâncias de serviço do Azure**: instâncias de vários serviços do Azure, como o HDInsight, Ambientes de Serviço de Aplicativo e Conjuntos de Dimensionamento de Máquinas Virtuais são implantadas em sub-redes de rede virtual. Familiarize-se com os requisitos de porta para cada serviço antes da aplicação de um grupo de segurança de rede à sub-rede em que o recurso está implantado. Se você negar portas exigidas pelo serviço, o serviço não funcionará corretamente. 
 
@@ -126,7 +125,7 @@ Não é possível remover as regras padrão, mas você pode substituí-las crian
 
 * **VirtualNetwork** (*Gerenciador de Recursos) (**VIRTUAL_NETWORK** para clássico): essa marca inclui o espaço de endereço de rede virtual (todos os intervalos de CIDR definidos para a rede virtual), todos os espaços de endereço locais conectados e redes virtuais [emparelhadas](virtual-network-peering-overview.md) ou rede virtual conectada a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca significa um [endereço IP de datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) de onde se originam as investigações de integridade do Azure. Se não estiver usando um balanceador de carga do Azure, você poderá substituir essa regra.
-* **Internet** (Gerenciador de Recursos) (**INTERNET** para clássico): essa marca denota o espaço de endereço IP público do Azure. Os endereços englobados por essa marca estão listados no documento [Espaço de IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado regularmente.
+* **Internet** (Resource Manager) (**INTERNET** para clássico): essa marca denota o espaço de endereço IP que está fora da rede virtual e é acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público de propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (somente no Gerenciador de Recursos): essa marca denota o espaço de endereço IP para o serviço Gerenciador de Tráfego do Azure.
 * **Armazenamento** (somente no Gerenciador de Recursos): essa marca denota o espaço de endereço IP para o serviço Armazenamento do Azure. Se você especificar *Armazenamento* como valor, o tráfego será permitido ou negado para o armazenamento. Se deseja permitir o acesso ao armazenamento em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Armazenamento do Azure na região Leste dos EUA, poderá especificar *Storage.EastUS* como uma marca de serviço. Outras marcas de serviços regionais disponíveis: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS e Storage.WestUS2. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica.
 * **SQL** (somente no Gerenciador de Recursos): essa marca indica os prefixos de endereço dos serviços Banco de Dados SQL do Azure e Azure SQL Data Warehouse. Você só pode especificar determinadas regiões para essa marca de serviço. Por exemplo, se você quiser permitir o acesso somente para o Banco de Dados SQL do Azure na região Leste dos EUA, poderá especificar *Sql.EastUS* como uma marca de serviço. Não é possível especificar somente Sql para todas as regiões do Azure; você deve especificar as regiões individualmente. Outras marcas de serviços regionais disponíveis: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS e Sql.WestUS2. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados SQL do Azure específico.
@@ -152,7 +151,7 @@ Se você criar outras regras, especificando outros grupos de segurança de aplic
  
 Para saber mais sobre limites durante a criação de grupos de segurança de aplicativo e sua especificação nas regras de segurança, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Antes de usar grupos de segurança de rede, você deve se registrar para usá-los concluindo as etapas de 1 a 5 em [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md#powershell) e lendo [Recursos de versão prévia](#preview-features) para obter informações importantes. Durante a versão prévia, os grupos de segurança de aplicativo ficam limitados ao escopo da rede virtual. As redes virtuais emparelhadas com referências cruzadas a grupos de segurança de aplicativo em um grupo de segurança de rede não se aplicam. 
+Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Antes de usar grupos de segurança de aplicativo, você deve se registrar para usá-los concluindo as etapas de 1 a 5 em [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md#powershell) e lendo [Recursos de versão prévia](#preview-features) para obter informações importantes. Durante a versão prévia, os grupos de segurança de aplicativo ficam limitados ao escopo da rede virtual. As redes virtuais emparelhadas com referências cruzadas a grupos de segurança de aplicativo em um grupo de segurança de rede não se aplicam. 
 
 Os recursos da versão prévia não têm o mesmo nível de disponibilidade e confiabilidade dos recursos da versão geral. Antes de usar grupos de segurança de aplicativo, você deve primeiro se registrar para usá-los. Os recursos estarão disponíveis somente nas seguintes regiões: Centro-oeste dos EUA.
 
@@ -160,4 +159,3 @@ Os recursos da versão prévia não têm o mesmo nível de disponibilidade e con
 
 * Concluir o tutorial [Criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md)
 * Concluir o tutorial [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md)
-

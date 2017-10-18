@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Introdução aos Arquivos do Azure
 Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Os compartilhamentos de Arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, compartilhamentos dos Arquivos do Azure pode ser armazenado em cache nos Windows Servers com a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados estão sendo usados.
 
 ## <a name="videos"></a>Vídeos
-| Introdução aos Arquivos do Azure (27 m) | Tutorial de Arquivos do Azure (5 m)  |
+| Introdução à Sincronização de Arquivos do Azure (2 m) | Arquivos do Azure com Sincronização (Ignite 2017) (85 m)  |
 |-|-|
-| [![Gravação do vídeo Introdução aos Arquivos do Azure - clique aqui para reproduzir!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Gravação do vídeo Tutorial sobre os Arquivos do Azure - clique aqui para reproduzir!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Screencast do vídeo Introdução à Sincronização de Arquivos do Azure - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast da apresentação Arquivos do Azure com Sincronização - clique para reproduzir!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Por que o serviço Arquivos do Azure é útil
 Os compartilhamentos de Arquivos do Azure podem ser usados para:

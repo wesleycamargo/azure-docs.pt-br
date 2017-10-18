@@ -11,17 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 92f798244db1f69d01f46d0c0bcce9fe139bef05
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Criar um data factory e um pipeline usando o PowerShell
-O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho controlados por dados (chamados de pipelines) que podem ingerir dados de armazenamentos de dados diferentes, processar/transformar os dados usando serviços de computação como o Hadoop do Azure HDInsight, o Spark, o Azure Data Lake Analytics e o Azure Machine Learning e publicar os dados de saída em armazenamentos de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de BI (business intelligence). 
+O Azure Data Factory é um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação e a transformação de dados. Usando o Azure Data Factory, você pode criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que podem ingerir dados de repositórios de dados diferentes, processar/transformr os dados usando serviços de computação como o Hadoop do Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e publicar os dados de saída em repositórios de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de business intelligence (BI). 
 
 Este guia de início rápido descreve como usar o PowerShell para criar um Azure Data Factory. O pipeline nesse data factory copia dados de uma localização para outra em um Armazenamento de Blobs do Azure.
 
@@ -29,10 +28,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como ambos o armazenamento de dados de **origem** e o de **coletor**. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento] sobre como criar uma. artigo (../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma.
-* Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. 
+* **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como ambos o armazenamento de dados de **origem** e o de **coletor**. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) sobre como criar uma. 
+* Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivos de entrada e verificar os arquivos de saída.
 * **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). Você pode usar essa ferramenta para se conectar ao Armazenamento de Blobs do Azure, criar um contêiner de blob, carregar o arquivo de entrada e verificar o arquivo de saída. 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -55,10 +53,20 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ```
 2. Execute o cmdlet **Set-AzureRmDataFactoryV2** para criar um data factory. Substitua os espaços reservados por seus próprios valores antes de executar o comando. Os **espaços reservados** foram substituídos por seus próprios valores. 
 
+    Defina uma variável para o nome do grupo de recursos que você pode usar nos comandos do PowerShell mais tarde. 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>";
+    ```
+
+    Defina uma variável para o nome do data factory que você pode usar nos comandos do PowerShell mais tarde. 
+
+    ```powershell
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+    ```
+
+    Execute o comando a seguir para criar um data factory. 
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
     ```
 
     Observe os seguintes pontos:
@@ -261,9 +269,9 @@ Nesta etapa, você define valores para os parâmetros de pipeline **inputPath** 
                 $run
                 break
             }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
         Start-Sleep -Seconds 30
     }
     ```
@@ -271,29 +279,27 @@ Nesta etapa, você define valores para os parâmetros de pipeline **inputPath** 
     Eis aqui a amostra de saída da execução de pipeline:
 
     ```
-    Key                  : 00000000-0000-0000-0000-000000000000
-    Timestamp            : 9/7/2017 8:31:26 AM
-    RunId                : 000000000-0000-0000-0000-000000000000
-    DataFactoryName      : <dataFactoryname>
-    PipelineName         : Adfv2QuickStartPipeline
-    Parameters           : {inputPath: <inputBlobPath>, outputPath: <outputBlobPath>}
-    ParametersCount      : 2
-    ParameterNames       : {inputPath, outputPath}
-    ParameterNamesCount  : 2
-    ParameterValues      : {<inputBlobPath>, <outputBlobPath>}
-    ParameterValuesCount : 2
-    RunStart             : 9/7/2017 8:30:45 AM
-    RunEnd               : 9/7/2017 8:31:26 AM
-    DurationInMs         : 41291
-    Status               : Succeeded
-    Message              :
+    Pipeline is running...status: InProgress
+    Pipeline run finished. The status is:  Succeeded
+    
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : SPTestFactory0928
+    RunId             : 0000000000-0000-0000-0000-0000000000000
+    PipelineName      : Adfv2QuickStartPipeline
+    LastUpdated       : 9/28/2017 8:28:38 PM
+    Parameters        : {[inputPath, adftutorial/input], [outputPath, adftutorial/output]}
+    RunStart          : 9/28/2017 8:28:14 PM
+    RunEnd            : 9/28/2017 8:28:38 PM
+    DurationInMs      : 24151
+    Status            : Succeeded
+    Message           :
     ```
 
 2. Execute o script a seguir para recuperar os detalhes de execução da atividade de cópia, por exemplo, o tamanho dos dados lidos/gravados.
 
     ```powershell
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -305,29 +311,29 @@ Nesta etapa, você define valores para os parâmetros de pipeline **inputPath** 
 3. Verifique se você vê uma saída semelhante à amostra de saída do resultado da execução de atividade a seguir:
 
     ```json
-    Activity run details:
-    ResourceGroupName : adf
-    DataFactoryName   : <dataFactoryname>
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : SPTestFactory0928
     ActivityName      : CopyFromBlobToBlob
-    Timestamp         : 9/7/2017 8:24:06 AM
-    PipelineRunId     : 9b362a1d-37b5-449f-918c-53a8d819d83f
+    PipelineRunId     : 00000000000-0000-0000-0000-000000000000
     PipelineName      : Adfv2QuickStartPipeline
     Input             : {source, sink}
     Output            : {dataRead, dataWritten, copyDuration, throughput...}
     LinkedServiceName :
-    ActivityStart     : 9/7/2017 8:23:30 AM
-    ActivityEnd       : 9/7/2017 8:24:06 AM
-    Duration          : 36331
+    ActivityRunStart  : 9/28/2017 8:28:18 PM
+    ActivityRunEnd    : 9/28/2017 8:28:36 PM
+    DurationInMs      : 18095
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     
     Activity 'Output' section:
-    "dataRead": 331452208
-    "dataWritten": 331452208
-    "copyDuration": 23
-    "throughput": 14073.209
+    "dataRead": 38
+    "dataWritten": 38
+    "copyDuration": 7
+    "throughput": 0.01
     "errors": []
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
+    "usedCloudDataMovementUnits": 2
+    "billedDuration": 14
     ```
 
 ## <a name="verify-the-output"></a>Verificar a saída

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: 951b8e1dfc86d8fc73cf8d6f596558b73169169c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -89,7 +88,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Nova Iorque** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport (País de Gales)** |Dados da Próxima Geração |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** |Colt, Interxion, Equinix, Orange |
+| **Paris** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Cidade de Quebec** | Megaport |
 | **San Antonio** |Megaport |
 | **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
@@ -150,7 +149,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 ## <a name="c1partners"></a>Conectividade por meio de provedores de serviço adicionais
 | **Localidade** | **Exchange** | **Provedores de conectividade** |
 | --- | --- | --- |
-| **Amsterdã** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
+| **Amsterdã** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
@@ -185,4 +184,3 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
-

@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>Lição 6: criar medidas
 
@@ -53,7 +52,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Observe que a célula superior esquerda agora contém um nome de medida, **DaysCurrentQuarterToDate**, seguido pelo resultado, **92**.
+    Observe que a célula superior esquerda agora contém um nome de medida, **DaysCurrentQuarterToDate**, seguido pelo resultado, **92**. O resultado não é relevante neste ponto porque nenhum filtro de usuário foi aplicado.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     |TaxAmt|InternetTotalTaxAmt|Soma|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Soma|=SUM([Freight])|  
   
-2.  Clicando em uma célula vazia na grade de medida e usando a barra de fórmulas, crie e nomeie, em ordem, as seguintes medidas:  
+2.  Clicando em uma célula vazia na grade de medida e usando a barra de fórmulas, crie, em ordem, as seguintes medidas personalizadas:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ As medidas criadas para a tabela FactInternetSales podem ser usadas para analisa
 [Lição 7: criar indicadores chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   
-
