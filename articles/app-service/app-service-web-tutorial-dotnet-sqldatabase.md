@@ -14,13 +14,15 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc, devcenter
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/20/2017
+
 ---
+
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como implantar um aplicativo Web ASP.NET controlado por dados no Azure e conectá-lo ao [Banco de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando terminar, você terá um aplicativo ASP.NET em execução no Azure e conectado ao Banco de Dados SQL.
@@ -429,3 +431,4 @@ Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado pa
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+
