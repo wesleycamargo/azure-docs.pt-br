@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
-O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md). 
+O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
@@ -30,20 +31,20 @@ Um Integration Runtime auto-hospedado é capaz de executar as atividades de cóp
 Este documento apresenta como você pode criar e configurar o IR auto-hospedado.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Etapas de alto nível para instalar o IR auto-hospedado
-1.  Crie um Integration Runtime auto-hospedado. Aqui está um exemplo do PowerShell: 
+1.  Crie um Integration Runtime auto-hospedado. Aqui está um exemplo do PowerShell:
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  Baixe e instale o Integration Runtime auto-hospedado (no computador local).
-3.  Recupere a chave de autenticação e registre o Integration Runtime auto-hospedado com a chave. Aqui está um exemplo do PowerShell: 
+3.  Recupere a chave de autenticação e registre o Integration Runtime auto-hospedado com a chave. Aqui está um exemplo do PowerShell:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
-Quando você move os dados entre a nuvem e o local, a atividade usa um Integration Runtime auto-hospedado para transferir os dados da fonte de dados local para a nuvem e vice-versa. 
+Quando você move os dados entre a nuvem e o local, a atividade usa um Integration Runtime auto-hospedado para transferir os dados da fonte de dados local para a nuvem e vice-versa.
 
 Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o IR auto-hospedado:
 
@@ -66,7 +67,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 - Trate a fonte de dados como local (isto é, protegida por um firewall) mesmo quando você usar o **ExpressRoute**. Use o Integration Runtime auto-hospedado para estabelecer a conectividade entre o serviço e a fonte de dados.
 - Você deverá usar o Integration Runtime auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma **máquina virtual de IaaS do Azure**.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 - As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. A instalação do Integration Runtime auto-hospedado em um **controlador de domínio não tem suporte**.
 - O **.NET Framework 4.6.1 ou superior** é necessário. Se você estiver instalando o Integration Runtime auto-hospedado em um computador com Windows 7, instale o .NET Framework 4.6.1 ou posterior. Confira [Requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
@@ -77,7 +78,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 
 ## <a name="installation-best-practices"></a>Melhores práticas de instalação
 O Integration Runtime auto-hospedado pode ser instalado baixando um pacote de instalação MSI do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Veja o artigo [Mover dados entre locais e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
-  
+
 - Configure o plano de energia no computador host para o Integration Runtime auto-hospedado para que o computador não hiberne. Se o computador host hibernar, o Integration Runtime auto-hospedado ficará offline.
 - Faça backup das credenciais associadas ao Integration Runtime auto-hospedado regularmente.
 
@@ -103,14 +104,14 @@ O Integration Runtime auto-hospedado pode ser instalado baixando um pacote de in
 
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
-Um Integration Runtime auto-hospedado pode ser associado a vários computadores locais. Esses computadores são chamados de nós. Você pode ter até quatro nós associados a um Integration Runtime auto-hospedado. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são: 
+Um Integration Runtime auto-hospedado pode ser associado a vários computadores locais. Esses computadores são chamados de nós. Você pode ter até quatro nós associados a um Integration Runtime auto-hospedado. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:
 1. Disponibilidade superior do Integration Runtime auto-hospedado para que ele não seja o único ponto de falha na sua solução de Big Data ou integração de dados de nuvem com o Azure Data Factory, garantindo a continuidade com até quatro nós.
 2. Desempenho e taxa de transferência aprimorados durante a movimentação de dados entre os armazenamentos de dados de nuvem e locais. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 
-Você pode associar vários nós simplesmente instalando o software de Integration Runtime auto-hospedado do [Centro de download](https://www.microsoft.com/download/details.aspx?id=39717) e registrando-o por uma das Chaves de Autenticação obtidas do cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey conforme descrito no [Tutorial](tutorial-hybrid-copy-powershell.md) 
+Você pode associar vários nós simplesmente instalando o software de Integration Runtime auto-hospedado do [Centro de download](https://www.microsoft.com/download/details.aspx?id=39717) e registrando-o por uma das Chaves de Autenticação obtidas do cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey conforme descrito no [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Você não precisa criar um novo Integration Runtime auto-hospedado para associar cada nó. 
+> Você não precisa criar um novo Integration Runtime auto-hospedado para associar cada nó.
 
 ## <a name="system-tray-icons-notifications"></a>Ícones/notificações da bandeja do sistema
 Se você mover o cursor sobre o ícone de bandeja do sistema/mensagem de notificação, poderá encontrar detalhes sobre o estado do Integration Runtime auto-hospedado.
@@ -137,7 +138,7 @@ No nível do **Firewall do Windows** (nível do computador), essas portas de sa�
 >
 > Para alguns bancos de dados na nuvem (por exemplo: Banco de Dados SQL do Azure, Azure Data Lake etc.), talvez seja necessário incluir o endereço IP do computador do Integration Runtime auto-hospedado na lista de permissões na configuração do firewall deles.
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>Copiar dados de uma origem para um coletor 
+### <a name="copy-data-from-a-source-to-a-sink"></a>Copiar dados de uma origem para um coletor
 Verifique se as regras de firewall estão habilitadas corretamente no firewall corporativo, no Firewall do Windows no computador do Integration Runtime auto-hospedado e no próprio armazenamento de dados. Habilitar essas regras permite ao Integration Runtime auto-hospedado se conectar com êxito à origem e ao coletor. Habilite as regras para cada repositório de dados que esteja envolvido na operação de cópia.
 
 Por exemplo, para copiar de **um armazenamento de dados local para um coletor do Banco de Dados SQL do Azure ou um coletor do SQL Data Warehouse do Azure**, siga as etapas abaixo:
@@ -200,8 +201,8 @@ Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, 
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     Propriedades adicionais são permitidas dentro da marca de proxy para especificar as configurações necessárias como scriptLocation. Confira [Elemento proxy (Configurações de Rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) para encontrar a sintaxe.
 
     ```xml
@@ -221,7 +222,7 @@ Se você encontrar erros similares aos descritos a seguir, eles provavelmente se
 2.  Ao abrir o Gerenciador de Configurações do Integration Runtime, você vê o status "**Desconectado"** ou "**Conectando**". Ao exibir os logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Microsoft Integration Runtime", você vê mensagens de erro como as do seguinte:
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 

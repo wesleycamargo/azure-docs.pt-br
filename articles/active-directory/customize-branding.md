@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/06/2017
+
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD
 Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure AD (Azure Active Directory) fornece esse recurso permitindo que você personalize a aparência da página de entrada com esquemas de cores personalizados e o logotipo da empresa. A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
@@ -82,11 +83,11 @@ A entrada do Azure AD permite que o usuário permaneça conectado ao fechar e re
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
-   ![Abrir o gerenciamento de usuários](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![Abrir o gerenciamento de usuários](./media/customize-branding/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - Identidade visual da empresa**, selecione o comando **Editar**.
 
-    ![Editar identidade visual personalizada](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![Editar identidade visual personalizada](./media/customize-branding/edit-branding.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
 
@@ -97,11 +98,11 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
 2. Escolha **Usuários e grupos** na caixa de texto e então selecione **Enter**.
 
-   ![Abrir o gerenciamento de usuários](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![Abrir o gerenciamento de usuários](./media/customize-branding/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - identidade visual da empresa**, selecione o comando **Adicionar idioma**.
 
-    ![Adicionar elementos de identidade visual específicos do idioma](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![Adicionar elementos de identidade visual específicos do idioma](./media/customize-branding/add-language.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
 
