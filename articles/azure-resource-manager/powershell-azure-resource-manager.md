@@ -12,25 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c201ac12d06ffc8097615517ae09422b037eba6b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Gerenciar recursos com o Azure PowerShell e o Resource Manager
-> [!div class="op_single_selector"]
-> * [Portal](resource-group-portal.md)
-> * [CLI do Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [API REST](resource-manager-rest-api.md)
->
->
 
-Neste artigo, você aprenderá a gerenciar suas soluções com o Azure PowerShell e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). Este tópico se concentra nas tarefas de gerenciamento. Você irá:
+Neste artigo, você aprenderá a gerenciar suas soluções com o Azure PowerShell e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). O foco deste artigo são as tarefas de gerenciamento. Você vai:
 
 1. Criar um grupos de recursos
 2. Adicionar um recurso ao grupo de recursos
@@ -53,7 +45,7 @@ Para verificar a versão do módulo de Recursos do Azure, use o seguinte cmdlet:
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Este tópico foi atualizado para a versão 3.3.0. Se você tiver uma versão anterior, sua experiência pode não corresponder às etapas mostradas neste tópico. Para obter a documentação sobre os cmdlets nesta versão, veja [AzureRM.Resources módulo](/powershell/module/azurerm.resources).
+Este artigo foi atualizado para a versão 3.3.0. Se você tiver uma versão anterior, sua experiência poderá não corresponder às etapas mostradas aqui. Para obter a documentação sobre os cmdlets nesta versão, veja [AzureRM.Resources módulo](/powershell/module/azurerm.resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
 Antes de trabalhar em sua solução, você deve fazer logon em sua conta.
@@ -110,6 +102,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+
 Antes de implantar os recursos em sua assinatura, você deve criar um grupo de recursos que conterá os recursos.
 
 Para criar um grupo de recursos, use o cmdlet **New-AzureRmResourceGroup** . O comando usa o parâmetro **Name** para especificar um nome para o grupo de recursos e o parâmetro **Location** para especificar o local.
@@ -141,9 +134,10 @@ Get-AzureRmResourceGroup
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Adicionar recursos a um grupo de recursos
+
 Para adicionar um recurso ao grupo de recursos, você pode usar o **novo AzureRmResource** cmdlet ou um cmdlet que é específico para o tipo de recurso que você está criando (como **novo AzureRmStorageAccount**). Talvez seja mais fácil de usar um cmdlet que é específico para um tipo de recurso porque ele inclui parâmetros para as propriedades que são necessárias para o novo recurso. Usar **AzureRmResource novo**, você deve conhecer todas as propriedades para definir sem ser solicitado para eles.
 
-No entanto, a adição de um recurso por meio de cmdlets pode causar uma confusão futura, pois o novo recurso não existe em um modelo do Resource Manager. A Microsoft recomenda definir a infraestrutura para sua solução do Azure em um modelo do Resource Manager. Modelos permitem repetidamente e confiável implantar sua solução. Para este tópico, você cria uma conta de armazenamento com um cmdlet do PowerShell, mas posteriormente você gerar um modelo de seu grupo de recursos.
+No entanto, a adição de um recurso por meio de cmdlets pode causar uma confusão futura, pois o novo recurso não existe em um modelo do Resource Manager. A Microsoft recomenda definir a infraestrutura para sua solução do Azure em um modelo do Resource Manager. Modelos permitem repetidamente e confiável implantar sua solução. Para este artigo, você cria uma conta de armazenamento com um cmdlet do PowerShell, mas posteriormente você gera um modelo usando seu grupo de recursos.
 
 O cmdlet a seguir cria uma conta de armazenamento. Em vez de usar o nome mostrado no exemplo, forneça um nome exclusivo para a conta de armazenamento. O nome deve ter entre 3 e 24 caracteres de comprimento e usar somente números e letras minúsculas. Se você usar o nome mostrado no exemplo, você recebe um erro porque esse nome já está em uso.
 
@@ -159,7 +153,7 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## <a name="add-a-tag"></a>Adicione uma marca
 
-Marcas permitem que você organize seus recursos de acordo com propriedades diferentes. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Você pode aplicar uma marca de departamento e o valor desses recursos para marcá-los como pertencentes à mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste tópico, você aplicar marcas em apenas um recurso, mas em seu ambiente provavelmente faz sentido aplicar marcas em todos os seus recursos.
+Marcas permitem que você organize seus recursos de acordo com propriedades diferentes. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Você pode aplicar uma marca de departamento e o valor desses recursos para marcá-los como pertencentes à mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste artigo, você aplica marcas a apenas um recurso, mas em seu ambiente provavelmente faz mais sentido aplicar marcas a todos eles.
 
 O cmdlet a seguir aplica-se duas marcas à sua conta de armazenamento:
 
@@ -203,6 +197,14 @@ Use o **AzureRmResource localizar** cmdlet para recuperar os recursos para os cr
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
   ```
 
+## <a name="get-resource-id"></a>Obter ID de recurso
+
+Muitos comandos usam uma ID de recurso como parâmetro. Para obter a ID de um recurso e armazená-la em uma variável, use:
+
+```powershell
+$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
+```
+
 ## <a name="lock-a-resource"></a>Um recurso de bloqueio
 
 Quando você precisa certificar-se de um recurso crítico for acidentalmente excluído ou modificado, aplica um bloqueio no recurso. Você pode especificar um **CanNotDelete** ou **ReadOnly**.
@@ -242,7 +244,7 @@ Para ambos os cmdlets, você deve confirmar que você deseja remover o recurso o
 
 ## <a name="run-resource-manager-scripts-with-azure-automation"></a>Executar scripts do Resource Manager com a automação do Azure
 
-Este tópico mostra como executar operações básicas em seus recursos com o Azure PowerShell. Para cenários mais avançados de gerenciamento, normalmente você deseja criar um script e reutilizar esse script conforme necessário ou em uma agenda. [A automação do Azure](../automation/automation-intro.md) fornece uma maneira de automatizar frequentemente usados scripts que gerenciam as soluções do Azure.
+Este artigo mostra como executar operações básicas em seus recursos com o Azure PowerShell. Para cenários mais avançados de gerenciamento, normalmente você deseja criar um script e reutilizar esse script conforme necessário ou em uma agenda. [A automação do Azure](../automation/automation-intro.md) fornece uma maneira de automatizar frequentemente usados scripts que gerenciam as soluções do Azure.
 
 Os tópicos a seguir mostram como usar a automação do Azure, o Resource Manager e o PowerShell para a realização de tarefas de gerenciamento:
 
@@ -256,5 +258,4 @@ Os tópicos a seguir mostram como usar a automação do Azure, o Resource Manage
 * Para saber mais sobre como implantar modelos, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](resource-group-template-deploy.md).
 * Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
 

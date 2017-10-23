@@ -14,26 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>composição sfctl
-Criar, excluir e gerenciar aplicativos do Docker Compose.
+Criar, excluir e gerenciar implantações do Docker Compose.
 
 ## <a name="commands"></a>Comandos
 
 |Command|Descrição|
 | --- | --- |
-|    create| Cria um aplicativo Service Fabric a partir de um arquivo de composição.|
-|    list  | Obtém a lista de aplicativos de composição criados no cluster do Service Fabric.|
-|   remove| Exclui um aplicativo de composição existente do Service Fabric do cluster.|
-|   status| Obtém informações sobre um aplicativo de composição do Service Fabric.|
+|    create| Implante um aplicativo do Service Fabric de um arquivo de Composição.|
+|    list  | Obtém a lista de implantação de composição criada no cluster do Service Fabric.|
+|   remove| Exclui uma implantação de composição existente do Service Fabric do cluster.|
+|   status| Obtém informações sobre um aplicativo de implantação do Service Fabric.|
 |atualizar       | Começa a atualização de uma implantação de composição no cluster do Service Fabric.|
-|    upgrade-status| Obtém detalhes para o upgrade mais recente realizado na implantação da composição do Service Fabric.|
+|    upgrade-status| Obtém detalhes para a atualização mais recente realizada na implantação da composição do Service Fabric.|
 
 
 ## <a name="sfctl-compose-create"></a>criar composição sfctl
@@ -44,11 +43,11 @@ Cria uma implantação de composição do Service Fabric.
 |Argumento|Descrição|
 | --- | --- |
 | --caminho de arquivo [obrigatório]| Caminho para o arquivo de destino do Docker Compose.|
- |   --nome [obrigatório]| A identidade da implantação.|
-|    -senha criptografada      | Em vez de solicitar uma senha de registro de contêiner, use uma senha já criptografada.|
-|    --has-pass            | Solicita uma senha para o registro de contêiner.|
-|    --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
- |   --user                | Nome de usuário para conectar o registro de contêiner.|
+ |   --deployment-name [Obrigatório]| O nome da implantação.|
+|    -senha criptografada             | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada.|
+|    --has-pass                   | Solicita uma senha para o registro de contêiner.|
+|    --timeout -t                 | Tempo limite do servidor em segundos.  Padrão: 60.|
+ |   --user                       | Nome de usuário para conectar o registro de contêiner.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -136,7 +135,7 @@ Valida os parâmetros de upgrade fornecidos e inicia a atualização da implanta
 |Argumento|Descrição|
 | --- | --- |
 |    --caminho do arquivo [obrigatório]| Caminho para o arquivo de destino do Docker Compose.|
-|    --nome         [Obrigatório]| A identidade da implantação.|
+|    --deployment-name [Obrigatório]| O nome da implantação.|
 |    --falha-svc-tipo-integridade-mapa| Dicionário codificado JSON que descreve a política de integridade usada para avaliar a integridade dos serviços.|
 |    -senha criptografada             | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada.|
  |   --ação de falha             | Os valores possíveis incluem: 'Inválido', 'Reversão', 'Manual'.|

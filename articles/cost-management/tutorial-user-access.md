@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 32e5c2c7c058267c7a2c43d5264922c8a4cab83a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso aos dados de gerenciamento de custos
 
 O acesso aos dados de gerenciamento de custos é fornecido pelo gerenciamento de usuário ou de entidade. As contas de usuário da Cloudyn determinam o acesso a *entidades* e a funções administrativas. Há dois tipos de acesso: administrador e usuário. A menos que seja modificado para cada usuário, o acesso de administrador permite o uso irrestrito de todas as funções no portal da Cloudyn, incluindo: gerenciamento de usuários, gerenciamento de listas de destinatários e acesso de entidade raiz a todos os dados de entidade. O acesso do usuário é indicado para que os usuários finais exibam relatórios e criem relatórios usando o acesso que têm aos dados de entidade.
@@ -80,8 +77,7 @@ Neste tutorial, você aprendeu como:
 > * Criar um usuário com acesso de usuário
 > * Criar entidades
 
-Avance para a documentação da Cloudyn para saber mais sobre a Cloudyn e como usar seus recursos.
+Avance para o próximo tutorial para aprender a prever despesas usando dados históricos.
 
 > [!div class="nextstepaction"]
-> [Documentação da Cloudyn](https://support.cloudyn.com/hc/)
-
+> [Previsão de despesas futuras](tutorial-forecast-spending.md)

@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c42ecff1830782ac6646c47c61b17379d122836a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados
-Este guia de início rápido demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para MySQL. Ele usa instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados de plataformas do Windows, Ubuntu Linux e Mac OS. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando Python e que começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
+Este guia de início rápido demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para MySQL. Ele usa instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados de plataformas do Windows, Ubuntu Linux e Mac OS. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Python e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
@@ -27,7 +26,7 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 - [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalar o conector MySQL e Python
-Instalar [Python](https://www.python.org/downloads/) e o [conector MySQL do Python](https://dev.mysql.com/downloads/connector/python/) em seu próprio computador. Dependendo da sua plataforma, siga as etapas:
+Instalar [Python](https://www.python.org/downloads/) e o [conector MySQL do Python](https://dev.mysql.com/downloads/connector/python/) em seu próprio computador. Dependendo da sua plataforma, siga as etapas na seção apropriada:
 
 ### <a name="windows"></a>Windows
 1. Baixe e instale o Python 2.7 em [python.org](https://www.python.org/downloads/windows/). 
@@ -69,14 +68,14 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
    
 
-## <a name="run-python-code"></a>Executar Código Python
-- Cole o código em um arquivo de texto e salve o arquivo em uma pasta de projeto com extensão de arquivo .py, como C:\pythonmysql\createtable.py ou /home/username/pythonmysql/createtable.py
-- Para executar o código, inicie o prompt de comando ou o shell bash. Altere o diretório para a pasta do projeto `cd pythonmysql`. Em seguida, digite o comando python seguido pelo nome do arquivo `python createtable.py` para executar o aplicativo. No sistema operacional Windows, se python.exe não for encontrado, você pode fornecer o caminho completo para o executável ou adicionar o caminho do Python para a variável de ambiente path. `C:\python27\python.exe createtable.py`
+## <a name="run-python-code"></a>Executar código Python
+- Cole o código em um arquivo de texto e salve o arquivo em uma pasta de projeto com extensão de arquivo .py (como C:\pythonmysql\createtable.py ou /home/username/pythonmysql/createtable.py).
+- Para executar o código, inicie o prompt de comando ou o shell Bash. Altere o diretório para a pasta do projeto `cd pythonmysql`. Em seguida, digite o comando python seguido pelo nome do arquivo `python createtable.py` para executar o aplicativo. No sistema operacional Windows, se python.exe não for encontrado, pode ser necessário fornecer o caminho completo para o executável ou adicionar o caminho do Python à variável de ambiente path. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar ao servidor, criar uma tabela e carregar os dados usando uma instrução SQL **INSERT**. 
 
-No código, a biblioteca de mysql.connector é importada. A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão, e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL no banco de dados MySQL. 
+No código, a biblioteca de mysql.connector é importada. A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL no banco de dados MySQL. 
 
 Substitua os parâmetros `host`, `user`, `password` e `database` com os valores que você especificou quando criou o servidor e o banco de dados.
 
@@ -132,7 +131,7 @@ else:
 ## <a name="read-data"></a>Ler dados
 Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**. 
 
-No código, a biblioteca de mysql.connector é importada. A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão, e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a instrução SQL no banco de dados MySQL. As linhas de dados são lidas usando o método [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). O conjunto de resultados é mantido em uma linha da coleção e um iterador for é usado para executar um loop nas linhas.
+No código, a biblioteca de mysql.connector é importada. A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a instrução SQL no banco de dados MySQL. As linhas de dados são lidas usando o método [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). O conjunto de resultados é mantido em uma linha da coleção e um iterador for é usado para executar um loop nas linhas.
 
 Substitua os parâmetros `host`, `user`, `password` e `database` com os valores que você especificou quando criou o servidor e o banco de dados.
 
@@ -181,7 +180,7 @@ else:
 ## <a name="update-data"></a>Atualizar dados
 Use o código a seguir para conectar-se e atualizar os dados usando uma instrução SQL **UPDATE**. 
 
-No código, a biblioteca de mysql.connector é importada.  A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão, e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a instrução SQL no banco de dados MySQL. 
+No código, a biblioteca de mysql.connector é importada.  A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a instrução SQL no banco de dados MySQL. 
 
 Substitua os parâmetros `host`, `user`, `password` e `database` com os valores que você especificou quando criou o servidor e o banco de dados.
 
@@ -225,7 +224,7 @@ else:
 ## <a name="delete-data"></a>Excluir dados
 Use o código a seguir para conectar-se e remover os dados usando uma instrução SQL **DELETE**. 
 
-No código, a biblioteca de mysql.connector é importada.  A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão, e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL no banco de dados MySQL. 
+No código, a biblioteca de mysql.connector é importada.  A função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) é usada para se conectar ao Banco de Dados do Azure para MySQL usando os [argumentos de conexão](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção de configuração. O código usa um cursor na conexão e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL no banco de dados MySQL. 
 
 Substitua os parâmetros `host`, `user`, `password` e `database` com os valores que você especificou quando criou o servidor e o banco de dados.
 
@@ -269,4 +268,3 @@ else:
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./concepts-migrate-import-export.md)
-

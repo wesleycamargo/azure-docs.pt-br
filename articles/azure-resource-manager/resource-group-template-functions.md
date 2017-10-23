@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/18/2017
 ms.author: tomfitz
+ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
 Este tópico descreve todas as funções que você pode usar em um modelo do Azure Resource Manager.
@@ -110,8 +109,8 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cond
 
 * [e](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
-* [se](resource-group-template-functions-logical.md#if)
-* [não](resource-group-template-functions-logical.md#not)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
 * [ou](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funções numéricas
@@ -189,6 +188,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
+* [guid](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
@@ -209,11 +209,8 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
-
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 * Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
-
-

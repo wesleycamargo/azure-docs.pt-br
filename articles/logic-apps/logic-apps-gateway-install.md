@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Aplicativo Lógico do Azure
 
@@ -52,6 +51,7 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 *   [Gateway de dados local do Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>Requisitos
 
 **Mínimos**:
@@ -75,7 +75,10 @@ Você não pode instalar o gateway em um controlador de domínio.
 
 * Não instale o gateway em um computador que possa ser desligado, entrar em suspensão ou não se conectar à Internet, pois o gateway não poderá ser executado em tais circunstâncias. Além disso, o desempenho do gateway pode ser reduzido em uma rede sem fio.
 
-* Durante a instalação, você deve entrar com uma [conta corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gerenciada pelo Azure AD (Azure Active Directory), não uma conta da Microsoft. 
+* Durante a instalação, você deve entrar com uma [conta corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gerenciada pelo Azure AD (Azure Active Directory), não uma conta da Microsoft.
+
+  > [!TIP]
+  > Se desejar usar uma conta da Microsoft que tenha um Visual Studio com a assinatura do MSDN, primeiro, [crie um diretório (Locatário) no Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) com sua conta da Microsoft ou use o diretório padrão. Adicione um usuário com uma senha ao diretório, em seguida, forneça o acesso a esse usuário à sua assinatura. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
   Você precisa usar a mesma conta corporativa ou de estudante posteriormente no portal do Azure, quando criar e associar um recurso de gateway à sua instalação do gateway. Em seguida, você seleciona esse recurso de gateway quando criar a conexão entre seu aplicativo lógico e a fonte de dados local. [Por que eu devo usar uma conta corporativa ou de estudante do Azure AD?](#why-azure-work-school-account)
 
@@ -145,10 +148,20 @@ Para executar essas tarefas, você deve ter a chave de recuperação que foi esp
 
 4. Forneça o nome e a chave de recuperação para o gateway que você deseja migrar, restaurar ou controlar.
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Conta de serviço do Windows
+
+O gateway de dados local é executado como um serviço Windows e é configurado para usar `NT SERVICE\PBIEgwService` para as credenciais de logon de serviço Windows. Por padrão, o gateway tem o direito de "Fazer logon como um serviço" para o computador em que você instala o gateway. Para criar e manter o gateway no portal do Azure, a conta de serviço Windows deve ter, pelo menos, permissões de **Colaborador**. 
+
+> [!NOTE]
+> A conta de serviço Windows é diferente da conta usada para conexão a fontes de dados locais e da conta do Azure corporativa ou de estudante usada para entrar em serviços de nuvem.
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>Reinicie o gateway
 
-O gateway é executado como um serviço Windows. Como qualquer outro serviço Windows, você pode iniciar e parar o serviço de várias maneiras. Por exemplo, você pode abrir um prompt de comando com permissões elevadas no computador em que o gateway está em execução e executar um destes comandos:
+Como qualquer outro serviço Windows, você pode iniciar e parar o serviço de várias maneiras. Por exemplo, você pode abrir um prompt de comando com permissões elevadas no computador em que o gateway está em execução e executar um destes comandos:
 
 * Para parar o serviço, execute este comando:
   
@@ -157,13 +170,6 @@ O gateway é executado como um serviço Windows. Como qualquer outro serviço Wi
 * Para iniciar o serviço, execute este comando:
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Conta de serviço do Windows
-
-O gateway de dados local é configurado para usar `NT SERVICE\PBIEgwService` para as credenciais de logon de serviço Windows. Por padrão, o gateway tem o direito de "Fazer logon como um serviço" para o computador em que você instala o gateway.
-
-> [!NOTE]
-> A conta de serviço Windows é diferente da conta usada para conexão a fontes de dados locais e da conta do Azure corporativa ou de estudante usada para entrar em serviços de nuvem.
 
 ## <a name="configure-a-firewall-or-proxy"></a>Configure um firewall ou proxy
 
@@ -336,4 +342,3 @@ Você pode encontrar os logs do Gateway de Gerenciamento de Dados e do PowerBIGa
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Conectores de Aplicativos Lógicos do Azure](../connectors/apis-list.md)
-

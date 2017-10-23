@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/2/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7615074ce3f5098d5155dfc28ada567ea6361878
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -57,6 +56,10 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
+
+* Alterações internas relacionadas ao suporte a [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
@@ -137,6 +140,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.5.1](#1.5.1) |2 de outubro de 2017 |--- |
 | [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 
 | [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
 | [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
@@ -154,5 +158,4 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

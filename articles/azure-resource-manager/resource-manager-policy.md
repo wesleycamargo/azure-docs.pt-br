@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>Visão geral de políticas de recursos
 Políticas de recursos permitem que você estabeleça convenções para recursos em sua organização. Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
@@ -32,11 +31,6 @@ Há dois conceitos a entender sobre políticas:
 Este tópico se concentra na definição de política. Para obter informações sobre a atribuição de política, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md) ou [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
 
 Políticas são avaliadas durante a criação e atualização de recursos (PUT e operações de PATCHES).
-
-> [!NOTE]
-> Atualmente, a política não avalia os tipos de recursos que não dão suporte a marcas, tipo e local, como o tipo de recurso Microsoft.Resources/deployments. Esse suporte será adicionado no futuro. Para evitar problemas de compatibilidade com versões anteriores, você deve especificar explicitamente o tipo ao criar políticas. Por exemplo, uma política de marcação que não especifica tipos é aplicada a todos os tipos. Nesse caso, uma implantação de modelo poderá falhar se houver um recurso aninhado que não dê suporte a marcas e o tipo de recurso de implantação tiver sido adicionado à avaliação da política. 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>Qual é a diferença dela em relação ao RBAC?
 Há algumas diferenças importantes entre a política e o RBAC (controle de acesso baseado em função). O RBAC se concentra nas ações do **usuário** em escopos diferentes. Por exemplo, você é adicionado à função de colaborador de um grupo de recursos no escopo do desejado, para que você possa fazer alterações a esse grupo de recursos. Diretiva enfoca **recursos** propriedades durante a implantação. Por exemplo, por meio de políticas, você pode controlar os tipos de recursos que podem ser provisionados. Ou você pode restringir os locais em que os recursos podem ser provisionados. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita. 
@@ -67,6 +61,7 @@ Você pode atribuir qualquer uma dessas políticas por meio do [portal](resource
 ## <a name="policy-definition-structure"></a>Estrutura da definição de política
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
+* modo
 * parâmetros
 * nome de exibição
 * descrição
@@ -79,6 +74,7 @@ O exemplo a seguir mostra uma política que limita os locais em que os recursos 
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -106,7 +102,13 @@ O exemplo a seguir mostra uma política que limita os locais em que os recursos 
 }
 ```
 
-## <a name="parameters"></a>Parâmetros
+## <a name="mode"></a>Modo
+
+É recomendável definir `mode` como `all`. Quando você define como **all**, os grupos de recursos e todos os tipos de recurso são avaliados para a política. O portal usa **all** para todas as políticas. Se usar o PowerShell ou a CLI do Azure, você precisará especificar o parâmetro `mode` e defini-lo como **all**.
+ 
+Anteriormente, a política ela avaliada apenas com base nos tipos de recursos que tinham suporte para marcas e local. O modo `indexed` dá continuidade a esse comportamento. Se você usar o modo **all**, as políticas também serão avaliadas com base nos tipos de recurso que não dão suporte a marcas e local. A [sub-rede da rede virtual](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) é um exemplo de um tipo adicionado recentemente. Além disso, os grupos de recursos são avaliados quando o modo é definido como **all**. Por exemplo, você pode [impor marcas em um grupo de recursos](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
+
+## <a name="parameters"></a>parâmetros
 O uso de parâmetros ajuda a simplificar o gerenciamento de política, reduzindo o número de definições de política. Defina uma política para uma propriedade de recurso (por exemplo, limitando os locais onde os recursos podem ser implantados) e incluir parâmetros na definição. Em seguida, reutilizar essa definição de política para diferentes cenários pela passagem de valores diferentes (como especificar um conjunto de locais para uma assinatura) quando atribuir a política.
 
 Declare parâmetros ao criar definições de política.
@@ -210,11 +212,13 @@ Há suporte para os seguintes campos:
 * aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
 
 ### <a name="effect"></a>Efeito
-A política dá suporte a três tipos de efeito - `deny`, `audit` e `append`. 
+A política dá suporte a três tipos de efeito – `deny`, `audit`, `append`, `AuditIfNotExists` e `DeployIfNotExists`. 
 
 * **Negar** gera um evento no log de auditoria e causa uma falha da solicitação
 * **Auditar** gera um evento de aviso no log de auditoria, mas não causa falha da solicitação
 * **Acrescentar** adiciona o conjunto de campos definido à solicitação 
+* **AuditIfNotExists** – habilita a auditoria se um recurso não existir
+* **DeployIfNotExists** – implanta um recurso se ele ainda não existir. Atualmente, esse efeito tem suporte apenas por meio de políticas internas.
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
@@ -229,6 +233,10 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 ```
 
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON. 
+
+Com **AuditIfNotExists** e **DeployIfNotExists**, você pode avaliar a existência de um recurso filho e aplicar uma regra quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais.
+
+Para obter um exemplo de auditoria quando uma extensão da máquina virtual não está implantada, consulte [Extensões de VM de Auditoria](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
 
 ## <a name="aliases"></a>Aliases
 
@@ -347,20 +355,96 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 | Microsoft.Storage/storageAccounts/sku.name | Defina o nome da SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Configurado para permitir somente o tráfego https para o serviço de armazenamento. |
 
+## <a name="policy-sets"></a>Conjuntos de política
 
-## <a name="policy-examples"></a>Exemplos de políticas
+Conjuntos de política permitem agrupar várias definições de políticas relacionadas. O conjunto de políticas simplifica a atribuição e o gerenciamento porque você trabalha com o grupo como um único item. Por exemplo, você pode agrupar todas as políticas de marcação relacionadas em um único conjunto de políticas. Em vez de atribuir cada política individualmente, você aplica o conjunto de políticas.
+ 
+O exemplo a seguir ilustra como criar uma conjunto de políticas para lidar com duas marcas (costCenter e productName). Ele usa duas políticas internas para aplicar o valor da marca padrão e impor o valor da marca. Esse conjunto de políticas declara dois parâmetros, costCenterValue e productNameValue, para reutilização. Ele faz referência às duas definições de política internas várias vezes com parâmetros diferentes. Para cada parâmetro, você pode fornecer um valor fixo, como mostrado para tagName ou um parâmetro do conjunto de políticas, conforme mostrado para tagValue.
 
-Os tópicos a seguir contêm exemplos de política:
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* Para obter exemplos de políticas de marca, veja [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
-* Para obter exemplos de padrões de nomenclatura e texto, confira [Aplicar políticas de recursos a nomes e texto](resource-manager-policy-naming-convention.md).
-* Para obter exemplos de políticas de armazenamento, veja [Aplicar políticas de recursos para contas de armazenamento](resource-manager-policy-storage.md).
-* Para obter exemplos de políticas de máquina virtual, veja [Aplicar políticas de recursos a VMs Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Aplicar políticas de recursos a VMs do Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+Você adiciona um conjunto de políticas com o comando **AzureRMPolicySetDefinition novo** do PowerShell.
 
+Para operações de REST, use a versão da API **2017-06-01-preview**, conforme mostrado no exemplo a seguir:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Depois de definir uma regra de política, atribua um escopo. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
+* Para ver exemplos de políticas, consulte [Repositório de políticas de recursos do Azure no GitHub](https://github.com/Azure/azure-policy-samples).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 * O esquema da política é publicado em [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

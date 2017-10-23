@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 O administrador de TI pode ter recomendado usar o Microsoft Azure Authenticator para entrar e acessar os recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
@@ -37,7 +37,7 @@ As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets
 
 1. Na tela inicial do aplicativo, aceite o EULA (Contrato de Licença de Usuário Final).
 2. Na tela Ativar Conta, clique no menu de contexto à direita e selecione **Conta de Trabalho**.
-3. Na tela Adicionar conta, selecione * * conta de trabalho * *.
+3. Na tela Adicionar Conta, selecione **Conta de Trabalho**.
 4. Na tela Ativar administrador do dispositivo, clique em **Ativar**.
 5. Na tela de Política de Privacidade, marque a caixa de seleção e clique em **Confirmar**.
 6. Na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em **Ingressar**.

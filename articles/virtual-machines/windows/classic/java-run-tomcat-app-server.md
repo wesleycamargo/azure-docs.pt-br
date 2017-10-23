@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
 > [!IMPORTANT]
@@ -120,7 +120,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.  
     ![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na janela de endereço do navegador, digite uma URL do formulário  **http://*sua\_DNS\_nome*. cloudapp.net**, onde ***sua\_DNS\_nome*** é o nome DNS que você especificou quando criou a máquina virtual.
+Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na janela de endereço do navegador, digite uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS especificado quando a máquina virtual foi criada.
 
 ## <a name="application-lifecycle-considerations"></a>Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps** . Por exemplo, crie um projeto Web dinâmico JSP (Página de Serviço Java) básico e exporte-o como um arquivo WAR. Em seguida, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e, em seguida, execute-o em um navegador.

@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Correção de bug de dicionário de agregação.
+* Correção de bug de barras de filtragem no link de recursos.
+* Testes adicionados para codificação Unicode.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
 
@@ -127,6 +131,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |29 de setembro de 2017 |--- |
 | [2.2.0](#2.2.0) |10 de maio de 2017 |--- |
 | [2.1.0](#2.1.0) |1º de maio de 2017 |--- |
 | [2.0.1](#2.0.1) |30 de outubro de 2016 |--- |
@@ -154,5 +159,4 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

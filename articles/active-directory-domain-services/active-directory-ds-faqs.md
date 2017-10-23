@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/15/2017
 ms.author: maheshu
+ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: perguntas frequentes
 Esta página responde a perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
@@ -28,14 +27,17 @@ Esta página responde a perguntas frequentes sobre o Azure Active Directory Doma
 Consulte nosso [Guia de solução de problemas](active-directory-ds-troubleshooting.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Serviços de Domínio do AD do Azure.
 
 ### <a name="configuration"></a>Configuração
-#### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios para um único diretório do AD do Azure?
-Não. Você só pode criar um único domínio atendido pelos Serviços de Domínio do AD do Azure para um único diretório do AD do Azure.  
+#### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios gerenciados para um único diretório do Azure AD?
+Não. Você pode criar apenas um único domínio atendido pelo Azure AD Domain Services para um único diretório do Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Posso habilitar os Serviços de Domínio do Azure AD em uma rede virtual do Azure Resource Manager?
 Sim. O Azure AD Domain Services pode ser habilitado em uma rede virtual do Azure Resource Manager. Esta funcionalidade está em preview.
 
-#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar meu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do gerenciador de recursos?
-Não atualmente. Forneceremos futuramente um mecanismo para migrar seu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do gerenciador de recursos. Fique atento às atualizações.
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar meu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager?
+Não atualmente. Forneceremos futuramente um mecanismo para migrar seu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Posso habilitar o Azure AD Domain Services em uma assinatura do Azure CSP (Provedor de Soluções de Nuvem)?
+Não. Estamos trabalhando para adicionar suporte para assinaturas do CSP.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>É possível habilitar o Azure AD Domain Services em um diretório federado do Azure AD? Uso o ADFS para autenticar usuários para acesso ao Office 365 e não sincronizar hashes de senha com o Azure AD. É possível habilitar o Azure AD Domain Services nesse diretório?
 Não. O Azure AD Domain Services precisa de acesso aos hashes de senha das contas de usuário, para autenticar os usuários por NTLM ou Kerberos. Em um diretório federado, os hashes de senha não são armazenados no diretório do Azure AD. Portanto, o Azure AD Domain Services não funciona nesses diretórios do Azure AD.
@@ -48,6 +50,9 @@ A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Az
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Os Serviços de Domínio do AD do Azure estão disponíveis no novo portal do Azure?
 Sim. O Azure AD Domain Services pode ser configurado no [Portal do Azure](https://portal.azure.com). Esperamos parar o suporte ao [Portal Clássico do Azure](https://manage.windowsazure.com) no futuro.
+
+#### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?
+Não. Algumas tarefas precisam ser executadas como parte da habilitação do Azure AD Domain Services. Essas tarefas não são possíveis por meio de um modelo do Resource Manager. Use o novo portal do Azure para habilitar o Azure AD Domain Services para seu diretório.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar de outra forma os controladores de domínio para este domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar outros controladores de domínio (leitura-gravação ou somente leitura) ao domínio gerenciado.
@@ -89,4 +94,3 @@ Não. Os Serviços de Domínio do Azure AD é um serviço pré-pago do Azure e n
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>Em quais regiões do Azure o serviço está disponível?
 Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do Azure AD estão disponíveis.
-

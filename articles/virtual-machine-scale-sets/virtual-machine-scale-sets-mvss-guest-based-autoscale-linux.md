@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
+ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático usando métricas de convidado em um modelo de conjunto de dimensionamento do Linux
 
-Há dois tipos de métricas no Azure que são coletadas de VMs e conjuntos de dimensionamento: alguns vêm da VM de host e outros, da VM convidada. Métricas de host não exigem configuração adicional porque são coletadas pela VM de host, enquanto as métricas de convidado exigem instalar a [extensão de Diagnóstico do Microsoft Azure](../virtual-machines/windows/extensions-diagnostics-template.md) ou a [extensão de Diagnóstico do Linux Azure](../virtual-machines/linux/diagnostic-extension.md) na VM convidada. Um motivo comum para usar métricas de convidado, em vez de métricas de host, é que as métricas de convidado fornecem uma seleção maior de métricas do que as métricas de host. Um exemplo disso são as métricas de consumo de memória, que só estão disponíveis por meio de métricas de convidado. As métricas de host com suporte estão listadas [aqui](../monitoring-and-diagnostics/monitoring-supported-metrics.md) e métricas de convidado comumente usadas estão listadas [aqui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo de conjunto de dimensionamento viável mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar regras de dimensionamento automático com base nas métricas de convidado para conjuntos de dimensionamento do Linux.
+Há dois tipos de métricas no Azure que são coletadas de VMs e conjuntos de dimensionamento: alguns vêm da VM de host e outros, da VM convidada. Em um nível alto, se você estiver usando métricas de rede, disco e CPU padrão, as métricas de host provavelmente serão uma boa opção. Mas se você precisar de uma seleção maior de métricas, as métricas de convidado provavelmente serão mais adequadas. Vamos analisar as diferenças entre ambas:
+
+As métricas de host são mais simples e confiáveis. Elas não exigem configuração adicional porque são coletadas pela VM de host, enquanto as métricas de convidado exigem instalar a [extensão de Diagnóstico do Microsoft Azure](../virtual-machines/windows/extensions-diagnostics-template.md) ou a [extensão de Diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md) na VM convidada. Um motivo comum para usar métricas de convidado, em vez de métricas de host, é que as métricas de convidado fornecem uma seleção maior de métricas do que as métricas de host. Um exemplo disso são as métricas de consumo de memória, que só estão disponíveis por meio de métricas de convidado. As métricas de host com suporte estão listadas [aqui](../monitoring-and-diagnostics/monitoring-supported-metrics.md) e métricas de convidado comumente usadas estão listadas [aqui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo de conjunto de dimensionamento viável mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar regras de dimensionamento automático com base nas métricas de convidado para conjuntos de dimensionamento do Linux.
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
@@ -189,4 +189,3 @@ Por fim, adicionamos um recurso `autoscaleSettings` para configurar o dimensiona
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

@@ -16,14 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
+ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
 
@@ -39,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos. 
+Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -297,4 +295,3 @@ Neste tutorial, você aprendeu como:
 Avance para o próximo tópico para aprender a criar um aplicativo de PowerApps que usa a definição de OpenAPI que você criou.
 > [!div class="nextstepaction"]
 > [Chamar uma função do PowerApps](functions-powerapps-scenario.md)
-

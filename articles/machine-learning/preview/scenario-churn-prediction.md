@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Previsão de rotatividade de clientes usando o Azure Machine Learning
 
 Em média, manter clientes existentes é cinco vezes mais barato do que o custo de recrutar novos. Como resultado, geralmente os executivos de marketing se veem tentando estimar a probabilidade de rotatividade de clientes e encontrar as ações necessárias para minimizar a taxa de rotatividade.
@@ -77,7 +75,7 @@ Crie um novo projeto usando este exemplo como modelo:
 
 ## <a name="data-description"></a>Descrição dos dados
 
-O conjunto de dados usado na solução é da concorrência SIDKDD 2009. É chamado `CATelcoCustomerChurnTrainingSample.csv` e está localizado na pasta [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data). O conjunto de dados consiste em dados heterogêneos com ruídos (variáveis numéricas/categóricas) da empresa de telecomunicações francesa Orange e é mantido anônimo.
+O conjunto de dados usado na solução é da concorrência SIDKDD 2009. É chamado `CATelcoCustomerChurnTrainingSample.csv` e está localizado na pasta [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data). O conjunto de dados consiste em dados heterogêneos com ruídos (variáveis numéricas/categóricas) da empresa de telecomunicações francesa Orange e é mantido anônimo.
 
 As variáveis capturam informações demográficas do cliente, estatísticas de chamadas (como duração média das chamadas, taxa de falha de chamadas, etc.), informações sobre o contrato, estatísticas de reclamação. A variável de rotatividade é binária (0 – não houve rotatividade, 1 – houve rotatividade).
 
@@ -85,27 +83,24 @@ As variáveis capturam informações demográficas do cliente, estatísticas de 
 
 A estrutura de pastas é organizada da seguinte maneira:
 
-__Código__: contém todo o código relacionado à previsão de rotatividade usando o Azure Machine Learning Workbench
+__dados__: contém o conjunto de dados usado na solução  
 
-__Dados__: contém o conjunto de dados usado na solução  
-
-__Laboratórios__: contém todos os laboratórios práticos
+__docs__: contém todos os laboratórios práticos
 
 A ordem dos Laboratórios práticos para executar a solução é a seguinte:
-1. Preparação de dados: os arquivos relacionados à Preparação de dados na pasta do código são `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` e `CATelcoCustomerChurnTrainingSample.csv`
-2. Modelagem e avaliação: o arquivo principal relacionado à modelagem e à avaliação na pasta de código é `CATelcoCustomerChurnModeling.py`
-3. Modelagem e avaliação no Docker: o arquivo principal para esta tarefa na pasta de código é `CATelcoCustomerChurnModelingDocker.py`
+1. Preparação de Dados: o arquivo principal relacionado com Preparação de Dados na pasta dos dados é `CATelcoCustomerChurnTrainingSample.csv`
+2. Modelagem e avaliação: o arquivo principal relacionado com a modelagem e a avaliação na pasta raiz é `CATelcoCustomerChurnModeling.py`
+3. Modelagem e avaliação no Docker: o arquivo principal para esta tarefa na pasta raiz é `CATelcoCustomerChurnModelingDocker.py`
 4. Operacionalização: os principais arquivos para implantação são o modelo (`model.pkl`) e `churn_schema_gen.py`
 
 | Classificar| Nome do Arquivo | Arquivos relacionados |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | 'Data/CATelcoCustomerChurnTrainingSample.csv' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | 'Code/CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | 'Code/CATelcoCustomerChurnModelingDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | 'Code/model.pkl'<br>'Code/churn_schema_gen.py' |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Siga os Laboratórios da maneira sequencial descrita acima.
 
 ## <a name="conclusion"></a>Conclusão
 Esse cenário prático demonstrou como realizar previsão de rotatividade usando o Azure Machine Learning Workbench. Primeiro realizamos a limpeza de dados para manipular dados heterogêneos e com ruídos, seguida pela engenharia de recursos usando ferramentas de Preparação de dados. Em seguida, usamos ferramentas de aprendizado de máquina de software livre para criar e avaliar um modelo de classificação. Depois, usamos o contêiner do docker local para implantar o modelo, tornando-o pronto para a produção.
-

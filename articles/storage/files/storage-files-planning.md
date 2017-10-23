@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: wgries
+ms.openlocfilehash: b11cd632fc4735648581e77eb2570dd32604067d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 25d8f2bf5c42c54f1b9da330d7d3d6cbcc5dacb1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Já que o Arquivos do Azure é totalmente gerenciado, implantá-lo em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de Arquivos do Azure para uso em produção dentro de sua organização.
 
@@ -65,6 +63,7 @@ O Arquivos do Azure tem várias opções integradas para garantir a segurança d
     * Os clientes que dão suporte a criptografia SMB 3.0 enviam e recebem dados por um canal criptografado.
     * Clientes que não dão suporte a SMB 3.0 podem se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0, sem criptografia. Observe que os clientes não têm permissão para se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0 sem criptografia.
     * Os clientes podem se comunicar por REST de arquivo via HTTP ou HTTPS.
+* Criptografia em repouso: todos os dados são criptografados com chaves totalmente gerenciadas. Criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
 * Requisito opcional de dados criptografados em trânsito: quando selecionado, o Arquivos do Azure não permitirá acesso aos dados por canais sem criptografia. Especificamente, apenas conexões HTTPS e SMB 3.0 com criptografia serão permitidas. 
 
     > [!Important]  

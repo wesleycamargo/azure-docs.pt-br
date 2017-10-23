@@ -14,30 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
+ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
-O proxy reverso que está incorporado ao Azure Service Fabric endereça microsserviços no cluster do Service Fabric que expõe pontos de extremidade HTTP.
+Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
 
 ## <a name="microservices-communication-model"></a>Modelo de comunicação de microsserviços
-Normalmente, os microsserviços no Service Fabric são executados em um subconjunto de máquinas virtuais no cluster e podem ser movidos de uma máquina virtual para outra por vários motivos. Assim, os pontos de extremidade para microsserviços podem ser alterados dinamicamente. O padrão típico para se comunicar com o microsserviço é o loop de resolução a seguir:
+Microsserviços no Service Fabric são executados em um subconjunto de nós no cluster e podem migrar entre os nós por vários motivos. Assim, os pontos de extremidade para microsserviços podem mudar dinamicamente. Para descobrir e se comunicar com outros serviços no cluster, o microsserviço deve percorrer as etapas a seguir:
 
-1. Resolva a localização do serviço inicialmente por meio do serviço de nomenclatura.
+1. Resolver a localização do serviço por meio do serviço de nomenclatura.
 2. Conecte-se ao serviço.
-3. Determine a causa de falhas de conexão e resolva novamente a localização do serviço quando necessário.
+3. Encapsular as etapas anteriores em um loop que implementa a resolução do serviço e tenta novamente as políticas a aplicar em caso de falhas de conexão
 
-Esse processo geralmente envolve a quebra automática de bibliotecas de comunicação de cliente em um loop de repetição que implementa as políticas de repetição e resolução de serviço.
 Para obter mais informações, consulte [Conectar-se a serviços e se comunicar com eles](service-fabric-connect-and-communicate-with-services.md).
 
 ### <a name="communicating-by-using-the-reverse-proxy"></a>Comunicar-se usando o proxy reverso
-O proxy reverso do Service Fabric é executado em todos os nós no cluster. Ele executa o processo de resolução de todo o serviço em nome do cliente e, em seguida, encaminha a solicitação do cliente. Portanto, clientes em execução no cluster podem simplesmente usar bibliotecas de comunicação HTTP do lado do cliente para se comunicar com o serviço de destino por meio do proxy reverso executado localmente no mesmo nó.
+Proxy reverso é um serviço executado em cada nó e manipula a resolução do ponto de extremidade, a repetição automática e outras falhas de conexão em nome de serviços de cliente. Proxy reverso pode ser configurado para aplicar várias políticas, uma vez que ele lida com solicitações de serviços do cliente. Usar um proxy reverso permite que o serviço de cliente use qualquer biblioteca de comunicação HTTP no lado do cliente e não exige resolução especial e lógica de repetição no serviço. 
+
+Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviços de cliente a serem usados para enviar solicitações a outros serviços.
 
 ![Comunicação interna][1]
+
+> **Plataformas com suporte**
+>
+> Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
+> * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
+> * *Cluster do Linux*: proxy reverso não está disponível no momento para clusters do Linux
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar microsserviços de fora do cluster
 O modelo de comunicação externa padrão para microsserviços é um modelo de aceitação em que cada serviço não pode ser acessado diretamente de clientes externos. O [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que é um limite de rede entre microsserviços e clientes externos, executa a conversão de endereços de rede e encaminha as solicitações externas para pontos de extremidade de IP:porta internos. Para tornar o ponto de extremidade do microsserviço diretamente acessível para clientes externos, você deve primeiro configurar o Load Balancer para encaminhar o tráfego para cada porta usada pelo serviço no cluster. Além disso, a maioria dos microsserviços, especialmente microsserviços com estado, não estão em todos os nós do cluster. Os microsserviços podem mover-se entre os nós no failover. Nesses casos, o Load Balancer não pode determinar efetivamente o local do nó de destino das réplicas para o qual encaminhar tráfego.
@@ -315,4 +321,3 @@ Primeiro, você obtém o modelo para o cluster que deseja implantar. Você pode 
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 ## <a name="backup"></a>Backup
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
-| Backup |Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Saiba mais sobre [depuração de problemas de instantâneo de VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
+| Backup |Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM Instantânea atingiu o tempo limite. – Consulte o guia de solução de problemas para saber como resolver esse problema. |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Saiba mais sobre [depuração de problemas de instantâneo de VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
 | Backup |Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft |Verifique se há um problema temporário ao acessar o armazenamento de VM. Verifique o [Status do Azure](https://azure.microsoft.com/en-us/status/) para ver se há qualquer problema ativo relacionado a computação/armazenamento/rede na região. Repita até que o problema de publicação de backup seja mitigado. |
 | Backup |Não foi possível executar a operação porque a VM não existe mais. |O backup não pode ser executado porque a VM configurada para o backup foi excluída. Pare outros backups no modo de exibição de Itens protegidos, selecione o item protegido e clique em Parar Proteção. Você pode manter dados selecionando a opção de dados Reter Backup. Posteriormente, você poderá retomar a proteção para essa máquina virtual clicando em configurar proteção no modo de exibição Itens Registrados |
 | Backup |Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro |<ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |

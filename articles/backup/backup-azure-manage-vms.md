@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Para interromper a proteção para uma máquina virtual:
 
     Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Interromper Backup** na parte superior da folha.
 4. Como opção, forneça um **Motivo** ou **Comentário**.
-5. Para interromper o trabalho de backup para o item atual, clique em ![botão backup parar](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Para interromper o trabalho de backup do item atual, clique no ![botão Parar Backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Uma mensagem de notificação permite que você conheça os trabalhos de backup que foram interrompidos.
 
@@ -219,7 +219,7 @@ Para excluir os dados de backup em uma máquina virtual com o *Backup desabilita
 
     Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Excluir Dados do Backup** na parte superior da folha.
 3. Como opção, forneça um **Motivo** ou **Comentário**.
-4. Para excluir os dados de backup para o item atual, clique em ![botão backup parar](./media/backup-azure-manage-vms/delete-button.png)
+4. Para excluir os dados do backup do item atual, clique no ![Botão Parar Backup](./media/backup-azure-manage-vms/delete-button.png)
 
     Uma mensagem de notificação permite que você conheça os dados do backup que foram excluídos.
 

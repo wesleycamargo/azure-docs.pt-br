@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/14/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -30,14 +29,24 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 >
 
 
-> [!NOTE]
-> O RSS Feed foi preterido recentemente. Fique atento a atualizações em um novo feed em breve!
+> [!TIP]
+>  Assine o [RSS feed de atualização do SO convidado] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
+>
+>
+
+> [!IMPORTANT]
+> A partir da distribuição de novembro, haverá suporte e disponibilidade apenas para as duas versões mais recentes do SO convidado no Portal do Azure.
 >
 >
 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+
+###### <a name="october-6-2017"></a>**6 de outubro de 2017**
+O SO convidado de setembro foi lançado. Para a versão do Windows Server de setembro de 2016, netfx3 foi habilitado por padrão. Os clientes deverão adicionar ‘dism /online /disable-feature /featurename:netfx3’ em seu OnStart se o fluxo de trabalho exigir que eles executem um aplicativo .NET 2.x com um tempo de execução 4.x ou se eles executaram um aplicativo .NET 2.x, trataram um erro e, em seguida, executaram um aplicativo .NET 4.x.
+
 ###### <a name="september-14-2017"></a>**14 de setembro de 2017**
 A distribuição do SO convidado de setembro começará no dia 14 de setembro de e tem lançamento previsto para 9 de outubro.
 
@@ -71,7 +80,7 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 
 ## <a name="releases"></a>Lançamentos
 ## <a name="family-5-releases"></a>Versões da Família 5
-**Windows Server, 2016**
+**Windows Server 2016**
 
 .NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -83,9 +92,10 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |6 de outubro de 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 de agosto de 2017 |Post 5.12 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |3 de agosto de 2017 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |7 de julho de 2017 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
@@ -105,9 +115,10 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |6 de outubro de 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 de agosto de 2017 |Post 4.47 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |3 de agosto de 2017 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |7 de julho de 2017 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
@@ -131,9 +142,10 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |6 de outubro de 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 de agosto de 2017 |Post 3.54 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |3 de agosto de 2017 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |7 de julho de 2017 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
@@ -157,9 +169,10 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |6 de outubro de 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 de agosto de 2017 |Post 2.67 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |3 de agosto de 2017 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |7 de julho de 2017 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
@@ -228,6 +241,7 @@ Se você atualizar manualmente o SO convidado, veja [Política de desativação 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
 
+[RSS feed de atualização do SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -247,4 +261,3 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [correção]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-

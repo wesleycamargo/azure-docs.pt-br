@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
 
@@ -76,7 +75,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 <sup>2</sup> Se várias portas tiverem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento da porta descrita em [Roteamento de porta](#routing-metric) abaixo.
 
-<sup>3</sup> Os IPs fixos do controlador no dispositivo StorSimple devem ser roteáveis e conseguir se conectarem à Internet diretamente ou pelo proxy Web configurado. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
+<sup>3</sup> Os IPs fixos do controlador no dispositivo StorSimple devem ser roteáveis e conseguir se conectarem à Internet diretamente ou pelo proxy Web configurado. Os endereços IP fixos são usados para atender às atualizações do dispositivo e para a coleta de lixo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple e a coleta de lixo não funcionará adequadamente.
 
 > [!IMPORTANT]
 > Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
@@ -249,4 +248,3 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

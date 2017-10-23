@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 07/18/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar a linguagem Go para se conectar e consultar dados
-Este guia de início rápido mostra como se conectar a um Banco de Dados do Azure para MySQL usando código escrito na linguagem [Go](https://golang.org/) a partir de plataformas Windows, Ubuntu Linux, e Apple macOS. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este artigo pressupõem que você está familiarizado com o desenvolvimento usando Go, mas que começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
+Este guia de início rápido mostra como se conectar a um Banco de Dados do Azure para MySQL usando código escrito na linguagem [Go](https://golang.org/) em plataformas Windows, Ubuntu Linux e Apple macOS. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Go e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
@@ -28,7 +26,7 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 - [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Instalar o conector MySQL e Go
-Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](https://github.com/go-sql-driver/mysql#installation) em seu próprio computador. Dependendo da sua plataforma, siga as etapas:
+Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](https://github.com/go-sql-driver/mysql#installation) em seu próprio computador. Dependendo da sua plataforma, siga as etapas na seção apropriada:
 
 ### <a name="windows"></a>Windows
 1. [Baixe](https://golang.org/dl/) e instale o Go para Microsoft Windows de acordo com as [instruções de instalação](https://golang.org/doc/install).
@@ -51,7 +49,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 2. Instale o Go executando `sudo apt-get install golang-go`.
 3. Crie uma pasta para o seu projeto em seu diretório inicial, como `mkdir -p ~/go/src/mysqlgo/`.
 4. Altere o diretório na pasta, como `cd ~/go/src/mysqlgo/`.
-5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
+5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell Bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
 6. Instale o [go-sql-driver para mysql](https://github.com/go-sql-driver/mysql#installation) executando o comando `go get github.com/go-sql-driver/mysql`.
 
    Em resumo, execute estes comandos bash:
@@ -65,10 +63,10 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 
 ### <a name="apple-macos"></a>Apple macOS
 1. Baixe e instale o Go de acordo com as [instruções de instalação](https://golang.org/doc/install) correspondentes à plataforma. 
-2. Abra o shell do Bash. 
+2. Abra o shell do Bash.
 3. Crie uma pasta para o seu projeto em seu diretório inicial, como `mkdir -p ~/go/src/mysqlgo/`.
 4. Altere o diretório na pasta, como `cd ~/go/src/mysqlgo/`.
-5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
+5. Defina a variável de ambiente GOPATH para apontar para um diretório de origem válido, como a pasta atual inicial do diretório do Go. No shell Bash, execute `export GOPATH=~/go` para adicionar o diretório do Go como GOPATH para a sessão atual do shell.
 6. Instale o [go-sql-driver para mysql](https://github.com/go-sql-driver/mysql#installation) executando o comando `go get github.com/go-sql-driver/mysql`.
 
    Em resumo, instale o Go e, em seguida, execute esses comandos bash:
@@ -83,17 +81,17 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **myserver4demo**.
+2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou (como **myserver4demo**).
 3. Clique no nome do servidor **myserver4demo**.
-4. Selecione a página **Propriedades** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+4. Selecione a página **Propriedades** do servidor e anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**.
  ![Banco de Dados do Azure para MySQL – Logon de administrador do servidor](./media/connect-go/1_server-properties-name-login.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
    
 
 ## <a name="build-and-run-go-code"></a>Compilar e executar o código Go 
 1. Para escrever código Golang, você pode usar um editor de texto simples, como o Bloco de Notas no Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou [Nano](https://www.nano-editor.org/) no Ubuntu ou Editor de Texto no macOS. Se você preferir IDE (Ambiente de Desenvolvimento Integrado) mais avançado, experimente o [Gogland](https://www.jetbrains.com/go/) da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/) da Microsoft ou o [Atom](https://atom.io/).
-2. Cole o código Go das seções abaixo em arquivos de texto e salve-os em sua pasta de projeto com a extensão de arquivo \*.go, como caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou caminho do Linux `~/go/src/mysqlgo/createtable.go`.
-3. Localize as constantes `HOST`, `DATABASE`, `USER`, e `PASSWORD` no código e substitua os valores de exemplo com seus próprios valores. 
+2. Cole o código Go das seções abaixo em arquivos de texto e salve-os em sua pasta de projeto com a extensão de arquivo \*.go (como caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou caminho do Linux `~/go/src/mysqlgo/createtable.go`).
+3. Localize as constantes `HOST`, `DATABASE`, `USER` e `PASSWORD` no código e substitua os valores de exemplo com seus próprios valores. 
 4. Inicie o prompt de comando ou shell Bash. Altere o diretório na pasta do seu projeto. Por exemplo, no Windows `cd %USERPROFILE%\go\src\mysqlgo\`. No Linux `cd ~/go/src/mysqlgo/`.  Alguns dos editores IDE mencionados oferecem recursos de depuração e tempo de execução sem a necessidade de comandos do shell.
 5. Execute o código, digitando o comando `go run createtable.go` para compilar o aplicativo e executá-lo. 
 6. Como alternativa, para compilar o código em um aplicativo nativo, `go build createtable.go`, inicie `createtable.exe` para executar o aplicativo.
@@ -103,7 +101,7 @@ Use o código a seguir para se conectar ao servidor, criar uma tabela e carregar
 
 O código importa três pacotes: o [pacote sql](https://golang.org/pkg/database/sql/), o [go sql driver para mysql](https://github.com/go-sql-driver/mysql#installation) como driver para se comunicar com o Banco de Dados do Azure para MySQL e o [pacote fmt](https://golang.org/pkg/fmt/) para impressão de entrada e saída na linha de comando.
 
-O código chama o método [sql.Open()](http://go-database-sql.org/accessing.html) para se conectar ao Banco de Dados do Azure para MySQL e verifica a conexão usando o método [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Um [identificador de banco de dados](https://golang.org/pkg/database/sql/#DB) é usado em todo o processo, mantendo o pool de conexão para o servidor de banco de dados. O código chama o método [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) várias vezes para executar vários comandos DDL. O código também usa o [Prepare()](http://go-database-sql.org/prepared.html) e EXEC() para executar instruções preparadas com parâmetros diferentes para inserir três linhas. A cada ocorrência, um método personalizado checkError() é usado para verificar se ocorreu um erro e pane.
+O código chama o método [sql.Open()](http://go-database-sql.org/accessing.html) para se conectar ao Banco de Dados do Azure para MySQL e verifica a conexão usando o método [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Um [identificador de banco de dados](https://golang.org/pkg/database/sql/#DB) é usado em todo o processo, mantendo o pool de conexão para o servidor de banco de dados. O código chama o método [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) várias vezes para executar vários comandos DDL. O código também usa o [Prepare()](http://go-database-sql.org/prepared.html) e Exec() para executar instruções preparadas com parâmetros diferentes para inserir três linhas. A cada ocorrência, um método personalizado checkError() é usado para verificar se ocorreu um erro e pane.
 
 Substitua as constantes `host`, `database`, `user` e `password` pelos seus próprios valores. 
 
@@ -356,4 +354,3 @@ func main() {
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./concepts-migrate-import-export.md)
-

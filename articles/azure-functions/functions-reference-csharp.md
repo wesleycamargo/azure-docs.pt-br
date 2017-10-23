@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
+ms.openlocfilehash: c224955d5d3592fb9afaaf31e6e4e531250b138e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: c9dfd3e3b9c155255959f76fd9b58b6935888db2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Referência do desenvolvedor de scripts C# do Azure Functions
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script em F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
->
->
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 A experiência de scripts C# do Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento.
 
@@ -83,7 +77,7 @@ public static string Run(string input, TraceWriter log)
 
 Para gravar vários valores em uma associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
-Este exemplo grava várias mensagens de fila usando `ICollector`:
+Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
 ```csharp
 public static void Run(ICollector<string> myQueueItem, TraceWriter log)
@@ -397,7 +391,7 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de associação de saída com suporte.
-No estado em que se encontra, o código obtém a configuração de aplicativo padrão para a cadeia de conexão da conta de armazenamento (`AzureWebJobsStorage`). Especifique uma configuração de aplicativo personalizada a ser usada adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributo para `BindAsync<T>()`. Por exemplo,
+No exemplo de código anterior, o código obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Por exemplo,
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -440,7 +434,4 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
-* [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
-* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
-
+* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

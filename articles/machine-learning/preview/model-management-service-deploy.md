@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d95f8d32d9aeca5202623909fcf78014fa2e4458
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implantação de um modelo de Machine Learning como um serviço Web
 
@@ -165,7 +164,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Você também pode usar um único comando para executar as duas ações. Use -h com o comando de criação de serviço para obter mais detalhes.
+>Você também pode usar um único comando para executar as quatro etapas anteriores. Use -h com o comando de criação de serviço para obter mais detalhes.
 
 ### <a name="8-test-the-service"></a>8. Teste o serviço
 Use o comando a seguir para obter informações sobre como chamar o serviço:
@@ -188,4 +187,3 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você testou seu serviço Web para ser executado localmente, você pode implantá-lo em um cluster para uso em larga escala. Para obter detalhes sobre como configurar um cluster para implantação de serviço Web, consulte [Configuração de Gerenciamento de Modelos](model-management-configuration.md). 
-

@@ -14,12 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -131,7 +130,7 @@ Marque a caixa que diz "**Estou ciente de que isso substituirá todo o conteúdo
 Quando você cria um back-end de Aplicativo Móvel do Node.js usando a folha **Início Rápido** no portal, um projeto do Node.js é criado e implantado em seu site. Você pode adicionar tabelas e APIs e editar arquivos de código para o back-end de Node.js no portal. Você também pode usar várias ferramentas de implantação a fim de baixar o projeto de back-end e adicionar ou modificar tabelas e APIs, e publicar novamente o projeto. Para saber mais, confira o [Guia de implantação do Serviço de Aplicativo do Azure]. o procedimento a seguir usa um repositório Git para baixar o código de projeto de início rápido.
 
 1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) para distribuições específicas de sistemas operacionais e orientações de instalação.
-2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service-web/app-service-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
+2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service/app-service-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
 3. Na folha de seu back-end do Aplicativo Móvel, anote a configuração de **URL de clone de Git** .
 4. Execute o comando `git clone` usando a URL de clone de Git, digitando a senha quando for necessário, como no exemplo a seguir:
 
@@ -348,7 +347,7 @@ A alteração da maioria das Configurações do Aplicativo requer o reinício do
 O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em todos os tipos de aplicativo do Serviço de Aplicativo do Azure. Se você não tiver feito isso, siga estas etapas para criar um back-end do Aplicativo Móvel.
 
 1. Faça logon no [portal do Azure].
-2. No canto superior esquerdo da janela, clique no botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e forneça um nome ao back-end do Aplicativo Móvel.
+2. No canto superior esquerdo da janela, clique no botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e forneça um nome para o back-end do Aplicativo Móvel.
 3. Na caixa **Grupo de Recursos** , digite o mesmo nome do aplicativo.
 4. O Plano do Serviço de Aplicativo Padrão é selecionado.  Se você deseja alterar o Plano do Serviço de Aplicativo, é possível fazer isso clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**.  Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado.  Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Selecione **Exibir tudo** para exibir mais opções de preço, como **Gratuito** e **Compartilhado**.  Depois de selecionar a camada de preços, clique no botão **Selecionar** .  De volta à folha **Plano do Serviço de Aplicativo**, clique em **OK**.
 5. Clique em **Criar**. O provisionamento de um back-end de aplicativo móvel pode levar alguns minutos.  Depois que o back-end do Aplicativo Móvel for provisionado, o portal abre a folha **Configurações** do back-end do Aplicativo Móvel.
@@ -844,20 +843,19 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [Início rápido do cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido de cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
-[Como configurar a autenticação do Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Como configurar a autenticação do Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Como configurar a autenticação do Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Como configurar a autenticação da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar a autenticação do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
-[Monitorando um Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-monitor.md
-[Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Como configurar a autenticação do Active Directory do Azure]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Como configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Como configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Como configurar a autenticação da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Como configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service/app-service-deploy-local-git.md
+[Monitorando um Serviço de Aplicativo do Azure]: ../app-service/web-sites-monitor.md
+[Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
+[Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [especificar a versão do Node]: ../nodejs-specify-node-version-azure-apps.md
 [usar módulos do Node]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
@@ -875,4 +873,3 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

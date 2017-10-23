@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no Armazenamento do Microsoft Azure
 
@@ -30,7 +29,7 @@ Quando você usar o serviço de Arquivos do Azure, qualquer conexão sem criptog
 Por padrão, a opção "Transferência segura obrigatória" está desabilitada.
 
 > [!NOTE]
-> Como o armazenamento do Azure não dá suporte a HTTPS para nomes de domínio personalizado, essa opção não será aplicada ao usar um nome de domínio personalizado.
+> Como o armazenamento do Azure não dá suporte a HTTPS para nomes de domínio personalizado, essa opção não será aplicada ao usar um nome de domínio personalizado. Não há suporte para contas de armazenamento clássicas.
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Habilitar "Transferência segura obrigatória" no portal do Azure
 
@@ -63,59 +62,65 @@ Para exigir a transferência segura programaticamente, use a configuração _sup
 * [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (Versão: 1.1.0)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (Versão: 0.11.0)
 
-### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>Habilitar a configuração "Transferência segura obrigatória" com a API REST
+### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Habilitar a configuração "Transferência segura obrigatória" com o PowerShell
 
-Para simplificar o teste com a API REST, use [ArmClient](https://github.com/projectkudu/ARMClient) para chamar a partir de linha de comando.
+Este exemplo exige o módulo do Azure PowerShell, versão 4.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
- Use a linha de comando a seguir para verificar a configuração com a API REST:
+Execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+
+ Use a linha de comando a seguir para verificar a configuração:
+
+```powershell
+> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : False
+...
 
 ```
-# Login Azure and proceed with your credentials
-> armclient login
 
-> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+Use a linha de comando a seguir para habilitar a configuração:
+
+```powershell
+> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : True
+...
+
 ```
 
-Em resposta, encontre a configuração _supportsHttpsTrafficOnly_. Por exemplo:
+### <a name="enable-secure-transfer-required-setting-with-cli"></a>Habilitar a configuração "Transferência segura obrigatória" com a CLI
 
-```Json
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+ Use a linha de comando a seguir para verificar a configuração:
+
+```azurecli-interactive
+> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
-  "kind": "Storage",
-  ...
-  "properties": {
-    ...
-    "supportsHttpsTrafficOnly": false
-  },
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": false,
   "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
-Use a linha de comando a seguir para habilitar a configuração com a API REST:
+Use a linha de comando a seguir para habilitar a configuração:
 
-```
-
-# Login Azure and proceed with your credentials
-> armclient login
-
-> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
-
-```
-
-Este é um exemplo Input.json:
-```Json
-
+```azurecli-interactive
+> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
-  "location": "westus",
-  "properties": {
-    "supportsHttpsTrafficOnly": true
-  }
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": true,
+  "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, acesse o [Guia de segurança do armazenamento](storage-security-guide.md).
-

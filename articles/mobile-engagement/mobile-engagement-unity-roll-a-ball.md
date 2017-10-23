@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a id="unity-roll-a-ball"></a>Criar um jogo Roll a Ball do Unity
 Este tutorial explica as etapas principais para um [Tutorial do Roll a Ball do Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial) ligeiramente modificado. Esse jogo de exemplo consiste em um objeto 'jogador' esférico que é controlado pelo usuário do aplicativo. O objetivo do jogo é 'colecionar' objetos colecionáveis colidindo o objeto jogador contra os objetos colecionáveis. Isso pressupõe familiaridade básica com o ambiente de editor do Unity. Se tiver problemas, consulte o tutorial completo. 

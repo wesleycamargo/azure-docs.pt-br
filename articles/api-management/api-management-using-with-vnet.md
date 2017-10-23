@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 09/19/2017
 ms.author: apimpm
+ms.openlocfilehash: 4ff634e039080fc15e7f4f44bc3ab42f280f3ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f152682f4d584f5a94d1f757009892047c19c69d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -29,48 +28,59 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 > [!NOTE]
 > O Gerenciamento de API do Azure oferece suporte às VNets clássicas e do Azure Resource Manager.
 >
->
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para executar as etapas descritas neste artigo, você precisa ter:
+
++ Uma assinatura ativa do Azure.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ Uma instância do APIM. Para obter mais informações, consulte [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conectividade de VNET está disponível nas camadas **Premium** e **Desenvolvedor**, mude para uma dessas camadas conforme descrito no tópico [atualizar e ajustar a escala](upgrade-and-scale.md#upgrade-and-scale).
 
 ## <a name="enable-vpn"> </a>Habilitar conexão de VNET
-> [!NOTE]
-> A conectividade da VNET está disponível nos tipos **Premium** e **Developer**. Para alternar entre as camadas, abra o serviço de Gerenciamento de API no Portal do Azure e abra a guia **Escala e preços**. Na seção **Tipo de preço**, selecione o tipo Premium ou Desenvolvedor e clique em Salvar.
->
-
-Para habilitar a conectividade de VNET, abra o serviço de Gerenciamento de API no Portal do Azure e abra a página **Rede virtual**.
-
-![Menu de rede virtual de Gerenciamento de API][api-management-using-vnet-menu]
-
-Selecione o tipo de acesso desejado:
-
-* **Externo**: o portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
-
-![Emparelhamento público][api-management-vnet-public]
-
-* **Interno**: o portal de desenvolvedor e o gateway de Gerenciamento de API só podem ser acessados de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
-
-![Emparelhamento privado][api-management-vnet-private]
-
-Agora você verá uma lista de todas as regiões em que o serviço de Gerenciamento de API é disponibilizado. Selecione uma VNET e uma sub-rede para cada região. A lista é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em sua assinatura do Azure que estão instaladas na região que você está configurando.
 
 > [!NOTE]
-> O **Ponto de Extremidade de Serviço**, no diagrama acima, inclui Gateway/Proxy, Portal do Publicador, Portal do Desenvolvedor, GIT e o Ponto de Extremidade de Gerenciamento Direto.
-> O **Ponto de Extremidade de Gerenciamento**, no diagrama acima, é o ponto de extremidade hospedado no serviço para gerenciar a configuração por meio do Portal do Azure e do Powershell.
-> Além disso, observe que, mesmo que o diagrama mostre os endereços IP de seus vários pontos de extremidade, o serviço de Gerenciamento de API responde **somente** em seus nomes de host configurados.
+>  Conectividade de VNET está disponível nas camadas **Premium** e **Desenvolvedor**, mude para uma dessas camadas conforme descrito no tópico [atualizar e ajustar a escala](upgrade-and-scale.md#upgrade-and-scale).
 
-> [!IMPORTANT]
-> Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
->
->
+### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Habilitar a conectividade VNET usando o portal do Azure
 
-![Selecionar VPN][api-management-setup-vpn-select]
+1. Navegue para sua instância do APIM no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **Domínios personalizados e SSL**.
+3. Configure a instância de Gerenciamento de API a ser implantada dentro de uma Rede virtual.
 
-Clique em **Salvar** na parte superior da tela.
+    ![Menu de rede virtual de Gerenciamento de API][api-management-using-vnet-menu]
+4. Selecione o tipo de acesso desejado:
+    
+    * **Externo**: o portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
+    
+    ![Emparelhamento público][api-management-vnet-public]
+    
+    * **Interno**: o portal de desenvolvedor e o gateway de Gerenciamento de API só podem ser acessados de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
+    
+    ![Emparelhamento privado][api-management-vnet-private]`
+
+    Agora você verá uma lista de todas as regiões em que o serviço de Gerenciamento de API é disponibilizado. Selecione uma VNET e uma sub-rede para cada região. A lista é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em sua assinatura do Azure que estão instaladas na região que você está configurando.
+    
+    > [!NOTE]
+    > O **Ponto de Extremidade de Serviço**, no diagrama acima, inclui Gateway/Proxy, Portal do Publicador, Portal do Desenvolvedor, GIT e o Ponto de Extremidade de Gerenciamento Direto.
+    > O **Ponto de Extremidade de Gerenciamento**, no diagrama acima, é o ponto de extremidade hospedado no serviço para gerenciar a configuração por meio do Portal do Azure e do Powershell.
+    > Além disso, observe que, mesmo que o diagrama mostre os endereços IP de seus vários pontos de extremidade, o serviço de Gerenciamento de API responde **somente** em seus nomes de host configurados.
+    
+    > [!IMPORTANT]
+    > Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
+    >
+
+    ![Selecionar VPN][api-management-setup-vpn-select]
+
+5. Clique em **Salvar** na parte superior da tela.
 
 > [!NOTE]
 > O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.  
 > O endereço VIP também será alterado quando o Gerenciamento de API for movido de **Externo** para **Interno** ou vice-versa
 >
-
 
 > [!IMPORTANT]
 > Se você remover o Gerenciamento de API de uma rede virtual ou alterar uma em que ele esteja implantado, a rede virtual usada anteriormente poderá permanecer bloqueada por até 4 horas. Durante esse período, não será possível excluir a rede virtual nem implantar um novo recurso nela.
@@ -157,4 +167,3 @@ Ao fazer alterações em sua rede, consulte [NetworkStatus API](https://docs.mic
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
-

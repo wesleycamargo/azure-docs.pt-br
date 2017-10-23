@@ -12,14 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/25/2017
 ms.author: danlep
+ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c52a054e4fc8f61f871acd9f35b9a3e6247e48ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote
 
@@ -34,13 +33,9 @@ Este artigo fornece diretrizes e exemplos para usar alguns dos tamanhos especial
 
 ## <a name="subscription-and-account-limits"></a>Limites de assinatura e de conta
 
-* **Cotas** – uma ou mais cotas do Azure podem limitar o número ou o tipo de nós que você pode adicionar a um pool do Lote. É mais provável que você seja limitado ao escolher tamanhos de VM compatíveis com RDMA, habilitadas para GPU ou outros tamanhos com vários núcleos. Dependendo do tipo de conta do Lote que você criou, as cotas podem se aplicar a própria conta ou à sua assinatura.
+* **Cotas** – a [cota de núcleos dedicados por conta do Lote](batch-quota-limit.md#resource-quotas) pode limitar o número ou tipo de nós que você pode adicionar a um pool de Lote. É mais provável que você atinja uma cota ao escolher tamanhos de VM compatíveis com RDMA, habilitados para GPU ou outros tamanhos de VM com vários núcleos. Por padrão, essa cota é de 20 núcleos. Uma cota separada se aplica a [VMs de baixa prioridade](batch-low-pri-vms.md), se você as usa. 
 
-    * Se você criou sua conta do Lote na configuração **Serviço em Lotes**, você está limitado pela [cota de núcleos dedicados por conta do Lote](batch-quota-limit.md#resource-quotas). Por padrão, essa cota é de 20 núcleos. Uma cota separada se aplica a [VMs de baixa prioridade](batch-low-pri-vms.md), se você as usa. 
-
-    * Se você criou a conta na configuração **Assinatura de usuário**, sua assinatura limita o número de núcleos de VM por região. Veja [Assinatura do Azure e limites, cotas e restrições de serviço](../azure-subscription-service-limits.md). Sua assinatura também aplica uma cota regional a determinados tamanhos de VM, incluindo as instâncias HPC e GPU. Na configuração de assinatura de usuário, não se aplicam cotas adicionais à conta do Lote. 
-
-  Convém aumentar uma ou mais cotas ao usar um tamanho de VM especializado no Lote. Para solicitar um aumento de cota, abra uma [solicitação de atendimento ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
+Se você precisa solicitar um aumento de cota, abra uma [solicitação de suporte ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
 
 * **Disponibilidade de região** – as VMs de computação intensiva podem não estar disponíveis nas regiões em que você cria suas contas do Lote. Para verificar se um tamanho está disponível, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
@@ -98,13 +93,7 @@ Para configurar um tamanho de VM especializado para o pool do Lote, as ferrament
 
 * [Pacote de aplicativos](batch-application-packages.md) – adicionar um pacote de instalação compactado à sua conta do Lote e configurar uma referência de pacote no pool. Essa configuração carrega e descompacta o pacote em todos os nós no pool. Se o pacote for um instalador, crie uma linha de comando de tarefa inicial para instalar silenciosamente o aplicativo em todos os nós de pool. Opcionalmente, instale o pacote quando uma tarefa estiver agendada para ser executada em um nó.
 
-* [Imagem de pool personalizada](batch-api-basics.md#pool) – criar uma imagem personalizada de VM do Windows ou Linux que contenha os drivers, o software, ou outras configurações necessárias para o tamanho da VM. Se você criou a conta do Lote na configuração de assinatura do usuário, especifique a imagem personalizada do seu pool do Lote. (Não há suporte para imagens personalizadas em contas na configuração do serviço do Lote). As imagens personalizadas podem ser usadas somente com pools na configuração da máquina virtual.
-
-  > [!IMPORTANT]
-  > Nos pools do Lote, não possível usar uma imagem personalizada criada com discos gerenciados ou com o armazenamento Premium no momento.
-  >
-
-
+* [Imagem de pool personalizada](batch-custom-images.md) – criar uma imagem personalizada de VM do Windows ou Linux que contenha os drivers, o software, ou outras configurações necessárias para o tamanho da VM. 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automaticamente o RDMA e a GPU para funcionar de forma transparente com cargas de trabalho em contêineres no Lote do Azure. O Batch Shipyard é totalmente controlado por arquivos de configuração. Há muitos exemplos de receitas de configuração disponíveis que habilitam as cargas de trabalho de GPU e RDMA, como a [Receita de GPU CNTK](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) que pré-configura os drivers de GPU nas VMs de série N e carrega o software Microsoft Cognitive Toolkit como uma imagem do Docker.
 
@@ -134,17 +123,14 @@ Para executar aplicativos CUDA em um pool de nós do Linux NC, você precisa ins
 
 1. Implante uma VM do Azure NC6 que execute o Ubuntu 16.04 LTS. Por exemplo, crie a VM na região Centro-Sul dos EUA. Certifique-se de criar a VM com armazenamento padrão e *sem* discos gerenciados.
 2. Siga as etapas para conectar-se à VM e [instalar os drivers CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Desprovisione o agente do Linux e, em seguida, capture a imagem de VM do Linux usando os comandos da CLI do Azure 1.0. Para obter as etapas, consulte [Capturar uma máquina virtual do Linux em execução no Azure](../virtual-machines/linux/capture-image-nodejs.md). Anote a URI da imagem.
-  > [!IMPORTANT]
-  > Não use comandos da CLI do Azure 2.0 para capturar a imagem para o Lote do Azure. Atualmente, os comandos da CLI 2.0 capturam somente VMs criadas usando discos gerenciados.
-  >
-4. Crie uma conta do Lote, com a configuração de assinatura do usuário, em uma região que dê suporte a VMs NC.
-5. Usando as APIs do Lote ou o Portal do Azure, crie um pool usando a imagem personalizada com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
+3. Desprovisione o agente do Linux e, em seguida, [capture a imagem de VM Linux](../virtual-machines/linux/capture-image.md).
+4. Crie uma conta do Lote em uma região que dá suporte a VMs NC.
+5. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 
 | Configuração | Valor |
 | ---- | ---- |
 | **Tipo de imagem** | Imagem personalizada |
-| **Imagem personalizada** | URI da imagem do formulário `https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Imagem personalizada** | Nome da imagem |
 | **SKU do agente do nó** | batch.node.ubuntu 16.04 |
 | **Tamanho do nó** | NC6 Standard |
 

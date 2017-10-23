@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 1a37f0753ab576aba9154e148b026b70877176f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, você pode provisionar milhões de dispositivos de uma maneira segura e escalonável.
@@ -53,14 +51,14 @@ Um registro é um relatório de dispositivos ou grupos de dispositivos que podem
 
 ### <a name="enrollment-group"></a>Grupo de registro
 
-Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos do grupo de registro apresentam certificados X.509 que foram assinados pela mesma AC raiz. Grupos de registro só podem usar o mecanismo de atestado de X.509.
+Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos do grupo de registro apresentam certificados X.509 que foram assinados pela mesma AC raiz. Grupos de registro só podem usar o mecanismo de atestado de X.509. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
 
 > [!TIP]
 > É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.
 
 ### <a name="individual-enrollment"></a>Registro individual
 
-Um registro individual é uma entrada para um único dispositivo que pode registrar. Inscrições individuais podem usar tokens de certificados X.509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
+Um registro individual é uma entrada para um único dispositivo que pode registrar. Inscrições individuais podem usar tokens de certificados X.509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. A ID do registro em um registro individual é alfanumérica, com letras minúsculas e pode conter hifens. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
 
 > [!TIP]
 > É recomendável usar inscrições individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual, como o mecanismo de atestado.
@@ -72,4 +70,3 @@ Um registro é o registro de um dispositivo com registro/provisionamento bem-suc
 ## <a name="operations"></a>Operações
 
 As operações são a unidade de cobrança do Serviço de Provisionamento de Dispositivos. Uma operação é a conclusão bem-sucedida de uma instrução para o serviço. As operações incluem registros e repetições de registros de dispositivo, bem como alterações no lado do serviço, como adição e atualização das entradas da lista de registro.
-

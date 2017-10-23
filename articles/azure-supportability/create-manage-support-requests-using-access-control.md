@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 
@@ -90,7 +90,7 @@ Você deseja conceder a Joe o acesso necessário à capacidade de criar e gerenc
 
     ![Nova solicitação de suporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Clique em "Todas as solicitações de suporte" Joe pode ver a lista de solicitações de suporte criado para esta assinatura ![exibição de detalhes do caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Ao clicar em "Todas as solicitações de suporte", Joe verá a lista de solicitações de suporte criadas para esta Assinatura ![Exibição de detalhes do caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Remover o acesso a solicitação de suporte no portal do Azure
 

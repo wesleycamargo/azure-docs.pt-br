@@ -12,20 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
+ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 17879d69b95186848a81e4ff4afdf8fc0d1a511e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Gerenciar o acesso a recursos do Azure com o Azure Active Directory
 
-O gerenciamento de identidade e de acesso para recursos de nuvem é uma função crítica para qualquer organização que esteja usando a nuvem.  O Azure AD (Azure Active Directory) é o sistema de identidade e de acesso para o Microsoft Azure.  
+O gerenciamento de identidade e de acesso para recursos de nuvem é uma função crítica para qualquer organização que esteja usando a nuvem. O Azure AD (Azure Active Directory) é o sistema de identidade e de acesso para o Microsoft Azure.  
 
+Antes de explorar as áreas de recurso de suporte do Azure AD, confira o vídeo a seguir: "Bloquear o acesso à nuvem do Azure usando SSO, Controle de Acesso Baseado em Funções e Condicional". Nele, você aprenderá:
+
+- Práticas recomendadas para configurar o logon único ao portal do Azure com o Active Directory local.
+- Usar o RBAC do Azure para controle de acesso refinado para recursos em assinaturas.
+- Impor regras de autenticação de alta segurança usando o Acesso Condicional do Azure AD.
+- O conceito de Identidade do Serviço Gerenciado, em que os recursos do Azure podem autenticar-se automaticamente para os serviços do Azure e os desenvolvedores não precisam lidar com chaves nem segredos de API.
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## <a name="feature-areas"></a>Áreas de recursos
 O Azure AD fornece os seguintes recursos para gerenciar o acesso aos recursos do Azure:
 
 |||

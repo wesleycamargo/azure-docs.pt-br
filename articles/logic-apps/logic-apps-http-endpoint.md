@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos
 
 Você pode expor nativamente pontos de extremidade HTTP síncronos como gatilhos em aplicativos lógicos para que seja possível disparar ou chamar aplicativos lógicos por meio de uma URL. Também é possível aninhar fluxos de trabalho em aplicativos lógicos usando um padrão de pontos de extremidade resgatáveis.
@@ -86,7 +84,7 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
     gera este esquema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, person
 5. No **Corpo** da resposta, inclua o token para o parâmetro que você especificou no caminho relativo do gatilho.
 
     Por exemplo, para retornar `Hello {customerID}`, atualize o **Corpo** da resposta com `Hello {customerID token}`. 
-    A lista de conteúdo dinâmica deve aparecer e mostrar o token `customerID` 
-    para seleção.
+    A lista de conteúdo dinâmico deve aparecer e mostrar o token `customerID` para seleção.
 
     ![Adicionar parâmetro ao corpo da resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou en
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

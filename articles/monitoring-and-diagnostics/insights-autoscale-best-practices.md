@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
+ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento da Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure usam métodos de dimensionamento diferentes.
@@ -156,4 +155,3 @@ Você também pode usar um alerta do Log de Atividades para monitorar a integrid
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-

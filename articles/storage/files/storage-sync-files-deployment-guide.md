@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 9f9ff0674fd4e3f9b0598a982d81681eaa6d1997
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d9cf205cd3e7a8017efbe9078ff495c04f065374
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-file-sync-preview"></a>Como implantar a Sincronização de Arquivo do Azure (versão prévia)
-Com a Sincronização de Arquivo do Azure (versão prévia), os compartilhamentos podem ser replicados localmente ou no Azure e acessados por meio de compartilhamentos NFS ou SMB no Windows Server. A Sincronização de Arquivo do Azure é útil para cenários nos quais os dados precisam ser acessados e modificados longe de um datacenter do Azure, como em um cenário de filial. Os dados podem ser replicados entre vários pontos de extremidade do Windows Server, por exemplo, entre várias filiais.
+A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso, transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e você pode ter todos os caches que precisar em todo o mundo.
 
 É altamente recomendável ler [Planning for an Azure Files deployment](storage-files-planning.md) (Planejando uma implantação de Arquivos do Azure) e [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) (Planejando uma implantação de Sincronização de Arquivo do Azure) antes de seguir as etapas neste guia.
 

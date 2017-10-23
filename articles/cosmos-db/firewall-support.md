@@ -14,15 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/06/2017
 ms.author: ankshah
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 8836cb516bf7669a2d17da7f87222960fc343042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte ao firewall do Azure Cosmos DB
 Para proteger os dados armazenados em uma conta de banco de dados do Azure Cosmos DB, o Azure Cosmos DB forneceu suporte para um [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) baseado em segredo que utiliza um HMAC (código de autenticação de mensagem baseado em hash) forte. Agora, além do modelo de autorização baseado em segredo, o Azure Cosmos DB dá suporte a controles de acesso baseados em IP controlados por política para suporte ao firewall de entrada. Esse modelo é muito semelhante às regras de firewall de um sistema de banco de dados tradicional e fornece um nível adicional de segurança à conta de banco de dados do Azure Cosmos DB. Com esse modelo, agora você pode configurar uma conta de banco de dados do Azure Cosmos DB para que ela possa ser acessada somente em um conjunto aprovado de computadores e/ou serviços de nuvem. O acesso aos recursos do Azure Cosmos DB nesses conjuntos aprovados de computadores e serviços ainda exige que o chamador apresente um token de autorização válido.
@@ -67,10 +65,10 @@ No novo painel, especifique se o Portal do Azure pode acessar a conta e adicione
 > Quando você habilita uma política de controle de acesso IP, você precisa adicionar o endereço IP do Portal do Azure para manter o acesso. Os endereços IP do portal são:
 > |Região|Endereço IP|
 > |------|----------|
-> |Todas as regiões, exceto aquelas especificadas abaixo| 104.42.195.92|
+> |Todas as regiões, exceto aquelas especificadas abaixo| 104.42.195.92, 40.76.54.131, 52.176.6.30, 52.169.50.45, 52.187.184.26|
 > |Alemanha|51.4.229.218|
 > |China|139.217.8.252|
-> |Governo dos EUA do Arizona|52.244.48.71|
+> |Gov dos EUA|52.244.48.71|
 >
 
 ![Captura de tela mostrando como definir as configurações de firewall no Portal do Azure](./media/firewall-support/azure-portal-firewall-configure.png)
@@ -86,5 +84,4 @@ Por motivos de segurança, o acesso via SDK ou API REST proveniente de máquinas
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre dicas de desempenho relacionadas à rede, consulte [Dicas de desempenho](performance-tips.md).
-
 

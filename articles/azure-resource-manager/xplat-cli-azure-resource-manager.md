@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure
 
-Neste artigo, você aprenderá a gerenciar suas soluções com o CLI do Azure e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). Este tópico se concentra nas tarefas de gerenciamento. Você irá:
+Neste artigo, você aprenderá a gerenciar suas soluções com o CLI do Azure e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). O foco deste artigo são as tarefas de gerenciamento. Você vai:
 
 1. Criar um grupos de recursos
 2. Adicionar um recurso ao grupo de recursos
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
 Antes de implantar os recursos em sua assinatura, você deve criar um grupo de recursos que conterá os recursos.
 
 Para criar um grupo de recursos, use o comando **az group create**. O comando usa o parâmetro **name** para especificar um nome para o grupo de recursos e o parâmetro **location** para especificar o local.
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Adicionar recursos a um grupo de recursos
+
 Para adicionar um recurso ao grupo de recursos, é possível usar o comando **az resource create** ou um comando específico para o tipo de recurso que você está criando (como **az storage account create**). Talvez seja mais fácil de usar um comando específico para um tipo de recurso, porque ele inclui parâmetros para as propriedades necessárias para o novo recurso. Para usar o **az resource create**, é necessário conhecer todas as propriedades a serem definidas sem ser solicitado para eles.
 
 No entanto, adicionar um recurso por meio de um script pode causar uma confusão no futuro, pois o novo recurso não existe em um modelo do Resource Manager. Modelos permitem repetidamente e confiável implantar sua solução.
@@ -133,7 +134,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>Adicione uma marca
 
-Marcas permitem que você organize seus recursos de acordo com propriedades diferentes. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Você pode aplicar uma marca de departamento e o valor desses recursos para marcá-los como pertencentes à mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste tópico, você aplicar marcas em apenas um recurso, mas em seu ambiente provavelmente faz sentido aplicar marcas em todos os seus recursos.
+Marcas permitem que você organize seus recursos de acordo com propriedades diferentes. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Você pode aplicar uma marca de departamento e o valor desses recursos para marcá-los como pertencentes à mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste artigo, você aplica marcas a apenas um recurso, mas em seu ambiente provavelmente faz mais sentido aplicar marcas a todos eles.
 
 O comando a seguir aplica duas marcas à sua conta de armazenamento:
 
@@ -176,6 +177,14 @@ Use o comando **az resource list** para recuperar recursos para critérios de pe
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>Obter ID de recurso
+
+Muitos comandos usam uma ID de recurso como parâmetro. Para obter a ID de um recurso e armazená-la em uma variável, use:
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>Um recurso de bloqueio
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurar RAID de software no Linux
 É um cenário comum usar o software RAID em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma taxa de transferência aprimorada em comparação com o uso de apenas um único disco.
@@ -239,4 +238,3 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
     # sudo yum install util-linux
     # sudo fstrim /data
     ```
-

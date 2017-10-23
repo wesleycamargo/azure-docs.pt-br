@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: integração do Azure Active Directory com o Halosys
 
@@ -168,7 +168,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. Sobre o **Conte-nos sobre este usuário** caixa de diálogo página, execute as seguintes etapas: ![criando um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: ![criar um usuário de teste do Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 

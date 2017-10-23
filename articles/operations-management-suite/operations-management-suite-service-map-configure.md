@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 9af6c0fc3df2863c8e7b9a6a62acf5ba6b7d2d0a
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 4c5c8aacd2d104b8d6074b90eeffc32b29fc50f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurar o Mapa do Serviço no Operations Management Suite
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -90,7 +89,7 @@ Use as opções da tabela a seguir para instalar a partir de uma linha de comand
 | /? | Obtenha uma lista das opções de linha de comando. |
 | /S | Realize uma instalação silenciosa sem solicitações ao usuário. |
 
-Os arquivos do Agente de Dependência do Windows são colocados em C:\Arquivos de Programas\Microsoft Dependency Agent por padrão.
+Os arquivos do Agente de Dependência do Windows são colocados em C:\Program Files\Microsoft Dependency Agent por padrão.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Instalar o Agente de Dependência no Linux
 O acesso root é necessário para instalar ou configurar o agente.
@@ -138,6 +137,55 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sh InstallDependencyAgent-Linux64.bin -s
 ```
+
+## <a name="azure-vm-extension"></a>Extensão da VM do Azure
+Você pode facilmente implantar o Agente de Dependência para suas VMs do Azure usando uma [Extensão de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Com a Extensão de VM do Azure, você pode implantar o Agente de Dependência para suas VMs por meio de um script do PowerShell ou diretamente no modelo do Azure Resource Manager da VM.  Há uma extensão disponível para Windows (DependencyAgentWindows) e para Linux (DependencyAgentLinux).  Se você implantar por meio da Extensão de VM do Azure, os agentes poderão ser atualizados automaticamente para as versões mais recentes.
+
+Para implantar a Extensão de VM do Azure por meio do PowerShell, você pode usar o exemplo a seguir:
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
+}
+```
+
+Uma maneira ainda mais fácil de garantir que o Agente de Dependência esteja em cada uma das VMs é incluir o agente no modelo do Azure Resource Manager.  Observe que o Agente de Dependência ainda depende do Agente do OMS, portanto, a [Extensão de VM do Agente do OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) deve ser implantada primeiro.  O trecho de código do JSON a seguir pode ser adicionado à seção *resources* do modelo.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
+}
+
+```
+
 
 ## <a name="desired-state-configuration"></a>Configuração de estado desejado
 Para implantar o agente de dependência por meio da Desired State Configuration, você pode usar o módulo xPSDesiredStateConfiguration e um pouco de código semelhante ao seguinte:
@@ -334,4 +382,3 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Política de Privacidad
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [usar o Mapa do Serviço](operations-management-suite-service-map.md) após ele ter sido implantado e configurado.
-

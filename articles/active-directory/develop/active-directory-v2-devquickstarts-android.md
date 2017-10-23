@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar entrada a um aplicativo Android usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços. Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
@@ -93,7 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![O módulo de aplicativo padrão](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Importe os módulos do repositório clonado para o projeto atual.
    
-    ![Importar o projeto de gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![criar a nova página de módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Importar projeto gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)![Página Criar novo módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Repita essas etapas para o módulo `oidlib-sample` .
 7. Verifique as dependências de oidclib no módulo `oidlib-sample` .
    

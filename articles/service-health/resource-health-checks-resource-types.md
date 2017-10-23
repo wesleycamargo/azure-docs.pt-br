@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
+ms.openlocfilehash: e8ce1f9b7129e272a7714b82ec1a91a928917d6c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: ed9c955096a5427e8184bb6c542ad85ff4c302be
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
 
@@ -60,6 +58,12 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>Os usuários podem carregar dados para o Data Lake Store na região?</li><li>Os usuários podem baixar dados do Data Lake Store na região?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+
+|Verificações executadas|
+|---|
+|<ul><li>O hub IoT está em execução?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Verificações executadas|

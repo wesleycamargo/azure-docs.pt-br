@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
+ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cbcc72c06740fe9d0df579e85089b3e347ae638c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>BD Cosmos do Azure: migrar um aplicativo Web MongoDB do Node.js existente 
 
@@ -64,6 +63,7 @@ cd mean
 npm install
 npm start
 ```
+O aplicativo tentará se conectar a uma fonte do MongoDB e falhará; prossiga e saia do aplicativo quando a saída retornar "[MongoError: conectar ECONNREFUSED 127.0.0.1:27017]".
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -244,4 +244,3 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Importar dados do MongoDB no BD Cosmos do Azure](mongodb-migrate.md)
-

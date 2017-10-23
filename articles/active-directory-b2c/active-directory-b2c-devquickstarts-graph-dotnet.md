@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
+ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usar a API do Graph
 Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no seu diretório do Azure AD B2C nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
@@ -68,9 +67,13 @@ Agora, você tem um aplicativo que tem permissão para criar, ler e atualizar us
 ## <a name="configure-delete-permissions-for-your-application"></a>Configurar permissões de exclusão para seu aplicativo
 Atualmente, a permissão *Ler e gravar dados de diretório* **NÃO** inclui a capacidade de fazer qualquer exclusão, como excluir usuários. Se você quiser fornecer ao seu aplicativo a capacidade de excluir os usuários, será necessário executar estas etapas adicionais envolvendo o PowerShell, caso contrário, pule para a próxima seção.
 
-Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Se você ainda não tiver instalado, instale primeiro o [módulo do PowerShell do Azure AD v1 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
-Depois de instalar o módulo do PowerShell, abra o PowerShell e conecte-se ao locatário B2C. Depois de executar o `Get-Credential`, você será solicitado a fornecer um nome de usuário e uma senha. Insira o nome de usuário e a senha de sua conta de administrador do locatário B2C.
+```powershell
+Install-Module MSOnline
+```
+
+Depois de instalar o módulo do PowerShell, conecte-se ao seu locatário do Azure AD B2C.
 
 > [!IMPORTANT]
 > Você precisa usar uma conta de administrador de locatário B2C que seja **local** para o locatário B2C. Essas contas têm esta aparência: myusername@myb2ctenant.onmicrosoft.com.
@@ -358,5 +361,4 @@ Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerencia
 * Quando você cria e atualiza usuários consumidores, algumas propriedades são obrigatórias, conforme descrito acima.
 
 Se você tiver perguntas ou solicitações de ações que deseja executar usando a API do Graph em seu locatário B2C, deixe um comentário sobre este artigo ou apresente um problema no repositório de código de exemplo do GitHub.
-
 

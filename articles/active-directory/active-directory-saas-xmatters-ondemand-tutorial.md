@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: integração do Azure Active Directory com o xMatters OnDemand
 
@@ -210,7 +209,7 @@ Para permitir que os usuários do Azure AD façam logon no XMatters OnDemand, el
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
 1. Faça logon em seu locatário do **XMatters OnDemand** .
 
-2.  Clique na guia **Usuários**. e clique em **Adicionar usuário**.
+2.  Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
   
     ![Usuários](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Usuários")
 
@@ -285,5 +284,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_203.png
-
 

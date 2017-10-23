@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/07/2017
+ms.date: 10/05/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ebe8b9f0cace419125bde84a9ff2a912af061156
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implantar e remover aplicativos usando FabricClient
 > [!div class="op_single_selector"]
@@ -36,13 +34,13 @@ Assim que um [tipo de aplicativo for empacotado][10], ele está pronto para impl
 
 1. Carregar o pacote de aplicativos no repositório de imagens
 2. Registrar o tipo de aplicativo
-3. Criar a instância do aplicativo
+3. Remover o pacote de aplicativos do repositório de imagens
+4. Criar a instância do aplicativo
 
 Depois que um aplicativo é implantado e uma instância está em execução no cluster, você pode excluir a instância do aplicativo e o tipo de aplicativo. Remover completamente um aplicativo do cluster envolve as seguintes etapas:
 
 1. Remover (ou excluir) a execução da instância do aplicativo
 2. Cancelar o registro do tipo de aplicativo se você não precisar mais dele
-3. Remover o pacote de aplicativos do repositório de imagens
 
 Se você usar o [Visual Studio para implantar e depurar aplicativos](service-fabric-publish-app-remote-cluster.md) no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Esse script é encontrado na pasta *Scripts* do projeto do aplicativo. Este artigo fornece informações sobre o que esse script faz para que você possa executar as mesmas operações fora do Visual Studio. 
  
@@ -72,6 +70,9 @@ A API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applica
 
 A API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) fornece informações sobre todos os tipos de aplicativo registrados com êxito. Você pode usar essa API para determinar quando o registro é feito.
 
+## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativos do repositório de imagens
+É recomendável que você remova o pacote de aplicativos depois que o aplicativo for registrado com êxito.  Excluir pacotes de aplicativos do repositório de imagens libera recursos do sistema.  Manter pacotes de aplicativos não utilizados consome o armazenamento em disco e leva a problemas de desempenho do aplicativo. Exclua o pacote de aplicativos do repositório de imagens usando a API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+
 ## <a name="create-an-application-instance"></a>Criar uma instância do aplicativo
 É possível criar uma instância de um aplicativo de qualquer tipo de aplicativo registrada com êxito usando a API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). O nome de cada aplicativo deve começar com o esquema *"fabric:"* e ser exclusivo para cada instância do aplicativo (dentro de um cluster). Quaisquer serviços padrão definidos no manifesto do aplicativo do tipo de aplicativo de destino também são criados.
 
@@ -96,9 +97,6 @@ Quando a instância de um aplicativo não for mais necessária, será possível 
 
 ## <a name="unregister-an-application-type"></a>Cancelar o registro de um tipo de aplicativo
 Quando uma versão específica de um tipo de aplicativo não for mais necessária, você deve cancelar o registro dessa versão específica do tipo de aplicativo usando a API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). O cancelamento de registro de versões não utilizadas de tipos de aplicativo libera espaço de armazenamento usado pelo repositório de imagens. Uma versão de um tipo de aplicativo pode ter seu registro cancelado, desde que não existam aplicativos instanciados nela nem nenhuma atualização de aplicativo pendente que faça referência a ela.
-
-## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativos do repositório de imagens
-Quando um pacote de aplicativos não for mais necessário, será possível excluí-lo do repositório de imagens para liberar recursos do sistema usando a API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
@@ -139,8 +137,7 @@ Experimente:
 Se o computador cliente estiver em uma região diferente do cluster, considere usar um computador cliente em uma região mais próxima ou na mesma que o cluster.
 - Verifique se você está sofrendo limitação externa. Por exemplo, quando o repositório de imagens é configurado para usar o Armazenamento do Azure, o upload pode ser limitado.
 
-Problema: o upload do pacote foi concluído com êxito, mas a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) atinge o tempo limite.
-Experimente:
+Problema: o upload do pacote foi concluído com êxito, mas a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) atinge o tempo limite. Experimente:
 - [Compactar o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens.
 A compactação reduz o tamanho e o número de arquivos, o que por sua vez reduz a quantidade de tráfego e trabalho que o Service Fabric deve executar. A operação de upload pode ser mais lenta (especialmente se você incluir o tempo de compactação), mas as operações de registrar e cancelar o registro do tipo de aplicativo são mais rápidas.
 - Especifique um tempo limite maior para a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com o parâmetro `timeout`.
@@ -214,6 +211,21 @@ static void Main(string[] args)
     {
         Console.WriteLine("Provision Application Type failed:");
 
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete the application package from a location in the image store.
+    try
+    {
+        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
+        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package removal from Image Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
@@ -309,21 +321,6 @@ static void Main(string[] args)
         }
     }
 
-    // Delete the application package from a location in the image store.
-    try
-    {
-        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
-        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
-    }
-    catch (AggregateException ae)
-    {
-        Console.WriteLine("Application package removal from Image Store failed: ");
-        foreach (Exception ex in ae.InnerExceptions)
-        {
-            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
-        }
-    }
-
     Console.WriteLine("Hit enter...");
     Console.Read();
 }        
@@ -344,4 +341,3 @@ static void Main(string[] args)
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
-

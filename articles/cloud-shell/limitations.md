@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
+ms.openlocfilehash: fe325cf5fa5e3d4b0a188599de7308cf2008b458
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a1a220e27fc4baafa4184405c88f81fd2338b98a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 O Azure Cloud Shell tem as seguintes limitações conhecidas:
 
@@ -67,8 +65,27 @@ O PowerShell no Azure Cloud Shell pode levar até 60 segundos para inicializar d
 ### <a name="no-home-directory-persistence"></a>Sem persistência do diretório $Home
 Os dados gravados $Home por qualquer aplicativo (como git, vim e outros) não persistem entre as sessões do PowerShell.  Para obter uma solução, [veja aqui](troubleshooting.md#powershell-resolutions).
 
+### <a name="error-if-azurerm-module-is-updated-from-powershellgallery"></a>Erro se o módulo AzureRM for atualizado de PowerShellGallery
+Se você atualizar os módulos AzureRM para a versão mais recente (4.4.0), talvez você veja o seguinte erro na inicialização do Cloudshell.
+``` powershell
+VERBOSE: Authenticating to Azure ...
+Import-Module : Method 'RemoveUser' in type 'Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory' from assembly 'Microsoft.Azure.PSCloudConsole.ADAuth, Version=0.0.0.0,
+Culture=neutral, PublicKeyToken=null' does not have an implementation.
+At C:\Program Files\WindowsPowerShell\Modules\PSCloudShellADAuth\PSCloudShellADAuth.psm1:12 char:1
++ Import-Module -Name $AdAuthModulePath -PassThru -Force
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-Module], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.PowerShell.Commands.ImportModuleCommand
+
+Unable to find type [Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory].
+At C:\Users\ContainerAdministrator\PSCloudShellStartup.ps1:94 char:9
++         [Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory]::Update ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (Microsoft.Azure...h.ADAuthFactory:TypeName) [], RuntimeException
+    + FullyQualifiedErrorId : TypeNotFound
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 [Solucionando problemas do Cloud Shell](troubleshooting.md) <br>
 [Guia de início rápido do Bash](quickstart.md) <br>
 [Guia de início rápido do PowerShell](quickstart-powershell.md)
-

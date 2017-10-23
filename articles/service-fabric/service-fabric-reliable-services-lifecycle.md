@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+ms.openlocfilehash: d5977a79cfe4016d6bd943cecb22edadc0eaec6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
 > * [C# em Windows](service-fabric-reliable-services-lifecycle.md)
@@ -77,7 +75,7 @@ Serviços com estado têm um padrão semelhante aos serviços sem monitoração 
     - `StatefulServiceBase.CreateServiceReplicaListeners()` é invocado 
       - Se o serviço for Primário, todos os ouvintes retornados serão Abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
       - Se o serviço for um Secundário, somente esses ouvintes marcados como `ListenOnSecondary = true` serão abertos. Ter ouvintes que estão abertos em Secundários é menos comum.
-    - Se, no momento, o serviço for um Primário, o método `StatefulServiceBase.RunAsync()` do serviço será chamado
+    - Então, se o serviço for um Primário no momento, o método `StatefulServiceBase.RunAsync()` do serviço será chamado
 4. Depois que todas as chamadas a `OpenAsync()` do ouvinte da réplica forem concluídas e `RunAsync()` for chamado, `StatefulServiceBase.OnChangeRoleAsync()` será chamado. Isso raramente é substituído no serviço.
 
 Semelhante aos serviços sem estado, não há coordenação entre a ordem em que os ouvintes são criados e abertos e quando RunAsync é chamado. Se você precisar de coordenação, as soluções são muito parecidas. Há um caso adicional: digamos que as chamadas que chegam aos ouvintes de comunicação exijam que as informações sejam mantidas em algumas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). Como os ouvintes de comunicação podem ser abertos antes que as coleções confiáveis fiquem legíveis ou graváveis e antes de RunAsync ser iniciado, é necessário realizar a coordenação. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.

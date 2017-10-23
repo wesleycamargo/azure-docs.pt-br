@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -85,6 +84,14 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* Ao usar [filtros de rota](#route-filters-for-microsoft-peering), você recebe acesso aos mesmos serviços públicos com o emparelhamento da Microsoft:
+  * Power BI
+  * Dynamics 365 for Finance and Operations
+  * A maioria dos serviços do Azure, com algumas exceções seguintes:
+    * CDN
+    * Teste de carga do Visual Studio Team Services
+    * Autenticação Multifator
+    * Gerenciador de Tráfego
 
 ## <a name="data-and-connections"></a>Dados e conexões
 
@@ -115,6 +122,10 @@ Sim. Cada circuito do ExpressRoute tem um par redundante de conexões cruzadas c
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Eu perderei a conectividade se um dos meus links de ExpressRoute falhar?
 
 Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
+
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
+
+Você pode atingir a alta disponibilidade conectando vários circuitos do ExpressRoute em diferentes locais de emparelhamento à sua rede virtual. Por exemplo, se um site do ExpressRoute falhar, a conectividade falhará para outro site do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre uma conexão ou outra. Consulte [Otimização de roteamento do ExpressRoute](expressroute-optimize-routing.md) para obter detalhes adicionais sobre o Peso de Conexão.
 
 ### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 
@@ -162,6 +173,12 @@ Sim. Você pode autorizar até 10 outras assinaturas do Azure para usar um únic
 
 Para obter mais informações, consulte [Compartilhando um circuito de ExpressRoute entre várias assinaturas](expressroute-howto-linkvnet-arm.md).
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Tenho várias assinaturas do Azure associadas a locatários diferentes do Azure Active Directory ou registros do Contrato Enterprise. Posso conectar redes virtuais que estão em registros e locatários separados a um único circuito do ExpressRoute não no mesmo locatário ou registro?
+
+Sim. Autorizações do ExpressRoute podem abranger os limites de assinatura, locatário e registro sem a necessidade de configuração adicional. 
+
+Para obter mais informações, consulte [Compartilhando um circuito de ExpressRoute entre várias assinaturas](expressroute-howto-linkvnet-arm.md).
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão conectadas ao mesmo circuito e isoladas umas das outras?
 
 Não. Segunda uma perspectiva de roteamento, todas as redes virtuais vinculadas ao mesmo circuito de ExpressRoute fazem parte do mesmo domínio de roteamento e não estão isoladas entre si. Se você precisar de isolamento de rota, você precisará criar um circuito de ExpressRoute separado.
@@ -178,7 +195,7 @@ Sim. Se você não anunciou rotas padrão (0.0.0.0/0) ou prefixos de rotas de In
 
 Sim. Você pode anunciar rotas padrão (0.0.0.0/0) para bloquear toda a conectividade com a Internet para máquinas virtuais implantadas em uma rede virtual e rotear todo o tráfego de saída através do circuito de ExpressRoute.
 
-Se você anunciar rotas padrão, forçaremos o tráfego para serviços oferecidos por emparelhamento público (como o armazenamento do Azure e banco de dados SQL) de volta para o seu local. Você precisará configurar seus roteadores para retornar o tráfego para o Azure através do caminho de emparelhamento público ou pela Internet.
+Se você anunciar rotas padrão, forçaremos o tráfego para serviços oferecidos por emparelhamento público (como o armazenamento do Azure e banco de dados SQL) de volta para o seu local. Você precisará configurar seus roteadores para retornar o tráfego para o Azure através do caminho de emparelhamento público ou pela Internet. Se você tiver habilitado um ponto de extremidade de serviço (versão prévia) para o serviço, o tráfego para o serviço não será forçado para seu local. O tráfego permanece dentro da rede de backbone do Azure. Para saber mais sobre os pontos de extremidade do serviço, consulte [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>As redes virtuais vinculadas ao mesmo circuito de ExpressRoute podem conversar entre si?
 
@@ -344,13 +361,12 @@ Ao usar filtros de rota, qualquer cliente pode ativar emparelhamento da Microsof
 
 Não, você não precisa autorização para Dynamics 365. Você pode criar uma regra e selecionar a comunidade Dynamics 365 sem autorização.
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>Eu já tenho emparelhamento da Microsoft, como posso aproveitar os filtros de rota?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>Eu habilitei o emparelhamento da Microsoft antes de 1 de agosto de 2017, como posso aproveitar os filtros de rota?
 
-Você pode criar um filtro de rota, selecionar os serviços que você deseja usar e anexar o filtro para o emparelhamento da Microsoft. Para obter instruções, consulte [Configurar os filtros de rota para emparelhamento da Microsoft](how-to-routefilter-powershell.md).
+O circuito existente continuará divulgando os prefixos para Office 365 e Dynamics 365. Se quiser adicionar anúncios de prefixos públicos do Azure através do mesmo emparelhamento da Microsoft, é possível criar um filtro de rota, selecionar os serviços que precisa anunciar (incluindo os serviços do Office 365 de que precisa e Dynamics 365) e anexar o filtro ao emparelhamento da Microsoft. Para obter instruções, consulte [Configurar os filtros de rota para emparelhamento da Microsoft](how-to-routefilter-powershell.md).
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Tenho o emparelhamento da Microsoft em um local, agora estou tentando ativá-lo em outro local e não estou vendo os prefixos.
 
 * O emparelhamento da Microsoft de circuitos de ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos.
 
 * O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito. Você não verá nenhum prefixo por padrão.
-

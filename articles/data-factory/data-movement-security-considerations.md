@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
+ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 00673cac31eb25bb8dd8228d6a36617c3812f5db
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para proteger seus dados. Os recursos de gerenciamento do Azure Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
@@ -97,9 +95,9 @@ As credenciais dos armazenamentos de dados locais são sempre criptografadas e a
 
 1. Você pode optar por **armazenar credenciais localmente**. Se você quiser criptografar e armazenar credenciais localmente no tempo de execução de integração auto-hospedado, siga as etapas em [criptografar credenciais no tempo de execução de integração auto-hospedado](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores oferecem suporte a essa opção. O tempo de execução de integração auto-hospedado usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para criptografar dados confidenciais e informações de credenciais. 
 
-   Use o cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** para criptografar credenciais de serviço vinculado / criptografar detalhes confidenciais no serviço vinculado. Você pode então usar o JSON retornado (com o elemento **EncryptedCredential** em **connectionString**) para criar um serviço vinculado pelo cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice**.  
+   Use o cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** para criptografar as credenciais do Serviço vinculado/criptografar detalhes confidenciais no Serviço vinculado. Você pode então usar o JSON retornado (com o elemento **EncryptedCredential** em **connectionString**) para criar um serviço vinculado pelo cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice**.  
 
-2. Se você não usar o cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** como descrito na etapa anterior e, em vez disso, usar diretamente o cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice** com as cadeias de conexão/credenciais embutidas no JSON, o serviço vinculado será **criptografado e armazenado no armazenamento gerenciado do Azure Data Factory**. As informações confidenciais ainda são criptografadas por certificado e esses certificados são gerenciados pela Microsoft.
+2. Se você não usar o cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** como descrito na etapa anterior e, em vez disso, usar diretamente o cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice** com as cadeias de conexão/credenciais embutidas no JSON, o Serviço vinculado será **criptografado e armazenado no armazenamento gerenciado do Azure Data Factory**. As informações confidenciais ainda são criptografadas por certificado e esses certificados são gerenciados pela Microsoft.
 
 
 
@@ -186,4 +184,3 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 Para obter informações sobre o desempenho da atividade de cópia, consulte [Guia desempenho e ajuste da atividade de cópia](copy-activity-performance.md).
 
  
-

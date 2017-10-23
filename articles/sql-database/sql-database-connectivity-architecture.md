@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 524804c972ee3a5e97ebc756628dbf7ef5ab720d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 308bf9dcde3a6c586e316c02cd261da8ed5b4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
@@ -101,7 +100,7 @@ Para alterar a política de conexão do Banco de Dados SQL do Azure para um serv
 - Se a política de conexão for definida como **Proxy**, todo os pacotes de rede fluem por meio do gateway do Banco de Dados SQL do Azure. Para essa configuração, você precisa permitir a saída para o IP de gateway do Banco de Dados SQL do Azure. Usar uma configuração de **Proxy** resulta em uma latência maior do que aquela da configuração de **Redirecionamento**. 
 - Se a política de conexão está defininda como **Redirecionamento**, todos os pacotes de rede fluem diretamente para o proxy do middleware. Para essa configuração, você precisa permitir a saída para vários IPs. 
 
-## <a name="script-to-change-connection-settings"></a>Script para alterar as configurações de conexão
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script para alterar as configurações de conexão via PowerShell 
 
 > [!IMPORTANT]
 > Este script requer o [módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -161,9 +160,34 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as configurações de conexão via CLI do Azure 2.0 
+
+> [!IMPORTANT]
+> Esse script requer a [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+>
+
+O script da CLI a seguir mostra como alterar a política de conexão.
+
+<pre>
+ # Get SQL Server ID
+ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+
+# Set URI
+uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
+
+# Get Access Token 
+accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+
+# Get current connection policy 
+curl -H "authorization: Bearer $accessToken" -X GET $uri
+
+#Update connection policy 
+curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+
+</pre>
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre como alterar a política de conexão do Banco de Dados SQL do Azure para um servidor do Banco de Dados SQL do Azure, consulte [Criar ou Atualizar a Política de Conexão do Servidor usando a API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Para obter mais informações sobre o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente, consulte [Portas depois da 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Para obter informações sobre a visão geral do desenvolvimento de aplicativos em geral, consulte [Visão Geral do Desenvolvimento de Aplicativos do Banco de Dados SQL](sql-database-develop-overview.md).
-

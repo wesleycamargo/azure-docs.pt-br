@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
 
@@ -43,7 +42,7 @@ Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço 
 Um dispositivo também pode escolher:
 
 * *Rejeitar* a mensagem, o que faz com que o Hub IoT a defina no estado **Morto** . Os dispositivos que se conectam através do protocolo MQTT não podem rejeitar mensagens de nuvem para o dispositivo.
-* *Abandonar* a mensagem, o que faz com que o Hub IoT coloque a mensagem de volta na fila com o estado definido como **Enfileirada**.
+* *Abandonar* a mensagem, o que faz com que o Hub IoT coloque a mensagem de volta na fila com o estado definido como **Enfileirada**. Os dispositivos que se conectam através do protocolo MQTT não podem abandonar mensagens de nuvem para o dispositivo.
 
 Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens passam automaticamente do estado **Invisível** de volta para o estado **Enfileirada** após um *tempo limite de visibilidade (ou de bloqueio)*. O valor padrão desse tempo limite é um minuto.
 
@@ -151,4 +150,3 @@ Para experimentar a recepção de mensagens de nuvem para o dispositivo, consult
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

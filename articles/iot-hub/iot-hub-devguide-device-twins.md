@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 ## <a name="overview"></a>Visão geral
@@ -139,7 +138,7 @@ No exemplo anterior, as propriedades relatadas e desejadas do dispositivo gêmeo
 Você pode usar gêmeos para sincronizar operações de longa execução, como atualizações de firmware. Para obter mais informações sobre como usar propriedades para sincronizar e acompanhar uma operação de longa duração entre dispositivos, confira [Usar propriedades desejadas para configurar dispositivos][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Operações de back-end
-O back-end da solução funciona no dispositivo gêmeo usando as seguintes operações atômicas, expostas por meio de HTTP:
+O back-end da solução funciona no dispositivo gêmeo usando as seguintes operações atômicas, expostas por meio de HTTPS:
 
 1. **Recuperar dispositivo gêmeo por id**. Essa operação retorna o documento do dispositivo gêmeo, incluindo marcações e propriedades desejadas, reportadas e do sistema.
 2. **Atualizar parcialmente o dispositivo gêmeo**. Essa operação permite que o back-end da solução atualize parcialmente as marcações ou propriedades desejadas em um dispositivo gêmeo. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas como `null` foram removidas. O exemplo a seguir cria uma nova propriedade desejada com o valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` por `"otherNewValue"` e remove `otherOldProperty`. Nenhuma outra alteração é feitas nas propriedades desejadas ou marcas existentes:
@@ -369,4 +368,3 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-

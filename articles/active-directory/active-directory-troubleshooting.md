@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas: O item 'Active Directory' está ausente ou não disponível | Microsoft Docs"
+title: "Solução de problemas: o item “Active Directory” está ausente ou não está disponível | Microsoft Docs"
 description: "O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure."
 services: active-directory
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Solução de problemas: o item “Active Directory” está ausente ou não está disponível
 Muitas das instruções para usar os recursos e serviços do Azure Active Directory começam com "Vá para o Portal de Gerenciamento do Azure e clique em **Active Directory**." Mas o que fazer se o item de menu ou extensão do Active Directory não for exibido ou se ele está marcado como **Não disponível**? Este tópico foi criado para ajudar. Ele descreve as condições sob as quais o **Active Directory** não é exibido ou não está disponível e explica como proceder.

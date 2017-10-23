@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
+ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 9dc438e927acd9aef38f06807fabf3dda9b021c9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-an-azure-management-api-management-certificate"></a>Carregar um Certificado de Gerenciamento de API do Gerenciamento do Azure
 Os certificados de gerenciamento permitem que você autentique com o modelo de implantação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. 
@@ -32,6 +31,8 @@ Os certificados de gerenciamento permitem que você autentique com o modelo de i
 Se você quiser obter mais informações sobre certificados do Azure (incluindo a criação de um certificado autoassinado), veja [Visão geral de certificados para Serviços de Nuvem do Azure](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 Você também pode usar o [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) para autenticar o código cliente, para fins de automação.
+
+**Observação:** você precisa ser coadministrador da assinatura para realizar operações em Certificados de Gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como Adicionar ou Remover Coadministradores no novo Portal do Azure 
 
 ## <a name="upload-a-management-certificate"></a>Carregar um certificado de gerenciamento
 Após criar um certificado de gerenciamento (arquivo .cer somente com a chave pública), você poderá carregá-lo no portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode conectar-se por meio da API de Gerenciamento e acessar os recursos para a assinatura associada.
@@ -55,4 +56,3 @@ Após criar um certificado de gerenciamento (arquivo .cer somente com a chave p�
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do modelo de implantação clássico](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar os diversos recursos do Azure que também estão associados à assinatura.
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 
 Este artigo descreve diferentes maneiras de instalar software no momento em que o conjunto de dimensionamento é provisionado.
@@ -49,7 +47,7 @@ Execute as seguintes etapas:
 
 Para obter mais informações, consulte [Visão geral do Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e [Utilizar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md).
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>Instalar quando o conjunto de dimensionamento é provisionado
+## <a name="already-provisioned"></a>Instalar quando o conjunto de dimensionamento for provisionado
 
 As extensões da máquina virtual podem ser aplicadas a um conjunto de dimensionamento de máquinas virtuais. Com uma extensão da máquina virtual, é possível personalizar as máquinas virtuais em um conjunto de dimensionamento como um grupo inteiro. Para obter mais informações, consulte [Extensões da máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -228,5 +226,4 @@ Suponha que você deseja atualizar a imagem do seu SO enquanto mantém o conjunt
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
-
 
