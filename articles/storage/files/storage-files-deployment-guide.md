@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 499d10943f606a67ca04bfdf5f7cad44f9e20d07
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo mostra como implantar Arquivos do Azure de maneira prática dentro de sua organização.
 
@@ -37,7 +35,9 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados em um arquivo do Azure por meio de vários métodos populares detalhados no [guia de planejamento](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronização de Arquivos do Azure (versão prévia)
-A Sincronização de Arquivos do Azure (versão prévia) pode ser usada para migrar dados para um compartilhamento de Arquivos do Azure, mesmo que o mecanismo de sincronização não seja desejável para uso de longo prazo. Mais informações sobre como usar a Sincronização de Arquivos do Azure para ingressar dados em um compartilhamento de arquivos do Azure podem ser encontradas em [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md) e [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
+A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso, transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e você pode ter todos os caches que precisar em todo o mundo.
+
+A Sincronização de Arquivos do Azure pode ser usada para migrar dados para um compartilhamento de Arquivos do Azure, mesmo que o mecanismo de sincronização não seja desejável para uso de longo prazo. Mais informações sobre como usar a Sincronização de Arquivos do Azure para transferir dados em um compartilhamento de arquivos do Azure podem ser encontradas em [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md) e [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Importação/Exportação do Azure
 O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para um compartilhamento de Arquivos do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma visão geral mais detalhada do serviço.

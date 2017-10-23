@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: Integração do Azure Active Directory ao Trakstar
 
@@ -39,6 +37,7 @@ Para configurar a integração do AD do Azure ao Trakstar, você precisa dos seg
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Trakstar
+    - SSO é um recurso pago do Trakstar. Para habilitá-lo para a sua organização, contate a [equipe de suporte do cliente Trakstar](mailto:support@trakstar.com).
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -112,12 +111,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`
+    a. Na caixa de texto **URL de Logon**, copie o valor encontrado em **URL do ACS (Consumidor)** em Trakstar (Configurações > Autenticação e SSO) no formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.trakstar.com`
+    b. Na caixa de texto **Identificador**, deixe o padrão: `https://app.trakstar.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Trakstar](mailto:integrations@trakstar.com) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Faça logon no Trakstar como um Administrador para obter esses valores.
+    > Se você não visualizar a guia de "Autenticação e SSO" nas Configurações, talvez você não tenha o recurso
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -131,7 +131,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. Para configurar o logon único no lado do **Trakstar**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** para a [equipe de suporte do Trakstar](mailto:integrations@trakstar.com). 
+7. Para configurar o logon único no lado do **Trakstar**, é necessário fazer logon como Administrador e inserir **Certificado (Base64)**, **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML**. 
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-trakstar-test-user"></a>Criando um usuário de teste do Trakstar
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Trakstar. Trabalhe com a [equipe de suporte do Trakstar](mailto:integrations@trakstar.com) para adicionar usuários na conta do Trakstar. 
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Trakstar.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
@@ -228,5 +228,4 @@ Ao clicar no bloco do Trakstar no Painel de Acesso, você deverá ser conectado 
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

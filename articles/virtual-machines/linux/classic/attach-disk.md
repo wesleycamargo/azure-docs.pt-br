@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Como anexar um disco de dados na máquina virtual Linux
 > [!IMPORTANT] 
@@ -175,7 +174,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
     > [!NOTE]
     > A opção `nofail` garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/).
 
-    Agora você pode testar se o sistema de arquivo está montado corretamente ao desmontar e montar novamente o sistema de arquivos, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores:
+    Agora você pode testar se o sistema de arquivos está montado corretamente ao desmontar e montar novamente o sistema de arquivos ou seja, usando o ponto de montagem `/datadrive` de exemplo criado nas etapas anteriores:
 
     ```bash
     sudo umount /datadrive
@@ -235,4 +234,3 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 <!--Link references-->
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
-

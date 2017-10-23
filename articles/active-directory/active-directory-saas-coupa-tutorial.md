@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
 O objetivo deste tutorial é mostrar a integração do Azure ao Coupa.  
@@ -142,7 +142,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 **Para atribuir usuários ao Coupa, execute as etapas a seguir:**
 
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Sobre o * * Coupa * * página de integração de aplicativos, clique em **atribuir usuários**.
+2. Na página de integração do aplicativo **Coupa**, clique em **Atribuir usuários**.
    
    ![Atribuir Usuários](./media/active-directory-saas-coupa-tutorial/IC791911.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.

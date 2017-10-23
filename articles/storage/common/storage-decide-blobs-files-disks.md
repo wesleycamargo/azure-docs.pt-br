@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
+ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 192680cc3faee86c0a45bc9abe4b6579ec56f324
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 
 O Microsoft Azure fornece vários recursos no Armazenamento do Azure para armazenar e acessar seus dados na nuvem. Este artigo aborda os Arquivos, Blobs e Discos do Azure e foi elaborado para ajudá-lo a escolher entre esses recursos.
@@ -70,7 +68,7 @@ A tabela a seguir compara os Arquivos do Azure com os Discos do Azure.
 |Autenticação|Interno|Configurar com net use|  
 |Limpeza|Automático|Manual|  
 |Acesso com a REST|Não é possível acessar os arquivos no VHD|É possível acessar os arquivos armazenados em um compartilhamento|  
-|Tamanho máx.|Disco de 1 TB|Compartilhamento de Arquivos de 5 TB e arquivo de 1 TB no compartilhamento|  
+|Tamanho máx.|Disco de 4 TB|Compartilhamento de Arquivos de 5 TB e arquivo de 1 TB no compartilhamento|  
 |IOPS máximo de 8 KB|500 IOPS|1.000 IOPS|  
 |Taxa de transferência|Até 60 MB/s por Disco|Até 60 MB/s por Compartilhamento de Arquivos|  
 
@@ -81,4 +79,3 @@ Ao tomar decisões sobre como os dados são armazenados e acessados, você tamb�
 Alguns recursos do SMB não são aplicáveis à nuvem. Para obter mais informações, consulte [Recursos sem suporte no serviço Arquivo do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
 Para obter mais informações sobre discos, consulte [Gerenciando discos e imagens](../../virtual-machines/windows/about-disks-and-vhds.md) e [Como anexar um disco de dados a uma máquina virtual Windows](../../virtual-machines/windows/classic/attach-disk.md).
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
+ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
 A computação sem servidor trata da capacidade de se concentrar em partes individuais de lógica que são repetíveis e sem monitoração de estado. Essas partes não exigem nenhum gerenciamento de infraestrutura e consomem recursos somente pelos segundos ou milissegundos durante os quais são executadas. No núcleo do movimento da computação sem servidor estão as funções, que são disponibilizadas no ecossistema do Azure pelo [Azure Functions](https://azure.microsoft.com/services/functions).
@@ -159,7 +157,6 @@ Agora vamos conectar o Azure Cosmos DB e o Azure Functions de verdade:
 
 
  
-
 
 
 

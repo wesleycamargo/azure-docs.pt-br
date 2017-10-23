@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
 ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
@@ -151,7 +151,7 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 | Local desta regra de alerta |Leste dos EUA |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName do alerta que é criado |\PhysicalDisk ( total) \Disk gravações/s. Consulte o `Get-MetricDefinitions` sobre como recuperar os nomes de métrica exatos do cmdlet |
+| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` sobre como recuperar os nomes de métrica exatos |
 | operator |GreaterThan |
 | Valor de limite (contagem/s para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |

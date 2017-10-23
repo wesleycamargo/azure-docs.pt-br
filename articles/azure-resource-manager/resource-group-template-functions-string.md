@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
+ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
 
@@ -35,6 +34,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -851,6 +851,89 @@ Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+## <a name="guid"></a>GUID
+
+`guid (baseString, ...)`
+
+Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
+
+### <a name="parameters"></a>parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| baseString |Sim |string |O valor usado na função de hash para criar o GUID. |
+| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+
+### <a name="remarks"></a>Comentários
+
+Essa função é útil quando você precisa criar um valor no formato de um identificador global exclusivo. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação.
+
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 36 caracteres. Não é globalmente exclusivo.
+
+Os exemplos a seguir mostram como usar guid para criar um valor exclusivo para níveis usados com mais frequência.
+
+Escopo exclusivo para a assinatura
+
+```json
+"[guid(subscription().subscriptionId)]"
+```
+
+Escopo exclusivo para o grupo de recursos
+
+```json
+"[guid(resourceGroup().id)]"
+```
+
+Escopo exclusivo para a implantação de um grupo de recursos
+
+```json
+"[guid(resourceGroup().id, deployment().name)]"
+```
+
+### <a name="return-value"></a>Valor de retorno
+
+Uma cadeia de caracteres que contém 36 caracteres no formato de um identificador global exclusivo.
+
+### <a name="examples"></a>Exemplos
+
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) abaixo retorna os resultados de guid:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "guidPerSubscription": {
+            "value": "[guid(subscription().subscriptionId)]",
+            "type": "string"
+        },
+        "guidPerResourceGroup": {
+            "value": "[guid(resourceGroup().id)]",
+            "type": "string"
+        },
+        "guidPerDeployment": {
+            "value": "[guid(resourceGroup().id, deployment().name)]",
+            "type": "string"
+        }
+    }
+}
+```
+
+Para implantar este modelo de exemplo com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+```
+
+Para implantar este modelo de exemplo com o PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -2232,5 +2315,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 * Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
-
 

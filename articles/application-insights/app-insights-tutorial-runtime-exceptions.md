@@ -3,21 +3,19 @@ title: "Diagnosticar exceções no tempo de execução usando o Azure Applicatio
 description: "Tutorial para localizar e diagnosticar exceções de tempo de execução em seu aplicativo usando o Azure Application Insights."
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 58c69e9c75f3a97c04b2c5b2e3b9acfc7065c658
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
 O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a identificar e diagnosticar exceções de tempo de execução.  Este tutorial o conduz por esse processo com o seu aplicativo.  Você aprenderá como:
@@ -39,6 +37,7 @@ Para concluir este tutorial:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
 - Baixe e instale o [Depurador de Instantâneo do Visual Studio](http://aka.ms/snapshotdebugger).
+- Habilite o [Depurador de Instantâneo do Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](app-insights-asp-net.md). 
 - O tutorial acompanha a identificação de uma exceção em seu aplicativo, portanto, modifique seu código no seu ambiente de desenvolvimento ou teste para gerar uma exceção. 
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
 ms.author: denlee
+ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do BD Cosmos do Azure para gráfico do Gremlin
 O Azure Cosmos DB dá suporte à linguagem de cruzamento de gráficos [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de gráficos e executar operações de consulta de gráficos. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
@@ -171,7 +169,7 @@ Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obte
 | --- | --- | --- | --- |
 | `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adiciona um vértice ao gráfico | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Certifique-se de que todas as passagens retornam um valor | [e uma etapa](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
+| `and` | Garante que todas as passagens retornem um valor | [e uma etapa](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Um modulador de etapa para atribuir uma variável à saída de uma etapa | [Etapa as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Um modulador de etapa usado com `group` e `order` | [Etapa by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Retorna a primeira passagem que retorna um resultado | [Etapa coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -209,4 +207,3 @@ O mecanismo otimizado para gravação do BD Cosmos do Azure dá suporte à index
 ## <a name="next-steps"></a>Próximas etapas
 * Comece a compilar um aplicativo de gráfico [usando nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre o [Suporte para gráfico do BD Cosmos do Azure](graph-introduction.md)
-

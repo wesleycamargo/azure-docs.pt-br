@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 90d39f75f547eff9c87997eb83460875c12dcfe4
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuração 1.3 e posterior do Diagnóstico do Azure
 > [!NOTE]
@@ -526,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além de na tabela Contador de Desempenho.  
 
- O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual na qual você está implantando o Diagnóstico do Azure. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** -> **<Nome\>**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
+ O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** -> **<Nome\>**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -647,11 +645,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado na versão 1.8.1)- Você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada. Se for fornecida, a chave da conta de armazenamento será ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br />As permissões  - *a*, *c*, *u*, *w* são obrigatórias. <br />Os tipos de recurso  - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
+|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado na versão 1.8.1)- Você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada. Se for fornecida, a chave da conta de armazenamento será ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
  *Árvore: Raiz - DiagnosticsConfiguration - IsEnabled*
 
  Booliano. Use `true` para habilitar o diagnóstico ou `false` para desabilitar o diagnóstico.
-

@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 6f272136d535dddd9c8213293841ace203c042a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e escala no Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um serviço de banco de dados globalmente distribuído, multi-modelo projetado para ajudá-lo a atingir um desempenho rápido e previsível. Ele pode ser dimensionado perfeitamente junto com o seu aplicativo à medida que cresce. Este artigo fornece uma visão geral de como modelos de particionamento funcionam para todos os modelos de dados no Azure Cosmos DB. Ele também descreve como você pode configurar contêineres do Azure Cosmos DB contêineres para dimensionar com eficiência seus aplicativos.
@@ -63,6 +61,12 @@ O Azure Cosmos DB usa o particionamento baseado em hash. Quando você grava um i
 >
 
 Os contêineres do Azure Cosmos DB podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Algumas APIs permitem que a chave de partição seja omitida para contêineres de tamanho fixo. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 2.500 RU/s.
+
+É uma boa ideia verificar como os seus dados estão distribuídos nas partições. Para verificar isso no portal, acesse sua conta do Azure Cosmos DB e clique em **Métricas** na seção **Monitoramento** e, em seguida, no painel direito, clique na guia **Armazenamento** para ver como os seus dados estão particionados na diferentes partições físicas.
+
+![Particionamento de recursos](./media/partition-data/partitionkey-example.png)
+
+A imagem à esquerda mostra o resultado de uma chave de partição mal feita e a imagem à direita mostra o resultado de uma chave de partição bem realizada. Na imagem à esquerda, você pode ver que os dados não estão distribuídos uniformemente entre as partições. Você deve se esforçar para distribuir os seus dados de modo que o gráfico fique semelhante à imagem à direita.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Particionamento e produtividade provisionada
 O Azure Cosmos DB foi projetado para ter um desempenho previsível. Ao criar um contêiner, você reserva a produtividade em termos de *[RUs](request-units.md) (unidades de solicitação) por segundo*. A cada solicitação é atribuído um custo de RU, que é proporcional à quantidade de recursos do sistema, como CPU, memória e E/S consumida pela operação. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU, independentemente do número de itens armazenados ou do número de solicitações simultâneas em execução ao mesmo tempo. Itens maiores exigem mais RUs, dependendo do tamanho. Se você souber o tamanho de suas entidades e o número de leituras de que precisa para dar suporte para o seu aplicativo, poderá provisionar a quantidade exata produtividade necessária para as necessidades de leitura do seu aplicativo. 
@@ -208,7 +212,6 @@ Neste artigo, fornecemos uma visão geral dos conceitos e práticas recomendadas
 
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
 * Saiba mais sobre [distribuição global no Azure Cosmos DB](distribute-data-globally.md).
-
 
 
 

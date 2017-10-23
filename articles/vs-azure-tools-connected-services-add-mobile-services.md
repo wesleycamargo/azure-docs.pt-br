@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 12/16/2015
 ms.author: mlearned
 ms.openlocfilehash: d185fdafebad56f8970e390b2a0672c3fb84df8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Adicionando Serviços Móveis usando os serviços conectados do Visual Studio
 Com o Visual Studio 2015, você pode se conectar a Serviços Móveis do Azure usando a caixa de diálogo **Adicionar Serviço Conectado** . É possível se conectar de qualquer aplicativo cliente C#, qualquer aplicativo JavaScript ou aplicativo Cordova entre plataformas. Uma vez conectado, você criar e acessar dados, criar APIs personalizadas e trabalhos agendados, ou adicionar suporte para notificações por push.  A operação de serviços conectados adiciona todas as referências apropriadas e o código de conexão. Você também pode aproveitar o suporte interno para autenticação com uma variedade de esquemas conhecidos de identidade, como o AD do Azure, Facebook, Twitter e Contas da Microsoft.
@@ -50,7 +50,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar a Serv
    
     Para criar uma nova conta de serviço móvel:
    
-   1. Escolha o * * criar serviço * * o link na parte inferior da caixa de diálogo.
+   1. escolha o link **Criar serviço** na parte inferior da caixa de diálogo.
        ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
    2. Na caixa de diálogo **Criar Serviço Móvel**, você pode escolher um serviço móvel de back-end JavaScript ou um serviço móvel de back-end .NET na lista suspensa **Tempo de Execução**. 
       

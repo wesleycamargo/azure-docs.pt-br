@@ -3,7 +3,7 @@ title: "Proxy do aplicativo do Azure AD – introdução à instalação do cone
 description: Ative o Proxy de Aplicativo no Portal do Azure e instale os Conectores para o proxy reverso.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: kgremban
+ms.date: 10/02/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy de Aplicativo e instale o conector
 Este artigo orienta você pelas etapas para habilitar o Proxy de Aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD.
 
@@ -63,7 +61,7 @@ Para preparar o ambiente para o proxy de aplicativo do Azure AD, primeiro você 
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. O conector deve acessar login.windows.net e login.microsoftonline.net para o processo de registro.
+4. O conector deve acessar login.windows.net e login.microsoftonline.com para o processo de registro.
 
 5. Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência.
 
@@ -108,4 +106,3 @@ Para saber mais sobre conectores e como eles permanecem atualizados, veja [Noç�
 Agora você está pronto para [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-publish-azure-portal.md).
 
 Se você tem aplicativos que estão em redes separadas ou em locais diferentes, use grupos de conector para organizar os diferentes conectores em unidades lógicas. Saiba mais sobre como [Trabalhar com conectores de Proxy de Aplicativo](active-directory-application-proxy-connectors-azure-portal.md).
-

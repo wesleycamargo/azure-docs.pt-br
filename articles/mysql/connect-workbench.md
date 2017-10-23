@@ -9,15 +9,13 @@ editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/23/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar o MySQL Workbench para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando o aplicativo MySQL Workbench. 
 
@@ -34,18 +32,18 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **myserver4demo**.
+2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou (como **myserver4demo**).
 
 3. Clique no nome do servidor.
 
-4. Selecione a página **Propriedades** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+4. Selecione a página **Propriedades** do servidor e anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**.
 
  ![Nome do servidor do Banco de Dados do Azure para MySQL](./media/connect-workbench/1-server-properties-name-login.png)
  
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
-## <a name="connect-to-the-server-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench 
-Para se conectar ao servidor MySQL do Azure usando a ferramenta de GUI MySQL Workbench:
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench 
+Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Workbench:
 
 1.  Inicie o aplicativo MySQL Workbench em seu computador. 
 
@@ -68,10 +66,10 @@ Para se conectar ao servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 
 5.   Na lista de **Conexões MySQL**, clique no bloco correspondente ao seu servidor e aguarde até que a conexão seja estabelecida.
 
-6.   Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
-
-    > [!NOTE]
-    > Por padrão, a segurança da conexão SSL é exigida e imposta no seu Banco de Dados do Azure para o servidor MySQL. Normalmente, nenhuma configuração adicional com certificados SSL é necessária para que o MySQL Workbench se conecte ao servidor. Para saber mais sobre SSL, confira [Configurar a conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md).  Se precisar desabilitar o SSL, visite o portal do Azure e clique na página Segurança de conexão para desabilitar o botão de alternância Impor conexão SSL.
+        Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
+    
+        > [!NOTE]
+        > Por padrão, a segurança da conexão SSL é exigida e imposta no seu Banco de Dados do Azure para o servidor MySQL. Normalmente, nenhuma configuração adicional com certificados SSL é necessária para que o MySQL Workbench se conecte ao servidor. Para saber mais sobre SSL, confira [Configurar a conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md).  Se precisar desabilitar o SSL, visite o portal do Azure e clique na página Segurança de conexão para desabilitar o botão de alternância Impor conexão SSL.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Criar uma tabela, inserir dados, ler dados, atualizar dados, excluir dados
 1. Copie e cole o código de exemplo do SQL em uma guia SQL em branco para ilustrar alguns dados de exemplo.
@@ -116,4 +114,3 @@ Agora, você se conectou ao Banco de Dados do Azure para MySQL usando o MySQL Wo
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./concepts-migrate-import-export.md)
-

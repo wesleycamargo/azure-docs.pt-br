@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 506c23179d09e2e22065c8ba2bc85a341bb0ea09
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a Central de Segurança do Azure
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
@@ -43,7 +41,7 @@ A Central de Segurança é oferecida em duas camadas:
 
 A **Camada gratuita** fornece visibilidade do estado de segurança de seus recursos do Azure, a política de segurança básica, recomendações de segurança e integração a produtos de segurança e serviços de parceiros.
 
-A **camada Standard** adiciona recursos de detecção avançada de ameaças, inclusive inteligência de ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. A camada Standard é gratuita pelos 60 primeiros dias. Se você escolher continuar a usar o serviço por mais 60 dias, nós começaremos automaticamente a cobrar pelo serviço.  Para atualizar, selecione Tipo de Preço na [política de segurança](security-center-policies.md#set-security-policies). Para saber mais, consulte [Azure Security Center pricing](security-center-pricing.md) (Preços da Central de Segurança do Azure).
+A **camada Standard** adiciona recursos de detecção avançada de ameaças, inclusive inteligência de ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. A camada Standard é gratuita pelos 60 primeiros dias. Se você escolher continuar a usar o serviço por mais 60 dias, nós começaremos automaticamente a cobrar pelo serviço.  Para atualizar, selecione [Tipo de Preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança.
 
 ## <a name="permissions"></a>Permissões
 A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md), que fornece [funções internas](../active-directory/role-based-access-built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
@@ -115,8 +113,8 @@ A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 * Redes Virtuais do Azure
 * Serviço do SQL Azure
 * Conta de Armazenamento do Azure
-* Aplicativos Web do Azure (em um [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md))
-* Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md)
+* Aplicativos Web do Azure (em um [Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md))
+* Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no Ambiente do Serviço de Aplicativo
 
 ## <a name="virtual-machines"></a>Máquinas Virtuais
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Quais tipos de máquinas virtuais têm suporte?
@@ -132,4 +130,3 @@ Esta mensagem aparece quando não há nenhum dado de verificação para uma VM. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"
 O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de Dados. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. Para obter informações sobre como instalar o Agente da VM em outras VMs, consulte a postagem de blog sobre o [Agente de VM e Extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
-

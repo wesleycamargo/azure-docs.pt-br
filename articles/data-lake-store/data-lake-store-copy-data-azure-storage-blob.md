@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
+ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ee8e282feacfb6b5db2f746b468fe2cd26cb0a52
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
 > [!div class="op_single_selector"]
@@ -145,7 +144,7 @@ Por exemplo:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-De modo semelhante, execute o comando a seguir para copiar de um blob de Armazenamento do Azure para uma conta do Data Lake Store usando a conta do Data Lake Analytics:
+Da mesma maneira, execute o comando a seguir para copiar todos os arquivos de uma pasta específica na conta de origem do Data Lake Store para uma pasta na conta de destino do Data Lake Store, usando a conta do Data Lake Analytics:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
@@ -183,4 +182,3 @@ O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e past
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

@@ -11,22 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/29/2017
 ms.author: shengc
+ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecef890d26aa097d9a5db63555ae59e16e80c9e1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – já disponível](v1/data-factory-spark.md)
 > * [Versão 2 – Versão prévia](transform-data-using-spark.md)
 
-
-A atividade do Spark é uma das [atividades de transformação de dados](transform-data.md) com suporte pelo Azure Data Factory. Esta atividade executa o programa do Spark especificado no cluster do Apache Spark no Azure HDInsight.    
+A atividade do Spark em um [pipeline](concepts-pipelines-activities.md) do Data Factory executa um programa do Spark em [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster HDInsight. Este artigo se baseia no artigo sobre [atividades de transformação de dados](transform-data.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas. Quando você usa um serviço vinculado do Spark sob demanda, o Data Factory cria automaticamente um cluster Spark para você Just-In-Time a fim de processar os dados e, em seguida, exclui o cluster quando o processamento for concluído. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível, consulte a [Atividade do Spark na V1](v1/data-factory-spark.md).
@@ -129,4 +127,3 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
-

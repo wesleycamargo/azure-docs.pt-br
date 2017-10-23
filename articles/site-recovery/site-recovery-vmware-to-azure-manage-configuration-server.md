@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>Gerenciar um Servidor de Configuração
 
 Servidor de configuração atua como um coordenador entre os serviços do Site Recovery e sua infraestrutura local. Este artigo descreve como você pode definir, configurar e gerenciar o servidor de configuração.
@@ -113,7 +111,7 @@ ProxyPassword="Password"
 
 ## <a name="modify-user-accounts-and-passwords"></a>Modificar contas de usuário e senhas
 
-O CSPSConfigTool.exe é usado para gerenciar as contas de usuário usadas para a **Descoberta automática de máquinas virtuais VMware** e para executar a **Instalação por push do Serviço de mobilidade em computadores protegidos**. 
+O CSPSConfigTool.exe é usado para gerenciar as contas de usuário usadas para **Descoberta automática de máquinas virtuais VMware** e para executar a **Instalação por push do Serviço de Mobilidade em computadores protegidos. 
 
 1. Faça logon no servidor de Configuração.
 2. Inicie o CSPSConfigtool.exe clicando no atalho disponível na área de trabalho.
@@ -145,7 +143,7 @@ O CSPSConfigTool.exe é usado para gerenciar as contas de usuário usadas para a
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrar um servidor de configuração com um cofre de serviços de recuperação diferente.
 
 > [!WARNING]
-> O conjunto de etapas abaixo desassocia a Configuração do cofre atual, e a replicação de todas as máquinas virtuais protegidas no servidor de Configuração será interrompida.
+> A etapa a seguir desassocia a Configuração do cofre atual e a replicação de todas as máquinas virtuais protegidas no servidor de Configuração é interrompida.
 
 1. Faça logon no Servidor de Configuração.
 2. em um prompt de comando de administrador, execute o comando
@@ -169,22 +167,25 @@ O CSPSConfigTool.exe é usado para gerenciar as contas de usuário usadas para a
     net start obengine
     ```
 
-## <a name="updating-a-configuration-server"></a>Atualizar um Servidor de Configuração
+## <a name="upgrading-a-configuration-server"></a>Fazer upgrade de um Servidor de Configuração
 
 > [!WARNING]
-> Há suporte para atualizações somente até a versão N-4th. Por exemplo, se a versão mais recente no mercado for 9.11, em seguida, você pode atualizar da versão 9.10, 9.9, 9.8 ou 9.7 diretamente para 9.11. Mas se você estiver em qualquer versão menor ou igual a 9.6, em seguida, você precisa atualizar para pelo menos 9.7 antes de você poder aplicar as atualizações mais recentes no seu servidor de configuração. Links de download da versão anterior podem ser encontrados em [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Atualizações de serviço do Azure Site Recovery)
+> Há suporte para atualizações somente até a versão N-4th. Por exemplo, se a versão mais recente no mercado for 9.11, em seguida, você pode atualizar da versão 9.10, 9.9, 9.8 ou 9.7 diretamente para 9.11. Porém, se você estiver em qualquer versão menor ou igual a 9.6, será preciso atualizar pelo menos para a 9.7 antes de poder aplicar as atualizações mais recentes no seu Servidor de Configuração. Links de download da versão anterior podem ser encontrados em [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Atualizações de serviço do Azure Site Recovery)
 
-1. Baixe o instalador de atualização em seu servidor de configuração.
-2. Inicie o instalador clicando duas vezes o instalador.
+1. Baixe o instalador de atualização em seu Servidor de Configuração.
+2. Inicialize o instalador clicando duas vezes no instalador.
 3. O instalador detecta a versão dos componentes do Site Recovery presentes no computador e solicita uma confirmação. 
 4. Clique no botão Ok para fornecer a confirmação & continuar com a atualização.
 
 
-## <a name="decommissioning-a-configuration-server"></a>Encerramento de um Servidor de Configuração
-Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
-1. Desabilite a proteção para todas as máquinas virtuais por este servidor de configuração.
-2. Desassocie todas as políticas de replicação do servidor de configuração.
-3. Exclua todos os servidores vCenter/hosts vSphere associados ao Servidor de Configuração.
+## <a name="delete-or-unregister-a-configuration-server"></a>Excluir ou cancelar o registro de um Servidor de Configuração
+
+> [!WARNING]
+> Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
+> 1. [Desabilitar a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais nesse Servidor de Configuração.
+> 2. [Desassociar](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) e [Excluir](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
+> 3. [Excluir](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) todos os servidores vCenters/hosts vSphere associados ao Servidor de Configuração.
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Excluir o servidor de configuração do portal do Azure
 1. No portal do Azure, navegue até **Infraestrutura do Site Recovery** > **Servidores de Configuração** no menu Cofre.
@@ -193,9 +194,6 @@ Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Clique em **Sim** para confirmar a exclusão do servidor.
-
-  >[!WARNING]
-  Se você tiver máquinas virtuais, políticas de replicação ou hosts de servidores/vSphere vCenter associados a este servidor de configuração, você não pode excluir o servidor. Exclua essas entidades antes de tentar excluir o cofre.
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>Desinstalar o software do servidor de configuração e suas dependências
   > [!TIP]
@@ -214,6 +212,31 @@ Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Excluir ou cancelar o registro de um Servidor de Configuração (PowerShell)
+
+1. [Instalar](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell
+2. Faça logon na sua conta do Azure usando o comando
+    
+    `Login-AzureRmAccount`
+3. Selecione a assinatura sob a qual o cofre está presente
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Agora configure o contexto do cofre
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. Obtenha a seleção do servidor de configuração
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. Excluir o Servidor de Configuração
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> A opção **-Force** em Remove-AzureRmSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>Renovar certificados de configuração de servidor Secure Socket Layer(SSL)
 O servidor de configuração tem uma servidor Web embutida, que coordena as atividades dos servidores de destino mestre, servidores de processo e serviço de mobilidade conectados ao servidor de configuração. Servidor Web do servidor de configuração usa um certificado SSL para autenticar seus clientes. Este certificado tem uma expiração de três anos e pode ser renovado a qualquer momento usando o seguinte método:
@@ -241,7 +264,7 @@ A validade do certificado SSL para todas as instalações que ocorreram antes de
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  Se em vez de um botão **Renovar Agora** você vir um botão **Atualizar Agora**. Isso significa que há alguns componentes em seu ambiente que ainda não foram atualizados para a versão 9.4.xxxx.x ou posteriores.
+  Se em vez de um botão **Renovar Agora** você vir um botão **Atualizar Agora**. O botão Atualizar Agora indica que há alguns componentes em seu ambiente que ainda não foram atualizados para a versão 9.4.xxxx.x ou posterior.
 
 ## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Renovar um servidor de Configuração se o certificado SSL tiver expirado
 
@@ -268,4 +291,3 @@ A validade do certificado SSL para todas as instalações que ocorreram antes de
 
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

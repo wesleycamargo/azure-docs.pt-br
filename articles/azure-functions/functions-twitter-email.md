@@ -13,22 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
 O Azure Functions integra-se aos Aplicativos Lógicos do Azure no Designer de Aplicativos Lógicos. Essa integração permite usar o poder de computação do Functions em orquestrações com outros serviços de terceiros e do Azure. 
 
-Este tutorial mostra como usar o Functions com Aplicativos Lógicos e Serviços Cognitivos do Azure para analisar o sentimento de postagens do Twitter. Uma função HTTP disparada categoriza tweets com cores verde, amarelo ou vermelho com base na pontuação de sentimento. Um email é enviado quando um sentimento inadequado é detectado. 
+Este tutorial mostra como usar o Functions com os Aplicativos Lógicos e os Serviços Cognitivos da Microsoft no Azure para analisar o sentimento de postagens do Twitter. Uma função HTTP disparada categoriza tweets com cores verde, amarelo ou vermelho com base na pontuação de sentimento. Um email é enviado quando um sentimento inadequado é detectado. 
 
 ![imagem dos dois primeiros passos do aplicativo no Designer de Aplicativos Lógicos](media/functions-twitter-email/designer1.png)
 
@@ -59,7 +57,7 @@ Uma conta dos Serviços Cognitivos é necessária para detectar o sentimento dos
 
 3. Clique em **Dados + Análise** > **Serviços Cognitivos**. Em seguida, use as configurações conforme especificadas na tabela, aceite os termos e marque **Fixar no painel**.
 
-    ![Criar folha de conta Cognitiva](media/functions-twitter-email/cog_svcs_account.png)
+    ![Página Criar conta cognitiva](media/functions-twitter-email/cog_svcs_account.png)
 
     | Configuração      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
@@ -131,11 +129,12 @@ Agora você tem uma função que categoriza as pontuações de sentimento. Em se
     | Configuração      |  Valor sugerido   | Descrição                                        |
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome apropriado para seu aplicativo. |
-    | **Grupo de recursos** | myResourceGroup | API usada para analisar texto.  |
-    | **Localidade** | Leste dos EUA | Escolha um local perto de você. |
-    | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos existente.|
+    | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos existente. |
+    | **Localidade** | Leste dos EUA | Escolha um local perto de você. |    
 
-4. Clique em **Criar** para criar seu aplicativo lógico. Depois que o aplicativo for criado, clique em seu novo aplicativo lógico fixado no painel. Em seguida, no Designer de Aplicativos Lógicos, role para baixo e clique no modelo **Aplicativo Lógico em Branco**. 
+4. Marque **Fixar no painel** e clique em **Criar** para criar seu aplicativo lógico. 
+
+5. Depois que o aplicativo for criado, clique em seu novo aplicativo lógico fixado no painel. Em seguida, no Designer de Aplicativos Lógicos, role para baixo e clique no modelo **Aplicativo Lógico em Branco**. 
 
     ![Modelo Aplicativo Lógico em Branco](media/functions-twitter-email/blank.png)
 
@@ -157,7 +156,7 @@ Primeiro, crie uma conexão para sua conta do Twitter. O aplicativo lógico sond
     | **Frequência** | Minuto | A unidade de frequência usada para sondar o Twitter.  |
     | **Intervalo** | 15 | O tempo decorrido entre as solicitações do Twitter, em unidades de frequência. |
 
-3.  Clique em **Salvar** para se conectar à conta do Twitter. 
+3.  Clique em **Salvar** para se conectar à sua conta do Twitter. 
 
 Agora, seu aplicativo está conectado ao Twitter. Em seguida, conecte-se à análise de texto para detectar o sentimento dos tweets coletados.
 
@@ -212,7 +211,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
 4. Na ação **Enviar um email**, use as configurações de email conforme especificadas na tabela. 
 
-    ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/sendemail.png)
+    ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/sendEmail.png)
 
     | Configuração      |  Valor sugerido   | Descrição  |
     | ----------------- | ------------ | ------------- |
@@ -275,5 +274,4 @@ Vá para o próximo tutorial para aprender a criar uma API sem servidor para sua
 > [Criar uma API sem servidor usando o Azure Functions](functions-create-serverless-api.md)
 
 Para saber mais sobre os Aplicativos Lógicos, consulte [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-what-are-logic-apps.md).
-
 

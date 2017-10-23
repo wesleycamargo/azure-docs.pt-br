@@ -5,20 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2017
+ms.date: 09/25/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
+ms.openlocfilehash: a7bd4aed7dbcde803c2106b8c053e8a2412eea99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 77de126d3f4f6c01a6ca574b73ee9c73383151dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
 Como parceiro CSP, você pode se registrar no Gerenciamento de Custo do Azure pelo Cloudyn. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
@@ -40,9 +37,10 @@ Para concluir o registro, você deve ser um administrador do programa de parceri
   1. Acesse **Painel** > **Configurações de Conta** > **Gerenciamento de Aplicativo**.
   2. Caso tenha criado anteriormente um Aplicativo Web, ignore esta etapa. Caso contrário, clique em **Adicionar novo aplicativo Web** na seção **Aplicativo Web**.
   3. Copie o GUID da **ID do Aplicativo** do aplicativo Web.
-  4. Selecione a duração da validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e salve o valor da chave secreta.  
+  4. Copie o GUID da **ID do comércio** do aplicativo Web.
+  5. Selecione a duração da validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e salve o valor da chave secreta.  
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
-  5. Volte para a página de registro e cole as informações.  
+  6. Volte para a página de registro e cole as informações.  
       ![Credenciais da conta do CSP](./media/quick-register-csp/csp-reg.png)
 6. Concorde com os Termos de Uso e, em seguida, valide as informações. Clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Leva cerca de duas horas para que todos os seus dados de cobrança sejam adicionados ao Cloudyn.
@@ -56,4 +54,3 @@ Neste guia de início rápido, você usou as informações do CSP para se regist
 
 > [!div class="nextstepaction"]
 > [Exibir dados de custo](./tutorial-review-usage.md)
-

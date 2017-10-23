@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure
 
@@ -529,16 +528,16 @@ O comando revela duas senhas que podem ser usadas com o nome de usuário.
 }
 ```
 
-Agora que você tem as credenciais necessárias, faça logon no Registro de Contêiner do Azure usando o comando `docker login`. A URL do Registro é necessária para fazer logon. Use o formato `http://{azure-container-registry-name>.azurecr.io`.
+Agora que você tem as credenciais necessárias, faça logon no Registro de Contêiner do Azure usando o comando `docker login`. O nome do servidor é necessário para fazer logon. Use o formato `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Confirme se o logon foi bem-sucedido. Envie a imagem por push usando o comando `docker push` e marcando a imagem com a URL completa do Registro, seguido pelo nome da imagem e a marcação.
+Confirme se o logon foi bem-sucedido. Envie a imagem por push usando o comando `docker push` e marcando a imagem com o nome do registro, seguido pelo nome da imagem e pela marcação.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Verifique se o push adicionou com êxito um contêiner ao Registro, listando os repositórios do ACR. 
@@ -623,4 +622,3 @@ O comando revela um resultado semelhante à seguinte cadeia de caracteres JSON, 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](app-service-linux-faq.md)
-

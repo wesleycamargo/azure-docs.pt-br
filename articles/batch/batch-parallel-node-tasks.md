@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 15854aa0f2665f921f3435bc298737671f2e1a6f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Execute tarefas simultaneamente para maximizar o uso dos nós de computação do Lote 
 
@@ -37,7 +35,7 @@ Embora alguns cenários se beneficiem de dedicar todos os recursos de um nó par
 ## <a name="example-scenario"></a>Cenário de exemplo
 Para ilustrar os benefícios de execução das tarefas paralelas, digamos que seu aplicativo de tarefa tenha requisitos de CPU e memória de forma que os nós [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) sejam suficientes. Mas, para concluir o trabalho no tempo necessário, 1.000 nós são necessários.
 
-Em vez de usar os nós Standard\_D1, que têm um núcleo de CPU, você poderia utilizar os nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) com 16 núcleos cada e permitir a execução de tarefas paralelas. Portanto, *16 vezes menos nós* poderiam ser usados; em vez de 1.000 nós, somente 63 seriam necessários. Além disso, se arquivos do aplicativo grandes ou dados de referência forem necessários para cada nó, eficiência e a duração do trabalho serão novamente aperfeiçoadas, uma vez que os dados são copiados para apenas 16 nós.
+Em vez de usar os nós Standard\_D1, que têm um núcleo de CPU, você poderia utilizar os nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) com 16 núcleos cada e permitir a execução de tarefas paralelas. Portanto, *16 vezes menos nós* poderiam ser usados; em vez de 1.000 nós, somente 63 seriam necessários. Além disso, se arquivos de aplicativo grandes ou dados de referência forem necessários para cada nó, a eficiência e a duração do trabalho serão novamente aperfeiçoadas, uma vez que os dados são copiados para apenas 63 nós.
 
 ## <a name="enable-parallel-task-execution"></a>Habilitar a execução de tarefas paralelas
 Você configura os nós de computação para a execução paralela das tarefas no nível do pool. Com a biblioteca .NET do Lote, defina a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] quando criar um pool. Se você estiver usando a API REST do Lote, defina o elemento [maxTasksPerNode][rest_addpool] no corpo da solicitação durante a criação do pool.
@@ -147,4 +145,3 @@ O [Gerenciador de Lotes do Azure][batch_explorer], um dos [aplicativos de exempl
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
-

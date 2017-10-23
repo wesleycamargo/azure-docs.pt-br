@@ -13,31 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 10/06/2017
 ms.author: owend
+ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
 
- O Azure Analysis Services exige um recurso de gateway na mesma região. Por exemplo, se você tiver servidores do Azure Analysis Services na região Leste dos EUA 2, será necessário um recurso de gateway na região Leste dos EUA 2. Vários servidores no Leste dos EUA 2 podem usar o mesmo gateway.
-
 Instalar o gateway pela primeira vez é um processo de quatro partes:
 
-- **Baixar e executar a instalação** – esta etapa instala um serviço de gateway em um computador em sua organização.
+- **Baixar e executar a instalação** – esta etapa instala um serviço de gateway em um computador em sua organização. Você também pode entrar no Azure usando uma conta no Azure AD do seu [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Não há suporte para contas B2B (convidadas) do Azure.
 
-- **Registrar seu gateway** – nesta etapa, você especifica um nome e uma chave de recuperação para o gateway e seleciona uma região, registrando o gateway no Serviço de Nuvem do Gateway.
+- **Registrar seu gateway** – nesta etapa, você especifica um nome e uma chave de recuperação para o gateway e seleciona uma região, registrando o gateway no Serviço de Nuvem do Gateway. O recurso de gateway **deve ser registrado na mesma região** que os seus servidores do Analysis Services. 
 
 - **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway em sua assinatura do Azure.
 
-- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele.
-
-Quando seu recurso de gateway estiver configurado para sua assinatura, você poderá conectar vários servidores e outros serviços a ele. Você só precisará instalar um gateway diferente e criar recursos de gateway adicionais se tiver servidores ou outros serviços em uma região diferente.
+- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos a ele, desde que estejam na região.
 
 Para começar imediatamente, consulte [Instalar e configurar gateway de dados local](analysis-services-gateway-install.md).
 
@@ -100,15 +95,15 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 ### <a name="general"></a>Geral
 
 **P**: Preciso de um gateway para fontes de dados na nuvem, como o Banco de Dados SQL do Azure? <br/>
-**R:** Não. Um gateway conecta-se apenas a fontes de dados locais.
+**R:** Não. Um gateway é necessário para se conectar a fontes de dados locais apenas.
 
 **Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
-**R:** Não. O gateway se conecta à fonte de dados usando as informações de conexão que foram fornecidas. Considere o gateway como um aplicativo de cliente nesse sentido. O gateway precisa apenas da capacidade de se conectar ao nome do servidor que foi fornecido, geralmente na mesma rede.
+**R:** Não. O gateway precisa apenas da capacidade de se conectar ao servidor, geralmente na mesma rede.
 
 <a name="why-azure-work-school-account"></a>
 
 **P**: Por que eu preciso usar uma conta corporativa ou de estudante para entrar? <br/>
-**R**: Você pode usar uma conta corporativa ou de estudante do Azure apenas ao instalar o gateway de dados local. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
+**R**: Você apenas pode usar uma conta corporativa ou de estudante ao instalar o gateway de dados local. E essa conta deve estar no mesmo locatário que a assinatura na qual você está configurando o recurso de gateway. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
 
 **P**: Em que local minhas credenciais são armazenadas? <br/>
 **R**: As credenciais inseridas para uma fonte de dados são criptografadas e armazenadas no Serviço de Nuvem do Gateway. As credenciais são descriptografadas no gateway de dados local.
@@ -151,7 +146,7 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 Você também pode examinar ferramentas de rastreamento de consultas disponibilizadas por sua fonte de dados. Por exemplo, você pode usar o Extended Events ou o SQL Profiler para SQL Server e Analysis Services.
 
 **P**: Em que local estão os logs do gateway? <br/>
-**R**: Veja Logs, mais adiante neste tópico.
+**R**: Veja Logs mais adiante neste artigo.
 
 ### <a name="update"></a>Atualização para a versão mais recente
 
@@ -201,6 +196,6 @@ Telemetria pode ser usada para monitorar e solucionar problemas. Por padrão
 
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md).   
 * [Gerenciar o Analysis Services](analysis-services-manage.md)
 * [Obter dados do Azure Analysis Services](analysis-services-connect.md)
-

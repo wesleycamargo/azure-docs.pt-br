@@ -8,15 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 8606067a8e82c6314ab931eb4816d45755a8e04f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
 - Despejo e restauração da linha de comando (usando mysqldump) 
@@ -46,8 +44,8 @@ Você pode usar os utilitários de MySQL como mysqldump e mysqlpump para bancos 
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 Para otimizar o desempenho, observe essas considerações ao despejar grandes bancos de dados:
 -   Use a opção `exclude-triggers` em mysqldump ao despejar bancos de dados. Exclua os gatilhos de arquivos de despejo para evitar que os comandos de gatilho acionem durante a restauração de dados. 
--   Evite a opção `single-transaction` em mysqldump ao despejar bancos de dados muito grandes. Despejar muitas tabelas em uma única transação faz com que o armazenamento extra e os recursos de memória sejam consumidos durante a restauração e podem causar atrasos de desempenho ou restrições de recursos.
--   Use as inserções de vários valores ao carregar com o SQL para minimizar a sobrecarga de execução de instrução ao despejar os bancos de dados. Ao usar arquivos de despejo gerados pelo utilitário mysqldump, inserções de vários valores são habilitadas por padrão. 
+-   Use a opção `single-transaction` para definir o modo de isolamento da transação para REPEATABLE READ e enviar uma instrução SQL START TRANSACTION para o servidor antes de despejar os dados. Despejar muitas tabelas em uma única transação pode fazer com que alguns armazenamentos adicionais sejam consumidos durante a restauração. A opção `single-transaction` e a opção `lock-tables` são mutuamente exclusivas, porque LOCK TABLES faz com que as transações pendentes sejam confirmadas implicitamente. Para despejar tabelas grandes, combine a opção `single-transaction` com a opção `quick`. 
+-   Use a sintaxe de várias linhas `extended-insert`, que inclui várias listas VALUE. O resultado será um arquivo de despejo menor e inserções mais rápidas quando o arquivo é recarregado.
 -  Use a opção `order-by-primary` em mysqldump ao despejar bancos de dados, para que os dados sejam executados na ordem de chave primária.
 -   Use a opção `disable-keys` em mysqldump ao despejar dados, para desabilitar as restrições de chave estrangeira antes da carga. Desabilitar as verificações de chave estrangeira proporciona ganhos de desempenho. Habilite as restrições e verifique os dados após o carregamento para garantir a integridade referencial.
 -   Use tabelas particionadas, quando apropriado.
@@ -126,4 +124,3 @@ Importar o banco de dados é semelhante à exportação. As seguintes ações oc
 
 ## <a name="next-steps"></a>Próximas etapas
 [Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md)
-

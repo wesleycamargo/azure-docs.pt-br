@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
@@ -134,7 +133,7 @@ foo_IDList.txt de exemplo
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
-No modo **Combinado** ou **Redação**, há cinco modos de desfoque diferentes à sua escolha por meio da configuração de entrada JSON: **Baixo**, **Med**, **Alto**, **Depurar** e **Preto**. Por padrão, **Med** é usado.
+No modo **Combinado** ou **Redação**, há cinco modos de desfoque diferentes para escolher por meio da configuração de entrada JSON: **Baixo**, **Med**, **Alto**, **Caixa** e **Preto**. Por padrão, **Med** é usado.
 
 Encontre exemplos dos tipos de desfoque abaixo.
 
@@ -154,9 +153,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>Depurar
+#### <a name="box"></a>Box
 
-![Depurar](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Preto
 
@@ -353,5 +352,4 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

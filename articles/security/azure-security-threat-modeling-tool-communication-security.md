@@ -14,21 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
+ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: b85003a94df3b97f5c64eb3b7e62071f07674c5e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
 | Produto/serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Proteger comunicações para o Hub de Eventos usando SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificar se os privilégios da conta do serviço e verificar se os serviços ou páginas ASP.NET personalizados respeitam a segurança do CRM](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Usar o Gateway de Gerenciamento de Dados durante a conexão local do SQL Server com o Azure Data Factory](#sqlserver-factory)</li></ul> |
-| **Servidor de Identidade** | <ul><li>[Garantir que todo o tráfego para o servidor de identidade passe pela conexão HTTPS](#identity-https)</li></ul> |
+| **Identity Server** | <ul><li>[Garantir que todo o tráfego para o servidor de identidade passe pela conexão HTTPS](#identity-https)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Verificar os certificados x. 509 usados para autenticar conexões SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurar um certificado SSL para um domínio personalizado no Serviço de Aplicativo do Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicativo do Azure pela conexão HTTPS](#appservice-https)</li><li>[Habilitar HSTS (Segurança de Transporte Estrito HTTP)](#http-hsts)</li></ul> |
 | **Banco de dados** | <ul><li>[Garantir a validação de certificado e a criptografia da conexão do SQL Server](#sqlserver-validation)</li><li>[Forçar a comunicação criptografada para o SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Garantir que as comunicações para o Armazenamento do Azure sejam feitas via HTTPS](#comm-storage)</li><li>[Validar o hash MD5 depois de baixar o blob se o HTTPS não puder ser habilitado](#md5-https)</li><li>[Use um cliente em conformidade com SMB 3.0 para garantir a criptografia de dados em trânsito para os compartilhamentos de arquivos do Azure](#smb-shares)</li></ul> |
@@ -37,7 +35,7 @@ ms.lasthandoff: 08/23/2017
 | **API da Web** | <ul><li>[Forçar todo o tráfego para APIs Web pela conexão HTTPS](#webapi-https)</li></ul> |
 | **Cache Redis do Azure** | <ul><li>[Garantir que as comunicações para o Cache Redis do Azure sejam feitas via SSL](#redis-ssl)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Proteger dispositivo para comunicações do Gateway de Campo](#device-field)</li></ul> |
-| **Gateway de Nuvem de IoT** | <ul><li>[Proteger o dispositivo para comunicações do Gateway de Nuvem usando SSL/TLS](#device-cloud)</li></ul> |
+| **Gateway de Nuvem IoT** | <ul><li>[Proteger o dispositivo para comunicações do Gateway de Nuvem usando SSL/TLS](#device-cloud)</li></ul> |
 
 ## <a id="comm-ssltls"></a>Proteger comunicações para o Hub de Eventos usando SSL/TLS
 
@@ -102,7 +100,7 @@ ms.lasthandoff: 08/23/2017
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipo de ambiente - Azure |
-| **Referências**              | [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **Referências**              | [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Etapas** | Por padrão, o Azure já habilita o HTTPS para todos os aplicativos com um certificado curinga para o domínio *.azurewebsites.net. No entanto, assim como todos os domínios curinga, ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. [Consulte este artigo](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). É recomendável habilitar o SSL para o domínio personalizado pelo qual o aplicativo implantado será acessado.|
 
 ## <a id="appservice-https"></a>Forçar todo o tráfego para o Serviço de Aplicativo do Azure pela conexão HTTPS
@@ -113,7 +111,7 @@ ms.lasthandoff: 08/23/2017
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipo de ambiente - Azure |
-| **Referências**              | [Impor o HTTPS no Serviço de Aplicativo do Azure]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app |
+| **Referências**              | [Impor HTTPS no Serviço de Aplicativo do Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **Etapas** | <p>Embora os Serviços de Aplicativos do Azure já habilite o HTTPS com um certificado curinga para o domínio *.azurewebsites.net, ele não impõe o HTPPS. Os visitantes podem continuar acessando o aplicativo com o HTTP, possibilitando que a segurança do aplicativo seja comprometida, por isso o HTTPS deve ser explicitamente imposto. Os aplicativos do ASP.NET MVC devem usar o [filtro RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que obriga uma solicitação HTTP desprotegida a ser reenviada pelo HTTPS.</p><p>O módulo de Reescrita de URL, incluído no Serviço de Aplicativo do Azure, também pode ser usado para impor o HTTPS. Esse módulo permite que desenvolvedores definam as regras aplicadas às solicitações recebidas antes que elas cheguem ao aplicativo. As regras de Reescrita de URL são definidas em um arquivo web.config, que fica armazenado na raiz do aplicativo.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -407,4 +405,3 @@ Observe que o Redis foi projetado para ser acessado por clientes confiáveis em 
 | **Atributos**              | N/D  |
 | **Referências**              | [Escolha seu protocolo de comunicação](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **Etapas** | Proteja os protocolos HTTP/AMQP ou MQTT usando SSL/TLS. |
-

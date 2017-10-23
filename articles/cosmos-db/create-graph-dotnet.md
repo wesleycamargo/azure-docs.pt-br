@@ -1,6 +1,6 @@
 ---
-title: Compilar um aplicativo .NET do BD Cosmos do Azure usando a API do Graph | Microsoft Docs
-description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o BD Cosmos do Azure"
+title: Compilar um aplicativo .NET Framework ou Core do Azure Cosmos DB usando a API do Graph | Microsoft Docs
+description: "Apresenta um exemplo de código do .NET Framework/Core que pode ser usado para conectar e consultar o Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -13,16 +13,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/28/2017
+ms.date: 10/06/2017
 ms.author: denlee
+ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 12c9bf626de8738fac95bd41965b0a2bf8758ed2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>BD Cosmos do Azure: compilar um aplicativo .NET usando a API do Graph
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilar um aplicativo .NET Framework ou Core usando a API do Graph
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
 
@@ -32,9 +31,11 @@ Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um ba
 
 Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
+Se você já tem o Visual Studio 2017 instalado, verifique se está com o [Visual Studio 2017 Atualização 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -45,6 +46,10 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
 Agora, clonaremos um aplicativo de API do Graph do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
+
+Este projeto de exemplo está usando o formato de projeto do .NET Core e foi configurado para se direcionar às seguintes estruturas:
+ - netcoreapp2.0
+ - net461
 
 1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.  
 
@@ -103,35 +108,37 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No Visual Studio 2017, abra o arquivo App.config. 
+1. No Visual Studio 2017, abra o arquivo appsettings.json. 
 
 2. No Portal do Azure, em sua conta do Azure Cosmos DB, clique em **Chaves** no painel de navegação esquerdo. 
 
     ![Exibir e copiar uma chave primária no portal do Azure, na página de Chaves](./media/create-graph-dotnet/keys.png)
 
-3. Copie o valor de**URI** do portal e transforme-o no valor da chave do Ponto de extremidade em App.config. Você pode usar o botão copiar, como na captura de tela anterior, para copiar o valor.
+3. Copie o valor de **URI** do portal e transforme-o no valor da chave do Ponto de extremidade no appsettings.json. Você pode usar o botão copiar, como na captura de tela anterior, para copiar o valor.
 
-    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+    `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
 4. Copie o valor da **CHAVE PRIMÁRIA** no portal e transforme-o no valor da chave AuthKey em App.config, depois salve suas alterações. 
 
-    `<add key="AuthKey" value="FILLME" />`
+    `"authkey": "FILLME"`
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Execute o aplicativo de console
 
+Antes de executar o aplicativo, é recomendável que você atualize o pacote *Microsoft.Azure.Graphs* para a versão mais recente.
+
 1. No Visual Studio, clique com o botão direito do mouse no projeto **GraphGetStarted** no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet**. 
 
-2. Na caixa **Procurar** do NuGet, digite *Microsoft.Azure.Graphs* e marque a caixa **Inclui pré-lançamento**. 
+2. Na guia **Atualizações** do Gerenciador de pacotes do NuGet, digite *Microsoft.Azure.Graphs* e marque a caixa **Inclui pré-lançamento**. 
 
-3. Com base nos resultados, instale a biblioteca **Microsoft.Azure.Graphs**. Isso instala o pacote da biblioteca de extensão gráfica do BD Cosmos do Azure e todas as dependências.
+3. Nos resultados, atualize a biblioteca **Microsoft.Azure.Graphs** para a versão mais recente do pacote. Isso instala o pacote da biblioteca de extensão gráfica do BD Cosmos do Azure e todas as dependências.
 
     Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
 
 4. Clique em CTRL + F5 para executar o aplicativo.
 
-   A janela do console exibe os vértices e bordas sendo adicionadas ao gráfico. Quando o script for concluído, pressione ENTER duas vezes para fechar a janela do console. 
+   A janela do console exibe os vértices e bordas sendo adicionadas ao gráfico. Quando o script for concluído, pressione ENTER duas vezes para fechar a janela do console.
 
 ## <a name="browse-using-the-data-explorer"></a>Navegar usando o Data Explorer
 
@@ -162,5 +169,4 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-
 

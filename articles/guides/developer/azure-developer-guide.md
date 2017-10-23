@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
+ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
 ## <a name="what-is-azure"></a>O que é o Azure?
@@ -55,15 +53,9 @@ O Azure oferece serviços que dão suporte ao desenvolvimento de aplicativos e n
 
 Ao buscar o caminho mais rápido para publicar seus projetos baseados na web, considere o Serviço de Aplicativo do Azure. O Serviço de Aplicativo facilita a extensão de seus aplicativos Web para oferecer suporte aos clientes móveis e publicar facilmente as APIs REST consumidas. Essa plataforma fornece autenticação utilizando provedores sociais, dimensionamento automático baseado em tráfego, teste em produção e implantações baseadas em contêiner e contínuas.
 
-Ao criar um aplicativo no Serviço de Aplicativo, você seleciona um dos seguintes tipos:
+Você pode criar aplicativos Web, back-ends de aplicativos móveis e aplicativos de API.
 
-- [Aplicativos Web](../../app-service-web/app-service-web-overview.md):   permite hospedar sites e aplicativos Web escritos em .NET, Java, PHP, Node.js e Python.
-
-- [Aplicativos Móveis](../../app-service-mobile/app-service-mobile-value-prop.md): estende aplicativos Web para suportar o acesso a partir de dispositivos móveis. Permite autenticação com provedores sociais e Azure AD (Azure Active Directory), fornece armazenamento de back-end e integra com [Hubs de Notificação do Azure](../../notification-hubs/notification-hubs-push-notification-overview.md) para notificações por push.
-
-- [Aplicativos de API](../../app-service-api/app-service-api-apps-why-best-platform.md):   permite expor de forma mais segura suas APIs na nuvem com metadados Swagger, de modo que os clientes possam facilmente consumi-los.
-
-Como todos os três tipos de aplicativos compartilham o tempo de execução do Serviço de Aplicativo, é possível hospedar um site, oferecer suporte a clientes móveis e expor suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o Serviço de Aplicativo, consulte [Como funciona o Serviço de Aplicativo](../../app-service/app-service-how-works-readme.md).
+Como todos os três tipos de aplicativos compartilham o tempo de execução do Serviço de Aplicativo, é possível hospedar um site, oferecer suporte a clientes móveis e expor suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o Serviço de Aplicativo, consulte [O que são Aplicativos Web do Azure](../../app-service/app-service-web-overview.md).
 
 O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a várias ferramentas para implantações de integração contínua e publicações, incluindo GitHub (webhooks), Jenkins, Visual Studio Team Services, TeamCity e outros.
 
@@ -71,7 +63,7 @@ O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a 
 
 >**Quando utilizar**: utilize o Serviço de Aplicativo ao migrar aplicativos Web existentes para o Azure e quando precisar de uma plataforma de hospedagem totalmente gerenciada para seus aplicativos Web. Al´me disso, é possível utilizar o Serviço de Aplicativo quando precisar dar suporte a clientes móveis ou expor APIs REST com seu aplicativo.
 
->**Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service-web/web-sites-dotnet-get-started.md), [aplicativo móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [aplicativo de API](../../app-service-api/app-service-api-dotnet-get-started.md).
+>**Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service/app-service-web-get-started-dotnet.md), [aplicativo móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [aplicativo de API](../../app-service/app-service-web-tutorial-rest-api.md).
 
 >**Experimente agora**: o Serviço de Aplicativo permite que você forneça um aplicativo de curta duração para experimentar a plataforma sem precisar inscrever-se em uma conta do Azure. Experimente a plataforma e [crie seu aplicativo do Serviço de Aplicativo do Azure](https://tryappservice.azure.com/).
 
@@ -130,7 +122,7 @@ A maioria dos aplicativos deve armazenar dados, portanto, independentemente de c
 
     >**Introdução**: [Compilar um aplicativo de console DocumentDB C#](../../documentdb/documentdb-get-started.md). Se você for um desenvolvedor do MongoDB, consulte [Suporte de protocolo DocumentDB para MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
 
-É possível utilizar o [Azure Data Factory](../../data-factory/data-factory-introduction.md) para mover dados locais existentes para o Azure. Caso não esteja pronto para mover dados para a nuvem, as [Conexões Híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) nos Serviços BizTalk permitem que você conecte o aplicativo hospedado no Serviço de Aplicativo para recursos locais. Além disso, é possível conectar-se aos dados do Azure e aos serviços de armazenamento a partir de seus aplicativos locais.
+É possível utilizar o [Azure Data Factory](../../data-factory/introduction.md) para mover dados locais existentes para o Azure. Caso não esteja pronto para mover dados para a nuvem, as [Conexões Híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) nos Serviços BizTalk permitem que você conecte o aplicativo hospedado no Serviço de Aplicativo para recursos locais. Além disso, é possível conectar-se aos dados do Azure e aos serviços de armazenamento a partir de seus aplicativos locais.
 
 #### <a name="docker-support"></a>Suporte ao Docker
 
@@ -196,7 +188,7 @@ Quer seja provisionando VMs ou publicando seus aplicativos Web com integração 
 
 >**Experimente agora:** [Experimente várias das integrações DevOps](https://azure.microsoft.com/try/devops/).
 
->**Introdução**: Para consultar as opções de DevOps para um aplicativo do Serviço de Aplicativo, consulte [Implantação contínua para Serviço de Aplicativo do Azure](../../app-service-web/app-service-continuous-deployment.md).
+>**Introdução**: Para consultar as opções de DevOps para um aplicativo do Serviço de Aplicativo, consulte [Implantação contínua para Serviço de Aplicativo do Azure](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Regiões do Azure
@@ -333,4 +325,3 @@ Embora seja um desafio estimar custos antecipadamente, o Azure possui uma [calcu
 Após implantar seu aplicativo ou solução no Azure será possível criar alertas, os quais enviarão emails para você ao se aproximar dos limites de gastos definidos no alerta.
 
 >**Introdução**: Para saber mais, consulte [Configurar alertas de cobrança de suas assinaturas do Microsoft Azure](../../billing-set-up-alerts.md).
-

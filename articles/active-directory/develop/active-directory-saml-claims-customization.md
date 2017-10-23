@@ -1,6 +1,6 @@
 ---
-title: "Personalizando as declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory | Microsoft Docs"
-description: "Saiba como personalizar as declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory"
+title: "Personalizando as declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory | Microsoft Docs"
+description: "Saiba como personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
+ms.openlocfilehash: 73f63300e65e1f6bc25edf7f28ec2769acbb7c9e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalizando as declarações emitidas no token SAML para aplicativos pré-integrados no Active Directory do Azure
-Hoje, o Azure Active Directory dá suporte a milhares de aplicativos pré-integrados na Galeria de Aplicativos do Azure AD, incluindo mais de 360 que dão suporte ao logon único usando o protocolo SAML 2.0. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando SAML, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory
+Hoje, o Azure Active Directory dá suporte a logon único com a maioria dos aplicativos empresariais, incluindo os dois aplicativos pré-integrados na galeria de aplicativos do Azure AD, bem como aplicativos personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
 
 Em linguagem de identificação, uma "declaração" são informações que um provedor de identidade declara sobre um usuário dentro do token que ele emite para esse usuário. No [Token SAML](http://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
 

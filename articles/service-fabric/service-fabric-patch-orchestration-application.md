@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
+ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
 O aplicativo de orquestração de patch é um aplicativo do Azure Service Fabric que automatiza a aplicação de patches do sistema operacional em um cluster do Service Fabric sem tempo de inatividade.
@@ -71,7 +69,7 @@ O aplicativo de orquestração de patch exige que o serviço do sistema do geren
 Clusters do Azure na camada de durabilidade prata têm o serviço do gerenciador de reparo habilitado por padrão. Clusters do Azure na camada de durabilidade ouro podem ou não ter o serviço do gerenciador de reparo habilitado, dependendo de quando esses clusters foram criados. Cluster do Azure na camada de durabilidade bronze, por padrão, não têm o serviço do gerenciador de reparo habilitado. Se o serviço já está habilitado, você pode ver ele em execução na seção de serviços do sistema no Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Portal do Azure
-Você pode habilitar o Gerenciador de reparo do portal do Azure no momento da configuração do cluster. Selecione a opção `Include Repair Manager` em `Add on features` no momento da configuração de cluster.
+Você pode habilitar o Gerenciador de reparo do portal do Azure no momento da configuração do cluster. Selecione a opção **Incluir Gerenciador de Reparos** em **Recursos de complemento** no momento da configuração do cluster.
 ![Imagem do Gerenciador de reparo de habilitação do portal do Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
@@ -427,4 +425,3 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 - Correções de bugs em torno do fluxo de trabalho de reinício do sistema.
 - Correção de bug na criação de tarefas RM devido à qual integridade seleção durante a preparação de tarefas de reparo não estava acontecendo conforme o esperado.
 - Alterado o modo de inicialização para o serviço windows POANodeSvc de auto para delayed-auto.
-

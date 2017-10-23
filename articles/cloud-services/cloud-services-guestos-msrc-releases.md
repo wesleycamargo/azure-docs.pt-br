@@ -12,17 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="september-guest-os"></a>SO convidado de setembro
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 17-09 | [4038782] |Atualizações do Windows 10 |5.11 |12 de setembro de 2017 |
+| Rel 17-09 | [4038779], [4038786], [4038793] |Somente Segurança do Windows |2.66, 3.53, 4.46 |12 de setembro de 2017 |
+| Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Atualização de setembro do .NET |2.66, 3.53, 4.46 |12 de setembro de 2017 |
+| Rel 17-09 | [4036586] |Internet Explorer |2.66, 3.53, 4.46 |12 de setembro de 2017 |
+| CVE-2017-8704 | [4038782] |Negação de Serviço |5.11 |12 de setembro de 2017 |
+| N/D | [4034664] |Pacote cumulativo de atualizações não relacionado à segurança de agosto  |2.66 |8 de agosto de 2017 |
+| N/D | [4034665] |Pacote cumulativo de atualizações não relacionado à segurança de agosto |5.11 |8 de agosto de 2017 |
+| N/D | [4034681] |Pacote cumulativo de atualizações não relacionado à segurança de agosto |4.46 |8 de agosto de 2017 |
 
 ## <a name="august-guest-os"></a>SO convidado de agosto
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -34,9 +45,9 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Lanç. 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 de agosto de 2017 |
 | Lanç. 17-07 | [4034664], [4034665], [4034681] |Pacotes Cumulativos de Atualizações Mensais do Windows |2.65, 3.52, 4.45 |8 de agosto de 2017 |
 | Lanç. 17-07 | [4034668], [4034660], [4034658], [4034674] |Relançamento de CVE-2017-0071, Relançamento de CVE-2017-0228 |5.10 |8 de agosto de 2017 |
-| Lanç. 17-07 | [4025341] |Pacote cumulativo de atualizações não relacionado à segurança de julho |2.65 |8 de agosto de 2017 |
-| Lanç. 17-07 | [4025331] |Pacote cumulativo de atualizações não relacionado à segurança de julho |3.52 |8 de agosto de 2017 |
-| Lanç. 17-07 | [4025336] |Pacote cumulativo de atualizações não relacionado à segurança de julho |4.45 |8 de agosto de 2017 |
+| Lanç. 17-07 | [4025341] |Pacote cumulativo de atualizações não relacionado à segurança de julho |2.65 |11 de julho de 2017 |
+| Lanç. 17-07 | [4025331] |Pacote cumulativo de atualizações não relacionado à segurança de julho |3.52 |11 de julho de 2017 |
+| Lanç. 17-07 | [4025336] |Pacote cumulativo de atualizações não relacionado à segurança de julho |4.45 |11 de julho de 2017 |
 
 ## <a name="july-guest-os"></a>SO convidado - julho
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -48,9 +59,9 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Lanç. 17-07 | [4025376] |Piscando |3.51, 4.44, 5.9 |11 de julho de 2017 |
 | Lanç. 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 de julho de 2017 |
 | N/D | [4020322] |Atualização de fuso horário |2.64, 3.51, 4.44 |11 de julho de 2017 |
-| N/D | [4022719] |Pacote cumulativo de atualizações não relacionado à segurança de junho |2.64 |11 de julho de 2017 |
-| N/D | [4022724] |Pacote cumulativo de atualizações não relacionado à segurança de junho |3.51 |11 de julho de 2017 |
-| N/D | [4022726] |Pacote cumulativo de atualizações não relacionado à segurança de junho |4.44 |11 de julho de 2017 |
+| N/D | [4022719] |Pacote cumulativo de atualizações não relacionado à segurança de junho |2.64 |13 de junho de 2017 |
+| N/D | [4022724] |Pacote cumulativo de atualizações não relacionado à segurança de junho |3.51 |13 de junho de 2017 |
+| N/D | [4022726] |Pacote cumulativo de atualizações não relacionado à segurança de junho |4.44 |13 de junho de 2017 |
 
 ## <a name="june-guest-os"></a>SO convidado de junho
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -65,20 +76,20 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Lanç. 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Relançamento de CVE-2017-0167 |4.43, 5.8 |11 de abril de 2017 |
 | N/D | [4023136] |Atualização de fuso horário  |2.63, 3.50, 4.43 |13 de junho de 2017 |
 | N/D | [4019264] |Pacote cumulativo de atualizações não relacionado à segurança de maio |2.63 |13 de junho de 2017 |
-| N/D | [4014545] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |13 de junho de 2017 |
-| N/D | [4014508] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |13 de junho de 2017 |
-| N/D | [4014511] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |13 de junho de 2017 |
-| N/D | [4014514] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63|13 de junho de 2017 |
-| N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.50 |13 de junho de 2017 |
-| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |13 de junho de 2017 |
-| N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |13 de junho de 2017 |
-| N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |13 de junho de 2017 |
-| N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |13 de junho de 2017 |
-| N/D | [4019215] |Pacote cumulativo de atualizações não relacionado à segurança de maio |4.43 |13 de junho de 2017 |
-| N/D | [4014505] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |13 de junho de 2017 |
-| N/D | [4014507] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |13 de junho de 2017 |
-| N/D | [4014510] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |13 de junho de 2017 |
-| N/D | [4014512] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |13 de junho de 2017 |
+| N/D | [4014545] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |11 de abril de 2017 |
+| N/D | [4014508] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
+| N/D | [4014511] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
+| N/D | [4014514] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
+| N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.50 |9 de maio de 2017 |
+| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | [4019215] |Pacote cumulativo de atualizações não relacionado à segurança de maio |4.43 |9 de maio de 2017 |
+| N/D | [4014505] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
+| N/D | [4014507] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
+| N/D | [4014510] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
+| N/D | [4014512] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
 
 ## <a name="may-guest-os"></a>SO convidado de maio
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -93,20 +104,20 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 17-05 | [4022345] |Comunicado de Segurança da Microsoft |5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | 9 de maio de 2017 |
 | N/D | [4012864] |Atualização de fuso horário |2.62, 3.49, 4.42 | 9 de maio de 2017 |
-| N/D | [4014565] |Rollup não relacionado à segurança de .NET de abril |2.62 | 9 de maio de 2017 |
-| N/D | [4014559] |Rollup não relacionado à segurança de .NET de abril |2.62 | 9 de maio de 2017 |
-| N/D | [4015549] |Rollup não relacionado à segurança de abril |2.62 | 9 de maio de 2017 |
+| N/D | [4014565] |Rollup não relacionado à segurança de .NET de abril |2.62 | 11 de abril de 2017 |
+| N/D | [4014559] |Rollup não relacionado à segurança de .NET de abril |2.62 | 11 de abril de 2017 |
+| N/D | [4015549] |Rollup não relacionado à segurança de abril |2.62 | 11 de abril de 2017 |
 | N/D | [4019990] |Atualização do D3DCompiler - requisito para .NET 4.7 |3.49 | 9 de maio de 2017 |
-| N/D | [4014563] |Rollup não relacionado à segurança de .NET de abril |3.49 | 9 de maio de 2017 |
-| N/D | [4014557] |Rollup não relacionado à segurança de .NET de abril |3.49 | 9 de maio de 2017 |
-| N/D | [4014545] |Rollup não relacionado à segurança de .NET de abril |3.49 | 9 de maio de 2017 |
-| N/D | [4014548] |Rollup não relacionado à segurança de .NET de abril |3.49 | 9 de maio de 2017 |
-| N/D | [4015551] |Rollup não relacionado à segurança de abril |3.49 | 9 de maio de 2017 |
-| N/D | [3173424] |Atualização da Pilha de Manutenção  |4.42 | 9 de maio de 2017 |
-| N/D | [4014555] |Rollup não relacionado à segurança de .NET de abril  |4.42 | 9 de maio de 2017 |
-| N/D | [4014567] |Rollup não relacionado à segurança de .NET de abril |4.42 | 9 de maio de 2017 |
-| N/D | [4015550] |Rollup não relacionado à segurança de abril |4.42 | 9 de maio de 2017 |
-| N/D | [4013418] |Atualização da Pilha de Manutenção |5.7 | 9 de maio de 2017 |
+| N/D | [4014563] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014557] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014545] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
+| N/D | [4014548] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
+| N/D | [4015551] |Rollup não relacionado à segurança de abril |3.49 | 11 de abril de 2017 |
+| N/D | [3173424] |Atualização da Pilha de Manutenção  |4.42 | 12 de julho de 2016 |
+| N/D | [4014555] |Rollup não relacionado à segurança de .NET de abril  |4.42 | 11 de abril de 2017 |
+| N/D | [4014567] |Rollup não relacionado à segurança de .NET de abril |4.42 | 11 de abril de 2017 |
+| N/D | [4015550] |Rollup não relacionado à segurança de abril |4.42 | 11 de abril de 2017 |
+| N/D | [4013418] |Atualização da Pilha de Manutenção |5.7 | 14 de março de 2017 |
 
 ## <a name="april-guest-os"></a>SO convidado de abril
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -524,6 +535,23 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
+
+[4038782]: http://support.microsoft.com/kb/4038782
+[4038779]: http://support.microsoft.com/kb/4038779
+[4038786]: http://support.microsoft.com/kb/4038786
+[4038793]: http://support.microsoft.com/kb/4038793
+[4040966]: http://support.microsoft.com/kb/4040966
+[4040960]: http://support.microsoft.com/kb/4040960
+[4040965]: http://support.microsoft.com/kb/4040965
+[4040959]: http://support.microsoft.com/kb/4040959
+[4033988]: http://support.microsoft.com/kb/4033988
+[4040955]: http://support.microsoft.com/kb/4040955
+[4040967]: http://support.microsoft.com/kb/4040967
+[4040958]: http://support.microsoft.com/kb/4040958
+[4036586]: http://support.microsoft.com/kb/4036586
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
 
 [4034658]: http://support.microsoft.com/kb/4034658
 [4034679]: http://support.microsoft.com/kb/4034679
@@ -956,4 +984,3 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
-

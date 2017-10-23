@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
+ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do local para o Azure
 
 
 Este artigo resume os componentes e as configurações com suporte do Azure Site Recovery durante a replicação e recuperação no Azure. Para saber mais sobre os requisitos do Azure Site Recovery, confira os [pré-requisitos](site-recovery-prereq.md).
+
+> [!NOTE]
+> Atualize para a versão mais recente do provedor e do agente de Site Recovery para obter compatibilidade com as atualizações na matriz de suporte.
 
 
 ## <a name="support-for-deployment-options"></a>Suporte para opções de implantação
@@ -237,4 +239,3 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentr
 
 ## <a name="next-steps"></a>Próximas etapas
 [Verificar pré-requisitos](site-recovery-prereq.md)
-

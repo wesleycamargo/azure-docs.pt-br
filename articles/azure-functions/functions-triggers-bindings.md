@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 O Azure Functions permite escrever código em resposta a eventos no Azure e outros serviços, por meio de *gatilhos* e *associações*. Este artigo é uma visão geral conceitual dos gatilhos e associações para todas as linguagens de programação com suporte. Recursos que são comuns a todas as associações são descritos aqui.
 
@@ -43,21 +41,21 @@ A tabela a seguir mostra os gatilhos e as associações com suporte no Azure Fun
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>Exemplo: gatilho de fila e associação de saída de tabela
 
-Suponha que você deseja gravar uma nova linha no Armazenamento de Tabelas do Azure sempre que uma nova mensagem aparece no Armazenamento de Filas do Azure. Esse cenário pode ser implementado usando um gatilho de Filas do Azure e uma associação de saída de Tabela. 
+Suponha que você deseja gravar uma nova linha no Armazenamento de Tabelas do Azure sempre que uma nova mensagem aparece no Armazenamento de Filas do Azure. Esse cenário pode ser implementado usando um gatilho da Fila do Azure e uma associação de saída do Armazenamento de Tabelas do Azure. 
 
-Um gatilho de fila requer as seguintes informações na guia **Integrar**:
+Um gatilho do Armazenamento de Filas do Azure requer as seguintes informações na guia **Integrar**:
 
-* O nome da configuração do aplicativo que contém a cadeia de conexão da conta de armazenamento para a fila
+* O nome da configuração do aplicativo que contém a cadeia de conexão da conta de Armazenamento do Azure para o Armazenamento de Filas do Azure
 * O nome da fila
 * O identificador em seu código para ler o conteúdo da mensagem da fila, como `order`.
 
 Para gravar no Armazenamento de Tabelas do Azure, use uma associação de saída com os seguintes detalhes:
 
-* O nome da configuração do aplicativo que contém a cadeia de conexão de conta de armazenamento para a tabela
+* O nome da configuração do aplicativo que contém a cadeia de conexão da conta de Armazenamento do Azure para o Armazenamento de Tabelas do Azure
 * O nome da tabela
 * O identificador em seu código para criar itens de saída, ou o valor retornado da função.
 
-Associações usam as configurações de aplicativo para cadeias de conexão para impor a melhor prática que dita que *function.json* não contêm segredos do serviço.
+As associações usam valores de cadeias de conexão armazenados nas configurações do aplicativo para impor a melhor prática de que *function.json* não contém segredos de serviço e, em vez disso, contém simplesmente os nomes das configurações do aplicativo.
 
 Em seguida, use os identificadores que você forneceu para integrar o Armazenamento do Azure em seu código.
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Associação da propriedade dataType
 
-No .NET, use os tipos para definir o tipo de dados para os dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila e uma matriz de bytes para ler como binário.
+No .NET, use os tipos para definir o tipo de dados para os dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto POCO.
 
 Para idiomas que são digitados dinamicamente como JavaScript, use a propriedade `dataType` na definição da associação. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, use o tipo `binary`:
 
@@ -213,7 +211,7 @@ Configurações do aplicativo também são úteis sempre que você desejar alter
 
 Configurações do aplicativo são resolvidas sempre que um valor está entre sinais de porcentagem, como `%MyAppSetting%`. Observe que a propriedade `connection` dos gatilhos e associações é um caso especial e resolve automaticamente os valores de configurações do aplicativo. 
 
-O exemplo a seguir é um gatilho de fila que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila de gatilho.
+O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila em que o gatilho é disparado.
 
 ```json
 {
@@ -233,7 +231,7 @@ O exemplo a seguir é um gatilho de fila que usa uma configuração de aplicativ
 
 Além do conteúdo dos dados fornecido por um gatilho (como a mensagem da fila que disparou uma função), vários gatilhos fornecem valores de metadados adicionais. Esses valores podem ser usados como parâmetros de entrada em C# e F# ou propriedades no objeto `context.bindings` em JavaScript. 
 
-Por exemplo, um gatilho de fila dá suporte às seguintes propriedades:
+Por exemplo, um gatilho da Fila do Armazenamento do Azure dá suporte às seguintes propriedades:
 
 * QueueTrigger – disparar o conteúdo da mensagem em caso de uma cadeia de caracteres válida
 * DequeueCount
@@ -245,7 +243,7 @@ Por exemplo, um gatilho de fila dá suporte às seguintes propriedades:
 
 Detalhes de propriedades de metadados para cada gatilho são descritos no tópico de referência correspondente. A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
 
-Por exemplo, como gatilhos de blobs apresentam alguns atrasos, você pode usar um gatilho de fila para executar sua função (consulte [Gatilho de Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-trigger). A mensagem da fila conteria o nome do arquivo a ser disparado no blob. Usando a propriedade de metadados `queueTrigger`, é possível especificar esse comportamento completo na sua configuração, em vez do código.
+Por exemplo, como gatilhos de blobs apresentam alguns atrasos, você pode usar um gatilho de fila para executar sua função (consulte [Gatilho do Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-trigger)). A mensagem da fila conteria o nome do arquivo a ser disparado no blob. Usando a propriedade de metadados `queueTrigger`, é possível especificar esse comportamento completo na sua configuração, em vez do código.
 
 ```json
   "bindings": [
@@ -428,4 +426,3 @@ Para saber mais sobre uma associação específica, consulte os artigos a seguir
 - [Hubs de Notificação](functions-bindings-notification-hubs.md)
 - [Aplicativos Móveis](functions-bindings-mobile-apps.md)
 - [Arquivo externo](functions-bindings-external-file.md)
-

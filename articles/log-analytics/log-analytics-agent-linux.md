@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2017
+ms.date: 09/29/2017
 ms.author: magoedte
+ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Conectar computadores Linux ao OMS (Operations Management Suite) 
 
 Com o OMS (Microsoft Operations Management Suite), você pode coletar e agir sobre os dados gerados em computadores Linux e soluções de contêiner como o Docker, residindo em seu data center local como servidores físicos ou máquinas virtuais, máquinas virtuais em um serviço hospedado em nuvem como AWS (Amazon Web Services) ou Microsoft Azure. Você também pode usar soluções de gerenciamento disponíveis no OMS, como Controle de Alterações, para identificar alterações de configuração e Gerenciamento de Atualizações para gerenciar atualizações de software para gerenciar proativamente o ciclo de vida das VMs Linux. 
@@ -75,7 +73,7 @@ O agente inclui vários pacotes. O arquivo de versão contém os seguintes pacot
 
 **Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | O Agente do Operations Management Suite para Linux
+omsagent | 1.4.1 | O Agente do Operations Management Suite para Linux
 omsconfig | 1.1.1 | Agente de configuração para o Agente do OMS
 omi | 1.2.0 | OMI (Open Management Infrastructure) – um servidor CIM leve
 scx | 1.6.3 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
@@ -94,8 +92,8 @@ O Agente do OMS para Linux compartilha arquivos binários de agente com o agente
 Após a instalação dos pacotes do Agente do OMS para Linux, serão aplicadas as seguintes alterações de configuração adicionais em todo o sistema. Esses artefatos serão removidos quando o pacote omsagent for desinstalado.
 
 * Um usuário sem privilégios chamado: `omsagent` é criado. O daemon omsagent é executado como essa conta.
-* Um arquivo "include" sudoers é criado em /etc/sudoers.d/omsagent. Isso autoriza o omsagent a reiniciar os daemons syslog e omsagent. Se o sudo incluir diretivas sem suporte na versão instalada do sudo, essas entradas serão gravadas em /etc/sudoers.
-* A configuração de syslog é modificada para encaminhar um subconjunto de eventos para o agente. Para saber mais, confira a seção **Configuração da Coleta de Dados** abaixo
+* Um arquivo "include" sudoers é criado em /etc/sudoers.d/omsagent. Esse arquivo autoriza o omsagent a reiniciar os daemons syslog e omsagent. Se o sudo incluir diretivas sem suporte na versão instalada do sudo, essas entradas serão gravadas em /etc/sudoers.
+* A configuração de syslog é modificada para encaminhar um subconjunto de eventos para o agente. Para saber mais, confira a seção **Configuração da Coleta de Dados** abaixo.
 
 ### <a name="upgrade-from-a-previous-release"></a>Atualizar de uma versão anterior
 A atualização de versões anteriores à 1.0.0-47 tem suporte nesta versão. Executar a instalação com o comando `--upgrade` atualizará todos os componentes do agente para a versão mais recente.
@@ -106,7 +104,7 @@ Esta seção descreve como instalar o agente do OMS para Linux usando um pacote,
 
 Primeiro, você precisa da ID e chave de seu espaço de trabalho do OMS, que podem ser encontradas alternando para o [Portal Clássico do OMS](https://mms.microsoft.com).  Na página **Visão geral**, no menu superior, selecione **Configurações** e, em seguida, navegue até **Fontes Conectadas\Servidores Linux**.  Você verá o valor à direita da **ID do Espaço de Trabalho** e **Chave Primária**.  Copie e cole os dois em seu editor favorito.    
 
-1. Baixe o versão mais recente [agente do OMS para Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) ou [agente do OMS para Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) do GitHub.  
+1. Baixe o versão mais recente [agente do OMS para Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) ou [agente do OMS para Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh) do GitHub.  
 2. Transfira o pacote apropriado (x86 ou x64) para seu computador Linux usando scp/sftp.
 3. Instale o pacote usando o argumento `--install` ou `--upgrade`. 
 
@@ -237,7 +235,7 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
 * Os Pontos de Extremidade do Serviço OMS não estão na lista de permissões do seu datacenter 
 
 #### <a name="resolutions"></a>Resoluções
-1. Reintegre ao Serviço OMS com o Agente do OMS para Linux usando o seguinte comando com a opção `-v` habilitada. Isso permite a saída detalhada do agente que está se conectando por meio do proxy ao Serviço OMS. 
+1. Reintegre ao Serviço OMS com o Agente do OMS para Linux usando o seguinte comando com a opção `-v` habilitada. Esse settubg permite a saída detalhada do agente que está se conectando por meio do proxy ao Serviço OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Examine a seção [Configurando o agente para ser usado com um servidor proxy ou um gateway do OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) para verificar se você configurou corretamente o agente para se comunicar por meio de um servidor proxy.    
@@ -263,7 +261,7 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
 3. Reintegre usando a ID do Espaço de Trabalho e a Chave do Espaço de Trabalho corretas seguindo as instruções de instalação descritas anteriormente neste tópico.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você vê um erro 404 e 500 no arquivo de log logo após a integração
-Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do OMS. Isso não afeta os dados sendo enviados ou a experiência do serviço.
+Esse erro é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do OMS. Esse erro não afeta os dados que são enviados ou a experiência do serviço.
 
 ### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: você não está vendo nenhum dado no portal do OMS
 
@@ -281,5 +279,4 @@ Esse é um problema conhecido que ocorre durante o primeiro upload de dados do L
 
     >[!NOTE]
     >Esse problema foi corrigido nas versões 1.1.0-28 e posteriores do Agente.
-
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 53059c09d454dedbd65ef188a0dd91d497b0e502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modelo de recurso hierárquico e principais conceitos do Azure Cosmos DB
 As entidades de banco de dados gerenciadas pelo Azure Cosmos DB são chamadas de **recursos**. Cada recurso é identificado de maneira exclusiva por um URI lógico. Você pode interagir com os recursos usando verbos de HTTP padrão, cabeçalhos de solicitação/resposta e códigos de status. 
@@ -462,5 +461,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [Interaçõ
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
 

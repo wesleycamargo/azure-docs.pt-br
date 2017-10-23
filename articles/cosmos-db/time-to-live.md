@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
@@ -42,7 +41,7 @@ O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de 
    * A propriedade será aplicável somente se houver uma DefaultTTL para a coleção pai.
    * Substitui o valor de DefaultTTL da coleção pai.
 
-Assim que o documento tiver expirado (`ttl` + `_ts` >= hora atual do servidor), o documento será marcado como "expirado". Nenhuma operação será permitida nesses documentos após esse período e elas serão excluídas dos resultados de todas as consultas executadas. Os documentos são excluídos fisicamente no sistema e são excluídos em segundo plano oportunamente em um momento posterior. Isso não consome nenhuma [RU (Unidade de Solicitação)](request-units.md) do orçamento da coleção.
+Assim que o documento tiver expirado (`ttl` + `_ts` <= hora atual do servidor), o documento será marcado como "expirado". Nenhuma operação será permitida nesses documentos após esse período e elas serão excluídas dos resultados de todas as consultas executadas. Os documentos são excluídos fisicamente no sistema e são excluídos em segundo plano oportunamente em um momento posterior. Isso não consome nenhuma [RU (Unidade de Solicitação)](request-units.md) do orçamento da coleção.
 
 A lógica acima pode ser mostrada na matriz a seguir:
 
@@ -174,5 +173,4 @@ Sim. A coleção deve ter uma [política de indexação definida](indexing-polic
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Azure Cosmos DB, consulte a página de [*documentação*](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço.
-
 

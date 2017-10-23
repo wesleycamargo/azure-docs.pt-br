@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7d7676be26a8b68ab9fda18388e2b8cd5ed5f60b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 2ce497146abf664b0084cd96963523812f166e3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -137,3 +135,76 @@ Consulte o documento de diretrizes a seguir:
 
 Observe que uma CSR é apenas um arquivo de texto. Ela NÃO precisa ser criada no computador em que o certificado, por fim, será usado. Embora este documento tenha sido escrito para um Serviço de Aplicativo, a criação de CSR é genérica e também se aplica a Serviços de Nuvem.
 
+## <a name="how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way"></a>Como adicionar uma extensão antimalware para os Serviços de Nuvem de maneira automatizada?
+
+É possível habilitar a extensão Antimalware usando o script do PowerShell na Tarefa de Inicialização. Siga as etapas nestes artigos para implementá-la: 
+ 
+- [Criar uma tarefa de inicialização do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+
+Para obter mais informações sobre cenários de implantação do Antimalware e como habilitá-lo no portal, consulte [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios) (Cenários de implantação de Antimalware).
+
+## <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Como habilitar a SNI (Indicação de Nome de Servidor) para Serviços de Nuvem?
+
+É possível habilitar a SNI nos Serviços de Nuvem usando um dos seguintes métodos:
+
+### <a name="method-1-use-powershell"></a>Método 1: usar o PowerShell
+
+A associação de SNI pode ser configurada usando o cmdlet do PowerShell **New-WebBinding** em uma tarefa de inicialização para uma instância de função do serviço de nuvem conforme descrito abaixo:
+    
+    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
+    
+Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
+
+|Valor|Significado|
+------|------
+|0|Nenhuma SNI|
+|1|SNI habilitada |
+|2 |Nenhuma associação de SNI que usa o Repositório de certificados central|
+|3|Associação de SNI que usa o Repositório de certificados central |
+ 
+### <a name="method-2-use-code"></a>Método 2: código de uso
+
+A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+
+    
+    //<code snip> 
+                    var serverManager = new ServerManager(); 
+                    var site = serverManager.Sites[0]; 
+                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
+                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    serverManager.CommitChanges(); 
+    //</code snip> 
+    
+Usando qualquer uma das abordagens acima, os respectivos certificados (*.pfx) para os nomes do host específicos precisam ser instaladas primeiro nas instâncias de função usando uma tarefa de inicialização ou por meio de código para que a associação de SNI entre em vigor.
+
+## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Como adicionar marcas ao meu Serviço de Nuvem do Azure? 
+
+O Serviço de Nuvem é um recurso clássico. Somente os recursos criados por meio do Azure Resource Manager oferecem suporte a marcas. Não é possível aplicar marcas a recursos clássicos como o Serviço de Nuvem. 
+
+## <a name="how-to-enable-http2-on-cloud-services-vm"></a>Como habilitar o HTTP/2 na VM dos Serviços de Nuvem?
+
+O Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente e do servidor. Se seu cliente (navegador) estiver se conectando ao servidor do IIS sobre TLS que negocia HTTP/2 por meio de extensões do TLS, então não será necessário fazer nenhuma alteração no lado do servidor. Isso ocorre porque, por TLS, o cabeçalho h2-14 que especifica o uso de HTTP/2 é enviado por padrão. Se, por outro lado, o cliente estiver enviando um cabeçalho de atualização a ser atualizado para HTTP/2, será necessário fazer a alteração abaixo no lado do servidor para garantir que a atualização funcione e que você termine com uma conexão HTTP/2. 
+
+1. Execute regedit.exe.
+2. Navegue até a chave do Registro: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+3. Crie um novo valor DWORD chamado **DuoEnabled**.
+4. Defina seu valor como 1.
+5. Reinicie seu servidor.
+6. Vá para o **Site da Web padrão** e, em **Associações**, crie uma nova associação TLS com o certificado autoassinado recém-criado. 
+
+Para obter mais informações, consulte:
+
+- [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
+- [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+         
+
+Observe que as etapas acima poderiam ser automatizadas por meio de uma tarefa de inicialização. Assim, sempre que uma nova instância PaaS for criada, ela poder á fazer as alterações acima no Registro do sistema. Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
+
+ 
+Quando isso tiver sido feito, será possível verificar se o HTTP/2 foi habilitado ou não usando um dos métodos a seguir:
+
+- Habilite a versão do protocolo nos logs do IIS e examine os logs do IIS. Ela mostrará HTTP/2 nos logs. 
+- Habilite a Ferramenta do desenvolvedor F12 no Internet Explorer/Edge e mude para a guia Rede para verificar o protocolo. 
+
+Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 no IIS).

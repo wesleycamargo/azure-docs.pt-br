@@ -12,17 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/20/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: a6d44d810fa9f9a4660afbaa4cbb0af37c5e0d13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 7322570c90b3c83fc79d428a7ac0b57ecb2e4b75
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
 Esse script de exemplo cria um cluster do Service Fabric, um cluster de cinco nós protegido com um certificado X.509.  O comando cria um certificado autoassinado e o carrega em um novo cofre de chaves. O certificado também é copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós de cluster.  Personalize os parâmetros conforme necessário.
@@ -31,7 +29,7 @@ Se necessário, instale o Azure PowerShell usando as instruções encontradas no
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Criar um cluster do Service Fabric")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -55,4 +53,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Mais exemplos do Azure PowerShell para o Azure Service Fabric podem ser encontrados nos [exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).
-

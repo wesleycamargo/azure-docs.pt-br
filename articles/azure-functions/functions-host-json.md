@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 96103e7014212ecaa3e4e9238ae3b9c7a851cca9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: e836ccd204ff06e1eb0494cb392e781f29fdf421
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hostjson-reference-for-azure-functions"></a>Referência de host.json para Azure Functions
 
 O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis. O esquema JSON está em http://json.schemastore.org/host.
@@ -32,7 +30,7 @@ Há outras opções de configuração global em [configurações de aplicativo](
 
 O arquivo *host.json* de exemplo a seguir tem todas as opções especificadas possíveis.
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -101,7 +99,7 @@ As seções seguintes deste artigo explicam cada propriedade de nível superior.
 
 Especifica quantas invocações de função são agregadas ao [calcular métricas para o Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -121,7 +119,7 @@ As invocações de função são agregadas quando o primeiro dos dois limites é
 
 Controla o [recurso de amostragem no Application Insights](functions-monitoring.md#configure-sampling).
 
-```javascript
+```json
 {
     "applicationInsights": {
         "sampling": {
@@ -141,7 +139,7 @@ Controla o [recurso de amostragem no Application Insights](functions-monitoring.
 
 Parâmetro de configuração para [gatilhos e associações de Hub de Eventos](functions-bindings-event-hubs.md).
 
-```javascript
+```json
 {
     "eventHub": {
       "maxBatchSize": 64,
@@ -161,7 +159,7 @@ Parâmetro de configuração para [gatilhos e associações de Hub de Eventos](f
 
 Uma lista de funções que o host de trabalho executará.  Uma matriz vazia significa que todas as funções serão executadas.  Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de função, use a propriedade *function.json* `disabled` em vez da propriedade em *host.json*.
 
-```javascript
+```json
 {
     "functions": [ "QueueProcessor", "GitHubWebHook" ]
 }
@@ -171,7 +169,7 @@ Uma lista de funções que o host de trabalho executará.  Uma matriz vazia sign
 
 Indica a duração do tempo limite para todas as funções. Nos planos de consumo, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é de 5 minutos. Nos planos de Serviço de Aplicativo, não há limite e o valor padrão é nulo, o que indica que não há nenhum tempo limite.
 
-```javascript
+```json
 {
     "functionTimeout": "00:05:00"
 }
@@ -181,7 +179,7 @@ Indica a duração do tempo limite para todas as funções. Nos planos de consum
 
 Parâmetros de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
 
-```javascript
+```json
 {
     "http": {
         "routePrefix": "api",
@@ -203,7 +201,7 @@ Parâmetros de configuração para [gatilhos e associações http](functions-bin
 
 A ID exclusiva do host de trabalho. Pode ser uma GUID em letras minúsculas, sem traços. Obrigatório ao executar localmente. Quando em execução no Azure Functions, uma ID será gerada automaticamente se `id` for omitido.
 
-```javascript
+```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
 }
@@ -213,7 +211,7 @@ A ID exclusiva do host de trabalho. Pode ser uma GUID em letras minúsculas, sem
 
 Controles de filtragem de logs gravados por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
-```javascript
+```json
 {
     "logger": {
         "categoryFilter": {
@@ -238,7 +236,7 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 
 Parâmetros de configuração para [gatilhos e associações de Armazenamento](functions-bindings-storage-queue.md).
 
-```javascript
+```json
 {
     "queues": {
       "maxPollingInterval": 2000,
@@ -262,7 +260,7 @@ Parâmetros de configuração para [gatilhos e associações de Armazenamento](f
 
 Parâmetro de configuração para [gatilhos e associações do Barramento de Serviço](functions-bindings-service-bus.md).
 
-```javascript
+```json
 {
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -282,7 +280,7 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 
 Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para obter mais informações, consulte [Problema com o GitHub referente ao suporte de singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
-```javascript
+```json
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -305,7 +303,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 Parâmetros de configuração para logs que você cria usando um objeto `TraceWriter`. Consulte [Registro de logs em C#](functions-reference-csharp.md#logging) e [Registro de logs em Node.js](functions-reference-node.md#writing-trace-output-to-the-console). 
 
-```javascript
+```json
 {
     "tracing": {
       "consoleLevel": "verbose",
@@ -323,11 +321,26 @@ Parâmetros de configuração para logs que você cria usando um objeto `TraceWr
 
 Um conjunto de [diretórios de código compartilhado](functions-reference-csharp.md#watched-directories) que devem ser monitorados quanto a alterações.  Garante que, quando o código nesses diretórios é alterado, as alterações sejam coletadas pelas funções.
 
-```javascript
+```json
 {
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## <a name="durabletask"></a>durableTask
+
+Nome do [hub de tarefas](durable-functions-task-hubs.md) para [Funções duráveis](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub"
+  }
+}
+```
+
+Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome do hub de tarefas padrão de um aplicativo de funções será **DurableFunctionsHub**. Para obter mais informações, consulte [Hubs de tarefas](durable-functions-task-hubs.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -336,4 +349,3 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 
 > [!div class="nextstepaction"]
 > [Consulte as configurações globais em variáveis de ambiente](functions-app-settings.md)
-

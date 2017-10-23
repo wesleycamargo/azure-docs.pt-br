@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: adcf9ddc0044da9bce1ab584d54cec66055ee0ad
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
@@ -234,7 +233,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 <a id="reference" />
 
 ## <a name="reference"></a>reference
-`reference(resourceName or resourceIdentifier, [apiVersion])`
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Retorna um objeto que representa o estado de tempo de execução de um recurso.
 
@@ -244,10 +243,11 @@ Retorna um objeto que representa o estado de tempo de execução de um recurso.
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. |
 | apiVersion |Não |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. |
+| 'Full' |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
+Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Além disso, o valor retornado será diferente caso você tenha especificado o objeto completo. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
 
 ### <a name="remarks"></a>Comentários
 
@@ -271,6 +271,32 @@ Normalmente, você usa a função **reference** para retornar um valor específi
     }
 }
 ```
+
+Use `'Full'` quando precisar de valores de recurso que não fizerem parte do esquema de propriedades. Por exemplo, para definir políticas de acesso ao cofre de chaves, obtenha as propriedades de identidade de uma máquina virtual.
+
+```json
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "properties": {
+    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "accessPolicies": [
+      {
+        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "permissions": {
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ]
+        }
+      }
+    ],
+    ...
+```
+
+Para ver o exemplo completo do modelo anterior, consulte [Do Windows para o Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Um exemplo semelhante está disponível para [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### <a name="example"></a>Exemplo
 
@@ -304,16 +330,20 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
       "referenceOutput": {
           "type": "object",
           "value": "[reference(parameters('storageAccountName'))]"
+      },
+      "fullReferenceOutput": {
+        "type": "object",
+        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
       }
     }
 }
 ``` 
 
-O exemplo anterior retorna um objeto no seguinte formato:
+O exemplo anterior retorna os dois objetos. O objeto de propriedades tem o seguinte formato:
 
 ```json
 {
-   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "creationTime": "2017-10-09T18:55:40.5863736Z",
    "primaryEndpoints": {
      "blob": "https://examplestorage.blob.core.windows.net/",
      "file": "https://examplestorage.file.core.windows.net/",
@@ -324,6 +354,43 @@ O exemplo anterior retorna um objeto no seguinte formato:
    "provisioningState": "Succeeded",
    "statusOfPrimary": "available",
    "supportsHttpsTrafficOnly": false
+}
+```
+
+O objeto completo tem o seguinte formato:
+
+```json
+{
+  "apiVersion":"2016-12-01",
+  "location":"southcentralus",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.windows.net/",
+      "file":"https://examplestorage.file.core.windows.net/",
+      "queue":"https://examplestorage.queue.core.windows.net/",
+      "table":"https://examplestorage.table.core.windows.net/"
+    },
+    "primaryLocation":"southcentralus",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2016-12-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
 }
 ```
 
@@ -659,5 +726,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 * Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
-
 

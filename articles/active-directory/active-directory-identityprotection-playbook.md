@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 Este guia estratégico vai ajudá-lo a:
@@ -109,7 +109,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 11. Clique em **Salvar**.
 12. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco do usuário for Médio, dependendo da configuração da política, sua entrada será bloqueada ou você será forçado a alterar a senha. 
     <br><br>
-    ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "manual")
+    ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Guia estratégico")
     <br>
 
 ## <a name="sign-in-risk"></a>Risco de entrada
@@ -119,7 +119,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 2. Navegue até **Identity Protection**.
 3. Na folha principal de **Azure AD Identity Protection**, clique em **Configurações**. 
 4. Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de entrada**.
-5. Sobre o * * entrar risco * * folha, selecione **em** em **Habilitar regra**. 
+5. Na folha **Risco de Entrada**, selecione **Ativado** em **Habilitar regra**. 
 6. Selecione uma das seguintes opções:
    
    a. Para bloquear, selecione **Médio** em **Bloquear entrada**

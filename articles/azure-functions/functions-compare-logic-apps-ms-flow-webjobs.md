@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
 Este artigo compara e contrasta os seguintes serviços na nuvem da Microsoft, que podem todos solucionar problemas de integração e automatizar processos de negócios:
@@ -48,7 +47,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 
 |  | Flow | Aplicativos Lógicos |
 | --- | --- | --- |
-| Público-alvo |funcionários do escritório, usuários de negócios |profissionais de TI, desenvolvedores |
+| Público-alvo |Funcionários do escritório, usuários de negócios |profissionais de TI, desenvolvedores |
 | Cenários |Autoatendimento |Essenciais |
 | Ferramenta de design |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
 | DevOps |Ad-hoc, desenvolver em produção |controle de origem, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
@@ -78,19 +77,21 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
 
 |  | Funções | Trabalhos Web |
 | --- | --- | --- |
-| Dimensionamento |Dimensionamento sem configuração |dimensionar com Plano do Serviço de Aplicativo |
+| Dimensionamento |Dimensionamento sem configuração |Dimensionar com o Plano do Serviço de Aplicativo |
 | Preços |Pagamento por uso ou parte de Plano do Serviço de Aplicativo |Parte do Plano do Serviço de Aplicativo |
-| Executar-tipo |disparado, agendado (pelo gatilho de temporizador) |acionado, contínuo, agendado |
-| Eventos de gatilho |[temporizador](functions-bindings-timer.md), [Banco de Dados Cosmos do Azure](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage-blob.md) |[Armazenamento do Azure](functions-bindings-storage-blob.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md) |
-| Desenvolvimento no navegador |com suporte | sem suporte |
-| Scripts do Windows (.cmd, .bat) |experimental |com suporte |
-| PowerShell |experimental |com suporte |
-| C# |com suporte |com suporte |
-| F# |com suporte |sem suporte |
-| Bash |experimental |com suporte |
-| PHP |experimental |com suporte |
-| Python |experimental |com suporte |
-| JavaScript |com suporte |com suporte |
+| Executar-tipo |Disparado, agendado (pelo gatilho de temporizador) |Disparado, contínuo, agendado |
+| Eventos de gatilho |[Temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](functions-bindings-storage-blob.md) |[Armazenamento do Azure](functions-bindings-storage-blob.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md) |
+| Desenvolvimento no navegador |Suportado |Sem suporte |
+| C# |Suportado |Suportado |
+| F# |Suportado |Sem suporte |
+| JavaScript |Suportado |Suportado |
+| Java |Suportado | Sem suporte |
+| Bash |Experimental |Suportado |
+| Scripts do Windows (.cmd, .bat) |Experimental |Suportado |
+| PowerShell |Experimental |Suportado |
+| PHP |Experimental |Suportado |
+| Python |Experimental |Suportado |
+| TypeScript |Experimental |Sem suporte |
 
 O uso do Functions ou do WebJobs depende do que você já está fazendo com o Serviço de Aplicativo. Se você tiver um aplicativo do Serviço de Aplicativo para o qual deseja executar trechos de código e quiser gerenciá-los juntos no mesmo ambiente DevOps, use o WebJobs. Nos cenários a seguir, use o Functions.
 
@@ -123,5 +124,4 @@ Ou saiba mais sobre esses serviços de integração com os links abaixo:
 * [Integração simplificada, por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast ao vivo de Aplicativos Lógicos](http://aka.ms/logicappslive)
 * [Perguntas frequentes sobre o Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

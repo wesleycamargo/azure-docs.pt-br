@@ -12,17 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
+ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 70a869ac428efa0af93adbb5ee78ebc83a13a785
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyzers-in-azure-search"></a>Analisadores no Azure Search
 
-Um *analisador* é um componente da [pesquisa de texto completa](search-lucene-query-architecture.md), responsável pelo processamento de texto em cadeias de caracteres de consulta e o conteúdo de documentos indexados. Durante a indexação, um analisador transforma o texto em tokens, que são gravados como termos no índice. Durante a pesquisa, um analisador executa as mesmas transformações em termos de consulta usados para recuperar documentos com os termos correspondentes do índice.
+Um *analisador* é um componente da [pesquisa de texto completa](search-lucene-query-architecture.md), responsável pelo processamento de texto em cadeias de caracteres de consulta e os documentos indexados. Durante a indexação, um analisador transforma o texto em *tokens*, que são gravados como *termos indexados* no índice. Durante a pesquisa, um analisador executa as mesmas transformações em *termos de consulta*, fornecendo a base para a correspondência de termos no índice.
 
 As transformações a seguir são comuns durante a análise:
 
@@ -31,7 +29,7 @@ As transformações a seguir são comuns durante a análise:
 + Palavras de letras maiúsculas estão em minúsculas.
 + As palavras são reduzidas para formas raiz, de modo que uma correspondência pode ser encontrada independentemente da conjugação.
 
-O Azure Search fornece um analisador padrão. Você pode substituí-lo campo por campo usando um analisador alternativo. A finalidade deste artigo é descrever a faixa de opções e fornecer práticas recomendadas para personalizar o processo de análise lexical para um determinado campo. Ele também mostra exemplos de configurações para os principais cenários.
+O Azure Search usa o [analisador Lucene Standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como padrão. Você pode substituir o padrão campo por campo. Este artigo descreve a faixa de opções e oferece melhores práticas para a análise personalizada. Ele também fornece exemplos de configurações para os principais cenários.
 
 ## <a name="supported-analyzers"></a>Analisadores com suporte
 
@@ -40,24 +38,24 @@ A lista a seguir descreve quais analisadores têm suporte no Azure Search.
 | Categoria | Descrição |
 |----------|-------------|
 | [Analisador Lucene padrão](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Padrão. Nenhuma especificação ou a configuração é necessária. Esse analisador de uso geral funciona bem para a maioria dos idiomas e cenários.|
-| Analisadores predefinidos | Oferecidos como um produto acabado se destina a ser usado no estado em que se encontra, com personalização limitada. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) para entradas de texto que exigem processamento especializados ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding**, **Palavra-chave**, **Padrão**, **Simples**, **Interromper**, **Espaço em branco**.<br/><br/>[Analisadores de idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) fornecem suporte linguístico avançado para idiomas individuais. O Azure Search dá suporte a 35 analisadores de idioma Lucene e 50 analisadores de processamento de idioma natural Microsoft. |
+| Analisadores predefinidos | Oferecidos como um produto acabado se destina a ser usado no estado em que se encontra, com personalização limitada. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) para entradas de texto que exigem processamento especializados ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding**, **Palavra-chave**, **Padrão**, **Simples**, **Interromper**, **Espaço em branco**.<br/><br/>[Analisadores de idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Search dá suporte a 35 analisadores de idioma Lucene e 50 analisadores de processamento de idioma natural Microsoft. |
 |[Analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Uma configuração definida pelo usuário de uma combinação de elementos existentes, consistindo de um tokenizador (obrigatório) e filtros opcionais (char ou token).|
 
 Você pode personalizar um analisador predefinido, como **Padrão** ou **Interromper**, para usar opções alternativas documentadas em [Referência do analisador predefinido](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Apenas alguns dos analisadores predefinidos têm opções que você pode definir. Como com qualquer personalização, forneça sua nova configuração com um nome, como *myPatternAnalyzer* para distingui-lo do analisador de Padrões Lucene.
 
 ## <a name="how-to-specify-analyzers"></a>Como especificar os analisadores
 
-1. Somente para os analisadores personalizados, crie uma seção `analyzer` na definição do índice. Para obter mais informações, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e também [Analisadores Personalizados > Criar](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
+1. (somente para os analisadores personalizados) Crie uma seção **analyzer** na definição do índice. Para obter mais informações, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e também [Analisadores Personalizados > Criar](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. Em cada campo pesquisável para o qual você deseja usar o analisador, defina a propriedade `analyzer` para o nome de um analisador de destino em um [definição de campo no índice](https://docs.microsoft.com/rest/api/searchservice/create-index). Os valores válidos incluem um analisador predefinido, um analisador de idioma ou um analisador personalizado definido anteriormente no esquema de índice.
+2. Em uma [definição de campo](https://docs.microsoft.com/rest/api/searchservice/create-index) no índice, defina a propriedade **analyzer** para o nome de um analisador de destino (por exemplo, `"analyzer" = "keyword"`). Os valores válidos incluem um nome de analisador predefinido, um analisador de idioma ou um analisador personalizado também definido no esquema de índice.
 
-  Como alternativa, em vez de uma propriedade `analyzer`, você pode definir diferentes analisadores para indexação e consulta usando os parâmetros de campo `indexAnalyzer` e `searchAnalyzer`. 
+3. Opcionalmente, em vez de uma propriedade **analyzer**, você pode definir diferentes analisadores para indexação e consulta usando os parâmetros de campo **indexAnalyzer** e **searchAnalyzer`**. 
 
-3. A análise ocorre durante a indexação. Se você adicionar um `analyzer` a um índice existente, observe as seguintes etapas:
+3. Adicionar um analisador a uma definição de campo incorre em uma operação de gravação no índice. Se você adicionar um **analyzer** a um índice existente, observe as seguintes etapas:
  
  | Cenário | Etapas |
  |----------|-------|
- | Adicione um novo campo (ainda não indexado). | A análise ocorre quando você adiciona ou atualiza os documentos que fornecem conteúdo para o novo campo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
+ | Adicionar um novo campo | Se o campo ainda não existir no esquema, não haverá nenhuma revisão de campo a ser feita. A análise de texto ocorre sempre que você adiciona ou atualiza os documentos que fornecem conteúdo para o novo campo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
  | Adicione um analisador a um campo indexado existente. | O índice invertido para esse campo deve ser recriado desde o início do backup e o conteúdo do documento para esses campos deve ser reindexado. <br/> <br/>Para índices em desenvolvimento ativo, [exclua](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [crie](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice para acompanhar a nova definição de campo. <br/> <br/>Para os índices em produção, você deve criar um novo campo para fornecer a definição revisada e começar a usá-lo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar o novo campo. Posteriormente, como parte da manutenção planejada do índice, será possível limpar o índice para remover campos obsoletos. |
 
 ## <a name="best-practices"></a>Práticas recomendadas
@@ -267,4 +265,3 @@ Campos que contêm cadeias de caracteres em idiomas diferentes podem usar um ana
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
-

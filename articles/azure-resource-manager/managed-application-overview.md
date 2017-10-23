@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
 Os fornecedores que usam Azure podem oferecer soluções para clientes no mundo todo. O Azure Marketplace é uma galeria composta por centenas de modelos complexos com vários recursos próprios e de terceiros. Em questão de minutos, os clientes podem implantar e começar a usar aplicativos PaaS (plataforma como serviço) e SaaS (software como serviço). 
@@ -56,16 +54,14 @@ Para obter informações sobre como consumir um aplicativo gerenciado do Marketp
 ## <a name="key-concepts"></a>Principais conceitos
 
 ### <a name="managed-resource-group"></a>Grupo de recursos gerenciado
-O grupo de recursos gerenciado é onde todos os recursos do Azure provisionados no modelo são criados. Por exemplo, se o dispositivo for usado para criar uma conta de armazenamento, esse grupo de recursos conterá o recurso de conta de armazenamento. Ele não contém o recurso de dispositivo.
+O grupo de recursos gerenciado é onde todos os recursos do Azure provisionados no modelo são criados. Por exemplo, se o aplicativo for usado para criar uma conta de armazenamento, esse grupo de recursos conterá o recurso de conta de armazenamento. Ele não conterá o recurso do aplicativo.
 
-### <a name="appliance-package"></a>Pacote de dispositivo
-O editor cria um pacote que contém os arquivos de modelo e o arquivo createUIDefinition. Especificamente, ele contém os seguintes arquivos:
+### <a name="application-package"></a>Pacote de aplicativos
+O editor cria um pacote que contém o arquivo de modelo e o arquivo createUIDefinition. Especificamente, ele contém os seguintes arquivos:
 
-- **applianceMainTemplate.json**: esse arquivo de modelo define todos os recursos que são provisionados pelo dispositivo. Esse arquivo é um arquivo de modelo regular usado para a criação de recursos.
+- **mainTemplate.json**: esse arquivo de modelo define todos os recursos que são provisionados pelo aplicativo. Esse arquivo é um arquivo de modelo regular usado para a criação de recursos.
 
-- **MainTemplate.json**: esse arquivo de modelo define o recurso de dispositivo (Microsoft.Solutions/appliances). Uma propriedade essencial definida neste recurso é o ManagedResourceGroupId. Essa propriedade indica qual grupo de recursos é usado para hospedar recursos reais definidos em applianceMainTemplate.json.
-
-- **applianceCreateUIDefinition.json**: esse arquivo descreve como a interface do usuário necessária para os parâmetros definidos no modelo é processada.
+- **createUIDefinition.json**: esse arquivo descreve como a interface do usuário necessária para os parâmetros definidos no modelo é renderizada.
 
 ### <a name="authorization"></a>Autorização
 O publicador precisa especificar as permissões exigidas pelo fornecedor para gerenciar os recursos em nome do cliente. Essa permissão se aplica ao grupo de recursos gerenciado. Defina os seguintes valores:
@@ -81,4 +77,3 @@ O publicador precisa especificar as permissões exigidas pelo fornecedor para ge
 * Para obter informações sobre como publicar um aplicativo gerenciado do Catálogo de Serviços, consulte [Criar e publicar um aplicativo gerenciado do Catálogo de Serviços](managed-application-publishing.md).
 * Para obter informações sobre como consumir um aplicativo gerenciado do Catálogo de Serviços, consulte [Consumir um aplicativo gerenciado do Catálogo de Serviços](managed-application-consumption.md).
 * Para criar um arquivo de definição de interface do usuário, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

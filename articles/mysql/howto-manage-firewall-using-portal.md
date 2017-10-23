@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 33198e5a6e11df2db3a17fc96a0b3cd4b1a284e8
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-using-the-azure-portal"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando o Portal do Azure
-As regras de firewall no nível de servidor permitem que os administradores acessem um servidor de Banco de Dados SQL do Azure para MySQL de um endereço IP específico ou intervalo de endereços IP. 
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando o Portal do Azure
+As regras de firewall no nível de servidor permitem que os administradores acessem um servidor de Banco de Dados do Azure para MySQL de um endereço IP específico ou intervalo de endereços IP. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
 
@@ -44,14 +43,13 @@ As regras de firewall no nível de servidor permitem que os administradores aces
 
    ![Portal do Azure - clique em Salvar](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
-## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gerenciar regras de firewall existentes no nível de servidor pelo Portal do Azure
+## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Gerenciar regras de firewall existentes no nível de servidor usando o Portal do Azure
 Repita as etapas para gerenciar as regras de firewall.
 * Para adicionar o computador atual, clique em **+ Adicionar Meu IP**.
 * Para adicionar mais endereços IP, digite o **NOME DA REGRA**, o **IP INICIAL** e o **IP FINAL**.
-* Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique.
-* Para excluir uma regra existente, clique nas reticências [...] e clique em **Excluir**.
+* Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique-a.
+* Para excluir uma regra existente, clique nas reticências […] e, em seguida, clique em **Excluir**.
 * Clique em **Salvar** para salvar as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter ajuda com a conexão com um Banco de Dados para servidor MySQL, veja [Bibliotecas de conexão para o Banco de Dados para MySQL](./concepts-connection-libraries.md)
-

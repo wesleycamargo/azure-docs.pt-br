@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
+ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Definições de configuração para o cluster autônomo no Windows
 Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo ***ClusterConfig.JSON***. Use esse arquivo para especificar informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster autônomo.
 
-Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado.
+Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado. O número de nós primários para esses clusters será baseado no [nível de confiabilidade](#reliability). Na API versão 5.7 de 05-2017, removemos a propriedade do nível de confiabilidade. Em vez disso, nosso código está calculando o nível de confiabilidade mais otimizado para seu cluster. Não use essa propriedade na versão de código 5.7 nem posteriores.
+
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção sem segurança, respectivamente. 
 2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
@@ -197,5 +197,4 @@ Para habilitar o suporte de contêiner para o contêiner do windows server e o c
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de configurar um arquivo ClusterConfig.JSON completo de acordo com a configuração do cluster independente, é possível implantar o cluster seguindo o artigo [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) e continuando com [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
 

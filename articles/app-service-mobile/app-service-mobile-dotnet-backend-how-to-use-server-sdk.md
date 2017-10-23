@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ebaeee9b68810d0e5d47da20373e7951c57147d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -126,7 +125,7 @@ Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos m�
 * [Microsoft.Azure.Mobile.Server.Login] fornece o método AppServiceLoginHandler.CreateToken(), que é um método estático usado nos cenários de autenticação personalizada.
 
 ## <a name="publish-server-project"></a>Como publicar o projeto do servidor
-Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Visual Studio. Você também pode implantar seu projeto de back-end usando Git ou qualquer um dos outros métodos abordados na [documentação de implantação do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
+Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Visual Studio. Você também pode implantar seu projeto de back-end usando o [Git](../app-service/app-service-deploy-local-git.md) ou qualquer um dos outros métodos disponíveis.
 
 1. No Visual Studio, recompile o projeto para restaurar os pacotes do NuGet.
 2. No Gerenciador de Soluções, clique com o botão direito no projeto e clique em **Publicar**. Na primeira vez que você publicar, precisará definir um perfil de publicação. Quando já tiver um perfil definido, selecione-o e clique em **Publicar**.
@@ -413,16 +412,16 @@ Ao se registrar para notificações por push de um cliente autenticado, verifiqu
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Como depurar e solucionar problemas do SDK do .NET Server
 O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos ASP.NET.
 
-* [Monitorando um Serviço de Aplicativo do Azure](../app-service-web/web-sites-monitor.md)
-* [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure](../app-service-web/web-sites-enable-diagnostic-log.md)
-* [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Monitorando um Serviço de Aplicativo do Azure](../app-service/web-sites-monitor.md)
+* [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure](../app-service/web-sites-enable-diagnostic-log.md)
+* [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>Registro em log
 É possível gravar em logs de diagnóstico do Serviço de Aplicativo usando a gravação de rastreamento padrão do ASP.NET. Antes de gravar os logs, habilite o diagnóstico no back-end do aplicativo móvel.
 
 Para habilitar o diagnóstico e gravar logs:
 
-1. Siga as etapas em [Como habilitar o diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
+1. Siga as etapas em [Como habilitar o diagnóstico](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
 2. Adicione a seguinte instrução de uso em seu arquivo de código:
 
         using System.Web.Http.Tracing;
@@ -431,7 +430,7 @@ Para habilitar o diagnóstico e gravar logs:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Republique seu projeto de servidor e acesse o back-end do aplicativo móvel para executar o caminho de código com o registro em log.
-5. Baixe e avalie os logs, conforme descrito em [Como baixar logs](../app-service-web/web-sites-enable-diagnostic-log.md#download).
+5. Baixe e avalie os logs, conforme descrito em [Como baixar logs](../app-service/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Depuração local com autenticação
 Você pode executar seu aplicativo localmente a fim de testar as alterações antes de publicá-lo na nuvem. Para a maioria dos back-ends dos Aplicativos Móveis do Azure, pressione *F5* enquanto estiver no Visual Studio. No entanto, há algumas considerações adicionais ao usar a autenticação.
@@ -472,4 +471,3 @@ Use a chave de assinatura para o parâmetro *authSigningKey* em sua configuraç�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-

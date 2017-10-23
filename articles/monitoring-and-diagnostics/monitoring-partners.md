@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 | Parceiros |  |  |
 | --- | --- | --- |
-| [![Logotipo do Parceiro][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logotipo do Parceiro][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logotipo do Parceiro][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Logotipo do Parceiro][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logotipo do Parceiro][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Logotipo do Parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Logotipo do Parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logotipo do Parceiro][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Logotipo do Parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Logotipo do Parceiro][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Logotipo do Parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logotipo do Parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Logotipo do Parceiro][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Logotipo do Parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Logotipo do Parceiro][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![Logotipo do parceiro][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logotipo do parceiro][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logotipo do parceiro][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Logotipo do parceiro][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logotipo do parceiro][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Logotipo do parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![Logotipo do parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logotipo do parceiro][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Logotipo do parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![Logotipo do parceiro][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Logotipo do parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logotipo do parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Logotipo do parceiro][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Logotipo do parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Logotipo do parceiro][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>Gerenciador de Logs da Lógica de Alerta
 O Gerenciador de Logs de Lógica de Alerta coleta logs de VM, de Aplicativo e da plataforma do Azure para análise de segurança e retenção, incluindo o Log de Atividade do Azure por meio da API do Azure Monitor.  Essas informações são usadas para detectar problemas e atender aos requisitos de conformidade.
@@ -159,4 +158,3 @@ O Sumo Logic é um serviço de análise de dados do computador seguro e nativo d
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentação da ScienceLogic"
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação do Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação da SumoLogic"
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
+ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 96840d72b86d0b9487d9a3a6039c7582a2718e7a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos do Azure Resource Manager 
 
@@ -1312,11 +1311,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
     "parameters": {
         "firstObject": {
             "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
+            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"three": "c", "four": "d", "five": "e"}
+            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -1346,7 +1345,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Objeto | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Matriz | ["one", "two", "three", "four"] |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -1366,5 +1365,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 * Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
-
 

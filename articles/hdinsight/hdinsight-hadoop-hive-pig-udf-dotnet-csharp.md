@@ -14,23 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: b192b19c27045ab6a98baf382e467a0a74d30861
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7643050c4ba8929abcf77476970a2f99e992579d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usar funções definidas pelo usuário do C# com streaming de Hive e Pig no Hadoop no HDInsight
 
-Saiba como usar as UDFs (Funções Definidas pelo Usuário) do C# com o Apache Hive e Pig no HDInsight.
+Saiba como usar as UDFs (funções definidas pelo usuário) do C# com o Apache Hive e Pig no HDInsight.
 
 > [!IMPORTANT]
 > As etapas neste documento só funcionam com clusters HDInsight baseados no Linux e Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).
 
-Tanto o Hive quanto o Pig podem passar dados para aplicativos externos para processamento. Este processo é conhecido como _streaming_. Ao usar um aplicativos .NET, os dados são passados para o aplicativo em STDIN e o aplicativo retornará os resultados em STDOUT. Para ler e gravar por meio de STDIN e STDOUT, use `Console.ReadLine()` e `Console.WriteLine()` de um aplicativo de console.
+Tanto o Hive quanto o Pig podem passar dados para aplicativos externos para processamento. Este processo é conhecido como _streaming_. Ao usar um aplicativo .NET, os dados são passados para o aplicativo em STDIN e o aplicativo retornará os resultados em STDOUT. Para ler e gravar por meio de STDIN e STDOUT, use `Console.ReadLine()` e `Console.WriteLine()` de um aplicativo de console.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +68,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
     > [!IMPORTANT]
     > Selecione __.NET Framework 4.5__ se estiver usando um cluster HDInsight baseado em Linux. Para obter mais informações sobre compatibilidade de Mono com versões do .NET Framework, consulte [Compatibilidade de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Substitua os conteúdos de **Program.cs** pelo seguinte:
+2. Substitua os conteúdos do **Program.cs** pelo código a seguir:
 
     ```csharp
     using System;
@@ -157,7 +156,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
     }
     ```
 
-    Esse aplicativo analisa as linhas enviadas do Pig e reformata as linhas que começam com `java.lang.Exception`.
+    Esse código analisa as linhas enviadas do Pig e reformata as linhas que começam com `java.lang.Exception`.
 
 3. Salve **Program.cs**, e, em seguida, compile o projeto.
 
@@ -270,4 +269,3 @@ Para obter outras formas de usar o Pig e o Hive e para saber como usar o MapRedu
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-

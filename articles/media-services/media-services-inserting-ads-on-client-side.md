@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
 Este tópico contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -606,7 +605,7 @@ O exemplo a seguir mostra como agendar um anúncio VAST de associação tardia.
     }
 
    O exemplo a seguir mostra como agendar um anúncio VAST de associação antecipada.
-//Exemplo: 4 Agendar um anúncio VAST de associação inicial //Baixar o arquivo VAST se (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } caso contrário, { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+//Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
 
         // Create AdInfo instance
         AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -792,5 +791,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 ## <a name="see-also"></a>Consulte também
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
-
 

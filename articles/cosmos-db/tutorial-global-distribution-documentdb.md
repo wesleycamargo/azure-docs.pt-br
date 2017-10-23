@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API do DocumentDB
 
@@ -46,7 +45,7 @@ O SDK enviará automaticamente todas as gravações para a região de gravação
 
 Todas as leituras serão enviadas para a primeira região disponível na lista PreferredLocations. Se a solicitação falhar, o cliente não fará o envio para a próxima região da lista, e assim por diante.
 
-Os SDKs tentarão ler apenas das regiões especificadas em PreferredLocations. Desse modo, se a Conta do Banco de Dados estiver disponível em três regiões, por exemplo, mas o cliente especificar apenas duas das regiões de não gravação para PreferredLocations, nenhuma leitura será atendida fora da região de gravação, mesmo no caso de failover.
+Os SDKs tentarão ler apenas das regiões especificadas em PreferredLocations. Desse modo, se a Conta do Banco de Dados estiver disponível em quatro regiões, por exemplo, mas o cliente especificar apenas duas regiões de leitura (não gravação) em PreferredLocations, nenhuma leitura será atendida fora da região de leitura que não esteja especificada em PreferredLocations. Se as regiões de leitura especificadas em PreferredLocations não estiverem disponíveis, as leituras serão atendidas fora da região de gravação.
 
 O aplicativo pode verificar o ponto de extremidade de gravação e o ponto de extremidade de leitura atuais escolhidos pelo SDK marcando duas propriedades, WriteEndpoint e ReadEndpoint, disponíveis no SDK versão 1.8 e superiores.
 
@@ -177,5 +176,4 @@ Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver lo
 > [Desenvolver localmente com o emulador](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

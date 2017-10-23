@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
 
@@ -27,7 +26,18 @@ O Controle de Acesso Baseado em Função ajuda os administradores de locatários
 
 Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Como usar elevateAccess para fornecer acesso de locatário
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Como usar elevateAccess para acesso de locatário com o centro de administração do Azure AD
+
+No [Centro de administração do Azure Active Directory](https://aad.portal.azure.com), você pode invocar esse recurso de **Propriedades**.
+O recurso é chamado de **Administrador global pode gerenciar assinaturas do Azure**. A impressão é que essa é uma Propriedade Global para o Azure Active Directory, no entanto, ela funciona por usuário para o usuário conectado no momento. Quando você tiver direitos de Administrador Global no Azure Active Directory, poderá invocar o recurso elevateAccess para o usuário com o qual você está conectado no momento no Centro de Administração do Azure Active Directory.
+
+Selecionar **Sim** e então **Salvar**: isso **Atribui** a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) ao usuário com o qual você está conectado no momento no Portal.
+
+Selecionar **Não** e então **Salvar**: isso **Remove** a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) ao usuário com o qual você está conectado no momento no Portal.
+
+![Centro de administração do Azure AD – Propriedades – Globaladmin pode gerenciar a Assinatura do Azure – captura de tela](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Como usar elevateAccess para fornecer acesso de locatário com a API REST
 
 O processo básico funciona com as seguintes etapas:
 
@@ -56,7 +66,7 @@ O processo básico funciona com as seguintes etapas:
 4. Revogue seus privilégios de Administrador de Acesso do Usuário até que sejam necessários novamente.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Como desfazer a ação de elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Como desfazer a ação elevateAccess com a API REST
 
 Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
 
@@ -107,4 +117,3 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
 - Saiba mais sobre [como gerenciar o Controle de Acesso Baseado em Função com REST](role-based-access-control-manage-access-rest.md)
 
 - [Gerenciar atribuições de acesso](role-based-access-control-manage-assignments.md) no Portal do Azure
-

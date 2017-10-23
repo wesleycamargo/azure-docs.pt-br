@@ -1,5 +1,5 @@
 ---
-title: "Definir configurações de grupo usando cmdlets do Azure Active Directory | Microsoft Docs"
+title: "Definir configurações de grupo usando PowerShell no Azure Active Directory | Microsoft Docs"
 description: "Como gerenciar as configurações de grupos usando cmdlets do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/04/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
+ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 28054e91e91933b939f4ba700e317d63a614e1d9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
 > [!IMPORTANT]
-> Este conteúdo se aplica apenas a grupos do Office 365. Para saber mais sobre como permitir que os usuários criem Grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Este conteúdo se aplica apenas a grupos do Office 365. Para saber mais sobre como permitir que os usuários criem grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 As configurações de Grupos do Office 365 são definidas usando um objeto Settings e um SettingsTemplate. Inicialmente, você não verá objetos Settings no seu diretório, pois o diretório foi configurado com as definições padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir as configuração de grupo do Office 365 para seu diretório, use o modelo chamado "Group.Unified". Para definir as configurações de grupo do Office 365 em um único grupo, use o modelo chamado "Group.Unified.Guest". Esse modelo é usado para gerenciar o acesso de convidado a um grupo do Office 365. 
 
@@ -95,7 +94,9 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate.
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” |Um link para as Diretrizes de Uso do Grupo. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. |
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Padrão: “” | A classificação que deve ser usada como a classificação padrão para um grupo, se nenhuma for especificada.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” |Ainda não implementado
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Não use. Não implementado. |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Não use. Não implementado. |
+| <ul><li>EnableMSStandardBlockedWords<li>Tipo: booliano<li>Padrão: “False” | Não use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo de Grupos Unificados. |
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” | A url de um link para as diretrizes de uso do convidado. |
@@ -217,4 +218,3 @@ Você pode encontrar mais documentação do PowerShell do Azure Active Directory
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

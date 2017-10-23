@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Perguntas frequentes sobre o Azure Disk Encryption
 
@@ -122,6 +121,12 @@ Este artigo fornece respostas a perguntas frequentes sobre o Azure Disk Encrypti
 
 Se esse fluxo de trabalho não for possível, depender de SSE [(Criptografia do Serviço de Armazenamento)](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) na camada da conta de armazenamento de plataforma poderá ser uma alternativa para criptografia de disco cheio usando dm-crypt.
 
+**P:** O que é o disco "Volume Bek" ou "/mnt/azure_bek_disk"?
+
+**R:** "Volume Bek" para Windows ou "/mnt/azure_bek_disk" para Linux é um volume de dados local que armazena com segurança as chaves de criptografia para VMs de IaaS do Azure Criptografadas.
+> [!NOTE]
+> Não exclua ou edite nenhum conteúdo neste disco. Não desmonte o disco, uma vez que a presença da chave de criptografia é necessária para operações de criptografia na VM IaaS.
+
 **P:** Onde posso fazer perguntas ou fornecer comentários?
 
 **R:** Você pode fazer perguntas ou fornecer comentários no [Fórum do Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
@@ -132,4 +137,3 @@ Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativa
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Criptografar uma máquina virtual do Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Criptografia de dados em repouso do Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

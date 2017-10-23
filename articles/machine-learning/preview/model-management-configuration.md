@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Configuração do gerenciamento de modelos
 
@@ -122,7 +121,7 @@ Use a implantação de Cluster para cenários de produção de grande escala. El
 Para implantar o serviço Web em um ambiente de produção, primeiro configure o ambiente usando o seguinte comando:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 O comando de instalação do ambiente de cluster cria os seguintes recursos na sua assinatura:
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > Depois que o ambiente for criado, para implantações subsequentes, você somente precisa usar o comando definido acima para reutilizá-lo.
 >
+
+>[!NOTE] 
+>Para criar um ponto de extremidade HTTPS, especifique um certificado SSL ao criar um cluster usando as opções --cert-name e --cert-pem na configuração az ml env. Isso configura o cluster para atender a solicitações em https, protegidas por meio do certificado fornecido. Após a conclusão da instalação, crie um registro de DNS CNAME que aponta para o FQDN do cluster.
 
 ### <a name="create-an-account"></a>Criar uma conta
 É necessário ter uma conta para a implantação de modelos. É necessário fazer isso uma vez para cada conta e você pode reutilizar a mesma conta em várias implantações.
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>Próximas etapas
 Experimente uma das diversas amostras na Galeria.
-

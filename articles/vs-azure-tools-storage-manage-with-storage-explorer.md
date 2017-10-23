@@ -3,8 +3,8 @@ title: "Introdução ao Gerenciador de armazenamento (visualização) | Microsof
 description: "Gerenciar os recursos de armazenamento do Azure com o Gerenciador de Armazenamento (Visualização)"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
-ms.author: kraigb
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de armazenamento (visualização)
 ## <a name="overview"></a>Visão geral
@@ -43,6 +42,7 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 * [Como anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account) - Gerencie os recursos de armazenamento que pertencem a outra assinatura do Azure ou que estão sob nuvens nacionais do Azure usando o nome de conta de armazenamento, a chave e os pontos de extremidade.
 * [Como anexar uma conta de armazenamento usando uma SAS](#attach-storage-account-using-sas): gerencie recursos de armazenamento que pertencem a outra assinatura do Azure usando uma assinatura de acesso compartilhado (SAS).
 * [Como anexar um serviço usando uma SAS](#attach-service-using-sas): gerenciar um serviço de armazenamento específico (contêiner de blobs, fila ou tabela) que pertence a outra assinatura do Azure usando uma SAS.
+* [Conectar-se a uma conta do Azure Cosmos DB usando uma cadeia de conexão](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Gerencie a conta do Cosmos DB usando uma cadeia de conexão.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 > [!NOTE]
@@ -223,6 +223,17 @@ Nesse contexto, um serviço pode ser um contêiner de blob, fila ou tabela. Para
 
     ![Resultado da anexação a um serviço compartilhado usando SAS][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Conectar-se ao Azure Cosmos DB usando uma cadeia de conexão
+Além de gerenciar contas do Azure Cosmos DB por meio de uma assinatura do Azure, um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de conexão. Siga as etapas abaixo para se conectar usando uma cadeia de conexão.
+
+1. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Azure Cosmos DB** e escolha **Conectar-se ao Azure Cosmos DB...**
+
+    ![conectar-se ao Azure Cosmos DB por uma cadeia de conexão][33]
+
+2. Escolha a API do Azure Cosmos DB, cole a **Cadeia de Conexão** e, em seguida, clique em **OK** para se conectar à conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão, consulte [Obtenha a cadeia de conexão](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Pesquisar nas contas de armazenamento
 Se você tiver uma lista longa de contas de armazenamento, uma maneira rápida de localizar uma determinada conta de armazenamento é usar a caixa de pesquisa na parte superior do painel esquerdo.
 
@@ -232,6 +243,7 @@ Se você tiver uma lista longa de contas de armazenamento, uma maneira rápida d
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como gerenciar os recursos de armazenamento de Blobs do Azure com o Gerenciador de armazenamento (visualização)](vs-azure-tools-storage-explorer-blobs.md)
+* [Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Se você tiver uma lista longa de contas de armazenamento, uma maneira rápida d
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

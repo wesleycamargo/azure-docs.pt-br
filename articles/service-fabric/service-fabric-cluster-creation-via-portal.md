@@ -1,4 +1,3 @@
-
 ---
 title: Criar um cluster do Service Fabric no portal do Azure | Microsoft Docs
 description: Este artigo descreve como configurar um cluster seguro do Service Fabric no Azure usando o portal do Azure e o Cofre de Chaves do Azure.
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
+ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3b471fb21cf046417c094552c23c548c9da14fe8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -274,7 +272,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * Marque a caixa **Definir configurações avançadas** para inserir certificados de cliente para **cliente administrativo** e **cliente somente leitura**. Nesses campos, insira a impressão digital do seu certificado de cliente do administrador e a impressão digital do seu certificado de cliente do usuário somente leitura, se aplicável. Quando os administradores tentam se conectar ao cluster, eles só receberão acesso se tiverem um certificado com uma impressão digital que corresponda aos valores da impressão digital inseridos aqui.  
 
 #### <a name="4-summary"></a>4. Resumo
-![Captura de tela da Tela Inicial exibindo "Implantação do cluster do Service Fabric". ][Notifications]
 
 Para concluir a criação do cluster, clique em **Resumo** para ver as configurações que você forneceu ou baixe o modelo do Azure Resource Manager que será usado para implantar o cluster. Depois de ter fornecido as configurações obrigatórias, o botão **OK** fica verde e você pode começar o processo de criação do cluster clicando nele.
 
@@ -326,4 +323,3 @@ Neste ponto, você tem um cluster seguro usando certificados para autenticação
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-
