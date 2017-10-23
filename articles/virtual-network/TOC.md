@@ -40,7 +40,8 @@
 ##### [CLI 1.0 do Azure](virtual-networks-create-nsg-classic-cli.md)
 
 ### Rotas definidas pelo usuário
-#### [PowerShell do Azure](virtual-network-create-udr-arm-ps.md)
+#### [Portal do Azure](create-user-defined-route-portal.md)
+#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI 2.0 do Azure](virtual-network-create-udr-arm-cli.md)
 #### [CLI 1.0 do Azure](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
