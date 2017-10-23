@@ -20,6 +20,7 @@
 ### [Tarefas de nó simultâneas](batch-parallel-node-tasks.md)
 ### [Contagem de tarefas por estado](batch-get-task-counts.md)
 ### [Criar um pool com uma imagem personalizada](batch-custom-images.md)
+### [Criar um pool em uma rede virtual](batch-virtual-network.md)
 ### [Consultas de lista eficientes](batch-efficient-list-queries.md)
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)
 ### [Nós de computação do Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Variáveis de ambiente do nó de computação de lote do Azure](batch-compute-node-environment-variables.md)
 
 # Relacionados
+## [Lote AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
 ## [Processamento de dados com Lote e Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Soluções de Lote e HPC na nuvem do Azure](batch-hpc-solutions.md)
