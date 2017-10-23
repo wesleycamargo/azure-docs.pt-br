@@ -2,7 +2,7 @@
 title: Exibir ou analisar os dados coletados do Azure Log Analytics | Microsoft Docs
 description: Este artigo inclui um tutorial que descreve como criar pesquisas de logs e analisar dados armazenados no recurso do Log Analytics usando o portal da Pesquisa de Logs.  O tutorial inclui executar algumas consultas simples para retornar diferentes tipos de dados e analisar os resultados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -10,15 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/27/2017
+
 ---
+
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics
 
 No Log Analytics, você pode aproveitar as pesquisas de logs construindo consultas para analisar os dados coletados e usar os painéis pré-existentes, que podem ser personalizados com exibições gráficas das pesquisas mais importantes.  Agora que você definiu a coleta de dados operacionais das VMs do Azure e dos Logs de Atividades, neste tutorial, você aprenderá a:

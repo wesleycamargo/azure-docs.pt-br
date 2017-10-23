@@ -2,7 +2,7 @@
 title: "Coletar dados sobre as Máquinas Virtuais do Azure | Microsoft Docs"
 description: "Saiba como habilitar a Extensão de VM do Agente do OMS e habilitar a coleta de dados das VMs do Azure com o Log Analytics."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -14,12 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
+
 ---
+
 # <a name="collect-data-about-azure-virtual-machines"></a>Coletar dados sobre as Máquinas Virtuais do Azure
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente das máquinas virtuais do Azure e de outros recursos do ambiente em um único repositório para correlação e análise detalhada.  Este guia de início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure com algumas etapas simples.  
  
@@ -95,3 +98,4 @@ Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
 > [Exibir ou analisar dados no Log Analytics](log-analytics-tutorial-viewdata.md)
+

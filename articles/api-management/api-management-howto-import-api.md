@@ -3,7 +3,7 @@ title: Importar uma API para o Gerenciamento de API do Azure | Microsoft Docs
 description: "Saiba como importar uma API e suas operações para o Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 40398b0a-ac2c-43f0-89e1-07e4abbf502f
